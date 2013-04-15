@@ -4,7 +4,7 @@ TeeboxNetwork::Application.routes.draw do
 
   root to: "questions#index"
   
-  resources :questions
+  resources :questions, :videos
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

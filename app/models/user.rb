@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :questions
+  has_many :videos
   # attr_accessible :title, :body
 end
