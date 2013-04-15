@@ -1,0 +1,48 @@
+class QuestionsController < ApplicationController
+  
+  before_filter :authenticate_user!, except: [:index, :show]
+  
+    
+  def show
+    @question = Question.find(params[:id])
+  end
+  
+  def new
+    @question = Question.new
+  end
+  
+  def index
+    @questions = Question.all
+  end
+  
+  def create
+    @question = current_user.questions.build(params[:question])
+    if @question.save
+      redirect_to @question, notice: "Question posted successfully"
+    else
+      render :new, notice: "Please try again"
+    end
+  end
+  
+  def edit
+    @question = Question.find(params[:id])
+  end
+  
+  def update 
+    @question = Question.find(params[:id])
+    respond_to do |format|
+      if @question.update_attributes(params[:question])
+        format.html { redirect_to @question, notice: "Successfully updated" }
+        format.json { head :no_content }
+      else
+        format.html { render "edit", notice: "Plese try again" }
+        format.json { render json: @question.errors, status: :unprocessable_entity  }
+      end
+    end
+  end
+  
+  def delete
+    @question = Question.find(params[:id])
+    @question.destroy
+  end
+end
