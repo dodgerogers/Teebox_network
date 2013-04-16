@@ -1,4 +1,4 @@
 <h1>Upload a Video</h1>
 <small>Max file size 200MB, allowed file types: mp4, OGV, FLV</small>
 
-<br><br><%= render partial: "videos/form" %>
+<br><br><%= render partial: "videos/form", locals: {video: Video.new} %>

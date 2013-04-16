@@ -4,6 +4,7 @@ class CreateQuestionsTable < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.integer :user_id
+      t.string :youtube_url
       
       t.timestamps
     end

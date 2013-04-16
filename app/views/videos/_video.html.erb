@@ -1,0 +1,6 @@
+<div class="video">
+  <%= sublimevideo_rails source: video.video  %>
+	<%= link_to video.user.email, video.user %><br>
+	<%= link_to "Delete", video_path(video), method: :delete %>
+</div><br>
+

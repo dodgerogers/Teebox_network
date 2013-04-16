@@ -14,8 +14,6 @@ class VideoUploader < CarrierWave::Uploader::Base
   #storage :file
   storage :fog
   
-  include CarrierWave::MimeTypes
-  process :set_content_type
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -24,7 +22,7 @@ class VideoUploader < CarrierWave::Uploader::Base
   end
   
   def extension_white_list
-    %w(ogg ogv 3gp mp4 m4v webm mov m2v 3g2 jpg png gif)
+    %w(ogg ogv 3gp mp4 m4v webm mov m2v 3g2)
     # %w(ogg ogv 3gp mp4 m4v webm mov)
   end
 

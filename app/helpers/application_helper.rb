@@ -8,4 +8,8 @@ module ApplicationHelper
     url.gsub!("http://www.youtube.com/watch?v=", "")
   end
 
+  def sublime_video(video)
+    "<video class='sublime' poster='' width='600px' height=''s data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
+      <source src='#{video}' /></video>"
+  end
 end

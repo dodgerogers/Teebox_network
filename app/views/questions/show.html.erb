@@ -1,8 +1,13 @@
 
+<%= raw submlime_video(@question.videos.video) if @question.videos.present? %><br>
+
+<%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present?  %><br>
+	
 <h2><%= @question.title %></h2>
 
 <%= simple_format @question.body %>
 
+<small>Posted by <%= link_to @question.user.username, user_path(@question.user) %></small><br>
 
 <div class="form-actions">
 	<%= link_to "Edit", edit_question_path(@question), class: "btn btn-primary" if @question.user == current_user %>

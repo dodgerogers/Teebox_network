@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415195655) do
+ActiveRecord::Schema.define(:version => 20130416165911) do
 
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "youtube_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "questions", ["title", "user_id"], :name => "index_questions_on_title_and_user_id"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130415195655) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -45,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20130415195655) do
     t.string   "video"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.string   "youtube_url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

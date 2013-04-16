@@ -1,7 +1,12 @@
-<% @videos.each do |vid| %>
+<%= render template: "videos/new" %>
 
-<div class="field">
-	<%= link_to vid.video, vid %><br>
-	<%= link_to "delete", video_path(vid), method: :delete %>
-	</div><br>
-	<% end %>
+<div id="videos">
+<%= render @videos %>
+</div>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.video%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>

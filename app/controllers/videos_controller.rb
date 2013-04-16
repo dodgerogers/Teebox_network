@@ -6,6 +6,7 @@ class VideosController < ApplicationController
   
   def index
     @videos = Video.all
+    @video = Video.new
   end
   
   def new
@@ -17,12 +18,7 @@ class VideosController < ApplicationController
   end
   
   def create
-    @video = current_user.videos.build(params[:video])  
-    if @video.save
-      redirect_to @video, notice: "Saved successfully"
-    else
-      render :new, notice: "Please try again"
-    end
+    @video = Video.create(params[:video])  
   end
   
   def update
@@ -32,6 +28,6 @@ class VideosController < ApplicationController
   def destroy
     @video = Video.find(params[:id])
     @video.destroy
-    redirect_to :back
+    redirect_to videos_path
   end
 end

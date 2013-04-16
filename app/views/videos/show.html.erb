@@ -1,8 +1,6 @@
-<% if @video.youtube_url.present? %>
-	<%= raw youtube_url_html5(@video.youtube_url) %><br>
-	<% else %>
-	<%= image_tag @video.video %>
-	<%= link_to @video.video %>
-	<% end %>
-	
+
+
+<%= raw sublime_video(@video.video) %>
+<%= link_to @video.video, "#{@video.video}" %><br>
+	<%= link_to "delete", video_path(@video), method: :delete if @video.user == current_user %>
 	
