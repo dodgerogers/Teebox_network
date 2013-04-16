@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   end
   
   def index
-    @video = Video.all
+    @videos = Video.all
   end
   
   def new
@@ -21,7 +21,7 @@ class VideosController < ApplicationController
     if @video.save
       redirect_to @video, notice: "Saved successfully"
     else
-      render :new
+      render :new, notice: "Please try again"
     end
   end
   
@@ -31,5 +31,7 @@ class VideosController < ApplicationController
   
   def destroy
     @video = Video.find(params[:id])
+    @video.destroy
+    redirect_to :back
   end
 end

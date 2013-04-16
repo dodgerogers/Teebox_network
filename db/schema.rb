@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20130415195655) do
     t.string   "video"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.string   "name"
     t.string   "youtube_url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

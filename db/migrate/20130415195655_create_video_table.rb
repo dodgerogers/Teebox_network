@@ -5,7 +5,6 @@ class CreateVideoTable < ActiveRecord::Migration
       t.string :video
       t.integer :user_id
       t.integer :question_id
-      t.string :name
       t.string :youtube_url
       
       t.timestamps

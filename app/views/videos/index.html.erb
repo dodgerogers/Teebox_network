@@ -1,0 +1,7 @@
+<% @videos.each do |vid| %>
+
+<div class="field">
+	<%= link_to vid.video, vid %><br>
+	<%= link_to "delete", video_path(vid), method: :delete %>
+	</div><br>
+	<% end %>

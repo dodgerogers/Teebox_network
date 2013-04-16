@@ -1,3 +1,5 @@
+
+
 <%= form_for @video, html: { multipart: true } do |f| %>
 	<fieldset>
 		<% if @video.errors.any? %>
@@ -12,20 +14,15 @@
 	</div>
 <% end %>
 
-
 	
 	<div class="group">
-	<%= f.file_field :video %></div><br><br>
+		<%= f.file_field :video %>
+	</div><br>
+	
+	<b>Already have a video on YouTube?</b><br><br>
+	<%= f.text_field :youtube_url, placeholder: "Enter YouTube URL here" %>
 
-	
-	<div class="group">
-	<b>Already have a video on YouTube?</b>
-		<br>
-		<br>
-		Copy YouTube URL here<br>
-	<%= f.text_field :youtube_url %><br></div>
-	
-	
+<div class="form-actions">
 	<%= f.submit "Save", class: "btn" %>
 	<% end %>
-	
+	</div>

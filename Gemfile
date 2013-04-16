@@ -21,11 +21,12 @@ group :assets do
 end
 
 gem 'devise'
-gem 'omniauth-twitter'
 gem 'jquery-rails'
 gem 'therubyracer'
 gem 'tinymce-rails'
 gem 'carrierwave'
+gem 'fog'
+
 
 
 # To use ActiveModel has_secure_password
