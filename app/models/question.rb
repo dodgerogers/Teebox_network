@@ -1,10 +1,9 @@
 class Question < ActiveRecord::Base
   
   belongs_to :user
-  has_many :videos
-  #accepts_nested_attributes_for :videos, allow_destroy: true
+  has_many :videos, dependent: :destroy
   
-  attr_accessible :title, :body, :user_id, :youtube_url#, :videos_attributes
+  attr_accessible :title, :body, :user_id, :youtube_url, :video
   validates_presence_of :title, :body, :user_id
   
   default_scope order('created_at DESC')

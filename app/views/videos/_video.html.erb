@@ -1,6 +1,6 @@
 <div class="video">
-  <%= sublimevideo_rails source: video.video  %>
-	<%= link_to video.user.email, video.user %><br>
-	<%= link_to "Delete", video_path(video), method: :delete %>
+  <%= link_to image_tag("video_screen.png"), video %><br>
+	<h3><%= link_to File.basename(video.file.path).titleize, video %></h3>
+	<%= time_ago_in_words(video.created_at)  %> | <%= link_to "Delete", video_path(video), method: :delete %>
 </div><br>
 

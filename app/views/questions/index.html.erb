@@ -1,13 +1,13 @@
 <div class="main">
-		<%= link_to "Ask a Question", new_question_path, class: "btn pull-right" %>
+		<%= link_to "Ask a Question", videos_path, class: "btn ask-question" %>
 	</div>
 	
 <% @questions.each do |question| %>
-	<h2><%= link_to question.title, question %></h2>
-		<small>Posted by <%= link_to question.user.username, user_path(question.user) %>
-		on <%= time_ago_in_words(question.created_at) %> ago</small><br>
-		
-			<%= link_to "Delete", question_path(question), method: :delete if question.user == current_user  %>
-		
-	<hr>
+<div class="questions">
+	<%= link_to image_tag("video_screen.png") %>
+	<h2><%= link_to question.title.titleize, question %></h2>
+		<small><%= link_to question.user.email, user_path(question.user) %><br>
+		Posted <%= time_ago_in_words(question.created_at) %> ago</small><br>
+
+		</div>
 	<% end %>

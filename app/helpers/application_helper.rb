@@ -12,4 +12,9 @@ module ApplicationHelper
     "<video class='sublime' poster='' width='600px' height=''s data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
       <source src='#{video}' /></video>"
   end
+  
+  def find_video(question)
+     v = Video.find(question.video) 
+     raw sublime_video(v.file)
+  end
 end

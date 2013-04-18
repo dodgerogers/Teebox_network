@@ -1,11 +1,14 @@
 class VideosController < ApplicationController
   
+  before_filter :authenticate_user!, except: [:index, :show]
+  
+  
   def show
     @video = Video.find(params[:id])
   end
   
   def index
-    @videos = Video.all
+    @videos = current_user.videos
     @video = Video.new
   end
   
@@ -18,7 +21,7 @@ class VideosController < ApplicationController
   end
   
   def create
-    @video = Video.create(params[:video])  
+    @video = Video.create(params[:video])
   end
   
   def update

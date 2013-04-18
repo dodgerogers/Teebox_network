@@ -2,9 +2,10 @@ class CreateVideoTable < ActiveRecord::Migration
   
   def up
     create_table :videos do |t|
-      t.string :video
+      t.string :file
       t.integer :user_id
       t.integer :question_id
+
       
       t.timestamps
     end

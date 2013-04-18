@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question, notice: "Question posted successfully"
     else
-      render :new, notice: "Please try again"
+      render :new, notice: "Please try uploading again"
     end
   end
   

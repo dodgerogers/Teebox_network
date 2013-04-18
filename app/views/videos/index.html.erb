@@ -1,12 +1,13 @@
 <%= render template: "videos/new" %>
 
+		<%= link_to "Step 2", new_question_path, class: "btn btn-large" %><br><br>
+
+<div class="progress progress-striped active" id="progress">
+  <div class="bar" style="width: 1%;"></div>
+</div>
+
+<h2>My Videos</h2>
 <div id="videos">
 <%= render @videos %>
 </div>
 
-<script id="template-upload" type="text/x-tmpl">
-<div class="upload">
-  {%=o.video%}
-  <div class="progress"><div class="bar" style="width: 0%"></div></div>
-</div>
-</script>

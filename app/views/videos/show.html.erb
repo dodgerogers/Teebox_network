@@ -1,6 +1,6 @@
 
 
-<%= raw sublime_video(@video.video) %>
-<%= link_to @video.video, "#{@video.video}" %><br>
+<%= raw sublime_video(@video.file) %>
+<%= link_to @video.file, "#{@video.file}" %><br>
 	<%= link_to "delete", video_path(@video), method: :delete if @video.user == current_user %>
 	
