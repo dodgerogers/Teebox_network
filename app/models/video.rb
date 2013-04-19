@@ -9,6 +9,7 @@ class Video < ActiveRecord::Base
   before_save :take_screenshot
   
   mount_uploader :file, VideoUploader
+  mount_uploader :screenshot, ImageUploader
   
   def to_param
     "#{id} - #{File.basename(self.file.path)}".parameterize
@@ -19,6 +20,6 @@ class Video < ActiveRecord::Base
   def take_screenshot
     FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
     movie = FFMPEG::Movie.new(self.file.current_path)
-    self.screenshot = movie.screenshot("#{File.basename(self.file.path)}_screenshot.png")
+    self.screenshot = movie.screenshot("#{File.basename(self.file.path)}_screenshot.png", seek_time: 3 )
   end
 end

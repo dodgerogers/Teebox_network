@@ -284,3 +284,8 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin-bottom: 10px;
 	width: 310px;
 	}
+.videos img {
+		display: block;
+		margin-left:auto;
+		margin-right:auto;
+		}	

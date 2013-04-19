@@ -5,5 +5,5 @@
 	<%= link_to "delete", video_path(@video), method: :delete if @video.user == current_user %><br>
 	
 <%= @video.file.current_path %><br>
-<%= @video.screenshot %>
+<%= image_tag @video.screenshot %>
 	

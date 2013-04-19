@@ -1,12 +1,10 @@
 # encoding: utf-8
 
-class VideoUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  #include CarrierWave::RMagick
+  include CarrierWave::RMagick
   #include CarrierWave::MiniMagick
-  #include CarrierWave::Video  # for your video processing
-  #include CarrierWave::Video::Thumbnailer
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
    include Sprockets::Helpers::RailsHelper
@@ -16,15 +14,16 @@ class VideoUploader < CarrierWave::Uploader::Base
   #storage :file
   storage :fog
   
+  process resize_and_pad: [310, 174, '#000']
   
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "/uploads/#{model.class.to_s.underscore}_screenshots/#{mounted_as}_images/#{model.id}"
   end
   
   def extension_white_list
-    %w(ogg ogv 3gp mp4 m4v webm mov m2v 3g2)
+    %w(png jpg)
     # %w(ogg ogv 3gp mp4 m4v webm mov)
   end
   

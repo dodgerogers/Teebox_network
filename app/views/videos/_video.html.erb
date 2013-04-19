@@ -1,5 +1,5 @@
 <div class="videos">
-  <%= link_to sublimevideo_rails source: video.file %>
+  <%= link_to image_tag(video.screenshot), video %>
 	<h2><%= link_to File.basename(video.file.path).titleize, video %></h2>
 	 <%= link_to "Delete", video_path(video), method: :delete %> | Uploaded <%= time_ago_in_words(video.created_at)  %> ago
 </div>

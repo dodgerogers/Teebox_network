@@ -17,6 +17,13 @@ module ApplicationHelper
     if question.video_id.present?
      v = Video.find(question.video_id)
      raw sublime_video(v.file)
-   end
+    end
+  end
+  
+  def question_screenshot(question)
+    if question.video_id.present?
+      v = Video.find(question.video_id)
+      v.screenshot
+    end
   end
 end
