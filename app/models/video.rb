@@ -14,6 +14,8 @@ class Video < ActiveRecord::Base
     "#{id} - #{File.basename(self.file.path)}".parameterize
   end
   
+  private 
+  
   def take_screenshot
     FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
     movie = FFMPEG::Movie.new(self.file.current_path)
