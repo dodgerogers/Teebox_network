@@ -14,7 +14,9 @@ module ApplicationHelper
   end
   
   def find_video(question)
-     v = Video.find(question.video) 
+    if question.video_id.present?
+     v = Video.find(question.video_id)
      raw sublime_video(v.file)
+   end
   end
 end

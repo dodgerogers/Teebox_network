@@ -5,7 +5,7 @@ class CreateVideoTable < ActiveRecord::Migration
       t.string :file
       t.integer :user_id
       t.integer :question_id
-
+      t.string :screenshot
       
       t.timestamps
     end

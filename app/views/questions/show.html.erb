@@ -1,10 +1,8 @@
+<h1><%= @question.title %></h1><br>
 
-<%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present?  %><br>
+<%= find_video(@question) %><br>
 
-<%= find_video(@question) %>
-
-	
-<h2><%= @question.title %></h2>
+<%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present? %><br>
 
 <%= simple_format @question.body %>
 

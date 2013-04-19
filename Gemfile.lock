@@ -145,6 +145,7 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    streamio-ffmpeg (0.9.0)
     sublimevideo_rails (0.0.11)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
@@ -182,6 +183,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   rspec-rails (= 2.9.0)
   sass-rails (~> 3.2.3)
+  streamio-ffmpeg
   sublimevideo_rails
   therubyracer
   tinymce-rails

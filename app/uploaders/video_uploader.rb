@@ -5,6 +5,8 @@ class VideoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   #include CarrierWave::MiniMagick
+  #include CarrierWave::Video  # for your video processing
+  #include CarrierWave::Video::Thumbnailer
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
    include Sprockets::Helpers::RailsHelper
@@ -14,7 +16,7 @@ class VideoUploader < CarrierWave::Uploader::Base
   #storage :file
   storage :fog
   
-
+  
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -25,6 +27,8 @@ class VideoUploader < CarrierWave::Uploader::Base
     %w(ogg ogv 3gp mp4 m4v webm mov m2v 3g2)
     # %w(ogg ogv 3gp mp4 m4v webm mov)
   end
+  
+  
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

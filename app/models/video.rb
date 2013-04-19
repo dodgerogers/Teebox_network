@@ -6,6 +6,17 @@ class Video < ActiveRecord::Base
   
   default_scope order('created_at DESC')
   
+  before_save :take_screenshot
+  
   mount_uploader :file, VideoUploader
   
+  def to_param
+    "#{id} - #{File.basename(self.file.path)}".parameterize
+  end
+  
+  def take_screenshot
+    FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
+    movie = FFMPEG::Movie.new(self.file.current_path)
+    self.screenshot = movie.screenshot("#{File.basename(self.file.path)}_screenshot.png")
+  end
 end

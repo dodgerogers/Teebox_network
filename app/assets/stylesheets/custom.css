@@ -272,6 +272,15 @@ body .sublimevideo-zi .sublimevideo-uj {
 	width: 270px;
 }
 
-.questions h2 {
+.questions h2, .videos h2 {
 	margin: 5px;
 }
+
+.videos {
+	display: inline-block;
+	vertical-align:top;
+	padding: 0px;
+	margin: 3px;
+	margin-bottom: 10px;
+	width: 310px;
+	}

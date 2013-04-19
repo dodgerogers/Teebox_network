@@ -28,6 +28,7 @@ gem 'tinymce-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'sublimevideo_rails'
+gem "streamio-ffmpeg"
 
 
 # To use ActiveModel has_secure_password

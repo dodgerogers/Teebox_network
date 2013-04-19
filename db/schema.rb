@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20130418202336) do
     t.string   "youtube_url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "video"
+    t.integer  "video_id"
   end
 
   add_index "questions", ["title", "user_id"], :name => "index_questions_on_title_and_user_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130418202336) do
     t.string   "file"
     t.integer  "user_id"
     t.integer  "question_id"
+    t.string   "screenshot"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
