@@ -14,12 +14,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   #storage :file
   storage :fog
   
-  process resize_and_pad: [310, 174, '#000']
+  process resize_and_pad: [270, 135, '#000']
   
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "/uploads/#{model.class.to_s.underscore}_screenshots/#{mounted_as}_images/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}_screenshots/#{mounted_as}_images/#{model.id}"
   end
   
   def extension_white_list

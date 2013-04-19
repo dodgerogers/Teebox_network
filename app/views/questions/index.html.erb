@@ -3,13 +3,15 @@
 	</div>
 	
 <% @questions.each do |question| %>
+
 <div class="questions">
 	
-	<% if question.video_id.present? %>
-	<%= link_to image_tag(question_screenshot(question)), question %>
-	<% end %>
+	<%= link_to image_tag(question_screenshot(question)), question  %>
+
 	<h2><%= link_to question.title.titleize, question %></h2>
+	
 		<small><%= link_to question.user.email, user_path(question.user) %><br>
+			
 		Posted <%= time_ago_in_words(question.created_at) %> ago</small><br>
 
 		</div>
