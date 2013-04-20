@@ -19,11 +19,11 @@ module ApplicationHelper
   end
   
   def question_screenshot(question)
-      if question.video_id == 0 
-        "video_screen.png"
+      if question.video_id == 0  then "video_screen.png"
       else
         v = Video.find_by_id(question.video_id.to_i)
-        v.screenshot 
+        if v.nil? then "video_screen.png" else v.screenshot 
+        end
     end
   end
 end
