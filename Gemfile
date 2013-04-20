@@ -30,6 +30,8 @@ gem 'fog'
 gem 'sublimevideo_rails'
 gem "streamio-ffmpeg"
 gem "rmagick"
+gem "whenever", require: false
+gem 'execjs'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

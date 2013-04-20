@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @questions = Question.all
+    @questions = Question.includes(:user).all
   end
   
   def create
