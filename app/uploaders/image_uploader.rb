@@ -14,12 +14,31 @@ class ImageUploader < CarrierWave::Uploader::Base
   #storage :file
   storage :fog
   
+   before :store, :remember_cache_id
+    after :store, :delete_tmp_dir
+  
+    def cache_dir
+      # should return path to cache dir
+      Rails.root.join('public/uploads/tmp/') 
+    end
+    
+    def remember_cache_id(new_file)
+      @cache_id_was = cache_id
+    end
+
+    def delete_tmp_dir(new_file)
+      # make sure we don't delete other things accidentally by checking the name pattern
+      if @cache_id_was.present? && @cache_id_was =~ /\A[\d]{8}\-[\d]{4}\-[\d]+\-[\d]{4}\z/
+        FileUtils.rm_rf(File.join(root, cache_dir, @cache_id_was))
+      end
+    end
+  
   process resize_and_pad: [270, 135, '#000']
   
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}_screenshots/#{mounted_as}_images/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   
   def extension_white_list

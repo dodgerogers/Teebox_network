@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(:version => 20130418202336) do
     t.text     "body"
     t.integer  "user_id"
     t.string   "youtube_url"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "video_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "video_id",    :default => 0
   end
 
   add_index "questions", ["title", "user_id"], :name => "index_questions_on_title_and_user_id"
