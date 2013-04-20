@@ -1,7 +1,11 @@
 set :environment, "development" 
 
-every 5.minutes do
+every 2.minutes do
   rake "delete_screenshots"
+end
+
+every 1.hours do 
+  rake "carrierwave_tmp"
 end
 
 # Use this file to easily define all of your cron jobs.

@@ -6,8 +6,14 @@
 
 <%= simple_format @question.body %>
 
-<small>Posted by <%= link_to @question.user.email, user_path(@question.user) %></small><br>
+<%= link_to @question.user.email, user_path(@question.user) %><br>
 
-<div class="form-actions">
-	<%= link_to "Edit", edit_question_path(@question), class: "btn btn-primary" if @question.user == current_user %>
-</div>
+Posted <%= time_ago_in_words(@question.created_at) %> ago
+
+
+	<% if @question.user == current_user %>
+	<div class="form-actions">
+	<%= link_to "Edit", edit_question_path(@question), class: "btn btn-primary"  %>
+	<%= link_to "Delete", question_path(@question), method: :destroy,  class: "btn"  %>
+	</div>
+	<% end %>

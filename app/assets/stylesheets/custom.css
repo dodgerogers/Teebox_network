@@ -284,3 +284,34 @@ body .sublimevideo-zi .sublimevideo-uj {
 		margin-left:auto;
 		margin-right:auto;
 		}	
+		
+/*--------------------------- video dropzone ------------------------*/
+
+#dropzone {
+    background: #fff;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+	border: 2px dashed #ccc;
+}
+#dropzone.in {
+    width: 600px;
+    height: 200px;
+    line-height: 200px;
+    font-size: larger;
+}
+#dropzone.hover {
+    background: palegreen;
+}
+#dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
+
+.new_video {display:none}

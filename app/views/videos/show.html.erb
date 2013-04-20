@@ -1,9 +1,11 @@
 
 
-<%= raw sublime_video(@video.file) %>
-<%= link_to @video.file, "#{@video.file}" %><br>
-	<%= link_to "delete", video_path(@video), method: :delete if @video.user == current_user %><br>
+<%= raw sublime_video(@video.file) %><br>
+
+<h2><%= File.basename(@video.file.path).titleize %></h2>
+	Uploaded <%= time_ago_in_words(@video.created_at) %> ago<br>
+
+	<%= link_to "delete", video_path(@video), method: :delete if @video.user == current_user %>
 	
-<%= @video.file.current_path %><br>
 
 	
