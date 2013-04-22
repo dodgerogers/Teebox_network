@@ -18,7 +18,7 @@ class VideoUploader < CarrierWave::Uploader::Base
   
   before :store, :remember_cache_id
   after :store, :delete_tmp_dir
-  
+    
   def cache_dir
     Rails.root.join('public/uploads/tmp/videos') 
   end
@@ -45,8 +45,7 @@ class VideoUploader < CarrierWave::Uploader::Base
     %w(ogg ogv 3gp mp4 m4v webm mov m2v 3g2)
     # %w(ogg ogv 3gp mp4 m4v webm mov)
   end
-  
-  
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

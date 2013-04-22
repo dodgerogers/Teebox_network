@@ -292,13 +292,14 @@ body .sublimevideo-zi .sublimevideo-uj {
 /*--------------------------- video dropzone ------------------------*/
 
 #dropzone {
-    background: #fff;
-    width: 150px;
+    background: #EEE;
+    width: 300px;
     height: 50px;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
-	border: 2px dashed #ccc;
+	border: 2px dashed #fff;
+	box-shadow: 0 0 0 5px #EEE;
 }
 #dropzone.in {
     width: 600px;
@@ -307,8 +308,8 @@ body .sublimevideo-zi .sublimevideo-uj {
     font-size: larger;
 }
 #dropzone.hover {
-    background: #fff;
-	border: 3px dashed #ccc;
+    background: #EEE;
+	border: 2px dashed #fff;
 }
 #dropzone.fade {
     -webkit-transition: all 0.3s ease-out;
