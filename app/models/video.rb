@@ -14,7 +14,6 @@ class Video < ActiveRecord::Base
   mount_uploader :screenshot, ImageUploader
   
   validates :file, presence: true, file_size: { maximum: 5.megabytes.to_i }
-  after_validation :empty_tmp
   
   def to_param
     "#{id} - #{File.basename(self.file.path)}".parameterize
