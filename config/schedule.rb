@@ -1,16 +1,17 @@
 set :environment, "development" 
 
+every 2.minutes do 
+  rake "carrierwave_tmp"
+end
+
 every 5.minutes do 
  rake "delete_unsaved_videos"
 end
 
-every 5.minutes do
+every 10.minutes do
   rake "delete_tmp_files"
 end
 
-every 1.hours do 
-  rake "carrierwave_tmp"
-end
 
 
 # Use this file to easily define all of your cron jobs.
