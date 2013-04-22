@@ -1,4 +1,4 @@
-require 'rake'
+require 'file_size_validator'
 
 class Video < ActiveRecord::Base
   
@@ -13,6 +13,8 @@ class Video < ActiveRecord::Base
   
   mount_uploader :file, VideoUploader
   mount_uploader :screenshot, ImageUploader
+  
+  validates :file, presence: true, file_size: { maximum: 5.megabytes.to_i }
   
   #def run_rake
    # load File.join(Rails.root, 'lib', 'tasks', 'video.rake')

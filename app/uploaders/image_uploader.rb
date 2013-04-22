@@ -14,8 +14,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   #storage :file
   storage :fog
   
-   before :store, :remember_cache_id
-    after :store, :delete_tmp_dir
+  before :store, :remember_cache_id
+  after :store, :delete_tmp_dir
   
     def cache_dir
       # should return path to cache dir
@@ -33,6 +33,7 @@ class ImageUploader < CarrierWave::Uploader::Base
       end
     end
   
+  #crops the video and adds black padding to videos smaller than the size listed
   process resize_and_pad: [270, 135, '#000']
   
   # Override the directory where uploaded files will be stored.
@@ -42,7 +43,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   def extension_white_list
-    %w(png jpg)
+    %w(jpg)
     # %w(ogg ogv 3gp mp4 m4v webm mov)
   end
   
