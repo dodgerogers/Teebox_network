@@ -18,6 +18,10 @@ class VideoUploader < CarrierWave::Uploader::Base
   
   before :store, :remember_cache_id
   after :store, :delete_tmp_dir
+  
+  def cache_dir
+    Rails.root.join('public/uploads/tmp/videos') 
+  end
 
     # store! nil's the cache_id after it finishes so we need to remember it for deletion
   def remember_cache_id(new_file)

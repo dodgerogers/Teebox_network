@@ -29,8 +29,10 @@ class VideosController < ApplicationController
   end
   
   def destroy
-    @video = Video.find(params[:id])
-    @video.destroy
-    redirect_to videos_path
+    @video = Video.destroy(params[:id])
+    respond_to do |format|
+      format.html { redirect_to videos_path }
+      format.js
+    end
   end
 end
