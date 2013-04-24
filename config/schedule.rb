@@ -1,4 +1,8 @@
 set :environment, "development" 
+set :output, {
+    :error    => "/log/error.log",
+    :standard => "/log/cron.log" 
+}
 
 every 2.minutes do 
   rake "carrierwave_tmp"
