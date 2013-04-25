@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :user do
     email "test@hotmail.com"
     password "password"
-    password_confirmation  "password" 
+    password_confirmation "password" 
     remember_me true
   end
   
@@ -15,5 +15,8 @@ FactoryGirl.define do
   end
   
   factory :video do
+    user_id :user
+    file File.open(File.join(Rails.root, "/spec/fixtures/edited_driver_swing.m4v"))
+    screenshot File.open(File.join(Rails.root, "/spec/fixtures/edited_driver_swing.m4v.jpg"))
   end
 end

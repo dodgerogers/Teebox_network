@@ -2,7 +2,7 @@ require 'file_size_validator'
 
 class Video < ActiveRecord::Base
   
-  attr_accessible :user_id, :question_id, :file, :screenshot, :file_cache
+  attr_accessible :user_id, :question_id, :file, :screenshot
   belongs_to :question
   belongs_to :user
   

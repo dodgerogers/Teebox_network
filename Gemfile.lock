@@ -138,6 +138,11 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.9.0)
     ruby-hmac (0.4.0)
+    s3_direct_upload (0.1.2)
+      coffee-rails (>= 3.2.1)
+      jquery-fileupload-rails (~> 0.4.1)
+      rails (>= 3.2)
+      sass-rails (>= 3.2.5)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -189,6 +194,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   rmagick
   rspec-rails (= 2.9.0)
+  s3_direct_upload
   sass-rails (~> 3.2.3)
   streamio-ffmpeg
   sublimevideo_rails
