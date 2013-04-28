@@ -6,7 +6,7 @@
 
 <%= simple_format @question.body %>
 
-<%= link_to @question.user.email, user_path(@question.user) %><br>
+<%= link_to @question.user.username, user_path(@question.user) %><br>
 
 Posted <%= time_ago_in_words(@question.created_at) %> ago
 
