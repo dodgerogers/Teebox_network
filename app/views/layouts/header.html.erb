@@ -1,18 +1,31 @@
 <div class="header">
 	<div class="header_container">
-		<div class="logo">
-			<%= link_to image_tag("logo.png"), root_path %>
-		</div>
 		
-		<span class="alignright">
+		
+		<div class="left-header">
+			<div class="logo">
+				<%= link_to image_tag("logo.png"), root_path %>
+			</div>
+	
+			<div class="header-title">
+				<teebox>Teebox</teebox><br>
+				Find your game
+			</div>
+		</div>
+
+		
+			
+		<div class="right-header">	
 			<% if user_signed_in? %>
-			  Logged in as <strong><%= link_to current_user.email, current_user %></strong><br>
+			  <div class="letter-press">
+					Logged in as: <strong><%= link_to current_user.email, current_user %></strong><br>
+				</div>
 			  <%= link_to 'Edit profile', edit_user_registration_path %> |
 			  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 			<% else %>
 			  <%= link_to "Sign up", new_user_registration_path %> |
 			  <%= link_to "Login", new_user_session_path %>
 			<% end %>
-			</span>
+		</div>
 		</div>
 	</div>
