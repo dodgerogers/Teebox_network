@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   
   def index
 
-    @questions = Question.paginate(page: params[:page], per_page: 10).includes(:user).search(params[:search])
+    @questions = Question.paginate(page: params[:page], per_page: 6).includes(:user).search(params[:search])
   end
   
   def create

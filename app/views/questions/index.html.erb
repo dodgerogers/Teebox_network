@@ -4,8 +4,6 @@
 	
 	<h1>Latest Questions</h1><br>
 	
-<%= will_paginate @questions %>
-	
 <% @questions.each do |question| %>
 
 <div class="questions">
@@ -14,9 +12,11 @@
 
 	<h4><%= link_to question.title.titleize, question %></h4>
 	
-		<small><%= link_to question.user.username, user_path(question.user) %><br>
+		<%= link_to question.user.username, user_path(question.user) %><br>
 			
-		Posted <%= time_ago_in_words(question.created_at) %> ago</small><br>
+		Posted <%= time_ago_in_words(question.created_at) %> ago<br>
 
 		</div>
 	<% end %>
+	
+	<%= will_paginate @questions %>
