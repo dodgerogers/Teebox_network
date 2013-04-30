@@ -7,6 +7,11 @@ gem 'rails', '3.2.3'
 
 gem 'mysql2'
 
+group :development do
+  gem "better_errors"
+
+end
+
 group :test do
   gem 'rspec-rails', '2.9.0'
   gem 'factory_girl_rails', '1.4.0'
@@ -32,7 +37,7 @@ gem "streamio-ffmpeg"
 gem "rmagick"
 gem "whenever", require: false
 gem 'execjs'
-gem 's3_direct_upload'
+gem 'will_paginate', '3.0.3'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

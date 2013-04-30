@@ -30,11 +30,15 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    better_errors (0.8.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.0.4)
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
     chronic (0.6.7)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -138,11 +142,6 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.9.0)
     ruby-hmac (0.4.0)
-    s3_direct_upload (0.1.2)
-      coffee-rails (>= 3.2.1)
-      jquery-fileupload-rails (~> 0.4.1)
-      rails (>= 3.2)
-      sass-rails (>= 3.2.5)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -176,11 +175,13 @@ GEM
     whenever (0.7.3)
       activesupport (>= 2.3.4)
       chronic (~> 0.6.3)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
@@ -194,7 +195,6 @@ DEPENDENCIES
   rails (= 3.2.3)
   rmagick
   rspec-rails (= 2.9.0)
-  s3_direct_upload
   sass-rails (~> 3.2.3)
   streamio-ffmpeg
   sublimevideo_rails
@@ -203,3 +203,4 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   whenever
+  will_paginate (= 3.0.3)

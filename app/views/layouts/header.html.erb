@@ -8,7 +8,7 @@
 			</div>
 	
 			<div class="header-title">
-				<teebox>Teebox</teebox><br>
+				<teebox><%= link_to "Teebox", root_path %></teebox><br>
 				Find your game
 			</div>
 		</div>
@@ -25,6 +25,10 @@
 			<% else %>
 			  <%= link_to "Sign up", new_user_registration_path %> |
 			  <%= link_to "Login", new_user_session_path %>
+			<% end %>
+			
+			<%= form_tag questions_path, method: "get", id: "header" do %>
+			<%= text_field_tag :search, params[:search], id: "header-search", placeholder: "Search..." %>
 			<% end %>
 		</div>
 		</div>
