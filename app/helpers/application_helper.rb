@@ -22,7 +22,7 @@ module ApplicationHelper
       if question.video_id == 0  then "video_screen.png"
       else
         v = Video.find_by_id(question.video_id.to_i)
-        if v.nil? then "video_screen.png" else v.screenshot 
+        if v.nil? then "video_screen.jpg" else v.screenshot 
         end
     end
   end

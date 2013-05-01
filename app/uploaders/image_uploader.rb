@@ -34,7 +34,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   
   #crops the video and adds black padding to videos smaller than the size listed
-  process resize_and_pad: [270, 135, '#000']
+  process resize_and_pad: [306, 150, '#000']
   
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

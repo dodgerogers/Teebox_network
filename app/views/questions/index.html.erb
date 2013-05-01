@@ -19,4 +19,4 @@
 		</div>
 	<% end %>
 	
-	<%= will_paginate @questions %>
+	<%= will_paginate @questions, previous_label: h("< Previous"), next_label: h("Next >") %>

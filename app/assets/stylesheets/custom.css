@@ -299,12 +299,12 @@ body .sublimevideo-zi .sublimevideo-uj {
 	display: inline-block;
 	vertical-align:top;
 	padding: 0px;
-	margin: 3px;
+	margin: 5px;
 	margin-bottom: 20px;
-	width: 270px;
+	width: 306px;
 }
 
-.questions h2, .videos h2 {
+.questions h4, .videos h4, .questions h4 a, .videos h4 a {
 	margin: 5px;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -372,4 +372,40 @@ dropzone {
 
 form#header {
 	margin: 5px 0!important;
+}
+
+
+/*-------- pagination --------*/
+
+.pagination {
+  background: url(bg-white.png);
+  text-align: center;
+  padding: 1em;
+  cursor: default; 
+}
+  .pagination a, .pagination span {
+    padding: 0.2em 0.3em; 
+}
+  .pagination .disabled {
+    color: #999;
+
+}
+  .pagination .current {
+    font-style: normal;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5;
+	color: #444;
+	text-shadow: 0px 2px 2px #fff;
+}
+  .pagination a {
+    text-decoration: none;
+	color: #777;
+	text-shadow: 0px 2px 2px #fff;
+	font-weight:300;
+}
+    .pagination a:hover, .pagination a:focus {
+      text-decoration: underline; 
 }
