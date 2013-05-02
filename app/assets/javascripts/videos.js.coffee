@@ -9,8 +9,8 @@ jQuery ->
 		 progress = parseInt(data.loaded / data.total * 100, 10)
 			$('#progress').show()
 			$("#progress .bar").css "width", progress + "%"
-			 					  
-
+			
+							  
 
 
  

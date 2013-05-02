@@ -8,8 +8,7 @@
   <input name="file" type="file" />
 </form>
 
-<%= form_for @video, html: { multipart: true, id: "new_video" } do |f| %>
-	<fieldset>
+<%= form_for @video, html: { multipart: true, id: "new_video" }, remote: true do |f| %>
 		<% if @video.errors.any? %>
 	<div id="error_explanation">
   	<h2><%= pluralize(@video.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -24,9 +23,8 @@
 
 	<%= f.hidden_field :user_id, value: current_user.id %>
 	<%= f.hidden_field :file %><br>
+	
 	<%= f.submit "Save", class: "btn" %>
-
-	</fieldset>
 	<% end %>
 	
 	

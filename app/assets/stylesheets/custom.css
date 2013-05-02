@@ -218,6 +218,10 @@ input, textarea {
 	width:100%;
 }
 
+input[type="text"] {
+	margin-bottom: 0px;
+}
+
 /*----- errors ---*/
 
 #error_explanation {
@@ -355,7 +359,7 @@ dropzone {
     opacity: 1;
 }
 
-#progress {display:none}
+#progress, #dropzone {display:none}
 
 /*-------- Header search ---------*/
 
