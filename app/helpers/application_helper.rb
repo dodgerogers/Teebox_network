@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def sublime_video(video)
-    "<video class='sublime' poster='' width='600px' height=''s data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
+    "<video class='sublime' poster='' width='600px' height='' data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
       <source src='#{video}' /></video>"
   end
   
