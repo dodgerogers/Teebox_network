@@ -1,5 +1,6 @@
 $ ->
   $(".direct-upload").each ->
+    form = undefined
     form = $(this)
     $(this).fileupload
       url: form.attr("action")
@@ -25,21 +26,26 @@ $ ->
 
       send: (e, data) ->
         $(".progress, #dropzone").fadeIn()
+        $.each data.files, (index, file) ->
+      	  $('.well').append("Uploading: " + file.name + '<br>' + "File size: " + (file.size / 1000000 ) + ' MB')
 
       progress: (e, data) ->
+        percent = undefined
         percent = Math.round((e.loaded / e.total) * 100)
         $(".bar").css "width", percent + "%"
-
+	
       fail: (e, data) ->
         console.log "fail"
 
       success: (data) ->
+        url = undefined
         url = decodeURIComponent($(data).find("Location").text())
-        $("#video_file").val url 
+        $("#video_file").val url
 
-      	done: (event, data) ->
-		  	      $("#new_video").submit()
-		        	$(".progress, #dropzone").fadeOut 300, ->
-		          		$(".bar").css "width", 0
+      done: (event, data) ->
+        $("#new_video").submit()
+        $(".progress, #dropzone").fadeOut 300, ->
+          $(".bar").css "width", 0
+
 
 

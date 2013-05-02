@@ -1,7 +1,12 @@
 <h1>Step 1: Upload a Video</h1>
+
+<%= link_to "Next", new_question_path, class: "btn-large btn-primary ask-question" %><br>
+
 <small><b>Max file size 5MB.</b> Allowed file types: mp4, OGV, FLV, m4v. Please view <%= link_to "Uploading Videos" %> for video best practices and guidelines</small><br><br>
 
 <%= render partial: "videos/form" %><br>
+
+
 
 <div id="dropzone" class="fade well">
 </div>
