@@ -26,7 +26,7 @@ class VideosController < ApplicationController
       if @video.save
         format.html { redirect_to videos_path, notice: 'Video was successfully uploaded.' }
         format.json { render json: @video, status: :created, location: @video }
-        format.js
+        format.js 
       else
         format.html { render action: "new" }
         format.json { render json: @video.errors, status: :unprocessable_entity }

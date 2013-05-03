@@ -27,7 +27,7 @@ $ ->
       send: (e, data) ->
         $(".progress, #dropzone").fadeIn()
         $.each data.files, (index, file) ->
-      	  $('.well').append("Uploading: " + file.name + '<br>' + "File size: " + (file.size / 1000000 ) + ' MB')
+      	  $('.well').html("").append("Uploading: " + file.name + '<br>' + "File size: " + (file.size / 1000000 ) + ' MB')
 
       progress: (e, data) ->
         percent = undefined
@@ -42,10 +42,10 @@ $ ->
         url = decodeURIComponent($(data).find("Location").text())
         $("#video_file").val url
 
-      done: (event, data) ->
-        $("#new_video").submit()
-        $(".progress, #dropzone").fadeOut 300, ->
-          $(".bar").css "width", 0
+      	done: (event, data) ->
+		        $("#new_video").submit()
+		        $(".progress").fadeOut 1200, ->
+		          $(".bar").css "width", 0
 
 
 

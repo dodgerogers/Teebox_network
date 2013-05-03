@@ -1,5 +1,7 @@
 <% if @video.new_record? %>
 	alert("Failed to upload Video: <%= j @video.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-	$('#videos').append("<%= j render(@video) %>");
+$('#videos').append("<%= j render(@video) %>").fadeIn();
+$('.well').html("").append('Video Uploaded ✓').fadeIn();
+$('#dropzone').fadeOut(1200);
 <% end %>
