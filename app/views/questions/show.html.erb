@@ -6,9 +6,11 @@
 
 <%= simple_format @question.body %>
 
-<%= link_to @question.user.username, user_path(@question.user) %><br>
-
-Posted <%= time_ago_in_words(@question.created_at) %> ago
+<div class="profile-info">
+<%= link_to image_tag(avatar_url(@question.user)), @question.user %>
+<small><%= link_to @question.user.username.titleize, user_path(@question.user) %><br>
+Posted <%= time_ago_in_words(@question.created_at) %> ago</small>
+</div>
 
 
 	<% if @question.user == current_user %>

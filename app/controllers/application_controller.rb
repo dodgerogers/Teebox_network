@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   
   
   #move soon
-  ENV['S3_BUCKET'] = 'teebox-network'
-  ENV['AWS_SECRET_KEY_ID'] = 'VGCeJnocdXKOV4vAXTb497nW8HTXdn606PqCBMR2'
-  ENV['AWS_ACCESS_KEY_ID'] = 'AKIAJ37ROJEVQS6AEO4A'
+  S3_BUCKET = 'teebox-network'
+  AWS_SECRET_KEY_ID = 'VGCeJnocdXKOV4vAXTb497nW8HTXdn606PqCBMR2'
+  AWS_ACCESS_KEY_ID = 'AKIAJ37ROJEVQS6AEO4A'
   
 end

@@ -2,9 +2,14 @@
 <%= raw sublime_video(@video.file) %><br>
 
 <h2><%= File.basename(@video.file).titleize  %></h2>
-	Uploaded <%= time_ago_in_words(@video.created_at) %> ago<br>
+	
+	<div class="profile-info">
+	<%= link_to image_tag(avatar_url(@video.user)), @video.user %>
+	<small><%= link_to @video.user.username.titleize, user_path(@video.user) %><br>
+	Posted <%= time_ago_in_words(@video.created_at) %> ago</small>
+	</div><br>
 
-	<%= link_to "delete", video_path(@video), method: :delete if @video.user == current_user %>
+	<%= link_to "delete", video_path(@video), class: "btn", method: :delete if @video.user == current_user %>
 	
 
 	

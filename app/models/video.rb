@@ -8,10 +8,9 @@ class Video < ActiveRecord::Base
   
   default_scope order('created_at DESC')
   
-  #after_create :take_screenshot
+  #after_commit :take_screenshot
   
-  #mount_uploader :file, VideoUploader
-  mount_uploader :screenshot, ImageUploader
+  #mount_uploader :screenshot, ImageUploader
   
   #validates :file, presence: true, file_size: { maximum: 5.megabytes.to_i }
   validates_presence_of :user_id, :file
@@ -21,9 +20,18 @@ class Video < ActiveRecord::Base
   end
   
   def take_screenshot
-    FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
-    movie = FFMPEG::Movie.new(self.file)
-    self.screenshot = movie.screenshot("#{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file)}.jpg", seek_time: 2 )
-    self.save!
+    logger.debug "Trying to grab a screenshot from #{self.file}"
+    #movie = FFMPEG::Movie.new(self.file)
+    #self.screenshot = movie.screenshot(self.file, seek_time: 2)
+    system "ffmpeg -i #{self.file} -ss 00:00:02 -vframes 1 #{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file)}.jpg"
+  end
+  
+  def get_key(file)
+    file.gsub('http://teebox-network.s3.amazonaws.com/', '')
+  end
+  
+  def delete_key
+    object = AWS::S3.new.buckets['teebox-network'].objects[get_key(self.file)]
+    video_url = object.url_for(:delete)
   end
 end

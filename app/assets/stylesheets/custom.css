@@ -85,6 +85,10 @@ body {
 		color: #222;
 		text-shadow: 0px 2px 3px #555;
 	}	
+	
+	small {
+		line-height: 5px;
+	}
 /*----------------------Containers ------------------------------*/
 
 .container {
@@ -428,7 +432,9 @@ form#header {
       text-decoration: underline; 
 }
 
+/*-------------------- questions videos profile info ----------*/
 
-.tick {
-	background: url(tick.png);
+.profile-info img {
+	float: left;
+	margin-right: 5px;
 }

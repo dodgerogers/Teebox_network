@@ -19,11 +19,16 @@ module ApplicationHelper
   end
   
   def question_screenshot(question)
-      if question.video_id == 0  then "video_screen.png"
+      if question.video_id == 0  then "video_screen.jpg"
       else
         v = Video.find_by_id(question.video_id.to_i)
-        if v.nil? then "video_screen.jpg" else v.screenshot 
+        if v.nil? || v.screenshot.nil? then "video_screen.jpg" else v.screenshot 
         end
     end
+  end
+  
+  def avatar_url(user)
+    gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
+     "http://gravatar.com/avatar/#{gravatar_id}.png?s=35&d=identicon"
   end
 end

@@ -18,7 +18,8 @@
 		<div class="right-header">	
 			<% if user_signed_in? %>
 			  <div class="letter-press">
-					Logged in as: <strong><%= link_to current_user.username, current_user %></strong><br>
+					Logged in as: <strong><%= link_to current_user.username, current_user %></strong>&nbsp
+					<%= link_to image_tag(avatar_url(current_user)), current_user %><br>
 				</div>
 			  <%= link_to 'Edit profile', edit_user_registration_path %> |
 			  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
