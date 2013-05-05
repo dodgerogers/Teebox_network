@@ -1,3 +1,4 @@
+<div id="question-box">
 <h1><%= @question.title %></h1><br>
 
 <%= find_video(@question) %><br>
@@ -7,7 +8,7 @@
 <%= simple_format @question.body %>
 
 
-	<div class="form-actions">
+	<div class="form-area">
 		<div class="profile-info">
 		<%= link_to image_tag(avatar_url(@question.user)), @question.user %>
 		<small><%= link_to @question.user.username.titleize, user_path(@question.user) %><br>
@@ -20,7 +21,7 @@
 	</div>
 	<% end %>
 	</div>
-	
+</div>	
 
 	<%= render template: "comments/index" %>
 	<%= link_to "Add comment", "#", id: "comment-button" %>
