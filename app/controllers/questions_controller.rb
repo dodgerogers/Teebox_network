@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index]
   
     
   def show
@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build(params[:question])
     if @question.save
-      redirect_to @question, notice: "Question posted successfully"
+      redirect_to @question, notice: "Question created successfully"
     else
       render :new, notice: "Please try uploading again"
     end

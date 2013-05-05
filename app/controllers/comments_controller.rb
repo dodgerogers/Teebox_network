@@ -5,11 +5,23 @@ class CommentsController < ApplicationController
   def new
     @comment = @commentable.comments.new
   end
+
+  def show
+    @comment = Comment.find(params[:id])
+  end
+  
+  def index
+    @comments = @commentable.comments
+  end
   
   def create 
+    @comments = @commentable.comments
     @comment = @commentable.comments.build(params[:comment])
     if @comment.save
-      redirect_to @commentable, notice: 'Comment created'
+      respond_to do |format|
+        format.html { redirect_to @commentable, notice: 'Comment created'}
+        format.js
+      end
     else
       render :new
     end
@@ -19,7 +31,6 @@ class CommentsController < ApplicationController
      @comment = Comment.destroy(params[:id])
         respond_to do |format|
           format.js
-          format.html { redirect_to @commentable }
           end
        end
   

@@ -1,0 +1,7 @@
+<% if @comment.new_record? %>
+	alert("Failed to create comment: <%= j @comment.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+$('#question-comments').append("<%= j render(@comment) %>").fadeIn();
+$('#comment-textarea').val("")
+$('#new_comment').hide()
+<% end %>
