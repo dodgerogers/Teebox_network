@@ -1,0 +1,9 @@
+<%= form_for [@commentable, @comment] do |f| %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	
+	<div class="field">
+	<%= f.text_area :content, id: "comment-textarea", placeholder: "Enter content" %>
+	</div>
+	
+	<%= f.submit "Create comment", class: "btn" %>
+	<% end %>

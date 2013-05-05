@@ -24,6 +24,7 @@ class VideosController < ApplicationController
     @video = Video.create(params[:video])
     respond_to do |format|
       if @video.save
+        @video.take_screenshot
         format.html { redirect_to videos_path, notice: 'Video was successfully uploaded.' }
         format.json { render json: @video, status: :created, location: @video }
         format.js 

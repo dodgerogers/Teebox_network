@@ -22,9 +22,13 @@ module ApplicationHelper
       if question.video_id == 0  then "video_screen.jpg"
       else
         v = Video.find_by_id(question.video_id.to_i)
-        if v.nil? || v.screenshot.nil? then "video_screen.jpg" else v.screenshot 
+        if v.nil? || v.screenshot = "" || v.screenshot.nil? then "video_screen.jpg" else v.screenshot 
         end
     end
+  end
+  
+  def comment_user(user)
+    user = User.find_by_id(user)
   end
   
   def avatar_url(user)

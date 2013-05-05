@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
   
   belongs_to :user
   has_many :videos
+  has_many :comments, as: :commentable
   
   attr_accessible :title, :body, :user_id, :youtube_url, :video_id
   validates_presence_of :title, :body, :user_id

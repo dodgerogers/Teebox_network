@@ -10,7 +10,7 @@ class Video < ActiveRecord::Base
   
   #after_commit :take_screenshot
   
-  #mount_uploader :screenshot, ImageUploader
+  mount_uploader :screenshot, ImageUploader
   
   #validates :file, presence: true, file_size: { maximum: 5.megabytes.to_i }
   validates_presence_of :user_id, :file
@@ -21,9 +21,11 @@ class Video < ActiveRecord::Base
   
   def take_screenshot
     logger.debug "Trying to grab a screenshot from #{self.file}"
+    self.screenshot =   `ffmpeg -i #{self.file} -ss 00:00:02 -c:v mjpeg -f mjpeg -vframes 1 - 2>/dev/null `
+    #self.screenshot = `ffmpeg -i #{self.file} -ss 00:00:02 -vframes 1 #{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file)}.jpg`
+    self.save!
     #movie = FFMPEG::Movie.new(self.file)
     #self.screenshot = movie.screenshot(self.file, seek_time: 2)
-    system "ffmpeg -i #{self.file} -ss 00:00:02 -vframes 1 #{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file)}.jpg"
   end
   
   def get_key(file)

@@ -82,8 +82,9 @@ body {
 		}
 		
 	.letter-press-link {
-		color: #222;
-		text-shadow: 0px 2px 3px #555;
+		text-shadow: 0px 3px 3px #2a2a2a;
+		color: #999;
+		font-weight:300;
 	}	
 	
 	small {
@@ -233,7 +234,7 @@ form#new_video {
 	display:none;
 }
 
-/*----- errors ---*/
+/*-------------------- errors ------------------*/
 
 #error_explanation {
 		background: #ededed;
@@ -434,7 +435,19 @@ form#header {
 
 /*-------------------- questions videos profile info ----------*/
 
+.profile-info {
+	display:inline;
+}
 .profile-info img {
 	float: left;
 	margin-right: 5px;
+}
+
+/*-------------------- comments----------*/
+#comment-textarea {
+		height: 70px;
+}
+
+.comment-content {
+	margin-bottom: 10px;
 }

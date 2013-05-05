@@ -5,6 +5,9 @@ class QuestionsController < ApplicationController
     
   def show
     @question = Question.find(params[:id])
+    @commentable = @question
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
   
   def new
@@ -43,8 +46,7 @@ class QuestionsController < ApplicationController
   end
   
   def destroy
-    @question = Question.find(params[:id])
-    @question.destroy
+    @question = Question.destroy(params[:id])
     redirect_to questions_path
   end
 end
