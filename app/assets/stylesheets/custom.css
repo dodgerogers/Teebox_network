@@ -431,7 +431,8 @@ form#header {
 /*-------------------- questions videos profile info ----------*/
 
 .profile-info {
-	display:inline;
+	display:inline-block;
+	width: 230px;
 }
 .profile-info img {
 	float: left;
@@ -446,3 +447,4 @@ form#header {
 .comment-content {
 	margin-bottom: 10px;
 }
+

@@ -1,3 +1,12 @@
-<h1>Profile</h1>
-<%= @user.email %><br>
+<h1>Profile</h1><br>
+
+<div class="profile-info">
+<%= link_to image_tag(avatar_url(@user)), @user %>
+<%= @user.email.titleize %><br>
+<%= @user.username.titleize %><hr>
+
+<%= link_to "Change your profile picture", "http://grvatar.com", target: :blank %>
+</div>
+
+
 

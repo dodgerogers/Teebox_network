@@ -22,6 +22,6 @@
 	</div>
 	
 
-	<%= render partial: "comments/show", locals: {comments: @comments} %>
+	<%= render template: "comments/index" %>
 	<%= link_to "Add comment", "#", id: "comment-button" %>
 	<%= render partial: "comments/form" %>
