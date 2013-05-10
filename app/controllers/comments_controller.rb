@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
   
   def index
-    @comments = @commentable.comments
+    @comments = @commentable.comments.includes(:user)
   end
   
   def create 

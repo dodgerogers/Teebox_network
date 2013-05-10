@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @commentable = @question
-    @comments = @commentable.comments
+    @comments = @commentable.comments.includes(:user)
     @comment = Comment.new
   end
   
