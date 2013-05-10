@@ -1,5 +1,10 @@
 <h1>Profile</h1><br>
 
+<div class="main">
+		<%= link_to "Ask a Question", videos_path, class: "btn ask-question" %>
+	</div>
+
+
 <div class="profile-info">
 <%= link_to image_tag(avatar_url(@user)), @user %>
 

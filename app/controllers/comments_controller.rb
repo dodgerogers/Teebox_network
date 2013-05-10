@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find(params[:id])
+    @comment = @commentable.comments.find(params[:id])
   end
   
   def index
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
         format.js
       end
     else
-      render :new
+      flash[:notice] = "Content can't be blank"
     end
   end
   

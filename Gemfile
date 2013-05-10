@@ -39,6 +39,7 @@ gem "whenever", require: false
 gem 'execjs'
 gem 'will_paginate', '3.0.3'
 gem 'aws-sdk','~> 1.0'
+gem 'profanity_filter'
 
 
 # To use ActiveModel has_secure_password

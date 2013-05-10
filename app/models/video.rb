@@ -21,11 +21,12 @@ class Video < ActiveRecord::Base
   
   def take_screenshot
     logger.debug "Trying to grab a screenshot from #{self.file}"
-    self.screenshot =   `ffmpeg -i #{self.file} -ss 00:00:02 -c:v mjpeg -f mjpeg -vframes 1 - 2>/dev/null `
+    #self.screenshot =   `ffmpeg -i #{self.file} -ss 00:00:02 -c:v mjpeg -f mjpeg -vframes 1 - 2>/dev/null `
     #self.screenshot = `ffmpeg -i #{self.file} -ss 00:00:02 -vframes 1 #{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file)}.jpg`
-    self.save!
-    #movie = FFMPEG::Movie.new(self.file)
-    #self.screenshot = movie.screenshot(self.file, seek_time: 2)
+    #self.save!
+    FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
+    movie = FFMPEG::Movie.new(self.file)
+    self.screenshot = movie.screenshot("#{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file.path)}.jpg", seek_time: 2 )
   end
   
   def get_key(file)

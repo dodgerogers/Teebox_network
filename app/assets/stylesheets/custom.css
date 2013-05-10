@@ -19,12 +19,16 @@ body {
 	h1 {
 	    font-size: 36px;
 	    font-family: "LatoLight", sans-serif!important;
-		font-weight: 100;
+			font-weight: 100;
 	    margin-bottom: 9px;
 	    margin-top: .5em;
-		color: #F0745E;
-	}
-
+			color: #F0745E;
+			text-shadow: 1px 1px #111, 
+			                2px 2px #333, 
+			                3px 3px #888;
+											
+		}
+		
 	h2 {
 	    font-size: 25px; 
 	    font-family: "LatoLight", sans-serif!important;
@@ -62,6 +66,7 @@ body {
 	    margin-bottom: 1.285em;
 	    margin-top: 1.285em;
 	}
+	
 	
 	teebox, teebox a {
 		font-size: 36px;
@@ -462,5 +467,9 @@ form#header {
 
 .comment-content {
 	margin-bottom: 10px;
+	
 }
 
+.comment {
+	padding: 5px 15px;
+}
