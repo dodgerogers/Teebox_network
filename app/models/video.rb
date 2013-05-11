@@ -12,7 +12,6 @@ class Video < ActiveRecord::Base
   
   mount_uploader :screenshot, ImageUploader
   
-  #validates :file, presence: true, file_size: { maximum: 5.megabytes.to_i }
   validates_presence_of :user_id, :file
     
   def to_param
@@ -35,6 +34,8 @@ class Video < ActiveRecord::Base
   
   def delete_key
     object = AWS::S3.new.buckets['teebox-network'].objects[get_key(self.file)]
-    video_url = object.url_for(:delete)
+    object.delete
+    #video_url = object.url_for(:delete)
+    #logger.debug "trying to delete #{video_url}"
   end
 end
