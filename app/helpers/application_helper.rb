@@ -18,6 +18,10 @@ module ApplicationHelper
      raw sublime_video(v.file) if v.present?
   end
   
+  def find_video_id(question)
+    v = Video.find_by_id(question.video_id)
+  end
+  
   def question_screenshot(question)
       if question.video_id == 0  then "video_screen.jpg"
       else

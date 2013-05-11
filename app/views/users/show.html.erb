@@ -1,19 +1,26 @@
 <h1>Profile</h1><br>
 
-<div class="main">
-		<%= link_to "Ask a Question", videos_path, class: "btn ask-question" %>
-	</div>
-
-
 <div class="profile-info">
 <%= link_to image_tag(avatar_url(@user)), @user %>
 
 <%= @user.email %><br>
-<%= @user.username %>
-<hr>
+<%= @user.username %><br><br>
 
+<% if current_user == @user %>
 <%= link_to "Change your profile picture", "http://grvatar.com", target: :blank %>
-</div>
+<% end %>
 
+<hr></div>
+<br><br>
+
+<h3>Questions</h3>
+	<table class="table table-hover">
+		<% for question in @questions %>	
+	    <tr>
+				<td>(No. of Answers) </td>
+	      <td><%= link_to question.title.titleize, question %></td>
+	    </tr>
+	<% end %>
+	</table>
 
 

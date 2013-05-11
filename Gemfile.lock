@@ -39,6 +39,8 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     builder (3.0.4)
+    bullet (4.2.0)
+      uniform_notifier
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -180,6 +182,7 @@ GEM
     uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uniform_notifier (1.1.0)
     uuidtools (2.1.4)
     warden (1.2.1)
       rack (>= 1.0)
@@ -194,6 +197,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 1.0)
   better_errors
+  bullet
   carrierwave
   coffee-rails (~> 3.2.1)
   devise

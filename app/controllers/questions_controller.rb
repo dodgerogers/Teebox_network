@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :show]
   
     
   def show
@@ -15,7 +15,6 @@ class QuestionsController < ApplicationController
   end
   
   def index
-
     @questions = Question.paginate(page: params[:page], per_page: 24).includes(:user).search(params[:search])
   end
   
@@ -47,6 +46,10 @@ class QuestionsController < ApplicationController
   
   def destroy
     @question = Question.destroy(params[:id])
-    redirect_to questions_path
+    if @question.destroy
+     redirect_to questions_path, notice: "Question deleted"
+   else
+     redirect_to @question, notice: "Delete failed, please try again"
+   end
   end
 end

@@ -1,7 +1,7 @@
 set :environment, "development" 
 set :output, {
     :error    => "/log/error.log",
-    :standard => "/log/cron.log" 
+    :standard => "log/cron.log" 
 }
 
 every 2.minutes do 

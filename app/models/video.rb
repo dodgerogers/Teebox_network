@@ -34,8 +34,7 @@ class Video < ActiveRecord::Base
   
   def delete_key
     object = AWS::S3.new.buckets['teebox-network'].objects[get_key(self.file)]
+    logger.debug "Deleting video: #{object}"
     object.delete
-    #video_url = object.url_for(:delete)
-    #logger.debug "trying to delete #{video_url}"
   end
 end

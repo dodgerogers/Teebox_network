@@ -19,4 +19,11 @@ FactoryGirl.define do
     file File.open(File.join(Rails.root, "/spec/fixtures/edited_driver_swing.m4v"))
     screenshot File.open(File.join(Rails.root, "/spec/fixtures/edited_driver_swing.m4v.jpg"))
   end
+  
+  factory :comment do
+    user_id :user
+    commentable_id :question
+    commentable_type "question"
+    content "a comment"
+  end
 end

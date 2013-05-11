@@ -1,9 +1,9 @@
 <div id="question-box">
-<h1><%= @question.title %></h1><br>
+<h1><%= @question.title %></h1>
 
 <%= find_video(@question) %><br>
 
-<%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present? %><br>
+<%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present? %>
 
 <%= simple_format @question.body %>
 
@@ -17,7 +17,7 @@
 		<% if @question.user == current_user %>
 		<div class="pull-right">
 	<%= link_to "Edit", edit_question_path(@question), class: "btn btn-primary"  %>
-	<%= link_to "Delete", question_path(@question), method: :destroy,  class: "btn"  %>
+	<%= link_to "Delete", question_path(@question), method: :delete,  class: "btn"  %>
 	</div>
 	<% end %>
 	</div>

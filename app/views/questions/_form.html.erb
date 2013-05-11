@@ -14,7 +14,7 @@
 
 	<div class="field">
 		<h2><%= f.label :video %></h2>
-		<%= f.select :video_id, options_for_select(current_user.videos.map{|v| [File.basename(v.file).titleize, v.id ]}.insert(0, "None")) %>
+		<%= f.select :video_id, options_for_select(current_user.videos.map{|v| [File.basename(v.file).titleize, v.id ]}.insert(0, "None Selected")) %>
 		</div>
 		
 	<div class="field">
@@ -34,7 +34,7 @@
 	</div>
 	
 	<div class="form-area">	
-		<%= f.submit "Save", class: "btn btn-success" %>
+		<%= f.submit "Save", class: "btn btn-primary" %>
 		<%= link_to "Cancel", :back, class: "btn" %>
 	</div>
 	<% end %>

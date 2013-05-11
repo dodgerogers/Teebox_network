@@ -9,7 +9,6 @@ gem 'mysql2'
 
 group :development do
   gem "better_errors"
-
 end
 
 group :test do
@@ -40,6 +39,7 @@ gem 'execjs'
 gem 'will_paginate', '3.0.3'
 gem 'aws-sdk','~> 1.0'
 gem 'profanity_filter'
+gem "bullet", group: :development
 
 
 # To use ActiveModel has_secure_password
