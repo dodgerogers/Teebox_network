@@ -2,7 +2,7 @@
 	alert("Failed to create comment: <%= j @comment.errors.full_messages.join(', ').html_safe %>");
 <% else %>
 $('#question-comments').append("<%= j render(@comment) %>").fadeIn();
-$('#comment_<%="#{@comment.id}" %>').effect('highlight', {color: '#DDFFF1'}, 1000)
+$('#comment_<%="#{@comment.id}" %>').effect('highlight', {color: '#DDFFF1'}, 2000)
 $('#comment-textarea').val("")
 $('#new_comment').hide()
 <% end %>
