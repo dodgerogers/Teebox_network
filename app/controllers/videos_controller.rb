@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   end
   
   def index
-    @videos = current_user.videos
+    @videos = Video.where(user_id: current_user.id).all
     @video = Video.new
   end
   
