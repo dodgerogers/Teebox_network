@@ -23,8 +23,11 @@ $ ->
             form.find("input[name=signature]").val data.signature
 
         data.submit()
+
        else
-         alert("Filename: " + data.files[0].name + " | size:" + (Math.round(data.files[0].size / 1000000)) + " MB" + " exceeds 5MB file size limit")
+        $('#failed').modal('toggle')
+  			   $('.modal-body').html('')
+  		    $('.modal-body').append("<b>Filename:</b> " + data.files[0].name + " <br><b>Size:</b> " + (Math.round(data.files[0].size / 1000000)) + " MB <br><br><b>" + data.files[0].name + " Exceeds the 5MB file size limit</b>")
 
       send: (e, data) ->
            $(".progress, #dropzone").fadeIn()
@@ -47,5 +50,5 @@ $ ->
 
       done: (event, data) ->
         $("#new_video").submit()
-        $(".progress").fadeOut 1200, ->
+        $(".progress").fadeOut 1000, ->
             $(".bar").css "width", 0
