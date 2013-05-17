@@ -1,6 +1,6 @@
 AWS.config(
-		access_key_id: "AKIAJ37ROJEVQS6AEO4A",
-		secret_access_key: "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",
+		access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+		secret_access_key: ENV['AWS_SECRET_KEY_ID'] ,
 		region: "us-east-1"
 )
 

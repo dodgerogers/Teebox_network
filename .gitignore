@@ -15,5 +15,8 @@
 /tmp
 /spec/fixtures/*
 
+#ignore aws credentials
+/config/environments/development.rb
+
 #ignore all tmp upload files
 /public/uploads/*

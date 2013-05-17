@@ -16,7 +16,7 @@ class SignedUrlsController < ApplicationController
       {
         expiration: 30.minutes.from_now.utc.strftime('%Y-%m-%dT%H:%M:%S.000Z'),
         conditions: [
-          { bucket: S3_BUCKET },
+          { bucket: ENV['S3_BUCKET'] },
           { acl: 'public-read' },
           ["starts-with", "$key", "uploads/"],
           ["content-length-range", 0, 5242880],
@@ -31,7 +31,7 @@ class SignedUrlsController < ApplicationController
     Base64.encode64(
       OpenSSL::HMAC.digest(
         OpenSSL::Digest::Digest.new('sha1'),
-        AWS_SECRET_KEY_ID,
+        ENV['AWS_SECRET_KEY_ID'],
         s3_upload_policy_document
       )
     ).gsub(/\n/, '')
