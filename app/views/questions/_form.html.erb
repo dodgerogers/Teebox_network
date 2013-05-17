@@ -14,7 +14,7 @@
 
 	<div class="field">
 		<h2><%= f.label :video %></h2>
-		<%= f.select :video_id, options_for_select(current_user.videos.map{|v| [File.basename(v.file).titleize, v.id ]}.insert(0, "None Selected")) %>
+		<%= f.select :video_id, options_for_select(current_user.videos.map{|v| [File.basename(v.file).titleize, v.id ]}.insert(0, "None Selected"), selected: @question.video_id) %>
 		</div>
 		
 	<div class="field">

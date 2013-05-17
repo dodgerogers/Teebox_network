@@ -12,11 +12,7 @@ module ApplicationHelper
     "<video class='sublime' poster='' width='600px' height='' data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
       <source src='#{video}' /></video>"
   end
-  
-  def find_video(question)
-     v = Video.find_by_id(question.video_id)
-     raw sublime_video(v.file) if v.present?
-  end
+
   
   def find_video_id(question)
     v = Video.find_by_id(question.video_id)
