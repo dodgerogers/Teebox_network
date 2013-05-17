@@ -2,7 +2,6 @@ class VideosController < ApplicationController
   
   before_filter :authenticate_user!, except: [:show]
   
-  
   def show
     @video = Video.find(params[:id])
   end

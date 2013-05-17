@@ -4,15 +4,11 @@ set :output, {
     :standard => "log/cron.log" 
 }
 
-every 2.minutes do 
+every 20.minutes do 
   rake "carrierwave_tmp"
 end
 
-every 5.minutes do 
- rake "delete_unsaved_videos"
-end
-
-every 10.minutes do
+every 20.minutes do
   rake "delete_tmp_files"
 end
 

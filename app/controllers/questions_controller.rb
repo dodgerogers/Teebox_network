@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show]
-  
+  caches_page :index
     
   def show
     @question = Question.find(params[:id])
@@ -15,15 +15,15 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @questions = Question.paginate(page: params[:page], per_page: 24).includes(:user).search(params[:search])
+    @questions = Question.paginate(page: params[:page], per_page: 24).includes(:user, :video).search(params[:search])
   end
   
   def create
     @question = current_user.questions.build(params[:question])
     if @question.save
-      redirect_to @question, notice: "Question created successfully"
+      redirect_to @question, notice: "Question Created"
     else
-      render :new, notice: "Please try uploading again"
+      render :new, notice: "Please try again"
     end
   end
   

@@ -1,9 +1,7 @@
-require 'file_size_validator'
-
 class Video < ActiveRecord::Base
   
   attr_accessible :user_id, :question_id, :file, :screenshot
-  belongs_to :question
+  has_many :questions
   belongs_to :user
   
   default_scope order('created_at DESC')
@@ -22,7 +20,6 @@ class Video < ActiveRecord::Base
     logger.debug "Trying to grab a screenshot from #{self.file}"
     #self.screenshot =   `ffmpeg -i #{self.file} -ss 00:00:02 -c:v mjpeg -f mjpeg -vframes 1 - 2>/dev/null `
     #self.screenshot = `ffmpeg -i #{self.file} -ss 00:00:02 -vframes 1 #{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file)}.jpg`
-    #self.save!
     FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
     movie = FFMPEG::Movie.new(self.file)
     self.screenshot = movie.screenshot("#{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file.path)}.jpg", seek_time: 2 )

@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   
   belongs_to :user
-  has_many :videos
+  belongs_to :video
   has_many :comments, as: :commentable, dependent: :destroy
   
   attr_accessible :title, :body, :user_id, :youtube_url, :video_id
