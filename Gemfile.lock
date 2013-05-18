@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.3)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    addressable (2.3.2)
     arel (3.0.2)
     aws-sdk (1.3.9)
       httparty (~> 0.7)
@@ -41,9 +42,18 @@ GEM
     builder (3.0.4)
     bullet (4.2.0)
       uniform_notifier
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    childprocess (0.3.5)
+      ffi (~> 1.0, >= 1.0.6)
     chronic (0.6.7)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -69,6 +79,7 @@ GEM
     factory_girl_rails (1.4.0)
       factory_girl (~> 2.3.0)
       railties (>= 3.0.0)
+    ffi (1.1.5)
     fog (1.10.1)
       builder
       excon (~> 0.20)
@@ -99,6 +110,8 @@ GEM
       actionpack (>= 3.1)
       less (~> 2.2.0)
     libv8 (3.3.10.4)
+    libwebsocket (0.1.5)
+      addressable
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -154,11 +167,17 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.9.0)
     ruby-hmac (0.4.0)
+    rubyzip (0.9.9)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    selenium-webdriver (2.25.0)
+      childprocess (>= 0.2.5)
+      libwebsocket (~> 0.1.3)
+      multi_json (~> 1.0)
+      rubyzip
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -190,6 +209,8 @@ GEM
       activesupport (>= 2.3.4)
       chronic (~> 0.6.3)
     will_paginate (3.0.3)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -198,6 +219,7 @@ DEPENDENCIES
   aws-sdk (~> 1.0)
   better_errors
   bullet
+  capybara
   carrierwave
   coffee-rails (~> 3.2.1)
   devise

@@ -14,6 +14,7 @@ end
 group :test do
   gem 'rspec-rails', '2.9.0'
   gem 'factory_girl_rails', '1.4.0'
+  gem 'capybara'
 end
 
 group :assets do

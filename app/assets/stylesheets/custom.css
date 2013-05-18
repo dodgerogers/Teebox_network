@@ -23,8 +23,7 @@ body {
 	    margin-bottom: 12px;
 	    margin-top: .5em;
 			color: #F0745E;
-			text-shadow: 2px 2px #ccc;
-											
+			text-shadow: 2px 2px #ccc;								
 		}
 		
 	h2 {
@@ -72,6 +71,11 @@ body {
 		font-weight: 200;
 		text-shadow: 0px 3px 8px #2a2a2a;
 		color: #999;
+		-webkit-transition: all 1s ease;
+		     -moz-transition: all 1s ease;
+		       -o-transition: all 1s ease;
+		      -ms-transition: all 1s ease;
+		          transition: all 1s ease;
 
 	}
 	teebox a:hover, letter-press-link a:hover, .right-header a:hover, .left-header a:hover {
@@ -117,6 +121,16 @@ body {
 .logo {
 	display:inline-block;
 	width:100px;
+}
+.logo img {
+	-webkit-transition: all 1s ease;
+	     -moz-transition: all 1s ease;
+	       -o-transition: all 1s ease;
+	      -ms-transition: all 1s ease;
+	          transition: all 1s ease;
+}
+.logo img:hover {
+	-webkit-filter: brightness(70%)
 }
 
 .header-title {
@@ -178,7 +192,7 @@ body {
 	display:inline-block;
 	width: 49%;
 	text-align: left;
-	vertical-align:middle;
+	vertical-align:top;
 }
 .right-header {
 	position: relative;
@@ -201,14 +215,27 @@ body {
 	position: relative;
 	clear: both;
 	width: 100%;
-	height: 100px;
-	background: url(bg-white.png);
+	height: 120px;
+	/*background: url(bg-white.png);*/
 	color: #999;
 	text-shadow: 0px 2px 3px #fff;
 	font-weight:300;
-	
+	bottom:-4px;
 }
 
+#browsers img {
+	-webkit-transition: all 1s ease;
+	     -moz-transition: all 1s ease;
+	       -o-transition: all 1s ease;
+	      -ms-transition: all 1s ease;
+	          transition: all 1s ease;
+}
+#browsers img:hover {
+	-webkit-transform: rotate(360deg); 
+	-moz-transform: rotate(360deg); 
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+}
 
 /*---------------------------- buttons -------------------------------------------*/
 
@@ -324,6 +351,10 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin-right: 0px;
 }
 
+.questions small a, .videos small a {
+	margin-left:-4px;
+}
+
 .videos img {
 		display: block;
 		margin-left:auto;
@@ -378,7 +409,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	background: linear-gradient(to bottom, #4fc392 0%,#409c69 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4fc392', endColorstr='#409c69',GradientType=0 ); /* IE6-9 */}
 
-/*-------- Header search ---------*/
+/*---------------------- Header search ---------------------*/
 
 #header-search {
 	margin:0;
@@ -458,7 +489,7 @@ form#header {
 	font-weight:300;
 }
 
-/*-------------------- comments----------*/
+/*-------------------- comments ----------------*/
 #comment-textarea {
 		height: 70px;
 }
@@ -470,4 +501,13 @@ form#header {
 
 .comment {
 	padding: 5px 15px;
+}
+
+
+/*-------------------- buttons ----------------*/
+
+.btn {
+	font-weight: 500;
+	color: #666;
+	text-shadow: 0px 2px 3px #fff;
 }
