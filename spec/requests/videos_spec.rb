@@ -1,5 +1,5 @@
 require "spec_helper"
-
+include UsersHelper
 
 describe "Videos" do
   it "create without login to prompt login" do

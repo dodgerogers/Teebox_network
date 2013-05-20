@@ -1,4 +1,6 @@
 require "spec_helper"
+include UsersHelper
+include Questionhelper
 
 describe "Questions" do
   it "GET questions" do
@@ -7,27 +9,28 @@ describe "Questions" do
   end
   
   it "creates a new question" do
-    user = FactoryGirl.create(:user)
-    visit root_path
-    click_link "Ask a Question"
-    page.should have_content "You need to sign in or sign up before continuing"
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
-    click_button "Sign in"
-    page.should have_content "Signed in successfully"
-    page.should have_content "Step 1: Upload a Video"
-    click_link "Step 2"
-    page.should have_content "Ask a question"
+    sign_in_user
+    click_on_question
     fill_in "Title", with: "Ball starting too far left"
     fill_in "Body", with: "my clubface is closed..."
-    
     expect {
       click_button "Save"
-    }.to change(Question, :count).by(1)
-    
+    }.to change(Question, :count).by(1) 
     page.should have_content "Question Created"
-    save_and_open_page
   end
-    
+  
+  it "fails to create question with invalid params" do
+    sign_in_user
+    click_on_question
+    fill_in "Title", with: ""
+    fill_in "Body", with: "my clubface is closed"
+    click_button "Save"
+    page.should have_content "1 error prohibited this post from being saved:"
+    page.should have_content "Title can't be blank"
+    current_path.should eq questions_path
+  end 
+  
+  it "edits the question successfullly with valid params" do
+  end
 end
     
