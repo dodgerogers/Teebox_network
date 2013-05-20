@@ -9,6 +9,20 @@ describe VideosController do
     controller.stub!(:current_user).and_return(@user)
   end
 
+  describe "GET show" do
+   it "assigns a new video as @video" do
+      @video = FactoryGirl.create(:video)
+      get :show, id: @video
+      assigns(:video).should eq(@video)
+    end
+    
+    it "renders the show template" do
+      @video = FactoryGirl.create(:video)
+      get :show, id: @video
+      response.should render_template :show
+    end
+  end
+  
   describe "GET index" do
     it "renders index template" do
       get :index

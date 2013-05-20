@@ -7,9 +7,9 @@ TeeboxNetwork::Application.routes.draw do
   root to: "questions#index"
   
   resources :questions do
-     resources :comments 
+     resources :comments, except: [:edit, :update] 
    end
-   
+  
   resources :videos
   
   # The priority is based upon order of creation:

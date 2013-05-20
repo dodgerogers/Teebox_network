@@ -15,6 +15,9 @@ group :test do
   gem 'rspec-rails', '2.9.0'
   gem 'factory_girl_rails', '1.4.0'
   gem 'capybara'
+  gem "bullet"
+  gem 'database_cleaner'
+  gem "launchy"
 end
 
 group :assets do
@@ -40,7 +43,6 @@ gem 'execjs'
 gem 'will_paginate', '3.0.3'
 gem 'aws-sdk','~> 1.0'
 gem 'profanity_filter'
-gem "bullet", group: :development
 
 
 # To use ActiveModel has_secure_password

@@ -64,6 +64,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     commonjs (0.2.6)
+    database_cleaner (0.8.0)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -104,6 +105,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    launchy (2.1.1)
+      addressable (~> 2.3)
     less (2.2.2)
       commonjs (~> 0.2.6)
     less-rails (2.2.3)
@@ -222,12 +225,14 @@ DEPENDENCIES
   capybara
   carrierwave
   coffee-rails (~> 3.2.1)
+  database_cleaner
   devise
   execjs
   factory_girl_rails (= 1.4.0)
   fog
   jquery-fileupload-rails
   jquery-rails
+  launchy
   less-rails
   mysql2
   profanity_filter
