@@ -339,8 +339,8 @@ body .sublimevideo-zi .sublimevideo-uj {
 .questions, .videos {
 	display: inline-block;
 	vertical-align:top;
-	padding: 0px;
-	margin: 5px;
+	padding: 5px;
+	margin: 0px;
 	margin-bottom: 20px;
 	width: 306px;
 }
