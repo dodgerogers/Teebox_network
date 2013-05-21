@@ -343,8 +343,16 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin: 0px;
 	margin-bottom: 20px;
 	width: 306px;
+	-webkit-transition: all 1s ease;
+	     -moz-transition: all 1s ease;
+	       -o-transition: all 1s ease;
+	      -ms-transition: all 1s ease;
+	          transition: all 1s ease;
 }
 
+.questions:hover, .videos:hover {
+
+}
 .questions h4, .videos h4, .questions h4 a, .videos h4 a {
 	margin: 5px;
 	margin-left: 0px;
