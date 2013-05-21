@@ -3,8 +3,8 @@ include UsersHelper
 
 describe "Videos" do
   it "create without login to prompt login" do
-    visit questions_path
+    sign_in_user
     click_link "Ask a Question"
-    page.should have_content "You need to sign in or sign up before continuing"
+    page.should have_content "Step 1: Upload a Video"
   end
 end
