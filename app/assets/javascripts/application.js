@@ -18,4 +18,4 @@
 //= require twitter/bootstrap/bootstrap-transition
 //= require twitter/bootstrap/bootstrap-modal
 //= require_tree .
-//= require tinymce
+//= require ckeditor/init

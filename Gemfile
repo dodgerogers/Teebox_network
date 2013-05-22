@@ -32,7 +32,6 @@ end
 gem 'devise'
 gem 'jquery-rails'
 gem 'therubyracer'
-gem 'tinymce-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'sublimevideo_rails'
@@ -43,6 +42,7 @@ gem 'execjs'
 gem 'will_paginate', '3.0.3'
 gem 'aws-sdk','~> 1.0'
 gem 'profanity_filter'
+gem "ckeditor"
 
 
 # To use ActiveModel has_secure_password

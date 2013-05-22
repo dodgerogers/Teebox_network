@@ -3,10 +3,13 @@ class Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :video
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :answers, dependent: :destroy
   
   attr_accessible :title, :body, :user_id, :youtube_url, :video_id
   validates_presence_of :title, :body, :user_id
   validates_presence_of :video_id, allow_nil: false
+  
+  profanity_filter :body, :title
   
   default_scope order('created_at DESC')
   

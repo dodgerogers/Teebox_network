@@ -55,6 +55,9 @@ GEM
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
     chronic (0.6.7)
+    ckeditor (4.0.4)
+      mime-types
+      orm_adapter
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -191,8 +194,6 @@ GEM
       libv8 (~> 3.3.10)
     thor (0.14.6)
     tilt (1.4.0)
-    tinymce-rails (3.5.8)
-      railties (>= 3.1.1)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
@@ -224,6 +225,7 @@ DEPENDENCIES
   bullet
   capybara
   carrierwave
+  ckeditor
   coffee-rails (~> 3.2.1)
   database_cleaner
   devise
@@ -243,7 +245,6 @@ DEPENDENCIES
   streamio-ffmpeg
   sublimevideo_rails
   therubyracer
-  tinymce-rails
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   whenever

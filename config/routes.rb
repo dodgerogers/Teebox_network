@@ -7,8 +7,12 @@ TeeboxNetwork::Application.routes.draw do
   root to: "questions#index"
   
   resources :questions do
-     resources :comments, except: [:edit, :update] 
+     resources :comments, except: [:edit, :update]
    end
+   
+   resources :questions do
+      resources :answers
+    end 
   
   resources :videos
   

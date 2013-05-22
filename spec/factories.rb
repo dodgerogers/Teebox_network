@@ -26,4 +26,10 @@ FactoryGirl.define do
     commentable_type "question"
     content "a comment"
   end
+  
+  factory :answer do
+    user_id :user
+    question_id :question
+    body "you need to change your grip"
+  end
 end

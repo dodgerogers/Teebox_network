@@ -8,6 +8,8 @@ class QuestionsController < ApplicationController
     @commentable = @question
     @comments = @commentable.comments.includes(:user)
     @comment = Comment.new
+    @answer = Answer.new
+    @answers = @question.answers.includes(:user)
   end
   
   def new

@@ -1,0 +1,8 @@
+<% if @answer.new_record? %>
+	alert("Failed to create answer: <%= j @answer.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+var answer = $("<%= j render(@answer) %>").hide();
+$('#question-answers').append(answer)
+answer.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000)
+$('#new_answer').hide()
+<% end %>
