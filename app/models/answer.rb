@@ -6,6 +6,7 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   
   profanity_filter :body
+
   
 
 end

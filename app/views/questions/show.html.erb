@@ -7,13 +7,13 @@
 
 <%= simple_format @question.body %>
 
-
 	<div class="form-area">
 		<div class="profile-info" id="question-profile-info">
 		<%= link_to image_tag(avatar_url(@question.user)), @question.user %>
 		<small><%= link_to @question.user.username.titleize, user_path(@question.user) %><br>
 		Posted <%= time_ago_in_words(@question.created_at) %> ago</small>
 		</div>
+		
 		<% if @question.user == current_user %>
 		<div class="pull-right">
 	<%= link_to "Edit", edit_question_path(@question), class: "btn"  %>

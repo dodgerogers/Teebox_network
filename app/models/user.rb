@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   has_many :videos, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :answers
+
 end

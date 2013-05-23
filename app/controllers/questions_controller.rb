@@ -54,4 +54,11 @@ class QuestionsController < ApplicationController
      redirect_to @question, notice: "Delete failed, please try again"
    end
   end
+  
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @question = Question.find(params[:id])
+    @question.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Vote created"
+  end
 end

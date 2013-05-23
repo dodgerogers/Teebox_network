@@ -52,8 +52,8 @@ class AnswersController < ApplicationController
   
   def destroy
      @answer = Answer.destroy(params[:id])
-        respond_to do |format|
-          format.js
+      respond_to do |format|
+        format.js
     end
   end
 end

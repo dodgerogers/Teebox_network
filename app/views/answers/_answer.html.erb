@@ -2,7 +2,8 @@
 	<div class="answer-content">
 		<%= simple_format answer.body %>
 	</div>
-	
+
+		
 	<div class="profile-info">
 		<%= link_to image_tag(avatar_url(answer.user)), answer.user %>
 		<small><%= link_to answer.user.username.titleize, answer.user %><br>
