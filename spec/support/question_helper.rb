@@ -1,6 +1,6 @@
 require "spec_helper"
 
-module Questionhelper
+module QuestionHelper
   def click_on_question
     click_link "Ask a Question"
     page.should have_content "Step 1: Upload a Video"

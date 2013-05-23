@@ -1,6 +1,6 @@
 require "spec_helper"
 include UsersHelper
-include Questionhelper
+include QuestionHelper
 
 describe "Questions" do
   it "GET questions" do
