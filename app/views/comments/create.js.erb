@@ -1,8 +1,10 @@
 <% if @comment.new_record? %>
 	alert("Failed to create comment: <%= j @comment.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-$('#question-comments').append("<%= j render(@comment) %>").fadeIn();
-$('#comment_<%="#{@comment.id}" %>').effect('highlight', {color: '#f7f7f7'}, 1200)
-$('#comment-textarea').val("")
-$('#new_comment').hide()
+var comment = $("<%= j render(@comment) %>").hide();
+$('#question-comments').append(comment);
+comment.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
+$('#comment-textarea').val("");
+$('#new_comment').hide();
 <% end %>
+

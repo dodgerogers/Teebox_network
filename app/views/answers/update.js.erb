@@ -1,6 +1,6 @@
 <% if @answer.errors.any? %>
-  	alert("Failed to create comment: <%= j @answer.errors.full_messages.join(', ').html_safe %>");
+  	alert("Failed to create comment: <%= j @answer.errors.full_messages.join(', ').html_safe %>")
 <% else %>
-  $('#answer_<%= "#{@answer.id}" %>').html('<%= j render(@answer) %>');
-	$('#answer_<%= "#{@answer.id}" %>').effect('highlight', {color: '#f7f7f7'}, 1000)
+  $('#answer_<%="#{@answer.id}"%>').replaceWith('<%= j render(@answer) %>');
+	$('#answer_<%="#{@answer.id}"%>').effect('highlight', {color: '#f7f7f7'}, 1000);
 <% end %>

@@ -40,6 +40,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
+        format.html { render @question, notice: "Updated" }
         format.js 
       else
         format.html { render "edit", notice: "Plese try again" }

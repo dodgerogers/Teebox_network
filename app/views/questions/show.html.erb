@@ -1,7 +1,7 @@
 <div id="question-box">
-<h1><%= @question.title %></h1>
 
-<%= raw sublime_video(@question.video.file) if @question.video.present? %><br>
+<br><%= raw sublime_video(@question.video.file) if @question.video.present? %>
+<h1><%= @question.title %></h1>
 
 <%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present? %>
 
@@ -24,9 +24,10 @@
 </div>	
 
 	<%= render template: "comments/index" %>
-	<%= link_to "Add comment", "#", id: "comment-button", class: "btn" %><br><br>
-	<%= render partial: "comments/form" %><br>
+	<%= link_to "Add comment", "#", id: "comment-button", class: "btn" %><br>
+	<%= render partial: "comments/form" %>
 	
 	<%= render template: "answers/index" %><br>
-	<a id="answer-button">Add your answer</a><br><br>
+	<a id="answer-button" class="btn">Add your answer</a>
+	<br><br>
 	<%= render partial: "answers/form" %>

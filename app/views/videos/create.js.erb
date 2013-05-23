@@ -1,10 +1,10 @@
 <% if @video.new_record? %>
-	alert("Failed to upload Video: <%= j @video.errors.full_messages.join(', ').html_safe %>");
+alert("Failed to upload Video: <%= j @video.errors.full_messages.join(', ').html_safe %>");
 <% else %>
 var video = $("<%= j render(@video) %>").hide();
 $('#videos').prepend(video);
-video.fadeIn(1500);
-$('#video_<%="#{@video.id}" %>')
-$('.well').html("").append('Video Uploaded ✓').fadeIn();
-$('#dropzone').fadeOut(1200);
+video.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
+$(".well").html("").append("Video Uploaded ✓").fadeIn();
+$("#dropzone").fadeOut(1200);
 <% end %>
+

@@ -1,4 +1,4 @@
-$ ->
+jQuery ->
   $('#new_comment').hide()
 
   $("#comment-button").click (event) ->
