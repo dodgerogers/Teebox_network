@@ -6,6 +6,7 @@ body {
 	margin:0;
 	height:100%;
 	width:100%;
+	background: #FBFAFA;
 	}
 
 
@@ -142,7 +143,7 @@ hr {
 	          transition: all 1s ease;
 }
 .logo img:hover {
-	-webkit-filter: brightness(70%)
+	
 }
 
 .header-title {
@@ -260,6 +261,7 @@ hr {
 
 input, textarea {
 	width:100%;
+	
 }
 
 input[type="text"] {
@@ -351,10 +353,13 @@ body .sublimevideo-zi .sublimevideo-uj {
 .questions, .videos {
 	display: inline-block;
 	vertical-align:top;
-	padding: 5px;
+	padding: 0px 5px;
 	margin: 0px;
 	margin-bottom: 20px;
 	width: 306px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .questions:hover, .videos:hover {
@@ -481,7 +486,7 @@ form#header {
 
 .profile-info {
 	display:inline-block;
-	width: 260px;
+	width: 290px;
 	vertical-align:top;
 
 }
@@ -548,5 +553,10 @@ form#header {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	padding: 10px;
+	padding: 10px 20px;
+	background: #FdFdFd;
+	margin-bottom: 20px;
+	border: 2px dashed #ccc;
+	box-shadow: 0px 0px 0px 5px #FdFdFd, 0px 3px 6px 3px #ccc;
+	
 }
