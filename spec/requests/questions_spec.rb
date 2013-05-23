@@ -1,6 +1,7 @@
 require "spec_helper"
 include UsersHelper
 include QuestionHelper
+include AnswerHelper
 
 describe "Questions" do
   it "GET questions" do
@@ -10,13 +11,7 @@ describe "Questions" do
   
   it "creates a new question" do
     sign_in_user
-    click_on_question
-    fill_in "Title", with: "Ball starting too far left"
-    fill_in "Body", with: "my clubface is closed..."
-    expect {
-      click_button "Save"
-    }.to change(Question, :count).by(1) 
-    page.should have_content "Question Created"
+    create_and_find_question
   end
   
   it "fails to create question with invalid params" do

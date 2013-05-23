@@ -15,4 +15,14 @@ module AnswerHelper
     page.should have_content "Question Created"
     page.should have_content "Add your answer"
   end
+  
+  def create_answer
+    click_link "Add your answer"
+    page.should have_selector("div", id: "new_answer")
+    fill_in "answer_body", with: "You need to shift your weight better"
+    expect {
+      click_button "Save Answer"
+    }.to change(Answer, :count).by(1) 
+    page.should have_content "You need to shift your weight better"
+  end
 end

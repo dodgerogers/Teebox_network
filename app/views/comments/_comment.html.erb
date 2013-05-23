@@ -8,7 +8,7 @@
 		<%= link_to image_tag(avatar_url(comment.user)), comment.user %>
 		<%= link_to comment.user.username.titleize, comment.user %><br>
 		Posted <%= time_ago_in_words(comment.created_at) %> ago 
-		<%= link_to "| Delete", [@commentable, comment], method: :delete, remote: :true if comment.user == current_user %></small>
+		<%= link_to "| Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if comment.user == current_user %></small>
 		</div>
 		<hr>
 		</div>

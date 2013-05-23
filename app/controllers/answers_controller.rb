@@ -22,13 +22,14 @@ class AnswersController < ApplicationController
   
   def create
     @answer = @question.answers.build(params[:answer])
+    respond_to do |format|
     if @answer.save
-      respond_to do |format|
         format.html { redirect_to @question, notice: 'Answer created'}
         format.js
-      end
     else
-      flash[:notice] = "Please try again"
+        format.html {  redirect_to @question, notice: "Please try again" }
+        format.js
+      end
     end
   end
   
@@ -44,7 +45,7 @@ class AnswersController < ApplicationController
         format.js 
       else
         format.html { render "edit", notice: "Plese try again" }
-
+        format.js
       end
     end
   end

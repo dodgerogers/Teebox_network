@@ -7,7 +7,7 @@
 		<%= link_to image_tag(avatar_url(answer.user)), answer.user %>
 		<small><%= link_to answer.user.username.titleize, answer.user %><br>
 		Posted <%= time_ago_in_words(answer.created_at) %> ago 
-		<%= link_to "  Delete ", [@question, answer], method: :delete, remote: :true if answer.user == current_user %>
+		<%= link_to "  Delete ", [@question, answer], method: :delete, id: "delete-answer", remote: :true if answer.user == current_user %>
 		<%= link_to "| Edit", edit_question_answer_path(@question, answer.id), remote: true %></small>
 		</div>
 		</div>
