@@ -25,8 +25,9 @@ describe "Answers" do
     click_link "Add your answer"
     page.should have_selector("div", id: "new_answer")
     fill_in "answer_body", with: ""
-    click_button "Save Answer"
-  
-    save_and_open_page
+    
+    expect {
+      click_button "Save Answer"
+    }.to_not change(Answer, :count).by(1)
   end
 end

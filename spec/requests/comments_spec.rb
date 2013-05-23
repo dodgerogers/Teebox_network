@@ -10,6 +10,16 @@ describe "Commments" do
     create_comment
   end
   
+  it "fails to create comment with invalid params" do
+    sign_in_user
+    create_and_find_question
+    page.should have_selector("div", id: "comment-textarea")
+    fill_in "comment-textarea", with: ""
+    expect {
+      click_button "Create comment"
+    }.to_not change(Comment, :count).by(1) 
+  end
+  
   it "deletes a comment" do
      sign_in_user
       create_and_find_question

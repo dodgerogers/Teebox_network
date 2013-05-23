@@ -19,7 +19,9 @@ describe "Questions" do
     click_on_question
     fill_in "Title", with: ""
     fill_in "Body", with: "my clubface is closed"
-    click_button "Save"
+    expect {
+      click_button "Save"
+    }.to_not change(Question, :count).by(1)
     page.should have_content "1 error prohibited this post from being saved:"
     page.should have_content "Title can't be blank"
     current_path.should eq questions_path

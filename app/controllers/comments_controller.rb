@@ -17,13 +17,14 @@ class CommentsController < ApplicationController
   def create 
     @comments = @commentable.comments
     @comment = @commentable.comments.build(params[:comment])
+    respond_to do |format|
     if @comment.save
-      respond_to do |format|
         format.html { redirect_to @commentable, notice: 'Comment created'}
         format.js
-      end
     else
-      flash[:notice] = "Content can't be blank"
+      format.html { redirect_to @commentable, notice: "Content can't be blank" }
+      format.js
+      end
     end
   end
   
