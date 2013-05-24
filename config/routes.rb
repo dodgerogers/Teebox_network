@@ -10,10 +10,10 @@ TeeboxNetwork::Application.routes.draw do
      resources :comments, except: [:edit, :update]
      member { post :vote }
    end
-   
-   resources :questions do
-      resources :answers 
-    end 
+  
+  resources :answers  do 
+    resources :comments, except: [:edit, :update]
+  end
   
   resources :videos
   

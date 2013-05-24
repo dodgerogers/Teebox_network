@@ -20,7 +20,7 @@ class VideosController < ApplicationController
   end
   
   def create
-    @video = Video.create(params[:video])
+    @video = current_user.videos.build(params[:video])
     respond_to do |format|
       if @video.save
         #@video.take_screenshot

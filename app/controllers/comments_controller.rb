@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
   def create 
     @comments = @commentable.comments
     @comment = @commentable.comments.build(params[:comment])
+    @comment.user_id = current_user.id
     respond_to do |format|
     if @comment.save
         format.html { redirect_to @commentable, notice: 'Comment created'}
@@ -28,11 +29,6 @@ class CommentsController < ApplicationController
     end
   end
   
-  def edit
-  end
-  
-  def update
-  end
   
   def destroy
      @comment = Comment.destroy(params[:id])

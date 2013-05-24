@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :answers, dependent: :destroy
   
-  attr_accessible :title, :body, :user_id, :youtube_url, :video_id
+  attr_accessible :title, :body, :youtube_url, :video_id
   validates_presence_of :title, :body, :user_id
   validates_presence_of :video_id, allow_nil: false
   

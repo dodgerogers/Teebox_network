@@ -30,4 +30,4 @@
 	<%= render template: "answers/index" %><br>
 	<a href="#" id="answer-button" class="btn">Add your answer</a>
 	<br><br>
-	<%= render partial: "answers/form" %>
+	<%= render partial: "answers/form", locals: { question_id: @question.id } %>
