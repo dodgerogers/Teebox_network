@@ -4,8 +4,9 @@ class Question < ActiveRecord::Base
   belongs_to :video
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :answers, dependent: :destroy
+  has_many :votes, as: :votable, dependent: :destroy
   
-  attr_accessible :title, :body, :youtube_url, :video_id
+  attr_accessible :title, :body, :youtube_url, :video_id, :votes_count
   validates_presence_of :title, :body, :user_id
   validates_presence_of :video_id, allow_nil: false
   

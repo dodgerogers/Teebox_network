@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523213415) do
+ActiveRecord::Schema.define(:version => 20130525201221) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "votes_count", :default => 0
   end
 
   add_index "answers", ["user_id", "question_id"], :name => "index_answers_on_user_id_and_question_id"
@@ -28,8 +29,9 @@ ActiveRecord::Schema.define(:version => 20130523213415) do
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "votes_count",      :default => 0
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130523213415) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "video_id",    :default => 0
+    t.integer  "votes_count", :default => 0
   end
 
   add_index "questions", ["title", "user_id"], :name => "index_questions_on_title_and_user_id"

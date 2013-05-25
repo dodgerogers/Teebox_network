@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   
+  before_filter :authenticate_user!
   before_filter :load_commentable
   
   def new
@@ -34,6 +35,15 @@ class CommentsController < ApplicationController
           format.js
           end
        end
+       
+  def vote 
+    vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Comment")
+      if vote.save
+        redirect_to :back, notice: "Vote submitted"
+      else
+        redirect_to :back, alert: "Didn't work"
+      end
+    end     
   
   private
   

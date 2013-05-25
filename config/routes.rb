@@ -11,7 +11,13 @@ TeeboxNetwork::Application.routes.draw do
      member { post :vote }
    end
   
-  resources :answers
+  resources :comments do 
+    member { post :vote }
+  end 
+  
+  resources :answers do 
+    member { post :vote }
+  end
   resources :videos
   
   # The priority is based upon order of creation:

@@ -32,4 +32,11 @@ FactoryGirl.define do
     question_id :question
     body "you need to change your grip"
   end
+  
+  factory :vote do
+    user_id :user
+    votable_id :question
+    votable_type "question"
+    value 1
+  end
 end

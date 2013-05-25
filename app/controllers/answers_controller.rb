@@ -39,4 +39,13 @@ class AnswersController < ApplicationController
         format.js
     end
   end
+  
+  def vote 
+    vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Answer")
+    if vote.save
+      redirect_to :back, notice: "Vote submitted"
+    else
+      redirect_to :back, alert: "Didn't work"
+    end
+  end
 end

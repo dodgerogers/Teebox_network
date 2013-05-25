@@ -56,9 +56,11 @@ class QuestionsController < ApplicationController
   end
   
   def vote
-    value = params[:type] == "up" ? 1 : -1
-    @question = Question.find(params[:id])
-    @question.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Vote created"
+    vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Question")
+    if vote.save
+      redirect_to :back, notice: "Vote submitted"
+    else
+      redirect_to :back, alert: "Didn't work"
+    end
   end
 end

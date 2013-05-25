@@ -1,4 +1,6 @@
 class SignedUrlsController < ApplicationController
+  
+  before_filter :authenticate_user!
   def index
     render json: {
       policy: s3_upload_policy_document,

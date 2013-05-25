@@ -2,7 +2,6 @@
 	<div class="answer-content">
 		<%= simple_format answer.body %>
 	</div>
-
 		
 	<div class="profile-info">
 		<%= link_to image_tag(avatar_url(answer.user)), answer.user %>
@@ -10,5 +9,11 @@
 		Posted <%= time_ago_in_words(answer.created_at) %> ago 
 		<%= link_to "  Delete ", answer, method: :delete, id: "delete-answer", remote: :true if answer.user == current_user %>
 		<%= link_to "| Edit", edit_answer_path(answer), remote: true %></small>
+		</div>
+		
+		<div class="vote">
+			<b>Votes: <%= answer.votes_count %></b><br>
+			<%= link_to "up", vote_answer_path(answer, value: 1), method: "post" %>
+			| <%= link_to "down", vote_answer_path(answer, value: -1), method: "post" %>
 		</div>
 		</div>
