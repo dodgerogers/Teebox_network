@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
   end
   
   def create 
-    @comments = @commentable.comments
     @comment = @commentable.comments.build(params[:comment])
     @comment.user_id = current_user.id
     respond_to do |format|
@@ -28,7 +27,6 @@ class CommentsController < ApplicationController
       end
     end
   end
-  
   
   def destroy
      @comment = Comment.destroy(params[:id])
