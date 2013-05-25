@@ -1,6 +1,6 @@
 <div id='comment_<%="#{comment.id}" %>' class="comment">
 	<div class="comment-content">
-		<%= simple_format comment.content %>
+		<%= simple_format(clickable_links(comment.content)) %>
 	</div>
 	
 	<div class="profile-info">

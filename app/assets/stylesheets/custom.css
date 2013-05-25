@@ -2,7 +2,7 @@
 
 body { 
 	font-family: 'LatoLight', sans-serif;
-	font-weight: lighter;
+	
 	margin:0;
 	height:100%;
 	width:100%;
@@ -28,7 +28,9 @@ hr {
 	    margin-bottom: 12px;
 	    margin-top: .5em;
 			color: #F0745E;
-			text-shadow: 2px 2px #ccc;								
+			text-shadow: 2px 2px #ccc;	
+			text-transform: uppercase;				
+			letter-spacing:-2px;			
 		}
 		
 	h2 {
@@ -371,7 +373,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin-right: 0px;
 }
 
-.questions small a, .videos small a {
+.videos small a {
 	margin-left:-4px;
 }
 
@@ -518,7 +520,6 @@ form#header {
 }
 
 #question-box {
-	
 }
 
 .form-area {

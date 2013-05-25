@@ -1,5 +1,10 @@
 module ApplicationHelper
   
+  def clickable_links(text)
+    text.gsub(URI.regexp, '<a href="\0">\0</a>')
+  end
+    
+  
   def youtube_url_html5(url)
     "<iframe class='youtube-player' type='text/html' width='600' height='' src='http://www.youtube.com/embed/#{strip_url(url)}' frameborder='0'></iframe>"
   end
