@@ -11,10 +11,7 @@
 		<%= link_to "| Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if comment.user == current_user %></small>
 		</div>
 		
-		<div class="vote">
-			<b>Votes: <%= comment.votes_count %></b><br>
-			<%= link_to "up", vote_comment_path(comment, value: 1), method: "post" %>
-			| <%= link_to "down", vote_comment_path(comment, value: -1), method: "post" %>
-		</div>
+		<%= render partial: "votes/form", 
+				locals: { votes_count: "comments", object: comment, vote_path: method(:vote_comment_path) } %>	
 		<hr>
 		</div>

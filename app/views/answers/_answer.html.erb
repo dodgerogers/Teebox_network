@@ -11,9 +11,6 @@
 		<%= link_to "| Edit", edit_answer_path(answer), remote: true %></small>
 		</div>
 		
-		<div class="vote">
-			<b>Votes: <%= answer.votes_count %></b><br>
-			<%= link_to "up", vote_answer_path(answer, value: 1), method: "post" %>
-			| <%= link_to "down", vote_answer_path(answer, value: -1), method: "post" %>
-		</div>
+		<%= render partial: "votes/form", 
+				locals: { votes_count: "answers", object: answer, vote_path: method(:vote_answer_path) } %>
 		</div>

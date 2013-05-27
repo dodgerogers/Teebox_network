@@ -10,9 +10,11 @@ class Vote < ActiveRecord::Base
   
   #validate :ensure_not_author
   
-  #def ensure_not_author
-    #find votable object, then use votable.self.user_id == self.user_id is not cool!
-  #end
+  def ensure_not_author 
+    votable = self.votable_type.downcase
+    errors.add(:user_id, "is the author of the #{self.votable}") if self.votable.user_id == self.user_id
+  end
+
   
   def sum_votes
     votable = self.votable_type.downcase.pluralize

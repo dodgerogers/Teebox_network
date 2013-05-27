@@ -1,0 +1,8 @@
+<div class="vote">
+	<div id="<%= votes_count %>">
+		<h1><%= object.votes_count %></h1>
+	</div>
+	<br>
+	<%= link_to raw("&#9650;"), vote_path.call(object, value: 1), remote: true,  method: "post" %><br>
+	<%= link_to raw(" &#9660;") , vote_path.call(object, value: -1), remote: true, method: "post" %>
+</div>

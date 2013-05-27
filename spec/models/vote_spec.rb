@@ -30,4 +30,10 @@ describe Vote do
        before { @vote.votable_type = nil }
         it { should_not be_valid }
       end
+  
+    describe "vote value" do
+      before { @vote.value = 5 }
+        it { should_not be_valid }
+      end
+       
 end

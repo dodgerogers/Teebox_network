@@ -56,11 +56,15 @@ class QuestionsController < ApplicationController
   end
   
   def vote
-    vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Question")
-    if vote.save
-      redirect_to :back, notice: "Vote submitted"
+    @vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Question")
+    respond_to do |format|
+    if @vote.save
+      format.html {redirect_to :back, notice: "Vote submitted"}
+      format.js
     else
-      redirect_to :back, alert: "Didn't work"
+      format.html {redirect_to :back, alert: "You can't vote on your own content"}
+      format.js
+      end
     end
   end
 end

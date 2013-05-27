@@ -1,0 +1,2 @@
+<% votable = @vote.votable_type.downcase %>
+$('#<%= "#{votes_count}" %>').html("<h1><%= @vote.votable.votes_count %></h1>");

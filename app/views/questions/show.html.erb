@@ -14,11 +14,9 @@
 		Posted <%= time_ago_in_words(@question.created_at) %> ago</small>
 		</div>
 		
-		<div class="vote">
-			<b>Votes: <%= @question.votes_count %></b><br>
-			<%= link_to "up", vote_question_path(@question, value: 1), method: "post" %>
-			| <%= link_to "down", vote_question_path(@question, value: -1), method: "post" %>
-		</div>
+		<%= render partial: "votes/form", 
+				locals: { votes_count: "questions", object: @question, vote_path: method(:vote_question_path) } %> 
+									
 		
 		<% if @question.user == current_user %>
 		<div class="pull-right">
