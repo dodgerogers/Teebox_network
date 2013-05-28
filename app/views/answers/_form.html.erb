@@ -15,7 +15,10 @@
 	<%= f.hidden_field :question_id, value: question_id %>
 
 	<div class="field">
-		<%= f.cktext_area :body, id: "answer_textarea"  %>
+		<%= f.text_area :body, class: "wysihtml5"  %>
+		<script type="text/javascript">
+		  $('.wysihtml5').wysihtml5();
+		</script>
 	</div><br>
 	
 	<%= f.submit "Save Answer", class: "btn" %>

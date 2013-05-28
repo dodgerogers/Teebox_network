@@ -6,9 +6,10 @@ class Vote < ActiveRecord::Base
   
   validates_inclusion_of :value, in: [1, -1]
   validates_presence_of :user_id, :value, :votable_id, :votable_type
+  validates_uniqueness_of :user_id, scope: :votable_id
   after_create :sum_votes
   
-  #validate :ensure_not_author
+  validate :ensure_not_author
   
   def ensure_not_author 
     votable = self.votable_type.downcase

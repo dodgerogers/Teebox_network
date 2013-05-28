@@ -39,6 +39,8 @@ GEM
     better_errors (0.8.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    bootstrap-wysihtml5-rails (0.3.1.20)
+      railties (>= 3.0)
     builder (3.0.4)
     bullet (4.2.0)
       uniform_notifier
@@ -55,9 +57,6 @@ GEM
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
     chronic (0.6.7)
-    ckeditor (4.0.4)
-      mime-types
-      orm_adapter
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -222,10 +221,10 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 1.0)
   better_errors
+  bootstrap-wysihtml5-rails
   bullet
   capybara
   carrierwave
-  ckeditor
   coffee-rails (~> 3.2.1)
   database_cleaner
   devise
