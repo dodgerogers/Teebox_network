@@ -2,7 +2,7 @@
 
 body { 
 	font-family: 'LatoLight', sans-serif;
-	
+	font-weight: lighter;
 	margin:0;
 	height:100%;
 	width:100%;
@@ -29,7 +29,7 @@ hr {
 	    margin-top: .5em;
 			color: #F0745E;
 			text-shadow: 2px 2px #ccc;	
-			text-transform: uppercase;				
+					
 			letter-spacing:-2px;			
 		}
 		
@@ -520,6 +520,7 @@ form#header {
 }
 
 #question-box {
+	position: relative;
 }
 
 .form-area {
@@ -538,13 +539,16 @@ form#header {
 		height: 70px;
 }
 
-.comment-content {
+.comment-content, .question-content, .answer-content {
+	width: 100%;
+	display:inline-block;
 	margin-bottom: 10px;
-	
+	position:relative;
 }
 
-.comment {
-	padding: 0px 20px;
+.comment, .question {
+	padding: 0px;
+	position:relative;
 }
 
 
@@ -572,7 +576,46 @@ form#header {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	padding: 10px 20px;
-	margin-bottom: 20px;
+	padding: 10px 0px;
+	position: relative;
+}
 
+/*-------------------- Votes ----------------*/
+
+.vote {
+	width: 13%;
+	display:inline-block;
+	padding: 10px 0px 0px 0px;
+	vertical-align: top;
+	text-align:center;
+	position: absolute;
+	left:-115px;
+	}
+
+.vote-box {
+	display:inline-block!important;
+}
+
+#questions, #comments, #answers { 
+	display: inline-block; 
+	}
+	
+.vote-box h1 { 
+		font-size: 45px;
+		margin: 0px 3px 0px 0px;
+		color: #ededed;
+			
+		letter-spacing:-2px;
+	}
+
+#arrows { 
+	display: inline-block;
+	}
+	
+#arrows a {
+	color: #ededed;	
+}	
+
+#arrows a:hover {
+	color: #F0745E;
 }

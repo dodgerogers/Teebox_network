@@ -1,4 +1,8 @@
 <div id='comment_<%="#{comment.id}" %>' class="comment">
+	
+	<%= render partial: "votes/form", 
+			locals: { votes_count: "comments", id: comment.id, object: comment, vote_path: method(:vote_comment_path) } %>
+			
 	<div class="comment-content">
 		<%= simple_format(clickable_links(comment.content)) %>
 	</div>
@@ -11,7 +15,5 @@
 		<%= link_to "| Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if comment.user == current_user %></small>
 		</div>
 		
-		<%= render partial: "votes/form", 
-				locals: { votes_count: "comments", object: comment, vote_path: method(:vote_comment_path) } %>	
 		<hr>
 		</div>

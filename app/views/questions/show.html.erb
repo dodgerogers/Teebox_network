@@ -1,11 +1,18 @@
 <div id="question-box">
 
 <br><%= raw sublime_video(@question.video.file) if @question.video.present? %>
-<h1><%= @question.title %></h1>
-
 <%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present? %>
 
-<%= simple_format @question.body %>
+<div class="question">
+	
+<h1><%= @question.title.titleize %></h1>
+
+	<%= render partial: "votes/form", 
+			locals: { votes_count: "questions", id: @question.id, object: @question, vote_path: method(:vote_question_path) } %> 
+
+<div class="question-content">
+	<%= simple_format @question.body %>
+</div>
 
 	<div class="form-area">
 		<div class="profile-info" id="question-profile-info">
@@ -13,10 +20,7 @@
 		<small><%= link_to @question.user.username.titleize, user_path(@question.user) %><br>
 		Posted <%= time_ago_in_words(@question.created_at) %> ago</small>
 		</div>
-		
-		<%= render partial: "votes/form", 
-				locals: { votes_count: "questions", object: @question, vote_path: method(:vote_question_path) } %> 
-									
+				
 		
 		<% if @question.user == current_user %>
 		<div class="pull-right">
@@ -26,6 +30,7 @@
 	<% end %>
 	</div>
 </div>	
+</div>
 
 	<%= render template: "comments/index" %>
 	<%= link_to "Add comment", "#", id: "comment-button", class: "btn" %><br>

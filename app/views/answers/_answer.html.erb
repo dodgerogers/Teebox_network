@@ -1,4 +1,9 @@
 <div id='answer_<%="#{answer.id}" %>' class="answer">
+	
+		<%= render partial: "votes/form", 
+				locals: { votes_count: "answers", id: answer.id, object: answer, vote_path: method(:vote_answer_path) } %>
+	
+	
 	<div class="answer-content">
 		<%= simple_format answer.body %>
 	</div>
@@ -10,7 +15,4 @@
 		<%= link_to "  Delete ", answer, method: :delete, id: "delete-answer", remote: :true if answer.user == current_user %>
 		<%= link_to "| Edit", edit_answer_path(answer), remote: true %></small>
 		</div>
-		
-		<%= render partial: "votes/form", 
-				locals: { votes_count: "answers", object: answer, vote_path: method(:vote_answer_path) } %>
-		</div>
+	</div>

@@ -1,1 +1,2 @@
-<%= render partial: "votes/vote", locals: { votes_count: "questions"} %>
+<% votable = @vote.votable_type.downcase %>
+<%= render partial: "votes/vote", locals: { votes_count: "questions", id: @vote.votable.id } %>
