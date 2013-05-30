@@ -254,10 +254,6 @@ hr {
 /*---------------------------- buttons -------------------------------------------*/
 
 
-.btn-primary {
-	
-}
-
 /*---------------------------- forms -------------------------------------------*/
 
 input, textarea {
@@ -554,9 +550,9 @@ form#header {
 /*-------------------- buttons ----------------*/
 
 .btn {
-	font-weight: 500;
+	/*font-weight: 500;
 	color: #666;
-	text-shadow: 0px 2px 3px #fff;
+	text-shadow: 0px 2px 3px #fff;*/
 }
 
 
@@ -618,4 +614,12 @@ form#header {
 
 #arrows a:hover {
 	color: #F0745E;
+}
+
+/*-------------------- reputation ----------------*/
+
+.reputation {
+	text-shadow: 0px 3px 3px #2a2a2a;
+	padding: 2px 6px;
+	margin-right: 0px;
 }

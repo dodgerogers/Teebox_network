@@ -3,9 +3,5 @@
 alert("Failed to create vote: <%= j @vote.errors.full_messages.join(', ').html_safe %>");
 <% else %>
 var votes = $("<h1><%= @vote.votable.votes_count %></h1>");
-<% if @vote.votable.votes_count < 0 %>
-$('#<%= "#{votes_count}_#{id}" %>').html(votes.css('color', 'orange').fadeIn(1000));
-<% else %>
 $('#<%= "#{votes_count}_#{id}" %>').html(votes.fadeIn(1000));
-<% end %>
 <% end %>

@@ -6,10 +6,22 @@ class Vote < ActiveRecord::Base
   
   validates_inclusion_of :value, in: [1, -1]
   validates_presence_of :user_id, :value, :votable_id, :votable_type
-  validates_uniqueness_of :user_id, scope: :votable_id
-  after_create :sum_votes
+  #validates_uniqueness_of :user_id, scope: :votable_id
   
-  validate :ensure_not_author
+  after_create :sum_votes
+  after_create :user_reputation
+  
+  #validate :ensure_not_author
+  
+  def user_reputation
+    votable = self.votable_type.downcase
+    user_rep = self.votable.user
+    if self.value == 1
+      user_rep.update_attributes(reputation: (user_rep.reputation + 5))
+    elsif self.value == -1
+      user_rep.update_attributes(reputation: (user_rep.reputation - 3))
+    end
+  end
   
   def ensure_not_author 
     votable = self.votable_type.downcase

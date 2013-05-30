@@ -1,8 +1,9 @@
 <h1>Profile</h1><br>
 
 <div class="profile-info">
-<%= link_to image_tag(avatar_url(@user)), @user %>
+<%= link_to image_tag(avatar_url(@user)), @user %><br>
 
+<h1><%= @user.reputation %></h1>
 <%= @user.email %><br>
 <%= @user.username %><br><br>
 
@@ -18,16 +19,12 @@
 	<table class="table table-hover">
 		<% for question in @questions %>	
 	    <tr>
-				<td>(No. of Answers) </td>
+				<td><%= question.votes_count %></td>
 	      <td><%= link_to question.title.titleize, question %></td>
 	    </tr>
 	<% end %>
 	</table>
 	<br>
-	<h2>Videos</h2><hr>
-	<%= link_to "Upload Video", videos_path, class: "btn" %><br><br>
-	<div id="videos">
-	<%= render @videos %>
-	</div>
-
+	<%= link_to "My Videos", videos_path, class: "btn" %>
+	
 

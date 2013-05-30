@@ -5,6 +5,7 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password" 
     remember_me true
+    reputation 200
   end
   
   factory :question do

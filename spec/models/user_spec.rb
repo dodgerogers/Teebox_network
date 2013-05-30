@@ -11,6 +11,7 @@ describe User do
    it { should respond_to(:password)}
    it { should respond_to(:password_confirmation)}
    it { should respond_to(:remember_me)}
+   it { should respond_to(:reputation)}
 
    describe 'email' do
      before { @user.email = nil }
