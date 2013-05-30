@@ -3,8 +3,9 @@ TeeboxNetwork::Application.routes.draw do
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout" }
   resources :users, only: [:show]
   resources :signed_urls, only: :index
+  match '/welcome', to: 'pages#welcome', as: 'welcome'
   
-  root to: "questions#index"
+  root to: "pages#welcome"
   
   resources :questions do
      resources :comments, except: [:edit, :update]

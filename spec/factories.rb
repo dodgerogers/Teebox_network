@@ -8,6 +8,15 @@ FactoryGirl.define do
     reputation 200
   end
   
+  factory :user_2 do
+    email "andy@hotmail.com"
+    username "andy"
+    password "password"
+    password_confirmation "password" 
+    remember_me true
+    reputation 10
+  end
+  
   factory :question do
     title "slicing the ball"
     body "i cut across the ball"
@@ -35,9 +44,9 @@ FactoryGirl.define do
   end
   
   factory :vote do
-    user_id :user
-    votable_id :question
+    user_id :user_2
     votable_type "Question"
+    votable_id :question
     value 1
   end
 end

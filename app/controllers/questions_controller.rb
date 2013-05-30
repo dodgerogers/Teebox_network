@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @comments = @commentable.comments.includes(:user)
     @comment = Comment.new
     @answer = Answer.new
-    @answers = @question.answers.includes(:user)
+    @answers = @question.answers.includes(:user).order("votes_count").reverse
   end
   
   def new

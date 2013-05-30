@@ -1,11 +1,11 @@
 <h1>Profile</h1><br>
 
 <div class="profile-info">
-<%= link_to image_tag(avatar_url(@user)), @user %><br>
+<%= link_to image_tag(avatar_url(@user)), @user %><br><br>
 
-<h1><%= @user.reputation %></h1>
 <%= @user.email %><br>
-<%= @user.username %><br><br>
+<%= @user.username %><br>
+<h3>Rep: <%= @user.reputation %></h3><br>
 
 <% if current_user == @user %>
 <%= link_to "Change your profile picture", "http://grvatar.com", target: :blank %>
@@ -20,6 +20,7 @@
 		<% for question in @questions %>	
 	    <tr>
 				<td><%= question.votes_count %></td>
+				<td><div id="q-answers-count"><%= question.answers_count %></div></td>
 	      <td><%= link_to question.title.titleize, question %></td>
 	    </tr>
 	<% end %>

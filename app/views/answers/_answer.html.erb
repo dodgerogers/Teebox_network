@@ -10,8 +10,8 @@
 		
 	<div class="profile-info">
 		<%= link_to image_tag(avatar_url(answer.user)), answer.user %>
-		<small><%= link_to answer.user.username.titleize, answer.user %>
-			<%= link_to answer.user.reputation, answer.user %><br>
+		<%= link_to answer.user.reputation, answer.user, id: "profile-reputation" %>
+		<small><%= link_to answer.user.username.titleize, answer.user %><br>
 		Posted <%= time_ago_in_words(answer.created_at) %> ago 
 		<% if answer.user == current_user %>
 		<%= link_to "  Delete ", answer, method: :delete, id: "delete-answer", remote: :true %>

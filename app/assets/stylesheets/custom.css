@@ -8,7 +8,10 @@ body {
 	width:100%;
 	background: #fff;
 	}
-
+	
+#welcome {
+	background: #474747 url(bg-white.png);
+}
 
 hr {
 	margin: 12px 0;
@@ -84,11 +87,11 @@ hr {
 		          transition: all 1s ease;
 
 	}
-	teebox a:hover, letter-press-link a:hover, .right-header a:hover, .left-header a:hover {
+	teebox a:hover, .letter-press-link a:hover, .right-header a:hover, .left-header a:hover {
 		text-decoration:none;
 		color: #777;
 	}
-	.letter-press {
+	.letter-press, letter-press {
 		color: #111;
 		text-shadow: 0px 2px 3px #555;
 		font-weight:300;
@@ -132,6 +135,20 @@ hr {
 .container .home {
 		text-align:center;
 }
+
+
+.welcome-message {
+	margin-top: 25px;
+	color: #999;
+	text-shadow: 0px 2px 3px #fff;
+	font-size: 40px;
+	text-align: center;
+	font-weight: 400;
+	margin-bottom: 10px;
+	font-weight: 400;
+	letter-spacing: -3px;
+}
+
 .logo {
 	display:inline-block;
 	width:100px;
@@ -270,6 +287,11 @@ form#new_video {
 	display:none;
 }
 
+input:-webkit-autofill {
+	background-color: #fff!important;
+	
+	 
+}
 /*-------------------- errors ------------------*/
 
 #error_explanation {
@@ -359,6 +381,15 @@ body .sublimevideo-zi .sublimevideo-uj {
 	box-sizing: border-box;
 }
 
+#q-answers-count {
+	display:inline-block;
+	padding: 2px 7px;
+	background: #409C69;
+	color: #fff;
+	font-weight:300;
+	margin-top: -8px;
+}
+
 .questions:hover, .videos:hover {
 
 }
@@ -446,7 +477,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 /*---------------------- Header search ---------------------*/
 
-#header-search {
+body #header-search {
 	margin:0;
 	color: #777;
 	width: 220px;
@@ -622,4 +653,9 @@ form#header {
 	text-shadow: 0px 3px 3px #2a2a2a;
 	padding: 2px 6px;
 	margin-right: 0px;
+}
+
+#profile-reputation {
+	color: #ff8800;
+	font-weight: 400;
 }

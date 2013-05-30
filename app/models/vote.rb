@@ -7,6 +7,7 @@ class Vote < ActiveRecord::Base
   validates_inclusion_of :value, in: [1, -1]
   validates_presence_of :user_id, :value, :votable_id, :votable_type
   #validates_uniqueness_of :user_id, scope: :votable_id
+  #validates_uniqueness_of :value, scope: :votable_id
   
   after_create :sum_votes
   after_create :user_reputation
