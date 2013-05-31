@@ -30,4 +30,16 @@ describe "Answers" do
       click_button "Save Answer"
     }.to_not change(Answer, :count).by(1)
   end
+  
+  it "edits the answer successfullly with valid params" do
+     sign_in_user
+     question = FactoryGirl.create(:question)
+     visit questions_path
+     visit question_path(question)
+     answer = FactoryGirl.create(:answer)
+     visit question_path(question)
+     page.should have_content answer.body
+     page.should have_selector("a", id: "edit-answer")
+     save_and_open_page
+   end
 end

@@ -15,7 +15,7 @@
 		Posted <%= time_ago_in_words(answer.created_at) %> ago 
 		<% if answer.user == current_user %>
 		<%= link_to "  Delete ", answer, method: :delete, id: "delete-answer", remote: :true %>
-		<%= link_to "| Edit", edit_answer_path(answer), remote: true %>
+		|<%= link_to " Edit", edit_answer_path(answer), id: "edit-answer", remote: true %>
 		<% end %></small>
 		</div>
 	</div>

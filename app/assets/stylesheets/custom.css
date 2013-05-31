@@ -639,14 +639,24 @@ form#header {
 	text-shadow: 2px 2px 2px #777;
 	}
 	
-#arrows a {
-	color: #ededed;	
-}	
-
-#arrows a:hover {
-	color: #F0745E;
+#upvote, #downvote {
+	color: #999;	
 }
 
+#upvote:hover {
+	color: #409C69;
+	text-decoration: none;
+}
+
+#downvote:hover {
+	color: rgb(236, 84, 57);
+	text-decoration: none;
+}
+
+.orange-arrows h1{
+	color: #ff8800!important;
+	display:inline-block;
+}
 /*-------------------- reputation ----------------*/
 
 .reputation {
