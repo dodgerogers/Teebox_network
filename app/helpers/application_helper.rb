@@ -6,7 +6,7 @@ module ApplicationHelper
     
   
   def youtube_url_html5(url)
-    "<iframe class='youtube-player' type='text/html' width='600' height='' src='http://www.youtube.com/embed/#{strip_url(url)}' frameborder='0'></iframe>"
+    "<iframe class='youtube-player' type='text/html' width='600' height='400' src='http://www.youtube.com/embed/#{strip_url(url)}' frameborder='0'></iframe>"
   end
   
   def strip_url(url)
@@ -14,13 +14,8 @@ module ApplicationHelper
   end
 
   def sublime_video(video, id)
-    "<video id='video_#{id}' class='sublime' poster='' width='600px' height='' data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
+    "<video id='video_#{id}' class='sublime' poster='' width='475px' height='' data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
       <source src='#{video}' /></video>"
-  end
-
-  
-  def find_video_id(question)
-    v = Video.find_by_id(question.video_id)
   end
   
   def question_screenshot(question)

@@ -12,13 +12,13 @@
 	<h4><%= link_to question.title.titleize, question %></h4>
 	
 	<div class="profile-info">
+		<div class='pull-left <%= question.answers_count > 0 ? 'has-answers' : 'no-answers' %>' id="q-answers-count">
+				<%= question.answers_count %>
+			</div>
 		<%= link_to question.user.reputation, question.user, id: "profile-reputation" %>
 		<%= link_to image_tag(avatar_url(question.user)), question.user %>
 		<small><%= link_to question.user.username.titleize, user_path(question.user) %><br>	
 		Posted <%= time_ago_in_words(question.created_at) %> ago</small>
-		<div class="pull-right" id="q-answers-count">
-				<%= question.answers_count%>
-			</div>
 	</div>
 	
 		</div>

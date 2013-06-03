@@ -5,7 +5,7 @@
 
 <%= @user.email %><br>
 <%= @user.username %><br>
-<h3>Rep: <%= @user.reputation %></h3><br>
+Rep: <%= @user.reputation %><br><br>
 
 <% if current_user == @user %>
 <%= link_to "Change your profile picture", "http://grvatar.com", target: :blank %>
@@ -20,7 +20,8 @@
 		<% for question in @questions %>	
 	    <tr>
 				<td><%= question.votes_count %></td>
-				<td><div id="q-answers-count"><%= question.answers_count %></div></td>
+				<td><div id="q-answers-count" class='<%= question.answers_count > 0 ? 'has-answers' : 'no-answers' %>'>
+				<%= question.answers_count %></div></td>
 	      <td><%= link_to question.title.titleize, question %></td>
 	    </tr>
 	<% end %>

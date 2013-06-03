@@ -26,6 +26,7 @@ class AnswersController < ApplicationController
       if @answer.update_attributes(params[:answer])
         format.html { render @question, notice: "Updated" }
         format.js 
+        format.json { head :ok}
       else
         format.html { render "edit", notice: "Plese try again" }
         format.js
@@ -51,5 +52,15 @@ class AnswersController < ApplicationController
       format.js
     end
   end
+  end
+  
+  def correct 
+    @answer = Answer.find(params[:id])
+    if @answer.toggle_correct(:correct)
+    respond_to do |format|
+      format.html { redirect_to :back, notice: "Answer submitted" }
+      format.js
+      end
+    end
   end
 end

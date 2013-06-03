@@ -4,8 +4,9 @@ TeeboxNetwork::Application.routes.draw do
   resources :users, only: [:show]
   resources :signed_urls, only: :index
   match '/welcome', to: 'pages#welcome', as: 'welcome'
+  match '/home'=> "questions#index"
   
-  root to: "pages#welcome"
+  root to: "questions#index"
   
   resources :questions do
      resources :comments, except: [:edit, :update]
@@ -18,6 +19,7 @@ TeeboxNetwork::Application.routes.draw do
   
   resources :answers do 
     member { post :vote }
+    member { put :correct }
   end
   resources :videos
   

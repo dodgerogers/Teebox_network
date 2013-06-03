@@ -2,11 +2,11 @@
 	<div class="header_container">
 			<div class="left-header">
 			<div class="logo">
-				<%= link_to image_tag("logo.png"), questions_path %>
+				<%= link_to image_tag("logo.png"), home_path %>
 			</div>
 	
 			<div class="header-title">
-				<teebox><%= link_to "Teebox", questions_path %></teebox><br>
+				<teebox><%= link_to "Teebox", home_path %></teebox><br>
 				Find your game
 			</div>
 		</div>
@@ -18,9 +18,11 @@
 					<strong><%= link_to current_user.username.titleize, current_user %></strong>&nbsp
 					<%= link_to image_tag(avatar_url(current_user)), current_user %><br>
 				</div>
+				<%= link_to raw('<i class="icon-home"></i>'), home_path %> |
 			  <%= link_to 'Edit profile', edit_user_registration_path %> |
 			  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 			<% else %>
+			<br>
 			  <%= link_to "Sign up", new_user_registration_path %> |
 			  <%= link_to "Login", new_user_session_path %>
 			<% end %>

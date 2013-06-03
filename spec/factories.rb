@@ -53,4 +53,10 @@ FactoryGirl.define do
     votable_id :question
     value 1
   end
+  
+  factory :tick do
+    user_id :user
+    answer_id :answer
+    correct true
+  end
 end

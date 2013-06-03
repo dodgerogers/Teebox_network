@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529162108) do
+ActiveRecord::Schema.define(:version => 20130603001255) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "votes_count", :default => 0
+    t.boolean  "correct",     :default => false
   end
 
   add_index "answers", ["user_id", "question_id"], :name => "index_answers_on_user_id_and_question_id"

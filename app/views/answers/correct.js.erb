@@ -1,0 +1,9 @@
+<% if @answer.errors.any? %>
+  	alert("Failed to submit: <%= j @answer.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+	<% if @answer.correct == true %>
+		$('.correct_<%= @answer.id %>').css('color', '#4fc392');
+	<% else %>
+		$('.correct_<%= @answer.id %>').css('color', '#ccc');
+	<% end %>
+<% end %>

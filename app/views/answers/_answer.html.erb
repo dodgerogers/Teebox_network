@@ -3,7 +3,16 @@
 		<%= render partial: "votes/form", 
 				locals: { votes_count: "answers", id: answer.id, object: answer, vote_path: method(:vote_answer_path) } %>
 	
-	
+		<div id="correct_answer_<%= answer.id %>" class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>">
+			<% if answer.question.user == current_user %>
+				<%= link_to "✓", correct_answer_path(answer), id: "tick", class: "correct_#{answer.id}", remote: true, method: :put %>
+				<% else %>
+				<% if answer.correct == true %>
+				<div id="tick", class='correct_<% answer.id %>'> ✓</div>
+				<% end %>
+			<% end %>
+		</div>
+		
 	<div class="answer-content">
 		<%= simple_format answer.body %>
 	</div>

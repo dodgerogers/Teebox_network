@@ -1,7 +1,7 @@
 /* teebox green #4fc392 & #409C69 */
 
-body { 
-	font-family: 'LatoLight', sans-serif;
+body, html { 
+	font-family: "TradeGothicW01-BoldCn20 675334","TradeGothicW01-BoldCn20",Helvetica,Arial,sans-serif;
 	font-weight: lighter;
 	margin:0;
 	height:100%;
@@ -9,9 +9,6 @@ body {
 	background: #fff;
 	}
 	
-#welcome {
-	background: #474747 url(bg-white.png);
-}
 
 hr {
 	margin: 12px 0;
@@ -22,22 +19,24 @@ hr {
 	  src: url('<%= asset_path('Lato-Lig.ttf') %>');
 	  font-weight: lighter;
 	  font-style: normal;
+		font-family:'LatoLight',sans-serif!important;
 	}
 	
 	h1 {
 	    font-size: 36px;
-	    font-family: "LatoLight", sans-serif!important;
+	    
 			font-weight: 100;
 	    margin-bottom: 12px;
 	    margin-top: .5em;
 			color: #F0745E;
 			text-shadow: 2px 2px 2px #777;		
-			letter-spacing:-2px;			
+			letter-spacing:-2px;
+						
 		}
 		
 	h2 {
 	    font-size: 25px; 
-	    font-family: "LatoLight", sans-serif!important;
+	    
 			font-weight: 100;
 	    margin-top: .75em;
 			color: #4da083;
@@ -45,7 +44,7 @@ hr {
 
 	h3 {
 	    font-size: 22px; 
-	    font-family: "LatoLight", sans-serif;
+	   
 			font-weight: 100;
 	    margin-bottom: .857em;
 	    margin-top: .857em;
@@ -54,7 +53,6 @@ hr {
 
 	h4 {
 	    font-size: 18px;
-		font-family:'LatoLight',sans-serif!important;
 		font-weight:100;
 		line-height:25px;
 		margin-bottom: 0.5em;
@@ -135,19 +133,109 @@ hr {
 .container .home {
 		text-align:center;
 }
+/*------------- welcome page ----------*/
 
+.welcome-wrapper {
+	height:100%;
+	width:100%;
+	margin:0px;
+}
+
+#welcome {
+	text-align: center;
+}
 
 .welcome-message {
-	margin-top: 25px;
-	color: #999;
-	text-shadow: 0px 2px 3px #fff;
-	font-size: 40px;
-	text-align: center;
-	font-weight: 400;
-	margin-bottom: 10px;
-	font-weight: 400;
-	letter-spacing: -3px;
+	position: relative;
+	width:100%;
+	min-height:500px;
+	height:auto;
+	margin: 0px;
+	border-top: 2px solid #ddd;
+ 	box-shadow: 0px 5px 20px #555;
+	z-index: 1000;
+	background: #fefefe;
+	}
+	
+.welcome-section {
+	position: relative;
+	background: url(noise.png);
+	width:100%;
+	height:50%;
+}	
+	
+.welcome-message ul li {
+	font-size: 23px;
+	letter-spacing: -1px;
+	line-height:30px;
+	color: #323F46;
+	font-weight: bold;
+	text-shadow: 0px 2px 2px #ededed;
+	list-style: none;
 }
+
+.welcome-message ul hr {
+	border-top: 1px solid rgb(129, 129, 129);
+	border-bottom: 1px solid rgb(194, 194, 194);
+	width: 50%;
+}
+
+.welcome-message hr {
+	border-top: 1px solid rgb(129, 129, 129);
+	border-bottom: 1px solid rgb(194, 194, 194);
+	width:85%;
+}
+
+.welcome-text {
+	color: #fff;
+	text-shadow: 0px 3px 2px #555;
+	font-size: 50px;
+	line-height:40px;
+	margin: 30px 0px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.welcome-text img {
+	width: 200px;
+}
+.front-page {
+	display: inline-block;
+	vertical-align:top;
+	padding: 20px 10px;
+	margin:10px 12px 10px 0px;
+	background: #fff;
+	margin-bottom: 20px;
+	width: 304px;
+	height:200px;
+	box-shadow: 0px 1px 1px #555;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align:center;
+	font-size: 20px;
+	font-weight:bold;
+}
+.tagline {
+	text-transform: uppercase;
+	color: #323F46;
+	text-shadow: 0px 2px 2px #ededed;
+	font-size: 27px;
+	font-weight:lighter;
+	letter-spacing: -2px;
+}
+
+.tight {
+	letter-spacing: -4px;
+	color: #444;
+	font-weight:400;
+}
+.grid {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALElEQVQYV2NU1rP4zwAEtu7+DId3bsRJMyaUtv8HKSAEGGEmElQ4aiK+IAIAHTQqW6Ez6lMAAAAASUVORK5CYII=) repeat;
+	
+}
+
+/*--------------- logo------------ */
 
 .logo {
 	display:inline-block;
@@ -382,14 +470,23 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 
 #q-answers-count {
-	display:inline-block;
-	padding: 2px 7px;
+	display: inline-block;
+	padding: 7px 14px;
 	background: #409C69;
 	color: #fff;
-	font-weight:300;
-	margin-top: -8px;
+	font-weight: 300;
+	margin-right: 5px;
+	font-size: 20px;
 }
 
+.has-answers {
+	color: #FFD500!important;
+	text-shadow: 0px 2px 2px #333;
+}
+
+.no-answers {
+	
+}
 .questions:hover, .videos:hover {
 
 }
@@ -606,6 +703,29 @@ form#header {
 	position: relative;
 }
 
+#tick {
+	display:inline-block;
+	vertical-align: top;
+	text-align:center;
+	position: absolute;
+	left:-70px;
+	top: 90px;
+	text-decoration:none;
+}
+
+#tick:hover {
+	color: #409C69;
+}
+
+.green-tick a, .green-tick {
+	color: #4fc392;
+	font-size: 45px;
+}
+
+.default-tick a, .default-tick {
+	color: #ccc;
+	font-size: 45px;
+}
 /*-------------------- Votes ----------------*/
 
 .vote {
