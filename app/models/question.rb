@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy
   
-  attr_accessible :title, :body, :youtube_url, :video_id, :votes_count
+  attr_accessible :title, :body, :youtube_url, :video_id, :votes_count, :answers_count, :user_id
   validates_presence_of :title, :body, :user_id
   validates_presence_of :video_id, allow_nil: false
   

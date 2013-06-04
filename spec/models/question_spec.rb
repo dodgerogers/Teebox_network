@@ -12,6 +12,8 @@ describe Question do
   it { should respond_to(:video_id) }
   it { should respond_to(:youtube_url) }
   it { should respond_to(:user_id) }
+  it { should respond_to(:votes_count)}
+  it { should respond_to(:answers_count)}
   
    describe 'title' do
      before { @question.title = nil }

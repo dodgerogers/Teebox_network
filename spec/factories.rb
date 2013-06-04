@@ -45,6 +45,7 @@ FactoryGirl.define do
     question_id :question
     body "you need to change your grip"
     votes_count 5
+    correct true
   end
   
   factory :vote do
@@ -52,11 +53,5 @@ FactoryGirl.define do
     votable_type "Question"
     votable_id :question
     value 1
-  end
-  
-  factory :tick do
-    user_id :user
-    answer_id :answer
-    correct true
   end
 end

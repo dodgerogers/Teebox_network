@@ -2,6 +2,8 @@ require "spec_helper"
 
 describe Vote do
   before(:each) do
+    @question = FactoryGirl.create(:question)
+    @user = FactoryGirl.create(:user)
     @vote = FactoryGirl.create(:vote)
   end
   
@@ -35,5 +37,4 @@ describe Vote do
       before { @vote.value = 5 }
         it { should_not be_valid }
       end
-       
 end

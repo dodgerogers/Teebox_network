@@ -7,6 +7,9 @@ describe QuestionsController do
     sign_in @user
     @question = FactoryGirl.attributes_for(:question, user_id: @user)
     controller.stub!(:current_user).and_return(@user)
+    Vote.any_instance.stub(:sum_votes).and_return(true)
+    Vote.any_instance.stub(:user_reputation).and_return(true)
+    @request.env['HTTP_REFERER'] = "/questions"
   end
 
   describe "GET show" do
@@ -72,6 +75,13 @@ describe QuestionsController do
       end
     end
   end
+  
+  describe "POST vote" do
+    it "create a vote" do
+      post :vote
+      response.should be_success
+  end
+end
 
   describe "PUT update" do
     before(:each) do
@@ -124,7 +134,7 @@ describe QuestionsController do
 
     it "redirects to the posts list" do
       delete :destroy, id: @question
-      response.should redirect_to questions_url
+      response.should redirect_to home_url
     end
   end
 
