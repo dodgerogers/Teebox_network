@@ -69,4 +69,16 @@ describe AnswersController do
       end
     end
   end
+  
+  describe "DELETE destroy" do
+    before(:each) do
+      @answer = FactoryGirl.create(:answer)
+    end
+    
+    it "destroys the requested answer" do
+      expect {
+        delete :destroy, id: @answer
+      }.to change(Answer, :count).by(-1)
+    end
+  end
 end
