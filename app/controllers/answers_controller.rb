@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
-        format.html { render @question, notice: "Updated" }
+        format.html { redirect_to :back, notice: "Updated" }
         format.js 
         format.json { head :ok}
       else

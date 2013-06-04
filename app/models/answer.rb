@@ -1,6 +1,6 @@
 class Answer < ActiveRecord::Base
   
-  attr_accessible :body, :question_id, :votes_count, :correct
+  attr_accessible :body, :question_id, :votes_count, :correct, :user_id
   validates_presence_of :body, :user_id, :question_id
   belongs_to :user
   belongs_to :question, counter_cache: true
