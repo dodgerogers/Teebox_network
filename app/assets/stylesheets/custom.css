@@ -1,7 +1,6 @@
 /* teebox green #4fc392 & #409C69 */
 
 body, html { 
-	font-family: "TradeGothicW01-BoldCn20 675334","TradeGothicW01-BoldCn20",Helvetica,Arial,sans-serif;
 	font-weight: lighter;
 	margin:0;
 	height:100%;
@@ -22,40 +21,53 @@ hr {
 		font-family:'LatoLight',sans-serif!important;
 	}
 	
+	@font-face {
+	    font-family: 'BebasNeueRegular';
+	    src: url('BebasNeue-webfont.eot');
+	    src: url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('BebasNeue-webfont.woff') format('woff'),
+	         url('BebasNeue-webfont.ttf') format('truetype'),
+	         url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+	    font-weight: lighter;
+	    font-style: normal;
+
+	}
+	
 	h1 {
 	    font-size: 36px;
-	    
+	    font-family: 'BebasNeueRegular';
 			font-weight: 100;
 	    margin-bottom: 12px;
 	    margin-top: .5em;
 			color: #F0745E;
 			text-shadow: 2px 2px 2px #777;		
-			letter-spacing:-2px;
+			letter-spacing:0px;
 						
 		}
 		
 	h2 {
 	    font-size: 25px; 
-	    
-			font-weight: 100;
+	    font-family: 'BebasNeueRegular';
 	    margin-top: .75em;
 			color: #4da083;
 	}
 
 	h3 {
 	    font-size: 22px; 
-	   
-			font-weight: 100;
+	   	font-family: 'BebasNeueRegular';
+			font-weight: 400;
 	    margin-bottom: .857em;
 	    margin-top: .857em;
 			color: #4da083;
 	}
 
 	h4 {
+			font-family: 'BebasNeueRegular';
 	    font-size: 18px;
-		font-weight:100;
-		line-height:25px;
-		margin-bottom: 0.5em;
+			font-weight:300;
+			line-height:25px;
+			letter-spacing:0px;
+			margin-bottom: 0.5em;
 	    
 	}
 
