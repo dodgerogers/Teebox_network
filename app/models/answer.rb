@@ -10,7 +10,7 @@ class Answer < ActiveRecord::Base
   profanity_filter :body
   
   validates_uniqueness_of :correct, scope: :question_id, if: :correct?
-  #validate :ensure_not_author
+  #validate :ensure_not_author  
   
   
   def ensure_not_author 
@@ -19,5 +19,13 @@ class Answer < ActiveRecord::Base
   
   def toggle_correct(attribute)
     toggle(attribute).update_attributes({attribute => self[attribute]})
-  end  
+  end 
+  
+  def add_reputation
+    user = self.user
+    if self.correct == true && user != self.question.user
+      user.update_attributes(reputation: (user.reputation + 20)) 
+      self.question.user.update_attributes(reputation: (self.question.user.reputation + 2)) 
+    end
+  end 
 end

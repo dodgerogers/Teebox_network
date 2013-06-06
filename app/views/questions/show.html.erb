@@ -39,7 +39,9 @@
 	<%= render partial: "comments/form" %>
 	
 	
-	<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
+	<div id='answers-count'>
+		<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
+	</div>
 	<%= render template: "answers/index" %><br>
 	<a href="#" id="answer-button" class="btn">Add your answer</a>
 	<br><br>
