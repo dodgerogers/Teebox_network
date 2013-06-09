@@ -1,6 +1,6 @@
 <div id="question-box">
 
-<br><%= raw sublime_video(@question.video.file, @question.video.id) if @question.video.present? %>
+<br><%= raw sublime_video(@question.video.file, @question.video.id) if @question.video.present? %><br>
 <%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present? %>
 
 <div class="question">
