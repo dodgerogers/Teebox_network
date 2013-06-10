@@ -1,13 +1,9 @@
 /* teebox green #4fc392 & #409C69 */
 
-body, html { 
-	font-weight: lighter;
-	margin:0;
-	height:100%;
-	width:100%;
-	background: #fff;
-	}
-	
+html, body { 
+	min-height: 100%;
+	height: 100%;
+}
 
 hr {
 	margin: 12px 0;
@@ -128,10 +124,21 @@ hr {
 	}
 /*----------------------Containers ------------------------------*/
 
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -80px;
+}
+
 .container {
 	width:960px;
-	padding: 10px;
-	margin: 0 auto 0 auto;	
+	margin: 10px auto 40px auto;	
+}
+.footer-container {
+	width:960px;
+	margin: 0 auto;
+	padding-top: 10px;
 }
 
 #main {
@@ -302,7 +309,6 @@ hr {
 /* ------------------------- Header --------------------------------------------*/
 
 .header {
-	padding: 15px;
 	width: 100%;
 	font-size: 18px;
 	font-weight: 200;
@@ -318,6 +324,7 @@ hr {
 	position:relative;
 	width: 960px;
 	margin: 0 auto 0 auto;
+	padding: 10px 0px;
 }
 
 .left-header {
@@ -331,7 +338,7 @@ hr {
 .right-header {
 	position: relative;
 	display:inline-block;
-	width: 49%;
+	width: 50%;
 	text-align: right;
 	vertical-align:middle;
 }
@@ -346,15 +353,15 @@ hr {
 /* ------------------------- Footer --------------------------------------------*/
 
 #footer {
-	position: relative;
-	clear: both;
-	width: 100%;
-	height: 120px;
-	/*background: url(bg-white.png);*/
-	color: #999;
+	color: #444;
 	text-shadow: 0px 2px 3px #fff;
 	font-weight:300;
-	bottom:-4px;
+	background: url(noise.png);
+	height:80px;
+}
+
+#push {
+	height: 80px;
 }
 
 #browsers img {
@@ -382,7 +389,8 @@ input, textarea {
 }
 
 label {
-	font-size: 25px;
+	font-size: 20px;
+	font-family: 'BebasNeueRegular';
 }
 
 input[type="text"] {
