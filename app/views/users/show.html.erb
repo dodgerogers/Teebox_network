@@ -1,8 +1,7 @@
 <h1>Profile</h1><br>
 
 <div class="profile-info">
-<%= link_to image_tag(avatar_url(@user)), @user %><br><br>
-
+<%= link_to image_tag(avatar_url(@user)), @user %>
 <%= @user.email %><br>
 <%= @user.username %><br><br>
 
@@ -15,7 +14,12 @@
 
 <h3>Questions</h3>
 	<table class="table table-hover">
-		<% for question in @questions %>	
+		<tr class="titles">
+			<td>Answers</td>
+			<td>Points</td>
+			<td>Question</td>
+		</tr>
+		<% for question in @questions %>
 	    <tr>
 				<td>
 					<div id="<%= question.answers.count(conditions: ['correct = ?', true]) == 1 ? 'correct-answer' : 'no-correct-answer' %>">
@@ -24,18 +28,25 @@
 				</td>
 				<td>
 					<div id="<%=question.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
-						<%= question.votes.sum("points") %>
+						<% q_votes = question.votes.sum("points") %>
+						<%= q_votes > 0 ? "+#{q_votes}" : q_votes %>
 					</div>
 				</td>
 	      <td><%= link_to question.title.titleize, question %></td>
 	    </tr>
 	<% end %>
 	</table>
+	
 	<%= link_to "Ask Question", new_question_path, class: "btn" %><br><br>
 	
-	<h2>Answers</h2>
+	<h3>Answers</h3>
 
 		<table class="table table-hover">
+			<tr class="titles">
+				<td>Correct?</td>
+				<td>Points</td>
+				<td>Answer</td>
+			</tr>
 			<% for answer in @answers %>	
 		    <tr>
 					<td>
@@ -44,8 +55,9 @@
 						</div>
 					</td>
 					<td>
-						<div id="<%= question.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
-							<%= answer.votes.sum("points") %>
+						<div id="<%= answer.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
+							<% votes = answer.votes.sum("points") %>
+							<%= votes > 0 ? "+#{votes}" : votes %>
 						</div>
 					</td>
 		      <td><%= link_to truncate(answer.body, length: 80), answer.question %></td>
