@@ -3,7 +3,6 @@ module ApplicationHelper
   def clickable_links(text)
     text.gsub(URI.regexp, '<a href="\0">\0</a>')
   end
-    
   
   def youtube_url_html5(url)
     "<iframe class='youtube-player' type='text/html' width='100%' height='400' src='http://www.youtube.com/embed/#{strip_url(url)}' frameborder='0'></iframe>"
@@ -26,4 +25,5 @@ module ApplicationHelper
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=35&d=identicon"
   end
+
 end

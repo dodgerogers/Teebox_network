@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603001255) do
+ActiveRecord::Schema.define(:version => 20130611161041) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -87,8 +87,9 @@ ActiveRecord::Schema.define(:version => 20130603001255) do
     t.integer  "votable_id"
     t.string   "votable_type"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "points",       :default => 0
   end
 
   add_index "votes", ["votable_id", "votable_type"], :name => "index_votes_on_votable_id_and_votable_type"

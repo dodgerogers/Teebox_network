@@ -3,19 +3,23 @@
 html, body { 
 	min-height: 100%;
 	height: 100%;
-	font-weight: 300;
+	font-weight: lighter;
+	font-family: 'LatoLight';
 }
 
 hr {
 	margin: 12px 0;
 }
+
+a:hover {
+	text-decoration: none;
+}
 /*--------------------- fonts ------------------------------------*/
 	@font-face {
 	  font-family: 'LatoLight';
-	  src: url('<%= asset_path('Lato-Lig.ttf') %>');
+	  src: url('Lato-Lig.ttf') format('truetype');
 	  font-weight: lighter;
 	  font-style: normal;
-		font-family:'LatoLight',sans-serif!important;
 	}
 	
 	@font-face {
@@ -37,7 +41,7 @@ hr {
 	    margin-bottom: 12px;
 	    margin-top: .5em;
 			color: #E95A4D;
-			text-shadow: 0px 2px 2px #777;		
+			/*text-shadow: 0px 2px 2px #777;		*/
 			letter-spacing:0px;
 						
 		}
@@ -83,7 +87,6 @@ hr {
 	
 	teebox, teebox a {
 		font-size: 36px;
-	  font-family: "LatoLight", sans-serif;
 		font-family: 'BebasNeueRegular';
 		font-weight: 200;
 		text-shadow: 0px 3px 8px #2a2a2a;
@@ -96,6 +99,7 @@ hr {
 		          transition: all 1s ease;
 
 	}
+	
 	teebox a:hover, .letter-press-link a:hover, .right-header a:hover, .left-header a:hover {
 		text-decoration:none;
 		color: #777;
@@ -129,7 +133,7 @@ hr {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto -80px;
+	margin: 0 auto -100px;
 }
 
 .container {
@@ -354,18 +358,19 @@ hr {
 /* ------------------------- Footer --------------------------------------------*/
 
 #footer {
-	color: #444;
-	text-shadow: 0px 2px 3px #fff;
-	font-weight:300;
-	background: url(noise.png);
-	height:80px;
-	-webkit-box-shadow: inset 0px 1px 8px 0px #444;
-	box-shadow: inset 0px 1px 8px 0px #444;
-	-moz-box-shadow: inset 0px 1px 8px 0px #444;
+	font-family: 'BebasNeueRegular';
+	color: #888;
+	/*text-shadow: 0px 2px 3px #fff;
+	background: url(noise.png);*/
+	background: #ededed;
+	height:100px;
+	-webkit-box-shadow: inset 0px 1px 10px 0px #dedede;
+	box-shadow: inset 0px 1px 10px 0px #dedede;
+	-moz-box-shadow: inset 0px 1px 10px 0px #dedede;
 }
 
 #push {
-	height: 80px;
+	height: 100px;
 }
 
 #browsers img {
@@ -415,36 +420,14 @@ input:-webkit-autofill {
 
 #error_explanation {
 		background: #ededed;
-		padding: 15px;
+		padding: 15px 30px;
 		-webkit-border-radius: 3px;
 		border-radius: 3px;
 		-moz-border-radius: 3px;		
 }
 
-ul.ui-autocomplete {
-  position: absolute;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border: solid 1px #999;
-  cursor: default;
-  li {
-    background-color: #FFF;
-    border-top: solid 1px #DDD;
-    margin: 0;
-    padding: 0;
-    a {
-      color: #000;
-      display: block;
-      padding: 3px;
-    }
-    a.ui-state-hover, a.ui-state-active {
-      background-color: #FFFCB2;
-    }
-  }
-}
-.ui-helper-hidden-accessible {
-		display:none;
+#error_explanation  h2 {
+	margin:0px;
 }
 
 /*---------------- sublime video settings ----------------*/
@@ -501,6 +484,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 
 #q-answers-count {
+	font-family: 'BebasNeueRegular';
 	display: inline-block;
 	padding: 7px 14px;
 	background: #409C69;
@@ -511,15 +495,55 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin-top: 5px;
 }
 
-.has-answers {
-	color: #ff8800!important;
+#correct-answer {
+	color: #fff!important;
 	text-shadow: 0px 2px 2px #444;
 	font-weight:bolder;
+	display: inline-block;
+	padding: 7px 14px;
+	background: #409C69;
+	color: #fff;
+	font-weight: 300;
+	margin-right: 5px;
+	font-size: 20px;
+	margin-top: 5px;
 }
 
-.no-answers {
-	
+#no-correct-answer {
+	color: #fff!important;
+	text-shadow: 0px 2px 2px #444;
+	font-weight:bolder;
+	display: inline-block;
+	padding: 7px 14px;
+	background: #E95A4D;
+	color: #fff;
+	font-weight: 300;
+	margin-right: 5px;
+	font-size: 20px;
+	margin-top: 5px;
 }
+
+#no-points {
+	display: inline-block;
+	padding: 7px 14px;
+	margin-right: 5px;
+	font-size: 25px;
+	margin-top: 5px;
+	font-family: 'BebasNeueRegular';
+	color: #E95A4D;
+}
+
+#plus-points {
+	display: inline-block;
+	padding: 7px 14px;
+	margin-right: 5px;
+	font-size: 25px;
+	margin-top: 5px;
+	text-align:middle;
+	font-family: 'BebasNeueRegular';
+	color: #4fc392;
+}
+
 .questions:hover, .videos:hover {
 
 }
@@ -549,12 +573,12 @@ body .sublimevideo-zi .sublimevideo-uj {
     vertical-align: middle;
     text-align: center;
     font-weight: 100;
-	border: 2px dashed #fff;
-	box-shadow: 0 0 0 5px #e9e9e9, 0px 2px 8px 3px #888;
-	text-shadow: 0px 3px 3px #fff;
-	color: #999;
-	font-weight:400;
-	font-size: 16px;
+		border: 2px dashed #fff;
+		box-shadow: 0 0 0 5px #e9e9e9, 0px 2px 8px 3px #888;
+		text-shadow: 0px 3px 3px #fff;
+		color: #999;
+		font-weight:400;
+		font-size: 16px;
 }
 #dropzone.in {
     width: 600px;
@@ -564,7 +588,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 #dropzone.hover {
     background: #EEE;
-	border: 2px dashed #fff;
+		border: 2px dashed #fff;
 }
 #dropzone.fade {
     -webkit-transition: all 0.3s ease-out;
@@ -609,13 +633,17 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 body #header-search {
 	margin:0;
-	color: #777;
+	color: #999;
 	width: 220px;
 	background: #474747 url(search.png);
 	border: 1px solid #222;
 	-webkit-box-shadow: 0px 2px 2px #777;  
-	    -moz-box-shadow: 0px 2px 2px #777;  
-	    box-shadow: 0px 2px 2px #777;
+	-moz-box-shadow: 0px 2px 2px #777;  
+	box-shadow: 0px 2px 2px #777;
+}
+
+#header-search:active, #header-search:hover {
+	background: #353535;
 }
 
 form#header {
@@ -645,17 +673,17 @@ form#header {
     width: 1.5em;
     height: 1.5em;
     line-height: 1.5;
-	color: #444;
-	text-shadow: 0px 2px 2px #fff;
+	 color: #444;
+	 text-shadow: 0px 2px 2px #fff;
 }
   .pagination a {
     text-decoration: none;
-	color: #777;
-	text-shadow: 0px 2px 2px #fff;
-	font-weight:300;
+	  color: #777;
+	  text-shadow: 0px 2px 2px #fff;
+	  font-weight:300;
 }
-    .pagination a:hover, .pagination a:focus {
-      text-decoration: bold; 
+  .pagination a:hover, .pagination a:focus {
+    text-decoration: bold; 
 }
 
 /*-------------------- questions videos profile info ----------*/
@@ -749,6 +777,16 @@ form#header {
 
 #tick:hover {
 	color: #409C69;
+}
+
+#user-answers {
+	font-size: 25px;
+	text-shadow: 0px 2px 2px #444;
+	font-weight:bolder;
+	display: inline-block;
+	padding: 7px 14px;
+	margin: 5px 5px 0 0;
+	font-family: 'BebasNeueRegular';
 }
 
 .green-tick a, .green-tick {

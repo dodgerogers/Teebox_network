@@ -4,29 +4,55 @@
 <%= link_to image_tag(avatar_url(@user)), @user %><br><br>
 
 <%= @user.email %><br>
-<%= @user.username %><br>
-Rep: <%= @user.reputation %><br><br>
+<%= @user.username %><br><br>
 
-<% if current_user == @user %>
-<%= link_to "Change your profile picture", "http://grvatar.com", target: :blank %>
-<% end %>
+<%= link_to "Change your profile picture", "http://grvatar.com", target: :blank if current_user == @user %>
+<hr>
 
-<hr></div>
-<br><br>
+<h1>Score: <%= @user.reputation %></h1>
+</div>
+
 
 <h3>Questions</h3>
-<%= link_to "Ask Question", new_question_path, class: "btn" %><br><br>
 	<table class="table table-hover">
 		<% for question in @questions %>	
 	    <tr>
-				<td><%= question.votes_count %></td>
-				<td><div id="q-answers-count" class='<%= question.answers_count > 0 ? 'has-answers' : 'no-answers' %>'>
-				<%= question.answers_count %></div></td>
+				<td>
+					<div id="<%= question.answers.count(conditions: ['correct = ?', true]) == 1 ? 'correct-answer' : 'no-correct-answer' %>">
+						<%= question.answers_count %>
+					</div>
+				</td>
+				<td>
+					<div id="<%=question.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
+						<%= question.votes.sum("points") %>
+					</div>
+				</td>
 	      <td><%= link_to question.title.titleize, question %></td>
 	    </tr>
 	<% end %>
 	</table>
-	<br>
+	<%= link_to "Ask Question", new_question_path, class: "btn" %><br><br>
+	
+	<h2>Answers</h2>
+
+		<table class="table table-hover">
+			<% for answer in @answers %>	
+		    <tr>
+					<td>
+						<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
+							✓
+						</div>
+					</td>
+					<td>
+						<div id="<%= question.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
+							<%= answer.votes.sum("points") %>
+						</div>
+					</td>
+		      <td><%= link_to truncate(answer.body, length: 80), answer.question %></td>
+		    </tr>
+		<% end %>
+		</table>
+		
 	<%= link_to "My Videos", videos_path, class: "btn" %>
 	
 

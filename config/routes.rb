@@ -20,6 +20,7 @@ TeeboxNetwork::Application.routes.draw do
   resources :answers do 
     member { post :vote }
     member { put :correct }
+    resources :comments, except: [:edit, :update]
   end
   resources :videos
   

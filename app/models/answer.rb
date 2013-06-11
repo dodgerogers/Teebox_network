@@ -5,7 +5,6 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :question, counter_cache: true
   has_many :votes, as: :votable, dependent: :destroy
-
   
   profanity_filter :body
   
@@ -25,7 +24,7 @@ class Answer < ActiveRecord::Base
     user = self.user
     if self.correct == true && user != self.question.user
       user.update_attributes(reputation: (user.reputation + 20)) 
-      self.question.user.update_attributes(reputation: (self.question.user.reputation + 2)) 
+      self.question.user.update_attributes(reputation: (self.question.user.reputation + 5)) 
     end
   end 
 end

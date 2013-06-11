@@ -7,5 +7,6 @@ class UsersController < ApplicationController
     @questions = @user.questions
     @videos = Video.where(user_id: current_user.id).all
     @video = Video.new
+    @answers = @user.answers
   end
 end

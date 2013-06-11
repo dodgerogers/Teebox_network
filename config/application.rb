@@ -55,5 +55,8 @@ module TeeboxNetwork
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    #enable the loading of observers
+    config.active_record.observers = :vote_observer
   end
 end

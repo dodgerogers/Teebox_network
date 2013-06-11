@@ -57,10 +57,10 @@ class AnswersController < ApplicationController
   def correct 
     @answer = Answer.find(params[:id])
     if @answer.toggle_correct(:correct)
-      @answer.add_reputation
-    respond_to do |format|
-      format.html { redirect_to :back, notice: "Answer submitted" }
-      format.js
+       @answer.add_reputation
+        respond_to do |format|
+          format.html { redirect_to :back, notice: "Answer submitted" }
+          format.js
       end
     end
   end
