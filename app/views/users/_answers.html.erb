@@ -1,0 +1,25 @@
+<h3>Answers</h3>
+
+	<table class="table table-hover">
+		<tr class="titles">
+			<td>Correct?</td>
+			<td>Points</td>
+			<td>Answer</td>
+		</tr>
+		<% for answer in answers %>	
+	    <tr>
+				<td>
+					<div class="<%= answer.correct == true && answer.user_id != answer.question.user_id ? 'green-tick' : 'default-tick' %>" id="user-answers">
+						<%= answer.correct == true && answer.user_id != answer.question.user_id  ? "✓ +25" : "✓" %>
+					</div>
+				</td>
+				<td>
+					<div id="<%= answer.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
+						<% votes = answer.votes.sum("points") %>
+						<%= votes > 0 ? "+#{votes}" : votes %>
+					</div>
+				</td>
+	      <td><%= link_to truncate(answer.body, length: 100), answer.question %></td>
+	    </tr>
+	<% end %>
+	</table>

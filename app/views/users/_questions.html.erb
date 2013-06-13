@@ -1,0 +1,26 @@
+<h3>Questions</h3>
+	<table class="table table-hover">
+		<tr class="titles">
+			<td>Answers</td>
+			<td>Points</td>
+			<td>Question</td>
+		</tr>
+		<% for question in questions %>
+	    <tr>
+				<td>
+					<div id="<%= question.answers.count(conditions: ['correct = ?', true]) == 1 ? 'correct-answer' : 'no-correct-answer' %>">
+						<%= question.answers_count %>
+					</div>
+				</td>
+				<td>
+					<div id="<%=question.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
+						<% q_votes = question.votes.sum("points") %>
+						<%= q_votes > 0 ? "+#{q_votes}" : q_votes %>
+					</div>
+				</td>
+	      <td><%= link_to question.title.titleize, question %></td>
+	    </tr>
+	<% end %>
+	</table>
+	
+	<%= link_to "Ask Question", new_question_path, class: "btn" %><br><br>

@@ -12,58 +12,11 @@
 </div>
 
 
-<h3>Questions</h3>
-	<table class="table table-hover">
-		<tr class="titles">
-			<td>Answers</td>
-			<td>Points</td>
-			<td>Question</td>
-		</tr>
-		<% for question in @questions %>
-	    <tr>
-				<td>
-					<div id="<%= question.answers.count(conditions: ['correct = ?', true]) == 1 ? 'correct-answer' : 'no-correct-answer' %>">
-						<%= question.answers_count %>
-					</div>
-				</td>
-				<td>
-					<div id="<%=question.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
-						<% q_votes = question.votes.sum("points") %>
-						<%= q_votes > 0 ? "+#{q_votes}" : q_votes %>
-					</div>
-				</td>
-	      <td><%= link_to question.title.titleize, question %></td>
-	    </tr>
-	<% end %>
-	</table>
+	<%= render partial: "users/questions", locals: { questions: @questions } %>
 	
-	<%= link_to "Ask Question", new_question_path, class: "btn" %><br><br>
+	<%= render partial: "users/answers", locals: {answers: @answers } %>
 	
-	<h3>Answers</h3>
-
-		<table class="table table-hover">
-			<tr class="titles">
-				<td>Correct?</td>
-				<td>Points</td>
-				<td>Answer</td>
-			</tr>
-			<% for answer in @answers %>	
-		    <tr>
-					<td>
-						<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
-							✓
-						</div>
-					</td>
-					<td>
-						<div id="<%= answer.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
-							<% votes = answer.votes.sum("points") %>
-							<%= votes > 0 ? "+#{votes}" : votes %>
-						</div>
-					</td>
-		      <td><%= link_to truncate(answer.body, length: 80), answer.question %></td>
-		    </tr>
-		<% end %>
-		</table>
+	<%= render partial: "users/comments", locals: {comments: @comments } %>
 		
 	<%= link_to "My Videos", videos_path, class: "btn" %>
 	
