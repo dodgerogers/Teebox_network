@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614202522) do
+ActiveRecord::Schema.define(:version => 20130614213644) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130614202522) do
   end
 
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
+  add_index "questions", ["video_id"], :name => "index_questions_on_video_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

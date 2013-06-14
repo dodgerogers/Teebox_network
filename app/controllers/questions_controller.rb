@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @questions = Question.paginate(page: params[:page], per_page: 24).includes(:user, :video).search(params[:search])
+    @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
   end
   
   def create

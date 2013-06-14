@@ -9,6 +9,7 @@ class Answer < ActiveRecord::Base
   profanity_filter :body
   
   validates_uniqueness_of :correct, scope: :question_id, if: :correct?
+  #validates_uniqueness_of :user_id, scope: :question_id
   #validate :ensure_not_author  
   
   
@@ -16,9 +17,10 @@ class Answer < ActiveRecord::Base
      errors.add(:user_id, "You can't mark another users question") if self.user_id != self.question.user_id
   end
   
-  def toggle_correct(attribute)
-    toggle(attribute).update_attributes({attribute => self[attribute]})
-  end 
+  #if an answer correct column toggled, update the correct answer column in the question
+  def toggle_question_correct
+    self.question.toggle_correct(:correct)
+  end
   
   def add_reputation
     user = self.user
@@ -27,9 +29,4 @@ class Answer < ActiveRecord::Base
       self.question.user.update_attributes(reputation: (self.question.user.reputation + 5)) 
     end
   end 
-  
-  #if an answer correct column toggled, update the correct answer column in the question
-  def toggle_question_correct
-    self.question.toggle_correct(:correct)
-  end
 end
