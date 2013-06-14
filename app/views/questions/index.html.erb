@@ -12,7 +12,7 @@
 	<h4><%= link_to question.title.titleize, question %></h4>
 	
 	<div class="profile-info">
-		<div class='pull-left' id="<%= question.answers.count(conditions: ['correct = ?', true]) == 1 ? 'correct-answer' : 'no-correct-answer' %>">
+		<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
 				<%= question.answers_count %>
 			</div>
 		<%= link_to question.user.reputation, question.user, id: "profile-reputation" %>

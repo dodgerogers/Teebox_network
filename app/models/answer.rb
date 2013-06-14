@@ -30,6 +30,6 @@ class Answer < ActiveRecord::Base
   
   #if an answer correct column toggled, update the correct answer column in the question
   def toggle_question_correct
-    self.question.toggle_correct(:correct_answer)
+    self.question.toggle_correct(:correct)
   end
 end

@@ -9,7 +9,7 @@
 		<% for answer in answers %>	
 	    <tr>
 				<td>
-					<div class="<%= answer.correct == true && answer.user_id != answer.question.user_id ? 'green-tick' : 'default-tick' %>" id="user-answers">
+					<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
 						<%= answer.correct == true && answer.user_id != answer.question.user_id  ? "✓ +25" : "✓" %>
 					</div>
 				</td>

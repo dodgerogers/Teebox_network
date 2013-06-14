@@ -25,5 +25,4 @@ module ApplicationHelper
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=35&d=identicon"
   end
-
 end

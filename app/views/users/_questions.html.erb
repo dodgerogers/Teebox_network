@@ -8,7 +8,7 @@
 		<% for question in questions %>
 	    <tr>
 				<td>
-					<div id="<%= question.answers.count(conditions: ['correct = ?', true]) == 1 ? 'correct-answer' : 'no-correct-answer' %>">
+					<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
 						<%= question.answers_count %>
 					</div>
 				</td>
@@ -22,4 +22,4 @@
 	<% end %>
 	</table>
 	
-	<%= link_to "Ask Question", new_question_path, class: "btn" %><br><br>
+	<%= link_to "Ask Question", new_question_path, class: "btn" if current_user == @user %><br>

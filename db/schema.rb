@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614102140) do
+ActiveRecord::Schema.define(:version => 20130614202522) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(:version => 20130614102140) do
     t.integer  "points",      :default => 0
   end
 
-  add_index "answers", ["user_id", "question_id"], :name => "index_answers_on_user_id_and_question_id"
+  add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
+  add_index "answers", ["user_id"], :name => "index_answers_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -37,22 +38,25 @@ ActiveRecord::Schema.define(:version => 20130614102140) do
     t.integer  "points",           :default => 0
   end
 
-  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
     t.string   "youtube_url"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "video_id",      :default => 0
     t.integer  "votes_count",   :default => 0
     t.integer  "answers_count", :default => 0
     t.integer  "points",        :default => 0
+    t.boolean  "correct",       :default => false
   end
 
-  add_index "questions", ["title", "user_id"], :name => "index_questions_on_title_and_user_id"
+  add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -83,7 +87,8 @@ ActiveRecord::Schema.define(:version => 20130614102140) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "videos", ["user_id", "question_id"], :name => "index_videos_on_user_id_and_question_id"
+  add_index "videos", ["question_id"], :name => "index_videos_on_question_id"
+  add_index "videos", ["user_id"], :name => "index_videos_on_user_id"
 
   create_table "votes", :force => true do |t|
     t.integer  "value"
@@ -94,7 +99,5 @@ ActiveRecord::Schema.define(:version => 20130614102140) do
     t.datetime "updated_at",                  :null => false
     t.integer  "points",       :default => 0
   end
-
-  add_index "votes", ["votable_id", "votable_type"], :name => "index_votes_on_votable_id_and_votable_type"
 
 end

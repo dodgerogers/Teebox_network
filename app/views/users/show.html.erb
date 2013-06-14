@@ -12,12 +12,12 @@
 </div>
 
 
-	<%= render partial: "users/questions", locals: { questions: @user.questions } %>
+	<%= render partial: "users/questions", locals: { questions: @questions } %>
 	
-	<%= render partial: "users/answers", locals: {answers: @user.answers } %>
+	<%= render partial: "users/answers", locals: {answers: @answers } %>
 	
-	<%= render partial: "users/comments", locals: {comments: @user.comments } %>
+	<%= render partial: "users/comments", locals: {comments: @comments } %>
 		
-	<%= link_to "My Videos", videos_path, class: "btn" %>
+	<%= link_to "My Videos", videos_path, class: "btn" if current_user == @user %>
 	
 
