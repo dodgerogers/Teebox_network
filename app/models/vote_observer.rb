@@ -8,5 +8,6 @@ class VoteObserver < ActiveRecord::Observer
       #update number of votes
       votable = vote.votable_type.downcase.pluralize
       vote.votable.update_attributes(votes_count: vote.votable.votes.sum("value"))
+      vote.votable.update_attributes(points: vote.votable.votes.sum("points"))
   end
 end

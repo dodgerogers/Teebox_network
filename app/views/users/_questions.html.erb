@@ -13,9 +13,8 @@
 					</div>
 				</td>
 				<td>
-					<div id="<%=question.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
-						<% q_votes = question.votes.sum("points") %>
-						<%= q_votes > 0 ? "+#{q_votes}" : q_votes %>
+					<div id="<%= question.points > 0 ? 'plus-points' : 'no-points' %>">
+						<%= question.points > 0 ? "+#{question.points}" : question.points %>
 					</div>
 				</td>
 	      <td><%= link_to question.title.titleize, question %></td>

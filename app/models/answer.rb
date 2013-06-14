@@ -1,6 +1,6 @@
 class Answer < ActiveRecord::Base
   
-  attr_accessible :body, :question_id, :votes_count, :correct, :user_id
+  attr_accessible :body, :question_id, :votes_count, :correct, :user_id, :points
   validates_presence_of :body, :user_id, :question_id
   belongs_to :user
   belongs_to :question, counter_cache: true
@@ -27,4 +27,9 @@ class Answer < ActiveRecord::Base
       self.question.user.update_attributes(reputation: (self.question.user.reputation + 5)) 
     end
   end 
+  
+  #if an answer correct column toggled, update the correct answer column in the question
+  def toggle_question_correct
+    self.question.toggle_correct(:correct_answer)
+  end
 end

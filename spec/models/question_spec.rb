@@ -14,6 +14,7 @@ describe Question do
   it { should respond_to(:user_id) }
   it { should respond_to(:votes_count)}
   it { should respond_to(:answers_count)}
+  it { should respond_to(:points)}
   
    describe 'title' do
      before { @question.title = nil }

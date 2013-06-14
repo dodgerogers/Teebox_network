@@ -10,6 +10,7 @@ describe Comment do
   it { should respond_to(:content) }
   it { should respond_to(:user_id) }
   it { should respond_to(:commentable) }
+  it { should respond_to(:points)}
   
   describe 'content' do
      before { @comment.content = nil }

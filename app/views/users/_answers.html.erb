@@ -14,9 +14,8 @@
 					</div>
 				</td>
 				<td>
-					<div id="<%= answer.votes.sum("points") > 0 ? 'plus-points' : 'no-points' %>">
-						<% votes = answer.votes.sum("points") %>
-						<%= votes > 0 ? "+#{votes}" : votes %>
+					<div id="<%= answer.points > 0 ? 'plus-points' : 'no-points' %>">
+						<%= answer.points > 0 ? "+#{answer.points}" : answer.points %>
 					</div>
 				</td>
 	      <td><%= link_to truncate(answer.body, length: 100), answer.question %></td>

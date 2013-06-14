@@ -12,6 +12,7 @@ describe Answer do
   it { should respond_to(:body) }
   it { should respond_to(:correct)}
   it { should respond_to(:votes_count)}
+  it { should respond_to(:points)}
     
   describe 'body' do
      before { @answer.body = nil }

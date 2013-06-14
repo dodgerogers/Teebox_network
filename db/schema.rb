@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611161041) do
+ActiveRecord::Schema.define(:version => 20130614102140) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130611161041) do
     t.datetime "updated_at",                     :null => false
     t.integer  "votes_count", :default => 0
     t.boolean  "correct",     :default => false
+    t.integer  "points",      :default => 0
   end
 
   add_index "answers", ["user_id", "question_id"], :name => "index_answers_on_user_id_and_question_id"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130611161041) do
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.integer  "votes_count",      :default => 0
+    t.integer  "points",           :default => 0
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130611161041) do
     t.integer  "video_id",      :default => 0
     t.integer  "votes_count",   :default => 0
     t.integer  "answers_count", :default => 0
+    t.integer  "points",        :default => 0
   end
 
   add_index "questions", ["title", "user_id"], :name => "index_questions_on_title_and_user_id"

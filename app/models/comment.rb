@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   
-  attr_accessible :content, :votes_count, :user_id, :commentable_id, :commentable_type
+  attr_accessible :content, :votes_count, :user_id, :commentable_id, :commentable_type, :points
   belongs_to :commentable, polymorphic: true
   belongs_to :user
   has_many :votes, as: :votable, dependent: :destroy

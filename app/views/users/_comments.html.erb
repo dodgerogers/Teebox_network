@@ -8,9 +8,8 @@
 		<% for comment in comments %>	
 	    <tr>
 				<td>
-					<% votes = comment.votes.sum("points") %>
-					<div id="<%= votes > 0 ? 'plus-points' : 'no-points' %>">
-						<%= votes > 0 ? "+#{votes}" : votes %>
+					<div id="<%= comment.points > 0 ? 'plus-points' : 'no-points' %>">
+						<%= comment.points > 0 ? "+#{comment.points}" : comment.points %>
 					</div>
 				</td>
 	      <td><%= link_to truncate(comment.content, length: 80), comment.commentable unless comments.empty? %></td>
