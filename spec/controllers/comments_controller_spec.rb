@@ -15,10 +15,20 @@ describe CommentsController do
         @answer = FactoryGirl.create(:comment)
       end
 
-      it "destroys the requested answer" do
+      it "destroys the requested comment" do
         expect {
           delete :destroy, id: @comment
         }.to change(Comment, :count).by(-1)
+      end
+    end
+    
+    describe "POST vote" do
+      it "creates vote" do
+        @user2 = FactoryGirl.create(:user)
+        @comment = FactoryGirl.create(:comment)
+        @vote = FactoryGirl.create(:vote)
+        post :vote, id: @vote
+        response.should be_success
       end
     end
 end

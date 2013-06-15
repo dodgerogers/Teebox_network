@@ -15,6 +15,7 @@ describe Question do
   it { should respond_to(:votes_count)}
   it { should respond_to(:answers_count)}
   it { should respond_to(:points)}
+  it { should respond_to(:correct)}
   
    describe 'title' do
      before { @question.title = nil }
@@ -33,5 +34,5 @@ describe Question do
     describe "video_id" do
        before { @question.video_id = nil }
         it { should_not be_valid }
-      end
+    end
 end

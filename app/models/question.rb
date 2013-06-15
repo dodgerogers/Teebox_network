@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  include AnswerHelper
   
   belongs_to :user
   belongs_to :video

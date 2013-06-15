@@ -75,13 +75,6 @@ describe QuestionsController do
       end
     end
   end
-  
-  describe "POST vote" do
-    it "create a vote" do
-      post :vote
-      response.should be_success
-  end
-end
 
   describe "PUT update" do
     before(:each) do
@@ -137,5 +130,14 @@ end
       response.should redirect_to home_url
     end
   end
-
+  
+  describe "POST vote" do
+    it "creates vote" do
+      @user2 = FactoryGirl.create(:user)
+      @answer = FactoryGirl.create(:question)
+      @vote = FactoryGirl.create(:vote)
+      post :vote, id: @vote
+      response.should be_success
+    end
+  end
 end

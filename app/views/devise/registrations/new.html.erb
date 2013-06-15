@@ -3,16 +3,19 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-	<div><%= f.label :email %><br />
+	<div><%= f.label :email %><br>
   <%= f.email_field :email %></div>
 
 	<div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+  <%= f.text_field :username %></div><br>
 
-  <div><%= f.label :password %><br />
+	<div><%= f.label :handicap %><br>
+  <%= f.select :handicap, (-6..36).to_a %></div><br>
+
+  <div><%= f.label :password %><br>
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :password_confirmation %><br>
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.submit "Sign up", class: "btn" %></div>

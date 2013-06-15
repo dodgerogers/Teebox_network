@@ -9,6 +9,9 @@
 	<div><%= f.label :username %><br />
   <%= f.text_field :username %></div><br>
 
+	<div><%= f.label :handicap %><br />
+   <%= f.select :handicap, (-5..36).to_a %></div><br>
+
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div><br>
 

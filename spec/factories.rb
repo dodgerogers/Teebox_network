@@ -1,20 +1,11 @@
 FactoryGirl.define do
-  factory :user do
-    email "test@hotmail.com"
-    username "tester"
-    password "password"
-    password_confirmation "password" 
-    remember_me true
-    reputation 200
-  end
-  
-  factory :user_2 do
-    email "andy@hotmail.com"
-    username "andy"
-    password "password"
-    password_confirmation "password" 
-    remember_me true
-    reputation 10
+  factory :user do |u|
+    u.sequence(:email) {|n| "test#{n}@hotmail.com"}
+    u.sequence(:username) {|n| "tester#{n}" }
+    u.password "password"
+    u.password_confirmation "password" 
+    u.remember_me true
+    u.reputation 200
   end
   
   factory :question do
@@ -44,14 +35,14 @@ FactoryGirl.define do
     user_id :user
     question_id :question
     body "you need to change your grip"
-    votes_count 5
+    votes_count 0
     correct true
   end
   
   factory :vote do
-    user_id :user_2
-    votable_type "Question"
+    user_id :user
     votable_id :question
+    votable_type "Question"
     value 1
   end
 end

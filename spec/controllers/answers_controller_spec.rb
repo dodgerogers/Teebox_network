@@ -3,10 +3,10 @@ require "spec_helper"
 describe AnswersController do
   include Devise::TestHelpers
   before(:each) do
-    @user = FactoryGirl.create(:user)
-    sign_in @user
-    @answer = FactoryGirl.attributes_for(:answer, user_id: @user)
-    controller.stub!(:current_user).and_return(@user)
+    @user1 = FactoryGirl.create(:user)
+    sign_in @user1
+    @answer = FactoryGirl.attributes_for(:answer, user_id: @user1)
+    controller.stub!(:current_user).and_return(@user1)
     Vote.any_instance.stub(:sum_votes).and_return(true)
     Vote.any_instance.stub(:user_reputation).and_return(true)
     @request.env['HTTP_REFERER'] = "http://test.host/questions/"
@@ -16,7 +16,7 @@ describe AnswersController do
     describe "with valid params" do
       it "creates a new answer" do
         expect {
-          post :create, user_id: @user, answer: @answer
+          post :create, user_id: @user1, answer: @answer
         }.to change(Answer, :count).by(1)
       end
 
@@ -79,6 +79,16 @@ describe AnswersController do
       expect {
         delete :destroy, id: @answer
       }.to change(Answer, :count).by(-1)
+    end
+  end
+  
+  describe "POST vote" do
+    it "creates vote" do
+      @user2 = FactoryGirl.create(:user)
+      @answer = FactoryGirl.create(:answer)
+      @vote = FactoryGirl.create(:vote)
+      post :vote, id: @vote
+      response.should be_success
     end
   end
 end

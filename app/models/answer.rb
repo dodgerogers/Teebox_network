@@ -1,4 +1,5 @@
 class Answer < ActiveRecord::Base
+  include AnswerHelper
   
   attr_accessible :body, :question_id, :votes_count, :correct, :user_id, :points
   validates_presence_of :body, :user_id, :question_id
