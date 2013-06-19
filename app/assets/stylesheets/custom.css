@@ -491,6 +491,10 @@ body .sublimevideo-zi .sublimevideo-uj {
 	box-sizing: border-box;
 }
 
+.questions:hover, .videos:hover {
+	background: #fafafa;
+}
+
 #q-answers-count {
 	font-family: 'BebasNeueRegular';
 	display: inline-block;

@@ -36,7 +36,7 @@ FactoryGirl.define do
     question_id :question
     body "you need to change your grip"
     votes_count 0
-    correct true
+    correct false
   end
   
   factory :vote do

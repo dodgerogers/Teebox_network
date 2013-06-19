@@ -8,7 +8,7 @@ describe QuestionsController do
     sign_in @user
     sign_in @user2
     @question = FactoryGirl.attributes_for(:question, user_id: @user)
-    @vote = FactoryGirl.attributes_for(:vote, votable_id: @question, user_id: @user2)
+    @vote = FactoryGirl.attributes_for(:vote, votable_id: @question, votable_type: "Question", user_id: @user2)
     controller.stub!(:current_user).and_return(@user)
     Vote.any_instance.stub(:sum_votes).and_return(true)
     Vote.any_instance.stub(:user_reputation).and_return(true)

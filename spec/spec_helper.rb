@@ -10,6 +10,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   
+  
+  #Disable observers by default
   ActiveRecord::Base.observers.disable :all
   # ## Mock Framework
   #

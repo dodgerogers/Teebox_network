@@ -7,7 +7,7 @@ describe CommentsController do
     @user2 = FactoryGirl.create(:user)
     sign_in @user
     sign_in @user2
-    @vote = FactoryGirl.attributes_for(:vote, votable_id: @comment, user_id: @user2)
+    @vote = FactoryGirl.attributes_for(:vote, votable_id: @comment, votable_type: "Comment", user_id: @user2)
     @question = FactoryGirl.create(:question)
     @comment = FactoryGirl.create(:comment)
     controller.stub!(:current_user).and_return(@user)

@@ -9,17 +9,13 @@ class Answer < ActiveRecord::Base
   
   profanity_filter :body
   
+  #only one answer can be marked as correct
   validates_uniqueness_of :correct, scope: :question_id, if: :correct?
-  #validates_uniqueness_of :user_id, scope: :question_id
-  #validate :ensure_not_author  
   
+  #only 1 answer per question per user
+  validates_uniqueness_of :user_id, scope: :question_id
   
-  def ensure_not_author 
-     errors.add(:user_id, "You can't mark another users question") if self.user_id != self.question.user_id
-  end
-  
-  #if an answer correct column toggled, update the correct answer column in the question
-  def toggle_question_correct
+   def toggle_question_correct
     self.question.toggle_correct(:correct)
   end
   

@@ -28,5 +28,4 @@ describe Answer do
      before { @answer.question_id = nil }
       it { should_not be_valid }
     end
-    
 end

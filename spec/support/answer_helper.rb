@@ -25,4 +25,12 @@ module AnswerHelper
     }.to change(Answer, :count).by(1) 
     page.should have_content "You need to shift your weight better"
   end
+  
+  def stub_model_methods
+    Answer.any_instance.stub(:add_reputation).and_return(true)
+    Answer.any_instance.stub(:toggle_question_correct).and_return(true)
+    Vote.any_instance.stub(:user_reputation).and_return(true)
+    Vote.any_instance.stub(:user_reputation).and_return(true)
+    Vote.any_instance.stub(:ensure_not_author).and_return(true)
+  end
 end

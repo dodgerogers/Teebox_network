@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe AnswersController do
   include Devise::TestHelpers
+  include AnswerHelper
   before(:each) do
     @user1 = FactoryGirl.create(:user)
     @user2 = FactoryGirl.create(:user)
@@ -10,8 +11,8 @@ describe AnswersController do
     @answer = FactoryGirl.attributes_for(:answer, user_id: @user1)
     @vote = FactoryGirl.attributes_for(:vote, votable_id: @answer, user_id: @user2)
     controller.stub!(:current_user).and_return(@user1)
-    Vote.any_instance.stub(:sum_votes).and_return(true)
-    Vote.any_instance.stub(:user_reputation).and_return(true)
+    stub_model_methods
+    
     @request.env['HTTP_REFERER'] = "http://test.host/questions/"
   end
   
@@ -71,6 +72,14 @@ describe AnswersController do
         @answer.body.should_not eq("")
       end
     end
+    
+    describe "an answer as correct" do
+      it "successfully updates" do
+        put :correct, id: @answer, answer: @answer, format: "js"
+        @answer.reload
+        @answer.correct.should eq(true)
+      end
+    end
   end
   
   describe "DELETE destroy" do
@@ -83,9 +92,6 @@ describe AnswersController do
         delete :destroy, id: @answer
       }.to change(Answer, :count).by(-1)
     end
-  end
-  
-  describe "it updates the correct column" do
   end
   
   describe "POST vote" do

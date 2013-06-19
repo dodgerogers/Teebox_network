@@ -15,7 +15,7 @@ class Vote < ActiveRecord::Base
   
   def ensure_not_author 
     votable = self.votable_type.downcase
-    errors.add(:user_id, "You can't vote on your own content") if self.votable.user_id == self.user_id
+    errors.add(:user_id, "You can't vote on your own content.") if self.votable.user_id == self.user_id
   end
   
   def create_points
