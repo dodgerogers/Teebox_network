@@ -4,8 +4,11 @@ describe AnswersController do
   include Devise::TestHelpers
   before(:each) do
     @user1 = FactoryGirl.create(:user)
+    @user2 = FactoryGirl.create(:user)
     sign_in @user1
+    sign_in @user2
     @answer = FactoryGirl.attributes_for(:answer, user_id: @user1)
+    @vote = FactoryGirl.attributes_for(:vote, votable_id: @answer, user_id: @user2)
     controller.stub!(:current_user).and_return(@user1)
     Vote.any_instance.stub(:sum_votes).and_return(true)
     Vote.any_instance.stub(:user_reputation).and_return(true)
@@ -82,13 +85,17 @@ describe AnswersController do
     end
   end
   
+  describe "it updates the correct column" do
+  end
+  
   describe "POST vote" do
     it "creates vote" do
+      @user1 = FactoryGirl.create(:user)
       @user2 = FactoryGirl.create(:user)
-      @answer = FactoryGirl.create(:answer)
-      @vote = FactoryGirl.create(:vote)
-      post :vote, id: @vote
-      response.should be_success
+      @answer = FactoryGirl.attributes_for(:answer, user_id: @user1)
+      expect {
+        post :vote, id: @vote, value: 1
+      }.to change(Vote, :count).by(1)
     end
   end
 end

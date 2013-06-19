@@ -16,10 +16,6 @@ module ApplicationHelper
     "<video id='video_#{id}' class='sublime' poster='' width='475px' height='' data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
       <source src='#{video}' /></video>"
   end
-    
-  def comment_user(user)
-    user = User.find_by_id(user)
-  end
   
   def avatar_url(user)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user

@@ -12,7 +12,7 @@ describe Video do
   it { should respond_to(:screenshot) }
   it { should respond_to(:question_id) }
   
-  describe 'content' do
+  describe 'file' do
      before { @video.file = nil }
      it { should_not be_valid }
    end
@@ -21,5 +21,4 @@ describe Video do
      before { @video.user_id = nil }
       it { should_not be_valid }
     end
-    
 end

@@ -2,8 +2,6 @@ require "spec_helper"
 
 describe Vote do
   before(:each) do
-    @question = FactoryGirl.create(:question)
-    @user = FactoryGirl.create(:user)
     @vote = FactoryGirl.create(:vote)
   end
   
@@ -13,6 +11,7 @@ describe Vote do
   it { should respond_to(:votable_id) }
   it { should respond_to(:votable_type) }
   it { should respond_to(:value) }
+  it { should respond_to(:points) }
   
    describe 'value' do
      before { @vote.value = nil }

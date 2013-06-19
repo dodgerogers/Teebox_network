@@ -5,13 +5,13 @@ class Vote < ActiveRecord::Base
   belongs_to :user
   
   validates_inclusion_of :value, in: [1, -1]
-  validates_presence_of :user_id, :value, :votable_id, :votable_type
-  #validates_uniqueness_of :user_id, scope: :votable_id
-  #validates_uniqueness_of :value, scope: :votable_id
+  validates_presence_of :user_id, :value, :votable_id, :votable_type, :points
+  validates_uniqueness_of :user_id, scope: :votable_id
+  validates_uniqueness_of :value, scope: :votable_id 
   
   #validate :ensure_not_author
   
-  before_save :create_points
+  before_validation :create_points
   
   def ensure_not_author 
     votable = self.votable_type.downcase

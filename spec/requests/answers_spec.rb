@@ -40,6 +40,14 @@ describe "Answers" do
      visit question_path(question)
      page.should have_content answer.body
      page.should have_selector("a", id: "edit-answer")
-     save_and_open_page
    end
+   
+  it "updates the correct column" do
+    sign_in_user 
+    create_and_find_question
+    create_answer
+    page.should have_selector('div', class: "default-tick")
+    click_link "tick"
+    page.should have_selector("div", class: "green-tick")
+  end
 end

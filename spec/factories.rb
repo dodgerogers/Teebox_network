@@ -41,8 +41,9 @@ FactoryGirl.define do
   
   factory :vote do
     user_id :user
-    votable_id :question
-    votable_type "Question"
+    votable_id :answer
+    votable_type "Answer"
     value 1
+    points 5
   end
 end

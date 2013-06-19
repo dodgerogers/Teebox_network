@@ -1,6 +1,6 @@
 class Video < ActiveRecord::Base
   
-  attr_accessible :question_id, :file, :screenshot
+  attr_accessible :question_id, :file, :screenshot, :user_id
   has_many :questions
   belongs_to :user
   

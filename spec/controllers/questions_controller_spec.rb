@@ -4,8 +4,11 @@ describe QuestionsController do
   include Devise::TestHelpers
   before(:each) do
     @user = FactoryGirl.create(:user)
+    @user2 = FactoryGirl.create(:user)
     sign_in @user
+    sign_in @user2
     @question = FactoryGirl.attributes_for(:question, user_id: @user)
+    @vote = FactoryGirl.attributes_for(:vote, votable_id: @question, user_id: @user2)
     controller.stub!(:current_user).and_return(@user)
     Vote.any_instance.stub(:sum_votes).and_return(true)
     Vote.any_instance.stub(:user_reputation).and_return(true)
@@ -125,7 +128,7 @@ describe QuestionsController do
       }.to change(Question, :count).by(-1)
     end
 
-    it "redirects to the posts list" do
+    it "redirects to the questions list" do
       delete :destroy, id: @question
       response.should redirect_to home_url
     end
@@ -133,11 +136,9 @@ describe QuestionsController do
   
   describe "POST vote" do
     it "creates vote" do
-      @user2 = FactoryGirl.create(:user)
-      @answer = FactoryGirl.create(:question)
-      @vote = FactoryGirl.create(:vote)
-      post :vote, id: @vote
-      response.should be_success
+      expect {
+        post :vote, id: @vote, value: 1
+      }.to change(Vote, :count).by(1)
     end
   end
 end
