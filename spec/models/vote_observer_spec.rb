@@ -3,7 +3,7 @@ require "spec_helper"
 describe VoteObserver do
   before(:each) do 
     @answer = FactoryGirl.create(:answer)
-    @vote = FactoryGirl.create(:vote)
+    @vote = FactoryGirl.create(:vote, user_id: @user.id)
     @observer = VoteObserver.instance
   end
   

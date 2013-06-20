@@ -10,11 +10,13 @@ describe "Questions" do
   end
   
   it "creates a new question" do
+    visit root_path
     sign_in_user
     create_and_find_question
   end
   
   it "fails to create question with invalid params" do
+    visit root_path
     sign_in_user
     click_on_question
     fill_in "Title", with: ""
@@ -28,6 +30,7 @@ describe "Questions" do
   end 
   
   it "edits the question successfullly with valid params" do
+    visit root_path
     sign_in_user
     question = FactoryGirl.create(:question)
     visit root_path

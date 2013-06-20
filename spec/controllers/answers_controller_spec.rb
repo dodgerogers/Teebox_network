@@ -96,9 +96,6 @@ describe AnswersController do
   
   describe "POST vote" do
     it "creates vote" do
-      @user1 = FactoryGirl.create(:user)
-      @user2 = FactoryGirl.create(:user)
-      @answer = FactoryGirl.attributes_for(:answer, user_id: @user1)
       expect {
         post :vote, id: @vote, value: 1
       }.to change(Vote, :count).by(1)

@@ -2,7 +2,10 @@ require "spec_helper"
 
 describe Vote do
   before(:each) do
-    @vote = FactoryGirl.create(:vote)
+    @user2 = FactoryGirl.create(:user)
+    @user3 = FactoryGirl.create(:user)
+    @answer = FactoryGirl.create(:answer, user_id: @user3.id)
+    @vote = FactoryGirl.create(:vote, user_id: @user2.id, value: 1, votable_id: @answer.id, votable_type: "Answer", points: 5 )
   end
   
   subject { @vote }

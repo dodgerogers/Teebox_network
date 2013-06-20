@@ -13,6 +13,7 @@ describe QuestionsController do
     Vote.any_instance.stub(:sum_votes).and_return(true)
     Vote.any_instance.stub(:user_reputation).and_return(true)
     @request.env['HTTP_REFERER'] = "/questions/#{@question}/"
+    stub_model_methods
   end
 
   describe "GET show" do

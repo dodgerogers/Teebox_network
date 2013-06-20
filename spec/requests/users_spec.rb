@@ -3,6 +3,7 @@ include UsersHelper
 
 describe "User management" do
   it "should successfully sign in existing user" do
+    visit root_path
     sign_in_user
   end
   

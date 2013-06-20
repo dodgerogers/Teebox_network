@@ -45,10 +45,10 @@ class AnswersController < ApplicationController
     @vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Answer")
     respond_to do |format|
     if @vote.save
-      format.html { redirect_to @vote.votable_type.downcase, notice: "Vote submitted" }
+      format.html { redirect_to :back, notice: "Vote submitted" }
       format.js
     else
-      format.html { redirect_to @vote.votable_type.downcase, alert: "You can't vote on your own content" }
+      format.html { redirect_to :back, alert: "You can't vote on your own content" }
       format.js
     end
   end
@@ -58,7 +58,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     if @answer.toggle_correct(:correct)
        @answer.add_reputation
-       @answer.toggle_question_correct
+       #@answer.toggle_question_correct
         respond_to do |format|
           format.html { redirect_to :back, notice: "Answer submitted" }
           format.js

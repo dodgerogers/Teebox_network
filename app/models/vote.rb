@@ -1,15 +1,14 @@
 class Vote < ActiveRecord::Base
   
-  attr_accessible :value, :votable_id, :votable_type
+  attr_accessible :value, :votable_id, :votable_type, :user_id, :points
   belongs_to :votable, polymorphic: true
   belongs_to :user
   
   validates_inclusion_of :value, in: [1, -1]
   validates_presence_of :user_id, :value, :votable_id, :votable_type, :points
-  validates_uniqueness_of :user_id, scope: :votable_id
-  validates_uniqueness_of :value, scope: :votable_id 
+  validates_uniqueness_of :value, scope: [:votable_id, :user_id]
   
-  #validate :ensure_not_author
+  validate :ensure_not_author
   
   before_validation :create_points
   

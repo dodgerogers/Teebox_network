@@ -5,12 +5,14 @@ include CommentHelper
 
 describe "Commments" do
   it "creates a new comment" do
+    visit root_path
     sign_in_user
     create_and_find_question
     create_comment
   end
   
   it "fails to create comment with invalid params" do
+    visit root_path
     sign_in_user
     create_and_find_question
     page.should have_selector("div", id: "comment-textarea")
@@ -21,6 +23,7 @@ describe "Commments" do
   end
   
   it "deletes a comment" do
+    visit root_path
      sign_in_user
       create_and_find_question
       create_comment

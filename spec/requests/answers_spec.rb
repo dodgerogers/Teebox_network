@@ -4,12 +4,14 @@ include AnswerHelper
 
 describe "Answers" do
   it "creates a new answer" do
+    visit root_path
     sign_in_user
     create_and_find_question
     create_answer
   end   
   
   it "deletes an answer" do
+    visit root_path
     sign_in_user
     create_and_find_question
     create_answer
@@ -20,6 +22,7 @@ describe "Answers" do
   end
   
   it "fails to create answer with invalid params" do
+    visit root_path
     sign_in_user
     create_and_find_question
     click_link "Add your answer"
@@ -32,6 +35,7 @@ describe "Answers" do
   end
   
   it "edits the answer successfullly with valid params" do
+    visit root_path
      sign_in_user
      question = FactoryGirl.create(:question)
      visit questions_path
@@ -43,6 +47,7 @@ describe "Answers" do
    end
    
   it "updates the correct column" do
+    visit root_path
     sign_in_user 
     create_and_find_question
     create_answer

@@ -15,9 +15,11 @@ class Answer < ActiveRecord::Base
   #only 1 answer per question per user
   validates_uniqueness_of :user_id, scope: :question_id
   
-   def toggle_question_correct
+  def toggle_question_correct
     self.question.toggle_correct(:correct)
   end
+  
+  #validate answer only toggled once, or user rep on toggled once when correct answer is marked
   
   def add_reputation
     user = self.user

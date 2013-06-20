@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  
+  after_filter :store_location
   helper_method :resource_name, :resource, :devise_mapping
   
   def resource_name
@@ -16,11 +16,15 @@ class ApplicationController < ActionController::Base
       @devise_mapping ||= Devise.mappings[:user]
     end
     
-  def after_sign_in_path_for(resource)
-     home_path
+    def store_location
+      session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
     end
-  
-  def after_sign_up_path_for(resource)
-     home_path
+    
+    def after_sign_in_path_for(resource)
+      session[:previous_url] || root_path
+    end
+   
+    def after_sign_out_path_for(resource_or_scope)
+     request.referrer
    end
 end
