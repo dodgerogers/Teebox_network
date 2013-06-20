@@ -6,7 +6,7 @@ class Vote < ActiveRecord::Base
   
   validates_inclusion_of :value, in: [1, -1]
   validates_presence_of :user_id, :value, :votable_id, :votable_type, :points
-  validates_uniqueness_of :value, scope: [:votable_id, :user_id]
+  #validates_uniqueness_of :value, scope: [:votable_id, :user_id]
   
   validate :ensure_not_author
   

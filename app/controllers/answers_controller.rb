@@ -58,7 +58,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     if @answer.toggle_correct(:correct)
        @answer.add_reputation
-       #@answer.toggle_question_correct
+       @answer.toggle_question_correct
         respond_to do |format|
           format.html { redirect_to :back, notice: "Answer submitted" }
           format.js
