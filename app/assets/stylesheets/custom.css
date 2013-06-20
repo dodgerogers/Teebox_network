@@ -788,7 +788,7 @@ form#header {
 }
 
 #tick:hover {
-	color: #409C69;
+	color: #4fc392;
 }
 
 #user-answers {
@@ -853,12 +853,12 @@ form#header {
 }
 
 #downvote:hover {
-	color: rgb(236, 84, 57);
+	color: #EC5439;
 	text-decoration: none;
 }
 
 .orange-arrows h1{
-	color: rgb(250, 177, 142);
+	color: #ccc;
 	display:inline-block;
 }
 

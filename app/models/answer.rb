@@ -19,13 +19,23 @@ class Answer < ActiveRecord::Base
     self.question.toggle_correct(:correct)
   end
   
-  #validate answer only toggled once, or user rep on toggled once when correct answer is marked
   
   def add_reputation
-    user = self.user
-    if self.correct == true && user != self.question.user
-      user.update_attributes(reputation: (user.reputation + 20)) 
-      self.question.user.update_attributes(reputation: (self.question.user.reputation + 5)) 
+    if truthness(self, true)
+      update_reputations(self, 20, 5, :+)
+    elsif truthness(self, false)
+      update_reputations(self, 20, 5, :-)
     end
   end 
+  
+  private
+  
+  def truthness(answer, truth)
+    answer.correct == truth && answer.user != answer.question.user
+  end
+  
+  def update_reputations(answer, your_rep, my_rep, operator)
+    answer.user.update_attributes(reputation: (answer.user.reputation.send(operator, your_rep)))
+    answer.question.user.update_attributes(reputation: (answer.question.user.reputation.send(operator, my_rep)))
+  end
 end

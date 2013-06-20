@@ -1,6 +1,6 @@
 <div class="vote">
 	<div id='<%= "#{votes_count}_#{id}" %>' class="vote-box">
-		<div class='<%= object.votes_count < 0 ? 'orange-arrows' : 'default-arrows' %>'>
+		<div class='<%= object.votes_count < 1 ? 'orange-arrows' : 'default-arrows' %>'>
 			<h1><%= object.votes_count %></h1>
 		</div>
 	</div>

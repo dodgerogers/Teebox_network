@@ -17,7 +17,7 @@
 	
 	<%= render partial: "users/answers", locals: {answers: @answers } if @answers.any? %>
 	
-	<%= render partial: "users/comments", locals: {comments: @comments } if @comments.any? %>
+	<%= render partial: "users/comments", locals: {comments: @comments } if @comments.any? %><br>
 		
 	<%= link_to "My Videos", videos_path, class: "btn" if current_user == @user %>
 	
