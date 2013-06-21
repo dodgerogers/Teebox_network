@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620194129) do
+ActiveRecord::Schema.define(:version => 20130621170049) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -54,23 +54,30 @@ ActiveRecord::Schema.define(:version => 20130620194129) do
     t.integer  "answers_count", :default => 0
     t.integer  "points",        :default => 0
     t.boolean  "correct",       :default => false
+    t.string   "tags"
   end
 
+  add_index "questions", ["tags"], :name => "index_questions_on_tags"
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
   add_index "questions", ["video_id"], :name => "index_questions_on_video_id"
 
-  create_table "tags", :force => true do |t|
-    t.string   "name"
-    t.text     "explanation"
+  create_table "taggings", :force => true do |t|
     t.integer  "question_id"
-    t.string   "updated_by"
-    t.integer  "user_id"
+    t.integer  "tag_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "tags", ["question_id"], :name => "index_tags_on_question_id"
-  add_index "tags", ["user_id"], :name => "index_tags_on_user_id"
+  add_index "taggings", ["question_id"], :name => "index_taggings_on_question_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.text     "explanation"
+    t.string   "updated_by"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

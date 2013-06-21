@@ -3,8 +3,12 @@ class TagsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @tags = Tag.order("updated_at").paginate(page: params[:page], per_page: 50).reverse#.search(params[:search])
     @tag = Tag.new
+    @tags = Tag.order(:name)
+    respond_to do |format|
+      format.html
+      format.json { render json: @tags.tokens(params[:q]) }
+    end
   end
   
   def new
@@ -16,7 +20,7 @@ class TagsController < ApplicationController
   end
   
   def create
-    @tag = current_user.tags.build(params[:tag])
+    @tag = Tag.create(params[:tag])
     respond_to do |format|
       if @tag.save
         format.html { redirect_to tags_path, notice: "Tag created" }

@@ -5,14 +5,13 @@ describe TagsController do
   before(:each) do
     @user = FactoryGirl.create(:user)
     sign_in @user
-    @tag = FactoryGirl.attributes_for(:tag, user_id: @user.id)
-    controller.stub!(:current_user).and_return(@user)
+    @tag = FactoryGirl.attributes_for(:tag)
   end
   
   describe "GET index" do
     it "renders index template" do
       get :index
-      response.should render_template :index
+      response.should render_template("index")
     end
   end
 
@@ -27,7 +26,7 @@ describe TagsController do
     describe "with valid params" do
       it "creates a new tag" do
         expect {
-          post :create, user_id: @user.id, tag: @tag
+          post :create, tag: @tag
         }.to change(Tag, :count).by(1)
       end
 

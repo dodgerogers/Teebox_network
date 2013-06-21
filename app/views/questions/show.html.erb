@@ -14,8 +14,10 @@
 	<%= simple_format @question.body %>
 </div>
 
+<%= question_tags(@question) %>
+
+
 	<div class="form-area">
-		
 		<div class="profile-info" id="question-profile-info">	
 		<%= link_to image_tag(avatar_url(@question.user)), @question.user %>
 		<%= link_to @question.user.reputation, @question.user, id: "profile-reputation" %>
