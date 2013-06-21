@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :tags
   
   def to_param
     "#{id} - #{username}".parameterize

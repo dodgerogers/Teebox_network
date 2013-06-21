@@ -6,6 +6,7 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy
+  has_many :tags
   
   attr_accessible :title, :body, :youtube_url, :video_id, :votes_count, :answers_count, :user_id, :points, :correct
   validates_presence_of :title, :body, :user_id

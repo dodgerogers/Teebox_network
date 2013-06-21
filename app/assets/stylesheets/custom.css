@@ -879,3 +879,14 @@ form#header {
 	font-weight: 400;
 	font-family: 'BebasNeueRegular';
 }
+
+
+/*-------------------- tags ----------------*/
+
+#tags {
+	
+}
+#tags h1 {
+	font-size: 20px;
+	display:inline;
+}

@@ -22,7 +22,9 @@ TeeboxNetwork::Application.routes.draw do
     member { put :correct }
     resources :comments, except: [:edit, :update]
   end
+  
   resources :videos
+  resources :tags
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

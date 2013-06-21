@@ -46,4 +46,12 @@ FactoryGirl.define do
     value 1
     points 5
   end
+  
+  factory :tag do
+    question_id :question
+    name "slice"
+    explanation "ball curves from left to right"
+    updated_by "Andy"
+    user_id :user
+  end
 end

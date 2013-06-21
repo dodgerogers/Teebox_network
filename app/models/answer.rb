@@ -19,7 +19,6 @@ class Answer < ActiveRecord::Base
     self.question.toggle_correct(:correct)
   end
   
-  
   def add_reputation
     if truthness(self, true)
       update_reputations(self, 20, 5, :+)
