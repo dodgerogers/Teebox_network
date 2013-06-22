@@ -1,7 +1,6 @@
 module QuestionHelper
   
   def question_tags(question)
-    raw question.tags.map(&:name).map {|n| link_to "#{n.titleize}", tag_path(n), class: "tag" }.join(' ')
+    raw question.tags.map(&:attributes).map {|tag| link_to tag["name"], tag_path(tag), class: "tag" }.join(" ")
   end
-  
 end
