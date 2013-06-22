@@ -5,6 +5,6 @@ module QuestionHelper
   end
   
   def tag_class(tag)
-    "#{request.protocol}#{request.host_with_port}#{request.fullpath}" == tag_url(tag.name) ? "current_tag" : "tag" 
+    "#{request.protocol}#{request.host_with_port}#{request.fullpath}" == tagged_url(tag.name) ? "current_tag" : "tag" 
   end
 end

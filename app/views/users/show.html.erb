@@ -8,8 +8,8 @@
 <%= link_to "Change your profile picture", "http://grvatar.com", target: :blank if current_user == @user %>
 <hr>
 
-<h1>Handicap: <%= @user.handicap %></h1>
-<h1>Teebox Score: <%= @user.reputation %></h1>
+<h1>Handicap: <%= @user.handicap  %></h1>
+<h1>Teebox Score: <%= @user.reputation  %></h1>
 </div>
 
 
@@ -19,6 +19,6 @@
 	
 	<%= render partial: "users/comments", locals: {comments: @comments } if @comments.any? %><br>
 		
-	<%= link_to "My Videos", videos_path, class: "btn" if current_user == @user %>
+	<%= link_to "My Videos", videos_path, class: "default next" if current_user == @user %>
 	
 

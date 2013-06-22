@@ -7,7 +7,7 @@
 <h2>Search Tags</h2>
 
 <%= form_tag tags_path, method: "get" do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Tags" %>
+<%= text_field_tag :search, params[:search], id: "tag-search", placeholder: "Search" %>
 <% end %>
 
 <div id="tags">

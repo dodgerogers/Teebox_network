@@ -6,6 +6,7 @@ describe TagsController do
     @user = FactoryGirl.create(:user)
     sign_in @user
     @tag = FactoryGirl.attributes_for(:tag)
+    controller.stub!(:current_user).and_return(@user)
   end
   
   describe "GET index" do
@@ -36,9 +37,9 @@ describe TagsController do
         assigns(:tag).should be_persisted
       end
 
-      it "redirects to index" do
+      it "redirects to the created tag" do
         post :create, tag: @tag
-        response.should redirect_to(tags_path)
+        response.should redirect_to(Tag.last)
       end
     end
 
@@ -51,7 +52,7 @@ describe TagsController do
       end
 
       it "re-renders the 'index' template" do
-        Question.any_instance.stub(:save).and_return(false)
+        Tag.any_instance.stub(:save).and_return(false)
         post :create, tag: @tag
         response.should redirect_to tags_path
       end

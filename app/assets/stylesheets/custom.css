@@ -1,4 +1,6 @@
-/* teebox green #4fc392 & #409C69  compatible teal #31838F, red #E95A4D*/
+/* 	Green #4fc392 & #409C69  
+		Teal #31838F 
+		Red #E95A4D*/
 
 html, body { 
 	min-height: 100%;
@@ -8,6 +10,10 @@ html, body {
 
 hr {
 	margin: 12px 0;
+}
+
+a {
+	color :#31838F;
 }
 
 a:hover {
@@ -323,7 +329,7 @@ a:hover {
 	font-weight: 200;
 	line-height: 30px;
 	color: inherit;
-	background: #474747 url(bg.png);
+	background: #474747;
 	-webkit-box-shadow: inset 0px -3px 10px -2px #737373;
 	box-shadow: inset 0px -3px 10px -2px #737373;
 	-moz-box-shadow: inset 0px -3px 10px -2px #737373;*/
@@ -773,6 +779,10 @@ form#header {
 .submit {
 	background: #31838F;
 }
+
+.next {
+	background: #E95A4D;
+}
 .default:hover {
 	color: #fff;
 	background:#999;
@@ -909,6 +919,10 @@ form#header {
 #tags h1 {
 	font-size: 20px;
 	display:inline;
+}
+
+#tag-search {
+	width: 300px!important;
 }
 
 .tag {

@@ -24,10 +24,10 @@ class TagsController < ApplicationController
   end
   
   def create
-    @tag = Tag.create(params[:tag])
+    @tag = Tag.create(params[:tag], updated_by: current_user.username)
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to tags_path, notice: "Tag created" }
+        format.html { redirect_to @tag, notice: "Tag created" }
       else
       format.html { redirect_to tags_path, notice: "Try again" }
       end
