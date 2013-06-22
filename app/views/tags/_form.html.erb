@@ -1,3 +1,5 @@
+<div class="well">
+<h2>Create a new Tag</h2>
 <%= form_for @tag do |f| %>
 
 <% if @tag.errors.any? %>
@@ -24,3 +26,4 @@
 	
 	<%= f.submit "Save Tag", class: "btn" %>
 	<% end %>
+	</div>

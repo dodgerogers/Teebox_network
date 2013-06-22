@@ -31,5 +31,8 @@ describe QuestionsController do
       delete("/questions/1").should route_to("questions#destroy", :id => "1")
     end
 
+    it "routes to #index" do
+      get('/tagged/slice').should route_to("questions#index", tag: "slice")
+    end
   end
 end

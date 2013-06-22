@@ -1,4 +1,4 @@
-/* teebox green #4fc392 & #409C69 */
+/* teebox green #4fc392 & #409C69  compatible teal #31838F, red #E95A4D*/
 
 html, body { 
 	min-height: 100%;
@@ -145,9 +145,8 @@ a:hover {
 	padding-top: 10px;
 }
 
-#main {
-	margin-bottom:50px;
-	
+.main {
+	margin-bottom:20px;
 }
 
 .sidebar {
@@ -319,7 +318,7 @@ a:hover {
 	line-height: 30px;
 	color: inherit;
 	background: #474747 url(bg.png);
-	/*-webkit-box-shadow: inset 0px -3px 10px -2px #737373;
+	-webkit-box-shadow: inset 0px -3px 10px -2px #737373;
 	box-shadow: inset 0px -3px 10px -2px #737373;
 	-moz-box-shadow: inset 0px -3px 10px -2px #737373;*/
 }
@@ -900,10 +899,27 @@ form#header {
 	padding: 3px 7px;
 	background: #E95A4D;
 }
-a.tag { 
+
+.current_tag {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 4px 8px;
+	background: #31838F;
+}
+
+a.tag, a.current_tag { 
 	color: #fff;
 	}
-
+a.tag:link{
+	
+}	
+a.tag:hover, a.current_tag:hover {
+	background: #31838F;
+}	
+a.tag:active, a.current_tag:active {
+	background: #31838F;
+}
 /*-------------------- tags autocomplete  ----------------*/
 
 ul.token-input-list {
@@ -935,7 +951,7 @@ ul.token-input-list li input {
 li.token-input-token {
     overflow: hidden; 
     margin: 3px;
-    padding: 3px 7px;
+    padding: 4px 8px;
 		background: #E95A4D;
     color: #fff;
     cursor: default;
@@ -991,7 +1007,7 @@ div.token-input-dropdown {
 div.token-input-dropdown p {
     margin: 0;
     padding: 5px;
-    font-weight: bold;
+
 }
 
 div.token-input-dropdown ul {
@@ -1004,6 +1020,7 @@ div.token-input-dropdown ul li {
     padding: 3px;
     margin: 0;
     list-style-type: none;
+
 }
 
 div.token-input-dropdown ul li.token-input-dropdown-item {

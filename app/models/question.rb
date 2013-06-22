@@ -23,6 +23,10 @@ class Question < ActiveRecord::Base
     self.tag_ids = Tag.ids_from_tokens(tokens)
   end
   
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).questions
+  end
+  
   def to_param
     "#{id} - #{title}".parameterize
   end

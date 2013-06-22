@@ -17,7 +17,12 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
+    @tags = Tag.order("updated_at").limit(20)
+    if params[:tag]
+      @questions = Question.tagged_with(params[:tag])
+    else
+      @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
+    end
   end
   
   def create

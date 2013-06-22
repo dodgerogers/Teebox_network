@@ -1,4 +1,7 @@
 <div class="main">
+	<% @tags.each do |tag| %>
+			<%= link_to tag.name, tagged_path(tag.name), class:  tag_class(tag) %>
+	<% end %>
 		<%= link_to "Ask a Question", videos_path, class: "btn ask-question" %>
 	</div>
 	
@@ -24,4 +27,4 @@
 		</div>
 	<% end %>
 	
-	<%= will_paginate @questions, previous_label: h("< Previous"), next_label: h("Next >") %>
+
