@@ -1,5 +1,6 @@
-<div class="well">
-<h2>Create a new Tag</h2>
+<%= link_to "Create a new Tag", "#", id: "toggle_tag_form", class: "default submit" %><br><br>
+
+<div class="well" id="tag_form">
 <%= form_for @tag do |f| %>
 
 <% if @tag.errors.any? %>
@@ -24,6 +25,6 @@
 		<%= f.text_field :explanation, placeholder: "Enter an explanation" %>
 	</div><br>
 	
-	<%= f.submit "Save Tag", class: "btn" %>
+	<%= f.submit "Save Tag", class: "default submit" %>
 	<% end %>
 	</div>

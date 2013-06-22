@@ -2,11 +2,14 @@
 
 <%= render partial: "tags/info" %>
 
-<%= render template: "tags/new" %><br>
+<%= render template: "tags/new" %>
 
-<h2>Latest updated tags</h2>
+<h2>Search Tags</h2>
+
+<%= form_tag tags_path, method: "get" do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Tags" %>
+<% end %>
 
 <div id="tags">
 <%= render @tags %>
 </div>
-<%= link_to "Tag Vault", tags_path %><br>

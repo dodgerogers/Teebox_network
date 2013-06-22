@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @tags = Tag.order("updated_at").limit(20)
+    @tags = Tag.order("updated_at").limit(25).reverse
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
     else

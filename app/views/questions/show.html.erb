@@ -28,8 +28,8 @@
 		
 		<% if @question.user == current_user %>
 		<div class="pull-right">
-	<%= link_to "Edit", edit_question_path(@question), class: "btn"  %>
-	<%= link_to "Delete", question_path(@question), method: :delete,  class: "btn"  %>
+	<%= link_to "Edit", edit_question_path(@question), class: "default"  %>
+	<%= link_to "Delete", question_path(@question), method: :delete,  class: "default"  %>
 	</div>
 	<% end %>
 	</div>
@@ -38,7 +38,7 @@
 
 	<div class="comments-area">
 	<%= render template: "comments/index" %>
-	<%= link_to "Add comment", "#", id: "comment-button", class: "btn" %><br>
+	<%= link_to "Add comment", "#", id: "comment-button", class: "default submit" %><br>
 	<%= render partial: "comments/form" %>
 	</div>
 	
@@ -47,6 +47,6 @@
 		<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
 	</div>
 	<%= render template: "answers/index" %><br>
-	<a href="#" id="answer-button" class="btn">Add your answer</a>
+	<a href="#" id="answer-button" class="default submit">Add your answer</a>
 	<br><br>
 	<%= render partial: "answers/form", locals: { question_id: @question.id } %>

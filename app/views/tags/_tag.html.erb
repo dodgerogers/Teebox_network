@@ -1,10 +1,8 @@
+<%= link_to tag.name.titleize, tag_path(tag), class: "tag" %>&nbsp
+<b><%= tag.explanation.try(:capitalize)  %></b><br><br>
 
+Updated by <%= link_to tag.updated_by %> <%= time_ago_in_words(tag.updated_at) %> ago<br>
 
-
-<h1><%= tag.name.titleize %></h1>
-<b><%= tag.explanation.try(:capitalize)  %></b><br>
-
-Updated by <%= tag.updated_by %> <%= time_ago_in_words(tag.updated_at) %> ago
-
+<%= link_to "#{tag.name.titleize} Questions", tagged_path(tag.name) %> |
 <%= link_to "Delete", tag, method: :delete %> |
 <%= link_to "Edit", edit_tag_path(tag) %><hr>

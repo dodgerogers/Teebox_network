@@ -1,11 +1,6 @@
-<div class="main">
-	<% @tags.each do |tag| %>
-			<%= link_to tag.name, tagged_path(tag.name), class:  tag_class(tag) %>
-	<% end %>
-		<%= link_to "Ask a Question", videos_path, class: "btn ask-question" %>
-	</div>
+<%= render partial: "questions/tag_cloud", locals: {tags: @tags} %>
 	
-	<h1>Latest Questions</h1><br>
+<h1>Latest Questions</h1><br>
 	
 <% @questions.each do |question| %>
 

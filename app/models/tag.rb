@@ -5,6 +5,14 @@ class Tag < ActiveRecord::Base
   has_many :questions, through: :taggings
   validates_presence_of :name
   
+  def self.search(search)
+    if search
+      find(:all, conditions: [ 'name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+  
   def self.tokens(query)
     tags = where("name like ?", "%#{query}%")
     if tags.empty?

@@ -4,7 +4,11 @@ class TagsController < ApplicationController
   
   def index
     @tag = Tag.new
-    @tags = Tag.order(:name)
+    if params[:search]
+      @tags = Tag.order(:name).paginate(page: params[:page], per_page: 24).search(params[:search])
+    else
+       @tags = Tag.order(:name)
+     end
     respond_to do |format|
       format.html
       format.json { render json: @tags.tokens(params[:q]) }

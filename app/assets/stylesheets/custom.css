@@ -120,11 +120,17 @@ a:hover {
 	
 	#answer-button:hover {
 		text-decoration:none;
-		color: #4da083 ;
 		
 	}
 	small {
 		line-height: 5px;
+	}
+	
+	.bebas {
+		font-family: 'BebasNeueRegular';
+		font-size: 22px;
+		color: #31838F;
+		vertical-align: middle;
 	}
 /*----------------------Containers ------------------------------*/
 
@@ -136,17 +142,17 @@ a:hover {
 }
 
 .container {
-	width:960px;
+	width:1040px;
 	margin: 10px auto 40px auto;	
 }
 .footer-container {
-	width:960px;
+	width:1040px;
 	margin: 0 auto;
 	padding-top: 10px;
 }
 
 .main {
-	margin-bottom:20px;
+	margin:15px 0px 25px;
 }
 
 .sidebar {
@@ -325,7 +331,7 @@ a:hover {
 
 .header_container {
 	position:relative;
-	width: 960px;
+	width: 1040px;
 	margin: 0 auto 0 auto;
 	padding: 10px 0px;
 }
@@ -752,12 +758,25 @@ form#header {
 
 /*-------------------- buttons ----------------*/
 
-.btn {
-	/*font-weight: 500;
-	color: #666;
-	text-shadow: 0px 2px 3px #fff;*/
+.default {
+	color: #fff;
+	background: #888;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 5px 10px!important;
+	border-radius:0px;
+	border:none;
+	text-shadow:none;
 }
 
+.submit {
+	background: #31838F;
+}
+.default:hover {
+	color: #fff;
+	background:#999;
+}
 
 /*-------------------- Answers ----------------*/
 
@@ -884,8 +903,8 @@ form#header {
 
 /*-------------------- tags ----------------*/
 
-#tags {
-	
+#tag_form {
+	display:none;
 }
 #tags h1 {
 	font-size: 20px;
@@ -1041,6 +1060,6 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item {
 
 }
 div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
-    background-color: #999;
-		color: #fff;
+    background-color: #eee;
+		color: #444;
 }
