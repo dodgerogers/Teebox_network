@@ -19,14 +19,6 @@ class Question < ActiveRecord::Base
   
   default_scope order('created_at DESC')
   
-  def tag_tokens=(tokens)
-    self.tag_ids = Tag.ids_from_tokens(tokens)
-  end
-  
-  def self.tagged_with(name)
-    Tag.find_by_name!(name).questions
-  end
-  
   def to_param
     "#{id} - #{title}".parameterize
   end
@@ -37,5 +29,13 @@ class Question < ActiveRecord::Base
     else
       find(:all)
     end
+  end
+  
+  def tag_tokens=(tokens)
+    self.tag_ids = Tag.ids_from_tokens(tokens)
+  end
+  
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).questions
   end
 end

@@ -1,5 +1,5 @@
 <%= link_to tag.name.titleize, tag_path(tag), class: "tag" %>
-<%= tag.explanation.try(:capitalize)  %><br><br>
+<%= tag.explanation ? tag.explanation.try(:capitalize) : "Contribute by adding an explanation for this tag" %><br><br>
 
 Updated by <%= link_to tag.updated_by %> <%= time_ago_in_words(tag.updated_at) %> ago<br>
 

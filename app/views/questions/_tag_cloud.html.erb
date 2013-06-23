@@ -1,7 +1,7 @@
 <div class="main">
+	<%= link_to "Tags Vault", tags_path, class: "bebas"%>
 	<% tags.each do |tag| %>
 			<%= link_to tag.name, tagged_path(tag.name), class:  tag_class(tag) %>
 	<% end %>
-	<%= link_to "Tags Vault", tags_path, class: "bebas"%>
 		<%= link_to "Ask a Question", videos_path, class: "default submit ask-question" %>
 	</div>
