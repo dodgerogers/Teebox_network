@@ -1,7 +1,5 @@
 <%= render partial: "questions/tag_cloud", locals: {tags: @tags} %>
 	
-<h1>Latest Questions</h1><br>
-	
 <% if params[:search] || params[:tag] %> 
 <%= render partial: "questions/questions", locals: {questions: @questions} %>
 <% else %>
