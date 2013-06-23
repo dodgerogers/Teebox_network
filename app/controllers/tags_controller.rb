@@ -38,7 +38,7 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        format.html { redirect_to tags_path, notice: "Successfully updated" }
+        format.html { redirect_to @tag, notice: "Successfully updated" }
         format.json { head :no_content }
       else
         format.html { render "edit", notice: "Plese try again" }

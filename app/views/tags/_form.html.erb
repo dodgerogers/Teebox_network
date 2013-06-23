@@ -1,6 +1,3 @@
-<%= link_to "Create a new Tag", "#", id: "toggle_tag_form", class: "default submit" %><br><br>
-
-<div class="well" id="tag_form">
 <%= form_for @tag do |f| %>
 
 <% if @tag.errors.any? %>
@@ -15,7 +12,8 @@
 	</div>
 	<% end %>
 	
-	
+	<%= f.hidden_field :updated_by, value: current_user.username %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
 	
 	<div class="field">
 		<%= f.text_field :name, placeholder: "Enter name" %>
@@ -27,4 +25,3 @@
 	
 	<%= f.submit "Save Tag", class: "default submit" %>
 	<% end %>
-	</div>

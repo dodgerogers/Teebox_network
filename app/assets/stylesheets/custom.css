@@ -492,6 +492,14 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 /*--------------------- Questions index ---------------------*/
 
+/* ----- nav tabs -----*/
+
+.nav-tabs li.active a {
+	color: #E95A4D;
+}
+
+/* ------*/
+
 .questions, .videos {
 	display: inline-block;
 	vertical-align:top;
@@ -665,6 +673,9 @@ body #header-search {
 	-webkit-box-shadow: 0px 2px 2px #777;  
 	-moz-box-shadow: 0px 2px 2px #777;  
 	box-shadow: 0px 2px 2px #777;
+	border-radius:0px;
+	-moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
 }
 
 #header-search:active, #header-search:hover {
@@ -925,12 +936,18 @@ form#header {
 	width: 300px!important;
 }
 
+#tag-explanation {
+	display:inline;
+}
+
 .tag {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 3px 7px;
 	background: #E95A4D;
+	display:inline;
+	color:#fff;
 }
 
 .current_tag {
@@ -1049,11 +1066,10 @@ div.token-input-dropdown ul {
 }
 
 div.token-input-dropdown ul li {
-    background-color: #fff;
-    padding: 3px;
-    margin: 0;
+    background-color: #ededed;
+    padding: 5px;
     list-style-type: none;
-
+		margin:5px 0px;
 }
 
 div.token-input-dropdown ul li.token-input-dropdown-item {

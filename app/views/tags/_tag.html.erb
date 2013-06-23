@@ -1,7 +1,8 @@
 <%= link_to tag.name.titleize, tag_path(tag), class: "tag" %>
 <%= tag.explanation ? tag.explanation.try(:capitalize) : "Contribute by adding an explanation for this tag" %><br><br>
 
-Updated by <%= link_to tag.updated_by %> <%= time_ago_in_words(tag.updated_at) %> ago<br>
+Updated <%= time_ago_in_words(tag.updated_at) %> ago 
+<%= link_to tag.updated_by, user_path(tag.user_id) if tag.user_id %><br>
 
 <%= link_to "View #{tag.name.titleize} questions", tagged_path(tag.name) %> |
 <%= link_to "Delete", tag, method: :delete %> |

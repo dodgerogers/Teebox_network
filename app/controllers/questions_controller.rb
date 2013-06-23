@@ -17,11 +17,13 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @tags = Tag.order("updated_at").limit(25).reverse
+    @tags = Tag.order(&:count).limit(25)
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
     else
       @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
+      @unanswered = Question.where(correct: false).paginate(page: params[:page], per_page: 24).search(params[:search])
+      @votes = Question.order(:votes_count).paginate(page: params[:page], per_page: 24).search(params[:search])
     end
   end
   
