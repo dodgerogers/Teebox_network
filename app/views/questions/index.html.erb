@@ -1,23 +1,11 @@
 <%= render partial: "questions/tag_cloud", locals: {tags: @tags} %>
-
-<div class="tabbable">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab" class="bebas">Latest Questions</a></li>
-    <li><a href="#tab2" data-toggle="tab" class="bebas">Unanswered Questions</a></li>
- 		<li><a href="#tab3" data-toggle="tab" class="bebas">Highest Votes</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="tab1">
-      <p><%= render partial: "questions/index_question", locals: {questions: @questions}%></p>
-    </div>
-    <div class="tab-pane" id="tab2">
-      <p><%= render partial: "questions/index_question", locals: {questions: @unanswered}%></p> 
-    </div>
-		<div class="tab-pane" id="tab3">
-		<p><%= render partial: "questions/index_question", locals: {questions: @votes}%></p>
-	</div>
-  </div>
-</div>
+	
+<h1>Latest Questions</h1><br>
+	
+<% if params[:search] || params[:tag] %> 
+<%= render partial: "questions/questions", locals: {questions: @questions} %>
+<% else %>
+<%= render partial: "questions/tabbed_index", locals: {questions: @questions, unanswered: @unanswered, votes: @votes} %>
+<% end %>
 	
 

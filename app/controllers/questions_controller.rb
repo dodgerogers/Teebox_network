@@ -20,6 +20,8 @@ class QuestionsController < ApplicationController
     @tags = Tag.order(&:count).limit(25)
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
+    elsif params[:search]
+      @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
     else
       @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
       @unanswered = Question.where(correct: false).paginate(page: params[:page], per_page: 24).search(params[:search])
