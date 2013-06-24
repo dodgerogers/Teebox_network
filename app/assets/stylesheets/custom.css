@@ -862,6 +862,13 @@ form#header {
 	color: #ccc;
 	}
 
+.index-vote {
+	float: right;
+	font-size: 30px;
+	display:inline;
+	color: #ccc;
+	font-family: 'BebasNeueRegular';
+}
 .vote-box {
 	display:inline-block!important;
 }

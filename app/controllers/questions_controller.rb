@@ -23,9 +23,9 @@ class QuestionsController < ApplicationController
     elsif params[:search]
       @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
     else
-      @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
+      @questions = Question.order("created_at DESC").paginate(page: params[:page], per_page: 24).search(params[:search])
       @unanswered = Question.where(correct: false).paginate(page: params[:page], per_page: 24).search(params[:search])
-      @votes = Question.order(:votes_count).paginate(page: params[:page], per_page: 24).search(params[:search])
+      @votes = Question.order("votes_count DESC").paginate(page: params[:page], per_page: 24).search(params[:search])
     end
   end
   

@@ -17,7 +17,7 @@ class Question < ActiveRecord::Base
   
   profanity_filter :body, :title
   
-  default_scope order('created_at DESC')
+  #default_scope order('created_at DESC')
   
   def to_param
     "#{id} - #{title}".parameterize
