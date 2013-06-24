@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   def index
     @tags = Tag.order(&:count).limit(25)
     if params[:tag]
-      @questions = Question.tagged_with(params[:tag])
+      @questions = Question.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 24)
     elsif params[:search]
       @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
     else
