@@ -18,8 +18,10 @@ class Question < ActiveRecord::Base
   
   profanity_filter :body, :title
   
-  #default_scope order('created_at DESC')
-  
+  scope :unanswered, conditions: { correct: false }
+  scope :by_votes, order: "votes_count DESC"
+  scope :newest, order: "created_at DESC"
+      
   def to_param
     "#{id} - #{title}".parameterize
   end

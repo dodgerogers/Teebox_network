@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @comments = @commentable.comments.includes(:user)
     @comment = Comment.new
     @answer = Answer.new
-    @answers = @question.answers.includes(:user).order("votes_count").reverse
+    @answers = @question.answers.includes(:user).by_votes
   end
   
   def new
@@ -19,13 +19,13 @@ class QuestionsController < ApplicationController
   def index
     @tags = Tag.order(&:count).limit(25)
     if params[:tag]
-      @questions = Question.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 24)
+      @questions = paginate_object(Question.tagged_with(params[:tag]), 24)
     elsif params[:search]
-      @questions = Question.paginate(page: params[:page], per_page: 24).search(params[:search])
+      @questions = paginate_object(Question, 24).search(params[:search])
     else
-      @questions = Question.order("created_at DESC").paginate(page: params[:page], per_page: 24).search(params[:search])
-      @unanswered = Question.where(correct: false).paginate(page: params[:page], per_page: 24).search(params[:search])
-      @votes = Question.order("votes_count DESC").paginate(page: params[:page], per_page: 24).search(params[:search])
+      @questions = paginate_object(Question.newest, 24)
+      @unanswered = paginate_object(Question.unanswered, 24).search(params[:search])
+      @votes = paginate_object(Question.by_votes, 24).search(params[:search])
     end
   end
   

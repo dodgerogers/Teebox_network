@@ -12,9 +12,10 @@ class Answer < ActiveRecord::Base
   
   #only one answer can be marked as correct
   validates_uniqueness_of :correct, scope: :question_id, if: :correct?
-  
   #only 1 answer per question per user
   validates_uniqueness_of :user_id, scope: :question_id
+  
+  scope :by_votes, order: "votes_count DESC"
   
   def toggle_question_correct
     self.question.toggle_correct(:correct)
