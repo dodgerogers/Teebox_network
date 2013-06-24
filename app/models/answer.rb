@@ -1,7 +1,8 @@
 class Answer < ActiveRecord::Base
   include AnswerHelper
   
-  attr_accessible :body, :question_id, :votes_count, :correct, :user_id, :points
+  attr_accessible :body, :question_id, :votes_count, :correct, :points, :user_id
+  #remove mass asignment for user_id
   validates_presence_of :body, :user_id, :question_id
   belongs_to :user
   belongs_to :question, counter_cache: true

@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
   include AnswerHelper
   
   attr_accessible :title, :body, :youtube_url, :video_id, :user_id, :votes_count, :answers_count, :points, :correct, :tag_tokens
+  #remove user_id massassignment
   attr_reader :tag_tokens
   
   belongs_to :user

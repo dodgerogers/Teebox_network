@@ -79,7 +79,7 @@ describe TagsController do
       it "redirects to the tag index" do
         put :update, id: @tag, tag: FactoryGirl.attributes_for(:tag, name: "top")
         @tag.reload
-        response.should redirect_to(tags_path)
+        response.should redirect_to(@tag)
       end
     end
 

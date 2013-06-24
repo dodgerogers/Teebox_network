@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe CommentsController do
   include Devise::TestHelpers
+  include AnswerHelper
   before(:each) do
     @user = FactoryGirl.create(:user)
     @user2 = FactoryGirl.create(:user)

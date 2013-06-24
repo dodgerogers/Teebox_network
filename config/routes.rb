@@ -26,6 +26,7 @@ TeeboxNetwork::Application.routes.draw do
   resources :videos
   resources :tags
   get "tagged/:tag", to: "questions#index", as: :tagged
+  get "question_tags", to: "tags#question_tags", as: :question_tags
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

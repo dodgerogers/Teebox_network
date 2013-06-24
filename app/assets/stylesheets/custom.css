@@ -784,18 +784,22 @@ form#header {
 	border:none;
 	text-shadow:none;
 }
-
+.default:hover {
+	color: #fff;
+	background:#999;
+}
 .submit {
 	background: #31838F;
+}
+
+.submit:hover {
+	background: #10545d;
 }
 
 .next {
 	background: #E95A4D;
 }
-.default:hover {
-	color: #fff;
-	background:#999;
-}
+
 
 /*-------------------- Answers ----------------*/
 

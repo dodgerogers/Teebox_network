@@ -4,15 +4,7 @@ class TagsController < ApplicationController
   
   def index
     @tag = Tag.new
-    if params[:search]
-      @tags = Tag.order(:name).paginate(page: params[:page], per_page: 24).search(params[:search])
-    else
-       @tags = Tag.order(:name)
-     end
-    respond_to do |format|
-      format.html
-      format.json { render json: @tags.tokens(params[:q]) }
-    end
+    @tags = Tag.order(:name).paginate(page: params[:page], per_page: 5).search(params[:search])
   end
   
   def new
@@ -24,7 +16,7 @@ class TagsController < ApplicationController
   end
   
   def create
-    @tag = Tag.create(params[:tag], updated_by: current_user.username)
+    @tag = Tag.create(params[:tag])
     respond_to do |format|
       if @tag.save
         format.html { redirect_to @tag, notice: "Tag created" }
@@ -54,5 +46,12 @@ class TagsController < ApplicationController
   def destroy
     @tag = Tag.find(params[:id]).destroy
     redirect_to tags_path
+  end
+  
+  def question_tags
+    @tags = Tag.order(:name)
+    respond_to do |format|
+      format.json { render json: @tags.tokens(params[:q]) }
+    end
   end
 end
