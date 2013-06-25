@@ -1,9 +1,13 @@
-<%= render partial: "questions/tag_cloud", locals: {tags: @tags} %>
+<%= render partial: "questions/tag_cloud", locals: {tags: @presenter.tags} %>
 	
-<% if params[:search] || params[:tag] %> 
-<%= render partial: "questions/questions", locals: {questions: @questions} %>
+<% if params[:search] %> 
+<%= render partial: "questions/questions", locals: {questions: @presenter.questions} %>
+<% elsif params[:tag] %>
+<%= render partial: "questions/questions", locals: {questions: @presenter.tagged_questions}%>
 <% else %>
-<%= render partial: "questions/tabbed_index", locals: {questions: @questions, unanswered: @unanswered, votes: @votes} %>
+<%= render partial: "questions/tabbed_index", locals: {questions: @presenter.newest, 
+																											unanswered: @presenter.unanswered, 
+																											votes: @presenter.votes} %>
 <% end %>
 	
 

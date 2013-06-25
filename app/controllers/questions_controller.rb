@@ -17,16 +17,15 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @tags = Tag.joins(:taggings).select('tags.*, count(tag_id) as "tag_count"').group(:tag_id).order(' tag_count desc')
-    if params[:tag]
-      @questions = Question.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
-    elsif params[:search]
-      @questions = Question.paginate(page: params[:page], per_page: 20).search(params[:search])
-    else
-      @questions = Question.newest.paginate(page: params[:page], per_page: 2)
-      @unanswered = Question.unanswered.paginate(page: params[:page], per_page: 2).search(params[:search])
-      @votes = Question.by_votes.paginate(page: params[:page], per_page: 2).search(params[:search])
-    end
+    @presenter = Questions::IndexPresenter.new(params)
+    #if params[:tag]
+    #  @questions ||= @question.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
+    #elsif params[:search]
+    #  @questions ||= @question.paginate(page: params[:page], per_page: 20).search(params[:search])
+    #else
+    #  @questions.newest.paginate(page: params[:page], per_page: 2)
+    #  @unanswered ||= @question.unanswered.paginate(page: params[:page], per_page: 2).search(params[:search])
+    #  @votes ||= @question.by_votes.paginate(page: params[:page], per_page: 2).search(params[:search])
   end
   
   def create
