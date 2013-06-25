@@ -913,7 +913,7 @@ form#header {
 }
 
 .default-arrows h1 {
-	color: rgb(159, 214, 195);
+	color: #ccc;
 	display:inline-block;
 }
 /*-------------------- reputation ----------------*/

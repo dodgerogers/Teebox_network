@@ -28,7 +28,7 @@ class SignedUrlsController < ApplicationController
     ).gsub(/\n|\r/, '')
   end
 
-  # sign our request by Base64 encoding the policy document.
+  #sign our request by Base64 encoding the policy document.
   def s3_upload_signature
     Base64.encode64(
       OpenSSL::HMAC.digest(

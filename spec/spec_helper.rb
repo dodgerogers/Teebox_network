@@ -10,6 +10,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   
+  #include ActionView for presenters only
+  config.include ActionView::TestCase::Behavior, example_group: {file_path: %r{spec/presenters}}
   
   #Disable observers by default
   ActiveRecord::Base.observers.disable :all
