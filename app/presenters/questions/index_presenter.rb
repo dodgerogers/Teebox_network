@@ -18,18 +18,28 @@ class Questions::IndexPresenter
   end
   
   def tagged_questions
-    @questions.tagged_with(params[:tag])
+    @questions.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20).includes(:user)
   end
   
   def newest
-    @questions.newest.paginate(page: params[:page], per_page: 20)
+    @questions.newest.paginate(page: params[:page], per_page: 20).includes(:user)
   end
   
   def unanswered
-    @questions.unanswered.paginate(page: params[:page], per_page: 20)
+    @questions.unanswered.paginate(page: params[:page], per_page: 20).includes(:user)
   end
   
   def votes
-    @questions.by_votes.paginate(page: params[:page], per_page: 20)
+    @questions.by_votes.paginate(page: params[:page], per_page: 20).includes(:user)
   end
+  
+  #old code from controller
+  #if params[:tag]
+  #  @questions ||= @question.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
+  #elsif params[:search]
+  #  @questions ||= @question.paginate(page: params[:page], per_page: 20).search(params[:search])
+  #else
+  #  @questions.newest.paginate(page: params[:page], per_page: 2)
+  #  @unanswered ||= @question.unanswered.paginate(page: params[:page], per_page: 2).search(params[:search])
+  #  @votes ||= @question.by_votes.paginate(page: params[:page], per_page: 2).search(params[:search])
 end

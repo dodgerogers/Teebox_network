@@ -5,8 +5,7 @@ class QuestionsController < ApplicationController
     
   def show
     @question = Question.find(params[:id])
-    @commentable = @question
-    @comments = @commentable.comments.includes(:user)
+    @comments = @question.comments.includes(:user)
     @comment = Comment.new
     @answer = Answer.new
     @answers = @question.answers.includes(:user).by_votes
@@ -18,14 +17,6 @@ class QuestionsController < ApplicationController
   
   def index
     @presenter = Questions::IndexPresenter.new(params)
-    #if params[:tag]
-    #  @questions ||= @question.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
-    #elsif params[:search]
-    #  @questions ||= @question.paginate(page: params[:page], per_page: 20).search(params[:search])
-    #else
-    #  @questions.newest.paginate(page: params[:page], per_page: 2)
-    #  @unanswered ||= @question.unanswered.paginate(page: params[:page], per_page: 2).search(params[:search])
-    #  @votes ||= @question.by_votes.paginate(page: params[:page], per_page: 2).search(params[:search])
   end
   
   def create
