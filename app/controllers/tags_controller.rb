@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   
   def index
     @tag = Tag.new
-    @tags = Tag.order(:name).paginate(page: params[:page], per_page: 5).search(params[:search])
+    @tags = Tag.order("created_at DESC").paginate(page: params[:page], per_page: 5).search(params[:search])
   end
   
   def new

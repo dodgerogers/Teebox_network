@@ -7,17 +7,16 @@
 
 <%= link_to "Change your profile picture", "http://grvatar.com", target: :blank if current_user == @user %>
 <hr>
-
-<h1>Handicap: <%= @user.handicap  %></h1>
 <h1>Teebox Score: <%= @user.reputation  %></h1>
+<h1 class="bebas">Handicap: <%= @user.handicap  %></h1>
 </div>
 
 
-	<%= render partial: "users/questions", locals: { questions: @questions } if @questions.any? %>
+	<%= render partial: "users/questions", locals: { questions: @presenter.questions } if @presenter.questions %>
 	
-	<%= render partial: "users/answers", locals: {answers: @answers } if @answers.any? %>
+	<%= render partial: "users/answers", locals: {answers: @presenter.answers } if @presenter.answers %>
 	
-	<%= render partial: "users/comments", locals: {comments: @comments } if @comments.any? %><br>
+	<%= render partial: "users/comments", locals: {comments: @presenter.comments } if @presenter.comments %><br>
 		
 	<%= link_to "My Videos", videos_path, class: "default next" if current_user == @user %>
 	

@@ -17,15 +17,15 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @tags = Tag.order(&:count).limit(25)
+    @tags = Tag.joins(:taggings).select('tags.*, count(tag_id) as "tag_count"').group(:tag_id).order(' tag_count desc')
     if params[:tag]
-      @questions = paginate_object(Question.tagged_with(params[:tag]), 24)
+      @questions = Question.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
     elsif params[:search]
-      @questions = paginate_object(Question, 24).search(params[:search])
+      @questions = Question.paginate(page: params[:page], per_page: 20).search(params[:search])
     else
-      @questions = paginate_object(Question.newest, 24)
-      @unanswered = paginate_object(Question.unanswered, 24).search(params[:search])
-      @votes = paginate_object(Question.by_votes, 24).search(params[:search])
+      @questions = Question.newest.paginate(page: params[:page], per_page: 2)
+      @unanswered = Question.unanswered.paginate(page: params[:page], per_page: 2).search(params[:search])
+      @votes = Question.by_votes.paginate(page: params[:page], per_page: 2).search(params[:search])
     end
   end
   

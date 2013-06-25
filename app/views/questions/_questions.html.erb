@@ -10,7 +10,7 @@
 		<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
 				<%= question.answers_count %>
 			</div>
-		<%= link_to question.user.reputation, question.user, id: "profile-reputation" %>
+		<%= link_to number_to_human(question.user.reputation), question.user, id: "profile-reputation" %>
 		<%= link_to image_tag(avatar_url(question.user)), question.user %>
 		<small><%= link_to question.user.username.titleize, user_path(question.user) %><br>	
 		Posted <%= time_ago_in_words(question.created_at) %> ago

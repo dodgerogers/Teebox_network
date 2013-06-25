@@ -14,7 +14,7 @@
 		<div class="right-header">	
 			<% if user_signed_in? %>
 			  <div class="letter-press">
-					<%= link_to current_user.reputation, current_user, id: "profile-reputation" %>
+					<%= link_to number_to_human(current_user.reputation), current_user, id: "profile-reputation" %>
 					<strong><%= link_to current_user.username.titleize, current_user %></strong>&nbsp
 					<%= link_to image_tag(avatar_url(current_user)), current_user %><br>
 				</div>

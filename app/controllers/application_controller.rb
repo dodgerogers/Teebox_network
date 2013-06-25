@@ -27,8 +27,4 @@ class ApplicationController < ActionController::Base
     def after_sign_out_path_for(resource_or_scope)
      request.referrer
    end
-   
-   def paginate_object(object, pages)
-     object.paginate(page: params[:page], per_page: pages)
-   end
 end
