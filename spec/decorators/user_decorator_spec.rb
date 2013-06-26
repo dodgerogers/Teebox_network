@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe UserPresenter do
+describe UserDecorator do
   include ActionView::TestCase::Behavior
   
 end

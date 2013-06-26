@@ -5,14 +5,14 @@
 			<td>Points</td>
 			<td>Comment</td>
 		</tr>
-		<% for comment in comments %>	
+		<% for comment in objects %>	
 	    <tr>
 				<td>
 					<div id="<%= comment.points > 0 ? 'plus-points' : 'no-points' %>">
 						<%= comment.points > 0 ? "+#{comment.points}" : comment.points %>
 					</div>
 				</td>
-	      <td><%= link_to truncate(comment.content, length: 80), comment.commentable unless comments.empty? %></td>
+	      <td><%= link_to truncate(comment.content, length: 80), comment.commentable unless objects.empty? %></td>
 	    </tr>
 	<% end %>
 	</table>

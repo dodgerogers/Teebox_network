@@ -5,10 +5,12 @@ class QuestionsController < ApplicationController
     
   def show
     @question = Question.find(params[:id])
-    @comments = @question.comments.includes(:user)
+    @commentable = @question
+    @comments = @commentable.comments.includes(:user)
     @comment = Comment.new
     @answer = Answer.new
     @answers = @question.answers.includes(:user).by_votes
+    @decorator = Questions::ShowDecorator.new(@question)
   end
   
   def new
@@ -16,7 +18,7 @@ class QuestionsController < ApplicationController
   end
   
   def index
-    @presenter = Questions::IndexPresenter.new(params)
+    @decorator = Questions::IndexDecorator.new(params)
   end
   
   def create

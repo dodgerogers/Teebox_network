@@ -3,7 +3,7 @@
 	<%= link_to "Tag Vault", tags_path, class: "bebas"%>
 	<% tags.each do |tag| %>
 	<div class="tag_cloud_tag">
-			<%= link_to "#{tag.name} x #{tag.tag_count}", tagged_path(tag.name), class:  tag_class(tag) %>
+			<%= link_to "#{tag.name} x #{tag.tag_count}", tagged_path(tag.name), class:  decorator.tag_class(tag) %>
 		</div>
 	<% end %>
 	</div>

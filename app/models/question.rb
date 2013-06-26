@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   validates_presence_of :title, :body, :user_id

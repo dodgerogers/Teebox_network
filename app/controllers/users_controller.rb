@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @presenter = UserPresenter.new(@user)
+    @decorator = UserDecorator.new(@user)
   end
 end

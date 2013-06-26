@@ -45,6 +45,7 @@ gem 'will_paginate', '3.0.3'
 gem 'aws-sdk','~> 1.0'
 gem 'profanity_filter'
 gem 'bootstrap-wysihtml5-rails'
+gem 'draper', :git => "git://github.com/drapergem/draper.git"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,23 +1,24 @@
 <h1>Profile</h1><br>
 
 <div class="profile-info">
-<%= link_to image_tag(avatar_url(@user)), @user %>
-<%= @user.email %><br>
-<%= @user.username %><br><br>
+<%= link_to image_tag(avatar_url(@decorator)), @decorator %>
+<%= @decorator.email %><br>
+<%= @decorator.username %><br><br>
 
-<%= link_to "Change your profile picture", "http://grvatar.com", target: :blank if current_user == @user %>
+<%= @decorator.change_picture %>
 <hr>
-<h1>Teebox Score: <%= @user.reputation  %></h1>
-<h1 class="bebas">Handicap: <%= @user.handicap  %></h1>
+<h1>Teebox Score: <%= @decorator.reputation  %></h1>
+<h1 class="bebas">
+	Handicap: <%= @decorator.handicap  %></h1>
 </div>
 
 
-	<%= render partial: "users/questions", locals: { questions: @presenter.questions } if @presenter.questions.any? %>
+	<%= @decorator.render_partial("questions", @decorator.questions) %>
 	
-	<%= render partial: "users/answers", locals: {answers: @presenter.answers } if @presenter.answers.any? %>
+	<%= @decorator.render_partial("answers", @decorator.answers) %>
 	
-	<%= render partial: "users/comments", locals: {comments: @presenter.comments } if @presenter.comments.any? %><br>
+	<%= @decorator.render_partial("comments", @decorator.comments) %><br>
 		
-	<%= link_to "My Videos", videos_path, class: "default next" if current_user == @user %>
+	<%= @decorator.my_videos %>
 	
 

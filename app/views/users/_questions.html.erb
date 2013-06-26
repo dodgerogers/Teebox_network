@@ -7,7 +7,7 @@
 			<td>Points</td>
 			<td>Question</td>
 		</tr>
-		<% for question in questions %>
+		<% for question in objects %>
 	    <tr>
 				<td>
 					<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
