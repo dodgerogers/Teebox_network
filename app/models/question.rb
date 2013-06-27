@@ -15,6 +15,7 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :title, :body, :user_id
   validates_presence_of :video_id, allow_nil: false
+  validate :tag_limit
   
   profanity_filter :body, :title
   
@@ -40,5 +41,9 @@ class Question < ActiveRecord::Base
   
   def self.tagged_with(name)
     Tag.find_by_name!(name).questions
+  end
+  
+  def tag_limit
+      errors.add(:tag_tokens, "Maximum of 5 Tags per Question") if self.tags.size > 5 if self.tags
   end
 end

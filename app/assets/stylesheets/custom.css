@@ -132,7 +132,7 @@ a:hover {
 		line-height: 5px;
 	}
 	
-	.bebas {
+	.bebas, label {
 		font-family: 'BebasNeueRegular';
 		font-size: 22px;
 		color: #31838F;
@@ -417,10 +417,6 @@ input, textarea {
 
 .input-xlarge {
 margin: 0px 0px 10px;
-}
-
-label {
-	color: #409C69;
 }
 
 input[type="text"] {
