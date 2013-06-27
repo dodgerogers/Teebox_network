@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :index, only: [:unanswered, :highest_votes]
   caches_page :index
     
   def show
@@ -19,6 +20,9 @@ class QuestionsController < ApplicationController
   
   def index
     @decorator = Questions::IndexDecorator.new(params)
+  end
+  
+  def unanswered
   end
   
   def create

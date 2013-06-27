@@ -5,11 +5,18 @@ TeeboxNetwork::Application.routes.draw do
   resources :signed_urls, only: :index
   match '/welcome', to: 'pages#welcome', as: 'welcome'
   match '/home'=> "questions#index"
+  root to: "questions#index"
   
   get "tagged/:tag", to: "questions#index", as: :tagged
+  
   get "question_tags", to: "tags#question_tags", as: :question_tags #for tokenInput json url
+  get "questions/unanswered", to: "questions#unanswered", as: :unanswered
+  get "questions/highest_votes", to: "questions#highest_votes", as: :highest_votes
+  
+  get "users/:id/questions_index", to: "users#questions_index", as: :questions_index
+  get "users/:id/answers_index", to: "users#answers_index", as: :answers_index
+  get "users/:id/comments_index", to: "users#comments_index", as: :comments_index
 
-  root to: "questions#index"
   
   resources :questions do
      resources :comments, except: [:edit, :update]

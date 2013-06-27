@@ -7,7 +7,7 @@
 			<td>Points</td>
 			<td>Question</td>
 		</tr>
-		<% for question in objects %>
+		<% for question in @user.questions %>
 	    <tr>
 				<td>
 					<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
@@ -23,3 +23,5 @@
 	    </tr>
 	<% end %>
 	</table>
+
+<%= link_to "Back to profile", :back %>

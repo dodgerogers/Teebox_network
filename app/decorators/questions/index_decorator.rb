@@ -16,6 +16,10 @@ class Questions::IndexDecorator < ApplicationDecorator
   def tag_class(tag)
     "#{request.protocol}#{request.host_with_port}#{request.fullpath}" == tagged_url(tag.name) ? "current_tag" : "tag" 
   end
+  
+  def tab_class(url)
+    "#{request.protocol}#{request.host_with_port}#{request.fullpath}" == url ? "tab active" : "tab" 
+  end
 
   def questions
     @questions.paginate(page: params[:page], per_page: 20).search(params[:search])
@@ -34,10 +38,10 @@ class Questions::IndexDecorator < ApplicationDecorator
   end
 
   def unanswered_questions
-    @questions.unanswered.paginate(page: params[:page], per_page: 20).includes(:user)
+    @questions.unanswered(params[:unanswered]).paginate(page: params[:page], per_page: 20).includes(:user)
   end
 
   def votes_questions
-    @questions.by_votes.paginate(page: params[:page], per_page: 20).includes(:user)
+    @questions.by_votes(params[:by_votes]).paginate(page: params[:page], per_page: 20).includes(:user)
   end
 end

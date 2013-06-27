@@ -8,7 +8,11 @@ class UserDecorator < ApplicationDecorator
   end
    
   def my_videos
-    link_to "My Videos", videos_path, class: "default next" if current_user == model
+    link_to "My Videos", videos_path, class: "default submit" if current_user == model
+  end
+  
+  def link_helper(text, path, objects)
+    link_to "View all #{text}", path, class: "default submit" if objects.any?
   end
   
   def render_partial(partial, user_objects)
@@ -16,15 +20,15 @@ class UserDecorator < ApplicationDecorator
   end
   
   def questions
-    model.questions.limit(6)
+    model.questions
   end
   
   def answers
-    model.answers.includes(:question).limit(6)
+    model.answers.includes(:question)
   end
   
   def comments
-    model.comments.includes(:commentable).limit(6)
+    model.comments.includes(:commentable)
   end
   
   def new_video

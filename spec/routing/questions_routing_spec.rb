@@ -34,5 +34,13 @@ describe QuestionsController do
     it "routes to #index" do
       get('/tagged/slice').should route_to("questions#index", tag: "slice")
     end
+    
+    it "routes to #unanswered" do
+      get("/questions/unanswered").should route_to("questions#unanswered")
+    end
+    
+    it "routes to #question_votes" do
+      get("/questions/highest_votes").should route_to("questions#highest_votes")
+    end
   end
 end

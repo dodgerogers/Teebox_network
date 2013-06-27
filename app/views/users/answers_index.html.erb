@@ -6,7 +6,7 @@
 			<td>Points</td>
 			<td>Answer</td>
 		</tr>
-		<% for answer in objects %>	
+		<% for answer in @user.answers.includes(:question) %>	
 	    <tr>
 				<td>
 					<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
@@ -22,3 +22,5 @@
 	    </tr>
 	<% end %>
 	</table>
+
+<%= link_to "Back to profile", :back %>

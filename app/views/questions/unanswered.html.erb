@@ -1,0 +1,5 @@
+<%= render partial: "questions/helpers/tag_cloud", locals: {tags: @decorator.tags, decorator: @decorator} %>
+
+<%= render partial: "questions/helpers/links", locals: { decorator: @decorator } %>
+
+<%= render partial: "questions/helpers/questions", locals: {questions: @decorator.unanswered_questions}%>

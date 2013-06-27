@@ -7,8 +7,7 @@
 	
 <h1><%= @question.title.titleize %></h1>
 
-	<%= render partial: "votes/form", 
-			locals: { votes_count: "questions", id: @question.id, object: @question, vote_path: method(:vote_question_path) } %> 
+	<%= render partial: "votes/form", locals: { votes_count: "questions", id: @question.id, object: @question, vote_path: method(:vote_question_path) } %> 
 
 <div class="question-content">
 	<%= simple_format @question.body %>

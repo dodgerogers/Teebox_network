@@ -12,8 +12,8 @@
 	
 	
 	<div class="pull-right">
-		<%= link_to "my videos", videos_path, class: "btn" %>
-	<%= link_to "delete", video_path(@video), class: "btn", method: :delete if @video.user == current_user %>
+		<%= link_to "my videos", videos_path, class: "default" %>
+	<%= link_to "delete", video_path(@video), class: "default", method: :delete if @video.user == current_user %>
 	</div>
 </div>	
 

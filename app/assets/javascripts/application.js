@@ -18,7 +18,6 @@
 //= require twitter/bootstrap
 //= require twitter/bootstrap/bootstrap-transition
 //= require twitter/bootstrap/bootstrap-modal
-//= require twitter/bootstrap/bootstrap-tab
 //= require bootstrap-wysihtml5
 //= require_tree .
 

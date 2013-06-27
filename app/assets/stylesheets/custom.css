@@ -492,13 +492,27 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 /*--------------------- Questions index ---------------------*/
 
-/* ----- nav tabs -----*/
+/* ----------------- nav tabs ----------------------*/
 
 .nav-tabs li.active a {
 	color: #E95A4D;
 }
 
-/* ------*/
+
+.current a {
+	color:#E95A4D;
+	border:1px solid #ccc;
+	border-bottom: 1px solid #fff;
+	padding: 4px 15px;
+}
+
+.tab {
+	list-style: none;
+	display:inline;
+}
+
+
+/* ----------------------------------*/
 
 .questions, .videos {
 	display: inline-block;

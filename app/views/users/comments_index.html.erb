@@ -5,7 +5,7 @@
 			<td>Points</td>
 			<td>Comment</td>
 		</tr>
-		<% for comment in objects %>	
+		<% for comment in @user.comments.includes(:commentable) %>	
 	    <tr>
 				<td>
 					<div id="<%= comment.points > 0 ? 'plus-points' : 'no-points' %>">
@@ -16,3 +16,4 @@
 	    </tr>
 	<% end %>
 	</table>
+<%= link_to "Back to profile", :back %>

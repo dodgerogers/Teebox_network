@@ -30,11 +30,11 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-     @comment = Comment.destroy(params[:id])
-        respond_to do |format|
-          format.js
-          end
-       end
+    @comment = Comment.destroy(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
        
   def vote 
     @vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Comment")

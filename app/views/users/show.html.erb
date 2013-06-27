@@ -8,17 +8,20 @@
 <%= @decorator.change_picture %>
 <hr>
 <h1>Teebox Score: <%= @decorator.reputation  %></h1>
+
 <h1 class="bebas">
 	Handicap: <%= @decorator.handicap  %></h1>
 </div>
 
-
-	<%= @decorator.render_partial("questions", @decorator.questions) %>
+<div class="profile-links">
+		<%= @decorator.link_helper("questions", questions_index_path(@decorator), @decorator.questions) %>
 	
-	<%= @decorator.render_partial("answers", @decorator.answers) %>
+		<%= @decorator.link_helper("answers", answers_index_path(@decorator), @decorator.answers) %>
 	
-	<%= @decorator.render_partial("comments", @decorator.comments) %><br>
+		<%= @decorator.link_helper("comments", comments_index_path(@decorator), @decorator.comments) %>
 		
-	<%= @decorator.my_videos %>
+		<%= @decorator.my_videos %>
+</div>
+		
 	
 

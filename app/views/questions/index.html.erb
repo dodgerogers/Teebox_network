@@ -1,12 +1,12 @@
-<%= render partial: "questions/tag_cloud", locals: {tags: @decorator.tags, decorator: @decorator} %>
+<%= render partial: "questions/helpers/tag_cloud", locals: {tags: @decorator.tags, decorator: @decorator} %>
+
+<%= render partial: "questions/helpers/links", locals: { decorator: @decorator } %>
 	
 <% if params[:search] %> 
-<%= render partial: "questions/questions", locals: {questions: @decorator.questions} %>
+<%= render partial: "questions/helpers/questions", locals: {questions: @decorator.questions} %>
 <% elsif params[:tag] %>
-<%= render partial: "questions/questions", locals: {questions: @decorator.tagged_questions}%>
-<% else %>
-<%= render partial: "questions/tabbed_index", locals: {questions: @decorator.newest_questions, 
-																											unanswered: @decorator.unanswered_questions, 
-																											votes: @decorator.votes_questions} %>
+<%= render partial: "questions/helpers/questions", locals: {questions: @decorator.tagged_questions} %>
+<% else  %>
+<%= render partial: "questions/helpers/questions", locals: {questions: @decorator.newest_questions} %>
 <% end %>
 	

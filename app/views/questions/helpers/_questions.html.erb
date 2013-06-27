@@ -1,4 +1,4 @@
-<h2><%= "#{questions.size} Questions found" if params[:search] || params[:tag] %></h2>	
+<h2><%= pluralize(questions.size, "Question") if params[:search] || params[:tag] %></h2>	
 
 <% questions.each do |question| %>
 
