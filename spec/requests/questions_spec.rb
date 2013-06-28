@@ -32,11 +32,8 @@ describe "Questions" do
   it "edits the question successfullly with valid params" do
     visit root_path
     sign_in_user
-    question = FactoryGirl.create(:question)
-    visit root_path
-    visit question_path(question)
+    create_and_find_question
     page.should have_content "Edit"
-    page.should have_content question.title.titleize
     click_link "Edit"
     page.should have_content "Edit your question"
     fill_in "question_title", with: "this is a new title"
