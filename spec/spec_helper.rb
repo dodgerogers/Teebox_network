@@ -10,6 +10,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   
+  #factory girl helpers :create(:object) & build(:object)
+  config.include FactoryGirl::Syntax::Methods
+  
   #include ActionView for presenters only
   config.include ActionView::TestCase::Behavior, example_group: {file_path: %r{spec/presenters}}
   

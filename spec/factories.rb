@@ -8,15 +8,26 @@ FactoryGirl.define do
     u.reputation 200
   end
   
-  factory :question do
+  factory :question do 
     title "slicing the ball"
     body "i cut across the ball"
-    user_id :user
+    user
     youtube_url "http://youtube.com"
     video_id :video
     answers_count 5
     votes_count 5
   end
+  
+  factory :invalid_question, parent: :question do
+    title nil
+    body nil
+    user
+    youtube_url "http://youtube.com"
+    video_id :video
+    answers_count 5
+    votes_count 5
+  end
+    
   
   factory :video do
     user_id :user

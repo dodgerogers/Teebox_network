@@ -3,16 +3,6 @@ class QuestionsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :index, only: [:unanswered, :highest_votes]
   caches_page :index
-    
-  def show
-    @question = Question.find(params[:id])
-    @commentable = @question
-    @comments = @commentable.comments.includes(:user)
-    @comment = Comment.new
-    @answer = Answer.new
-    @answers = @question.answers.includes(:user).by_votes
-    @decorator = Questions::ShowDecorator.new(@question)
-  end
   
   def new
     @question = Question.new
@@ -22,7 +12,14 @@ class QuestionsController < ApplicationController
     @decorator = Questions::IndexDecorator.new(params)
   end
   
-  def unanswered
+  def show
+    @question = Question.find(params[:id])
+    @commentable = @question
+    @comments = @commentable.comments.includes(:user)
+    @comment = Comment.new
+    @answer = Answer.new
+    @answers = @question.answers.includes(:user).by_votes
+    @decorator = Questions::ShowDecorator.new(@question)
   end
   
   def create

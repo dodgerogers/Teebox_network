@@ -5,8 +5,8 @@ describe TagsController do
   before(:each) do
     @user = FactoryGirl.create(:user)
     sign_in @user
-    @tag = FactoryGirl.attributes_for(:tag)
     controller.stub!(:current_user).and_return(@user)
+    @tag = FactoryGirl.attributes_for(:tag)
   end
   
   describe "GET index" do

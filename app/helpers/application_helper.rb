@@ -17,8 +17,8 @@ module ApplicationHelper
       <source src='#{video}' /></video>"
   end
   
-  def avatar_url(user)
+  def avatar_url(user, size=35)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
-     "http://gravatar.com/avatar/#{gravatar_id}.png?s=35&d=identicon"
+     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"
   end
 end

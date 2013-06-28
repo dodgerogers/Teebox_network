@@ -13,12 +13,16 @@ class Questions::IndexDecorator < ApplicationDecorator
     @params
   end
   
+  def current_page
+    "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
+  end
+  
   def tag_class(tag)
-    "#{request.protocol}#{request.host_with_port}#{request.fullpath}" == tagged_url(tag.name) ? "current_tag" : "tag" 
+    current_page == tagged_url(tag.name) ? "current_tag" : "tag" 
   end
   
   def tab_class(url)
-    "#{request.protocol}#{request.host_with_port}#{request.fullpath}" == url ? "tab active" : "tab" 
+    current_page == url ? "tab active" : "tab" 
   end
 
   def questions

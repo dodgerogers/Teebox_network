@@ -1,16 +1,14 @@
 <h1>Profile</h1><br>
 
 <div class="profile-info">
-<%= link_to image_tag(avatar_url(@decorator)), @decorator %>
+<%= link_to image_tag(avatar_url(@decorator, 75)), @decorator %>
 <%= @decorator.email %><br>
-<%= @decorator.username %><br><br>
-
+<%= @decorator.username %><br>
+Handicap: <%= @decorator.handicap  %><br>
 <%= @decorator.change_picture %>
 <hr>
 <h1>Teebox Score: <%= @decorator.reputation  %></h1>
 
-<h1 class="bebas">
-	Handicap: <%= @decorator.handicap  %></h1>
 </div>
 
 <div class="profile-links">
