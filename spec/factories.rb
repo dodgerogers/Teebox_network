@@ -43,7 +43,7 @@ FactoryGirl.define do
   end
   
   factory :answer do
-    user_id :user
+    user
     question_id :question
     body "you need to change your grip"
     votes_count 0
