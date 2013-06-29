@@ -35,10 +35,10 @@ FactoryGirl.define do
   end
   
   factory :comment do
-    user_id :user
+    user
     commentable_id :question
-    commentable_type "question"
-    content "a comment"
+    commentable_type "Question"
+    content "this is a useful comment"
     votes_count 5
   end
   

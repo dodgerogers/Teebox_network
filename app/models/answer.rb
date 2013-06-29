@@ -3,17 +3,18 @@ class Answer < ActiveRecord::Base
   
   attr_accessible :body, :question_id, :votes_count, :correct, :points
   
-  validates_presence_of :body, :user_id, :question_id
   belongs_to :user
   belongs_to :question, counter_cache: true
   has_many :votes, as: :votable, dependent: :destroy
   
-  profanity_filter :body
-  
+  validates_presence_of :body, :user_id, :question_id
+  validates_length_of :body, minimum: 10
   #only one answer can be marked as correct
   validates_uniqueness_of :correct, scope: :question_id, if: :correct?
   #only 1 answer per question per user
   validates_uniqueness_of :user_id, scope: :question_id
+  
+  profanity_filter :body
   
   scope :by_votes, order: "votes_count DESC"
   

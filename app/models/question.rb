@@ -14,6 +14,7 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :title, :body, :user_id
   validates_presence_of :video_id, allow_nil: false
+  validates_length_of :title, minimum: 10, maximum: 300
   validate :tag_limit
   
   profanity_filter :body, :title

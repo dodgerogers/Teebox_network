@@ -24,8 +24,7 @@ describe "Questions" do
     expect {
       click_button "Save"
     }.to_not change(Question, :count).by(1)
-    page.should have_content "1 error prohibited this post from being saved:"
-    page.should have_content "Title can't be blank"
+    page.should have_content "2 errors prohibited this post from being saved:"
     current_path.should eq questions_path
   end 
   

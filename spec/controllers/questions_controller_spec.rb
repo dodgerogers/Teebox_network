@@ -80,7 +80,7 @@ describe QuestionsController do
 
   describe "PUT update" do
     before(:each) do
-      @question = create(:question, title: "qweqwe ew qew qew", body: "metallica")
+      @question = create(:question, title: "now im hooking it!", body: "ball is going to the left")
     end
     
     it "assigns the requested question as @question" do
@@ -90,13 +90,13 @@ describe QuestionsController do
     
     describe "with valid params" do
       it "updates the requested question" do
-        put :update, id: @question, question: attributes_for(:question, title: "fuel")
+        put :update, id: @question, question: attributes_for(:question, title: "Shanking now, great!")
         @question.reload
-        @question.title.should eq("fuel")
+        @question.title.should eq("Shanking now, great!")
       end
 
       it "redirects to the post" do
-        put :update, id: @question, question: attributes_for(:question, title: "fuel")
+        put :update, id: @question, question: attributes_for(:question, title: "Shanking now, great!")
         @question.reload
         response.should redirect_to @question
       end

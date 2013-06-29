@@ -28,4 +28,7 @@ describe Answer do
      before { @answer.question_id = nil }
       it { should_not be_valid }
     end
+    
+  describe "1 answer per question" do
+    end  
 end
