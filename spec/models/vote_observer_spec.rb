@@ -2,10 +2,10 @@ require "spec_helper"
 
 describe VoteObserver do
   before(:each) do 
-    @user2 = FactoryGirl.create(:user)
-    @answer = FactoryGirl.create(:answer, user_id: @user2)
-    @user = FactoryGirl.create(:user)
-    @vote = Vote.create(user_id: @user.id, value: 1, points: 5, votable_id: @answer.id, votable_type: "Answer")
+    @user2 = create(:user)
+    @user = create(:user)
+    @answer = create(:answer, user: @user)
+    @vote = create(:vote, user: @user2) 
     @observer = VoteObserver.instance
   end
   

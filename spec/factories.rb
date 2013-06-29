@@ -51,7 +51,7 @@ FactoryGirl.define do
   end
   
   factory :vote do
-    user_id :user
+    user
     votable_id :answer
     votable_type "Answer"
     value 1

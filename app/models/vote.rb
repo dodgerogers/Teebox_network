@@ -1,6 +1,6 @@
 class Vote < ActiveRecord::Base
   
-  attr_accessible :value, :votable_id, :votable_type, :user_id, :points
+  attr_accessible :value, :votable_id, :votable_type, :points#, :user_id
   belongs_to :votable, polymorphic: true
   belongs_to :user
   
@@ -20,6 +20,6 @@ class Vote < ActiveRecord::Base
   end
   
   def create_points
-    self.value == 1 ? self.points = 5 : self.points = -3
+    self.value == 1 ? self.points = 5 : self.points = -5
   end
 end
