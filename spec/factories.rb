@@ -30,7 +30,7 @@ FactoryGirl.define do
     
   
   factory :video do
-    user_id :user
+    user
     file "http://teebox-network.s3.amazonaws.com/uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v"
   end
   
