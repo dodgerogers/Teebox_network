@@ -1126,3 +1126,38 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
     background-color: #eee;
 		color: #444;
 }
+
+/*-------------------- user stats  ----------------*/
+
+
+#stats {
+	display: block;
+}
+
+.stat-box {
+	width: 200px;
+	margin: 20px 20px 20px 0;
+	background: #ededed;
+	display:inline-block;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+	text-align:center;
+}
+
+.stat-title {
+	width: 100%;
+	background: #E95A4D;
+	color: #fff;
+	padding: 3px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.stat-value h1 {
+	font-size: 50px;
+}

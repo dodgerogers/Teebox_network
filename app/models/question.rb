@@ -44,6 +44,6 @@ class Question < ActiveRecord::Base
   end
   
   def tag_limit
-      errors.add(:tag_tokens, "Maximum of 5 Tags per Question") if self.tags.size > 5 if self.tags
+    errors.add(:tag_tokens, "Maximum of 5 Tags per Question") if self.tags.size > 5 if self.tags
   end
 end
