@@ -528,9 +528,9 @@ body .sublimevideo-zi .sublimevideo-uj {
 .questions {
 	dislay:block;
 	vertical-align:top;
-	padding: 0px 5px 0 0;
+	padding: 7px;
 	margin: 0px;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -916,15 +916,16 @@ form#header {
 	}
 
 .index-vote {
-	font-size: 30px;
+	font-size: 32px;
 	display: inline;
+	font-family: "BebasNeueRegular";
 	color: #ccc;
-	font-family: 'BebasNeueRegular';
 	font-weight: bolder;
 	display: inline-block;
 	padding: 8px 14px;
 	font-weight: 300;
-	margin: 5px 4px 0 0;
+	margin: 7px 4px 0 0;
+	
 }
 .vote-box {
 	display:inline-block!important;
