@@ -4,19 +4,11 @@
 <%= link_to image_tag(avatar_url(@decorator, 75)), @decorator %>
 <%= @decorator.email %><br>
 <%= @decorator.username %><br>
-<%= @decorator.change_picture %><br>
+<%= @decorator.change_picture %>
 </div>
+<hr>
 
 <div id="stats">
-<div class="stat-box">
-	<div class="stat-title">
-			Teebox Score
-	</div>
-	<div class="stat-value">
-		<h1><%= @decorator.reputation  %></h1>
-	</div>
-</div>
-
 <div class="stat-box">
 	<div class="stat-title">
 			Handicap
@@ -25,9 +17,18 @@
 		<h1><%= @decorator.handicap  %></h1>
 	</div>
 </div>
+
+<div class="stat-box">
+	<div class="stat-title">
+			Teebox Score
+	</div>
+	<div class="stat-value">
+		<h1><%= @decorator.reputation  %></h1>
+	</div>
+</div>
 </div>
 
-
+<hr>
 <div class="profile-links">
 		<%= @decorator.link_helper("questions", questions_index_path(@decorator), @decorator.questions) %>
 	

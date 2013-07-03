@@ -490,6 +490,10 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 /* ----------------- nav tabs ----------------------*/
 
+.nav {
+	margin-bottom: 30px;
+}
+
 .nav-tabs li.active a {
 	color: #E95A4D;
 }
@@ -510,7 +514,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 /* ----------------------------------*/
 
-.questions, .videos {
+.videos {
 	display: inline-block;
 	vertical-align:top;
 	padding: 0px 5px;
@@ -520,6 +524,35 @@ body .sublimevideo-zi .sublimevideo-uj {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+}
+.questions {
+	dislay:block;
+	vertical-align:top;
+	padding: 0px 5px 0 0;
+	margin: 0px;
+	margin-bottom: 20px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.question-info {
+	display: inline-block;
+	height: 83px;
+	vertical-align: middle;
+}
+.question-image {
+	width: 170px;
+	display:inline-block;
+}
+
+.index-title {
+	display:block;
+	vertical-align:top;
+	font-size: 22px;
+	margin: 0 0 0 10px;
+	font-weight: light;
+	height: 50%;
 }
 
 .questions:hover, .videos:hover {
@@ -590,7 +623,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 .questions:hover, .videos:hover {
 
 }
-.questions h4, .videos h4, .questions h4 a, .videos h4 a {
+.videos h4, .videos h4 a {
 	margin: 5px;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -736,9 +769,14 @@ form#header {
 	display:inline-block;
 	width: 290px;
 	vertical-align:top;
-
 }
 
+#index {
+	width: 100%;
+	min-height: auto;
+	height: auto;
+	vertical-align:bottom;
+}
 #question-profile-info {
 	background: none;
 }
@@ -878,11 +916,15 @@ form#header {
 	}
 
 .index-vote {
-	float: right;
 	font-size: 30px;
-	display:inline;
+	display: inline;
 	color: #ccc;
 	font-family: 'BebasNeueRegular';
+	font-weight: bolder;
+	display: inline-block;
+	padding: 8px 14px;
+	font-weight: 300;
+	margin: 5px 4px 0 0;
 }
 .vote-box {
 	display:inline-block!important;
@@ -1135,16 +1177,13 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 }
 
 .stat-box {
-	width: 200px;
-	margin: 20px 20px 20px 0;
+	width: 150px;
+	margin: 0px 10px 0px 0;
 	background: #ededed;
 	display:inline-block;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
 	text-align:center;
 }
 
