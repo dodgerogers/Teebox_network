@@ -12,7 +12,7 @@
 						<%= comment.points > 0 ? "+#{comment.points}" : comment.points %>
 					</div>
 				</td>
-	      <td><%= link_to truncate(comment.content, length: 80), comment.commentable unless objects.empty? %></td>
+	      <td><%= link_to truncate(comment.content, length: 200), comment.commentable %></td>
 	    </tr>
 	<% end %>
 	</table>

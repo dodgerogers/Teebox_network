@@ -14,7 +14,6 @@ describe VideoHelper do
     end
   end
   
-  
   describe "sublime_video" do
     it "renders sublime video element" do
       @video = create(:video)
