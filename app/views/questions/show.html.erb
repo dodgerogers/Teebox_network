@@ -1,51 +1,41 @@
 <div id="question-box">
-
-<br><%= raw sublime_video(@question.video.file, @question.video.id) if @question.video.present? %>
-<%= raw youtube_url_html5(@question.youtube_url) if @question.youtube_url.present? %>
+<br>
+<%= @decorator.sublime_player %>
+<%= @decorator.youtube_player %>
 
 <div class="question">
-	
-<h1><%= @question.title.titleize %></h1>
+	<h1><%= @decorator.title.titleize %></h1>
+		<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
 
-	<%= render partial: "votes/form", locals: { votes_count: "questions", id: @question.id, object: @question, vote_path: method(:vote_question_path) } %> 
-
-<div class="question-content">
-	<%= simple_format @question.body %>
-</div>
-
-<%= @decorator.question_tags %>
-
-
-	<div class="form-area">
-		<div class="profile-info" id="question-profile-info">	
-		<%= link_to image_tag(avatar_url(@question.user)), @question.user %>
-		<%= link_to number_to_human(@question.user.reputation), @question.user, id: "profile-reputation" %>
-		<small><%= link_to @question.user.username.titleize, user_path(@question.user) %><br>
-		Posted <%= time_ago_in_words(@question.created_at) %> ago</small>
+		<div class="question-content">
+			<%= simple_format @question.body %>
 		</div>
-				
-		
-		<% if @question.user == current_user %>
-		<div class="pull-right">
-	<%= link_to "Edit", edit_question_path(@question), class: "default"  %>
-	<%= link_to "Delete", question_path(@question), method: :delete,  class: "default"  %>
+
+		<%= @decorator.question_tags %><br><br>
+
+		<div class="form-area">
+			<div class="profile-info" id="question-profile-info">
+				<%= profile_link_helper(@question) %>
+			</div>
+					
+			<div class="pull-right">
+				<%= edit_delete_links(@question, { path: edit_question_path(@question), edit_class: "default", delete_class: "default" } ) %>
+			</div>
+		</div>
 	</div>
-	<% end %>
-	</div>
-</div>
 </div>
 
-	<div class="comments-area">
+<div class="comments-area">
 	<%= render template: "comments/index" %>
 	<%= link_to "Add comment", "#", id: "comment-button", class: "default" %><br>
-	<%= render partial: "comments/form" %>
-	</div>
+	<%= render partial: "comments/form", locals: {commentable: @question} %>
+</div>
 	
 	
-	<div id='answers-count'>
-		<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
-	</div>
+<div id='answers-count'>
+	<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
+</div>
+
 	<%= render template: "answers/index" %><br>
-	<a href="#" id="answer-button" class="default submit">Add your answer</a>
-	<br><br>
-	<%= render partial: "answers/form", locals: { question_id: @question.id } %>
+	<a href="#" id="answer-button" class="default submit">Add your answer</a><br>
+	<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>

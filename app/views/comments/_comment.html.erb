@@ -1,5 +1,4 @@
 <div id='comment_<%="#{comment.id}" %>' class="comment">
-	
 	<%= render partial: "votes/form", 
 			locals: { votes_count: "comments", id: comment.id, object: comment, vote_path: method(:vote_comment_path) } %>
 			
@@ -8,12 +7,8 @@
 	</div>
 	
 	<div class="profile-info">
-		<small><%= link_to image_tag(avatar_url(comment.user)), comment.user %>
-				<%= link_to number_to_human(comment.user.reputation), comment.user, id: "profile-reputation" %>
-				<%= link_to comment.user.username.titleize, comment.user %><br>
-				Posted <%= time_ago_in_words(comment.created_at) %> ago 
-				<%= link_to "| Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if comment.user == current_user %>
-		</small>
+		<%= profile_link_helper(comment) %>	
+		<%= link_to "| Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if comment.user == current_user %>
 	</div>
-		<hr>
+	<hr>
 </div>

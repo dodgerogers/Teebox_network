@@ -19,6 +19,7 @@ group :test do
   gem "bullet"
   gem 'database_cleaner'
   gem "launchy"
+  gem 'simplecov', :require => false
 end
 
 group :assets do

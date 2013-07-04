@@ -1,20 +1,21 @@
 module ApplicationHelper
   
+  def profile_link_helper(object)
+  	out =  capture  { link_to image_tag(avatar_url(object.user)), object.user }
+  	out << capture { link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation" }
+  	out << capture { link_to object.user.username.titleize, object.user, id: "profile-username" }
+  	out << "<br>".html_safe
+  	out << "Posted #{time_ago_in_words(object.created_at)} ago"
+  end
+  
+  def edit_delete_links(object, options={}) 
+		out = capture { link_to "Delete ", object, method: :delete, id: options[:delete_id], class: options[:delete_class], remote: :true } if object
+		out << capture { link_to "Edit", options[:path], id: options[:edit_id], class: options[:edit_class], remote: true } if options[:path]
+		out if object.user == current_user
+	end
+  
   def clickable_links(text)
     text.gsub(URI.regexp, '<a href="\0">\0</a>')
-  end
-  
-  def youtube_url_html5(url)
-    "<iframe class='youtube-player' type='text/html' width='100%' height='400' src='http://www.youtube.com/embed/#{strip_url(url)}' frameborder='0'></iframe>"
-  end
-  
-  def strip_url(url)
-    url.gsub!("http://www.youtube.com/watch?v=", "")
-  end
-
-  def sublime_video(video, id)
-    "<video id='video_#{id}' class='sublime' poster='' width='475px' height='' data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
-      <source src='#{video}' /></video>"
   end
   
   def avatar_url(user, size=35)
