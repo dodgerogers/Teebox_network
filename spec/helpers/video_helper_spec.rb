@@ -21,4 +21,10 @@ describe VideoHelper do
       <source src='#{@video}' /></video>"
     end
   end
+  
+  describe "sublimevideo_rails" do
+    it "retrives the token" do
+      helper.sublimevideo_rails.should eq "27jd216p"
+    end
+  end
 end

@@ -19,7 +19,6 @@ group :test do
   gem "bullet"
   gem 'database_cleaner'
   gem "launchy"
-  gem 'simplecov', :require => false
 end
 
 group :assets do
@@ -37,7 +36,6 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'carrierwave'
 gem 'fog'
-gem 'sublimevideo_rails'
 gem "streamio-ffmpeg"
 gem "rmagick"
 gem "whenever", require: false

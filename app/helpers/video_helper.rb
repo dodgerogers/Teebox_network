@@ -12,4 +12,12 @@ module VideoHelper
     "<video id='video_#{id}' class='sublime' poster='' width='475px' height='' data-name='#{video}' data-uid='#{video}' preload='none' data-autoresize='fit'>
       <source src='#{video}' /></video>"
   end
+  
+  def sublimevideo_rails
+    @site_token = load_config("sublime.yml")["SITE"]["TOKEN"]
+  end
+
+  def load_config(filename)
+    YAML::load(ERB.new(IO.read("config/#{filename}")).result)
+  end
 end
