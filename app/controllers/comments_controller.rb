@@ -6,10 +6,6 @@ class CommentsController < ApplicationController
   def new
     @comment = @commentable.comments.new
   end
-
-  def show
-    @comment = @commentable.comments.find(params[:id])
-  end
   
   def index
     @comments = @commentable.comments.includes(:user)

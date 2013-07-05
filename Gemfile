@@ -16,9 +16,9 @@ group :test do
   gem 'rspec-rails', '2.9.0'
   gem 'factory_girl_rails', '1.4.0'
   gem 'capybara'
-  gem "bullet"
   gem 'database_cleaner'
   gem "launchy"
+  gem "simplecov", :require => false
 end
 
 group :assets do
@@ -45,8 +45,6 @@ gem 'aws-sdk','~> 1.0'
 gem 'profanity_filter'
 gem 'bootstrap-wysihtml5-rails'
 gem 'draper', :git => "git://github.com/drapergem/draper.git"
-
-gem "simplecov", :require => false, :group => :test
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

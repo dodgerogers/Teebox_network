@@ -15,10 +15,6 @@ class UserDecorator < ApplicationDecorator
     link_to "View all #{text}", path, class: "default submit" if objects.any?
   end
   
-  def render_partial(partial, user_objects)
-    render partial: "users/#{partial}", locals: {objects: user_objects, user: model } if user_objects.any?
-  end
-  
   def questions
     model.questions
   end

@@ -17,8 +17,14 @@ describe Video do
      it { should_not be_valid }
    end
    
-   describe "user_id" do
-     before { @video.user_id = nil }
+  describe "user_id" do
+    before { @video.user_id = nil }
       it { should_not be_valid }
     end
+    
+  describe "get_key" do
+    it "extracts the key" do
+      subject.get_key("http://teebox-network.s3.amazonaws.com/uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v").should eq "uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v"  
+    end 
+  end
 end

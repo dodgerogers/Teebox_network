@@ -8,7 +8,7 @@ describe CommentsController do
     @user2 = create(:user)
     sign_in @user
     sign_in @user2
-    @commentable = mock_model(Question, id: 1, title: "slicing the ball", body: "the ball cuts")
+    @commentable = create(:question, id: 1, title: "slicing the ball", body: "the ball cuts")
     controller.stub!(:current_user).and_return(@user)
     controller.stub!(:load_commentable).and_return(@commentable.id)
     @request.env['HTTP_REFERER'] = "http://test.host/questions/#{@commentable.id}"

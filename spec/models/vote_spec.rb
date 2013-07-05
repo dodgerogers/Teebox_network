@@ -40,4 +40,10 @@ describe Vote do
       before { @vote.value = 5 }
       it { should_not be_valid }
    end
+   
+   #describe Vote do
+   #   it 'should add specified points to a user' do
+   #     lambda { subject.add_points(100) }.should change { subject.points }.by(100)
+   #   end
+   # end
 end
