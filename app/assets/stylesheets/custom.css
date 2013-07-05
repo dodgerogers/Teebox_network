@@ -549,7 +549,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 .index-title {
 	display:block;
 	vertical-align:top;
-	font-size: 22px;
+	font-size: 20px;
 	margin: 0 0 0 10px;
 	font-weight: light;
 	height: 50%;
@@ -620,9 +620,6 @@ body .sublimevideo-zi .sublimevideo-uj {
 	color: #4fc392;
 }
 
-.questions:hover, .videos:hover {
-
-}
 .videos h4, .videos h4 a {
 	margin: 5px;
 	margin-left: 0px;
@@ -637,7 +634,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 		display: block;
 		margin-left:auto;
 		margin-right:auto;
-		}	
+}	
 		
 /*--------------------------- video dropzone ------------------------*/
 

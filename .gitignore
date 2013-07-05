@@ -20,3 +20,6 @@
 
 #ignore all tmp upload files
 /public/uploads/*
+
+#ignore coverage test results
+/coverage/*
