@@ -3,7 +3,9 @@
 <% questions.each do |question| %>
 
 <div class="questions">
-	<%= link_to image_tag('swing-pic.jpg'), question, class: "question-image"  %>
+	<div class="question-image">
+		<%= question.video ? (link_to image_tag(question.video.screenshot), question) : (link_to image_tag("video_screen.jpg"), question) %>
+	</div>
 	
 <div class="question-info">
 	<div class="index-title">
@@ -21,7 +23,6 @@
 		</div>
 	</div>
 </div>
-<hr>
 	<% end %>
 	
 <%= will_paginate questions %>

@@ -19,7 +19,8 @@
 			</div>
 					
 			<div class="pull-right">
-				<%= edit_delete_links(@question, { path: edit_question_path(@question), edit_class: "default", delete_class: "default" } ) %>
+				<%= link_to "Edit", edit_question_path(@question), class: "default" %>
+				<%= link_to "Delete", @delete, method: :delete, class: "default" %>
 			</div>
 		</div>
 	</div>

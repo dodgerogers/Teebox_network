@@ -14,13 +14,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   #storage :file
   storage :fog
   
-  before :cache, :setup_available_sizes
+  #before :cache, :setup_available_sizes
   before :store, :remember_cache_id
   after :store, :delete_tmp_dir
   
     def cache_dir
       # should return path to cache dir
-      Rails.root.join('public/uploads/tmp/') 
+      Rails.root.join('public/uploads/tmp/screenshots') 
     end
     
     def remember_cache_id(new_file)
@@ -35,7 +35,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
     
   # we process images with a custom method (read above)  
-  process :dynamic_resize_to_fit => :default
+  #process :dynamic_resize_to_fit => :default
   
   
   #crops the video and adds black padding to videos smaller than the size listed
@@ -53,41 +53,41 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   # default processing, we assume that each model has a "mini" version
-   version :mini do
-     process :dynamic_resize_to_fit => :mini
-   end
+  # version :mini do
+  #   process :dynamic_resize_to_fit => :mini
+  # end
 
    # conditional processing: we process "thumb" version only if it was defined in model
-  version :thumb, :if => :has_thumb_size? do
-    process :dynamic_resize_to_fit => :thumb
-  end  
+  #version :thumb, :if => :has_thumb_size? do
+  #  process :dynamic_resize_to_fit => :thumb
+  #end  
 
    # a lame wrapper to resize_to_fit method
-  def dynamic_resize_to_fit(size)
-    resize_to_fit *(model.class::IMAGE_SIZES[size])
-  end
+  #def dynamic_resize_to_fit(size)
+  #  resize_to_fit *(model.class::IMAGE_SIZES[size])
+  #end
 
      # here's the metaprogramming magic!
      # we check if the called method matches "has_VERSION_size?"
      # VERSION is a version name for image size
-  def method_missing(method, *args)
+  #def method_missing(method, *args)
        # we've already defined "has_VERSION_size?", so if a method with
        # similar name is missed, it should return false
-     return false if method.to_s.match(/has_(.*)_size\?/)
-    super
-  end
+     #return false if method.to_s.match(/has_(.*)_size\?/)
+    #super
+  #end
      
-  protected
+  #protected
     # the method called at the start
     # it checks for <model>::IMAGE_SIZES hash and define a custom method "has_VERSION_size?"
     # (more on this later in the article)
-    def setup_available_sizes(file)
-      model.class::IMAGE_SIZES.keys.each do |key|
-        self.class_eval do
-          define_method("has_#{key}_size?".to_sym) { true }
-        end
-      end
-    end
+    #def setup_available_sizes(file)
+    #  model.class::IMAGE_SIZES.keys.each do |key|
+    #    self.class_eval do
+    #      define_method("has_#{key}_size?".to_sym) { true }
+    #    end
+    #  end
+    #end
   
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

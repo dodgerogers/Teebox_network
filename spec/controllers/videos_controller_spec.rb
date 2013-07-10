@@ -7,6 +7,7 @@ describe VideosController do
     sign_in @user
     @video = create(:video, user_id: @user)
     controller.stub!(:current_user).and_return(@user)
+    Video.any_instance.stub(:take_screenshot).and_return(true)
   end
   
   describe "GET show" do

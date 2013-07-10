@@ -4,14 +4,6 @@ set :output, {
     :standard => "/log/cron.log" 
 }
 
-every 20.minutes do 
-  rake "carrierwave_tmp"
-end
-
-every 20.minutes do
-  rake "delete_tmp_files"
-end
-
 
 
 # Use this file to easily define all of your cron jobs.

@@ -5,7 +5,7 @@ describe VoteObserver do
     @user2 = create(:user)
     @user = create(:user)
     @answer = create(:answer, user: @user)
-    @vote = create(:vote, user: @user2) 
+    @vote = create(:vote, user: @user2, value: 1) 
     @observer = VoteObserver.instance
   end
   

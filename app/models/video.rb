@@ -9,28 +9,25 @@ class Video < ActiveRecord::Base
   
   default_scope order('created_at DESC')
   
-  #after_create :take_screenshot
-  
   mount_uploader :screenshot, ImageUploader
-  
-  IMAGE_SIZES = {
-      :default => [1280, 1280],
-      :mini => [300,900],
-      :thumb => [100, 300]
-    }
   
   def to_param
     "#{id} - #{File.basename(self.file)}".parameterize
   end
   
-  #def take_screenshot
-    #logger.debug "Trying to grab a screenshot from #{self.file}"
-    #self.screenshot =   `ffmpeg -i #{self.file} -ss 00:00:02 -c:v mjpeg -f mjpeg -vframes 1 - 2>/dev/null `
-    #system `ffmpeg -i #{self.file} -ss 00:00:02 -vframes 1 #{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file)}.jpg`
-    #FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
-    #movie = FFMPEG::Movie.new(self.file)
-    #self.screenshot = movie.screenshot("#{Rails.root}/public/uploads/tmp/screenshots/#{File.basename(self.file.path)}.jpg", seek_time: 2 )
-  #end
+  def take_screenshot
+    location = "#{Rails.root}/public/uploads/tmp/screenshots/#{unique}_#{File.basename(file)}.jpg"
+    FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
+    if self.file.include? "http://teebox-network.s3.amazonaws.com/"
+      movie = FFMPEG::Movie.new(self.file)
+      self.screenshot = movie.screenshot(location, seek_time: 1 )
+      if self.save!
+        File.delete(location)
+      end
+    else
+      errors.add(:file, "Upload failed, please try again")
+    end
+  end
   
   def get_key(file)
     file.gsub('http://teebox-network.s3.amazonaws.com/', '')
@@ -40,5 +37,16 @@ class Video < ActiveRecord::Base
     object = AWS::S3.new.buckets['teebox-network'].objects[get_key(self.file)]
     object.delete
     logger.debug "Video deleted: #{object}"
+  end
+  
+  protected
+  
+  
+  def log_level
+    "-loglevel panic"
+  end
+  
+  def unique
+    (0..6).map{(65+rand(26)).chr}.join
   end
 end
