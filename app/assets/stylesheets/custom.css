@@ -94,7 +94,7 @@ a:hover {
 		font-size: 36px;
 		font-family: 'BebasNeueRegular';
 		font-weight: 200;
-		text-shadow: 0px 3px 8px #2a2a2a;
+		text-shadow: 0px 2px 2px #2a2a2a;
 		color: #999;
 		letter-spacing: 2px;
 		-webkit-transition: all 1s ease;
@@ -132,9 +132,16 @@ a:hover {
 		line-height: 5px;
 	}
 	
-	.bebas, label {
+	.bebas {
 		font-family: 'BebasNeueRegular';
 		font-size: 22px;
+		color: #31838F;
+		vertical-align: middle;
+	}
+	
+	label {
+		font-size: 18px;
+		font-weight: 200;
 		color: #31838F;
 		vertical-align: middle;
 	}
@@ -294,7 +301,7 @@ a:hover {
 	line-height: 20px;
 	margin-top:10px;
 	color: #222;
-	text-shadow: 0px 2px 3px #555;
+	text-shadow: 0px 1px 1px #555;
 	font-weight:300;
 }
 
@@ -358,7 +365,7 @@ a:hover {
 	vertical-align:middle;
 }
 .right-header a {
-		text-shadow: 0px 3px 3px #2a2a2a;
+		text-shadow: 0px 1px 1px #2a2a2a;
 		color: #999;
 		font-weight:300;
 }
@@ -541,6 +548,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	padding: 7px;
 	margin: 0px;
 	margin-bottom: 5px;
+	border-bottom: 1px solid #ECECEC;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -718,7 +726,7 @@ body #header-search {
 	margin:0;
 	color: #999;
 	width: 220px;
-	background: #474747 url(search.png);
+	background: #232323;
 	border: 1px solid #222;
 	-webkit-box-shadow: 0px 1px 2px #777;  
 	-moz-box-shadow: 0px 1px 2px #777;  
@@ -803,8 +811,7 @@ form#header {
 	margin-bottom: 20px;
 	background: #ededed;
 	border-top: 1px solid #dedede;
-	color: #777;
-	text-shadow: 0px 2px 2px #fff;
+	
 	font-weight:300;
 }
 
