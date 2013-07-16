@@ -529,8 +529,8 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 .videos .loading {
 	position: absolute;
-	top: 88px;
-	right: 10px;
+	top: 84px;
+	right: 19px;
 	height: 50px;
 	width: 50px;
 	display:none;
@@ -779,7 +779,7 @@ form#header {
 }
 
 #index {
-	width: 100%;
+	width: 400px;
 	min-height: auto;
 	height: auto;
 	vertical-align:bottom;

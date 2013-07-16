@@ -17,15 +17,14 @@ class Video < ActiveRecord::Base
   
   def take_screenshot
     location = "#{Rails.root}/public/uploads/tmp/screenshots/#{unique}_#{File.basename(file)}.jpg"
-    FFMPEG.ffmpeg_binary = '/opt/local/bin/ffmpeg'
+    FFMPEG.ffmpeg_binary = ENV["FFMPEG_LOCATION"]
     if self.file.include? "http://teebox-network.s3.amazonaws.com/"
-      movie = FFMPEG::Movie.new(self.file)
-      self.screenshot = movie.screenshot(location, seek_time: 1 )
+      self.screenshot = FFMPEG::Movie.new(self.file).screenshot(location, seek_time: 1 )
       if self.save!
         File.delete(location)
       end
     else
-      errors.add(:file, "Upload failed, please try again")
+      logger.debug("Upload failed")
     end
   end
   
@@ -36,7 +35,7 @@ class Video < ActiveRecord::Base
   def delete_key
     object = AWS::S3.new.buckets['teebox-network'].objects[get_key(self.file)]
     object.delete
-    logger.debug "Video deleted: #{object}"
+    logger.debug "Video deleted: #{object} #{self.attributes}"
   end
   
   protected

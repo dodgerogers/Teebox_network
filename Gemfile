@@ -38,13 +38,13 @@ gem 'carrierwave'
 gem 'fog'
 gem "streamio-ffmpeg", git: "https://github.com/hartator/streamio-ffmpeg.git", branch: "patch-1"
 gem "rmagick"
-gem "whenever", require: false
+gem "whenever", :require => false
 gem 'execjs'
 gem 'will_paginate', '3.0.3'
 gem 'aws-sdk','~> 1.0'
 gem 'profanity_filter'
 gem 'bootstrap-wysihtml5-rails'
-gem 'draper', :git => "git://github.com/drapergem/draper.git"
+gem 'draper', git: "git://github.com/drapergem/draper.git"
 gem "delayed_job_active_record"
 
 # To use ActiveModel has_secure_password
