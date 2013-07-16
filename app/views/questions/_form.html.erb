@@ -31,8 +31,7 @@
 	  <%= f.label :tag_tokens, "Tags" %>
 	  <%= f.text_field :tag_tokens, data: { preload: @question.tags } %>
 	</div><br>
-	
-	<%= @question.tag_tokens %>
+
 	
 	<div class="field">
 		<%= f.label :body %>

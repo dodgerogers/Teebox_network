@@ -40,11 +40,6 @@ class Video < ActiveRecord::Base
   
   protected
   
-  
-  def log_level
-    "-loglevel panic"
-  end
-  
   def unique
     (0..6).map{(65+rand(26)).chr}.join
   end

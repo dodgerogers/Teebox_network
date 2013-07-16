@@ -720,9 +720,9 @@ body #header-search {
 	width: 220px;
 	background: #474747 url(search.png);
 	border: 1px solid #222;
-	-webkit-box-shadow: 0px 2px 2px #777;  
-	-moz-box-shadow: 0px 2px 2px #777;  
-	box-shadow: 0px 2px 2px #777;
+	-webkit-box-shadow: 0px 1px 2px #777;  
+	-moz-box-shadow: 0px 1px 2px #777;  
+	box-shadow: 0px 1px 2px #777;
 	border-radius:0px;
 	-moz-border-radius: 2px;
   -webkit-border-radius: 2px;

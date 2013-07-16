@@ -5,9 +5,9 @@
 		
 	<h4><%= link_to File.basename(video.file).titleize, video %></h4>
 	 	<%= link_to "Delete", video_path(video), method: :delete, 
-																						 remote: true, 
-																						 class: "default pull-right", 
-																						 id: "delete-video_#{video.id}",
-																						 onclick: "$('.loading_#{video.id}').show();" %>  
+												 remote: true, 
+												 class: "default submit pull-right", 
+												 id: "delete-video_#{video.id}",
+												 onclick: "$('.loading_#{video.id}').show();" %>  
 	 	Uploaded <%= time_ago_in_words(video.created_at)  %> ago
 </div>
