@@ -26,7 +26,7 @@ class Questions::IndexDecorator < ApplicationDecorator
   end
 
   def questions
-    @questions.paginate(page: params[:page], per_page: 20).search(params[:search])
+    @questions.paginate(page: params[:page], per_page: 20).includes(:user, :video).search(params[:search])
   end
 
   def tags
@@ -34,18 +34,18 @@ class Questions::IndexDecorator < ApplicationDecorator
   end
 
   def tagged_questions
-    @questions.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20).includes(:user)
+    @questions.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20).includes(:user, :video)
   end
 
   def newest_questions
-    @questions.newest.paginate(page: params[:page], per_page: 20).includes(:user)
+    @questions.newest.paginate(page: params[:page], per_page: 20).includes(:user, :video)
   end
 
   def unanswered_questions
-    @questions.unanswered(params[:unanswered]).paginate(page: params[:page], per_page: 20).includes(:user)
+    @questions.unanswered(params[:unanswered]).paginate(page: params[:page], per_page: 20).includes(:user, :video)
   end
 
   def votes_questions
-    @questions.by_votes(params[:by_votes]).paginate(page: params[:page], per_page: 20).includes(:user)
+    @questions.by_votes(params[:by_votes]).paginate(page: params[:page], per_page: 20).includes(:user, :video)
   end
 end
