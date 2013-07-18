@@ -5,7 +5,10 @@
   <input name="policy" type="hidden" />
   <input name="signature" type="hidden" />
   <input name="success_action_status" type="hidden" value="201" />
-  <input name="file" type="file" />
+<div class="fileUpload btn default submit">
+	<span>Select File <i class="icon-plus-sign"></i></span>
+  	<input name="file" type="file" />
+</div>
 </form>
 
 <%= form_for @video, html: { multipart: true, id: "new_video" }, remote: true do |f| %>

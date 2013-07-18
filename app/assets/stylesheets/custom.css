@@ -666,7 +666,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	overflow-x: -moz-scrollbars-horizontal;
 	overflow-x: scroll;
 	border: none;
-	height:115px;
+	height:120px;
 }
 
 .selected {
@@ -1271,3 +1271,21 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 }
 
 /*----------- scrollbars -----------*/
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px #ddd;
+	border-radius:1px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+	height: 10px;
+	background-color: #F5F5F5;
+	-webkit-box-shadow: inset 0px 0px 6px #ddd; 
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 1px;
+	background: #999;
+	cursor: pointer; 
+}
