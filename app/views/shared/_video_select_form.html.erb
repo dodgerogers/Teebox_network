@@ -1,0 +1,17 @@
+<div id="token">
+    <% current_user.videos.each do |video| %>
+	  <div class="question-image form-video  <%= question.video_id == video.id ? 'selected-video' : '' %>" id="<%= video.id %>">
+		<div class="selected <%= "#{video.id}" %>_selected <%= question.video_id == video.id ? 'question_video' : '' %>">
+			<i class="icon-ok-sign"></i>
+		</div>
+		<%= link_to image_tag(video.screenshot), "#", remote: true, 
+													  id: "#{video.id}_token", 
+													  onclick: "$('#question_video_id').val(#{video.id});
+																$('.selected').hide();
+																$('.question-image').css('box-shadow','0px 0px 0px #fff');
+																$('.question_video').hide();
+																$('.#{video.id}_selected').toggle();
+																$('##{video.id}').css('box-shadow', '0px 3px 0px #E95A4D');" %><br>
+	   </div>
+    <% end %>
+</div><br>

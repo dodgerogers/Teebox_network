@@ -1,5 +1,6 @@
 .hero-unit {
 	padding: 30px 60px;
+	margin-top: 20px;
 }
 
 select, input[type="text"], input[type="password"], 
@@ -12,4 +13,16 @@ input[type="search"], input[type="tel"], input[type="color"],
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	max-width: 1040px;
 }
+
+textarea, .wysihtml5-sandbox {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	max-width: 1026px;
+}
+

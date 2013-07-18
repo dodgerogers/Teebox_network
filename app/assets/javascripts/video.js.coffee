@@ -32,7 +32,6 @@ jQuery ->
          $('.modal-body').append("<b>Filename:</b> " + data.files[0].name + " <br><b>Size:</b> " + (data.files[0].size / 1000000).toFixed(2) + " MB <br><br><b>File Exceeds the 5MB file size limit or is not a valid video format</b>")
 
      send: (e, data) ->
-          $('.direct-upload').hide()
           $(".progress, #dropzone").fadeIn()
           $.each data.files, (index, file) ->
              $('.well').html("").append("Uploading: " + file.name + '<br>' + "File size: " + (file.size / 1000000 ).toFixed(2) + ' MB')

@@ -1,21 +1,23 @@
 <%= form_for(@question) do |f| %>
 	<fieldset>
-		<% if @question.errors.any? %>
-	<div id="error_explanation">
-  	<h2><%= pluralize(@question.errors.count, "error") %> prohibited this post from being saved:</h2>
+	<% if @question.errors.any? %>
+		<div id="error_explanation">
+  			<h2><%= pluralize(@question.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-  <ul>
-  	<% @question.errors.full_messages.each do |msg| %>
-    	<li><%= msg %></li>
-  		<% end %>
-  	</ul>
+  		<ul>
+  			<% @question.errors.full_messages.each do |msg| %>
+    			<li><%= msg %></li>
+  			<% end %>
+  		</ul>
 	</div>
 <% end %>
 
+
 	<div class="field">
-		<%= f.label :video %>
-		<%= f.select :video_id, options_for_select(current_user.videos.map{|v| [File.basename(v.file).titleize, v.id ]}.insert(0, "None Selected"), selected: @question.video_id) %>
-		</div><br>
+  		<%= f.label :video_id %></small>click to scroll and select video)</small>
+  		<%= render partial: "shared/video_select_form", locals: { question: @question } %>
+		<%= f.hidden_field :video_id %>
+	</div>
 		
 	<div class="field">
 		<%= f.label :youtube_url %>

@@ -13,7 +13,9 @@
 	</div>
 	
 	<div class="profile-info" id="index">
-		<%= link_to question.votes_count, question, class: "index-vote pull-left" %>	
+		<div class="index-vote pull-left">
+			<%= question.votes_count  %>
+		</div>	
 		
 		<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
 			<%= question.answers_count %>

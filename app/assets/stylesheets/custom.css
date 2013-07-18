@@ -97,12 +97,6 @@ a:hover {
 		text-shadow: 0px 2px 2px #2a2a2a;
 		color: #999;
 		letter-spacing: 2px;
-		-webkit-transition: all 1s ease;
-		     -moz-transition: all 1s ease;
-		       -o-transition: all 1s ease;
-		      -ms-transition: all 1s ease;
-		          transition: all 1s ease;
-
 	}
 	
 	teebox a:hover, .letter-press-link a:hover, .right-header a:hover, .left-header a:hover {
@@ -562,8 +556,11 @@ body .sublimevideo-zi .sublimevideo-uj {
 .question-image {
 	width: 200px;
 	display:inline-block;
+	position:relative;
 }
-
+.question-image a img:hover {
+	
+}
 .index-title {
 	display:block;
 	vertical-align:top;
@@ -649,10 +646,57 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 
 .videos img {
-		display: block;
-		margin-left:auto;
-		margin-right:auto;
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
 }	
+
+
+/*----------- Question form videos ----------*/
+
+#scroll {
+	overflow: auto;
+	max-height: 100px;
+}
+
+#token {
+	margin: 5px 0px 0px;
+	white-space: nowrap;
+	max-width:1040px;
+	overflow-x: -moz-scrollbars-horizontal;
+	overflow-x: scroll;
+	border: none;
+	height:115px;
+}
+
+.selected {
+	position: absolute;
+	top: 31%;
+	right: 35%;
+	height: 50px;
+	width: 50px;
+	font-size: 45px;
+	color: #fff;
+	text-shadow: 0px 4px 0px #E95A4D;
+	display:none;
+}
+.question_video {
+	position: absolute;
+	top: 31%;
+	right: 35%;
+	height: 50px;
+	width: 50px;
+	font-size: 45px;
+	color: #fff;
+	text-shadow: 0px 4px 0px #E95A4D;
+	display:inline-block;
+}
+.selected-video {
+	box-shadow: 0px 3px 0px #E95A4D;
+}
+.form-video:hover {
+	box-shadow: 0px 3px 0px #E95A4D;
+}
 		
 /*--------------------------- video dropzone ------------------------*/
 
@@ -811,7 +855,10 @@ form#header {
 	margin-bottom: 20px;
 	background: #ededed;
 	border-top: 1px solid #dedede;
-	
+	max-width: 1040px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 	font-weight:300;
 }
 
@@ -1073,7 +1120,8 @@ ul.token-input-list {
     height: auto !important; 
     height: 1%;
     width: 100%;
-		border: 1px solid #ccc;
+	max-width: 1038px;
+	border: 1px solid #ccc;
     cursor: text;
     min-height: 1px;
     z-index: 999;
@@ -1221,3 +1269,5 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 .stat-value h1 {
 	font-size: 50px;
 }
+
+/*----------- scrollbars -----------*/
