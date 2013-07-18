@@ -11,8 +11,7 @@ describe AnswersController do
     @answer = create(:answer, user: @user1)
     @vote = attributes_for(:vote, votable_id: @answer, user_id: @user2)
     controller.stub!(:current_user).and_return(@user1)
-    stub_model_methods
-    
+    stub_model_methods 
     @request.env['HTTP_REFERER'] = "http://test.host/questions/"
   end
   

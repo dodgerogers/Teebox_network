@@ -179,7 +179,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     request_store (1.0.5)
-    rmagick (2.13.1)
+    rmagick (2.13.2)
     rspec (2.9.0)
       rspec-core (~> 2.9.0)
       rspec-expectations (~> 2.9.0)
@@ -265,7 +265,7 @@ DEPENDENCIES
   profanity_filter
   rack (= 1.4.1)
   rails (= 3.2.3)
-  rmagick
+  rmagick (= 2.13.2)
   rspec-rails (= 2.9.0)
   sass-rails (~> 3.2.3)
   simplecov

@@ -30,9 +30,4 @@ describe Question do
      before { @question.user_id = nil }
       it { should_not be_valid }
     end
-    
-    describe "video_id" do
-       before { @question.video_id = nil }
-        it { should_not be_valid }
-    end
 end

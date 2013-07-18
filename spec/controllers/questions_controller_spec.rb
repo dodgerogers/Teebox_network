@@ -4,17 +4,16 @@ describe QuestionsController do
   include Devise::TestHelpers
   include AnswerHelper
   before(:each) do
-    @user = create(:user)
+    @user1 = create(:user)
     @user2 = create(:user)
-    sign_in @user
+    sign_in @user1
     sign_in @user2
-    @question = create(:question, user: @user)
-    @vote = build(:vote, user: @user2).attributes
-    controller.stub!(:current_user).and_return(@user)
+    @question = create(:question, user: @user1)
+    controller.stub!(:current_user).and_return(@user1)
+    stub_model_methods
     Vote.any_instance.stub(:sum_votes).and_return(true)
     Vote.any_instance.stub(:user_reputation).and_return(true)
     @request.env['HTTP_REFERER'] = "/questions/#{@question}/"
-    stub_model_methods
   end
 
   describe "GET show" do
@@ -47,18 +46,18 @@ describe QuestionsController do
     describe "with valid params" do
       it "saved a new question to db" do
         expect {
-          post :create, question: attributes_for(:question), user: @user
+          post :create, question: attributes_for(:question), user: @user1
         }.to change(Question, :count).by(1)
       end
 
       it "assigns a newly created question as @question" do
-        post :create, question: attributes_for(:question), user: @user
+        post :create, question: attributes_for(:question), user: @user1
         assigns(:question).should be_a(Question)
         assigns(:question).should be_persisted
       end
 
       it "redirects to the created question" do
-        post :create, question: attributes_for(:question), user: @user
+        post :create, question: attributes_for(:question), user: @user1
         response.should redirect_to(Question.last)
       end
     end
@@ -66,13 +65,13 @@ describe QuestionsController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved question as @question" do
         Question.any_instance.stub(:save).and_return(false)
-        post :create, question: attributes_for(:question), user: @user
+        post :create, question: attributes_for(:question), user: @user1
         assigns(:question).should be_a_new(Question)
       end
 
       it "re-renders the 'new' template" do
         Question.any_instance.stub(:save).and_return(false)
-        post :create, question: attributes_for(:question), user: @user
+        post :create, question: attributes_for(:question), user: @user1
         response.should render_template("new")
       end
     end
@@ -80,7 +79,7 @@ describe QuestionsController do
 
   describe "PUT update" do
     before(:each) do
-      @question = create(:question, title: "now im hooking it!", body: "ball is going to the left")
+      @question = create(:question, user: @user1, title: "now im hooking it!", body: "ball is going to the left")
     end
     
     it "assigns the requested question as @question" do
@@ -90,13 +89,13 @@ describe QuestionsController do
     
     describe "with valid params" do
       it "updates the requested question" do
-        put :update, id: @question, question: attributes_for(:question, title: "Shanking now, great!")
+        put :update, id: @question, question: attributes_for(:question, title: "Shanking now, great!"), user: @user1
         @question.reload
         @question.title.should eq("Shanking now, great!")
       end
 
       it "redirects to the post" do
-        put :update, id: @question, question: attributes_for(:question, title: "Shanking now, great!")
+        put :update, id: @question, question: attributes_for(:question, title: "Shanking now, great!"), user: @user1
         @question.reload
         response.should redirect_to @question
       end
@@ -104,7 +103,7 @@ describe QuestionsController do
 
     describe "with invalid params" do
       it "doesn not change @question attributes" do
-        put :update, id: @question, question: attributes_for(:question, title: "")
+        put :update, id: @question, question: attributes_for(:question, title: ""), user: @user1
         @question.reload
         @question.title.should_not eq("")
       end
@@ -118,7 +117,7 @@ describe QuestionsController do
 
   describe "DELETE destroy" do
     before(:each) do
-      @question = create(:question)
+      @question = create(:question, user: @user1)
     end
     
     it "destroys the requested question" do
@@ -129,14 +128,15 @@ describe QuestionsController do
 
     it "redirects to the questions list" do
       delete :destroy, id: @question
-      response.should redirect_to home_url
+      response.should redirect_to home_path
     end
   end
   
   describe "POST vote" do
     it "creates vote" do
+      Question.stub(:find).and_return(@question)
       expect {
-        post :vote, id: @vote, value: 1
+        post :vote, id: attributes_for(:question_vote, user: @user2), value: 1
       }.to change(Vote, :count).by(1)
     end
   end

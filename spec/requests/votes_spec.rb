@@ -16,9 +16,10 @@ describe "Answers votes" do
     sign_in_user
     create_and_find_question
     create_answer
-    page.should have_selector("div", class: "vote-box")
     sign_out
     sign_in_user2
+    click_link "Ball Starting Too Far Left"
+    page.should have_selector("div", class: "vote-box")
     expect {
       click_link "upvote"
     }.to change(Vote, :count).by(1)
@@ -29,9 +30,10 @@ describe "Answers votes" do
     sign_in_user
     create_and_find_question
     create_answer
-    page.should have_selector("div", class: "vote-box")
     sign_out
     sign_in_user2
+    click_link "Ball Starting Too Far Left"
+    page.should have_selector("div", class: "vote-box")
     expect {
       click_link "downvote"
     }.to change(Vote, :count).by(1)

@@ -32,8 +32,10 @@ describe "Questions" do
     visit root_path
     sign_in_user
     create_and_find_question
-    page.should have_content "Edit"
-    click_link "Edit"
+    within('.form-area') do
+      page.should have_content "Edit"
+      click_link "Edit"
+    end
     page.should have_content "Edit your question"
     fill_in "question_title", with: "this is a new title"
     click_button "Save"

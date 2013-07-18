@@ -409,31 +409,6 @@ tr.titles {
 	color: #777;
 }
 
-/*---------------------------- forms -------------------------------------------*/
-
-input, textarea {
-	width:100%;
-	
-}
-
-.input-xlarge {
-margin: 0px 0px 10px;
-}
-
-input[type="text"] {
-	margin-bottom: 0px;
-}
-
-form#new_video {
-	margin: 0;
-	display:none;
-}
-
-input:-webkit-autofill {
-	background-color: #fff!important;
-	
-	 
-}
 /*-------------------- errors ------------------*/
 
 #error_explanation {
@@ -451,7 +426,7 @@ input:-webkit-autofill {
 
 /*---------------- sublime video settings ----------------*/
 body .sublimevideo-zi .sublimevideo-uj {
-	height: 700px!important;
+	/*height: 700px!important;*/
 	width: 100%!important;
 }
 
@@ -523,7 +498,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	padding: 0px 5px;
 	margin: 0px;
 	margin-bottom: 20px;
-	width: 306px;
+	width: 316px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -646,6 +621,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 
 .videos img {
+	width: 100%;
 	display: block;
 	margin-left:auto;
 	margin-right:auto;
@@ -909,7 +885,9 @@ form#header {
 .next {
 	background: #E95A4D;
 }
-
+.direct-upload {
+	display:inline;
+} 
 
 /*-------------------- Answers ----------------*/
 

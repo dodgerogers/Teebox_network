@@ -53,7 +53,7 @@ class QuestionsController < ApplicationController
     @question = Question.destroy(params[:id])
     if @question.destroy
      redirect_to home_path, notice: "Question deleted"
-   else
+    else
      redirect_to @question, notice: "Delete failed, please try again"
    end
   end

@@ -41,7 +41,7 @@ describe CommentsController do
       it "creates vote with valid params" do
         controller.stub!(:load_commentable).and_return(@commentable)
         expect {
-          post :vote, id: attributes_for(:vote, user: @user2), value: 1
+          post :vote, id: attributes_for(:comment_vote, user: @user2), value: 1
         }.to change(Vote, :count).by(1)
       end
     end

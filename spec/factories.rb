@@ -16,22 +16,12 @@ FactoryGirl.define do
     video_id :video
     answers_count 5
     votes_count 5
-  end
-  
-  factory :invalid_question, parent: :question do
-    title nil
-    body nil
-    user
-    youtube_url "http://youtube.com"
-    video_id :video
-    answers_count 5
-    votes_count 5
-  end
-    
+  end    
   
   factory :video do
     user
     file "http://teebox-network.s3.amazonaws.com/uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v"
+    screenshot "NGICJSJ_edited_driver_swing.m4v.jpg"
   end
   
   factory :comment do
@@ -54,6 +44,22 @@ FactoryGirl.define do
     user
     votable_id :answer
     votable_type "Answer"
+    value 1
+    points 5
+  end
+  
+  factory :question_vote, parent: :vote do
+    user
+    votable_id :question
+    votable_type "Question"
+    value 1
+    points 5
+  end
+  
+  factory :comment_vote, parent: :vote do
+    user
+    votable_id :comment
+    votable_type "Comment"
     value 1
     points 5
   end

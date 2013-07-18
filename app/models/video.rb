@@ -9,7 +9,7 @@ class Video < ActiveRecord::Base
   
   default_scope order('created_at DESC')
   
-  mount_uploader :screenshot, ImageUploader
+  mount_uploader :screenshot, ScreenShotUploader
   
   def to_param
     "#{id} - #{File.basename(self.file)}".parameterize
@@ -19,7 +19,7 @@ class Video < ActiveRecord::Base
     location = "#{Rails.root}/public/uploads/tmp/screenshots/#{unique}_#{File.basename(file)}.jpg"
     FFMPEG.ffmpeg_binary = ENV["FFMPEG_LOCATION"]
     if self.file.include? "http://teebox-network.s3.amazonaws.com/"
-      self.screenshot = FFMPEG::Movie.new(self.file).screenshot(location, seek_time: 2 )
+      self.screenshot = FFMPEG::Movie.new(self.file).screenshot(location, seek_time: 2)
       if self.save!
         File.delete(location)
       end
