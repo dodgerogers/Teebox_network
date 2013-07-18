@@ -1,17 +1,22 @@
 <div id="token">
     <% current_user.videos.each do |video| %>
-	  <div class="question-image form-video  <%= question.video_id == video.id ? 'selected-video' : '' %>" id="<%= video.id %>">
-		<div class="selected <%= "#{video.id}" %>_selected <%= question.video_id == video.id ? 'question_video' : '' %>">
+	  <div id="<%= video.id %>" class="question-image">
+		
+		<div class="selected <%= "#{video.id}" %>_icon <%= question.video_id == video.id ? 'selected_video' : '' %>">
 			<i class="icon-ok-sign"></i>
 		</div>
-		<%= link_to image_tag(video.screenshot), "#", remote: true, 
-													  id: "#{video.id}_token", 
-													  onclick: "$('#question_video_id').val(#{video.id});
-																$('.selected').hide();
-																$('.question-image').css('box-shadow','0px 0px 0px #fff');
-																$('.question_video').hide();
-																$('.#{video.id}_selected').toggle();
-																$('##{video.id}').css('box-shadow', '0px 3px 0px #E95A4D');" %><br>
+		
+<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen.jpg" %>
+<%= link_to image_tag(screenshot), "#", remote: true, 
+										id: "#{video.id}_token", 
+										onclick: "var form = $('#question_video_id');
+											      var icon = $('.#{video.id}_icon');
+												  var video = $('##{video.id}');
+												  $('.selected').hide();
+												  $('.question-image').removeClass('shadow');
+												  form.val(form.val() == #{video.id} ? 0 : #{video.id});  
+											  	  form.val() == #{video.id} ? icon.show() : icon.hide();
+												  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');" %><br>
 	   </div>
     <% end %>
 </div><br>

@@ -656,7 +656,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	text-shadow: 0px 4px 0px #E95A4D;
 	display:none;
 }
-.question_video {
+.selected_video {
 	position: absolute;
 	top: 31%;
 	right: 35%;
@@ -670,8 +670,11 @@ body .sublimevideo-zi .sublimevideo-uj {
 .selected-video {
 	box-shadow: 0px 3px 0px #E95A4D;
 }
-.form-video:hover {
-	box-shadow: 0px 3px 0px #E95A4D;
+.shadow {
+	box-shadow: 0px 4px 0px #E95A4D;
+}
+.question-image:hover {
+	box-shadow: 0px 4px 0px #E95A4D;
 }
 		
 /*--------------------------- video dropzone ------------------------*/
