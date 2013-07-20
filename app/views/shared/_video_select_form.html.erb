@@ -1,6 +1,6 @@
 <div id="token">
     <% current_user.videos.each do |video| %>
-	  <div id="<%= video.id %>" class="question-image">
+	  <div id="<%= video.id %>" class="question-image videos">
 		
 		<div class="selected <%= "#{video.id}" %>_icon <%= question.video_id == video.id ? 'selected_video' : '' %>">
 			<i class="icon-ok-sign"></i>
@@ -16,7 +16,8 @@
 												  $('.question-image').removeClass('shadow');
 												  form.val(form.val() == #{video.id} ? 0 : #{video.id});  
 											  	  form.val() == #{video.id} ? icon.show() : icon.hide();
-												  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');" %><br>
+												  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');" %>
+		<%= File.basename(video.file).titleize %>								
 	   </div>
     <% end %>
 </div><br>

@@ -1,3 +1,4 @@
+
 <%= form_for(@question) do |f| %>
 	<fieldset>
 	<% if @question.errors.any? %>
@@ -16,7 +17,7 @@
 	<div class="field">
   		<%= f.label :video_id %></small>(click to scroll and select video)</small>
   		<%= render partial: "shared/video_select_form", locals: { question: @question } %>
-		<%= f.text_field :video_id %>
+		<%= f.hidden_field :video_id %>
 	</div>
 		
 	<div class="field">

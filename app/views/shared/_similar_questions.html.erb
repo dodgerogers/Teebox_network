@@ -1,0 +1,5 @@
+<h2>Similar Questions</h2>
+<% Question.all.each do |q| %>
+<%= link_to q.title, q %>
+<hr>
+<% end %>

@@ -11,9 +11,9 @@
 </head>
 <body>
 	<div id="wrap">
-	<%= render template: "layouts/header" %>	
+	<%= render template: "layouts/header_2" %>	
 	
-	<div class="container">
+	<div class="container" id="margin-bottom">
 			<% flash.each do |name, msg| %>
 			 	<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 				 	<a class="close" data-dismiss="alert">&#215;</a>

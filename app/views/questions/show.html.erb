@@ -1,3 +1,5 @@
+<div class="row">
+<div class="span8">
 <div id="question-box">
 <br>
 <%= @decorator.sublime_player %>
@@ -5,13 +7,13 @@
 
 <div class="question">
 	<h1><%= @decorator.title.titleize %></h1>
-		<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
+<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
 
 		<div class="question-content">
 			<%= simple_format @question.body %>
 		</div>
 
-		<%= @decorator.question_tags %><br><br>
+		<%= @decorator.question_tags %>
 
 		<div class="form-area">
 			<div class="profile-info" id="question-profile-info">
@@ -42,3 +44,8 @@
 	<%= render template: "answers/index" %><br>
 	<a href="#" id="answer-button" class="default submit">Add your answer</a><br>
 	<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
+</div>
+	<div class="span4">
+		<%= render partial: "shared/similar_questions", locals: { question: @question } %>
+	</div>
+</div>

@@ -1,10 +1,52 @@
-.hero-unit {
-	padding: 30px 60px;
-	margin-top: 20px;
-	font-size:14px;
+
+/* Bootstrap + browser overrides*/
+/*---- container -------*/
+
+#margin-bottom {
+	margin-bottom: 40px;
 }
 
+/*-------- navbar --------*/
+.navbar-inner {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+.navbar {
+	margin-bottom: 30px;
+}
+.navbar .container {
+	width: 1170px;
+}
+
+.brand {
+	font-family: 'BebasNeueRegular';
+}
+#current-user {
+	padding-left: 5px;
+}
+#current-user-rep {
+	padding-right: 0px;
+	color: #E95A4D;
+	font-weight: 400;
+	font-family: 'BebasNeueRegular';
+	margin-top:1px;
+}
+#no-padding {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.navbar .nav li #gravatar {
+	padding: 5px 0px;
+}
 /*---------------------+ forms----------------------*/
+
 
 select, input[type="text"], input[type="password"], 
 input[type="datetime"], input[type="datetime-local"], input[type="date"], 
@@ -66,9 +108,7 @@ form#new_video {
 }
 
 input:-webkit-autofill {
-	background-color: #fff!important;
-	
-	 
+	background-color: #fff!important; 
 }
 
 /*------ hero unit -------*/
@@ -79,7 +119,12 @@ input:-webkit-autofill {
     margin-bottom: 12px;
     margin-top: .5em;
 	color: #E95A4D;
-		/*text-shadow: 0px 2px 2px #777;		*/
+	/*text-shadow: 0px 2px 2px #777;		*/
 	letter-spacing:0px;
 					
-	}
+}
+.hero-unit {
+	padding: 30px 60px;
+	font-size:14px;
+}
+	
