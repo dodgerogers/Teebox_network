@@ -18,6 +18,11 @@
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 }
+
+.navbar-inverse .navbar-inner {
+	background: #444;
+	
+}
 .navbar {
 	margin-bottom: 30px;
 }

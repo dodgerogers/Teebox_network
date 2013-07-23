@@ -16,8 +16,7 @@
 												  $('.question-image').removeClass('shadow');
 												  form.val(form.val() == #{video.id} ? 0 : #{video.id});  
 											  	  form.val() == #{video.id} ? icon.show() : icon.hide();
-												  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');" %>
-		<%= File.basename(video.file).titleize %>								
+												  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');" %>								
 	   </div>
     <% end %>
 </div><br>

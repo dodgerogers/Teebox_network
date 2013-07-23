@@ -1,0 +1,20 @@
+<br><div class="row">
+	<div class="span7">
+		<div class="tag_cloud">
+				<% tags.each do |tag| %>
+					<div class="tag_cloud_tag">
+						<%= link_to "#{tag.name} x #{tag.tag_count}", tagged_path(tag.name), class:  decorator.tag_class(tag) %>
+					</div>
+				<% end %>
+			<%= link_to "Tags Vault", tags_path, class: "bebas"%>
+			</div>
+		</div>
+	<div class="span5">
+			<%= link_to "Ask a Question", videos_path, class: "default submit ask-question" %>
+			<%= form_tag questions_path, method: "get", id: "main-search" do %>
+			<%= text_field_tag :search, params[:search], placeholder: "Search" %>
+			<% end %>
+	</div>
+</div>
+<br>
+<br>

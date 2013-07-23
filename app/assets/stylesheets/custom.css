@@ -185,6 +185,10 @@ h1.circle {
 	border: 5px solid #bbb;
 	box-shadow: 0 0 0 8px #E95A4D, 0px 0px 0px 12px #fff;
 }
+
+.circle-box {
+	margin: 30px auto 0;
+}
 /*------------- welcome page ----------*/
 
 .welcome-wrapper {
@@ -292,6 +296,7 @@ h1.circle {
 .logo {
 	display:inline-block;
 	width:40px;
+	float:left;
 }
 .logo img {
 	-webkit-transition: all 1s ease;
@@ -775,7 +780,9 @@ body #header-search {
 
 #main-search {
 	display:inline-block;
-	width: 67%;
+	width: 70%;
+	margin-right: 10px;
+	float:right;
 }
 
 /*----------------------- pagination ----------------*/

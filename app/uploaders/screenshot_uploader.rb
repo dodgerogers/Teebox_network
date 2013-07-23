@@ -14,7 +14,7 @@ require 'carrierwave/processing/rmagick'
 
   storage :fog
   
-  process resize_and_pad: [200, 100, "#000"]
+  process resize_and_pad: [200, 100, "#000000"]
 
   def cache_dir
     Rails.root.join('public/uploads') 
@@ -31,7 +31,7 @@ require 'carrierwave/processing/rmagick'
   end
 
   def extension_white_list
-    %w(jpg jpeg)
+    %w(jpg jpeg png)
   end
   
   def store_dir
