@@ -1,6 +1,6 @@
 <div id="token">
     <% current_user.videos.each do |video| %>
-	  <div id="<%= video.id %>" class="question-image videos">
+	  <div id="<%= video.id %>" class="videos">
 		
 		<div class="selected <%= "#{video.id}" %>_icon <%= question.video_id == video.id ? 'selected_video' : '' %>">
 			<i class="icon-ok-sign"></i>
@@ -9,14 +9,11 @@
 <% screenshot = video.screenshot.present? ? video.screenshot : "video_screen.jpg" %>
 <%= link_to image_tag(screenshot), "#", remote: true, 
 										id: "#{video.id}_token", 
-										onclick: "var form = $('#question_video_id');
-											      var icon = $('.#{video.id}_icon');
-												  var video = $('##{video.id}');
-												  $('.selected').hide();
-												  $('.question-image').removeClass('shadow');
-												  form.val(form.val() == #{video.id} ? 0 : #{video.id});  
-											  	  form.val() == #{video.id} ? icon.show() : icon.hide();
-												  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');" %>								
+										onclick: video_select(video) %>
+										
+										
+		<br><%= link_to File.basename(video.file).capitalize, '#' %>
+		<small><%= video.created_at.strftime("%m/%d/%y") %></small>																		
 	   </div>
     <% end %>
 </div><br>

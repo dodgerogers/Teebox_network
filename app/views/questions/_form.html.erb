@@ -1,6 +1,6 @@
-
+<div class="row">
+	<div class="span8 hero-unit">
 <%= form_for(@question) do |f| %>
-	<fieldset>
 	<% if @question.errors.any? %>
 		<div id="error_explanation">
   			<h2><%= pluralize(@question.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -14,38 +14,40 @@
 <% end %>
 
 
-	<div class="field">
-  		<%= f.label :video_id %></small>(click to scroll and select video)</small>
+	<div>
+  		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video") %>
+		
   		<%= render partial: "shared/video_select_form", locals: { question: @question } %>
 		<%= f.hidden_field :video_id %>
 	</div>
 		
-	<div class="field">
-		<%= f.label :youtube_url %>
+	<div>
+		<%= f.label :youtube_url, raw("<i class='icon-link'></i> YouTube URL") %>
 		<%= f.text_field :youtube_url, placeholder: "Already have a video on YouTube? Paste the URL here" %>
 	</div><br>
 		
-	<div class="field">
-		<%= f.label :title %>
+	<div>
+		<%= f.label :title, raw("<i class='icon-font'></i> Title") %>
 		<%= f.text_field :title %>
 	</div><br>
 	
-	<div class="field">
-	  <%= f.label :tag_tokens, "Tags" %>
+	<div>
+	  <%= f.label :tag_tokens, raw("<i class='icon-tags'></i> Tags") %>
 	  <%= f.text_field :tag_tokens, data: { preload: @question.tags } %>
 	</div><br>
 
 	
-	<div class="field">
-		<%= f.label :body %>
+	<div>
+		<%= f.label :body, raw("<i class='icon-align-justify'></i> Body") %>
 		<%= f.text_area :body, class: "wysihtml5" %>
 		<script type="text/javascript">
 		  $('.wysihtml5').wysihtml5();
 		</script>	
 	</div>
-	
-	<div class="form-area">	
-		<%= f.submit "Save", class: "default submit" %>
-	</div>
+		
+	<%= f.submit "Save", class: "default submit" %>
+	<%= link_to "Cancel", root_path %>
 	<% end %>
-</fieldset>
+</div>
+<div class="span3">
+</div>

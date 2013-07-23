@@ -37,7 +37,7 @@ gem 'therubyracer'
 gem 'carrierwave'
 gem 'fog'
 gem "streamio-ffmpeg", :git => "https://github.com/hartator/streamio-ffmpeg.git", :branch => "patch-1"
-gem "rmagick", '2.13.2'
+gem "mini_magick"
 gem "whenever", :require => false
 gem 'execjs'
 gem 'will_paginate', '3.0.3'

@@ -23,8 +23,8 @@ describe "User management" do
     page.should have_content "Sign up"
     fill_in "Email", with: "Test@hotmail.com"
     fill_in "Username", with: "tester"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
+    fill_in "user_password", with: "password"
+    fill_in "user_password_confirmation", with: "password"
     expect {
       click_button "Sign up"
     }.to change(User, :count).by(1)
@@ -37,7 +37,7 @@ describe "User management" do
     fill_in "Email", with: "Test@hotmail.com"
     fill_in "Username", with: "tester"
     fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: ""
+    fill_in "user_password_confirmation", with: ""
     expect {
       click_button "Sign up"
     }.to_not change(User, :count).by(1)

@@ -66,14 +66,18 @@ input[type="search"], input[type="tel"], input[type="color"],
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
-	max-width: 1040px;
 }
 
-textarea, .wysihtml5-sandbox {
+textarea, iframe.wysihtml5-sandbox {
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
-	max-width: 1026px;
+	width:100%!important;
+}
+iframe.wysihtml5-sandbox {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /* ----------- input field -------*/
@@ -131,5 +135,12 @@ input:-webkit-autofill {
 .hero-unit {
 	padding: 30px 60px;
 	font-size:14px;
+}
+
+/*--------------- icons ---------------*/
+
+.icon-link {
+    background-image: url("link.png");
+    background-position: center center;
 }
 	

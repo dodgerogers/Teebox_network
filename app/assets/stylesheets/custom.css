@@ -514,15 +514,15 @@ body .sublimevideo-zi .sublimevideo-uj {
 	vertical-align:top;
 	padding: 0px 5px;
 	margin: 0px;
-	margin-bottom: 20px;
-	width: 316px;
+	margin: 0px 5px 20px 0px;
+	width: 210px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 .videos .loading {
 	position: absolute;
-	top: 84px;
+	top: 45px;
 	right: 19px;
 	height: 50px;
 	width: 50px;
@@ -656,16 +656,14 @@ body .sublimevideo-zi .sublimevideo-uj {
 #token {
 	margin: 5px 0px 0px;
 	white-space: nowrap;
-	max-width:1040px;
 	overflow-x: -moz-scrollbars-horizontal;
 	overflow-x: scroll;
 	border: none;
-	height:165px;
 }
 
 .selected {
 	position: absolute;
-	top: 31%;
+	top: 20%;
 	right: 35%;
 	height: 50px;
 	width: 50px;
@@ -1122,7 +1120,6 @@ ul.token-input-list {
     height: auto !important; 
     height: 1%;
     width: 100%;
-	max-width: 1038px;
 	border: 1px solid #ccc;
     cursor: text;
     min-height: 1px;
@@ -1147,7 +1144,7 @@ ul.token-input-list li input {
 li.token-input-token {
     overflow: hidden; 
     margin: 3px;
-    padding: 4px 8px;
+    padding: 0px 8px;
 		background: #E95A4D;
     color: #fff;
     cursor: default;

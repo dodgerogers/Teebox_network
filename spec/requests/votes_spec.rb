@@ -18,7 +18,7 @@ describe "Answers votes" do
     create_answer
     sign_out
     sign_in_user2
-    click_link "Ball Starting Too Far Left"
+    click_link "Ball starting too far left"
     page.should have_selector("div", class: "vote-box")
     expect {
       click_link "upvote"
@@ -32,7 +32,7 @@ describe "Answers votes" do
     create_answer
     sign_out
     sign_in_user2
-    click_link "Ball Starting Too Far Left"
+    click_link "Ball starting too far left"
     page.should have_selector("div", class: "vote-box")
     expect {
       click_link "downvote"
