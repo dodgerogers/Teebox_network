@@ -7,10 +7,8 @@
 			<li><%= link_to image_tag(avatar_url(current_user, 30)), current_user, id: "gravatar" %></li>
       		<li><%= link_to number_to_human(current_user.reputation), current_user, id: "current-user-rep" %></li>
 			<li><%= link_to current_user.username.titleize, current_user, id: "current-user" %></li>
-			<li class="divider-vertical"></li>
-			<li><%= link_to raw('<i class="icon-cog"></i>'), edit_user_registration_path, id: "no-padding" %></li>
-			<li class="divider-vertical"></li>
-			<li><%= link_to raw('<i class="icon-remove-sign"></i>'), destroy_user_session_path, method: :delete, id: "no-padding" %></li>
+			<li><%= link_to raw('<i class="icon-cog"></i>'), edit_user_registration_path %></li>
+			<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 		<% else %>
 		 	<li><%= link_to "Sign up", new_user_registration_path %></li>
 			<li><%= link_to "Login", new_user_session_path %></li>

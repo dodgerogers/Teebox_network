@@ -9,9 +9,9 @@ CarrierWave.configure do |config|
   config.fog_directory = ENV['S3_BUCKET']
   config.fog_public = true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
-  config.enable_processing = true
   if Rails.env.test?
     config.storage = :file 
+    enable_prcoessing = false
   else
     config.storage = :fog
   end

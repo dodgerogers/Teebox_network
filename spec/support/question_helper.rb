@@ -5,6 +5,6 @@ module QuestionHelper
     click_link "Ask a Question"
     page.should have_content "Step 1: Upload a Video"
     click_link "Step 2"
-    page.should have_content "Ask a question"
+    page.should have_content "Ask your question"
   end
 end

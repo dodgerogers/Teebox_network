@@ -6,7 +6,7 @@ module AnswerHelper
     click_link "Ask a Question"
     page.should have_content "Step 1: Upload a Video"
     click_link "Step 2"
-    page.should have_content "Ask a question"
+    page.should have_content "Step 2: Ask your question"
     fill_in "Title", with: "Ball starting too far left"
     fill_in "Body", with: "my clubface is closed..."
     expect {
