@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   after_filter :store_location
   helper_method :resource_name, :resource, :devise_mapping
+  helper_method :notifications
   
   
     rescue_from CanCan::AccessDenied do |exception|
@@ -33,5 +34,9 @@ class ApplicationController < ActionController::Base
    
     def after_sign_out_path_for(resource_or_scope)
      root_path
+   end
+   
+   def notifications
+     PublicActivity::Activity.order("created_at DESC").where(recipient_id: current_user.id)
    end
 end

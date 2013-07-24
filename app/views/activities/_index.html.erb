@@ -1,6 +1,7 @@
-<b>Notifications</b>
+<li class="nav-header">Notifications</li>
 <% activities.each do |activity| %>
-  <div class="activity">
+<div id="notification">
   <%= render_activity activity %>
-  </div><hr>
+</div>
 <% end %>
+<li><%= link_to "View All", activities_path %></li>

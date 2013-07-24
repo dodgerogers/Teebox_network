@@ -22,7 +22,7 @@
 	</div>
 		
 	<div>
-		<%= f.label :youtube_url, raw("<i class='icon-link'></i> YouTube URL") %>
+		<%= f.label :youtube_url, raw("<i class='icon-youtube'></i> YouTube URL") %>
 		<%= f.text_field :youtube_url, placeholder: "Already have a video on YouTube? Paste the URL here" %>
 	</div><br>
 		
@@ -32,7 +32,7 @@
 	</div><br>
 	
 	<div>
-	  <%= f.label :tag_tokens, raw("<i class='icon-tags'></i> Tags") %>
+	  <%= f.label :tag_tokens, raw("<i class='icon-tags'></i> Tags <small>maximum of 5</small>") %>
 	  <%= f.text_field :tag_tokens, data: { preload: @question.tags } %>
 	</div><br>
 

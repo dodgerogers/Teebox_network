@@ -189,6 +189,7 @@ h1.circle {
 .circle-box {
 	margin: 30px auto 0;
 }
+
 /*------------- welcome page ----------*/
 
 .welcome-wrapper {
@@ -285,10 +286,6 @@ h1.circle {
 	letter-spacing: -4px;
 	color: #444;
 	font-weight:400;
-}
-.grid {
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALElEQVQYV2NU1rP4zwAEtu7+DId3bsRJMyaUtv8HKSAEGGEmElQ4aiK+IAIAHTQqW6Ez6lMAAAAASUVORK5CYII=) repeat;
-	
 }
 
 /*--------------- logo------------ */
@@ -414,6 +411,15 @@ h1.circle {
 	-ms-transform: rotate(360deg);
 }
 
+.padded {
+	padding: 10px 0 0;
+}
+
+.footer-menu li, .footer-menu li a {
+	list-style:none;
+	font-weight: 400;
+	color: #999;
+}
 /*---------------------------- buttons -------------------------------------------*/
 
 
@@ -504,6 +510,13 @@ body .sublimevideo-zi .sublimevideo-uj {
 	display:inline;
 }
 
+.tabs {
+	font-size: 18px;
+	font-weight:400;
+	color: #31838F;
+	vertical-align: middle;
+	letter-spacing: -1px;
+} 
 
 /* ----------------------------------*/
 

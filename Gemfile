@@ -29,6 +29,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-fileupload-rails'
   gem 'jquery-tokeninput-rails'
+  gem "font-awesome-rails"
 end
 
 gem 'devise'
