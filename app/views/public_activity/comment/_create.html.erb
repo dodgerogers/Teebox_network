@@ -1,0 +1,9 @@
+<% if activity.trackable %>
+	<%= link_to activity.owner.username, activity.owner %> added a 
+	<%= link_to "comment", activity.trackable.commentable %> on  
+	<%= link_to raw(activity.trackable.commentable.title), activity.trackable %><br>
+	<small>Created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+<% else %>
+	It has since been deleted
+<% end %>
+	

@@ -156,6 +156,11 @@ GEM
     orm_adapter (0.4.0)
     polyglot (0.3.3)
     profanity_filter (0.1.1)
+    public_activity (1.1.0)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      i18n (>= 0.5.0)
+      railties (~> 3.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -267,6 +272,7 @@ DEPENDENCIES
   mini_magick
   mysql2
   profanity_filter
+  public_activity
   rack (= 1.4.1)
   rails (= 3.2.3)
   rspec-rails (= 2.9.0)

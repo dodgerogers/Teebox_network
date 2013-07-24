@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
     if @comment.save
+      @comment.create_activity :create, owner: current_user, recipient: @commentable.user
         format.html { redirect_to @commentable, notice: 'Comment created'}
         format.js
     else

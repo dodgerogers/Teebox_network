@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include PublicActivity::StoreController
+  hide_action :current_user
 
   after_filter :store_location
   helper_method :resource_name, :resource, :devise_mapping

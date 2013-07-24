@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.build(params[:answer])
     respond_to do |format|
     if @answer.save
+      @answer.create_activity :create, owner: current_user, recipient: @answer.question.user
         format.html { redirect_to :back, notice: 'Answer created'}
         format.js
     else
@@ -56,6 +57,7 @@ class AnswersController < ApplicationController
   def correct 
     @answer = Answer.find(params[:id])
     if @answer.toggle_correct(:correct)
+      @answer.create_activity :correct, owner: current_user, recipient: @answer.user
        @answer.toggle_question_correct
        @answer.add_reputation
         respond_to do |format|

@@ -3,8 +3,6 @@ TeeboxNetwork::Application.routes.draw do
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout" }
   resources :users, only: [:show]
   resources :signed_urls, only: :index
-  match '/welcome', to: 'pages#welcome', as: 'welcome'
-  match '/home'=> "questions#index"
   root to: "questions#index"
   
   get "tagged/:tag", to: "questions#index", as: :tagged
@@ -35,6 +33,7 @@ TeeboxNetwork::Application.routes.draw do
   
   resources :videos
   resources :tags
+  resources :activities
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

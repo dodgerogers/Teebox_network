@@ -47,6 +47,7 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'draper', :git => "git://github.com/drapergem/draper.git"
 gem "delayed_job_active_record"
 gem "cancan"
+gem 'public_activity'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,4 +1,1 @@
 <h2>Similar Questions</h2>
-	<% Question.all.each do |q| %>
-		<%= link_to q.title, q %><br> Posted <%= time_ago_in_words(q.created_at) %> ago<hr>
-<% end %>

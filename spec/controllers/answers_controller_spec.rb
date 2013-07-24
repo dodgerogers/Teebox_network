@@ -8,6 +8,7 @@ describe AnswersController do
     @user2 = create(:user)
     sign_in @user1
     sign_in @user2
+    @question = create(:question, user: @user2)
     @answer = create(:answer, user: @user1)
     @vote = attributes_for(:vote, votable_id: @answer, user_id: @user2)
     controller.stub!(:current_user).and_return(@user1)
@@ -18,13 +19,15 @@ describe AnswersController do
   describe "POST create" do
     describe "with valid params" do
       it "creates a new answer" do
+        @question = create(:question, user: @user1)
         expect {
-          post :create, answer: attributes_for(:answer)
+          post :create, answer: attributes_for(:answer, question_id: @question.id)
         }.to change(Answer, :count).by(1)
       end
 
       it "assigns a newly created question as @question" do
-        post :create, answer: attributes_for(:answer)
+        @question = create(:question, user: @user1)
+        post :create, answer: attributes_for(:answer, question_id: @question.id)
         assigns(:answer).should be_a(Answer)
         assigns(:answer).should be_persisted
       end

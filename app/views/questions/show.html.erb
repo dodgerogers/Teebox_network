@@ -1,34 +1,36 @@
 <div class="row">
-<div class="span8">
-<div id="question-box">
-<br>
-<%= @decorator.sublime_player %>
-<%= @decorator.youtube_player %>
+	<div class="span1">
+	</div>
+	<div class="span8">
+		<div id="question-box">
+			<br>
+			<%= @decorator.sublime_player %>
+			<%= @decorator.youtube_player %>
 
-<div class="question">
-	<h1><%= @decorator.title.titleize %></h1>
-<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
+			<div class="question">
+				<h1><%= @decorator.title.titleize %></h1>
+				<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
 
-		<div class="question-content">
-			<%= simple_format @question.body %>
-		</div>
-
-		<%= @decorator.question_tags %>
-
-		<div class="form-area">
-			<div class="profile-info" id="question-profile-info">
-				<%= profile_link_helper(@question) %>
+			<div class="question-content">
+				<%= simple_format @question.body %>
 			</div>
+
+				<%= @decorator.question_tags %>
+
+			<div class="form-area">
+				<div class="profile-info" id="question-profile-info">
+					<%= profile_link_helper(@question) %>
+				</div>
 					
-			<div class="pull-right">
-				<% if @question.user == current_user %>
-				<%= link_to "Edit", edit_question_path(@question), class: "default" %>
-				<%= link_to "Delete", @delete, method: :delete, class: "default" %>
-				<% end %>
+				<div class="pull-right">
+					<% if @question.user == current_user %>
+						<%= link_to "Edit", edit_question_path(@question), class: "default" %>
+						<%= link_to "Delete", @delete, method: :delete, class: "default" %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 <div class="comments-area">
 	<%= render template: "comments/index" %>
@@ -45,7 +47,7 @@
 	<a href="#" id="answer-button" class="default submit">Add your answer</a><br>
 	<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
 </div>
-	<div class="span4">
-		<%= render partial: "shared/similar_questions", locals: { question: @question } %>
+<div class="span3">
+	<%= render partial: "shared/similar_questions" %>
 	</div>
 </div>

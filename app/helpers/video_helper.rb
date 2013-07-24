@@ -1,14 +1,14 @@
 module VideoHelper
   
   def video_select(video)
-    "var form = $('#question_video_id');
-			      var icon = $('.#{video.id}_icon');
-				  var video = $('##{video.id}');
-				  $('.selected').hide();
-				  $('.videos').removeClass('shadow');
-				  form.val(form.val() == #{video.id} ? 0 : #{video.id});  
-			  	  form.val() == #{video.id} ? icon.show() : icon.hide();
-				  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');"
+   "var form = $('#question_video_id');
+	  var icon = $('.#{video.id}_icon');
+	  var video = $('##{video.id}');
+	  $('.selected').hide();
+		$('.videos').removeClass('shadow');
+	  form.val(form.val() == #{video.id} ? 0 : #{video.id});  
+	  form.val() == #{video.id} ? icon.show() : icon.hide();
+	  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');"
 	end
 	
   def youtube_url_html5(url)

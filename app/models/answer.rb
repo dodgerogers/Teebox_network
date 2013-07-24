@@ -1,5 +1,6 @@
 class Answer < ActiveRecord::Base
   include AnswerHelper
+  include PublicActivity::Common
   
   attr_accessible :body, :question_id, :votes_count, :correct, :points
   

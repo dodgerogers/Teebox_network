@@ -297,6 +297,7 @@ h1.circle {
 	display:inline-block;
 	width:40px;
 	float:left;
+	margin-right: 5px;
 }
 .logo img {
 	-webkit-transition: all 1s ease;
@@ -366,7 +367,6 @@ h1.circle {
 	width: 49%;
 	text-align: left;
 	vertical-align:top;
-	font-family: 'BebasNeueRegular';
 }
 .right-header {
 	position: relative;
@@ -386,7 +386,6 @@ h1.circle {
 /* ------------------------- Footer --------------------------------------------*/
 
 #footer {
-	font-family: 'BebasNeueRegular';
 	color: #888;
 	/*text-shadow: 0px 2px 3px #fff;
 	background: url(noise.png);*/
@@ -696,26 +695,15 @@ body .sublimevideo-zi .sublimevideo-uj {
 #dropzone {
     background: #E9E9E9;
     width: 400px;
-    height: 50px;
+    height: auto;
     vertical-align: middle;
-    text-align: center;
-    font-weight: 100;
-		border: 2px dashed #fff;
-		box-shadow: 0 0 0 5px #e9e9e9, 0px 0px 0px 0px #888;
-		text-shadow: 0px 3px 3px #fff;
-		color: #999;
-		font-weight:400;
-		font-size: 16px;
+    text-align: left;
 }
 #dropzone.in {
     width: 600px;
     height: 200px;
     line-height: 200px;
     font-size: larger;
-}
-#dropzone.hover {
-    background: #EEE;
-		border: 2px dashed #fff;
 }
 #dropzone.fade {
     -webkit-transition: all 0.3s ease-out;
@@ -726,7 +714,9 @@ body .sublimevideo-zi .sublimevideo-uj {
     opacity: 1;
 }
 
-#progress, #dropzone {display:none;}
+#progress, #dropzone {
+	display:none;
+	}
 .progress {
 	background-color: #f7f7f7;
 	background-image: -moz-linear-gradient(top, #E0E0E0, #f5f5f5);
@@ -754,7 +744,8 @@ body .sublimevideo-zi .sublimevideo-uj {
 	background: -o-linear-gradient(top, #4fc392 0%,#409c69 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, #4fc392 0%,#409c69 100%); /* IE10+ */
 	background: linear-gradient(to bottom, #4fc392 0%,#409c69 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4fc392', endColorstr='#409c69',GradientType=0 ); /* IE6-9 */}
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4fc392', endColorstr='#409c69',GradientType=0 ); /* IE6-9 */
+}
 
 /*---------------------- search ---------------------*/
 
@@ -769,7 +760,7 @@ body #header-search {
 	box-shadow: 0px 1px 2px #777;
 	border-radius:0px;
 	-moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
+  	-webkit-border-radius: 2px;
 }
 
 #header-search:active, #header-search:hover {
@@ -935,7 +926,7 @@ body #header-search {
 	vertical-align: top;
 	text-align:center;
 	position: absolute;
-	left:-70px;
+	left:-60px;
 	top: 60px;
 	text-decoration:none;
 }

@@ -128,7 +128,7 @@ describe QuestionsController do
 
     it "redirects to the questions list" do
       delete :destroy, id: @question
-      response.should redirect_to home_path
+      response.should redirect_to root_path
     end
   end
   

@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  include PublicActivity::Common
   
   attr_accessible :content, :votes_count, :commentable_id, :commentable_type, :points
   

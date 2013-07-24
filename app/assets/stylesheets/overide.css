@@ -7,6 +7,10 @@
 }
 
 /*-------- navbar --------*/
+
+.navbar .container {
+	width: ;
+}
 .navbar-inner {
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
@@ -19,23 +23,53 @@
 	border-radius: 0px;
 }
 
-.navbar-inverse .navbar-inner {
-	background: #444;
-	
+.navbar-inner {
+	background: #10545d;
+	border:none;
 }
 .navbar {
 	margin-bottom: 30px;
 }
-.navbar .container {
-	width: 1170px;
+.navbar .brand {
+	font-family: 'BebasNeueRegular';
+	font-size: 28px;
+	color: #0A323A;
+	letter-spacing: 1px;
+	text-shadow: 0px 1px 1px #1F6E7C!important;
+}
+.navbar .brand:hover {
+	color: #fff;
+	text-shadow: 0px 0px 0px #1F6E7C!important;
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle, 
+.navbar .nav li.dropdown.active > .dropdown-toggle, 
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+	color: #fff;
+	background: #0A323A;
+}
+.navbar .nav > li > a {
+	color: #fff;
+	text-shadow: 0 0 0 #ffffff;
+}
+.navbar .nav > li > a:hover {
+	color: #999;
+}
+.dropdown .dropdown-menu .nav-header {
+	color: #31838F;
 }
 
-.brand {
-	font-family: 'BebasNeueRegular';
+.navbar .btn-navbar {
+	background:#0A323A ;
 }
+
+.navbar .nav li #gravatar {
+	padding: 5px 0px;
+}
+
 #current-user {
 	padding-left: 5px;
 }
+
 #current-user-rep {
 	padding-right: 0px;
 	color: #E95A4D;
@@ -43,12 +77,10 @@
 	font-family: 'BebasNeueRegular';
 	margin-top:1px;
 }
+
 #no-padding {
 	padding-left: 0px;
 	padding-right: 0px;
-}
-.navbar .nav li #gravatar {
-	padding: 5px 0px;
 }
 /*---------------------+ forms----------------------*/
 
@@ -135,6 +167,10 @@ input:-webkit-autofill {
 .hero-unit {
 	padding: 30px 60px;
 	font-size:14px;
+}
+	
+.grid {	
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAGklEQVQIW2PctGmnDwMOwAiSVFVVxCo96CQBcvsTaWb5yP0AAAAASUVORK5CYII=);
 }
 
 /*--------------- icons ---------------*/
