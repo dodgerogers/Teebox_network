@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="span8 hero-unit">
+	<div class="span12">
 <%= form_for(@question) do |f| %>
 	<% if @question.errors.any? %>
 		<div id="error_explanation">
@@ -14,13 +14,18 @@
 <% end %>
 
 
+<div class="hero-unit">
+	<h1>Add your video</h1>
 	<div>
-  		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video") %>
+  		<% f.label :video_id, raw("<i class='icon-camera'></i> Video") %>
 		
   		<%= render partial: "shared/video_select_form", locals: { question: @question } %>
 		<%= f.hidden_field :video_id %>
 	</div>
-		
+</div>	
+	
+	
+<div class="hero-unit">		
 	<div>
 		<%= f.label :youtube_url, raw("<i class='icon-youtube'></i> YouTube URL") %>
 		<%= f.text_field :youtube_url, placeholder: "Already have a video on YouTube? Paste the URL here" %>
@@ -48,6 +53,6 @@
 	<%= f.submit "Save", class: "default submit" %>
 	<%= link_to "Cancel", root_path %>
 	<% end %>
+	</div>
 </div>
-<div class="span3">
 </div>

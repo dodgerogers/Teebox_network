@@ -1,4 +1,4 @@
-<h3><%= pluralize(questions.size, "Question") if params[:search] || params[:tag] %></h3>	
+<h2><%= pluralize(questions.size, "Question") if params[:search] || params[:tag] %></h2>	
 
 <% questions.each do |question| %>
 

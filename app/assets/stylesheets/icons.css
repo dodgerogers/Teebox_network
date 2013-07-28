@@ -1,0 +1,30 @@
+/*--------------- icons ---------------*/
+[class^="teebox-"],
+[class*=" teebox-"] {
+  display: inline-block;
+  width: 17px;
+  height: 16px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url(teebox-icons.png);
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+[class^="teebox-"]:last-child,
+[class*=" teebox-"]:last-child {
+  *margin-left: 0;
+}
+
+/* icons code below */
+.blob { background-position: 0 0; width: 16px; height: 16px; } 
+.tb { background-position: 0 -66px; width: 16px; height: 16px; }
+
+.large {
+	vertical-align:middle;
+	font-size: 26px;
+}
+
+.red {
+	color: #E95A4D;
+}

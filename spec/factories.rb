@@ -69,4 +69,10 @@ FactoryGirl.define do
     explanation "ball curves from left to right"
     updated_by "Andy"
   end
+  
+  factory :activity, class: 'PublicActivity::Activity' do
+     trackable_id :answer
+     recipient_id :user
+     owner_id :user
+  end
 end

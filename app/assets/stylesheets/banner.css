@@ -1,3 +1,8 @@
+.hero-unit .welcome-banner {
+	color: #fff;
+	text-shadow: 0 4px 0px #E95A4D;
+	letter-spacing: 3px;
+}
 .ch-grid {
     margin: 0;
     padding: 0;
@@ -38,7 +43,7 @@
     overflow: hidden;
     position: relative;
     cursor: default;
-    box-shadow: inset 0 0 0 8px #E95A4D, 0 0 0px 4px #ccc, 0 0 0 6px #fff;
+    box-shadow: inset 0 0 0 6px #E95A4D, 0 0 0 4px #31838F;
     transition: all 0.4s ease-in-out;
 }
 
@@ -60,16 +65,17 @@
 	text-align: center;
 	vertical-align: middle;
 	margin: 32px!important;
+	color: ;
+	text-shadow: 0 2px 0px #ccc;
 }
 .ch-info h3 {
     color: #fff;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 36px;
+    font-size: 18px;
 	line-height: 20px;
 	text-align:center!important;
-    margin: 0 22px;
-    padding: 40px 0 0 0;
+    margin: 0px;
+    padding: 30px 0 0 0;
     height: 140px;
     text-shadow: 
         0 0 1px #fff, 

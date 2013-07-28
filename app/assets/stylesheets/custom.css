@@ -294,7 +294,7 @@ h1.circle {
 	display:inline-block;
 	width:40px;
 	float:left;
-	margin-right: 5px;
+	margin:-3px 5px 0 0;
 }
 .logo img {
 	-webkit-transition: all 1s ease;
@@ -302,6 +302,9 @@ h1.circle {
 	       -o-transition: all 1s ease;
 	      -ms-transition: all 1s ease;
 	          transition: all 1s ease;
+}
+.banner-text {
+	display:inline-block;
 }
 
 .header-title {
@@ -395,6 +398,9 @@ h1.circle {
 
 #push {
 	height: 100px;
+}
+#mini-push {
+	height:60px;
 }
 
 #browsers img {
@@ -522,15 +528,27 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 .videos {
 	display: inline-block;
+	background: #fff;
 	position: relative;
 	vertical-align:top;
-	padding: 0px 5px;
-	margin: 0px;
-	margin: 0px 5px 20px 0px;
-	width: 210px;
+	padding: 0px;
+	margin: 0px 15px 15px 0px;
+	width: 200px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+}
+.videos h4, .videos h4 a {
+	margin: 0px;
+	padding: 0px 0px;
+	padding: 0px 2px 0px 2px;
+}
+.videos p {
+	padding: 0px 2px 0px 5px;
+	margin:0px;
+}
+.videos small a {
+	margin-left:-4px;
 }
 .videos .loading {
 	position: absolute;
@@ -576,7 +594,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 
 .questions:hover, .videos:hover {
-	background: #fafafa;
+	background: #fff;
 }
 
 #q-answers-count {
@@ -638,16 +656,6 @@ body .sublimevideo-zi .sublimevideo-uj {
 	text-align:middle;
 	font-family: 'BebasNeueRegular';
 	color: #4fc392;
-}
-
-.videos h4, .videos h4 a {
-	margin: 5px;
-	margin-left: 0px;
-	margin-right: 0px;
-}
-
-.videos small a {
-	margin-left:-4px;
 }
 
 /*.videos img {
@@ -763,23 +771,9 @@ body .sublimevideo-zi .sublimevideo-uj {
 /*---------------------- search ---------------------*/
 
 body #header-search {
-	margin:0;
-	color: #999;
-	width: 220px;
-	background: #232323;
-	border: 1px solid #222;
-	-webkit-box-shadow: 0px 1px 2px #777;  
-	-moz-box-shadow: 0px 1px 2px #777;  
-	box-shadow: 0px 1px 2px #777;
-	border-radius:0px;
-	-moz-border-radius: 2px;
-  	-webkit-border-radius: 2px;
+	display:inline;
+	width:100px;
 }
-
-#header-search:active, #header-search:hover {
-	background: #353535;
-}
-
 #main-search {
 	display:inline-block;
 	width: 70%;

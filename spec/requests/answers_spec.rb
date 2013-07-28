@@ -9,7 +9,7 @@ describe "Answers" do
     create_and_find_question
     create_answer
   end   
-  
+    
   it "deletes an answer" do
     visit root_path
     sign_in_user

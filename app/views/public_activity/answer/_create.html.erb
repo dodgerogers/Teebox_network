@@ -5,8 +5,8 @@
 	<div class="message">
 		<%= link_to activity.owner.username, activity.owner %> answered your 
 		<%= link_to "Question", activity.trackable.question %><br>
-		<small>Created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
 	</div>
 <% else %>
-	It has since been deleted
+		User has removed answer
 <% end %>

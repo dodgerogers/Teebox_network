@@ -1,24 +1,24 @@
 <% if current_user.videos.any? %>
-<div id="token">
-    <% current_user.videos.each do |video| %>
-	  <div id="<%= video.id %>" class="videos">
+	<div id="token">
+    	<% current_user.videos.each do |video| %>
+	  		<div id="<%= video.id %>" class="videos">
 		
-		<div class="selected <%= "#{video.id}" %>_icon <%= question.video_id == video.id ? 'selected_video' : '' %>">
-			<i class="icon-ok-sign"></i>
-		</div>
+				<div class="selected <%= "#{video.id}" %>_icon <%= question.video_id == video.id ? 'selected_video' : '' %>">
+					<i class="icon-ok-sign"></i>
+				</div>
 		
-<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen.jpg" %>
-<%= link_to image_tag(screenshot), "#", remote: true, 
-										id: "#{video.id}_token", 
-										onclick: video_select(video) %>
+				<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen.jpg" %>
+				<%= link_to image_tag(screenshot), "#", remote: true, 
+														id: "#{video.id}_token", 
+														onclick: video_select(video) %>
 										
 										
-		<br><%= link_to File.basename(video.file).capitalize, '#' %>
-		<small><%= video.created_at.strftime("%m/%d/%y") %></small>																		
-	   </div>
-    <% end %>
-</div>
-  <% else %>
+				<h4><%= link_to File.basename(video.file).capitalize, '#' %></h4>
+				<p>uploaded <%= time_ago_in_words(video.created_at) %> ago</p>																		
+	   			</div>
+    	<% end %>
+	</div>
+<% else %>
 	<%= link_to "0 videos found. Add some videos", videos_path, class: "default submit" %><br>
 <% end %>
 <br>

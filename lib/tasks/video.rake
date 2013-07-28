@@ -13,3 +13,7 @@ end
 task :delete_dev_logs do
   FileUtils.rm "#{Rails.root}/log/development.log"
 end
+
+task :delete_test_logs do
+  FileUtils.rm "#{Rails.root}/log/test.log"
+end

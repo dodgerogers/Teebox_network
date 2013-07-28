@@ -16,9 +16,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
     if @comment.save
-      @comment.create_activity :create, owner: current_user, recipient: @commentable.user
-        format.html { redirect_to @commentable, notice: 'Comment created'}
-        format.js
+      @comment.create_activity :create, owner: current_user, recipient: @commentable.user unless current_user == @commentable.user
+      format.html { redirect_to @commentable, notice: 'Comment created'}
+      format.js
     else
       format.html { redirect_to @commentable, notice: "Content can't be blank" }
       format.js
@@ -27,10 +27,14 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-    @comment = Comment.destroy(params[:id])
-    respond_to do |format|
-      format.js
-    end
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      @activity = PublicActivity::Activity.where(trackable_type: "Comment", trackable_id: @comment.id).first
+       @activity.destroy unless current_user == @comment.commentable.user
+        respond_to do |format|
+          format.js
+        end
+      end
   end
        
   def vote 

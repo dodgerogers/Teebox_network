@@ -86,7 +86,9 @@ describe AnswersController do
   
   describe "DELETE destroy" do
     before(:each) do
-      @answer = create(:answer)
+      @question = create(:question, user: @user1)
+      @answer = create(:answer, user: @user2)
+      @activity = create(:activity, trackable_id: @answer.id, trackable_type: "Answer", owner_id: @answer.user.id)
     end
     
     it "destroys the requested answer" do

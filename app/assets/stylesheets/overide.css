@@ -9,7 +9,6 @@
 /*-------- navbar --------*/
 
 .navbar .container {
-	width:1170px;
 	margin-top: 6px;
 	margin-bottom: 6px;
 }
@@ -46,16 +45,16 @@
 	font-size: 28px;
 	color: #0A323A;
 	letter-spacing: 1px;
-	text-shadow: 0px 1px 1px #297D8B!important;
+	text-shadow: 0px 1px 1px #297D8B;
 }
 .navbar .brand:hover,.navbar .nav > li > a:hover {
 	color: #fff!important;
-	text-shadow: 0px 1px 1px #0A323A!important;
+	text-shadow: 0px 1px 1px #0A323A;
 }
 .navbar .nav > li > a {
 	font-weight:bold;
 	color: #0A323A;
-	text-shadow: 0px 1px 1px #297D8B!important;
+	text-shadow: 0px 1px 1px #297D8B;
 }
 .navbar .nav li.dropdown.open > .dropdown-toggle, 
 .navbar .nav li.dropdown.active > .dropdown-toggle, 
@@ -117,11 +116,11 @@
 }
 
 #current-user-rep {
-	padding-right: 0px;
 	color: #E95A4D;
-	font-weight: 400;
-	font-family: 'BebasNeueRegular';
 	margin-top:1px;
+	padding-right: 0px;
+	font-weight: bold;
+	text-shadow: 0px 1px 1px #333;
 }
 
 #no-padding {
@@ -214,20 +213,37 @@ input:-webkit-autofill {
 	padding: 30px 60px;
 	font-size:14px;
 }
+
+/* backgrounds */
 	
-.grid {	
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAGklEQVQIW2PctGmnDwMOwAiSVFVVxCo96CQBcvsTaWb5yP0AAAAASUVORK5CYII=);
+.forest {	
+	background: url(teebox-landscape-tall.png);
+	color: #fff;
+	background-position: center bottom;
 }
-
-/*--------------- icons ---------------*/
-
-.icon-link {
-    background-image: url("link.png");
-    background-position: center center;
+.sky {
+	background: url(teebox-landscape-tall.png);
+	color: #fff;
+	background-position: center center;	
 }
-
-.large {
-	vertical-align:middle;
-	font-size: 26px;
+.kauri {
+	background: url(teebox-kauri.png);
+	color: #fff;
+	background-position: center 70%;	
 }
-	
+.beach {
+	background: url(teebox-beach.png);
+	color: #fff;
+	background-position: center 92%;	
+}
+.ocean {
+	background: url(teebox-ocean.png);
+	color: #fff;
+	background-position: center 70%;	
+}
+.sky a, .beach a, .ocean a, .kauri a {
+	color: #fff;
+	font-weight:bold;
+}
+.sky label, .beach label, .ocean label {
+}

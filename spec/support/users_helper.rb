@@ -2,19 +2,19 @@ require "spec_helper"
 
 module UsersHelper
   def sign_in_user
-    user = FactoryGirl.create(:user)
+    @user = FactoryGirl.create(:user)
     click_link "Login"
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
+    fill_in "Username", with: @user.username
+    fill_in "Password", with: @user.password
     click_button "Sign in"
     page.should have_content "Signed in successfully"
   end
   
   def sign_in_user2
-    user2 = FactoryGirl.create(:user)
+    @user2 = FactoryGirl.create(:user)
     click_link "Login"
-    fill_in "Username", with: user2.username
-    fill_in "Password", with: user2.password
+    fill_in "Username", with: @user2.username
+    fill_in "Password", with: @user2.password
     click_button "Sign in"
     page.should have_content "Signed in successfully"
   end

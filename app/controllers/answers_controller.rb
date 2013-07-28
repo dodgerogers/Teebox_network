@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.build(params[:answer])
     respond_to do |format|
     if @answer.save
-      @answer.create_activity :create, owner: current_user, recipient: @answer.question.user
+      @answer.create_activity :create, owner: current_user, recipient: @answer.question.user unless current_user == @answer.question.user
         format.html { redirect_to :back, notice: 'Answer created'}
         format.js
     else
@@ -35,9 +35,13 @@ class AnswersController < ApplicationController
   end
   
   def destroy
-     @answer = Answer.destroy(params[:id])
-      respond_to do |format|
-        format.js
+     @answer = Answer.find(params[:id])
+     if @answer.destroy
+       @activity = PublicActivity::Activity.where(trackable_type: "Answer", trackable_id: @answer.id).first
+       @activity.destroy
+       respond_to do |format|
+         format.js
+       end
     end
   end
   
@@ -57,7 +61,7 @@ class AnswersController < ApplicationController
   def correct 
     @answer = Answer.find(params[:id])
     if @answer.toggle_correct(:correct)
-      @answer.create_activity :correct, owner: current_user, recipient: @answer.user
+      @answer.create_activity :correct, owner: current_user, recipient: @answer.user unless current_user == @answer.question.user
        @answer.toggle_question_correct
        @answer.add_reputation
         respond_to do |format|
