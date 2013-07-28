@@ -197,6 +197,11 @@ input:-webkit-autofill {
 	background-color: #fff!important; 
 }
 
+#search {
+	background:#0A323A;
+	border:none;
+	box-shadow: 0px 1px 1px #297D8B;
+}
 /*------ hero unit -------*/
 
 .hero-unit h1 {
