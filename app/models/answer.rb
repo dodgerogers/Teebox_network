@@ -8,6 +8,8 @@ class Answer < ActiveRecord::Base
   belongs_to :question, counter_cache: true
   has_many :votes, as: :votable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :activities, class_name: "PublicActivity::Activity", as: :trackable, dependent: :destroy
+  
   
   validates_presence_of :body, :user_id, :question_id
   validates_length_of :body, minimum: 10

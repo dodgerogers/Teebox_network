@@ -6,7 +6,7 @@
 	<br>
 	<h4><%= link_to File.basename(video.file).titleize, video %></h4>
 	
-	<p>uploaded <%= time_ago_in_words(video.created_at)  %> ago
+	<p><%= video.created_at.strftime("%d/%m/%y")  %>
 	
 	<%= link_to raw("<i class='icon-remove-sign'></i>"), video_path(video), method: :delete, 
 												 							remote: true, 

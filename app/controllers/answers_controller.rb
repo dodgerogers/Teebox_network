@@ -35,13 +35,9 @@ class AnswersController < ApplicationController
   end
   
   def destroy
-     @answer = Answer.find(params[:id])
-     if @answer.destroy
-       @activity = PublicActivity::Activity.where(trackable_type: "Answer", trackable_id: @answer.id).first
-       @activity.destroy
+     @answer = Answer.destroy(params[:id])
        respond_to do |format|
          format.js
-       end
     end
   end
   

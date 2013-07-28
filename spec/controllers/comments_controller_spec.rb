@@ -28,7 +28,7 @@ describe CommentsController do
     describe "DELETE destroy" do
       before(:each) do
         @comment = create(:comment)
-        @activity = create(:activity, trackable_id: @comment.id, trackable_type: "Comment", owner_id: @comment.user.id)
+        #@activity = create(:activity, trackable_id: @comment.id, trackable_type: "Comment", owner_id: @comment.user.id)
       end
 
       it "destroys the requested comment" do

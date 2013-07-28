@@ -27,13 +27,9 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-    @comment = Comment.find(params[:id])
-    if @comment.destroy
-      @activity = PublicActivity::Activity.where(trackable_type: "Comment", trackable_id: @comment.id).first
-       @activity.destroy unless current_user == @comment.commentable.user
+    @comment = Comment.destroy(params[:id])
         respond_to do |format|
           format.js
-        end
       end
   end
        

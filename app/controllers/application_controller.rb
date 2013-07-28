@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include PublicActivity::StoreController
-  hide_action :current_user
 
   after_filter :store_location
   helper_method :resource_name, :resource, :devise_mapping
@@ -36,9 +35,8 @@ class ApplicationController < ActionController::Base
      root_path
    end
    
-   
    #move/refactor
    def notifications
-     PublicActivity::Activity.order("created_at DESC").where(recipient_id: current_user.id)
+     PublicActivity::Activity.order("created_at DESC").where(recipient_id: current_user.id).limit(8)
    end
 end
