@@ -11,6 +11,7 @@
 		
 		<div class="nav-collapse collapse">
     	<ul class="nav pull-right">
+
 			<form class="navbar-form pull-left">
 			  		<%= form_tag questions_path, method: "get", class: "form-control" do %>
 						<%= text_field_tag :search, params[:search], placeholder: "Search" %>

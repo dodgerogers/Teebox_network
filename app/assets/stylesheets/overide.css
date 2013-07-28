@@ -239,7 +239,7 @@ input:-webkit-autofill {
 .beach {
 	background: url(teebox-beach.png);
 	color: #fff;
-	background-position: center 92%;	
+	background-position: right 92%;
 }
 .ocean {
 	background: url(teebox-ocean.png);

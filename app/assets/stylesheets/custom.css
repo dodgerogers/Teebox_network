@@ -136,7 +136,7 @@ a:hover {
 	label {
 		font-size: 18px;
 		font-weight: 200;
-		color: #31838F;
+		color: #06434D;
 		vertical-align: middle;
 	}
 	
@@ -453,8 +453,8 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 .videos .loading {
 	position: absolute;
-	top: 45px;
-	right: 19px;
+	top: 25px;
+	right: 73px;
 	height: 50px;
 	width: 50px;
 	display:none;
