@@ -117,7 +117,6 @@
 
 #current-user-rep {
 	color: #E95A4D;
-	margin-top:1px;
 	padding-right: 0px;
 	font-weight: bold;
 	text-shadow: 0px 1px 1px #333;
@@ -239,7 +238,7 @@ input:-webkit-autofill {
 .beach {
 	background: url(teebox-beach.png);
 	color: #fff;
-	background-position: right 92%;
+	background-position: center 92%;
 }
 .ocean {
 	background: url(teebox-ocean.png);
