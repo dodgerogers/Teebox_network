@@ -1,25 +1,22 @@
-<h1>Profile</h1><br>
+<div class="center hero-unit sky"> 
+	<div class="row">
+	<h1>Profile</h1>
+	<%= render partial: "users/stats", locals: { decorator: @decorator }%><br>
 
-<div class="profile-info">
-<%= link_to image_tag(avatar_url(@decorator, 75)), @decorator %>
-<%= @decorator.email %><br>
-<%= @decorator.username %><br>
-<%= @decorator.change_picture %>
-</div>
-<hr>
+	<div class="profile-info">
+		<%= link_to image_tag(avatar_url(@decorator, 75)), @decorator %>
+		<%= @decorator.change_picture %><br>
+		<%= @decorator.email %><br>
+		<%= @decorator.username %><br>
+	</div><br><br>
 
-<%= render partial: "users/stats", locals: { decorator: @decorator }%>
-
-<hr>
-<div class="profile-links">
+	<div class="profile-links">
 		<%= @decorator.link_helper("questions", questions_index_path(@decorator), @decorator.questions) %>
-	
 		<%= @decorator.link_helper("answers", answers_index_path(@decorator), @decorator.answers) %>
-	
 		<%= @decorator.link_helper("comments", comments_index_path(@decorator), @decorator.comments) %>
-		
-		<%= @decorator.my_videos %>
-</div>
-		
+		<%= @decorator.my_videos %><br><br>
+	</div>
+	</div>
+</div>		
 	
 

@@ -8,11 +8,11 @@ class UserDecorator < ApplicationDecorator
   end
    
   def my_videos
-    link_to "My Videos", videos_path, class: "default submit" if current_user == model
+    link_to "My Videos", videos_path, class: "default next" if current_user == model
   end
   
   def link_helper(text, path, objects)
-    link_to "View all #{text}", path, class: "default submit" if objects.any?
+    link_to "View all #{text}", path, class: "default next" if objects.any?
   end
   
   def questions

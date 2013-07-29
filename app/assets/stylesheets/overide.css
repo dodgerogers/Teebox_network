@@ -246,6 +246,11 @@ input:-webkit-autofill {
 	color: #fff;
 	background-position: center 70%;	
 }
+.sebonak {
+	background: url(teebox-sebonak.png);
+	color: #fff;
+	background-position: 37% 52%;	
+}
 .sky a, .beach a, .ocean a, .kauri a {
 	color: #fff;
 	font-weight:bold;

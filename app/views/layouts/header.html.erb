@@ -11,7 +11,6 @@
 		
 		<div class="nav-collapse collapse">
     	<ul class="nav pull-right">
-
 			<form class="navbar-form pull-left">
 			  		<%= form_tag questions_path, method: "get", class: "form-control" do %>
 						<%= text_field_tag :search, params[:search], placeholder: "Search" %>
@@ -23,10 +22,10 @@
 				<%= render partial: "activities/index", locals: { activities: notifications } %>
 			</ul>
 		</li>
-			<li><%= link_to image_tag(avatar_url(current_user, 30)), current_user, id: "gravatar" %></li>
-      		<li><%= link_to number_to_human(current_user.reputation), current_user, id: "current-user-rep" %></li>
-			<li><%= link_to current_user.username.titleize, current_user, id: "current-user" %></li>
-			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog large"></i></a>
+		<li><%= link_to image_tag(avatar_url(current_user, 30)), current_user, id: "gravatar" %></li>
+      	<li><%= link_to number_to_human(current_user.reputation), current_user, id: "current-user-rep" %></li>
+		<li><%= link_to current_user.username.titleize, current_user, id: "current-user" %></li>
+		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog large"></i></a>
 			<ul class="dropdown-menu">
 				<li class="nav-header">My Account</li>
 				<li class="divider"></li>
