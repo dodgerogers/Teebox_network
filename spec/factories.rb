@@ -6,6 +6,7 @@ FactoryGirl.define do
     u.password_confirmation "password" 
     u.remember_me true
     u.reputation 200
+    u.role "admin"
   end
   
   factory :question do 

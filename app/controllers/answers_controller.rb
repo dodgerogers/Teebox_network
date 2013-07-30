@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
   
   def create
     @answer = current_user.answers.build(params[:answer])
@@ -17,11 +18,9 @@ class AnswersController < ApplicationController
   end
   
   def edit
-    @answer = Answer.find(params[:id])
   end
   
   def update
-    @answer = Answer.find(params[:id])
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
         format.html { redirect_to :back, notice: "Updated" }
@@ -36,9 +35,9 @@ class AnswersController < ApplicationController
   
   def destroy
      @answer = Answer.destroy(params[:id])
-       respond_to do |format|
-         format.js
-    end
+     respond_to do |format|
+       format.js
+     end
   end
   
   def vote 
@@ -55,9 +54,8 @@ class AnswersController < ApplicationController
   end
   
   def correct 
-    @answer = Answer.find(params[:id])
     if @answer.toggle_correct(:correct)
-      @answer.create_activity :correct, owner: current_user, recipient: @answer.user unless current_user == @answer.question.user
+      @answer.create_activity :correct, owner: current_user, recipient: @answer.user unless @answer.user == @answer.question.user || @answer.correct == false
        @answer.toggle_question_correct
        @answer.add_reputation
         respond_to do |format|

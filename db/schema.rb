@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724010106) do
+ActiveRecord::Schema.define(:version => 20130730192648) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -94,6 +94,17 @@ ActiveRecord::Schema.define(:version => 20130724010106) do
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
   add_index "questions", ["video_id"], :name => "index_questions_on_video_id"
 
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "question_id"
     t.integer  "tag_id"
@@ -114,8 +125,8 @@ ActiveRecord::Schema.define(:version => 20130724010106) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",         :null => false
+    t.string   "encrypted_password",     :default => "",         :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -124,10 +135,11 @@ ActiveRecord::Schema.define(:version => 20130724010106) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.string   "username"
     t.integer  "reputation",             :default => 0
+    t.string   "role",                   :default => "standard"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

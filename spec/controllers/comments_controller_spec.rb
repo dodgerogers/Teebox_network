@@ -9,6 +9,8 @@ describe CommentsController do
     sign_in @user
     sign_in @user2
     @commentable = create(:question, id: 1, title: "slicing the ball", body: "the ball cuts")
+    @answer = create(:comment, user: @user)
+    @vote = attributes_for(:vote, votable_id: @comment, user_id: @user2)
     controller.stub!(:current_user).and_return(@user)
     controller.stub!(:load_commentable).and_return(@commentable.id)
     @request.env['HTTP_REFERER'] = "http://test.host/questions/#{@commentable.id}"
@@ -40,9 +42,9 @@ describe CommentsController do
     
     describe "POST vote" do
       it "creates vote with valid params" do
-        controller.stub!(:load_commentable).and_return(@commentable)
+        Comment.stub!(:find).and_return(@commentable)
         expect {
-          post :vote, id: attributes_for(:comment_vote, user: @user2), value: 1
+          post :vote, id: @vote, value: 1
         }.to change(Vote, :count).by(1)
       end
     end

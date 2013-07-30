@@ -8,11 +8,11 @@ module ApplicationHelper
   	out << "Posted #{time_ago_in_words(object.created_at)} ago"
   end
   
-  #use for remote true links 
+  #remote true links 
   def edit_delete_links(object, options={}) 
 		out = capture { link_to "Delete ", object, method: :delete, id: options[:delete_id], class: options[:delete_class], remote: :true } if object
 		out << capture { link_to "Edit", options[:path], id: options[:edit_id], class: options[:edit_class], remote: true } if options[:path]
-		out if object.user == current_user
+		out if can? :edit && :destroy, object 
 	end
   
   def clickable_links(text)

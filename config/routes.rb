@@ -1,7 +1,9 @@
 TeeboxNetwork::Application.routes.draw do
   
+  resources :roles
+
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout" }
-  resources :users, only: [:show]
+  resources :users, only: :show
   resources :signed_urls, only: :index
   root to: "questions#index"
   
@@ -31,9 +33,9 @@ TeeboxNetwork::Application.routes.draw do
     resources :comments, except: [:edit, :update]
   end
   
-  resources :videos
+  resources :videos, except: [:edit, :update]
   resources :tags
-  resources :activities
+  resources :activities, only: :index
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

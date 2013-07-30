@@ -20,13 +20,13 @@ describe UserDecorator do
   
   describe "my_videos" do
     it "renders link to videos " do
-      @decorator.my_videos.should eq "<a href=\"/videos\" class=\"default submit\">My Videos</a>"
+      @decorator.my_videos.should eq "<a href=\"/videos\" class=\"default next\">My Videos</a>"
     end
   end
   
   describe "link_helper" do
     it "renders link to objects" do
-      @decorator.link_helper("questions", questions_path, @user1.questions).should eq "<a href=\"/questions\" class=\"default submit\">View all questions</a>"
+      @decorator.link_helper("questions", questions_path, @user1.questions).should eq "<a href=\"/questions\" class=\"default next\">View all questions</a>"
     end
   end
   

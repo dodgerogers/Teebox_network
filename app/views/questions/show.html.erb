@@ -21,10 +21,8 @@
 				</div>
 					
 				<div class="pull-right">
-					<% if @question.user == current_user %>
-						<%= link_to "Edit", edit_question_path(@question), class: "default" %>
-						<%= link_to "Delete", @delete, method: :delete, class: "default" %>
-					<% end %>
+					<%= link_to "Edit", edit_question_path(@question), class: "default" if can? :update, @question %>
+					<%= link_to "Delete", @question, method: :delete, class: "default" if can? :destroy, @question %>
 				</div>
 			</div>
 		</div>

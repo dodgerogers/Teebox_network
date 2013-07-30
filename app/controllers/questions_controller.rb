@@ -11,6 +11,10 @@ class QuestionsController < ApplicationController
   
   def index
     @decorator = Questions::IndexDecorator.new(params)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def show

@@ -49,7 +49,7 @@ gem 'draper', :git => "git://github.com/drapergem/draper.git"
 gem "delayed_job_active_record"
 gem "cancan"
 gem 'public_activity'
-gem 'pusher'
+#gem 'pusher'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

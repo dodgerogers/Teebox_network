@@ -3,8 +3,10 @@
 		<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
 	</div>
 	<div class="message">
-		<%= link_to activity.owner.username, activity.owner %> answered your 
-		<%= link_to "Question", activity.trackable.question %><br>
+		<%= link_to activity.owner.username, activity.owner %> answered 
+		<a href='<%= "#{url_for(activity.trackable.question)}#answer_#{activity.trackable.id}" %>'>
+			<%= activity.trackable.question.title %>
+		</a><br>
 		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
 	</div>
 <% else %>

@@ -3,12 +3,13 @@
 			locals: { votes_count: "comments", id: comment.id, object: comment, vote_path: method(:vote_comment_path) } %>
 			
 	<div class="comment-content">
+		<a name='<%= "comment_#{comment.id}" %>'></a>
 		<%= simple_format(clickable_links(comment.content)) %>
 	</div>
 	
 	<div class="profile-info">
-		<%= profile_link_helper(comment) %>	
-		<%= link_to "| Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if comment.user == current_user %>
+	  <%= profile_link_helper(comment) %>	
+	  <%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if can? :destroy, comment %>
 	</div>
 	<hr>
 </div>

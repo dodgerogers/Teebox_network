@@ -100,6 +100,7 @@ describe AnswersController do
   
   describe "POST vote" do
     it "creates vote" do
+      Answer.stub(:find).and_return(@answer)
       expect {
         post :vote, id: @vote, value: 1
       }.to change(Vote, :count).by(1)

@@ -38,10 +38,6 @@ class VideosController < ApplicationController
     end
   end
   
-  def update
-    @video = Video.find(params[:id])
-  end
-  
   def destroy
     @video = Video.destroy(params[:id])
     if @video.destroy

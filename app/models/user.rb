@@ -1,11 +1,9 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable 
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :reputation, :handicap
   validates :username, presence: true, uniqueness: true, length: { maximum: 30 }
 
@@ -15,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :tags
+  
+  ROLES = %w[admin moderator standard]
   
   def to_param
     "#{id} - #{username}".parameterize

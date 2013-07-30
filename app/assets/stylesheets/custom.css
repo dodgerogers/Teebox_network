@@ -425,7 +425,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	letter-spacing: -1px;
 } 
 
-/* ----------------------------------*/
+/* ---------------- questions + videos------------------*/
 
 .videos {
 	display: inline-block;
@@ -770,6 +770,20 @@ body #header-search {
 .comment, .question {
 	padding: 0px;
 	position:relative;
+}
+/*----- questions content font styles ------*/
+
+.question-content h1 {
+	color: #555;
+	font-size: 22px;
+}
+.question-content h2 {
+	color: #666;
+	font-size: 18px;
+}
+.question-content h3 {
+	color: #777;
+	font-size: 15px;
 }
 
 
