@@ -94,17 +94,6 @@ ActiveRecord::Schema.define(:version => 20130730192648) do
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
   add_index "questions", ["video_id"], :name => "index_questions_on_video_id"
 
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "roles_users", :id => false, :force => true do |t|
-    t.integer "role_id"
-    t.integer "user_id"
-  end
-
   create_table "taggings", :force => true do |t|
     t.integer  "question_id"
     t.integer  "tag_id"
