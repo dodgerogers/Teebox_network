@@ -45,4 +45,17 @@ describe Answer do
     before { @answer.body = ("a" * 5001) }
     it { should_not be_valid }
   end
+  
+  describe "Scopes" do
+    it "returns an array sorted by votes" do
+        @user2 = create(:user)
+        @user3 = create(:user)
+        @user4 = create(:user)
+        a1 = create(:answer, user: @user2, correct: false, body: "your grip is too strong", votes_count: 3) 
+        a2 = create(:answer, user: @user3, correct: false, body: "your weight shift is incorrect", votes_count: 2) 
+        a3 = create(:answer, user: @user4, correct: false, body: "stop moving your head", votes_count: 1) 
+        a4 = @answer
+        Answer.by_votes.should == [a1, a2, a3, a4] 
+    end
+  end
 end
