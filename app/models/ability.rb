@@ -23,7 +23,7 @@ class Ability
       can [:destroy], Comment do |comment|
         comment.try(:user) == user
     end
-      #videos
+      #Videos
       can [:new, :create], Video
       can [:destroy], Video do |video|
         video.try(:user) == user

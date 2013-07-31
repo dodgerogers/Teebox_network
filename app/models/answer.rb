@@ -12,10 +12,8 @@ class Answer < ActiveRecord::Base
   
   
   validates_presence_of :body, :user_id, :question_id
-  validates_length_of :body, minimum: 10
-  #only one answer can be marked as correct
+  validates_length_of :body, minimum: 10, maximum: 5000
   validates_uniqueness_of :correct, scope: :question_id, if: :correct?, message: "You can only have 1 correct answer per question"
-  #only 1 answer per question per user
   validates_uniqueness_of :user_id, scope: :question_id, message: "Only 1 answer per question per user"
   
   profanity_filter :body

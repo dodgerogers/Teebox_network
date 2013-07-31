@@ -37,7 +37,12 @@ describe Answer do
   end
   
   describe "length to short" do
-    before { @answer.body = "i slice" }
+    before { @answer.body = ("a" * 9) }
+    it { should_not be_valid }
+  end
+  
+  describe "length to long" do
+    before { @answer.body = ("a" * 5001) }
     it { should_not be_valid }
   end
 end
