@@ -1,6 +1,4 @@
-
-/* Bootstrap + browser overrides*/
-/*---- container -------*/
+/*---- containers -------*/
 
 #margin-bottom {
 	margin-bottom: 40px;
@@ -23,7 +21,6 @@
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 }
-
 .navbar-inner {
 	background: #31838f; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -71,11 +68,9 @@
 .dropdown .dropdown-menu .nav-header {
 	color: #31838F;
 }
-
 .navbar .btn-navbar {
 	background:#0A323A ;
 }
-
 .navbar .nav li #gravatar {
 	padding: 5px 0px 0 5px;
 }
@@ -114,14 +109,12 @@
 #current-user {
 	padding-left: 5px;
 }
-
 #current-user-rep {
 	color: #E95A4D;
 	padding-right: 0px;
 	font-weight: bold;
 	text-shadow: 0px 1px 1px #333;
 }
-
 #no-padding {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -143,7 +136,6 @@ input[type="search"], input[type="tel"], input[type="color"],
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 }
-
 textarea, iframe.wysihtml5-sandbox {
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
@@ -173,29 +165,22 @@ iframe.wysihtml5-sandbox {
 	opacity: 0;
 	filter: alpha(opacity=0);
 }
-
 input, textarea {
-	width:100%;
-	
+	width:100%;	
 }
-
 .input-xlarge {
 margin: 0px 0px 10px;
 }
-
 input[type="text"] {
 	margin-bottom: 0px;
 }
-
 form#new_video {
 	margin: 0;
 	display:none;
 }
-
 input:-webkit-autofill {
 	background-color: #fff!important; 
 }
-
 #search {
 	background:#0A323A;
 	border:none;
@@ -210,8 +195,7 @@ input:-webkit-autofill {
     margin-top: .5em;
 	color: #E95A4D;
 	/*text-shadow: 0px 2px 2px #777;		*/
-	letter-spacing:0px;
-					
+	letter-spacing:0px;					
 }
 .hero-unit {
 	padding: 30px 60px;

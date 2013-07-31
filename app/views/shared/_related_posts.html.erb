@@ -1,0 +1,6 @@
+<h2>Similar Questions</h2>
+<div class="videos">
+<% decorator.related_posts(question).each do |q| %>
+<h4><%= link_to q.title, q %></h4><hr>
+<% end %>
+</div>
