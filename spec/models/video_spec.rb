@@ -11,6 +11,8 @@ describe Video do
   it { should respond_to(:file) }
   it { should respond_to(:screenshot) }
   it { should respond_to(:question_id) }
+  it { should have_many(:questions) }
+  it { should belong_to(:user) }
   
   describe 'file' do
      before { @video.file = nil }

@@ -19,6 +19,7 @@ group :test do
   gem 'database_cleaner'
   gem "launchy"
   gem "simplecov", :require => false
+  gem 'shoulda-matchers', :require => false
 end
 
 group :assets do

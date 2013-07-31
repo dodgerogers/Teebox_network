@@ -12,6 +12,12 @@ describe User do
    it { should respond_to(:password_confirmation)}
    it { should respond_to(:remember_me)}
    it { should respond_to(:reputation)}
+   it { should have_many(:questions)}
+   it { should have_many(:videos)}
+   it { should have_many(:comments)}
+   it { should have_many(:answers)}
+   it { should have_many(:votes)}
+   it { should have_many(:tags)}
 
    describe 'email' do
      before { @user.email = nil }

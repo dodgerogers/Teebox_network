@@ -3,6 +3,11 @@
 $teal: #31838f;
 $red: #E95A4D;
 $green: #4fc392;
+$turquoise: #1ABC9C;
+$green-sea: #16A085;
+$asphalt: #34495E;
+$midnight: #2C3E50;
+
 
 /* --------- */
 
@@ -119,7 +124,7 @@ small {
 .bebas {
 	font-family: 'BebasNeueRegular';
 	font-size: 22px;
-	color: #31838F;
+	color: $teal;
 	vertical-align: middle;
 }	
 label {
@@ -166,7 +171,7 @@ h1.circle {
 	text-align: center;
 	vertical-align: middle;
 	border: 5px solid #bbb;
-	box-shadow: 0 0 0 8px #E95A4D, 0px 0px 0px 12px #fff;
+	box-shadow: 0 0 0 8px $red, 0px 0px 0px 12px #fff;
 }
 .circle-box {
 	margin: 30px auto 0;
@@ -364,10 +369,10 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin-bottom: 30px;
 }
 .nav-tabs li.active a {
-	color: #E95A4D;
+	color: $red;
 }
 .current a {
-	color:#E95A4D;
+	color: $red;
 	border:1px solid #ccc;
 	border-bottom: 1px solid #fff;
 	padding: 4px 15px;
@@ -379,7 +384,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 .tabs {
 	font-size: 18px;
 	font-weight:400;
-	color: #31838F;
+	color: $teal;
 	vertical-align: middle;
 	letter-spacing: -1px;
 } 
@@ -446,7 +451,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	position:relative;
 }
 .question-image:hover {
-	box-shadow: 0px 4px 0px #E95A4D;
+	box-shadow: 0px 4px 0px $red;
 }
 .index-title {
 	display:block;
@@ -476,7 +481,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	font-weight:bolder;
 	display: inline-block;
 	padding: 8px 14px;
-	background: #409C69;
+	background: $green-sea;
 	color: #fff;
 	font-weight: 300;
 	margin-right: 5px;
@@ -489,7 +494,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	font-weight:bolder;
 	display: inline-block;
 	padding: 8px 14px;
-	background: #E95A4D;
+	background: $red;
 	color: #fff;
 	font-weight: 300;
 	margin-right: 5px;
@@ -503,7 +508,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	font-size: 25px;
 	margin-top: 5px;
 	font-family: 'BebasNeueRegular';
-	color: #E95A4D;
+	color: $red;
 }
 #plus-points {
 	display: inline-block;
@@ -544,7 +549,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	width: 50px;
 	font-size: 45px;
 	color: #fff;
-	text-shadow: 0px 4px 0px #E95A4D;
+	text-shadow: 0px 4px 0px $red;
 	display:none;
 }
 .selected_video {
@@ -555,14 +560,14 @@ body .sublimevideo-zi .sublimevideo-uj {
 	width: 50px;
 	font-size: 45px;
 	color: #fff;
-	text-shadow: 0px 4px 0px #E95A4D;
+	text-shadow: 0px 4px 0px $red;
 	display:inline-block;
 }
 .selected-video {
-	box-shadow: 0px 3px 0px #E95A4D;
+	box-shadow: 0px 3px 0px $red;
 }
 .shadow {
-	box-shadow: 0px 4px 0px #E95A4D;
+	box-shadow: 0px 4px 0px $red;
 }
 		
 /*--------------------------- video dropzone ------------------------*/
@@ -650,7 +655,7 @@ body #header-search {
 }
 .pagination .current {
     font-style: normal;
-    background-color: #E95A4D;
+    background-color: $red;
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
@@ -751,18 +756,21 @@ body #header-search {
 	color: #fff;
 	background:#999;
 }
-.submit {
-	background: #31838F;
+.success {
+	background: $turquoise;
 }
-
+.success:hover {
+	background: $green-sea;
+}
+.submit {
+	background: $teal;
+}
 .submit:hover {
 	background: #10545d;
 }
-
 .next {
-	background: #E95A4D;
+	background: $red;
 }
-
 .next:hover {
 	background: #972219;
 }
@@ -881,7 +889,7 @@ body #header-search {
 	margin-right: 0px;
 }
 #profile-reputation {
-	color: #E95A4D;
+	color: $red;
 	font-weight: 400;
 	font-family: 'BebasNeueRegular';
 	margin-right: 3px;
@@ -921,7 +929,7 @@ body #header-search {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 3px 7px;
-	background: #E95A4D;
+	background: $red;
 	display:inline;
 	color:#fff;
 }
@@ -930,7 +938,7 @@ body #header-search {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 4px 8px;
-	background: #31838F;
+	background: $teal;
 }
 a.tag, a.current_tag { 
 	color: #fff;
@@ -939,10 +947,10 @@ a.tag:link{
 	
 }	
 a.tag:hover, a.current_tag:hover {
-	background: #31838F;
+	background: $teal;
 }	
 a.tag:active, a.current_tag:active {
-	background: #31838F;
+	background: $teal;
 }
 /*-------------------- tags autocomplete  ----------------*/
 
@@ -976,7 +984,7 @@ li.token-input-token {
     overflow: hidden; 
     margin: 3px;
     padding: 0px 8px;
-	background: #E95A4D;
+	background: $red;
     color: #fff;
     cursor: default;
     border-radius: 2px;
@@ -1070,7 +1078,7 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 }
 .stat-title {
 	width: 100%;
-	background: #E95A4D;
+	background: $red;
 	color: #fff;
 	padding: 3px;
 	-moz-box-sizing: border-box;

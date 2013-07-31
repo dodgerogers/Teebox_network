@@ -16,11 +16,28 @@ describe Question do
   it { should respond_to(:answers_count)}
   it { should respond_to(:points)}
   it { should respond_to(:correct)}
+  it { should belong_to(:user)}
+  it { should have_many(:comments)}
+  it { should have_many(:votes)}
+  it { should have_many(:answers)}
+  it { should have_many(:tags)}
+  it { should have_many(:taggings)}
   
    describe 'title' do
      before { @question.title = nil }
      it { should_not be_valid }
    end
+   
+   describe "long title" do
+     before { @question.title = ("a" * 301) }
+      it { should_not be_valid }
+   end
+   
+   describe "short title" do
+      before { @question.title = ("a" * 9) }
+       it { should_not be_valid }
+    end
+     
    describe "body" do
      before { @question.body = nil }
      it { should_not be_valid }

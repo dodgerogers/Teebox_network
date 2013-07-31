@@ -15,6 +15,10 @@ describe Vote do
   it { should respond_to(:votable_type) }
   it { should respond_to(:value) }
   it { should respond_to(:points) }
+  it { should belong_to(:votable) }
+  it { should belong_to(:user) }
+  it { should validate_uniqueness_of(:value).scoped_to([:votable_id, :user_id])}
+  it { should ensure_inclusion_of(:value).in_array([1, -1]) }
   
    describe 'value' do
      before { @vote.value = nil }

@@ -10,6 +10,8 @@ describe Tag do
   it { should respond_to(:name) }
   it { should respond_to(:explanation) }
   it { should respond_to(:updated_by) }
+  it { should have_many(:taggings)}
+  it { should have_many(:questions).through(:taggings)}
   
   describe 'name' do
      before { @tag.name = nil }

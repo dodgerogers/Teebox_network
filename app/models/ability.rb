@@ -8,10 +8,9 @@ class Ability
       can :manage, :all
     elsif user.role == 'standard'
       can [:read, :vote], :all
-      
       #Questions
       can [:new, :create, :highest_votes, :unanswered], Question
-      can [:update, :edit, :destoy], Question do |question|
+      can [:update, :edit, :destroy], Question do |question|
         question.try(:user) == user
     end
       #Answers

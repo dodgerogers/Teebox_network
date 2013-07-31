@@ -44,23 +44,26 @@ describe AnswersController do
   end
   
   describe "PUT update" do
-    before(:each) do
-      @answer = create(:answer, body: "weaken your grip")
-    end
+    #before(:each) do
+      #@answer = create(:answer, body: "weaken your grip")
+    #end
     
     it "assigns the requested question as @answer" do
+      @answer = create(:answer, body: "weaken your grip")
       put :update, id: @answer, answer: attributes_for(:answer)
       assigns(:answer).should eq(@answer)
     end
     
     describe "with valid params" do
       it "updates the requested answer" do
+        @answer = create(:answer, body: "weaken your grip")
         put :update, id: @answer, answer: attributes_for(:answer, body: "close your stance")
         @answer.reload
         @answer.body.should eq("close your stance")
       end
 
       it "redirects to the post" do
+        @answer = create(:answer, body: "weaken your grip")
         put :update, id: @answer, answer: attributes_for(:answer, body: "close your stance")
         @answer.reload
         response.should redirect_to :back
@@ -69,6 +72,7 @@ describe AnswersController do
 
     describe "with invalid params" do
       it "doesn not change @answer attributes" do
+        @answer = create(:answer, body: "weaken your grip")
         put :update, id: @answer, answer: attributes_for(:answer, body: ""), format: "js"
         @answer.reload
         @answer.body.should_not eq("")
@@ -77,6 +81,7 @@ describe AnswersController do
     
     describe "an answer as correct" do
       it "successfully updates" do
+        @answer = create(:answer, body: "weaken your grip")
         put :correct, id: @answer, answer: @answer, format: "js"
         @answer.reload
         @answer.correct.should eq(true)
@@ -84,14 +89,10 @@ describe AnswersController do
     end
   end
   
-  describe "DELETE destroy" do
-    before(:each) do
+    describe "Destroy vote" do
+    it "destroys the requested answer" do
       @question = create(:question, user: @user1)
       @answer = create(:answer, user: @user2)
-      #@activity = create(:activity, trackable_id: @answer.id, trackable_type: "Answer", owner_id: @answer.user.id)
-    end
-    
-    it "destroys the requested answer" do
       expect {
         delete :destroy, id: @answer
       }.to change(Answer, :count).by(-1)
