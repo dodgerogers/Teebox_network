@@ -7,19 +7,18 @@ class Ability
     if user.role == "admin"
       can :manage, :all
     elsif user.role == 'standard'
-      can [:read, :vote], :all
       #Questions
-      can [:new, :create, :highest_votes, :unanswered], Question
+      can [:new, :create, :highest_votes, :unanswered, :read, :vote], Question
       can [:update, :edit, :destroy], Question do |question|
         question.try(:user) == user
     end
       #Answers
-      can [:new, :create], Answer
+      can [:new, :create, :read, :vote], Answer
       can [:update, :destroy, :edit, :correct], Answer do |answer|
         answer.try(:user) == user
     end
       #Comments
-      can [:new, :create], Comment
+      can [:new, :create, :read, :vote], Comment
       can [:destroy], Comment do |comment|
         comment.try(:user) == user
     end
@@ -29,8 +28,7 @@ class Ability
         video.try(:user) == user
       end
     else
-      can [:read, :vote], :all
-      can [:highest_votes, :unanswered], Question
+      can [:highest_votes, :unanswered, :read, :vote], Question
     end
   end
 end

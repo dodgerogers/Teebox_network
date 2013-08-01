@@ -76,4 +76,13 @@ FactoryGirl.define do
      recipient_id :user
      owner_id :user
   end
+  
+  factory :report do
+    answers 10
+    answers_average 10
+    questions 10
+    questions_average 10
+    users 10
+    users_average 10
+  end
 end

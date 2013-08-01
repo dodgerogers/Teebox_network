@@ -35,8 +35,7 @@ class ApplicationController < ActionController::Base
      root_path
    end
    
-   #move/refactor
    def notifications
-     PublicActivity::Activity.order("created_at DESC").where(recipient_id: current_user.id).limit(8)
+     PublicActivity::Activity.order("created_at DESC").where(recipient_id: current_user.id)
    end
 end

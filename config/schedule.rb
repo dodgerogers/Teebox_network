@@ -1,8 +1,12 @@
 set :environment, "development" 
 set :output, {
-    :error    => "/log/error.log",
-    :standard => "/log/cron.log" 
+    :error    => "log/error.log",
+    :standard => "log/cron.log" 
 }
+
+every :day, at: "4am" do
+  rake "generate_report"
+end
 
 
 

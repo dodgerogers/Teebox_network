@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730192648) do
+ActiveRecord::Schema.define(:version => 20130731222239) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -93,6 +93,21 @@ ActiveRecord::Schema.define(:version => 20130730192648) do
   add_index "questions", ["tags"], :name => "index_questions_on_tags"
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
   add_index "questions", ["video_id"], :name => "index_questions_on_video_id"
+
+  create_table "reports", :force => true do |t|
+    t.integer  "questions"
+    t.float    "questions_average"
+    t.integer  "answers"
+    t.float    "answers_average"
+    t.integer  "users"
+    t.float    "users_average"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "reports", ["answers"], :name => "index_reports_on_answers"
+  add_index "reports", ["questions"], :name => "index_reports_on_questions"
+  add_index "reports", ["users"], :name => "index_reports_on_users"
 
   create_table "taggings", :force => true do |t|
     t.integer  "question_id"

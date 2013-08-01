@@ -17,3 +17,7 @@ end
 task :delete_test_logs do
   FileUtils.rm "#{Rails.root}/log/test.log"
 end
+
+task :generate_report => :environment do
+  Report.create
+end

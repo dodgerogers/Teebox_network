@@ -7,7 +7,11 @@ $turquoise: #1ABC9C;
 $green-sea: #16A085;
 $asphalt: #34495E;
 $midnight: #2C3E50;
-
+$sky: #22ADC7;
+$amethyst: #9B59B6;
+$wisteria: #8E44AD;
+$emerald: #2ECC71;
+$dark-emerald: #27AE60;
 
 /* --------- */
 
@@ -761,6 +765,24 @@ body #header-search {
 }
 .success:hover {
 	background: $green-sea;
+}
+.emerald {
+	background: $emerald;
+}
+.emerald:hover {
+	background: $dark-emerald;
+}
+.asphalt {
+	background: $asphalt;
+}
+.asphalt:hover {
+	background: $midnight;
+}
+.purple {
+	background: $amethyst;
+}
+.purple:hover {
+	background: $wisteria;
 }
 .submit {
 	background: $teal;

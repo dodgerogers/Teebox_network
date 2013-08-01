@@ -2,17 +2,17 @@ class TagsController < ApplicationController
   
   before_filter :authenticate_user!
   
-  def index
-    @tag = Tag.new
-    @tags = Tag.order("created_at DESC").paginate(page: params[:page], per_page: 5).search(params[:search])
-  end
-  
   def new
     @tag = Tag.new
   end
   
   def show
     @tag = Tag.find(params[:id])
+  end
+  
+  def index
+    @tag = Tag.new
+    @tags = Tag.order("created_at DESC").paginate(page: params[:page], per_page: 5).search(params[:search])
   end
   
   def create

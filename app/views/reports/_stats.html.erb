@@ -1,0 +1,29 @@
+<table id="reports" class="table table-bordered white">
+	<thead>
+		<tr>
+			<td class="default emerald">New Questions</td>
+			<td class="default emerald">Questions avg</td>
+			<td class="default asphalt">New Answers</td>
+			<td class="default asphalt">Answers avg</td>
+			<td class="default next">New Users</td>
+			<td class="default next">Users avg</td>
+			<td class="">Report Created on</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% reports.each do |report| %>
+		<tr>
+			<td><%= report.questions %></td>
+			<td><%= report.questions_average %></td>
+			<td><%= report.answers %></td>
+			<td><%= report.answers_average %></td>
+			<td><%= report.users %></td>
+			<td><%= report.users_average %></td>
+			<td><%= report.created_at.strftime('%d/%m/%y %H:%S %p') %></td>
+			<td><%= link_to raw("<i class='icon-remove-sign'></i>"), report, method: :delete %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= will_paginate reports %>

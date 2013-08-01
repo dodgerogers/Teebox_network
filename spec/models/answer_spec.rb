@@ -6,6 +6,8 @@ describe Answer do
     @answer = create(:answer, correct: true, user_id: @user1.id, body: "i hook the ball with a weak grip")
   end
   
+  subject { @answer }
+  
   it { should respond_to(:user_id) }
   it { should respond_to(:question_id) }
   it { should respond_to(:body) }
@@ -17,7 +19,7 @@ describe Answer do
   it { should have_many(:activities)}
   it { should have_many(:comments)}
   it { should have_many(:votes)}
-  #it { should validate_uniqueness_of(:correct).scoped_to(:question_id).with_message("correct You can only have 1 correct answer per question (true)") }
+  #it {should validate_uniqueness_of(:correct).scoped_to(:question_id).with_message("correct You can only have 1 correct answer per question (true)") }
   #it { should validate_uniqueness_of(:user_id).scoped_to(:question_id).with_message("user_id Only 1 answer per question per user (1)") }
   
 

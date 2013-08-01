@@ -1,3 +1,12 @@
+$teal: #31838f;
+$red: #E95A4D;
+$green: #4fc392;
+$turquoise: #1ABC9C;
+$green-sea: #16A085;
+$asphalt: #34495E;
+$midnight: #2C3E50;
+$sky: #22ADC7;
+
 /*---- containers -------*/
 
 #margin-bottom {
@@ -234,9 +243,30 @@ input:-webkit-autofill {
 	color: #fff;
 	background-position: 37% 52%;	
 }
+.blue {
+	background: $sky;
+	color: #fff;
+}
 .sky a, .beach a, .ocean a, .kauri a {
 	color: #fff;
 	font-weight:bold;
 }
 .sky label, .beach label, .ocean label {
 }
+
+/* Tables */
+
+.table th, .table td {
+	text-align:center;
+}
+.white {
+	background: #fff;
+	color: #777;
+}
+.white a {
+	color: $red;
+}
+
+
+/* morris */
+.morris-default-style {display:none!important;}
