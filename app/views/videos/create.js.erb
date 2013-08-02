@@ -4,7 +4,7 @@ alert("Failed to upload Video: <%= j @video.errors.full_messages.join(', ').html
 var video = $("<%= j render(@video) %>").hide();
 $('#videos').prepend(video);
 video.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
-$("#upload").html("").append("Video Uploaded ✓").fadeIn(1000);
+$("#upload").html("").append("<h3 class='welcome-banner'>Uploaded <i class='icon-ok-sign'></i></h3><br>").fadeIn(1000);
 $("#dropzone").fadeOut(1200);
 <% end %>
 

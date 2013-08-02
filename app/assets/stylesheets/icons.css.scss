@@ -1,8 +1,45 @@
+$teal: #31838f;
+$red: #E95A4D;
+$green: #4fc392;
+$turquoise: #1ABC9C;
+$green-sea: #16A085;
+$asphalt: #34495E;
+$midnight: #2C3E50;
+$sky: #22ADC7;
+$amethyst: #9B59B6;
+$wisteria: #8E44AD;
+$emerald: #2ECC71;
+$dark-emerald: #27AE60;
+
 /* custom sizes + colors */
 .large {
 	vertical-align:middle;
 	font-size: 26px;
 }
 .red {
-	color: #E95A4D;
+	color: $red;
 }
+.green {
+	color: $emerald;
+}
+.white-shadow {
+	text-shadow: 0px 2px 0px #fff;
+}
+.right-margin {
+	margin: 0 15px 0 0;
+}
+.xl {
+	vertical-align:middle;
+	font-size: 110px;
+}
+.rotate90 {
+	height:105px;
+	margin: 0 30px 0 20px;
+	display:inline-block;
+	-moz-transform: rotate-(90deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+	-webkit-transform: scale(1) rotate(-90deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+	-o-transform: scale(1) rotate(-90deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+	-ms-transform: scale(1) rotate(-90deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+	transform: scale(1) rotate(-90deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+}
+

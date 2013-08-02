@@ -1,4 +1,5 @@
 <div class="row">
+	<div class="span1"></div>
 	<div class="span10">
 		<div id="question-box">
 			<div class="video-container">
@@ -8,7 +9,6 @@
 
 			<div class="question">
 				<h1><%= @decorator.title.titleize %></h1>
-				<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
 
 			<div class="question-content">
 				<%= simple_format @question.body %>
@@ -18,6 +18,7 @@
 
 			<div class="form-area">
 				<div class="profile-info" id="question-profile-info">
+					<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
 					<%= profile_link_helper(@question) %>
 				</div>
 					
@@ -40,8 +41,9 @@
 	<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
 </div>
 
-	<%= render template: "answers/index" %><br>
+	<%= render template: "answers/index" %>
 	<a href="#" id="answer-button" class="default submit">Add your answer</a><br>
 	<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
 </div>
+<div class="span1"></div>
 </div>

@@ -34,7 +34,7 @@ jQuery ->
      send: (e, data) ->
           $(".progress, #dropzone").fadeIn()
           $.each data.files, (index, file) ->
-             $('#upload').html("").append("<b> " + file.name + ':</b> ' + (file.size / 1000000 ).toFixed(2) + ' MB' + "<br><br>")
+             $('#upload').html("").append("<h3 class='welcome-banner'>" + file.name + "<br>" + (file.size / 1000000 ).toFixed(2) + ' MB' + '</h1>')
 
 
      progress: (e, data) ->

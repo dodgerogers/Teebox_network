@@ -1,25 +1,23 @@
-<div id='answer_<%="#{answer.id}" %>' class="answer">
-	
-		<%= render partial: "votes/form", 
-				locals: { votes_count: "answers", id: answer.id, object: answer, vote_path: method(:vote_answer_path) } %>
-	
-		<div id="correct_answer_<%= answer.id %>" class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>">
-			<% if answer.question.user == current_user%>
-				<%= link_to "✓", correct_answer_path(answer), id: "tick", class: "correct_#{answer.id}", remote: true, method: :put %>
-				<% else %>
-				<% if answer.correct == true %>
-				<div id="tick", class='correct_<% answer.id %>'> ✓</div>
-				<% end %>
-			<% end %>
-		</div>
-		
+<div id='answer_<%="#{answer.id}" %>' class="answer">	
 	<div class="answer-content">
 		<a name='<%= "answer_#{answer.id}" %>'></a>
 		<%= simple_format answer.body %>
 	</div>
-		
 	<div class="profile-info">
+		<%= render partial: "votes/form", locals: { votes_count: "answers", id: answer.id, object: answer, vote_path: method(:vote_answer_path) } %>
+		<div id="correct_answer_<%= answer.id %>" class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>">
+			<% if answer.question.user == current_user%>
+				<%= link_to raw("<i class='icon-ok-sign'></i>"), correct_answer_path(answer), 
+														 id: "tick", class: "correct_#{answer.id}", 
+														 remote: true, 
+													     method: :put %>
+			<% else %>
+				<% if answer.correct == true %>
+					<div id="tick", class='correct_<% answer.id %>'> ✓</div>
+				<% end %>
+			<% end %>
+		</div>
 		<%= profile_link_helper(answer) %>
 		<%= edit_delete_links(answer, {path: edit_answer_path(answer), edit_id: "edit-answer", delete_id: "delete-answer" }) %>
-		</div>
 	</div>
+</div><hr>
