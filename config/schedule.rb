@@ -4,7 +4,7 @@ set :output, {
     :standard => "log/cron.log" 
 }
 
-every :day, at: "4am" do
+every :day, at: "11:30am" do
   rake "generate_report"
 end
 

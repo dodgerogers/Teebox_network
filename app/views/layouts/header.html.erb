@@ -9,12 +9,11 @@
 		 </a>
 		
 		<div class="nav-collapse collapse">
-    	<ul class="nav pull-right">
-			<form class="navbar-form pull-left">
-			  		<%= form_tag questions_path, method: "get", class: "form-control" do %>
-						<%= text_field_tag :search, params[:search], placeholder: "Search" %>
-					<% end %>
-			</form>
+    	<ul class="nav pull-right">		
+			  <%= form_tag questions_path, method: "get", class: "form-control navbar-form pull-left" do %>
+					<%= text_field_tag :search, params[:search], placeholder: "Search" %>
+			  <% end %>
+		
 		<% if user_signed_in? %>
 		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list large"></i></a>
 			<ul class="dropdown-menu span5">
