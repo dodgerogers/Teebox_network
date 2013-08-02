@@ -3,7 +3,8 @@ class ReportsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @reports = Report.all.paginate(page: params[:page], per_page: 3)
+    @all_reports = Report.all
+    @reports = @all_reports.paginate(page: params[:page], per_page: 3)
     @report = Report.new
   end
   

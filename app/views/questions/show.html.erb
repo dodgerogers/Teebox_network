@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="span8">
+	<div class="span10">
 		<div id="question-box">
 			<div class="video-container">
 				<%= @decorator.sublime_player %>
@@ -44,7 +44,4 @@
 	<a href="#" id="answer-button" class="default submit">Add your answer</a><br>
 	<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
 </div>
-<div class="span4">
-	<%= render partial: "shared/related_posts", locals: {decorator: @decorator, question: @question} %>
-	</div>
 </div>

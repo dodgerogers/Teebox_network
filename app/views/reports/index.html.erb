@@ -2,7 +2,20 @@
 	<h1 class="welcome-banner">Teebox Report - <%= Time.now.to_date %></h1><br><br>
 		<%= render partial: "reports/form" %>
 		
-		<%= content_tag :div, "", id: "stats", data: { reports: @reports } %><br>
+		<%= content_tag :div, "", id: "stats", data: { reports: @all_reports } %><br>
 		
 		<%= render partial: "reports/stats", locals: {reports: @reports} %>
 </div>
+
+<!-- load morris to rescue from 'no graph container found error'-->
+<script>
+jQuery(function() {
+  return Morris.Line({
+    element: 'stats',
+    data: $('#stats').data('reports'),
+    xkey: 'created_at',
+    ykeys: ['questions', 'answers', 'users'],
+    labels: ['New Questions', 'New Answers', 'New Users']
+  });
+});
+</script>

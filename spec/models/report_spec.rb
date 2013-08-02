@@ -12,5 +12,4 @@ describe Report do
   it { should respond_to(:answers_average) }
   it { should respond_to(:users) }
   it { should respond_to(:users_average) }
-  
 end

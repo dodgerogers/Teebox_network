@@ -1,7 +1,7 @@
 require 'carrierwave/processing/mini_magick'
 class ScreenshotUploader < CarrierWave::Uploader::Base
 
-#require 'carrierwave/processing/rmagick'
+  #require 'carrierwave/processing/rmagick'
 
   # Include RMagick or MiniMagick support:
   #include CarrierWave::RMagick
@@ -17,6 +17,11 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
   storage :fog
   
   process resize_and_pad: [200, 100, "#000", "Center"]
+  
+  version :mini do
+    process resize_and_pad: [136, 68, "#000", "Center"]
+  end
+    
 
   def cache_dir
     Rails.root.join('public/uploads') 

@@ -22,7 +22,7 @@ class Questions::IndexDecorator < ApplicationDecorator
   end
   
   def tab_class(url)
-    current_page == url ? "tab active" : "tab" 
+    current_page == url ? "success" : "asphalt" 
   end
 
   def questions

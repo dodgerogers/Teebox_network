@@ -13,13 +13,17 @@ class Report < ActiveRecord::Base
   end
   
   def set_averages
-    self.questions_average = Report.all.collect(&:questions).sum.to_f / Report.all.size if Report.all.size > 0
-    self.answers_average = Report.all.collect(&:answers).sum.to_f / Report.all.size if Report.all.size > 0
-    self.users_average = Report.all.collect(&:users).sum.to_f / Report.all.size if Report.all.size > 0
+    self.questions_average = average(Report.all.collect(&:questions))
+    self.answers_average = average(Report.all.collect(&:answers))
+    self.users_average = average(Report.all.collect(&:users))
     self.save!
   end
   
   private
+  
+  def average(objects)
+    objects.sum.to_f / Report.all.size if Report.all.size > 0
+  end
   
   def record_query(object)
     object.where("created_at > ?", 1.day.ago).size
