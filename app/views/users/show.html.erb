@@ -1,22 +1,53 @@
 <div class="center hero-unit sky"> 
-	<div class="row">
-	<h1 class="welcome-banner">Profile</h1>
-	<%= render partial: "users/stats", locals: { decorator: @decorator }%><br>
-
+  <div class="row">
 	<div class="profile-info">
-		<%= link_to image_tag(avatar_url(@decorator, 75)), @decorator %>
-		<%= @decorator.change_picture %><br>
+		<%= link_to image_tag(avatar_url(@decorator, 58)), @decorator %>
+		<h1 style='display:inline'><%= @decorator.reputation %></h1>
+			<h1 class="welcome-banner"><%= @decorator.username %></h1><br>
+		<%= @decorator.change_picture %>
 		<%= @decorator.email %><br>
-		<%= @decorator.username %><br>
-	</div><br><br>
-
-	<div class="profile-links">
+	</div><br>
+	<div class="span10">
+		<br><%= @decorator.my_videos %>
+	</div>
+  </div>
+</div>
+	
+<% if @decorator.questions.any? %>	
+<div class="center hero-unit ocean"> 
+  <div class="row">
+	<div class="span10">
+		<%= render partial: "users/tables/question_table", locals: {questions: @decorator.questions.limit(4)} %>
 		<%= @decorator.link_helper("questions", questions_index_path(@decorator), @decorator.questions) %>
+		<%= link_to "Ask Question", new_question_path, class: "default submit" if current_user == @user %>
+	</div>
+  </div>
+</div>
+<% end %>
+	
+<% if @decorator.answers.any? %>	
+<div class="center hero-unit sebonak"> 
+  <div class="row">	
+	<div class="span10">
+		<%= render partial: "users/tables/answer_table", locals: {answers: @decorator.answers.limit(4)} %>
 		<%= @decorator.link_helper("answers", answers_index_path(@decorator), @decorator.answers) %>
+	</div>
+  </div>
+</div>
+<% end %>
+
+<% if @decorator.comments.any? %>
+<div class="center hero-unit sky"> 
+  <div class="row">	
+	<div class="span10">
+		<%= render partial: "users/tables/comment_table", locals: {comments: @decorator.comments.limit(4)} %>
 		<%= @decorator.link_helper("comments", comments_index_path(@decorator), @decorator.comments) %>
-		<%= @decorator.my_videos %><br><br>
 	</div>
-	</div>
+  </div>
+</div>
+<% end %>
+	
+  </div>
 </div>		
 	
 

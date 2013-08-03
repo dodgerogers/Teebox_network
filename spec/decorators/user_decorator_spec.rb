@@ -14,7 +14,7 @@ describe UserDecorator do
   
   describe "change_picture" do
     it "renders link" do
-      @decorator.change_picture.should eq '<a href="http://gravatar.com" target="blank">Change your profile picture</a>'.html_safe
+      @decorator.change_picture.should eq "<a href=\"http://gravatar.com\" target=\"blank\" title=\"Change your profile picture\"><i class=\"icon-cloud-upload\"></i></a>".html_safe
     end
   end  
   

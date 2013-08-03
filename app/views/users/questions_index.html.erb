@@ -1,27 +1,5 @@
-<h2>Questions</h2> 
-<%= link_to "Ask Question", new_question_path, class: "default submit" if current_user == @user %><br><br>
-
-	<table class="table table-hover">
-		<tr class="titles">
-			<td>Answers</td>
-			<td>Points</td>
-			<td>Question</td>
-		</tr>
-		<% for question in @user.questions %>
-	    <tr>
-				<td>
-					<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
-						<%= question.answers_count %>
-					</div>
-				</td>
-				<td>
-					<div id="<%= question.points > 0 ? 'plus-points' : 'no-points' %>">
-						<%= question.points > 0 ? "+#{question.points}" : question.points %>
-					</div>
-				</td>
-	      <td><%= link_to question.title.titleize, question %></td>
-	    </tr>
-	<% end %>
-	</table>
-
-<%= link_to "Back to profile", :back %>
+<div class="hero-unit ocean">
+<%= render partial: "users/tables/question_table", locals: {questions: @questions} %>
+<%= link_to "Profile", user_path, class: "default asphalt" %>
+</div>
+<%= will_paginate @questions %>

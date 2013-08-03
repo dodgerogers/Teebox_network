@@ -254,7 +254,6 @@ input:-webkit-autofill {
 }
 .sky a, .beach a, .ocean a, .kauri a {
 	color: #fff;
-	font-weight:bold;
 }
 .sky label, .beach label, .ocean label {
 }
@@ -268,8 +267,8 @@ input:-webkit-autofill {
 	background: #fff;
 	color: #777;
 }
-.white a {
-	color: $red;
+table , .table a { 
+	color: $teal; 
 }
 
 /* misc */

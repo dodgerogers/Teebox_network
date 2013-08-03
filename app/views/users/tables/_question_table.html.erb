@@ -1,0 +1,23 @@
+<h3 class="welcome-banner">Questions</h3>
+	<table class="table table-bordered white">
+		<tr>
+			<td class="default success">Answers</td>
+			<td class="default next">Points</td>
+			<td class="default asphalt">Question</td>
+		</tr>
+		<% for question in questions %>
+	    <tr>
+			<td>
+				<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
+					<%= question.answers_count %>
+				</div>
+			</td>
+			<td>
+				<div id="<%= question.points > 0 ? 'plus-points' : 'no-points' %>">
+					<%= question.points > 0 ? "+#{question.points}" : question.points %>
+				</div>
+			</td>
+	      <td><%= link_to question.title.titleize, question %></td>
+	    </tr>
+	<% end %>
+</table>

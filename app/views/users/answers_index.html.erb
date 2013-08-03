@@ -1,26 +1,5 @@
-<h2>Answers</h2>
-
-	<table class="table table-hover">
-		<tr class="titles">
-			<td>Correct?</td>
-			<td>Points</td>
-			<td>Answer</td>
-		</tr>
-		<% for answer in @user.answers.includes(:question) %>	
-	    <tr>
-				<td>
-					<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
-						<%= answer.correct == true && answer.user_id != answer.question.user_id  ? "✓ +20" : "✓" %>
-					</div>
-				</td>
-				<td>
-					<div id="<%= answer.points > 0 ? 'plus-points' : 'no-points' %>">
-						<%= answer.points > 0 ? "+#{answer.points}" : answer.points %>
-					</div>
-				</td>
-	      <td><%= link_to truncate(answer.body, length: 100), answer.question %></td>
-	    </tr>
-	<% end %>
-	</table>
-
-<%= link_to "Back to profile", :back %>
+<div class="hero-unit sebonak">
+<%= render partial: "users/tables/answer_table", locals: {answers: @answers} %>
+<%= link_to "Profile", user_path, class: "default asphalt" %>
+</div>
+<%= will_paginate @answers %>

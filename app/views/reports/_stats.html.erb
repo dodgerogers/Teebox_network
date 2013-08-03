@@ -20,7 +20,7 @@
 			<td><%= report.users %></td>
 			<td><%= report.users_average %></td>
 			<td><%= report.created_at.strftime('%d/%m/%y %H:%S %p') %></td>
-			<td><%= link_to raw("<i class='icon-remove-sign'></i>"), report, method: :delete %></td>
+			<td><%= link_to raw("<i class='icon-remove-sign red'></i>"), report, method: :delete %></td>
 		</tr>
 		<% end %>
 	</tbody>

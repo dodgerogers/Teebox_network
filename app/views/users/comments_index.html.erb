@@ -1,19 +1,5 @@
-<h2>Comments</h2>
-
-	<table class="table table-hover">
-		<tr class="titles">
-			<td>Points</td>
-			<td>Comment</td>
-		</tr>
-		<% for comment in @user.comments.includes(:commentable) %>	
-	    <tr>
-				<td>
-					<div id="<%= comment.points > 0 ? 'plus-points' : 'no-points' %>">
-						<%= comment.points > 0 ? "+#{comment.points}" : comment.points %>
-					</div>
-				</td>
-	      <td><%= link_to truncate(comment.content, length: 200), comment.commentable %></td>
-	    </tr>
-	<% end %>
-	</table>
-<%= link_to "Back to profile", :back %>
+<div class="hero-unit sky">
+<%= render partial: "users/tables/comment_table", locals: {comments: @comments} %>
+<%= link_to "Profile", user_path, class: "default asphalt" %>
+</div>
+<%= will_paginate @comments %>

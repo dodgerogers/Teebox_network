@@ -1,0 +1,25 @@
+<br><h3 class="welcome-banner">Answers</h3>
+	<table class="table table-bordered white">
+		<tr>
+			<td class="default success">Correct?</td>
+			<td class="default next">Points</td>
+			<td class="default asphalt">Answer</td>
+		</tr>
+		<% for answer in answers %>	
+	    <tr>
+			<td>
+				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
+					<%= answer.correct == true && answer.user_id != answer.question.user_id  ? "✓ +20" : "✓" %>
+				</div>
+			</td>
+			<td>
+				<div id="<%= answer.points > 0 ? 'plus-points' : 'no-points' %>">
+					<%= answer.points > 0 ? "+#{answer.points}" : answer.points %>
+				</div>
+			</td>
+	      <td><a href='<%= "#{url_for(answer.question)}#answer_#{answer.id}" %>'>
+				<%= truncate(answer.body, length: 100) %></a>
+		  </td>
+	    </tr>
+		<% end %>
+	</table>

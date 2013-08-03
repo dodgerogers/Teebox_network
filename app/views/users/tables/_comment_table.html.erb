@@ -1,0 +1,19 @@
+<br><h3 class="welcome-banner">Comments</h3>
+	<table class="table table-bordered white">
+		<tr>
+			<td class="default next">Points</td>
+			<td class="default asphalt">Comment</td>
+		</tr>
+		<% for comment in comments %>	
+	    <tr>
+			<td>
+				<div id="<%= comment.points > 0 ? 'plus-points' : 'no-points' %>">
+					<%= comment.points > 0 ? "+#{comment.points}" : comment.points %>
+				</div>
+			</td>
+	      <td><a href='<%= "#{url_for(comment.commentable)}#comment_#{comment.id}" %>'>
+				<%= truncate(comment.content, length: 100) %></a>
+		  </td>
+	    </tr>
+	<% end %>
+	</table>

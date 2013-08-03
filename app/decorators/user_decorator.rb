@@ -4,7 +4,7 @@ class UserDecorator < ApplicationDecorator
   include Draper::LazyHelpers
   
   def change_picture
-    link_to "Change your profile picture", "http://gravatar.com", target: :blank if current_user == model
+    link_to raw('<i class="icon-cloud-upload"></i>'), "http://gravatar.com", title: "Change your profile picture", target: :blank if current_user == model
   end
    
   def my_videos
