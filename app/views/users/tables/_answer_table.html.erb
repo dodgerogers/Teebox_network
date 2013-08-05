@@ -1,15 +1,11 @@
-<br><h3 class="welcome-banner">Answers</h3>
-	<table class="table table-bordered white">
-		<tr>
-			<td class="default success">Correct?</td>
-			<td class="default next">Points</td>
-			<td class="default asphalt">Answer</td>
-		</tr>
+<table class="table table-condensed table-borderless table-striped">
+		
 		<% for answer in answers %>	
 	    <tr>
 			<td>
 				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
-					<%= answer.correct == true && answer.user_id != answer.question.user_id  ? "✓ +20" : "✓" %>
+				<%= answer.correct == true && answer.user_id != answer.question.user_id  ? 
+						raw("<i class='icon-ok-sign'></i> +20") : raw("<i class='icon-ok-sign'></i>") %>
 				</div>
 			</td>
 			<td>
@@ -17,7 +13,7 @@
 					<%= answer.points > 0 ? "+#{answer.points}" : answer.points %>
 				</div>
 			</td>
-	      <td><a href='<%= "#{url_for(answer.question)}#answer_#{answer.id}" %>'>
+	      <td class="left"><a href='<%= "#{url_for(answer.question)}#answer_#{answer.id}" %>'>
 				<%= truncate(answer.body, length: 100) %></a>
 		  </td>
 	    </tr>

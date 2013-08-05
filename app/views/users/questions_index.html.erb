@@ -1,5 +1,5 @@
-<div class="hero-unit ocean">
+<div class="span12">
+<legend>Questions</legend>
 <%= render partial: "users/tables/question_table", locals: {questions: @questions} %>
-<%= link_to "Profile", user_path, class: "default asphalt" %>
 </div>
 <%= will_paginate @questions %>

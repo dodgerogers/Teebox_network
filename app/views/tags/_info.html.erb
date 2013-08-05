@@ -1,4 +1,5 @@
 Welcome to the Tag vault. All explanations, names and creation of new tags is determined, monitored and enforced by you, the users. So feel free to create a new tag or amend an existing one.<br>
+
 <%= form_tag tags_path, method: "get" do %>
-<%= text_field_tag :search, params[:search], id: "tag-search", placeholder: "Search for tags" %>
+	<%= text_field_tag :search, params[:search],id: "search-tags", class: "input-xxlarge", placeholder: "Search for tags" %>
 <% end %>

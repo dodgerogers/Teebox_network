@@ -260,6 +260,11 @@ input:-webkit-autofill {
 
 /* Tables */
 
+.table-borderless td,
+.table-borderless th {
+    border: 0;
+}
+
 .table th, .table td {
 	text-align:center;
 }
@@ -273,9 +278,13 @@ table , .table a {
 
 /* misc */
 
+.left {
+	text-align:left!important;
+}
 .margin-t-6 {
 	margin-top: 6px;
 }
 
-/* morris */
-.morris-default-style {display:none!important;}
+/*morris */
+
+.morris-hover{position:absolute;z-index:1000;background: #fff; padding: 10px; border: 2px solid #ccc;border-radius: 10px;}

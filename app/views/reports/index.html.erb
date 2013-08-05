@@ -1,8 +1,11 @@
-<div class="center hero-unit sky">
-	<h1 class="welcome-banner">Teebox Report - <%= Time.now.to_date %></h1><br><br>
+<div class="span12">
+	<h1>Teebox Report - <%= Time.now.to_date %></h1></br>
+	
 		<%= render partial: "reports/form" %>
 		
-		<%= content_tag :div, "", id: "stats", data: { reports: @all_reports } %><br>
+		<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>
+		
+		<%= content_tag :div, "", id: "stats", data: { reports: @all_reports } %><br><br>
 		
 		<%= render partial: "reports/stats", locals: {reports: @reports} %>
 </div>
@@ -10,12 +13,23 @@
 <!-- load morris to rescue from 'no graph container found error'-->
 <script>
 jQuery(function() {
-  return Morris.Line({
+  return Morris.Area({
+    element: 'area',
+    data: $('#area').data('totals'),
+    xkey: 'created_at',
+    ykeys: ['questions_total', 'answers_total', 'users_total'],
+    labels: ['Total Q', 'Total A', 'Total U'],
+	behaveLikeLine: "true"
+  });
+});
+jQuery(function() {
+  return Morris.Area({
     element: 'stats',
     data: $('#stats').data('reports'),
     xkey: 'created_at',
     ykeys: ['questions', 'answers', 'users'],
-    labels: ['New Questions', 'New Answers', 'New Users']
+    labels: ['New Q', 'New A', 'New U'],
+	behaveLikeLine: "true"
   });
 });
 </script>

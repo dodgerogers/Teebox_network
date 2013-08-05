@@ -122,9 +122,9 @@
       dateFormat: null,
       axes: true,
       grid: true,
-      gridLineColor: '#eee',
+      gridLineColor: '#888',
       gridStrokeWidth: 0.5,
-      gridTextColor: '#fff',
+      gridTextColor: '#888',
       gridTextSize: 12,
       gridTextFamily: 'sans-serif',
       gridTextWeight: 'normal',
@@ -671,7 +671,7 @@
       pointSize: 4,
       lineColors: ['#2ECC71', '#31838f', '#E95A4D', '#1ABC9C', '#16A085', '#34495E', '#2C3E50'],
       pointWidths: [1],
-      pointStrokeColors: ['#ffffff'],
+      pointStrokeColors: ['#888'],
       pointFillColors: [],
       smooth: true,
       xLabels: 'auto',
@@ -1514,7 +1514,7 @@
 
     Donut.prototype.defaults = {
       colors: ['#0B62A4', '#3980B5', '#679DC6', '#95BBD7', '#B0CCE1', '#095791', '#095085', '#083E67', '#052C48', '#042135'],
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#888',
       labelColor: '#000000',
       formatter: Morris.commas
     };

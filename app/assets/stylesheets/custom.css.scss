@@ -812,6 +812,7 @@ body #header-search {
 	padding: 7px 14px;
 	margin: 5px 5px 0 0;
 	font-family: 'BebasNeueRegular';
+	width: 55px;
 }
 .green-tick a, .green-tick {
 	color: #4fc392;
@@ -854,6 +855,10 @@ body #header-search {
 .vote-box {
 	display:inline-block!important;
 }
+.vote-box h1 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:400;
+}
 #questions, #comments, #answers { 
 	display: inline-block; 
 	}	
@@ -871,11 +876,11 @@ body #header-search {
 	color: #ccc;
 }
 #upvote:hover {
-	color: #409C69;
+	color: $turquoise;
 	text-decoration: none;
 }
 #downvote:hover {
-	color: #EC5439;
+	color: $red;
 	text-decoration: none;
 }
 .orange-arrows h1{

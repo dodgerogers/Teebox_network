@@ -1,7 +1,10 @@
 class Report < ActiveRecord::Base
   
-  attr_accessible :questions, :questions_average, :answers_average, :answers, :users, :users_average
+  attr_accessible :questions, :questions_average, :answers_average, 
+                  :answers, :users, :users_average, :answers_total, 
+                  :questions_total, :users_total
   before_save :set_records
+  before_save :set_totals
   after_create :set_averages
   
   default_scope order('created_at DESC')
@@ -17,6 +20,12 @@ class Report < ActiveRecord::Base
     self.answers_average = average(Report.all.collect(&:answers))
     self.users_average = average(Report.all.collect(&:users))
     self.save!
+  end
+  
+  def set_totals
+    self.answers_total = Answer.all.size
+    self.questions_total = Question.all.size
+    self.users_total = User.all.size
   end
   
   private

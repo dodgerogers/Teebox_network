@@ -1,53 +1,44 @@
-<div class="center hero-unit sky"> 
-  <div class="row">
-	<div class="profile-info">
-		<%= link_to image_tag(avatar_url(@decorator, 58)), @decorator %>
-		<h1 style='display:inline'><%= @decorator.reputation %></h1>
-			<h1 class="welcome-banner"><%= @decorator.username %></h1><br>
-		<%= @decorator.change_picture %>
-		<%= @decorator.email %><br>
-	</div><br>
-	<div class="span10">
-		<br><%= @decorator.my_videos %>
+<div class="hero-unit sky">
+	<div class="row">
+		<div class="span8">
+			<div class="profile-info">
+				<%= link_to image_tag(avatar_url(@decorator, 30)), @decorator %>
+			<h2 class="welcome-banner"><%= @decorator.username %></h2>
+		</div><br>
+			<%= link_to "Edit profile", edit_user_registration_path(@user), class: "default asphalt" if @user == current_user %>
+			<%= link_to "Ask Question", new_question_path, class: "default submit" if current_user == @user %>
+			<%= @decorator.my_videos %>
+		</div>
+		
+		<div class="span2">
+			<%= render partial: "users/stats", locals: { decorator: @decorator } %>
+		</div>
 	</div>
-  </div>
 </div>
+
+<div class="row">
 	
 <% if @decorator.questions.any? %>	
-<div class="center hero-unit ocean"> 
-  <div class="row">
-	<div class="span10">
+  <div class="span6">
+		<legend><%= link_to "View all Questions", questions_index_path(@user) %></legend>
 		<%= render partial: "users/tables/question_table", locals: {questions: @decorator.questions.limit(4)} %>
-		<%= @decorator.link_helper("questions", questions_index_path(@decorator), @decorator.questions) %>
-		<%= link_to "Ask Question", new_question_path, class: "default submit" if current_user == @user %>
-	</div>
   </div>
-</div>
 <% end %>
 	
 <% if @decorator.answers.any? %>	
-<div class="center hero-unit sebonak"> 
-  <div class="row">	
-	<div class="span10">
+  <div class="span6">
+		<legend><%= link_to "View all Answers", answers_index_path(@user) %></legend>
 		<%= render partial: "users/tables/answer_table", locals: {answers: @decorator.answers.limit(4)} %>
-		<%= @decorator.link_helper("answers", answers_index_path(@decorator), @decorator.answers) %>
-	</div>
   </div>
-</div>
 <% end %>
 
 <% if @decorator.comments.any? %>
-<div class="center hero-unit sky"> 
-  <div class="row">	
-	<div class="span10">
+  <div class="span6">
+		<legend><%= link_to "View all Comments", comments_index_path(@user) %></legend>
 		<%= render partial: "users/tables/comment_table", locals: {comments: @decorator.comments.limit(4)} %>
-		<%= @decorator.link_helper("comments", comments_index_path(@decorator), @decorator.comments) %>
-	</div>
   </div>
-</div>
 <% end %>
 	
-  </div>
-</div>		
+</div>	
 	
 

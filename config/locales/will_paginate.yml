@@ -1,0 +1,5 @@
+en:
+    will_paginate:
+        previous_label: "<i class='icon-chevron-sign-left'></i> Previous"
+        next_label: "Next <i class='icon-chevron-sign-right'></i>"
+        page_gap: "&hellip;"

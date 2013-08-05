@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731222239) do
+ActiveRecord::Schema.define(:version => 20130804043720) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -103,6 +103,9 @@ ActiveRecord::Schema.define(:version => 20130731222239) do
     t.float    "users_average"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "answers_total"
+    t.integer  "questions_total"
+    t.integer  "users_total"
   end
 
   add_index "reports", ["answers"], :name => "index_reports_on_answers"

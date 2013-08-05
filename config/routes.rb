@@ -9,7 +9,7 @@ TeeboxNetwork::Application.routes.draw do
   
   get "tagged/:tag", to: "questions#index", as: :tagged
   
-  get "question_tags", to: "tags#question_tags", as: :question_tags #for tokenInput json url
+  get "question_tags", to: "tags#question_tags", as: :question_tags #tokenInput json tags
   get "questions/unanswered", to: "questions#unanswered", as: :unanswered
   get "questions/highest_votes", to: "questions#highest_votes", as: :highest_votes
   

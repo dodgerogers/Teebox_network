@@ -12,4 +12,7 @@ describe Report do
   it { should respond_to(:answers_average) }
   it { should respond_to(:users) }
   it { should respond_to(:users_average) }
+  it { should respond_to(:questions_total) }
+  it { should respond_to(:answers_total) }
+  it { should respond_to(:users_total) }  
 end

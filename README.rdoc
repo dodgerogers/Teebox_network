@@ -1,3 +1,5 @@
 This is the Source Code for Teebox.
 
 More info to come soon...
+
+I use mailcatcher, not in gemfile

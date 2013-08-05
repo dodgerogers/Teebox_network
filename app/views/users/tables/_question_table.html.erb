@@ -1,10 +1,4 @@
-<h3 class="welcome-banner">Questions</h3>
-	<table class="table table-bordered white">
-		<tr>
-			<td class="default success">Answers</td>
-			<td class="default next">Points</td>
-			<td class="default asphalt">Question</td>
-		</tr>
+<table class="table table-condensed table-borderless table-striped">
 		<% for question in questions %>
 	    <tr>
 			<td>
@@ -17,7 +11,7 @@
 					<%= question.points > 0 ? "+#{question.points}" : question.points %>
 				</div>
 			</td>
-	      <td><%= link_to question.title.titleize, question %></td>
+	      <td class="left"><%= link_to question.title.titleize, question %></td>
 	    </tr>
 	<% end %>
 </table>
