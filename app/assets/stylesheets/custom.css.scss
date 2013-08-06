@@ -505,20 +505,19 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 #no-points {
 	display: inline-block;
-	padding: 7px 14px;
-	margin-right: 5px;
 	font-size: 25px;
-	margin-top: 5px;
+	text-align:center;
+	vertical-align:middle;
+	margin: 7px 6px 0 0;
 	font-family: 'BebasNeueRegular';
 	color: $red;
 }
 #plus-points {
 	display: inline-block;
-	padding: 7px 14px;
-	margin-right: 5px;
 	font-size: 25px;
-	margin-top: 5px;
-	text-align:middle;
+	text-align:center;
+	vertical-align:middle;
+	margin: 7px 6px 0 0;
 	font-family: 'BebasNeueRegular';
 	color: #4fc392;
 }
@@ -810,7 +809,7 @@ body #header-search {
 	font-weight:bolder;
 	display: inline-block;
 	padding: 0px;
-	margin: 0px;
+	margin: 6px 0 0;
 	font-family: 'BebasNeueRegular';
 	width: 55px;
 }

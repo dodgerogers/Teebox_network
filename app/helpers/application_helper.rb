@@ -1,5 +1,10 @@
 module ApplicationHelper
   
+  def points_from_correct(question)
+    correct = question.answers.where(correct: true)
+    correct.any? ? (correct.first.try(:user) == question.user ? "+5" : "") : ""
+	end
+  
   def profile_link_helper(object)
   	out =  capture  { link_to image_tag(avatar_url(object.user)), object.user }
   	out << capture { link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation" }

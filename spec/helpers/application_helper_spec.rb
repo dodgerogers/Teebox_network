@@ -34,6 +34,22 @@ describe ApplicationHelper do
       helper.clickable_links("http://www.teebox.co").should eq "<a href=\"http://www.teebox.co\">http://www.teebox.co</a>".html_safe
     end
   end
+  
+  describe "points_from_correct" do
+    it "returns no correct answers" do
+      @question = create(:question)
+      @answer = create(:answer, question_id: @question.id, correct: false)
+      helper.points_from_correct(@question).should eq ""
+    end
+    
+    it "returns correct answers and points" do
+      @user1 = create(:user)
+      sign_in @user1
+      @question = create(:question, user_id: @user1.id)
+      @answer = create(:answer, user_id: @user1.id, question_id: @question.id, correct: true)
+      helper.points_from_correct(@question).should eq "+5"
+    end
+  end
 end
 
 

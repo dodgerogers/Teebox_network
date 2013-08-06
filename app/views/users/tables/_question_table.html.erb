@@ -1,4 +1,26 @@
 <table class="table table-condensed table-borderless">
+	<tr class="grey">
+		<td>
+			<a href="#" data-toggle="tooltip" id='question-correct' title="Number of answers, green if correct">
+				<i class="icon-ok-sign"></i>
+			</a>
+		</td>
+		<td>
+			<a href="#" data-toggle="tooltip" id='q-correct-points' title="Correct answer points">
+				<i class="icon-plus-sign"></i>
+			</a>
+		</td>
+		<td>
+			<a href="#" data-toggle="tooltip" id='question-votes' title="Question votes">
+				<i class="icon-thumbs-up"></i>
+			</a>
+		</td>
+		<td>
+			<a href="#" data-toggle="tooltip" id='question-text' title="Question">
+				<i class="icon-align-justify"></i>
+			</a>
+		</td>
+	</tr>
 		<% for question in questions %>
 	    <tr>
 			<td>
@@ -6,6 +28,11 @@
 					<%= question.answers_count %>
 				</div>
 			</td>
+			<td>	
+				<div class="green-tick" id="user-answers">
+				<%= points_from_correct(question)%>
+				</div>
+			</td>	
 			<td>
 				<div id="<%= question.points > 0 ? 'plus-points' : 'no-points' %>">
 					<%= question.points > 0 ? "+#{question.points}" : question.points %>

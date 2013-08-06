@@ -252,6 +252,9 @@ input:-webkit-autofill {
 	background: $sky;
 	color: #fff;
 }
+.grey {
+	background: #f7f7f7;
+}
 .sky a, .beach a, .ocean a, .kauri a {
 	color: #fff;
 }
@@ -276,7 +279,6 @@ input:-webkit-autofill {
 table , .table a { 
 	color: $teal; 
 }
-
 /* misc */
 
 .left {

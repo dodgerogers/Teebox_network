@@ -1,11 +1,38 @@
 <table class="table table-condensed table-borderless">
-		
-		<% for answer in answers %>	
+	<tr class="grey">
+		<td>
+			<a href="#" data-toggle="tooltip" id='answer-correct' title="Marked as Correct?">
+				<i class="icon-ok-sign"></i>
+			</a>
+		</td>
+		<td>
+			<a href="#" data-toggle="tooltip" id='correct-points' title="Correct answer points">
+				<i class="icon-plus-sign"></i>
+			</a>
+		</td>
+		<td>
+			<a href="#" data-toggle="tooltip" id='answer-votes' title="Answer votes">
+				<i class="icon-thumbs-up"></i>
+			</a>
+		</td>
+		<td>
+			<a href="#" data-toggle="tooltip" id='answer-text' title="Answer">
+				<i class="icon-align-justify"></i>
+			</a>
+		</td>
+	</tr>
+	<% for answer in answers %>	
 	    <tr>
 			<td>
 				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
-				<%= answer.correct == true && answer.user_id != answer.question.user_id  ? 
-						raw("<i class='icon-ok-sign'></i> +20") : raw("<i class='icon-ok-sign'></i>") %>
+					<%= answer.correct == true && answer.user != answer.question.user  ? 
+						raw("<i class='icon-ok-sign'></i>") : raw("<i class='icon-ok-sign'></i>") %>
+				</div>
+			</td>
+			<td>
+				<div class="green-tick" id="user-answers">	
+					<%= answer.correct == true && answer.user != answer.question.user  ? 
+						raw("+20") : raw("") %>
 				</div>
 			</td>
 			<td>
@@ -17,5 +44,5 @@
 				<%= truncate(answer.body, length: 75) %></a>
 		  </td>
 	    </tr>
-		<% end %>
-	</table>
+	<% end %>
+</table>
