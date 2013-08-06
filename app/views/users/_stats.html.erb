@@ -1,11 +1,49 @@
-<ul class="ch-grid">
-	<li>
-       <div class="ch-item ch-img-1">
-	      <div class="ch-info">
-       		<h3>Teebox score</h3>
-          </div>
-		 <h1><%= decorator.reputation  %></h1>
-       </div>
-    </li>
-</ul>
-
+<div class="center hero-unit sebonak">
+	<div class="row">
+		<div class="span4" id="user-banner">
+			<center>
+			<%= link_to image_tag(avatar_url(@decorator, 35)), @decorator, class: "inline-block margin-b-5 " %>
+			<h2 class="welcome-banner"><%= @decorator.username %></h2>
+			<br>
+			<%= @decorator.my_videos %>
+			<%= link_to "Ask Question", new_question_path, class: "default submit" if current_user == @user %>
+			</center>
+		</div>
+	<div class="span2">
+		<ul class="ch-grid">
+			<li>
+	        <div class="ch-item ch-img-1">
+	            <div class="ch-info">
+	                <h3>Teebox Score</h3>
+	            </div>
+				<h1><%= decorator.reputation %></h1>
+	        </div>
+	    	</li>
+		</ul>
+	</div>
+	<div class="span2">
+		<ul class="ch-grid">
+			<li>
+	        <div class="ch-item ch-img-1">
+	            <div class="ch-info">
+	               <h3>Correct Answers</h3>
+	            </div>
+				<h1><%= Answer.joins(:user).where(user_id: @user.id, correct: true).count %></h1>
+	        </div>
+	    	</li>
+		</ul>
+	</div>
+	<div class="span2">
+		<ul class="ch-grid">
+			<li>
+	        <div class="ch-item ch-img-1">
+	            <div class="ch-info">
+	               <h3>Total Questions</h3>
+	            </div>
+				<h1><%= decorator.questions.size %></h1>
+	        </div>
+	    	</li>
+		</ul>
+	</div>
+</div>
+</div>	

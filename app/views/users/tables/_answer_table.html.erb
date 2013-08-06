@@ -1,4 +1,4 @@
-<table class="table table-condensed table-borderless table-striped">
+<table class="table table-condensed table-borderless">
 		
 		<% for answer in answers %>	
 	    <tr>
@@ -14,7 +14,7 @@
 				</div>
 			</td>
 	      <td class="left"><a href='<%= "#{url_for(answer.question)}#answer_#{answer.id}" %>'>
-				<%= truncate(answer.body, length: 100) %></a>
+				<%= truncate(answer.body, length: 75) %></a>
 		  </td>
 	    </tr>
 		<% end %>

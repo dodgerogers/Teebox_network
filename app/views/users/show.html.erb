@@ -1,23 +1,6 @@
-<div class="hero-unit sky">
-	<div class="row">
-		<div class="span8">
-			<div class="profile-info">
-				<%= link_to image_tag(avatar_url(@decorator, 30)), @decorator %>
-			<h2 class="welcome-banner"><%= @decorator.username %></h2>
-		</div><br>
-			<%= link_to "Edit profile", edit_user_registration_path(@user), class: "default asphalt" if @user == current_user %>
-			<%= link_to "Ask Question", new_question_path, class: "default submit" if current_user == @user %>
-			<%= @decorator.my_videos %>
-		</div>
-		
-		<div class="span2">
-			<%= render partial: "users/stats", locals: { decorator: @decorator } %>
-		</div>
-	</div>
-</div>
+<%= render partial: "users/stats", locals: {decorator: @decorator}%>
 
 <div class="row">
-	
 <% if @decorator.questions.any? %>	
   <div class="span6">
 		<legend><%= link_to "View all Questions", questions_index_path(@user) %></legend>
@@ -31,14 +14,15 @@
 		<%= render partial: "users/tables/answer_table", locals: {answers: @decorator.answers.limit(4)} %>
   </div>
 <% end %>
+</div>
 
+<div class="row">
 <% if @decorator.comments.any? %>
   <div class="span6">
 		<legend><%= link_to "View all Comments", comments_index_path(@user) %></legend>
 		<%= render partial: "users/tables/comment_table", locals: {comments: @decorator.comments.limit(4)} %>
   </div>
 <% end %>
-	
-</div>	
+</div>		
 	
 

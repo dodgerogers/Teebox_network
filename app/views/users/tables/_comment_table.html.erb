@@ -1,4 +1,4 @@
-<table class="table table-condensed table-borderless table-striped">
+<table class="table table-condensed table-borderless">
 		
 		<% for comment in comments %>	
 	    <tr>
@@ -8,7 +8,7 @@
 				</div>
 			</td>
 	      <td class="left"><a href='<%= "#{url_for(comment.commentable)}#comment_#{comment.id}" %>'>
-				<%= truncate(comment.content, length: 100) %></a>
+				<%= truncate(comment.content, length: 75) %></a>
 		  </td>
 	    </tr>
 	<% end %>

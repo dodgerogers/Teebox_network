@@ -6926,7 +6926,7 @@
             isFloating;
         x = x || 0;
         y = y || 0;
-        width = width || 512;
+        width = width || 540;
         height = height || 200;
         $(cnvs, {
             height: height,

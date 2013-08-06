@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="span1"></div>
+<div class="span1"></div>
 	<div class="span10">
 		<div id="question-box">
 			<div class="video-container">
@@ -9,41 +9,38 @@
 
 			<div class="question">
 				<h1><%= @decorator.title.titleize %></h1>
-
+				
 			<div class="question-content">
 				<%= simple_format @question.body %>
 			</div>
-
-				<%= @decorator.question_tags %>
-
+			
+			Tags: <%= @decorator.question_tags %>
+			
 			<div class="form-area">
-				<div class="profile-info" id="question-profile-info">
-					<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
-					<%= profile_link_helper(@question) %>
-				</div>
-					
-				<div class="pull-right">
-					<%= link_to "Edit", edit_question_path(@question), class: "default" if can? :update, @question %>
-					<%= link_to "Delete", @question, method: :delete, class: "default" if can? :destroy, @question %>
-				</div>
+			<div class="profile-info" id="question-profile-info">
+				<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
+				<%= profile_link_helper(@question) %>
+				<%= link_to "Edit", edit_question_path(@question) if can? :update, @question %>
+				<%= link_to "Delete", @question, method: :delete if can? :destroy, @question %>
+			</div>
 			</div>
 		</div>
 	</div>
 
-<div class="comments-area">
-	<%= render template: "comments/index" %>
-	<%= link_to "Add comment", "#", id: "comment-button", class: "default" %><br>
-	<%= render partial: "comments/form", locals: {commentable: @question} %>
-</div>
+	<div class="comments-area">
+		<%= render template: "comments/index" %>
+		<%= link_to "Add comment", "#", id: "comment-button", class: "default" %><br>
+		<%= render partial: "comments/form", locals: {commentable: @question} %>
+	</div>
 	
 	
-<div id='answers-count'>
-	<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
-</div>
+	<div id='answers-count'>
+		<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
+	</div>
 
-	<%= render template: "answers/index" %>
-	<a href="#" id="answer-button" class="default submit">Add your answer</a><br>
-	<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
-</div>
-<div class="span1"></div>
+		<%= render template: "answers/index" %>
+		<a href="#" id="answer-button" class="default submit">Add your answer</a><br>
+		<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
+	</div>
+	<div class="span1"></div>
 </div>

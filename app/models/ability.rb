@@ -9,11 +9,11 @@ class Ability
     elsif user.role == 'standard'
       #Questions
       can [:new, :create, :highest_votes, :unanswered, :read, :vote], Question
-      can [:update, :edit, :destroy], Question do |question|
+      can [:update, :edit, :destroy, :correct], Question do |question|
         question.try(:user) == user
     end
       #Answers
-      can [:new, :create, :read, :vote], Answer
+      can [:new, :create, :read, :vote, :correct], Answer
       can [:update, :destroy, :edit, :correct], Answer do |answer|
         answer.try(:user) == user
     end

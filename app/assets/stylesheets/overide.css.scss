@@ -246,7 +246,7 @@ input:-webkit-autofill {
 .sebonak {
 	background: url(teebox-sebonak.png);
 	color: #fff;
-	background-position: 37% 52%;	
+	background-position: center 63%;	
 }
 .blue {
 	background: $sky;
@@ -267,6 +267,7 @@ input:-webkit-autofill {
 
 .table th, .table td {
 	text-align:center;
+	vertical-align: middle;
 }
 .white {
 	background: #fff;
@@ -283,6 +284,18 @@ table , .table a {
 }
 .margin-t-6 {
 	margin-top: 6px;
+}
+.margin-b-5 {
+	margin-bottom: 5px;
+}
+.inline {
+	display:inline;
+}
+.inline-block {
+	display:inline-block;
+}
+#user-banner {
+	margin-top:20px;
 }
 
 /*morris */

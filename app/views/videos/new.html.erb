@@ -1,24 +1,26 @@
 <div class="center hero-unit sky">
-<h1 class="welcome-banner">Step 1: Upload a Video <i class="icon-upload"></i></h1><br>
-
-<p>Max file size 5MB.</b> Allowed file types: mp4, OGV, FLV, m4v. User landscape videos for best results</p>
-
-<div class="instructions">
-	<div class="rotate90">
-		<i class="xl icon-mobile-phone"></i>
-	</div>
-	<i class="icon-ok-sign large green right-margin"></i>
-	<i class="xl icon-mobile-phone right-margin"></i>
-	<i class="icon-remove-sign large red "></i>
-</div>
-<br>
-
-<%= render partial: "videos/form" %>
+	<div class="row">
+		<div class="span7">
+			<h1 class="welcome-banner">Step 1: Upload a Video <i class="icon-upload"></i></h1><br>
+			<p>Max file size 5MB.</b> Allowed file types: mp4, OGV, FLV, m4v. Landscape videos get the most responses</p>
+			<%= render partial: "videos/form" %>
+		</div>
+		<div class="span3">
+			<div class="instructions">
+				<div class="rotate90">
+					<i class="xl icon-mobile-phone"></i>
+				</div>
+			<i class="icon-ok-sign large green right-margin"></i>
+			<i class="xl icon-mobile-phone right-margin"></i>
+			<i class="icon-remove-sign large red "></i>
+			</div>
+		</div><br>
 
 <div id="dropzone">
 	<div id="upload"></div>
 	<div class="progress" id="progress">
 	  <div class="bar bar-success" style="width:0%;"></div>
+	</div>
 	</div>
 </div>
 </div>
