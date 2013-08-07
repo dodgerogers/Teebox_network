@@ -36,6 +36,6 @@ class ApplicationController < ActionController::Base
    end
    
    def notifications
-     PublicActivity::Activity.order("created_at DESC").where(recipient_id: current_user.id)
+     PublicActivity::Activity.find_all_by_recipient_id(current_user.id, include: [:owner, :trackable], order: "created_at DESC")
    end
 end
