@@ -1,5 +1,4 @@
-This is the Source Code for Teebox.
+<b>Welcome to Teebox Network Beta.</b>
 
-More info to come soon...
+more info to come soon.
 
-I use mailcatcher, not in gemfile
