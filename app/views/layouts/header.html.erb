@@ -9,15 +9,18 @@
 		 </a>
 		
 		<div class="nav-collapse collapse">
-    	<ul class="nav pull-right">	
+    		<ul class="nav pull-right">	
 			  <%= form_tag questions_path, method: "get", class: "form-control navbar-form pull-left" do %>
 					<%= text_field_tag :search, params[:search], placeholder: "Search" %>
 			  <% end %>
 		
 		<% if user_signed_in? %>
-		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list large"></i></a>
-			<ul class="dropdown-menu span6">
-				<%= render partial: "activities/index", locals: { activities: notifications.first(8) } %>
+		<li class="dropdown">
+			<a id="notifications" href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<i class="icon-list large"></i>
+			</a>
+			<ul class="dropdown-menu span6" id="notifications-area">
+				
 			</ul>
 		</li>
 		<li><%= link_to image_tag(avatar_url(current_user, 30)), current_user, id: "gravatar" %></li>

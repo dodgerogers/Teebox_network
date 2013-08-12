@@ -35,7 +35,11 @@ TeeboxNetwork::Application.routes.draw do
   
   resources :videos, except: [:edit, :update]
   resources :tags
-  resources :activities, only: :index
+  resources :activities, only: :index do
+    collection do
+      get 'notifications'
+    end
+  end
   resources :reports, only: [:index, :new, :create, :destroy]
   
   # The priority is based upon order of creation:

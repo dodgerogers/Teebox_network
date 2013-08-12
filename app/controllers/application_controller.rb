@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
      root_path
    end
    
-   def notifications
-     PublicActivity::Activity.find_all_by_recipient_id(current_user.id, include: [:owner, :trackable], order: "created_at DESC")
-   end
+   #def notifications
+  #   PublicActivity::Activity.find_all_by_recipient_id(current_user.id, include: [:owner, :trackable], order: "created_at DESC")
+   #end
 end

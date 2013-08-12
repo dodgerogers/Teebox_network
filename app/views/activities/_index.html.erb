@@ -1,9 +1,9 @@
-<li class="nav-header">Notifications</li>
-<% activities.each do |activity| %>
-<div id="notification">
-  <%= render_activity activity %>
-</div>
-<% end %>
-<% unless current_page?(activities_path) %>
-	<li><%= link_to "View All", activities_path %></li>
-<% end %>
+<li class="nav-header" id="activities">Notifications</li>
+	<% activities.each do |activity| %>
+		<div id="notification">
+  			<%= render_activity activity %>
+		</div>
+	<% end %>
+	<% unless current_page?(activities_path) %>
+		<li><%= link_to "View All", activities_path %></li>
+	<% end %>

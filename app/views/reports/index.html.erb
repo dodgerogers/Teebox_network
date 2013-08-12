@@ -17,8 +17,8 @@ jQuery(function() {
     element: 'area',
     data: $('#area').data('totals'),
     xkey: 'created_at',
-    ykeys: ['questions_total', 'answers_total', 'users_total'],
-    labels: ['Total Q', 'Total A', 'Total U'],
+    ykeys: ['answers_total', 'questions_total', 'users_total'],
+    labels: ['Total A', 'Total Q', 'Total U'],
 	behaveLikeLine: "true"
   });
 });
@@ -27,8 +27,8 @@ jQuery(function() {
     element: 'stats',
     data: $('#stats').data('reports'),
     xkey: 'created_at',
-    ykeys: ['questions', 'answers', 'users'],
-    labels: ['New Q', 'New A', 'New U'],
+    ykeys: ['answers', 'questions', 'users'],
+    labels: ['New A', 'New Q', 'New U'],
 	behaveLikeLine: "true"
   });
 });

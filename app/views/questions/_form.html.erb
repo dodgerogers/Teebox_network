@@ -18,7 +18,6 @@
 	<h1>Add your video</h1>
 	<div>
   		<% f.label :video_id, raw("<i class='icon-camera'></i> Video") %>
-		
   		<%= render partial: "shared/video_select_form", locals: { question: @question } %>
 		<%= f.hidden_field :video_id %>
 	</div>
