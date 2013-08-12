@@ -15,16 +15,16 @@ class UserDecorator < ApplicationDecorator
     link_to "View all #{text}", path, class: "default next" if objects.any?
   end
   
-  def questions
-    model.questions
+  def questions_index
+    model.questions.order("created_at desc")
   end
   
-  def answers
-    model.answers.includes(:question)
+  def answers_index
+    model.answers.includes(:question).order("created_at desc")
   end
   
-  def comments
-    model.comments.includes(:commentable)
+  def comments_index
+    model.comments.includes(:commentable).order("created_at desc")
   end
   
   def new_video

@@ -2,7 +2,7 @@ module ApplicationHelper
   
   def points_from_correct(question)
     correct = question.answers.where(correct: true)
-    correct.any? ? (correct.first.try(:user) == question.user ? "+5" : "") : ""
+    correct.any? ? (correct.first.try(:user) == question.user ? "" : "+5") : ""
 	end
   
   def profile_link_helper(object)

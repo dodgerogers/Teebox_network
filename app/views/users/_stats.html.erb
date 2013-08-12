@@ -16,7 +16,7 @@
 	            <div class="ch-info">
 	                <h3>Teebox Score</h3>
 	            </div>
-				<h1><%= decorator.reputation %></h1>
+				<h1><%= number_to_human(decorator.reputation) %></h1>
 	        </div>
 	    	</li>
 		</ul>
@@ -26,9 +26,9 @@
 			<li>
 	        <div class="ch-item ch-img-1">
 	            <div class="ch-info">
-	               <h3>Correct Answers</h3>
+	               <h3>Teebox<br> Rank</h3>
 	            </div>
-				<h1><%= Answer.joins(:user).where(user_id: @user.id, correct: true).count %></h1>
+				<h1>#<%= number_to_human(rand(1..20000)) %></h1>
 	        </div>
 	    	</li>
 		</ul>
@@ -38,9 +38,9 @@
 			<li>
 	        <div class="ch-item ch-img-1">
 	            <div class="ch-info">
-	               <h3>Total Questions</h3>
+	               <h3>Another stat</h3>
 	            </div>
-				<h1><%= decorator.questions.size %></h1>
+				<h1><%= number_to_human(rand(1..20000)) %></h1>
 	        </div>
 	    	</li>
 		</ul>

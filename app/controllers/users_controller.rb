@@ -12,14 +12,14 @@ class UsersController < ApplicationController
   end
   
   def answers_index
-    @answers = @user.answers.paginate(page: params[:page], per_page: 10).includes(:question)
+    @answers = @user.answers.order("created_at desc").paginate(page: params[:page], per_page: 10).includes(:question)
   end
   
   def questions_index
-    @questions = @user.questions.paginate(page: params[:page], per_page: 10)
+    @questions = @user.questions.order("created_at desc").paginate(page: params[:page], per_page: 10)
   end
   
   def comments_index
-    @comments = @user.comments.paginate(page: params[:page], per_page: 10).includes(:commentable)
+    @comments = @user.comments.order("created_at desc").paginate(page: params[:page], per_page: 10).includes(:commentable)
   end
 end

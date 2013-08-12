@@ -21,7 +21,7 @@
 			</a>
 		</td>
 	</tr>
-	<% for answer in answers %>	
+	<% answers.each do |answer| %>	
 	    <tr>
 			<td>
 				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">

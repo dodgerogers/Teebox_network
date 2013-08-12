@@ -21,7 +21,7 @@
 			</a>
 		</td>
 	</tr>
-		<% for question in questions %>
+		<% questions.each do |question| %>
 	    <tr>
 			<td>
 				<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
@@ -30,7 +30,7 @@
 			</td>
 			<td>	
 				<div class="green-tick" id="user-answers">
-				<%= points_from_correct(question)%>
+				<%= points_from_correct(question) %>
 				</div>
 			</td>	
 			<td>

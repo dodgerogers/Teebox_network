@@ -11,7 +11,7 @@
 				</a>
 			</td>
 		</tr>
-		<% for comment in comments %>	
+		<% comments.each do |comment| %>	
 	    <tr>
 			<td>
 				<div id="<%= comment.points > 0 ? 'plus-points' : 'no-points' %>">

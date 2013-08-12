@@ -3,8 +3,10 @@
 	
 		<%= render partial: "reports/form" %>
 		
+		<b>Totals</b>
 		<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>
 		
+		<b>Daily Totals</b>
 		<%= content_tag :div, "", id: "stats", data: { reports: @all_reports } %><br><br>
 		
 		<%= render partial: "reports/stats", locals: {reports: @reports} %>
@@ -18,7 +20,7 @@ jQuery(function() {
     data: $('#area').data('totals'),
     xkey: 'created_at',
     ykeys: ['answers_total', 'questions_total', 'users_total'],
-    labels: ['Total A', 'Total Q', 'Total U'],
+    labels: ['Total Answers', 'Total Questions', 'Total Users'],
 	behaveLikeLine: "true"
   });
 });
@@ -28,7 +30,7 @@ jQuery(function() {
     data: $('#stats').data('reports'),
     xkey: 'created_at',
     ykeys: ['answers', 'questions', 'users'],
-    labels: ['New A', 'New Q', 'New U'],
+    labels: ['New Answers', 'New Questions', 'New Users'],
 	behaveLikeLine: "true"
   });
 });

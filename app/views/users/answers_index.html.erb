@@ -1,5 +1,5 @@
 <div class="span12">
-<legend>Answers</legend>
+<b><%= link_to @user.username.titleize, user_path(@user) %> answers</b><br><br>
 <%= render partial: "users/tables/answer_table", locals: {answers: @answers} %>
 <%= link_to "Profile", user_path, class: "default asphalt" %>
 </div>
