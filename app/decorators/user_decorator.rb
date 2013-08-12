@@ -16,7 +16,7 @@ class UserDecorator < ApplicationDecorator
   end
   
   def questions_index
-    model.questions.order("created_at desc")
+    model.questions.includes(:answers).order("created_at desc")
   end
   
   def answers_index

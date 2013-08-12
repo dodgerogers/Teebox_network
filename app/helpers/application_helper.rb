@@ -1,8 +1,11 @@
 module ApplicationHelper
   
+  #refactor too slow
   def points_from_correct(question)
-    correct = question.answers.where(correct: true)
-    correct.any? ? (correct.first.try(:user) == question.user ? "" : "+5") : ""
+    if question.correct == true
+      correct = question.answers.find_by_correct(true)
+      correct ? (correct.try(:user) == question.user ? "" : "+5") : ""
+    end
 	end
   
   def profile_link_helper(object)

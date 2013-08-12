@@ -39,15 +39,7 @@ describe ApplicationHelper do
     it "returns no correct answers" do
       @question = create(:question)
       @answer = create(:answer, question_id: @question.id, correct: false)
-      helper.points_from_correct(@question).should eq ""
-    end
-    
-    it "returns 0 points" do
-      @user1 = create(:user)
-      sign_in @user1
-      @question = create(:question, user_id: @user1.id)
-      @answer = create(:answer, user_id: @user1.id, question_id: @question.id, correct: true)
-      helper.points_from_correct(@question).should eq ""
+      helper.points_from_correct(@question).should eq nil
     end
     
     it "returns +5 points" do
@@ -55,7 +47,7 @@ describe ApplicationHelper do
       @user2 = create(:user)
       sign_in @user1
       sign_in @user2
-      @question = create(:question, user_id: @user1.id)
+      @question = create(:question, user_id: @user1.id, correct: true)
       @answer = create(:answer, user_id: @user2.id, question_id: @question.id, correct: true)
       helper.points_from_correct(@question).should eq "+5"
     end
