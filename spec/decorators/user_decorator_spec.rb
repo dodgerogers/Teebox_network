@@ -32,19 +32,19 @@ describe UserDecorator do
   
   describe "questions" do
     it "returns users questions" do
-      @decorator.questions.should eq(@decorator.questions)
+      @decorator.questions_index.should eq(@decorator.questions_index)
     end  
   end
   
   describe "answers" do
     it "returns users answers" do
-      @decorator.answers.should eq(@decorator.answers)
+      @decorator.answers_index.should eq(@decorator.answers_index)
     end
   end
   
   describe "comments" do
     it "returns users comments" do
-      @decorator.comments.should eq(@decorator.comments)
+      @decorator.comments_index.should eq(@decorator.comments_index)
     end
   end
 end
