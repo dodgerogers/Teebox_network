@@ -13,7 +13,7 @@ describe "Videos" do
   it "deletes video" do
     visit root_path
     sign_in_user
-    click_link "Ask a Question"
-    #create video then destroy
+    @video = create(:video)
+    #need to create a video here
   end
 end

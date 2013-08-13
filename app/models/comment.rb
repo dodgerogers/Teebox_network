@@ -12,4 +12,5 @@ class Comment < ActiveRecord::Base
   validates_length_of :content, minimum: 10
   
   profanity_filter :content
+    
 end
