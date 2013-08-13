@@ -19,6 +19,15 @@ module UsersHelper
     page.should have_content "Signed in successfully"
   end
   
+  def sign_in_standard_user
+    @user3 = FactoryGirl.create(:user, role: "standard")
+    click_link "Login"
+    fill_in "Username", with: @user3.username
+    fill_in "Password", with: @user3.password
+    click_button "Sign in"
+    page.should have_content "Signed in successfully"
+  end
+  
   def sign_out
     click_link "Logout"
     page.should have_content "Signed out successfully."

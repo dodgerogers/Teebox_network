@@ -6,6 +6,7 @@ set :output, {
 
 every :day, at: "11:30am" do
   rake "generate_report"
+  rake "delete_capybara"
 end
 
 

@@ -13,7 +13,7 @@ class Question < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   validates_presence_of :title, :body, :user_id
-  validates_length_of :title, minimum: 10, maximum: 300
+  validates_length_of :title, minimum: 10, maximum: 90
   validate :tag_limit
   
   profanity_filter :body, :title

@@ -30,6 +30,8 @@ describe UserDecorator do
     end
   end
   
+  
+  #simulate users objects
   describe "questions" do
     it "returns users questions" do
       @decorator.questions_index.should eq(@decorator.questions_index)

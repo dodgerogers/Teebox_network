@@ -43,5 +43,15 @@ describe "Questions" do
       question.title.should eq "this is a new title"
     }
   end
+  
+  it "unauthorized edit redirect to home page" do
+    visit root_path
+    sign_in_user
+    @question = create(:question)
+    sign_out
+    sign_in_standard_user
+    visit edit_question_path(@question)
+    page.should have_content "You are not authorized to access this page"
+  end
 end
     
