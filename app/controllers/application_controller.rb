@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path, alert: exception.message
     end
     
+    def store_location
+      session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
+    end
+    
     def resource_name
       :user
     end
@@ -20,10 +24,6 @@ class ApplicationController < ActionController::Base
 
     def devise_mapping
       @devise_mapping ||= Devise.mappings[:user]
-    end
-    
-    def store_location
-      session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
     end
     
     def after_sign_in_path_for(resource)

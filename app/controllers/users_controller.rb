@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :get_user
   
+  def welcome
+  end
+  
   def show
     @decorator = UserDecorator.new(@user)
   end
