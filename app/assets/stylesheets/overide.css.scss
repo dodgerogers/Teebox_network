@@ -6,6 +6,7 @@ $green-sea: #16A085;
 $asphalt: #34495E;
 $midnight: #2C3E50;
 $sky: #22ADC7;
+$ocean: #0A323A;
 
 /*---- containers -------*/
 
@@ -95,6 +96,17 @@ $sky: #22ADC7;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 }
+.navbar .btn-navbar {
+	background: $midnight;
+}
+.navbar .btn-navbar:hover {
+	background: $ocean;
+}
+.navbar .nav-info a {
+	display:inline-block;
+	vertical-align:middle;
+}
+/*non bootstrap nav elements */
 .gravatar {
 	width: 50px;
 	height: 100%;
@@ -118,11 +130,12 @@ $sky: #22ADC7;
 }
 #current-user {
 	padding-left: 5px;
+	display:inline-block;
 }
 #current-user-rep {
 	color: #E95A4D;
-	padding-right: 0px;
 	font-weight: bold;
+	display:inline-block;
 	text-shadow: 0px 1px 1px #333;
 }
 #no-padding {
