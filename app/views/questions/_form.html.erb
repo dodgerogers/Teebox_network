@@ -14,6 +14,7 @@
 <% end %>
 
 
+<% if current_user == @question.user %>
 <div class="hero-unit">
 	<h1>Add your video</h1>
 	<div>
@@ -22,6 +23,7 @@
 		<%= f.hidden_field :video_id %>
 	</div>
 </div>	
+<% end %>
 	
 	
 <div class="hero-unit">	<br>	
