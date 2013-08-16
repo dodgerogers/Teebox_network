@@ -26,9 +26,13 @@
 			<li>
 	        <div class="ch-item ch-img-1">
 	            <div class="ch-info">
-	               <h3>Teebox<br> Rank</h3>
+	               <h3>
+					<%= link_to users_path do %>
+					 	Teebox<br> Rank
+					<% end %>
+				   </h3>
 	            </div>
-				<h1>#<%= number_to_human(rand(1..20000)) %></h1>
+				<h1>#<%= decorator.rank %></h1>
 	        </div>
 	    	</li>
 		</ul>

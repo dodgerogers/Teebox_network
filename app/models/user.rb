@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable 
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :reputation, :handicap
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :reputation, :rank
   validates :username, presence: true, uniqueness: true, length: { maximum: 30 }
 
   has_many :questions, dependent: :destroy

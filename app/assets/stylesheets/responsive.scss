@@ -1,14 +1,4 @@
-$teal: #31838f;
-$red: #E95A4D;
-$green: #4fc392;
-$turquoise: #1ABC9C;
-$green-sea: #16A085;
-/* blues */
-$asphalt: #34495E;
-$midnight: #2C3E50;
-$sky: #22ADC7;
-$ocean: #0A323A;
-$universe: #08262C;
+@import "variables.css.scss";
 
 
 @media (min-width: 1200px) {
@@ -94,9 +84,6 @@ $universe: #08262C;
 	#notification:last-of-type {
 		border-bottom: 1px solid $midnight;
 	}
-	.ch-grid {
-		display:none;
-	}
 	.padded {
 		padding: 10px 20px 0;
 	}
@@ -171,9 +158,6 @@ $universe: #08262C;
 	}
 	#notification:last-of-type {
 		border-bottom: 1px solid $midnight;
-	}
-	.ch-grid {
-		display:none;
 	}
 	.padded {
 		padding: 10px 20px 0;

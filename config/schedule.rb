@@ -9,6 +9,10 @@ every :day, at: "11:30am" do
   rake "delete_capybara"
 end
 
+every 55.minutes do
+  rake "rank_users"
+end
+
 
 
 # Use this file to easily define all of your cron jobs.

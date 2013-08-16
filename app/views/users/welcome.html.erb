@@ -1,10 +1,28 @@
-<div class="hero-unit sebonak"><center>
-	<h1 class="welcome-banner" id="welcome-h1">
-		Welcome to Teebox
-	</h1><br>
-	<h1 class="welcome-username">
-		<%= @user.username %>
-	</h1>
-	</h1>	
-	</div>	
-</center></div>
+<div class="hero-unit sebonak">
+	<center>
+		<h1 class="welcome-banner" id="welcome-h1">
+			Welcome to Teebox
+		</h1><br>
+		<%= link_to user_path(@user) do %>
+		<h1 class="lobster welcome-red">
+			<%= @user.username %>
+		</h1>
+		<% end %>	
+	</center>
+</div>
+<div class="hero-unit sky"><center>
+	<%= link_to root_path do %>
+		<h1 class="lobster welcome-white">
+			Golf guru? Help some folks out
+		</h1>
+	<% end %>
+	Get out there, find some questions and help some folk!
+	<center>
+	<%= link_to videos_path do %>
+		<h1 class="lobster welcome-red">
+			Ask a question
+		</h1>
+	<% end %>
+	Still can't hit the pacific from the beach?
+	</center>
+</div>

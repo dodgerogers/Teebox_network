@@ -1,12 +1,4 @@
-$teal: #31838f;
-$red: #E95A4D;
-$green: #4fc392;
-$turquoise: #1ABC9C;
-$green-sea: #16A085;
-$asphalt: #34495E;
-$midnight: #2C3E50;
-$sky: #22ADC7;
-$ocean: #0A323A;
+@import "variables.css.scss";
 
 /*---- containers -------*/
 
@@ -49,7 +41,7 @@ $ocean: #0A323A;
 	margin-bottom: 30px;
 }
 .navbar .brand {
-	font-family: 'BebasNeueRegular';
+	font-family: 'lobster_1.3regular';
 	font-size: 28px;
 	color: #0A323A;
 	letter-spacing: 1px;
@@ -230,7 +222,11 @@ input:-webkit-autofill {
 }
 
 /* backgrounds */
-	
+.mountain {	
+	background: url(teebox-mountain.png);
+	color: #fff;
+	background-position: center 54%;
+}	
 .forest {	
 	background: url(teebox-landscape-tall.png);
 	color: #fff;

@@ -1,3 +1,14 @@
+task :generate_report => :environment do
+  Report.create
+end
+
+#add to crontab
+task :rank_users => :environment do
+  User.order("reputation desc").each_with_index do |user, rank|
+    user.update_attributes(rank: (rank + 1))
+  end 
+end
+
 task :delete_tmp_files do
   FileUtils.rm Dir.glob("#{Rails.root}/public/uploads/tmp/screenshots/*")
 end
@@ -16,8 +27,4 @@ end
 
 task :delete_test_logs do
   FileUtils.rm "#{Rails.root}/log/test.log"
-end
-
-task :generate_report => :environment do
-  Report.create
 end

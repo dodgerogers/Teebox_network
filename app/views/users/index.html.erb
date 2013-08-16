@@ -1,0 +1,24 @@
+<div class="hero-unit mountain">
+	<center>
+		<h1 class="lobster welcome-white">
+			Did you make the cut?
+		</h1>
+	</center>
+</div>
+
+<table class="table table-condensed table-borderless">	
+	<tr class="grey">
+		<td>#</td>
+		<td>Score</td>
+		<td>Username</td>
+		<td>Member since</td>
+	</tr>		
+<% @users.each do |user| %>
+	<tr>
+		<td><%= user.rank %></td>
+		<td><%= link_to user.reputation, user %></td>
+		<td><%= link_to user.username, user %></td>
+		<td><%= user.created_at.strftime('%d-%m-%Y') %></td>
+	</tr>	
+<% end %>
+</table>	

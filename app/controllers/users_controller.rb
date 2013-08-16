@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :get_user
-  
-  def welcome
-  end
+  before_filter :get_user, except: :index
   
   def show
     @decorator = UserDecorator.new(@user)
+  end
+  
+  def index
+    @users = User.order("rank").paginate(page: params[:page], per_page: 50)
   end
   
   def get_user

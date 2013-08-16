@@ -12,6 +12,7 @@ describe User do
    it { should respond_to(:password_confirmation)}
    it { should respond_to(:remember_me)}
    it { should respond_to(:reputation)}
+   it { should respond_to(:rank)}
    it { should have_many(:questions)}
    it { should have_many(:videos)}
    it { should have_many(:comments)}
