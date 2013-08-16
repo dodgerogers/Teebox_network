@@ -2,7 +2,7 @@ require "spec_helper"
 include UsersHelper
 
 describe "Videos" do
-  it "create without login to prompt login" do
+  it "creates video record" do
     visit root_path
     sign_in_user
     click_link "Ask a Question"

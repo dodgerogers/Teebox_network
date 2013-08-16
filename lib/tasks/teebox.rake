@@ -2,7 +2,6 @@ task :generate_report => :environment do
   Report.create
 end
 
-
 task :rm_test_users => :environment do
   User.where(role: "tester").destroy_all
 end
@@ -14,7 +13,7 @@ task :rank_users => :environment do
 end
 
 task :delete_tmp_files do
-  FileUtils.rm Dir.glob("#{Rails.root}/public/uploads/tmp/screenshots/*")
+  FileUtils.rm_rf Dir.glob("#{Rails.root}/public/uploads/tmp/screenshots/*")
 end
 
 task :carrierwave_tmp do 
@@ -22,7 +21,7 @@ task :carrierwave_tmp do
 end
 
 task :delete_capybara do
-  FileUtils.rm Dir.glob("#{Rails.root}/tmp/capybara/*")
+  FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/capybara/*")
 end
 
 task :delete_dev_logs do

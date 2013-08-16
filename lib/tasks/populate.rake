@@ -4,8 +4,6 @@ namespace :db do
     require 'populator'
     require 'faker'
     
-    User.where(role: "tester").each(&:delete_all)
-    
     User.populate 10 do |u|
         u.username    = Faker::Name.name
         u.email       = Faker::Internet.email

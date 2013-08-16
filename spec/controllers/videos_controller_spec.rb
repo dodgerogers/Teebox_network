@@ -40,6 +40,12 @@ describe VideosController do
 
   describe "POST create" do
     describe "with valid params" do
+      it "uploads the video file" do
+        @file = fixture_file_upload('/files/edited_driver_swing.m4v', 'video/m4v')
+        post :create, upload: @file
+        response.should be_success
+      end
+      
       it "creates a new video" do
         expect {
           post :create, video: attributes_for(:video), user_id: @user
@@ -60,7 +66,6 @@ describe VideosController do
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved video as @video" do
-        # Trigger the behavior that occurs when invalid params are submitted
         Video.any_instance.stub(:save).and_return(false)
         post :create, video: attributes_for(:video), user_id: @user
         assigns(:video).should be_a_new(Video)
