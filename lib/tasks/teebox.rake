@@ -2,11 +2,15 @@ task :generate_report => :environment do
   Report.create
 end
 
-#add to crontab
+
+task :rm_test_users => :environment do
+  User.where(role: "tester").destroy_all
+end
+
 task :rank_users => :environment do
-  User.order("reputation desc").each_with_index do |user, rank|
-    user.update_attributes(rank: (rank + 1))
-  end 
+   results = {}
+   	User.order("reputation desc").each { |user| results[user.reputation] = User.where(reputation: user.reputation).map(&:id) }
+   	results.each_with_index { |user, rank| user[1].each {|u| User.find_by_id(u).update_attributes(rank: rank + 1) } }
 end
 
 task :delete_tmp_files do
