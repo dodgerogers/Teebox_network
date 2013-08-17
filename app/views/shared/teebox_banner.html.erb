@@ -11,7 +11,7 @@
 		  <center>	
 			<h4>Got a hitch in your swing?<br>Anyone can ask. Anyone can answer.<br> Everyone can progress</h4>
 			<% if current_user %>
-				<%= link_to "Get your answer", videos_path, class: "default submit"%>
+				<%= link_to "Get your answer", videos_path, class: "default next"%>
 			<% else %>
 				<%= link_to "Join Today", new_user_registration_path, class: "default submit"%>
 			<% end %>

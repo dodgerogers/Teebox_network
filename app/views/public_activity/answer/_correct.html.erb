@@ -4,9 +4,9 @@
 	</div>
 	<div class="message">
 		<%= link_to activity.owner.username, activity.owner %> marked your
-		<a href='<%= "#{url_for(activity.trackable.question)}#answer_#{activity.trackable.id}" %>'>
+		<%= link_to read_activity_path(activity), method: :put do %>
 			answer
-		</a> as correct <br>
+		<% end %> as correct <green>+20</green><br>
 		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
 	</div>
 <% else %>

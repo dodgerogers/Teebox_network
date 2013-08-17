@@ -1,6 +1,6 @@
 <li class="nav-header" id="activities">Notifications</li>
 	<% activities.each do |activity| %>
-		<div id="notification">
+		<div id="notification" class="<%= activity.read == false ? 'unread' : '' %>">
   			<%= render_activity activity %>
 		</div>
 	<% end %>

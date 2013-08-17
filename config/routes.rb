@@ -35,6 +35,7 @@ TeeboxNetwork::Application.routes.draw do
   resources :videos, except: [:edit, :update]
   resources :tags
   resources :activities, only: :index do
+    member { put :read }
     collection do
       get 'notifications'
     end

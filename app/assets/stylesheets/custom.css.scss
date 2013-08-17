@@ -5,7 +5,7 @@
 html, body { 
 	min-height: 100%;
 	height: 100%;
-	font-weight: lighter;
+	font-weight: 300;
 }
 
 hr {
@@ -92,19 +92,6 @@ h6 {
 }	
 .lobster {
 	font-family: "lobster_1.3regular";
-}
-teebox, teebox a {
-	font-size: 36px;
-	font-family: 'BebasNeueRegular';
-	font-weight: 200;
-	text-shadow: 0px 2px 2px #2a2a2a;
-	color: #999;
-	letter-spacing: 2px;
-}	
-.letter-press-link {
-	text-shadow: 0px 3px 3px #2a2a2a;
-	color: #999;
-	font-weight:300;
 }		
 #answer-button {
 }
@@ -120,8 +107,14 @@ label {
 	color: #06434D;
 	vertical-align: middle;
 }	
-center h1{
+center h1 {
 	text-align:center!important;
+}
+
+/* custom colors */
+
+green {
+	color: $green;
 }
 
 /*----------------------Containers ------------------------------*/
@@ -214,42 +207,6 @@ h1.circle {
 }
 /* ------------------------- Header --------------------------------------------*/
 
-.header {
-	width: 100%;
-	font-size: 18px;
-	font-weight: 200;
-	line-height: 30px;
-	color: inherit;
-	background: #474747;
-	-webkit-box-shadow: inset 0px -3px 10px -2px #737373;
-	box-shadow: inset 0px -3px 10px -2px #737373;
-	-moz-box-shadow: inset 0px -3px 10px -2px #737373;
-}
-.header_container {
-	position:relative;
-	width: 1040px;
-	margin: 0 auto 0 auto;
-	padding: 10px 0px;
-}
-.left-header {
-	position: relative;
-	display:inline-block;
-	width: 49%;
-	text-align: left;
-	vertical-align:top;
-}
-.right-header {
-	position: relative;
-	display:inline-block;
-	width: 50%;
-	text-align: right;
-	vertical-align:middle;
-}
-.right-header a {
-		text-shadow: 0px 1px 1px #2a2a2a;
-		color: #999;
-		font-weight:300;
-}
 .ask-question {
 	float: right;
 }
@@ -353,33 +310,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 /*--------------------- Questions index ---------------------*/
 
-/* ----------------- nav tabs ----------------------*/
-
-.nav {
-	margin-bottom: 30px;
-}
-.nav-tabs li.active a {
-	color: $red;
-}
-.current a {
-	color: $red;
-	border:1px solid #ccc;
-	border-bottom: 1px solid #fff;
-	padding: 4px 15px;
-}
-.tab {
-	list-style: none;
-	display:inline;
-}
-.tabs {
-	font-size: 18px;
-	font-weight:400;
-	color: $teal;
-	vertical-align: middle;
-	letter-spacing: -1px;
-} 
-
-/* ---------------- questions + videos------------------*/
+/* ----questions + videos--------*/
 
 .videos {
 	display: inline-block;

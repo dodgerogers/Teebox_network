@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   include ActivityHelper
   
   before_filter :authenticate_user!
-  before_filter :get_notifications, only: [:index, :notifications]
+  before_filter :get_notifications
   
   def index
     @activities = @notifications.paginate(page: params[:page], per_page: 20)
@@ -17,5 +17,15 @@ class ActivitiesController < ApplicationController
   
   def get_notifications
     @notifications = user_activities(current_user)
+  end
+  
+  def read
+    @activity = PublicActivity::Activity.find(params[:id])
+    @activity.toggle(:read) #if @activity.read == false
+    if @activity.save
+      redirect_to get_activity_path(@activity)
+    else
+      redirect_to root_path, notice: "Didnt work"  
+    end
   end
 end

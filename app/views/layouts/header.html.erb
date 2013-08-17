@@ -16,8 +16,10 @@
 			  <% end %>
 		<% if user_signed_in? %>
 		<li class="dropdown">
-			<a id="notifications" href="#" class="dropdown-toggle" data-toggle="dropdown">
-				<i class="icon-list large"></i>
+			<a id="notifications" href="#" class="dropdown-toggle" data-toggle="dropdown" title="Notifications">
+				<div class="notifications-count large" id="<%= number_of_activities(current_user) > 0 ? 'current-user-rep' : '' %>">
+					<%= number_of_activities(current_user) %>
+				</div>
 			</a>
 			<ul class="dropdown-menu span6" id="notifications-area">
 				

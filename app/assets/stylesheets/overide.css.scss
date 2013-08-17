@@ -43,13 +43,13 @@
 .navbar .brand {
 	font-family: 'BebasNeueRegular';
 	font-size: 28px;
-	color: #0A323A;
+	color: $ocean;
 	letter-spacing: 1px;
 	text-shadow: 0px 1px 1px #297D8B;
 }
 .navbar .brand:hover,.navbar .nav > li > a:hover {
 	color: #fff!important;
-	text-shadow: 0px 1px 1px #0A323A;
+	text-shadow: 0px 1px 1px $ocean;
 }
 .navbar .nav > li > a {
 	font-weight:bold;
@@ -60,7 +60,7 @@
 .navbar .nav li.dropdown.active > .dropdown-toggle, 
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
 	color: #fff;
-	background: #0A323A;
+	background: $ocean;
 }
 .navbar .pull-right > li > .dropdown-menu, .navbar .nav > li > .dropdown-menu.pull-right {
 	top: 44px;
@@ -69,19 +69,19 @@
 	color: #999;
 }
 .dropdown .dropdown-menu .nav-header {
-	color: #31838F;
+	color: $teal;
 }
 .navbar .btn-navbar {
-	background:#0A323A ;
+	background:$ocean ;
 }
 .navbar .nav li #gravatar {
 	padding: 5px 0px 0 5px;
 }
 .dropdown-menu li > a {
-	color: #31838f;
+	color:$teal;
 }
 .dropdown-menu li > a:hover {
-	background:#0A323A;
+	background:$ocean;
 }
 .dropdown-menu {
 	-webkit-border-radius: 0px;
@@ -98,7 +98,7 @@
 	display:inline-block;
 	vertical-align:middle;
 }
-/*non bootstrap nav elements */
+/*---------non bootstrap custom nav elements --------*/
 .gravatar {
 	width: 50px;
 	height: 100%;
@@ -109,26 +109,52 @@
 .message {
 	display:inline;
 }
+/* Notifications count in header --*/
+
+#notifications {
+	background: $ocean;
+	padding: 5px 11px 4px;
+	margin: 5px 5px 2px;
+	color: #fff;
+	box-shadow: 0px 1px 1px $teal;
+}
+.notifications-count {
+	font-weight:400!important;
+	font-size: 18px;
+	color: #fff;
+	text-shadow: 0px 1px 1px #000;
+}
+#notifications:hover {
+	background: $universe;
+}
+
+/*-- Notifications in dropdown --*/
 #notification {
 	height: auto;
 	padding: 10px 15px 10px;
-	border-top: 1px solid #eee;
+	border-top: 1px solid #E9E9E9;
 }
 #notification:last-of-type {
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #E9E9E9;
 }
 #notification:hover {
 	background: #eee;
 }
+.unread {
+	background: #f0f0f0;
+}
+
+/*-- current user elements --*/
+
 #current-user {
 	padding-left: 5px;
 	display:inline-block;
 }
 #current-user-rep {
-	color: #E95A4D;
+	color: $red;
 	font-weight: bold;
 	display:inline-block;
-	text-shadow: 0px 1px 1px #333;
+	text-shadow: 0px 1px 1px #000;
 }
 #no-padding {
 	padding-left: 0px;
@@ -200,7 +226,7 @@ input:-webkit-autofill {
 	background-color: #fff!important; 
 }
 #search {
-	background:#0A323A;
+	background:$ocean;
 	border:none;
 	box-shadow: 0px 1px 1px #297D8B;
 	color: #fff;
@@ -212,7 +238,7 @@ input:-webkit-autofill {
 	font-weight: 100;
     margin-bottom: 12px;
     margin-top: .5em;
-	color: #E95A4D;
+	color: $red;
 	/*text-shadow: 0px 2px 2px #777;		*/
 	letter-spacing:0px;					
 }
@@ -311,4 +337,11 @@ table , .table a {
 
 /*morris */
 
-.morris-hover{position:absolute;z-index:1000;background: #fff; padding: 10px; border: 2px solid #ccc;border-radius: 10px;}
+.morris-hover {
+	position:absolute;
+	z-index:1000;
+	background: #fff; 
+	padding: 10px; 
+	border: 2px solid #ccc;
+	border-radius: 10px;
+}

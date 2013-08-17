@@ -55,7 +55,8 @@ class AnswersController < ApplicationController
   
   def correct 
     if @answer.toggle_correct(:correct)
-      @answer.create_activity :correct, owner: current_user, recipient: @answer.user unless @answer.user == @answer.question.user || @answer.correct == false
+      @answer.create_activity :correct, owner: current_user, 
+                                        recipient: @answer.user unless @answer.user == @answer.question.user || @answer.correct == false
        @answer.toggle_question_correct
        @answer.add_reputation
         respond_to do |format|

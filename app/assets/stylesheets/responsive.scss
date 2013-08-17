@@ -18,6 +18,13 @@
 	.index-title {
 		font-size: 15px;
 	}
+	#notifications {
+		border-radius: 0px;
+		margin: 5px 0px 2px;
+	}
+	.unread {
+		background: $blackhole!important;
+	}
 	#notifications-area {
 		width:100%;
 		margin: 0 0 2px;
@@ -76,6 +83,13 @@
 	}
 	#mini-push {
 		height:0px;
+	}
+	#notifications {
+		border-radius: 0px;
+		margin: 5px 0px 2px;
+	}
+	.unread {
+		background: $blackhole!important;
 	}
 	#notifications-area {
 		width:100%;
@@ -151,6 +165,13 @@
 	#no-padding {
 		padding-left: 5px;
 		padding-right: 5px;
+	}
+	#notifications {
+		border-radius: 0px;
+		margin: 5px 0px 2px;
+	}
+	.unread {
+		background: $blackhole!important;
 	}
 	#notifications-area {
 		width:100%;
