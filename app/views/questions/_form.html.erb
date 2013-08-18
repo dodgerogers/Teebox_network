@@ -15,7 +15,7 @@
 
 
 <% if current_user == @question.user %>
-<div class="hero-unit">
+<div class="hero-unit blue-transparent">
 	<h1>Add your video</h1>
 	<div>
   		<% f.label :video_id, raw("<i class='icon-camera'></i> Video") %>
@@ -26,7 +26,7 @@
 <% end %>
 	
 	
-<div class="hero-unit">	<br>	
+<div class="hero-unit blue-transparent">	<br>	
 	<div>
 		<%= f.label :youtube_url, raw("<i class='icon-youtube'></i> YouTube URL") %>
 		<%= f.text_field :youtube_url, placeholder: "Already have a video on YouTube? Paste the URL here" %>

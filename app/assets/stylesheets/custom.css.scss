@@ -213,14 +213,15 @@ h1.circle {
 /* ------------------------- Footer --------------------------------------------*/
 
 #footer {
-	color: #888;
-	/*text-shadow: 0px 2px 3px #fff;
-	background: url(noise.png);*/
-	background: #ededed;
+	color: #ddd;
+	font-weight:400;
+	text-align:center;
+	text-shadow: 0 1px 1px $blackhole;
+	background: $ocean;
 	height:100px;
-	-webkit-box-shadow: inset 0px 1px 10px 0px #dedede;
-	box-shadow: inset 0px 1px 10px 0px #dedede;
-	-moz-box-shadow: inset 0px 1px 10px 0px #dedede;
+	-webkit-box-shadow: inset 0px 5px 20px $universe;
+	box-shadow: inset 0px 5px 20px $universe;
+	-moz-box-shadow: inset 0px 5px 20px $universe;
 }
 #push {
 	height: 100px;

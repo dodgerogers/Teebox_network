@@ -13,12 +13,12 @@
 			<% if current_user %>
 				<%= link_to "Get your answer", videos_path, class: "default next"%>
 			<% else %>
-				<%= link_to "Join Today", new_user_registration_path, class: "default submit"%>
+				<%= link_to "Join Today", new_user_registration_path, class: "default next"%>
 			<% end %>
 		  </center>
 		</div>
 		<div class="span2">
-			<ul class="ch-grid">
+			<ul class="ch-grid show">
 				<li>
 		        <div class="ch-item ch-img-1">
 		            <div class="ch-info">
@@ -30,7 +30,7 @@
 			</ul>
 		</div>
 		<div class="span2">
-			<ul class="ch-grid">
+			<ul class="ch-grid show">
 				<li>
 		        <div class="ch-item ch-img-1">
 		            <div class="ch-info">
@@ -42,7 +42,7 @@
 			</ul>
 		</div>
 		<div class="span2">
-			<ul class="ch-grid">
+			<ul class="ch-grid show">
 				<li>
 		        <div class="ch-item ch-img-1">
 		            <div class="ch-info">
