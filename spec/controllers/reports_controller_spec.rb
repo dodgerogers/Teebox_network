@@ -4,6 +4,7 @@ describe ReportsController do
   before(:each) do
     @report = create(:report)
     @user1 = create(:user)
+    @user1.confirm!
     sign_in @user1
   end
   

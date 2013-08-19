@@ -3,6 +3,7 @@ require "spec_helper"
 describe SignedUrlsController do
   before(:each) do
     @user1 = create(:user)
+    @user1.confirm!
     sign_in @user1 
     @controller = SignedUrlsController.new
     @policy = @controller.instance_eval {s3_upload_policy_document}

@@ -6,6 +6,8 @@ describe AnswersController do
   before(:each) do
     @user1 = create(:user)
     @user2 = create(:user)
+    @user1.confirm!
+    @user2.confirm!
     sign_in @user1
     sign_in @user2
     @question = create(:question, user: @user2)

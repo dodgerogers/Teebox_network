@@ -1,4 +1,4 @@
-<% if activity.trackable %>
+<% if activity.trackable && activity.trackable.correct == true %>
 	<div class="gravatar">
 		<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
 	</div>
@@ -10,5 +10,5 @@
 		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
 	</div>
 <% else %>
-	User has removed correct answer
+	User has undone correct answer
 <% end %>

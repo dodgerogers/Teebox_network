@@ -4,6 +4,7 @@ describe ActivitiesController do
   include Devise::TestHelpers
   before(:each) do
     @user1 = create(:user)
+    @user1.confirm!
     sign_in @user1
     controller.stub!(:current_user).and_return(@user1)
   end

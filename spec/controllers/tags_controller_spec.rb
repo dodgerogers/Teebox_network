@@ -4,6 +4,7 @@ describe TagsController do
   include Devise::TestHelpers
   before(:each) do
     @user = FactoryGirl.create(:user)
+    @user.confirm!
     sign_in @user
     controller.stub!(:current_user).and_return(@user)
     @tag = FactoryGirl.attributes_for(:tag)

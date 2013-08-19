@@ -4,6 +4,7 @@ describe VideosController do
   include Devise::TestHelpers
   before(:each) do
     @user = create(:user)
+    @user.confirm!
     sign_in @user
     @video = create(:video, user_id: @user)
     controller.stub!(:current_user).and_return(@user)

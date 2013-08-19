@@ -6,6 +6,8 @@ describe CommentsController do
   before(:each) do
     @user = create(:user)
     @user2 = create(:user)
+    @user.confirm!
+    @user2.confirm!
     sign_in @user
     sign_in @user2
     @commentable = create(:question, id: 1, title: "slicing the ball", body: "the ball cuts")

@@ -6,6 +6,8 @@ describe QuestionsController do
   before(:each) do
     @user1 = create(:user)
     @user2 = create(:user)
+    @user2.confirm!
+    @user1.confirm!
     sign_in @user1
     sign_in @user2
     @question = create(:question, user: @user1)
