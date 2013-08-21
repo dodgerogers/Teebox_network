@@ -21,7 +21,7 @@
 				<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
 				<%= profile_link_helper(@question) %>
 				<%= link_to "Edit", edit_question_path(@question) if can? :update, @question %>
-				<%= link_to "Delete", @question, method: :delete if can? :destroy, @question %>
+				<%= link_to "Delete", @question, method: :delete, confirm: "Are you sure?" if can? :destroy, @question %>
 			</div>
 			</div>
 		</div>

@@ -113,8 +113,11 @@ center h1 {
 
 /* custom colors */
 
-green {
+green, green a {
 	color: $green;
+}
+red, red a {
+	color: $red;
 }
 
 /*----------------------Containers ------------------------------*/
@@ -213,15 +216,15 @@ h1.circle {
 /* ------------------------- Footer --------------------------------------------*/
 
 #footer {
-	color: #ddd;
+	color: #fff;
 	font-weight:400;
 	text-align:center;
-	text-shadow: 0 1px 1px $blackhole;
-	background: $ocean;
+	text-shadow: 0 1px 1px #333;
+	background: #777;
 	height:100px;
-	-webkit-box-shadow: inset 0px 5px 20px $universe;
-	box-shadow: inset 0px 5px 20px $universe;
-	-moz-box-shadow: inset 0px 5px 20px $universe;
+	-webkit-box-shadow: inset 0px 5px 20px #555;
+	box-shadow: inset 0px 5px 20px #666;
+	-moz-box-shadow: inset 0px 5px 20px #555;
 }
 #push {
 	height: 100px;

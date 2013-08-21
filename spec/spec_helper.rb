@@ -40,6 +40,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   
   config.use_transactional_fixtures = true
+  
+  config.include Capybara::DSL
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of

@@ -23,7 +23,7 @@ describe ApplicationHelper do
     it "returns formatted html" do
       current_user = @user1
       @answer = create(:answer, user: @user1)
-      helper.edit_delete_links(@answer, { path: edit_answer_path(@answer), delete_id: "delete-answer", edit_id: "edit-answer" }).should eq "<a href=\"/answers/1\" data-method=\"delete\" data-remote=\"true\" id=\"delete-answer\" rel=\"nofollow\">Delete </a><a href=\"/answers/1/edit\" data-remote=\"true\" id=\"edit-answer\">Edit</a>".html_safe
+      helper.edit_delete_links(@answer, { path: edit_answer_path(@answer), delete_id: "delete-answer", edit_id: "edit-answer" }).should eq "<a href=\"/answers/1\" data-confirm=\"Are you sure\" data-method=\"delete\" data-remote=\"true\" id=\"delete-answer\" rel=\"nofollow\">Delete </a><a href=\"/answers/1/edit\" data-remote=\"true\" id=\"edit-answer\">Edit</a>".html_safe
     end
   end
   
@@ -52,6 +52,16 @@ describe ApplicationHelper do
       @answer = create(:answer, user_id: @user2.id, question_id: @question.id, correct: true)
       helper.points_from_correct(@question).should eq "+5"
     end
+  end
+  
+  describe "hide footer" do
+    it "shouldn't hide footer on home page" do
+      helper.hide_footer.should eq ''
+      end
+      
+    it "hides the footer on correct page" do
+      
+    end  
   end
 end
 

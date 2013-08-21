@@ -1,14 +1,27 @@
-<% if activity.trackable && activity.trackable.correct == true %>
-	<div class="gravatar">
-		<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
-	</div>
-	<div class="message">
-		<%= link_to activity.owner.username, activity.owner %> marked your
-		<%= link_to read_activity_path(activity), method: :put do %>
-			answer
-		<% end %> as correct <green>+20</green><br>
-		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
-	</div>
+<% if activity.trackable %>
+	<% if activity.trackable.correct == true%> 
+		<div class="gravatar">
+			<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
+		</div>
+		<div class="message">
+			<%= link_to activity.owner.username, activity.owner %> marked your
+			<%= link_to read_activity_path(activity), method: :put do %>
+				answer
+			<% end %> as correct <green>+20</green><br>
+			<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+		</div>
+	<% else %>
+		<div class="gravatar">
+			<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
+		</div>
+		<div class="message">
+			<%= link_to activity.owner.username, activity.owner %> has unmarked your
+			<%= link_to read_activity_path(activity), method: :put do %>
+				answer
+			<% end %> <red>-20</red><br>
+			<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+		</div>
+	<% end %>	
 <% else %>
-	User has undone correct answer
+	User has deleted question
 <% end %>

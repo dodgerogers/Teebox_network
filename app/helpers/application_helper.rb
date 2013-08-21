@@ -18,7 +18,7 @@ module ApplicationHelper
   
   #remote true links 
   def edit_delete_links(object, options={}) 
-		out = capture { link_to "Delete ", object, method: :delete, id: options[:delete_id], class: options[:delete_class], remote: :true } if object
+		out = capture { link_to "Delete ", object, method: :delete, id: options[:delete_id], class: options[:delete_class], remote: :true, confirm: "Are you sure" } if object
 		out << capture { link_to "Edit", options[:path], id: options[:edit_id], class: options[:edit_class], remote: true } if options[:path]
 		out if can? :edit && :destroy, object 
 	end
@@ -30,5 +30,9 @@ module ApplicationHelper
   def avatar_url(user, size=35)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"
+  end
+  
+  def hide_footer
+    current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_confirmation_path) ? 'hide' : ''
   end
 end

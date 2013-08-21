@@ -7,6 +7,7 @@ gem 'rack', '1.4.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+#gem "pg"
 
 group :development do
   gem "better_errors"

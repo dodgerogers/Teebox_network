@@ -14,8 +14,8 @@
 <% end %>
 
 
-<% if current_user == @question.user %>
-<div class="hero-unit blue-transparent">
+<% if current_user %>
+<div class="hero-unit">
 	<h1>Add your video</h1>
 	<div>
   		<% f.label :video_id, raw("<i class='icon-camera'></i> Video") %>

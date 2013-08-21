@@ -6,7 +6,7 @@
 	<div class="profile-info">
 	<div class="controls">
 		<div id="correct_answer_<%= answer.id %>" class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>">
-			<% if answer.question.user == current_user%>
+			<% if answer.question.user == current_user %>
 				<%= link_to raw("<i class='icon-ok-sign'></i>"), correct_answer_path(answer), 
 														 id: "tick", class: "correct_#{answer.id}", 
 														 remote: true, 

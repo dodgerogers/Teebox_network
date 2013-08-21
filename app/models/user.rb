@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # :token_authenticatable, :confirmable,
+  # :token_authenticatable
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable 
@@ -18,5 +18,18 @@ class User < ActiveRecord::Base
   
   def to_param
     "#{id} - #{username}".parameterize
+  end
+  
+  #Devise delayed mailers
+  def send_on_create_confirmation_instructions
+    Devise::Mailer.delay.confirmation_instructions(self)
+  end
+
+  def send_reset_password_instructions
+    Devise::Mailer.delay.reset_password_instructions(self)
+  end
+
+  def send_unlock_instructions
+    Devise::Mailer.delay.unlock_instructions(self)
   end
 end
