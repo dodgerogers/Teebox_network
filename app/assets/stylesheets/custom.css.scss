@@ -702,7 +702,7 @@ body #header-search {
 	background: $red;
 }
 .next:hover {
-	background: #972219;
+	background: $dark-red;
 }
 .direct-upload {
 	display:inline;
@@ -1042,4 +1042,15 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	border-radius: 1px;
 	background: #ccc;
 	cursor: pointer; 
+}
+
+/*morris */
+
+.morris-hover {
+	position:absolute;
+	z-index:1000;
+	background: #fff; 
+	padding: 10px; 
+	border: 2px solid #ccc;
+	border-radius: 10px;
 }

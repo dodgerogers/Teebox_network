@@ -285,6 +285,9 @@ input:-webkit-autofill {
 .teebox-xl {
 	background: url(teebox-landscape-xl.jpg);
 }
+.kauri-xl {
+	background: url(teebox-kauri.png);
+}
 .mountain {	
 	background: url(teebox-mountain.png);
 	color: #fff;
@@ -377,13 +380,17 @@ table , .table a {
 	margin-top:20px;
 }
 
-/*morris */
-
-.morris-hover {
-	position:absolute;
-	z-index:1000;
-	background: #fff; 
-	padding: 10px; 
-	border: 2px solid #ccc;
-	border-radius: 10px;
+/* alerts */
+.alert {
+	color: #fff;
+	text-shadow: 0 0 0 transparent;
+	font-weight:bold;
+}
+.alert-success {
+	background: $green;
+	border: 0px solid #137F51;
+}
+.alert-error {
+	background: $red;
+	border: 0px solid $dark-red;
 }
