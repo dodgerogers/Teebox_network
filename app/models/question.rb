@@ -37,7 +37,7 @@ class Question < ActiveRecord::Base
       rank = <<-RANK
         ts_rank(to_tsvector(title), plainto_tsquery(#{sanitize(query)}))
         RANK
-      where('title @@ :q or body @@ :q', q: query).order("#{rank} desc")
+      where("to_tsvector('english', title) @@ :q or to_tsvector('english', body) @@ :q", q: query).order("#{rank} desc")
     else
       find(:all)
     end

@@ -2,3 +2,7 @@
 
 more info to come soon.
 
+rake db:create 
+
+Postgresql DB
+rake db:structure:load
