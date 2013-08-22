@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
     @comments = @commentable.comments.includes(:user)
     @comment = Comment.new
     @answer = Answer.new
-    @answers = @question.answers.includes(:user).by_votes
+    @answers = @question.answers.includes(:user, :question).by_votes
     @decorator = Questions::ShowDecorator.new(@question)
   end
   

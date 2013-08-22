@@ -53,6 +53,7 @@ gem "cancan"
 gem 'public_activity'
 gem "populator"
 gem "faker"
+gem "pg_search"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

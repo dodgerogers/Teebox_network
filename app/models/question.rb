@@ -28,9 +28,16 @@ class Question < ActiveRecord::Base
     "#{id} - #{title}".parameterize
   end
   
-  def self.search(search)
-    if search
-      find(:all, conditions: [ 'title ilike ?', "%#{search}%"])
+  include PgSearch
+  pg_search_scope :search, against: [:title, :body], 
+    using: { tsearch: { dictionary: "english" } }
+  
+  def self.search(query)
+    if query.present?
+      rank = <<-RANK
+        ts_rank(to_tsvector(title), plainto_tsquery(#{sanitize(query)}))
+        RANK
+      where('title @@ :q or body @@ :q', q: query).order("#{rank} desc")
     else
       find(:all)
     end

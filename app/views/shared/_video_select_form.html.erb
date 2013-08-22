@@ -1,7 +1,7 @@
 <% if current_user.videos.any? %>
 	<div id="token">
     	<% current_user.videos.each do |video| %>
-	  		<div id="<%= video.id %>" class="videos">
+	  		<div id="<%= video.id %>" class="videos form">
 		
 				<div class="selected <%= "#{video.id}" %>_icon <%= question.video_id == video.id ? 'selected_video' : '' %>">
 					<i class="icon-ok-sign"></i>

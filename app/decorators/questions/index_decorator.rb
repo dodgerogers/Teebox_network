@@ -26,26 +26,31 @@ class Questions::IndexDecorator < ApplicationDecorator
   end
 
   def questions
-    @questions.paginate(page: params[:page], per_page: 20).includes(:user, :video).search(params[:search])
+    @questions.includes(:user, :video).search(params[:search]).paginate(page: params[:page], per_page: 20)
   end
 
   def tags
     @tags.joins(:taggings).select('tags.*, count(tag_id) as "tag_count"').group("tags.id").order('tag_count desc')
+    #@tags.find_by_sql(%Q{ select tags.name as tag_name, count(*) as "tag_count"
+                          #from tags
+                          #inner join taggings on taggings.tag_id = tags.id
+                          #group by tags.name
+                          #order by tag_count desc })
   end
 
   def tagged_questions
-    @questions.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20).includes(:user, :video)
+    @questions.tagged_with(params[:tag]).includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end
 
   def newest_questions
-    @questions.newest.paginate(page: params[:page], per_page: 20).includes(:user, :video)
+    @questions.newest.includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end
 
   def unanswered_questions
-    @questions.unanswered(params[:unanswered]).paginate(page: params[:page], per_page: 20).includes(:user, :video)
+    @questions.unanswered(params[:unanswered]).includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end
 
   def votes_questions
-    @questions.by_votes(params[:by_votes]).paginate(page: params[:page], per_page: 20).includes(:user, :video)
+    @questions.by_votes(params[:by_votes]).includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end
 end

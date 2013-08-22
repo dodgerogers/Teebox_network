@@ -152,6 +152,9 @@
 	.show {
 		display:none;
 	}
+	ul.wysihtml5-toolbar {
+		display:none;
+	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
 	body {
@@ -247,5 +250,8 @@
 	}
 	.default {
 		margin-top: 10px;
+	}
+	ul.wysihtml5-toolbar {
+		display:none;
 	}
 }

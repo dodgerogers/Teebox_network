@@ -21,4 +21,6 @@
 		<td><%= user.created_at.strftime('%d-%m-%Y') %></td>
 	</tr>	
 <% end %>
-</table>	
+</table>
+
+<%= will_paginate @users %>	

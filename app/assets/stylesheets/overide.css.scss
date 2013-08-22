@@ -261,7 +261,7 @@ input:-webkit-autofill {
 
 .blue-transparent {
 	background: $universe;
-	opacity: 0.9;
+	opacity: 0.95;
 	a, label {
 		opacity: 1.0;
 		color: #fff;
@@ -273,25 +273,17 @@ input:-webkit-autofill {
 
 /* backgrounds */
 
-.sebonak-large {
-	background: url(sebonak-large.jpg);
-	background-position: center center;
-	height:100%;
+.sebonak-xl {
+	background: url(sebonak-large.jpg);	  
 }
 .beach-xl {
 	background: url(teebox-beach-xl.jpg);
-	background-position: center center;
-	height:100%;
 }
-.banff-l {
+.banff-xl {
 	background: url(banff-l.jpg);
-	background-position: center center;
-	height:100%;
 }
-.teebox-landscape-xl {
+.teebox-xl {
 	background: url(teebox-landscape-xl.jpg);
-	background-position: center center;
-	width:100%;
 }
 .mountain {	
 	background: url(teebox-mountain.png);
@@ -302,6 +294,11 @@ input:-webkit-autofill {
 	background: url(teebox-landscape-tall.png);
 	color: #fff;
 	background-position: center bottom;
+}
+.banff {
+	background: url(banff-l.jpg);
+	color: #fff;
+	background-position: center 73%;
 }
 .sky {
 	background: url(teebox-landscape-tall.png);

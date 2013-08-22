@@ -6,6 +6,12 @@ html, body {
 	min-height: 100%;
 	height: 100%;
 	font-weight: 300;
+	-webkit-background-size: cover!important;
+	-moz-background-size: cover!important;
+	-o-background-size: cover!important;
+	background-size: cover!important;
+	background-position: center!important;
+	background-attachment: fixed!important;
 }
 
 hr {
@@ -327,6 +333,10 @@ body .sublimevideo-zi .sublimevideo-uj {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+}
+.form {
+	padding: 10px 5px 0;
+	
 }
 .videos h4, .videos h4 a {
 	margin: 0px;

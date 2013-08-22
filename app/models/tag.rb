@@ -5,9 +5,16 @@ class Tag < ActiveRecord::Base
   has_many :questions, through: :taggings
   validates_presence_of :name
   
-  def self.search(search)
-    if search
-      find(:all, conditions: [ 'name ilike ?', "%#{search}%"])
+  include PgSearch
+  pg_search_scope :search, against: [:title, :body], 
+    using: { tsearch: { dictionary: "english" } }
+  
+  def self.search(query)
+    if query.present?
+      rank = <<-RANK
+        ts_rank(to_tsvector(name), plainto_tsquery(#{sanitize(query)}))
+        RANK
+      where('name @@ :q or explanation @@ :q', q: query).order("#{rank} desc")
     else
       find(:all)
     end
