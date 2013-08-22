@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.order("rank").paginate(page: params[:page], per_page: 50)
+    @users = User.order("rank")#.paginate(page: params[:page], per_page: 50)
   end
   
   def get_user

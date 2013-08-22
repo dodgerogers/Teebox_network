@@ -11,7 +11,7 @@
 			<% else %>	
 				 has unmarked your
 				<%= link_to "answer", read_activity_path(activity), method: :put %>
-				<red>-20</red><br>
+				<br>
 			<% end %>
 			<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
 		</div>

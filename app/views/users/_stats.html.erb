@@ -27,8 +27,8 @@
 	        <div class="ch-item ch-img-1">
 	            <div class="ch-info">
 	               <h3>
-					<%= link_to users_path do %>
-					 	Teebox<br> Rank
+					<%= link_to "#{users_path}#user_#{decorator.id}" do %>
+					 	Teebox<br>Rank
 					<% end %>
 				   </h3>
 	            </div>

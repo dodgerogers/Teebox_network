@@ -125,7 +125,13 @@ green, green a {
 red, red a {
 	color: $red;
 }
-
+.green-bg {
+	background:$green;
+	color: #fff;
+	a {
+		color: #fff!important;
+	}
+}
 /*----------------------Containers ------------------------------*/
 
 #wrap {
