@@ -1,65 +1,65 @@
 # PostgreSQL. Versions 8.2 and up are supported.
-#development:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: teebox_development
-#  pool: 5
-#  username: andrew
-#  password: 
-#  port: 5432      
-#  host: localhost
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: teebox_development
+  pool: 5
+  username: andrew
+  password: 
+  port: 5432      
+  host: localhost
 
-#test:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: teebox_test
-#  pool: 5
-#  username: andrew
-#  password:
-#  port: 5432      
-#  host: localhost
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: teebox_test
+  pool: 5
+  username: andrew
+  password:
+  port: 5432      
+  host: localhost
       
-#production:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: teebox_production
-#  pool: 5
-#  username: andrew
-#  password:
-#  port: 5432
-#  host: localhost
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: teebox_production
+  pool: 5
+  username: andrew
+  password:
+  port: 5432
+  host: localhost
 
 # MySQL.  Versions 4.1 and 5.0 are recommended.
 
-development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: teebox_network_development
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+#development:
+#  adapter: mysql2
+#  encoding: utf8
+#  reconnect: false
+#  database: teebox_network_development
+#  pool: 5
+#  username: root
+#  password:
+#  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: teebox_network_test
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+#test:
+#  adapter: mysql2
+#  encoding: utf8
+#  reconnect: false
+#  database: teebox_network_test
+#  pool: 5
+#  username: root
+#  password:
+#  socket: /tmp/mysql.sock
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: teebox_network_production
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+#production:
+#  adapter: mysql2
+#  encoding: utf8
+#  reconnect: false
+#  database: teebox_network_production
+#  pool: 5
+#  username: root
+#  password:
+#  socket: /tmp/mysql.sock

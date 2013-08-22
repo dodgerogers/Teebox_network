@@ -30,7 +30,7 @@ class Questions::IndexDecorator < ApplicationDecorator
   end
 
   def tags
-    @tags.joins(:taggings).select('tags.*, count(tag_id) as "tag_count"').group(:tag_id).order(' tag_count desc')
+    @tags.joins(:taggings).select('tags.*, count(tag_id) as "tag_count"').group("tags.id").order('tag_count desc')
   end
 
   def tagged_questions
