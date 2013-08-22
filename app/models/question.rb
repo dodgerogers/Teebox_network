@@ -16,6 +16,8 @@ class Question < ActiveRecord::Base
   validates_length_of :title, minimum: 10, maximum: 90
   validate :tag_limit
   
+  #validate only own videos used
+  
   profanity_filter :body, :title
   
   scope :unanswered, conditions: { correct: false }

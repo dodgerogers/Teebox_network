@@ -2,11 +2,19 @@ require "spec_helper"
 
 describe ActivitiesController do
   include Devise::TestHelpers
+  include ActionView::Helpers::UrlHelper
   before(:each) do
     @user1 = create(:user)
+    @user2 = create(:user)
     @user1.confirm!
+    @user2.confirm!
     sign_in @user1
+    sign_in @user2
     controller.stub!(:current_user).and_return(@user1)
+    @number = rand(1..9)
+    @question = create(:question, user: @user1, title: "i can't hit my #{@number} iron", body: "im slicing the ball #{@number} yards")
+    @answer = create(:answer, user: @user2, question_id: @question.id, body: "try changing your face angle by #{@number} degrees")
+    @activity = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, trackable_type: "Answer", read: false)
   end
 
   describe "GET index" do
@@ -15,4 +23,36 @@ describe ActivitiesController do
       response.should render_template :index
     end
   end
+  
+  describe "get_notifications" do
+    it "retrieves notifications" do
+      controller.get_notifications.should eq([@activity])
+    end
+  end
+  
+  describe "notifications" do
+    it "render index partial" do
+      get :notifications
+      response.should render_template :index
+    end
+  end
+  
+  describe "read" do
+    it "assigns the requested activity as @activity" do
+    put :read, id: @activity
+    assigns(:activity).should eq(@activity)
+    end
+
+    it "toggles the read column" do
+      put :read, id: @activity
+      @activity.reload
+      @activity.read.should eq true
+    end
+
+    it "redirects to the post" do
+      put :read, id: @activity
+      @activity.reload
+      response.should redirect_to "#{url_for(@activity.trackable.question)}#answer_#{@activity.trackable.id}"
+      end
+    end
 end

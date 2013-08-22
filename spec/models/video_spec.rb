@@ -29,4 +29,11 @@ describe Video do
       subject.get_key("http://teebox-network.s3.amazonaws.com/uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v").should eq "uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v"  
     end 
   end
+  
+  describe "unique" do
+    it "renders random string" do
+     Video.stub!(:rand).and_return(1)
+     subject.unique.should be_a_kind_of(String)
+    end
+  end
 end

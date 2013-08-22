@@ -5,6 +5,8 @@ describe ActivityHelper do
   before(:each) do
     @user1 = create(:user)
     @user2 = create(:user)
+    @user1.confirm!
+    @user2.confirm!
     sign_in @user1
     sign_in @user2
     @number = rand(1..9)
@@ -14,12 +16,6 @@ describe ActivityHelper do
   end
 
   subject { @activity }
-  
-  describe "user activties" do
-    it "retrieves current_users notifications " do
-      helper.user_activities(@user1).should eq([@activity])
-    end
-  end
   
   describe "number_of_activities" do
     it "retrieves size of array" do

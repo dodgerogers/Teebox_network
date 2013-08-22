@@ -6,20 +6,19 @@ describe UsersController do
     @user = FactoryGirl.create(:user)
     @user.confirm!
     sign_in @user
-    controller.stub!(:current_user).and_return(@user)
   end
   
   describe "GET index" do
     it "renders index template" do
       get :index
-      response.should render_template("index")
+      response.should render_template :index
     end
   end
   
   describe "GET notifications" do
     it "renders index template" do
       get :index
-      response.should render_template("index")
+      response.should render_template :index
     end
   end
   
@@ -32,6 +31,23 @@ describe UsersController do
     it "renders the show template" do
       get :show, id: @user
       response.should render_template :show
+    end
+  end
+  
+  describe "GET users objects " do
+    it "renders answers template" do
+      get :answers_index, id: @user.id
+      response.should render_template :answers_index
+    end
+    
+    it "renders questions template" do
+      get :questions_index, id: @user.id
+      response.should render_template :questions_index
+    end
+    
+    it "renders comments template" do
+      get :comments_index, id: @user.id
+      response.should render_template :comments_index
     end
   end
 end

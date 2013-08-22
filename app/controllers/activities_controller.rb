@@ -15,10 +15,6 @@ class ActivitiesController < ApplicationController
     end
   end
   
-  def get_notifications
-    @notifications = user_activities(current_user)
-  end
-  
   def read
     @activity = PublicActivity::Activity.find(params[:id])
     @activity.toggle(:read) #if @activity.read == false
@@ -27,5 +23,9 @@ class ActivitiesController < ApplicationController
     else
       redirect_to root_path, notice: "Didnt work"  
     end
+  end
+  
+  def get_notifications
+    @notifications = PublicActivity::Activity.find_all_by_recipient_id(current_user.id, include: [:owner, :trackable], order: "created_at DESC")
   end
 end

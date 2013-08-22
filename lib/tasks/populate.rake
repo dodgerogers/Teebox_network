@@ -19,6 +19,7 @@ namespace :db do
       question.votes_count = 0
       question.answers_count = 0
       question.points = 0
+      question.correct = false
     end
   end
 end

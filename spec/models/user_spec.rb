@@ -3,6 +3,7 @@ require 'spec_helper'
 describe User do
   before(:each) do
     @user = FactoryGirl.create(:user)
+    Devise::Mailer.stub(:delay).and_return(Devise::Mailer)
   end
   
   subject { @user }
@@ -38,4 +39,10 @@ describe User do
       before { @user.password == @user.password_confirmation }
       it { should be_valid }
     end 
+    
+    describe " send_on_create_confirmation_instructions" do
+      it 'sends delayed mail' do
+        #subject.send_on_create_confirmation_instructions.should be_kind_of(Mail)
+      end
+    end
 end

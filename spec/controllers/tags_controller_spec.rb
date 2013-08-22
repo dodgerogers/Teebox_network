@@ -10,6 +10,20 @@ describe TagsController do
     @tag = FactoryGirl.attributes_for(:tag)
   end
   
+  describe "GET show" do
+    it "assigns a new tag as @tag" do
+      @tag = create(:tag)
+      get :show, id: @tag
+      assigns(:tag).should eq(@tag)
+    end
+    
+    it "renders the show template" do
+      @tag = create(:tag)
+      get :show, id: @tag
+      response.should render_template :show
+    end
+  end
+  
   describe "GET index" do
     it "renders index template" do
       get :index
@@ -21,6 +35,14 @@ describe TagsController do
     it "assigns a new tag as @tag" do
       get :new
       assigns(:tag).should be_a_new(Tag)
+    end
+  end
+  
+  describe "GET edit" do
+    it "assigns a new question as @question" do
+      @tag = create(:tag)
+      get :edit, id: @tag
+      response.should render_template :edit
     end
   end
 

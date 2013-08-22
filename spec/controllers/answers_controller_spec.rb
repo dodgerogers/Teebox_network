@@ -102,11 +102,18 @@ describe AnswersController do
   end
   
   describe "POST vote" do
-    it "creates vote" do
+    it "creates vote with valid params" do
       Answer.stub(:find).and_return(@answer)
       expect {
         post :vote, id: @vote, value: 1
       }.to change(Vote, :count).by(1)
+    end
+    
+    it "doesn't create a vote with invalid params" do
+      Answer.stub(:find).and_return(@answer)
+      expect {
+        post :vote, id: @vote, value: nil
+      }.to_not change(Vote, :count).by(1)
     end
   end
 end

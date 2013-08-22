@@ -19,10 +19,6 @@ class VideosController < ApplicationController
     @video = Video.new
   end
   
-  def edit
-    @video = Video.find(params[:id])
-  end
-  
   def create
     @video = current_user.videos.build(params[:video])
     respond_to do |format|

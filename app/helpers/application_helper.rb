@@ -32,6 +32,10 @@ module ApplicationHelper
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"
   end
   
+  #def current_page
+  #  "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
+  #end
+  
   def hide_footer
     current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_confirmation_path) ? 'hide' : ''
   end

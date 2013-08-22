@@ -4,13 +4,13 @@ class CommentsController < ApplicationController
   before_filter :load_commentable
   load_and_authorize_resource except: [:new, :index]
   
-  def new
-    @comment = @commentable.comments.new
-  end
+  #def new
+  #  @comment = @commentable.comments.new
+  #end
   
-  def index
-    @comments = @commentable.comments.includes(:user)
-  end
+  #def index
+  #  @comments = @commentable.comments.includes(:user)
+  #end
   
   def create 
     @comment = @commentable.comments.build(params[:comment])

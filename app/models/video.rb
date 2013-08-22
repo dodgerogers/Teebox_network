@@ -35,9 +35,7 @@ class Video < ActiveRecord::Base
     object.delete
     logger.debug "Video deleted: #{object} #{self.attributes}"
   end
-  
-  protected
-  
+    
   def unique
     (0..6).map{(65+rand(26)).chr}.join
   end
