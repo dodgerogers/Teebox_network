@@ -1,10 +1,5 @@
 <div id="tiny-push"></div>
-	<div class="row">
-			<% if params[:search] || params[:tag] %>
-			<div class="span12">
-				<h3 id="no-margin"><%= pluralize(questions.size, "Question") %></h3>
-			</div>	
-			<% end %>		
+	<div class="row">		
 
 		<% questions.each do |question| %>
 

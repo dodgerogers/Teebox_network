@@ -40,6 +40,4 @@ describe Questions::IndexDecorator do
       @decorator.questions.should == [q1, q2, q3] 
     end
   end
-  
-  #scopes have been tested in questions spec.
 end

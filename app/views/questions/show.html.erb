@@ -42,5 +42,6 @@
 		<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
 	</div>
 	<div class="span4">
+		<%= render partial: "shared/related_questions", locals: {questions: @decorator.related_questions } %>
 	</div>
 </div>

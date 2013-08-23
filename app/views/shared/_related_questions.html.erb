@@ -1,0 +1,19 @@
+<h2>Related Questions</h2>
+<% questions.each do |question| %>
+	<div class="question-info">
+		<div class="index-title">
+			<%= link_to question.title.capitalize, question %>
+		</div>
+
+		<div class="profile-info" id="index">
+			<div class="index-vote pull-left">
+				<%= question.votes_count  %>
+			</div>	
+
+			<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
+				<%= question.answers_count %>
+			</div>
+			<%= profile_link_helper(question) %>
+		</div>
+	</div><hr>
+<% end %>

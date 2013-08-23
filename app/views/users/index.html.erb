@@ -15,10 +15,10 @@
 	</tr>		
 <% @users.each do |user| %>
 	<tr class="<%= current_user == user ? 'green-bg' : '' %>">
-		<td><%= user.rank %></td>
+		<td><a name='<%= "user_#{user.id}" %>'></a><%= user.rank %></td>
 		<td><%= link_to user.reputation, user %></td>
 		<td><%= link_to user.username, user %></td>
-		<td><%= user.created_at.strftime('%d-%m-%Y') %><a name='<%= "user_#{user.id}" %>'></a></td>
+		<td><%= user.created_at.strftime('%d-%m-%Y') %></td>
 	</tr>	
 <% end %>
 </table>

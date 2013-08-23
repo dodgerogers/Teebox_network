@@ -15,7 +15,7 @@ class Questions::ShowDecorator < ApplicationDecorator
     raw youtube_url_html5(model.youtube_url) if model.youtube_url.present? 
   end
   
-  def related_posts(question)
-    Question.find(:all, conditions: [ 'title LIKE ?', "%#{question.title}%"], limit: 10) - [question]
+  def related_questions
+    Question.text_search(model.title).includes(:user).limit(6)
   end
 end
