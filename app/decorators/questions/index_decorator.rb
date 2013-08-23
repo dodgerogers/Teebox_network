@@ -26,7 +26,7 @@ class Questions::IndexDecorator < ApplicationDecorator
   end
 
   def questions
-    @questions.includes(:user, :video).search(params[:search]).paginate(page: params[:page], per_page: 20)
+    @questions.includes(:user, :video).text_search(params[:search]).paginate(page: params[:page], per_page: 20)
   end
 
   def tags

@@ -30,16 +30,16 @@ class Question < ActiveRecord::Base
   
   include PgSearch
   pg_search_scope :search, against: [:title, :body], 
-    using: { tsearch: { dictionary: "english" } }
+    associated_against: { user: [:username] },
+    using: { tsearch: { prefix: true, 
+                        dictionary: "english", 
+                        any_word: true } }
   
-  def self.search(query)
+  def self.text_search(query)
     if query.present?
-      rank = <<-RANK
-        ts_rank(to_tsvector(title), plainto_tsquery(#{sanitize(query)}))
-        RANK
-      where("to_tsvector('english', title) @@ :q or to_tsvector('english', body) @@ :q", q: query).order("#{rank} desc")
+      search(query)
     else
-      find(:all)
+      scoped
     end
   end
   
