@@ -6,17 +6,16 @@ class Tag < ActiveRecord::Base
   validates_presence_of :name
   
   include PgSearch
-  pg_search_scope :search, against: [:title, :body], 
-    using: { tsearch: { dictionary: "english" } }
+  pg_search_scope :search, against: [:name, :explanation], 
+    using: { tsearch: { prefix: true, 
+                        dictionary: "english", 
+                        any_word: true } }
   
-  def self.search(query)
+  def self.text_search(query)
     if query.present?
-      rank = <<-RANK
-        ts_rank(to_tsvector(name), plainto_tsquery(#{sanitize(query)}))
-        RANK
-      where('name @@ :q or explanation @@ :q', q: query).order("#{rank} desc")
+      search(query)
     else
-      find(:all)
+      scoped
     end
   end
   
