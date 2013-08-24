@@ -8,6 +8,12 @@ describe "rank_users" do
   end
 end
 
+describe "rm_tags" do
+  it " should delete all tags" do
+    Rake::Task['rm_tags'].invoke
+  end
+end
+
 describe "rm_test_users" do
   it "should rank the users" do
       Rake::Task['rm_test_users'].invoke

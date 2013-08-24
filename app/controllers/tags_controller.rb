@@ -12,17 +12,15 @@ class TagsController < ApplicationController
   
   def index
     @tag = Tag.new
-    @tags = Tag.order("created_at DESC").paginate(page: params[:page], per_page: 5).text_search(params[:search])
+    @tags = Tag.order("created_at DESC").paginate(page: params[:page], per_page: 20).text_search(params[:search])
   end
   
   def create
     @tag = Tag.create(params[:tag])
-    respond_to do |format|
-      if @tag.save
-        format.html { redirect_to @tag, notice: "Tag created" }
-      else
-      format.html { redirect_to tags_path, notice: "Try again" }
-      end
+    if @tag.save
+      redirect_to tags_path, notice: "Tag created" 
+    else
+      render :new, notice: "Try again" 
     end
   end
   
@@ -30,10 +28,10 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        format.html { redirect_to @tag, notice: "Successfully updated" }
+        format.html {  redirect_to tags_path, notice: "Tag created" }
         format.json { head :no_content }
       else
-        format.html { render "edit", notice: "Plese try again" }
+        format.html { render :edit, notice: "Try again"  }
         format.json { render json: @tag.errors, status: :unprocessable_entity  }
       end
     end
@@ -45,7 +43,7 @@ class TagsController < ApplicationController
   
   def destroy
     @tag = Tag.find(params[:id]).destroy
-    redirect_to tags_path
+    redirect_to tags_path, notice: "Tag Deleted"
   end
   
   def question_tags

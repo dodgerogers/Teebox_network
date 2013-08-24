@@ -1,6 +1,10 @@
 <div id="tiny-push"></div>
-	<div class="row">		
-
+	<% if params[:tag] %>
+		<%= render partial: "shared/tag_cloud", locals: {tags: @decorator.tags, decorator: @decorator }%>
+		<h2><%= pluralize(questions.size, "Question") %> found</h2>
+	<% end %>		
+	
+	<div class="row">
 		<% questions.each do |question| %>
 
 		<div class="span12">

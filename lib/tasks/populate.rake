@@ -11,6 +11,11 @@ namespace :db do
         u.reputation  = rand(1..200)
         u.role        = "tester"
       end
+      
+    Tag.populate 200 do |tag|
+      tag.name = Populator.words(1..2).titleize
+      tag.explanation = Populator.sentences(1)
+    end  
     
     Question.populate 1000 do |question|
       question.title = Populator.words(5..12).titleize

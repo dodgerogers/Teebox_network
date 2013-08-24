@@ -203,7 +203,9 @@ iframe.wysihtml5-sandbox {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
+#search-tags {
+	width: 73%;
+}
 /* ----------- input field -------*/
 
 .fileUpload {
@@ -243,6 +245,12 @@ input:-webkit-autofill {
 	box-shadow: 0px 1px 1px #297D8B;
 	color: #fff;
 }
+#search-tags {
+	background: $blackhole;
+	border:none;
+	box-shadow: 0px 1px 1px #297D8B;
+	color: #fff;
+}
 /*---------------- hero unit + wells----------------------*/
 
 .hero-unit h1 {
@@ -262,6 +270,7 @@ input:-webkit-autofill {
 .blue-transparent {
 	background: $universe;
 	opacity: 0.95;
+	color: #fff;
 	a, label {
 		opacity: 1.0;
 		color: #fff;
@@ -269,6 +278,10 @@ input:-webkit-autofill {
 	.btn {
 		color: #333;
 	}
+}
+.transparent {
+	background: transparent;
+	padding: 30px;
 }
 
 /* backgrounds */
@@ -333,7 +346,7 @@ input:-webkit-autofill {
 	color: #fff;
 }
 .grey {
-	background: #f7f7f7;
+	background: #dedede;
 }
 .sky a, .beach a, .ocean a, .kauri a {
 	color: #fff;
@@ -378,6 +391,20 @@ table , .table a {
 }
 #user-banner {
 	margin-top:20px;
+}
+/*-------------------- errors ------------------*/
+
+#error_explanation {
+		background: $red;
+		padding: 15px 30px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		-moz-border-radius: 3px;
+		margin-bottom: 20px;	
+		h2 {
+			margin:0px;
+			color: #ddd;
+		}	
 }
 
 /* alerts */

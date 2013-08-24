@@ -1,9 +1,20 @@
-<%= link_to tag.name.titleize, tag_path(tag), class: "tag" %>
-<%= tag.explanation ? tag.explanation.capitalize : "Contribute by adding an explanation for this tag" %><br><br>
+<div class='tag-container span4'>
+	<div class="tag-title">
+		<%= link_to tag.name.titleize, tagged_path(tag.name) %><br>
+	</div>
+	
+	<div class="tag-explanation">
+		<p><%= tag.explanation.present? ? tag.explanation.capitalize : "Add an explanation for this tag" %></p>
+	
+	<div class="tag-info">
+	<small>
+		<%= link_to tag.updated_by, user_path(tag.user_id) if tag.user_id %>
+		Updated <%= time_ago_in_words(tag.updated_at) %> ago
 
-Updated <%= time_ago_in_words(tag.updated_at) %> ago 
-<%= link_to tag.updated_by, user_path(tag.user_id) if tag.user_id %><br>
-
-<%= link_to "View #{tag.name.titleize} questions", tagged_path(tag.name) %> |
-<%= link_to "Delete", tag, method: :delete %> |
-<%= link_to "Edit", edit_tag_path(tag) %><hr>
+		<%= link_to "View", tag_path(tag) %> |
+		<%= link_to "Delete", tag, method: :delete %> | 
+		<%= link_to "Edit", edit_tag_path(tag) %>
+	</small>
+	</div>
+	</div>
+</div>	

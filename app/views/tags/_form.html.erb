@@ -1,27 +1,29 @@
-<%= form_for @tag do |f| %>
+<%= form_for(@tag) do |f| %>
+	<% if @tag.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@tag.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<% if @tag.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@tag.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-	<ul>
-		<% @tag.errors.full_messages.each do |msg| %>
-  		<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
+			<ul>
+				<% @tag.errors.full_messages.each do |msg| %>
+		  		<li><%= msg %></li>
+					<% end %>
+			</ul>
+		</div>
 	<% end %>
 	
 	<%= f.hidden_field :updated_by, value: current_user.username %>
 	<%= f.hidden_field :user_id, value: current_user.id %>
 	
 	<div class="field">
+		<%= f.label :name, raw('<i class="icon-align-justify"></i> Name') %>
 		<%= f.text_field :name, placeholder: "Enter name" %>
 	</div><br>
 
 	<div class="field">
+		<%= f.label :explanation, raw('<i class="icon-info-sign"></i> Explanation') %>
 		<%= f.text_field :explanation, placeholder: "Enter an explanation" %>
 	</div><br>
 	
-	<%= f.submit "Save Tag", class: "default submit" %>
+	<%= f.submit "Save Tag", class: "default submit" %><br>
+	<%= link_to "Back to Tag Vault", tags_path %>
 	<% end %>

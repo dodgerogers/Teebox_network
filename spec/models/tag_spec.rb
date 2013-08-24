@@ -12,6 +12,9 @@ describe Tag do
   it { should respond_to(:updated_by) }
   it { should have_many(:taggings)}
   it { should have_many(:questions).through(:taggings)}
+  it { should validate_presence_of(:name)}
+  it { should ensure_length_of(:name).is_at_least(2) }
+  it { should validate_uniqueness_of(:name)}
   
   describe 'name' do
      before { @tag.name = nil }

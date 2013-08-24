@@ -3,7 +3,8 @@ class Tag < ActiveRecord::Base
   attr_accessible :name, :explanation, :updated_by, :user_id
   has_many :taggings
   has_many :questions, through: :taggings
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true, length: { maximum: 100, minimum: 2}
+  profanity_filter :name, :explanation
   
   include PgSearch
   pg_search_scope :search, against: [:name, :explanation], 

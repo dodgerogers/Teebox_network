@@ -134,6 +134,7 @@ red, red a {
 }
 /*----------------------Containers ------------------------------*/
 
+
 #wrap {
 	min-height: 100%;
 	height: auto !important;
@@ -274,20 +275,6 @@ h1.circle {
 tr.titles {
 	font-family: 'BebasNeueRegular';
 	color: #777;
-}
-
-/*-------------------- errors ------------------*/
-
-#error_explanation {
-		background: #ededed;
-		padding: 15px 30px;
-		-webkit-border-radius: 3px;
-		border-radius: 3px;
-		-moz-border-radius: 3px;
-		margin-bottom: 20px;		
-}
-#error_explanation  h2 {
-	margin:0px;
 }
 
 /*---------------- sublime video settings ----------------*/
@@ -842,6 +829,76 @@ body #header-search {
 
 /*-------------------- tags ----------------*/
 
+h1.one {
+	
+    margin-top: 0;
+	position: relative;
+	width:50%;
+}
+h1.one:before {
+	content: "";
+	display: block;
+	border-top: solid 1px $red;
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	top: 50%;
+	z-index: 1;
+}
+h1.one span {
+	background: $universe;
+	padding: 0 20px;
+	position: relative;
+	z-index: 5;
+}
+
+.tag-container {
+	color: #777;
+	font-weight: 300;
+	margin: 0;
+	padding: 10px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align:top;
+	display:inline-block;
+	float:none!important;
+	.tag-title {
+		padding: 2px;
+		font-size: 20px;
+		font-weight:400;
+		a {
+			color: $green-sea;
+		}
+	}
+	.tag-explanation {
+		padding: 2px;
+	}
+	small {
+		margin-top: 3px;
+		color: #ccc;
+	}
+	small a {
+		color: $sky;
+	}
+	a {
+		color: $teal;
+	}
+	a:hover {
+	}
+}
+.tag-container:hover {
+	background: #eee;
+	color: #999;
+}
+.tag-search  a {
+	color: #fff!important;
+}
+#tag-search {
+}
+#tag-search-input {
+	width:66%;
+}
 .tag_cloud {
 	width:100%;
 	display: inline-block;
@@ -854,14 +911,11 @@ body #header-search {
 	display:inline-block;
 }
 #tag_form {
-	display:none;
+	
 }
 #tags h1 {
 	font-size: 20px;
 	display:inline;
-}
-#tag-search {
-	width: 300px!important;
 }
 #tag-explanation {
 	display:inline;

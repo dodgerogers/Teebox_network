@@ -62,7 +62,7 @@ describe TagsController do
 
       it "redirects to the created tag" do
         post :create, tag: @tag
-        response.should redirect_to(Tag.last)
+        response.should redirect_to tags_path
       end
     end
 
@@ -74,10 +74,10 @@ describe TagsController do
         assigns(:tag).should be_a_new(Tag)
       end
 
-      it "re-renders the 'index' template" do
+      it "re-renders the 'new' template" do
         Tag.any_instance.stub(:save).and_return(false)
         post :create, tag: @tag
-        response.should redirect_to tags_path
+        response.should render_template :new
       end
     end
   end
@@ -102,7 +102,7 @@ describe TagsController do
       it "redirects to the tag index" do
         put :update, id: @tag, tag: FactoryGirl.attributes_for(:tag, name: "top")
         @tag.reload
-        response.should redirect_to(@tag)
+        response.should redirect_to tags_path
       end
     end
 

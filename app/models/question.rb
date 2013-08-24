@@ -29,10 +29,9 @@ class Question < ActiveRecord::Base
   end
   
   include PgSearch
-  pg_search_scope :search, against: [:title, :body], 
-    associated_against: { user: [:username] },
+  pg_search_scope :search, against: [:title], 
     using: { tsearch: { prefix: true, 
-                        dictionary: "english", 
+                        dictionary: "english",
                         any_word: true } }
   
   def self.text_search(query)
