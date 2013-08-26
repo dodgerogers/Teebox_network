@@ -11,9 +11,8 @@
 		<%= link_to tag.updated_by, user_path(tag.user_id) if tag.user_id %>
 		Updated <%= time_ago_in_words(tag.updated_at) %> ago
 
-		<%= link_to "View", tag_path(tag) %> |
-		<%= link_to "Delete", tag, method: :delete %> | 
-		<%= link_to "Edit", edit_tag_path(tag) %>
+		<%= link_to "Delete", tag, method: :delete if can? :destroy, tag %>
+		<%= link_to "Edit", edit_tag_path(tag) if can? :edit, tag %>
 	</small>
 	</div>
 	</div>

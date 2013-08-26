@@ -27,6 +27,8 @@ class Ability
       can [:destroy], Video do |video|
         video.try(:user) == user
       end
+      
+      can [:new, :create, :read, :edit, :update], Tag
     else
       can [:highest_votes, :unanswered, :read, :vote], Question
     end

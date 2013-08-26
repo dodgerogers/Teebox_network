@@ -827,10 +827,9 @@ body #header-search {
 	
 }
 
-/*-------------------- tags ----------------*/
+/*-------------------- tags + reports ----------------*/
 
 h1.one {
-	
     margin-top: 0;
 	position: relative;
 	width:50%;
@@ -847,7 +846,7 @@ h1.one:before {
 }
 h1.one span {
 	background: $universe;
-	padding: 0 20px;
+	padding: 0 5px;
 	position: relative;
 	z-index: 5;
 }
@@ -856,7 +855,7 @@ h1.one span {
 	color: #777;
 	font-weight: 300;
 	margin: 0;
-	padding: 10px;
+	padding: 5px 10px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -866,7 +865,8 @@ h1.one span {
 	.tag-title {
 		padding: 2px;
 		font-size: 20px;
-		font-weight:400;
+		font-weight:300;
+		color: $green-sea;
 		a {
 			color: $green-sea;
 		}
@@ -947,6 +947,41 @@ a.tag:hover, a.current_tag:hover {
 }	
 a.tag:active, a.current_tag:active {
 	background: $teal;
+}
+
+.report-container {
+	font-weight: 300;
+	margin: 0;
+	padding: 5px 10px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align:top;
+	text-align:left;
+	display:inline-block;
+	float:none!important;
+	.report-title {
+		padding: 2px;
+		font-size: 20px;
+		font-weight:300;
+	}
+	.r-question {
+		color: $green;
+	}
+	.r-answer {
+		color: $teal;
+	}
+	.r-user {
+		color :$red;
+	}
+}
+.increase {
+	color: $green!important;
+	display:inline-block;
+}
+.decrease {
+	color: $red!important;
+	display:inline-block;
 }
 /*-------------------- tags autocomplete  ----------------*/
 

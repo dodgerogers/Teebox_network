@@ -39,4 +39,8 @@ module ApplicationHelper
   def hide_footer
     current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_confirmation_path) ? 'hide' : ''
   end
+  
+  def percent_of(a, b)
+    a == 0 ? -100 : (b == 0 ? 100 : ((a.to_f - b.to_f) / b.to_f) * 100)
+  end
 end

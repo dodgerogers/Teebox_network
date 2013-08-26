@@ -15,6 +15,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
     
+  
   #factory girl helpers :create(:object) & build(:object)
   config.include FactoryGirl::Syntax::Methods
   
@@ -39,7 +40,7 @@ RSpec.configure do |config|
   # instead of true.
   config.include Devise::TestHelpers, type: :controller
   
-  config.use_transactional_fixtures = true
+  config.use_transactional_examples = false
   
   config.include Capybara::DSL
 

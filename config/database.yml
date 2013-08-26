@@ -18,6 +18,7 @@ test:
   password:
   port: 5432      
   host: localhost
+  min_messages: error
       
 production:
   adapter: postgresql

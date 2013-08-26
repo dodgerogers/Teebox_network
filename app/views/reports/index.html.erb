@@ -1,19 +1,23 @@
-<div class="row">
-	<div class="span12">
-		<h1>Teebox Report - <%= Time.now.to_date %></h1>
-	</div>	
-</div>	
-			<%= render partial: "reports/form" %>
-			
-			<%= render partial: "reports/totals", locals: {reports: @reports} %>
+<div class='row'>
+	<div class='span12'>
+		<div class='hero-unit blue-transparent'>
+			<center>
+				<h1 class="one"><span>Teebox Report - <%= Time.now.to_date %></span></h1>
+				<%= render partial: "reports/form" %>
+				<%= render partial: "reports/totals", locals: {reports: @all_reports }%>
+			</center>
+			</div>
+		</div>
+	</div>
+	
+	<%= render partial: "reports/stats", locals: { reports: @reports }%>
 		
+<div class="row">		
+	<div class="span12">		
 			<b>Totals</b>
-			<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>
-		
+			<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>	
 			<b>Daily Totals</b>
-			<%= content_tag :div, "", id: "stats", data: { reports: @all_reports } %><br><br>
-		
-			<%= render partial: "reports/stats", locals: {reports: @reports} %>
+			<%= content_tag :div, "", id: "stats", data: { reports: @all_reports } %>
 	</div>
 </div>
 <!-- load morris to rescue from 'no graph container found error'-->

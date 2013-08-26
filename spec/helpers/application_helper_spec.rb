@@ -58,10 +58,20 @@ describe ApplicationHelper do
     it "shouldn't hide footer on home page" do
       helper.hide_footer.should eq ''
       end
-      
-    it "hides the footer on correct page" do
-      
-    end  
+  end
+  
+  describe "percent_of" do
+    it "calculates correct -% when value a == 0" do
+      helper.percent_of(0, rand(1..200)).should eq(-100)
+    end
+    
+    it "calculates correct +% when value b == 0" do
+      helper.percent_of(rand(1..200), 0).should eq(100)
+    end
+    
+    it "calculates correct +% when value values > 0" do
+      helper.percent_of(2, 5).should eq(-60)
+    end
   end
 end
 

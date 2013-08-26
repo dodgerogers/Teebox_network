@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   after_filter :store_location
   helper_method :resource_name, :resource, :devise_mapping
   
-  
     rescue_from CanCan::AccessDenied do |exception|
       redirect_to root_path, alert: exception.message
     end
