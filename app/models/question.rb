@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   include AnswerHelper
+  require 'obscenity/active_model'
   
   attr_accessible :title, :body, :youtube_url, :video_id, :votes_count, :answers_count, :points, :correct, :tag_tokens
   attr_reader :tag_tokens
@@ -17,9 +18,8 @@ class Question < ActiveRecord::Base
   validate :tag_limit
   validate :ensure_own_video
   
-  #validate only own videos used
-  
-  profanity_filter :body, :title
+  validates :body, obscenity: true
+  validates :title, obscenity: true
   
   scope :unanswered, conditions: { correct: false }
   scope :by_votes, order: "votes_count DESC"

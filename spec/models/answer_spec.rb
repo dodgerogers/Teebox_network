@@ -21,7 +21,6 @@ describe Answer do
   it { should have_many(:votes)}
   #it {should validate_uniqueness_of(:correct).scoped_to(:question_id).with_message("correct You can only have 1 correct answer per question (true)") }
   #it { should validate_uniqueness_of(:user_id).scoped_to(:question_id).with_message("user_id Only 1 answer per question per user (1)") }
-  
 
   describe 'body' do
      before { @answer.body = nil }
@@ -46,6 +45,11 @@ describe Answer do
   describe "length to long" do
     before { @answer.body = ("a" * 5001) }
     it { should_not be_valid }
+  end
+  
+  describe "obscenity filter" do
+    before { @answer.body = "shit" }
+    it { should_not be_profane }
   end
   
   describe "Scopes" do

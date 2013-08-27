@@ -4,7 +4,9 @@ class Tag < ActiveRecord::Base
   has_many :taggings
   has_many :questions, through: :taggings
   validates :name, presence: true, uniqueness: true, length: { maximum: 100, minimum: 2}
-  profanity_filter :name, :explanation
+  
+  validates :name, obscenity: true
+  validates :explanation, obscenity: true 
   
   include PgSearch
   pg_search_scope :search, against: [:name, :explanation], 

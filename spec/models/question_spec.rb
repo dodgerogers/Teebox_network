@@ -40,6 +40,16 @@ describe Question do
        it { should_not be_valid }
     end
     
+    describe "obscenity filter title" do
+      before { @question.title = "shit" }
+      it { should_not be_profane }
+    end
+    
+    describe "validates body" do
+      before { @question.body = "fuck" }
+      it { should_not be_profane }
+    end
+
     describe "Scopes" do
     it "returns a sorted array of unanswered questions" do 
       @user1 = create(:user)

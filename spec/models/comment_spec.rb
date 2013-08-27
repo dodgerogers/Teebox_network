@@ -25,6 +25,11 @@ describe Comment do
       before { @comment.content = "comment" }
       it { should_not be_valid }
     end
+    
+    describe "obscenity filter" do
+      before { @comment.content = "shit" }
+      it { should_not be_profane }
+    end
    
    describe "user_id" do
      before { @comment.user_id = nil }

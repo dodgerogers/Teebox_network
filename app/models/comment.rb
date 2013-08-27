@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   include PublicActivity::Common
+  require 'obscenity/active_model'
   
   attr_accessible :content, :votes_count, :commentable_id, :commentable_type, :points
   
@@ -11,6 +12,6 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
   validates_length_of :content, minimum: 10
   
-  profanity_filter :content
+  validates :content, obscenity: true
     
 end

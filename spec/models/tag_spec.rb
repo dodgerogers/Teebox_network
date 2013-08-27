@@ -20,4 +20,14 @@ describe Tag do
      before { @tag.name = nil }
      it { should_not be_valid }
    end
+   
+   describe "obscenity filter name" do
+     before { @tag.name = "shit" }
+     it { should_not be_profane }
+   end
+   
+   describe "validates explanation" do
+     before { @tag.explanation = "fuck" }
+     it { should_not be_profane }
+   end
 end
