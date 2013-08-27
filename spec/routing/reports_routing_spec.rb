@@ -13,4 +13,8 @@ describe ReportsController do
     it "routes to #destroy" do
       delete("/reports/1").should route_to("reports#destroy", id: "1")
     end
+    
+    it "routes to #stats" do
+      get("reports/stats").should route_to("reports#stats")
+    end
 end
