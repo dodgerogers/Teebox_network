@@ -6,24 +6,11 @@
 	<div class="<%= percent_of(reports.first.questions_total, reports[1].questions_total) < 0 ? 'decrease' : 'increase' %>">
 		<%= percent_of(reports.first.questions_total, reports[1].questions_total) %> %
 	</div><br>
-	Daily: <%= reports.first.questions %>&nbsp;
+	per day: <%= reports.first.questions %>&nbsp;
 	<div class="<%= percent_of(reports.first.questions, reports[1].questions) < 0 ? 'decrease' : 'increase' %>">
 		<%= percent_of(reports.first.questions, reports[1].questions) %> %
 	</div>	
 </div>
-<div class="report-container span3">
-	<div class="report-title r-answer">
-		Answers
-	</div>	
-	Total: <%= reports.first.answers_total %>&nbsp;
-	<div class="<%= percent_of(reports.first.answers_total, reports[1].answers_total) < 0 ? 'decrease' : 'increase' %>">
-		<%= percent_of(reports.first.answers_total, reports[1].answers_total) %> %
-	</div><br>
-	Daily: <%= reports.first.answers %>&nbsp;
-	<div class="<%= percent_of(reports.first.answers, reports[1].answers) < 0 ? 'decrease' : 'increase' %>">
-	 <%= percent_of(reports.first.answers, reports[1].answers) %> %
-	</div>
-</div>	
 <div class="report-container span3">
 	<div class=" report-title r-user">
 		Users
@@ -32,8 +19,21 @@
 	<div class="<%= percent_of(reports.first.users_total, reports[1].users_total) < 0 ? 'decrease' : 'increase' %>">
 		<%= percent_of(reports.first.users_total, reports[1].users_total) %> %
 	</div><br>
-	Daily: <%= reports.first.users %>&nbsp;
+	Per day: <%= reports.first.users %>&nbsp;
 	<div class="<%= percent_of(reports.first.users, reports[1].users) < 0 ? 'decrease' : 'increase' %>">
 		<%= percent_of(reports.first.users, reports[1].users) %> %
 	</div>
 </div>	
+<div class="report-container span3">
+	<div class="report-title r-answer">
+		Answers
+	</div>	
+	Total: <%= reports.first.answers_total %>&nbsp;
+	<div class="<%= percent_of(reports.first.answers_total, reports[1].answers_total) < 0 ? 'decrease' : 'increase' %>">
+		<%= percent_of(reports.first.answers_total, reports[1].answers_total) %> %
+	</div><br>
+	Per day: <%= reports.first.answers %>&nbsp;
+	<div class="<%= percent_of(reports.first.answers, reports[1].answers) < 0 ? 'decrease' : 'increase' %>">
+	 <%= percent_of(reports.first.answers, reports[1].answers) %> %
+	</div>
+</div>

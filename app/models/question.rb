@@ -15,6 +15,7 @@ class Question < ActiveRecord::Base
   validates_presence_of :title, :body, :user_id
   validates_length_of :title, minimum: 10, maximum: 90
   validate :tag_limit
+  validate :ensure_own_video
   
   #validate only own videos used
   
@@ -23,6 +24,12 @@ class Question < ActiveRecord::Base
   scope :unanswered, conditions: { correct: false }
   scope :by_votes, order: "votes_count DESC"
   scope :newest, order: "created_at DESC"
+  
+  def ensure_own_video 
+    if self.video
+      errors.add(:video_id, "You can only use your own videos") if self.video.user.id != self.user_id
+    end
+  end
       
   def to_param
     "#{id} - #{title}".parameterize

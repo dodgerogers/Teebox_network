@@ -10,6 +10,8 @@ namespace :db do
         u.encrypted_password    = "password1"
         u.reputation  = rand(1..200)
         u.role        = "tester"
+        u.confirmed_at = Time.now
+        u.confirmation_sent_at = Time.now
       end
       
     Tag.populate 200 do |tag|
@@ -21,7 +23,7 @@ namespace :db do
       question.title = Populator.words(5..12).titleize
       question.body = Populator.sentences(4..8)
       question.user_id = User.all.map(&:id)
-      question.votes_count = 5
+      question.votes_count = 0
       question.answers_count = 0
       question.points = 0
       question.correct = false

@@ -10,6 +10,7 @@ class Video < ActiveRecord::Base
   default_scope order('created_at DESC')
   
   mount_uploader :screenshot, ScreenshotUploader
+    
   
   def to_param
     "#{id} - #{File.basename(self.file)}".parameterize

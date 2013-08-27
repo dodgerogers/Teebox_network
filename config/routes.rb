@@ -40,6 +40,9 @@ TeeboxNetwork::Application.routes.draw do
       get 'notifications'
     end
   end
-  resources :reports, only: [:index, :new, :create, :destroy]
-  
+  resources :reports, only: [:index, :new, :create, :destroy] do
+    collection do
+      get "stats"
+    end
+  end
 end

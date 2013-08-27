@@ -13,7 +13,7 @@
 				<%= simple_format @question.body %>
 			</div>
 			
-			Tags: <%= @decorator.question_tags %>
+			<%= @decorator.question_tags %>
 			
 			<div class="form-area">
 			<div class="profile-info" id="question-profile-info">
@@ -28,10 +28,9 @@
 
 	<div class="comments-area">
 		<%= render template: "comments/index" %>
-		<%= link_to "Add comment", "#", id: "comment-button", class: "default" %><br>
+		<%= link_to "Add comment", "#", id: "comment-button", class: "default" %>
 		<%= render partial: "comments/form", locals: {commentable: @question} %>
 	</div>
-	
 	
 	<div id='answers-count'>
 		<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>

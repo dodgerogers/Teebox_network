@@ -11,14 +11,14 @@
 		<td>#</td>
 		<td>Score</td>
 		<td>Username</td>
-		<td>Member since</td>
+		<td>Member for</td>
 	</tr>		
 <% @users.each do |user| %>
 	<tr class="<%= current_user == user ? 'green-bg' : '' %>">
 		<td><a name='<%= "user_#{user.id}" %>'></a><%= user.rank %></td>
-		<td><%= link_to user.reputation, user %></td>
+		<td><%= link_to user.reputation, user, id: "profile-reputation" %></td>
 		<td><%= link_to user.username, user %></td>
-		<td><%= user.created_at.strftime('%d-%m-%Y') %></td>
+		<td><%= time_ago_in_words(user.created_at)%></td>
 	</tr>	
 <% end %>
 </table>

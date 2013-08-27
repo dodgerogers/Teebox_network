@@ -1,18 +1,26 @@
+<h1>All Reports</h1>
+
 <table id="reports" class="table white table-condensed table-striped table-bordered">
 	<thead>
 		<tr>
 			<td class="default emerald">New Questions</td>
+			<td class="default emerald">Total Questions</td>
 			<td class="default asphalt">New Answers</td>
+			<td class="default asphalt">Total Answers</td>
 			<td class="default next">New Users</td>
+			<td class="default next">Total Users</td>
 			<td class="">Created on</td>
 		</tr>
 	</thead>
 	<tbody>
-		<% reports.each do |report| %>
+		<% @reports.each do |report| %>
 		<tr>
 			<td><%= report.questions %></td>
+			<td><%= report.questions_total %></td>
 			<td><%= report.answers %></td>
+			<td><%= report.answers_total %></td>
 			<td><%= report.users %></td>
+			<td><%= report.users_total %></td>
 			<td><%= report.created_at.strftime('%d/%m/%y %H:%S %p') %></td>
 			<td><%= link_to raw("<i class='icon-remove-sign red'></i>"), report, method: :delete %></td>
 		</tr>
@@ -20,4 +28,6 @@
 	</tbody>
 </table>
 
-<%= will_paginate reports %>
+<%= will_paginate @reports %>
+
+<%= link_to "Reports", reports_path %>

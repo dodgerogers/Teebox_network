@@ -15,6 +15,19 @@ describe ReportsController do
     end
   end
   
+  describe "all_reports" do
+    it "retrieves stats" do
+      controller.all_reports.should eq([@report])
+    end
+  end
+  
+  describe "stats" do
+    it "render stats partial" do
+      get :stats
+      response.should render_template :stats
+    end
+  end
+  
   describe "POST create" do
     describe "with valid params" do
       it "creates a new report" do

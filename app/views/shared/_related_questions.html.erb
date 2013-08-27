@@ -1,11 +1,12 @@
-<h2>Related Questions</h2>
+<h2 class="relatedh2">Related Questions</h2>
+<%= link_to "Ask a question", videos_path, class: "default success" %><hr>
 <% questions.each do |question| %>
-	<div class="question-info">
-		<div class="index-title">
+	<div class="question-info" id="related">
+		<div class="related-title">
 			<%= link_to question.title.capitalize, question %>
 		</div>
 
-		<div class="profile-info" id="index">
+		<div class="profile-info" id="related">
 			<div class="index-vote pull-left">
 				<%= question.votes_count  %>
 			</div>	

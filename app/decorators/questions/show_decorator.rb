@@ -16,6 +16,6 @@ class Questions::ShowDecorator < ApplicationDecorator
   end
   
   def related_questions
-    Question.text_search(model.title).includes(:user).limit(6).reject { |n| n == model }
+    Question.text_search(model.title).includes(:user).limit(7).reject { |n| n == model }
   end
 end

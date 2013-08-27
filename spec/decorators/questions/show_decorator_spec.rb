@@ -3,8 +3,11 @@ include VideoHelper
 
 describe Questions::ShowDecorator do
   before(:each) do
-    @video = create(:video)
-    @question = create(:question, video: @video)
+    @user = create(:user)
+    @user.confirm!
+    sign_in @user
+    @video = create(:video, user: @user)
+    @question = create(:question, video: @video, user: @user)
     @decorator = Questions::ShowDecorator.new(@question)
   end
   

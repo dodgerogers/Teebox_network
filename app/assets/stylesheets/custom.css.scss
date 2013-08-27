@@ -577,7 +577,7 @@ body #header-search {
     text-decoration: bold; 
 }
 
-/*-------------------- questions videos profile info ----------*/
+/*-------------------- questions & videos profile info + related questions ----------*/
 
 .profile-info {
 	display:inline-block;
@@ -611,6 +611,17 @@ body #header-search {
 	box-sizing: border-box;
 	font-weight:300;
 }
+#related {
+	width:100%;
+}
+.related-title, .related-title a {
+}
+.relatedh2 {
+	margin: 0px 0 5px;
+	font-family: "HelveticaNeue";
+	font-weight:300;
+	
+}
 
 /*-------------------- comments ----------------*/
 #comment-textarea {
@@ -625,6 +636,9 @@ body #header-search {
 .comment, .question {
 	padding: 0px;
 	position:relative;
+}
+#new_comment {
+	margin: 12px 0 0;
 }
 /*----- questions content font styles ------*/
 
@@ -950,14 +964,15 @@ a.tag:active, a.current_tag:active {
 }
 
 .report-container {
+	background: $blackhole;
 	font-weight: 300;
-	margin: 0;
+	margin: 0 5px;
 	padding: 5px 10px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	vertical-align:top;
-	text-align:left;
+	text-align:center;
 	display:inline-block;
 	float:none!important;
 	.report-title {
@@ -1139,7 +1154,9 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 }
 
 /*morris */
-
+.morris-hover-row-label {
+	color: #444;
+}
 .morris-hover {
 	position:absolute;
 	z-index:1000;
@@ -1147,4 +1164,5 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	padding: 10px; 
 	border: 2px solid #ccc;
 	border-radius: 10px;
+	line-height:20px;
 }

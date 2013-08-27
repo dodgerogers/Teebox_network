@@ -1,11 +1,18 @@
 class ReportsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user! 
+  before_filter :all_reports
   load_and_authorize_resource
   
-  def index
+  def all_reports
     @all_reports = Report.all
-    @reports = @all_reports.paginate(page: params[:page], per_page: 3)
+    @reports = @all_reports.paginate(page: params[:page], per_page: 20)
+  end
+  
+  def index
     @report = Report.new
+  end
+  
+  def stats
   end
   
   def create
