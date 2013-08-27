@@ -1,31 +1,20 @@
 <% if current_user.videos.any? %>
 	<div id="token">
     	<% current_user.videos.each do |video| %>
-	  		<div id="<%= video.id %>" class="videos form">
-		
-				<div class="selected <%= "#{video.id}" %>_icon <%= question.video_id == video.id ? 'selected_video' : '' %>">
-					<i class="icon-ok-sign"></i>
+	  		<div class="videos form" data-id="<%= video.id %>">
+				<div class="selected <%= question.video_id == video.id ? 'selected_video' : '' %>">
+					<i class="icon-ok-sign" id="ok-icon"></i>
 				</div>
 		
 				<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen.jpg" %>
-				<div id='<%= "#{video.id}_token" %>'>
+				<div id='<%= "#{video.id}_token" %>' class="selected-img">
 					<%= image_tag(screenshot) %>
-				</div>
-				
-			<%= javascript_tag do %>
-				jQuery(function() {
-					var form = $('#question_video_id');
-					var icon = $('.<%= "#{video.id}_icon" %>');
-					var video = $('#<%= "#{video.id}_token" %>');
-					video.click(function() {
-						$('.selected').hide();
-				  		form.val(form.val() == <%= "#{video.id}" %> ? 0 : <%= "#{video.id}" %>);  
-				  		form.val() == <%= "#{video.id}" %> ? icon.show() : icon.hide();
-					});
-				});
-			<% end %>										
+				</div>										
 														
-				<p>uploaded <%= time_ago_in_words(video.created_at) %> ago</p>																		
+				<div class="video-title">
+					<%= File.basename(video.file).titleize %>
+				</div>	
+					uploaded <%= time_ago_in_words(video.created_at) %> ago																	
 	   			</div>
     	<% end %>
 	</div>
