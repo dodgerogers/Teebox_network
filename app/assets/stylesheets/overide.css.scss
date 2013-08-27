@@ -198,6 +198,9 @@ textarea, iframe.wysihtml5-sandbox {
 	border-radius: 0px;
 	width:100%!important;
 	max-height:250px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 iframe.wysihtml5-sandbox {
 	-moz-box-sizing: border-box;
@@ -212,7 +215,7 @@ iframe.wysihtml5-sandbox {
 .fileUpload {
 	position: relative;
 	overflow: hidden;
-	display:inline;
+	display:inline-block;
 }
 .fileUpload input {
 	position: absolute;
@@ -406,6 +409,9 @@ table , .table a {
 			margin:0px;
 			color: #ddd;
 		}	
+		ul li {
+			color: #fff;
+		}
 }
 
 /* alerts */

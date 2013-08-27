@@ -25,7 +25,7 @@ describe "Answers" do
     visit root_path
     sign_in_user
     create_and_find_question
-    click_link "Add your answer"
+    click_link "Answer question"
     page.should have_selector("div", id: "new_answer")
     fill_in "answer_body", with: ""
     

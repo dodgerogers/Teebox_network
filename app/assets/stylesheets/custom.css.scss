@@ -377,7 +377,6 @@ body .sublimevideo-zi .sublimevideo-uj {
 	position:relative;
 }
 .question-image:hover {
-	box-shadow: 0px 4px 0px $red;
 }
 .index-title {
 	display:block;
@@ -387,8 +386,9 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin: 0 0 10px;
 	font-weight: light;
 }
+.index-title a:hover {
+}
 .questions:hover, .videos:hover {
-
 }
 #q-answers-count {
 	font-family: 'BebasNeueRegular';
@@ -682,8 +682,10 @@ body #header-search {
 	padding: 5px 10px!important;
 	border-radius:0px;
 	border:none;
+	display:inline-block;
 	text-shadow:none;
-	margin-right: 3px;
+	line-height:20px!important;
+	margin: 3px 3px 0 0;
 }
 .default:hover {
 	color: #fff;
@@ -1046,7 +1048,7 @@ ul.token-input-list li input {
 li.token-input-token {
     overflow: hidden; 
     margin: 3px;
-    padding: 0px 8px;
+    padding: 4px 8px;
 	background: $red;
     color: #fff;
     cursor: default;

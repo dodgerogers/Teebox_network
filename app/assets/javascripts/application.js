@@ -13,13 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require raphael
-//= require morris
 //= require jquery-fileupload/basic
 //= require jquery.tokeninput
 //= require twitter/bootstrap
-//= require twitter/bootstrap/bootstrap-transition
-//= require twitter/bootstrap/bootstrap-modal
 //= require bootstrap-wysihtml5
 //= require_tree .
 

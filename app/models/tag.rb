@@ -23,7 +23,7 @@ class Tag < ActiveRecord::Base
   end
   
   def self.tokens(query)
-    tags = where("name like ?", "%#{query}%")
+    tags = where("name ilike ?", "%#{query}%")
     if tags.empty?
       [{id: "<<<#{query}>>>", name: "New: \"#{query}\""}]
     else
@@ -31,8 +31,9 @@ class Tag < ActiveRecord::Base
     end
   end
 
-  def self.ids_from_tokens(tokens)
-    tokens.gsub!(/<<<(.+?)>>>/) { create!(name: $1).id }
-    tokens.split(',')
+  def self.ids_from_tokens(tokens) 
+      tokens.gsub!(/<<<(.+?)>>>/) { create!(name: $1).id }
+      tokens.split(',')
+      rescue
   end
 end
