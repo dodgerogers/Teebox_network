@@ -270,7 +270,17 @@ input:-webkit-autofill {
 	padding: 30px 60px;
 	font-size:14px;
 }
-
+.blue-fuzz {
+	background: url(footer.png);
+	color: #fff;
+	a, label {
+		opacity: 1.0;
+		color: #fff;
+	}
+	.btn {
+		color: #333;
+	}
+}
 .blue-transparent {
 	background: $universe;
 	opacity: 0.95;
@@ -419,15 +429,20 @@ table , .table a {
 
 /* alerts */
 .alert {
-	color: #fff;
-	text-shadow: 0 0 0 transparent;
 	font-weight:bold;
 }
 .alert-success {
 	background: $green;
 	border: 0px solid #137F51;
+	#flash {
+		color: #1C6150;
+		text-shadow: 0 1px 1px #B0CEB6;
+	}
 }
 .alert-error {
 	background: $red;
 	border: 0px solid $dark-red;
+	#flash {
+		color: $dark-red;
+	}
 }

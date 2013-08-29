@@ -1,7 +1,8 @@
 <div id="tiny-push"></div>
 	<% if params[:tag] %>
 		<%= render partial: "shared/tag_cloud", locals: {tags: @decorator.tags, decorator: @decorator }%>
-		<h2><%= pluralize(questions.size, "Question") %> found</h2>
+		<h2 class="zero-margin"><%= params[:tag] %></h2>
+		<%= pluralize(questions.size, "Question") %> found</h2><hr>
 	<% end %>		
 	
 	<div class="row">

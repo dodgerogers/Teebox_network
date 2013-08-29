@@ -514,8 +514,13 @@ body .sublimevideo-zi .sublimevideo-uj {
 #dropzone {
     height: auto;
     text-align: left;
+	margin-top:12px;
 }
-
+h3.video-upload {
+	margin: 0px;
+	color: #fff;
+	
+}
 #dropzone.fade, #smooth {
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;

@@ -19,7 +19,7 @@ namespace :db do
       tag.explanation = Populator.sentences(1)
     end  
     
-    Question.populate 1000 do |question|
+    Question.populate 400 do |question|
       question.title = Populator.words(5..12).titleize
       question.body = Populator.sentences(4..8)
       question.user_id = User.all.map(&:id)
@@ -27,7 +27,6 @@ namespace :db do
       question.answers_count = 0
       question.points = 0
       question.correct = false
-      question.video_id = Video.all.map(&:id)
     end
   end
 end
