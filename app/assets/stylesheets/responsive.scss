@@ -155,6 +155,9 @@
 	ul.wysihtml5-toolbar {
 		display:none;
 	}
+	.question-info {
+		width: 100%;
+	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
 	body {
@@ -253,5 +256,8 @@
 	}
 	ul.wysihtml5-toolbar {
 		display:none;
+	}
+	.question-info {
+		width: 100%;
 	}
 }
