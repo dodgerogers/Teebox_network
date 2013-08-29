@@ -40,4 +40,15 @@ class Video < ActiveRecord::Base
   def unique
     (0..6).map{(65+rand(26)).chr}.join
   end
+  
+  def self.delete_tmp_aws
+    bucket = AWS::S3.new.buckets['teebox-network']
+    x = Video.all.map(&:file)
+    x.zip(Video.all.map(&:screenshot)).flatten.compact
+    x.each {|v| v.gsub!('http://teebox-network.s3.amazonaws.com/', '') }
+    valid = bucket.objects.map(&:key) & x
+    #bucket.objects.each do |obj|
+    # obj.delete unless valid.include? obj.key
+    #end   
+  end
 end

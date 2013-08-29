@@ -1,4 +1,5 @@
-<body class="banff-xl">
+<%= javascript_include_tag 'raphael.js', 'morris.js', "load_morris.js" %><!-- move to content_for :head -->
+
 	<div class='row'>
 		<div class='span12'>
 			<div class='hero-unit blue-transparent'>
@@ -18,17 +19,3 @@
 		</div>
 	</div>
 <!-- load morris to rescue from 'no graph container found error'-->
-<script>
-jQuery(function() {
-  return Morris.Line({
-    element: 'area',
-    data: $('#area').data('totals'),
-    xkey: 'created_at',
-    ykeys: ['questions_total', 'answers_total','users_total'],
-    labels: ['Total Questions', 'Total Answers','Total Users'],
-	behaveLikeLine: "true",
-	hideHover: "auto"
-  });
-});
-</script>
-</body>
