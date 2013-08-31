@@ -1,3 +1,7 @@
+<%= content_for :head do %>
+	<title><%= current_user.username.titleize %> videos</title>
+<% end %>
+
 <%= render template: "videos/new" %>
 
 <h2>My Videos</h2><hr>

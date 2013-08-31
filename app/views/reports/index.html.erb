@@ -1,4 +1,7 @@
-<%= javascript_include_tag 'raphael.js', 'morris.js', "load_morris.js" %><!-- move to content_for :head -->
+<%= content_for :head do %>
+	<title>Reports</title>
+<% end %>
+<%= javascript_include_tag 'raphael.js', 'morris.js', "load_morris.js" %>
 
 	<div class='row'>
 		<div class='span12'>
@@ -18,4 +21,3 @@
 
 		</div>
 	</div>
-<!-- load morris to rescue from 'no graph container found error'-->

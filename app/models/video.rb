@@ -41,22 +41,28 @@ class Video < ActiveRecord::Base
     (0..6).map{(65+rand(26)).chr}.join
   end
   
+  private
+  
   def self.get_screenshots
-    screenshots = Video.all.map(&:screenshot).map {|file| file.to_s }
-    screenshots.each {|file| file.gsub!("https://teebox-network.s3.amazonaws.com/", "") }
+    screenshots = Video.all.map(&:screenshot).map {|file| file.to_s.gsub!("https://teebox-network.s3.amazonaws.com/", "") }
+    files = []
+    screenshots.each do |object| 
+      ar = File.split(object)
+      ar[-1] = ar[-1].prepend("mini_")
+      files << File.join(*ar)
+    end
+    screenshots.zip(files).flatten.compact
   end
   
   def self.get_videos
-    videos = Video.all.map(&:file)
-    videos.each {|file| file.gsub!("http://teebox-network.s3.amazonaws.com/", "") }
+    Video.all.map(&:file).each {|file| file.gsub!("http://teebox-network.s3.amazonaws.com/", "") }
   end
     
-  def self.delete_tmp_aws
+  def self.aws_cleanup
     bucket = AWS::S3.new.buckets['teebox-network']
-    files = self.get_videos.zip(self.get_screenshots).flatten.compact
-    valid = bucket.objects.map(&:key) & files
+    valid = bucket.objects.map(&:key) & self.get_screenshots.zip(self.get_videos).flatten.compact
     bucket.objects.each do |obj|
-     obj.delete unless valid.include? obj.key
+      obj.delete unless valid.include? obj.key
     end   
   end
 end

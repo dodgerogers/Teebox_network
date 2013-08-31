@@ -16,6 +16,7 @@ TeeboxNetwork::Application.routes.draw do
   get "users/:id/comments_index", to: "users#comments_index", as: :comments_index
   get "users/:id/welcome", to: "users#welcome", as: :welcome
 
+  get "pages/info", to: "pages#info", as: :info
   
   resources :questions do
      resources :comments, except: [:edit, :update]

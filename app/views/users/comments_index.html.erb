@@ -1,6 +1,10 @@
+<%= content_for :head do %>
+	<title><%= @user.username %> comments</title>
+<% end %>
+
 <div class="span12">
-<b><%= link_to @user.username.titleize, user_path(@user) %> Comments</b><br><br>
-<%= render partial: "users/tables/comment_table", locals: {comments: @comments} %>
-<%= link_to "Profile", user_path, class: "default asphalt" %>
-</div>
+	<b><%= link_to @user.username.titleize, user_path(@user) %> Comments</b><br><br>
+	<%= render partial: "users/tables/comment_table", locals: {comments: @comments} %>
+	<%= link_to "Profile", user_path, class: "default asphalt" %>
+	</div>
 <%= will_paginate @comments %>

@@ -1,3 +1,7 @@
+<%= content_for :head do %>
+	<title><%= @decorator.username.titleize %></title>
+<% end %>
+
 <%= render partial: "users/stats", locals: {decorator: @decorator}%>
 
 <div class="row">

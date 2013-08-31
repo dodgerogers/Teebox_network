@@ -4,4 +4,6 @@
   			<%= render_activity activity %>
 		</div>
 	<% end %>
-		<li><%= link_to "View All", activities_path %></li>
+	<% unless current_page?(activities_path) %>
+		<li><%= link_to "View All", activities_path  %></li>
+	<% end %>

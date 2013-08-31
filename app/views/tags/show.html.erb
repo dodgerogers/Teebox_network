@@ -1,2 +1,6 @@
+<%= content_for :head do %>
+	<title><%= @tag.name.titleize %></title>
+<% end %>
+
 <br><%= render @tag %><br>
 <%= link_to "Tag Vault", tags_path, class: "default" %>
