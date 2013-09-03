@@ -15,16 +15,16 @@ class Aws < Video
      Video.all.map(&:file).each {|file| file.gsub!("http://teebox-network.s3.amazonaws.com/", "") }
    end
 
-   def self.aws_cleanup
+   def self.cleanup
      bucket = AWS::S3.new.buckets['teebox-network'].objects
      files = self.get_screenshots.zip(self.get_videos).flatten.compact
-     if (bucket.map(&:key) - files).size > 0
-       valid = bucket.map(&:key) & files
-       bucket.each do |obj|
-         obj.delete unless valid.include? obj.key
-       end  
-       else
-        "No objects to delete" 
+     number_of_files = (bucket.map(&:key) - files)
+     if number_of_files.size > 0
+        p "Deleting #{number_of_files.size} AWS::S3 objects"
+        valid = bucket.map(&:key) & files
+        bucket.each { |obj| obj.delete unless valid.include? obj.key } 
+     else
+       "No AWS::S3 objects to clean" 
      end
    end
 end
