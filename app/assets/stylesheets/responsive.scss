@@ -70,6 +70,10 @@
 	.navbar #notification:hover {
 		background: $ocean;
 	}
+	#no-padding {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
 }
 @media (min-width: 480px) and (max-width: 767px) {
 	body {
@@ -258,6 +262,9 @@
 		display:none;
 	}
 	.question-info {
+		width: 100%;
+	}
+	.profile-info {
 		width: 100%;
 	}
 }

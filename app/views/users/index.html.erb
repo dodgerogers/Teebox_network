@@ -1,29 +1,31 @@
 <%= content_for :head do %>
 	<title>Leaderboard</title>
 <% end %>
+	<div class="hero-unit blue-fuzz">
+		<center>
+			<h1 class="ranking">
+				Teebox rankings  <i class ="icon-trophy"></i>
+			</h1>
+			<h3 class="ranking">
+				Did you make the cut?
+			</h3>
+			See where your Teebox score ranks you amongst the best
+		</center>
+	</div>
 
-<div class="hero-unit mountain">
-	<center>
-		<h1 class="welcome-white">
-			Did you make the cut?
-		</h1>
-	</center>
-</div>
-
-<table class="table table-condensed table-striped table-borderless">	
-	<tr class="grey">
-		<td>#</td>
-		<td>Score</td>
-		<td>Username</td>
-		<td>Member for</td>
-	</tr>		
-<% @users.each do |user| %>
-	<tr class="<%= current_user == user ? 'green-bg' : '' %>">
-		<td><a name='<%= "user_#{user.id}" %>'></a><%= user.rank %></td>
-		<td><%= link_to user.reputation, user, id: "profile-reputation" %></td>
-		<td><%= link_to user.username, user %></td>
-		<td><%= time_ago_in_words(user.created_at)%></td>
-	</tr>	
-<% end %>
-</table>
-
+	<table class="table table-condensed table-striped table-borderless">	
+		<tr class="grey">
+			<td>#</td>
+			<td>Score</td>
+			<td>Username</td>
+			<td>Member for</td>
+		</tr>		
+	<% @users.each do |user| %>
+		<tr class="<%= current_user == user ? 'green-bg' : '' %>">
+			<td><a name='<%= "user_#{user.id}" %>'></a><%= user.rank %></td>
+			<td><%= link_to user.reputation, user, id: "profile-reputation" %></td>
+			<td><%= link_to user.username, user %></td>
+			<td><%= time_ago_in_words(user.created_at)%></td>
+		</tr>	
+	<% end %>
+	</table>

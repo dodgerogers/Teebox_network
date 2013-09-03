@@ -55,9 +55,4 @@ TeeboxNetwork::Application.configure do
   
   #FFMPEG location
   ENV["FFMPEG_LOCATION"] = "/usr/local/bin/ffmpeg"
-  
-  #Pusher 
-  ENV['PUSHER_APP_ID'] = '50498'
-  ENV['PUSHER_KEY'] = '9f2de1d5ad50d4662010'
-  ENV['PUSHER_SECRET'] = '012cf02f89cb69d5f365'
 end

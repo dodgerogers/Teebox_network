@@ -22,7 +22,7 @@ FactoryGirl.define do
   factory :video do
     user
     file "http://teebox-network.s3.amazonaws.com/uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v"
-    screenshot "NGICJSJ_edited_driver_swing.m4v.jpg"
+    screenshot "https://teebox-network.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
   end
   
   factory :comment do

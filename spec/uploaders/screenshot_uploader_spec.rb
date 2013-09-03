@@ -6,18 +6,21 @@ describe ScreenshotUploader do
   include CarrierWave::Test::Matchers 
   
   before do
+    ScreenshotUploader.enable_processing = true
+    ScreenshotUploader.storage = :file
     @user = create(:user)
-    @uploader = ScreenshotUploader.new(@user, create(:video))
-    #@uploader.store!(File.open("#{Rails.root}/spec/fixtures/NGICJSJ_edited_driver_swing.m4v.jpg"))
+    @uploader = ScreenshotUploader.new(@user, :screenshot)
+    @uploader.store!(File.open("#{Rails.root}/spec/fixtures/files/seven_iron.jpeg"))
   end
   
   after do 
+    ScreenshotUploader.enable_processing = false
     @uploader.remove!
   end
   
   context "taking a screenshot" do
-    it "should take a screenshot of 270 x 135 pixels" do
-      #@uploader.mini.should_have_dimensions(200, 100)
+    it "should take a screenshot of 136 x 68 pixels" do
+      @uploader.mini.should have_dimensions(136, 68)
     end
   end
   
@@ -34,8 +37,8 @@ describe ScreenshotUploader do
     end
     
   describe "store_dir" do
-    it "renders path to uploads" do
-      #@uploader.store_dir.should eq("uploads/user/#{@uploader}/")
+    it "allocates path to uploads" do
+      @uploader.store_dir.should eq("uploads/user/screenshot/1")
     end
   end  
   

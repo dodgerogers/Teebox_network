@@ -778,7 +778,7 @@ body #header-search {
 	margin: 0 3px 0 0;
 }
 .default-tick a, .default-tick {
-	color: #ccc;
+	color: #bbb;
 	font-size: 42px;
 	float:left;
 	margin: 0 3px 0 0;
@@ -794,7 +794,7 @@ body #header-search {
 	position: absolute;
 	left:-90px;*/
 	display:inline-block;
-	color: #ccc;
+	color: #bbb;
 	float: left;
 	margin: 2px 5px 0 0;
 }
@@ -820,20 +820,20 @@ body #header-search {
 	display: inline-block; 
 	}	
 .vote-box h1 { 
-		font-size: 45px;
-		margin: 0px 3px 0px 0px;	
-		letter-spacing:-2px;
-		color: #ccc;
+	font-size: 45px;
+	margin: 0px 3px 0px 0px;	
+	letter-spacing:-2px;
+	color: #ccc;
 }
 #arrows { 
 	display: inline-block;
 	/*text-shadow: 2px 2px 2px #777;*/
 }	
-#upvote, #downvote {	
-	color: #ccc;
+#upvote,#downvote {
+	color: #bbb;	
 }
 #upvote:hover {
-	color: $turquoise;
+	color: $green;
 	text-decoration: none;
 }
 #downvote:hover {
@@ -841,7 +841,7 @@ body #header-search {
 	text-decoration: none;
 }
 .orange-arrows h1{
-	color: #ccc;
+	color: #bbb;
 	display:inline-block;
 }
 .default-arrows h1 {
