@@ -6927,7 +6927,7 @@
         x = x || 0;
         y = y || 0;
         width = width || 540;
-        height = height || 200;
+        height = height || 250;
         $(cnvs, {
             height: height,
             version: 1.1,

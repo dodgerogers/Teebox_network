@@ -5,9 +5,9 @@
 
 	<div class='row'>
 		<div class='span12'>
-			<div class='hero-unit blue-transparent'>
+			<div class='hero-unit transparent'>
 				<center>
-					<h1 class="one"><span>Teebox Report - <%= Time.now.to_date %></span></h1>
+					<h1>Teebox Report - <%= Time.now.to_date %></h1>
 					<%= render partial: "reports/form" %>
 					<%= render partial: "reports/totals", locals: {reports: @all_reports }%><br><br>
 				</center>
