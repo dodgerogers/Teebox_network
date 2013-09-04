@@ -21,28 +21,47 @@ describe User do
    it { should have_many(:votes)}
    it { should have_many(:tags)}
 
-   describe 'email' do
-     before { @user.email = nil }
-     it { should_not be_valid }
-   end
-   describe "password" do
-     before { @user.password = nil }
-     it { should_not be_valid }
-   end
-   
-   describe "password_confirmation" do
-     before { @user.password_confirmation = 'password1' }
-      it { should_not be_valid }
+ describe 'email' do
+   before { @user.email = nil }
+   it { should_not be_valid }
+ end
+ 
+ describe "password" do
+   before { @user.password = nil }
+   it { should_not be_valid }
+ end
+ 
+ describe "password_confirmation" do
+   before { @user.password_confirmation = 'password1' }
+    it { should_not be_valid }
+  end
+  
+  describe "passwords match" do
+    before { @user.password == @user.password_confirmation }
+    it { should be_valid }
+  end 
+  
+  describe "create_welcome_notification" do
+    it "triggers after_create" do
+      subject.should_receive(:after_create)
+      subject.after_create(recipient: subject)
+    end
+  end
+       
+  describe "user mail triggers" do
+    it 'send_on_create_confirmation_instructions' do
+      subject.should_receive(:send_on_create_confirmation_instructions)
+      subject.send_on_create_confirmation_instructions
     end
     
-    describe "passwords match" do
-      before { @user.password == @user.password_confirmation }
-      it { should be_valid }
-    end 
-    
-    describe " send_on_create_confirmation_instructions" do
-      it 'sends delayed mail' do
-        #subject.send_on_create_confirmation_instructions.should be_kind_of(Mail)
-      end
+    it 'send_on_create_confirmation_instructions' do
+      subject.should_receive(:send_reset_password_instructions)
+      subject.send_reset_password_instructions
     end
+    
+    it 'send_unlock_instructions' do
+      subject.should_receive(:send_unlock_instructions)
+      subject.send_unlock_instructions
+    end
+  end
 end

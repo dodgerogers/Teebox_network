@@ -4,11 +4,11 @@
 	</div>
 	Total: <%= reports.first.questions_total %>&nbsp;
 	<div class="<%= percent_of(reports.first.questions_total, reports[1].questions_total) < 0 ? 'decrease' : 'increase' %>">
-		<%= percent_of(reports.first.questions_total, reports[1].questions_total) %> %
+		<%= number_with_precision(percent_of(reports.first.questions_total, reports[1].questions_total), precision: 2) %> %
 	</div><br>
 	per day: <%= reports.first.questions %>&nbsp;
 	<div class="<%= percent_of(reports.first.questions, reports[1].questions) < 0 ? 'decrease' : 'increase' %>">
-		<%= percent_of(reports.first.questions, reports[1].questions) %> %
+		<%= number_with_precision(percent_of(reports.first.questions, reports[1].questions), precision: 2) %> %
 	</div>	
 </div>
 <div class="report-container span3">
@@ -17,11 +17,11 @@
 	</div>
 	Total: <%= reports.first.users_total %>&nbsp;
 	<div class="<%= percent_of(reports.first.users_total, reports[1].users_total) < 0 ? 'decrease' : 'increase' %>">
-		<%= percent_of(reports.first.users_total, reports[1].users_total) %> %
+		<%= number_with_precision(percent_of(reports.first.users_total, reports[1].users_total), precision: 2) %> %
 	</div><br>
 	Per day: <%= reports.first.users %>&nbsp;
 	<div class="<%= percent_of(reports.first.users, reports[1].users) < 0 ? 'decrease' : 'increase' %>">
-		<%= percent_of(reports.first.users, reports[1].users) %> %
+		<%= number_with_precision(percent_of(reports.first.users, reports[1].users), precision: 2) %> %
 	</div>
 </div>	
 <div class="report-container span3">
@@ -30,10 +30,10 @@
 	</div>	
 	Total: <%= reports.first.answers_total %>&nbsp;
 	<div class="<%= percent_of(reports.first.answers_total, reports[1].answers_total) < 0 ? 'decrease' : 'increase' %>">
-		<%= percent_of(reports.first.answers_total, reports[1].answers_total) %> %
+		<%= number_with_precision(percent_of(reports.first.answers_total, reports[1].answers_total), precision: 2) %> %
 	</div><br>
 	Per day: <%= reports.first.answers %>&nbsp;
 	<div class="<%= percent_of(reports.first.answers, reports[1].answers) < 0 ? 'decrease' : 'increase' %>">
-	 <%= percent_of(reports.first.answers, reports[1].answers) %> %
+	 <%= number_with_precision(percent_of(reports.first.answers, reports[1].answers), precision: 2) %> %
 	</div>
 </div>

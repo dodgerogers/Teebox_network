@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require twitter/bootstrap
 //= require jquery-fileupload/basic
 //= require jquery.tokeninput
-//= require twitter/bootstrap
 //= require bootstrap-wysihtml5
 //= require_tree .
 

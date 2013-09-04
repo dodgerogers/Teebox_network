@@ -41,6 +41,6 @@ module ApplicationHelper
   end
   
   def percent_of(a, b)
-    a == 0 ? -100 : (b == 0 ? 100 : ((a.to_f - b.to_f) / b.to_f) * 100)
+   x ||= (a == 0 ? -100 : (b == 0 ? 100 : ((a.to_f - b.to_f) / b.to_f) * 100))
   end
 end
