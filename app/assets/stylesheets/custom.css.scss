@@ -90,6 +90,9 @@ h6 {
     margin-bottom: 1.285em;
     margin-top: 1.285em;
 }	
+
+/* custom font styles */
+
 .bebas {
 	font-family: 'BebasNeueRegular';
 	font-size: 22px;
@@ -115,6 +118,12 @@ label {
 }	
 center h1 {
 	text-align:center!important;
+}
+
+.universe {
+	color: $asphalt;
+	display: inline;
+	margin: 0 5px 0 0;
 }
 
 /* custom colors */
@@ -229,15 +238,16 @@ h1.circle {
 /* ------------------------- Footer --------------------------------------------*/
 
 #footer {
-	color: #444;
+	color: $blackhole;
 	font-weight:400;
 	text-align:center;
-	text-shadow: 0 1px 1px #999;
+	text-shadow: 0 1px 1px #777;
 	background: #777;
+	background: url(dark-footer.jpg);
 	height:100px;
-	-webkit-box-shadow: inset 0px 5px 20px #555;
+	/*-webkit-box-shadow: inset 0px 5px 20px #555;
 	box-shadow: inset 0px 5px 20px #666;
-	-moz-box-shadow: inset 0px 5px 20px #555;
+	-moz-box-shadow: inset 0px 5px 20px #555;*/
 }
 #push {
 	height: 100px;
@@ -402,7 +412,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin-top: 5px;
 }
 #answers-count h3 {
-	font-family: "Helveticaneue";
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	letter-spacing: -1px;
 }
 #correct-answer {

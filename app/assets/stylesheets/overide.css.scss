@@ -389,6 +389,16 @@ input:-webkit-autofill {
 }
 .sky label, .beach label, .ocean label {
 }
+.red-border {
+	border: 1px solid $red;
+	outline: 2px solid $red;
+	outline-offset: -10px;
+}
+.stitched {
+	border: 1px solid $universe;
+	outline: 2px dashed $red;
+	outline-offset: -10px;
+}
 
 /* Tables */
 

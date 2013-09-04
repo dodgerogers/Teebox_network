@@ -4,6 +4,8 @@ describe ActivitiesController do
   include Devise::TestHelpers
   include ActionView::Helpers::UrlHelper
   before(:each) do
+    #negate the activity created upon signup
+    User.any_instance.stub(:create_welcome_notification).and_return(true)
     @user1 = create(:user)
     @user2 = create(:user)
     @user1.confirm!
@@ -53,6 +55,6 @@ describe ActivitiesController do
       put :read, id: @activity
       @activity.reload
       response.should redirect_to "#{url_for(@activity.trackable.question)}#answer_#{@activity.trackable.id}"
-      end
     end
+  end
 end

@@ -32,8 +32,8 @@ class Tag < ActiveRecord::Base
   end
 
   def self.ids_from_tokens(tokens) 
-      tokens.gsub!(/<<<(.+?)>>>/) { create!(name: $1).id }
-      tokens.split(',')
-      rescue
+    tokens.gsub!(/<<<(.+?)>>>/) { create!(name: $1).id }
+    tokens.split(',')
+    rescue
   end
 end

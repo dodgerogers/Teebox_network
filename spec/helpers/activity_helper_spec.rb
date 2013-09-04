@@ -17,15 +17,21 @@ describe ActivityHelper do
 
   subject { @activity }
   
-  describe "number_of_activities" do
+  describe "number_of_activities with welcome notification" do
     it "retrieves size of array" do
-      helper.number_of_activities(@user1).should eq(1)
+      #accounts for activity created when signing up a user
+      helper.number_of_activities(@user1).should eq(2)
     end
   end
   
   describe "get_activity_path" do
-    it "renders activity specific url" do
+    it "redirects to activity url" do
       helper.get_activity_path(@activity).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#answer_#{@answer.id}")
+    end
+    
+    it "redirects to welcome url" do
+       @activity2 = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, trackable_type: "User")
+      helper.get_activity_path(@activity2).should eq welcome_path(@activity.recipient_id)
     end
   end
 end
