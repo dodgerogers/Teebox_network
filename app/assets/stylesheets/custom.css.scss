@@ -656,10 +656,24 @@ body #header-search {
 #comment-textarea {
 		height: 70px;
 }
+.comment {
+	height: auto;
+	padding: 12px 22px;;
+	border-bottom: 1px solid #ddd;
+	background: #eee;
+	position:relative;
+} 
+.comment:hover {
+	background: #ddd;
+}
 .comment-info {
 	width: auto;
 	margin-right:5px;
 	display:inline-block;
+	vertical-align:middle;
+}
+.comment-grav img {
+	margin-top: 5px;
 }
 .comment-content {
 	width: 80%;
@@ -673,23 +687,11 @@ body #header-search {
 		color: #777;
 	}
 } 
-.comment-grav img {
-	margin-top: 5px;
-}
 .question-content, .answer-content {
 	width: 100%;
 	display:inline-block;
 	margin-bottom: 0px;
 	position:relative;
-}
-.comment {
-	height: auto;
-	padding: 12px 22px;;
-	border-bottom: 1px solid #ddd;
-	background: #eee;
-} 
-.comment:hover {
-	background: #ddd;
 }
 .question {
 	padding: 0px;

@@ -4,7 +4,7 @@
 			<a name='<%= "answer_#{answer.id}" %>'></a>
 			<%= simple_format answer.body %>
 		</div>
-		<div class="profile-info">
+	<div class="profile-info">
 		<div class="controls">
 			<div id="correct_answer_<%= answer.id %>" class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>">
 				<% if answer.question.user == current_user %>
@@ -27,9 +27,10 @@
 			<%= edit_delete_links(answer, {path: edit_answer_path(answer), edit_id: "edit-answer", delete_id: "delete-answer" }) %>
 		</div>
 	</div>
+	
 	<div class="comments-area">
 		<div id="answer_<%= answer.id %>">
-		<%= nested_comments(answer.comments) %>
+			<%= nested_comments(answer.comments) %>
 		</div><br>
 		<%= link_to "Add comment", "#", class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: answer} %>
