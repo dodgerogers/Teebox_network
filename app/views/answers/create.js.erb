@@ -5,6 +5,7 @@ var answer = $("<%= j render(@answer) %>").hide();
 $('#question-answers').append(answer);
 answer.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
 $('#new_answer').hide();
+$('.new_comment').hide();
 $('.wysihtml5-sandbox').contents().find('body').html('');
 <% end %>
 

@@ -1,5 +1,5 @@
-<div class="answer_<%= answer.id %>">
-	<div id='answer_<%="#{answer.id}" %>' class="answer">	
+<div id="answer_<%= answer.id %>">
+	<div class="answer">	
 		<div class="answer-content">
 			<a name='<%= "answer_#{answer.id}" %>'></a>
 			<%= simple_format answer.body %>
@@ -28,7 +28,9 @@
 		</div>
 	</div>
 	<div class="comments-area">
-		<%= nested_comments(answer.comments) %><br>	
+		<div id="answer_<%= answer.id %>">
+		<%= nested_comments(answer.comments) %>
+		</div><br>
 		<%= link_to "Add comment", "#", class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: answer} %>
 	</div>

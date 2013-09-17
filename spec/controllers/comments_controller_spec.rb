@@ -39,7 +39,7 @@ describe CommentsController do
       it "redirects to the commentable question" do
         Comment.stub!(:find).and_return(@commentable)
         post :create, comment: attributes_for(:comment), commentable: @commentable.id
-        response.should redirect_to(@commentable)
+        response.should redirect_to("http://test.host/questions/#{@commentable.id}")
       end
     end
     
@@ -55,7 +55,7 @@ describe CommentsController do
         Comment.stub!(:find).and_return(@commentable)
         Comment.any_instance.stub(:save).and_return(false)
         post :create,comment: attributes_for(:comment), commentable: @commentable.id
-        response.should redirect_to(@commentable)
+        response.should redirect_to("http://test.host/questions/#{@commentable.id}")
       end
     end
   end

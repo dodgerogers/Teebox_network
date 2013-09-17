@@ -20,7 +20,7 @@
 			
 			<%= @decorator.question_tags %>
 			
-			<div class="form-area">
+			<div class="form-area dark-fuzz">
 			<div class="profile-info" id="question-profile-info">
 				<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
 				<%= profile_link_helper(@question) %>
@@ -30,11 +30,12 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="comments-area">
-		<%= nested_comments(@question.comments.includes(:user)) %><br>
-		<%= link_to "Add comment", "#", class: "comment-button" %>
-		<%= render partial: "comments/form", locals: {commentable: @question} %>
+		<div id="question_<%= @question.id %>">
+			<%= nested_comments(@question.comments.includes(:user)) %>
+		</div><br>
+			<%= link_to "Add comment", "#", class: "comment-button" %>
+			<%= render partial: "comments/form", locals: {commentable: @question} %>
 	</div>
 	
 	<div id='answers-count'>

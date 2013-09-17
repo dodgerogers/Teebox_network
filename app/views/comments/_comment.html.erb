@@ -1,13 +1,16 @@
 <div id='comment_<%="#{comment.id}" %>' class="comment">		
+	
+	<div class="comment-info">
+	   <%= render partial: "votes/form",locals: { votes_count: "comments", id: comment.id, object: comment, vote_path: method(:vote_comment_path) } %>
+		<%=  link_to image_tag(avatar_url(comment.user)), comment.user, class: "comment-grav"%>
+	</div>
+	
 	<div class="comment-content">
 		<a name='<%= "comment_#{comment.id}" %>'></a>
 		<%= simple_format(clickable_links(comment.content)) %>
-	</div>
-	
-	<div class="profile-info">
-	  <%= render partial: "votes/form", 
-		locals: { votes_count: "comments", id: comment.id, object: comment, vote_path: method(:vote_comment_path) } %>
-	  <%= profile_link_helper(comment) %>	
-	  <%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if can? :destroy, comment %>
+		<small>Asked by <%= link_to comment.user.username.titleize, comment.user, id: "profile-username" %>
+		<%= time_ago_in_words(comment.created_at) %> ago.	
+		<%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if can? :destroy, comment %></small>
 	</div>
 </div>
+
