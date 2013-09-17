@@ -1,6 +1,6 @@
 jQuery ->
-  $('#new_comment').hide()
+  $(".new_comment").hide()
+  $(".comment-button").click (event) ->
+    event.preventDefault()
+    $(this).next(".new_comment").toggle()
 
-  $("#comment-button").click (event) ->
-  	event.preventDefault()
-	  $("#new_comment").toggle()

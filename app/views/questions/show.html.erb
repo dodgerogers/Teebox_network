@@ -32,8 +32,8 @@
 	</div>
 
 	<div class="comments-area">
-		<%= render template: "comments/index" %>
-		<%= link_to "Add comment", "#", id: "comment-button", class: "default" %>
+		<%= nested_comments(@question.comments.includes(:user)) %><br>
+		<%= link_to "Add comment", "#", class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: @question} %>
 	</div>
 	

@@ -10,5 +10,4 @@
 	  <%= profile_link_helper(comment) %>	
 	  <%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if can? :destroy, comment %>
 	</div>
-	<hr>
 </div>

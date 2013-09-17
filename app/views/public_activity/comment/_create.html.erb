@@ -5,7 +5,8 @@
 	<div class="message">	
 		<%= link_to activity.owner.username, activity.owner %> commented on
 		<%= link_to read_activity_path(activity), method: :put do %>
-			<%= activity.trackable.commentable.title %>
+		<%= activity.trackable_type == "Question" ? 
+				activity.trackable.commentable.title : truncate(activity.trackable.commentable.body, length: 50)  %>
 		<% end %><br>
 		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
 	</div>	

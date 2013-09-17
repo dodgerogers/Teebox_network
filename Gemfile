@@ -35,6 +35,7 @@ group :assets do
 end
 
 gem 'devise'
+gem 'ancestry'
 gem 'jquery-rails'
 gem 'therubyracer'
 gem 'carrierwave'

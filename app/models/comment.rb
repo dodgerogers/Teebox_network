@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   include PublicActivity::Common
   require 'obscenity/active_model'
   
-  attr_accessible :content, :votes_count, :commentable_id, :commentable_type, :points
+  attr_accessible :content, :votes_count, :parent_id, :commentable_id, :commentable_type, :points
   
   belongs_to :commentable, polymorphic: true
   belongs_to :user

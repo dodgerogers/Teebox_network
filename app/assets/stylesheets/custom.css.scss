@@ -657,18 +657,37 @@ body #header-search {
 #comment-textarea {
 		height: 70px;
 }
-.comment-content, .question-content, .answer-content {
+.comment-content {
 	width: 100%;
 	display:inline-block;
-	margin-bottom: 10px;
+	position:relative;
+} 
+.question-content, .answer-content {
+	width: 100%;
+	display:inline-block;
+	margin-bottom: 5px;
 	position:relative;
 }
-.comment, .question {
+.comment {
+	height: auto;
+	padding: 10px 15px;
+	border-bottom: 1px solid #e9e9e9;
+	background: #f9f9f9;
+} 
+.comment:last-of-type {
+
+}
+.comment:hover {
+	background: #eee;
+}
+.question {
 	padding: 0px;
 	position:relative;
 }
 #new_comment {
 	margin: 12px 0 0;
+}
+.comments-area {
 }
 /*----- questions content font styles ------*/
 
@@ -761,8 +780,9 @@ body #header-search {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	padding: 0px 0px 0px 0px;
+	padding: 0px;
 	position: relative;
+	margin: 0 0 15px;
 }
 #tick {
 	display:inline-block;
