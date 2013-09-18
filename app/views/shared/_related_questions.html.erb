@@ -1,20 +1,20 @@
 <h2 class="relatedh2">Related Questions</h2>
-<%= link_to "Ask a question", videos_path, class: "default success" %><hr>
-<% questions.each do |question| %>
-	<div class="question-info" id="related">
-		<div class="related-title">
-			<%= link_to question.title.capitalize, question %>
-		</div>
-
-		<div class="profile-info" id="related">
-			<div class="index-vote pull-left">
-				<%= question.votes_count  %>
-			</div>	
-
-			<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
-				<%= question.answers_count %>
+	<%= link_to "Ask a question", videos_path, class: "default success" %><hr>
+	<% questions.each do |question| %>
+		<div class="related" id="related">
+			<div class="related-info">
+				<div class="index-vote">
+					<%= question.votes_count %>
+				</div><br>
+				<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
+					<%= question.answers_count %>
+				</div>
 			</div>
-			<%= profile_link_helper(question) %>
+			
+			<div class="related-content">
+				<%= link_to question.title.capitalize, question %><br>
+				<small>Asked <%= time_ago_in_words(question.created_at) %> ago.</small>
+			</div>
 		</div>
-	</div><hr>
-<% end %>
+	<% end %>
+	

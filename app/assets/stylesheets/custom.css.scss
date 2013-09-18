@@ -607,7 +607,7 @@ body #header-search {
     text-decoration: bold; 
 }
 
-/*-------------------- questions & videos profile info + related questions ----------*/
+/*-------------------- questions & videos profile info ----------*/
 
 .profile-info {
 	display:inline-block;
@@ -629,48 +629,33 @@ body #header-search {
 #question-box {
 	position: relative;
 }
-.form-area {
-	padding: 19px 20px 20px;
-	margin-top: 20px;
-	background: #ededed;
-	border-top: 1px solid #dedede;
-	max-width: 1040px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	font-weight:300;
-}
-#related {
-	width:100%;
-}
-.related-title, .related-title a {
-}
-.relatedh2 {
-	margin: 0px 0 5px;
-	font-family: "HelveticaNeue";
-	font-weight:300;
-	
-}
 
-/*-------------------- comments ----------------*/
+
+/*-------------------- comments + related questions ----------------*/
 #comment-textarea {
-		height: 70px;
+	height: 70px;
 }
-.comment {
+.comment, .related {
 	height: auto;
-	padding: 12px 22px;;
+	padding: 12px 20px;;
 	border-bottom: 1px solid #ddd;
 	background: #eee;
 	position:relative;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 } 
-.comment:hover {
+.comment:hover, .related:hover {
 	background: #ddd;
 }
-.comment-info {
+.comment-info, .related-info {
 	width: auto;
 	margin-right:5px;
 	display:inline-block;
 	vertical-align:middle;
+	#no-correct-answer, .index-vote {
+		margin:0;
+	}
 }
 .comment-grav img {
 	margin-top: 5px;
@@ -687,6 +672,18 @@ body #header-search {
 		color: #777;
 	}
 } 
+.related-content {
+	width: 80%;
+	display:inline-block;
+	position:relative;
+	vertical-align:middle;
+	p {
+		margin: 0;
+	}
+	small {
+		color: #777;
+	}
+}
 .question-content, .answer-content {
 	width: 100%;
 	display:inline-block;
@@ -701,6 +698,17 @@ body #header-search {
 	margin: 12px 0 0;
 }
 .comments-area {
+}
+#related {
+	width:100%;
+}
+.related-title, .related-title a {
+}
+.relatedh2 {
+	margin: 0px 0 5px;
+	font-family: "HelveticaNeue";
+	font-weight:300;
+	
 }
 /*----- questions content font styles ------*/
 

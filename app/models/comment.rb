@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
   has_many :activities, class_name: "PublicActivity::Activity", as: :trackable, dependent: :destroy
   
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
-  validates_length_of :content, minimum: 10
+  validates_length_of :content, minimum: 10, maximum: 350
   
   validates :content, obscenity: true
     

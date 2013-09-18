@@ -20,9 +20,6 @@ class QuestionsController < ApplicationController
   
   def show
     @question = Question.find(params[:id])
-    #@commentable = @question
-    #@comments = @commentable.comments.includes(:user)
-    #@comment = Comment.new
     @answer = Answer.new
     @answers = @question.answers.includes(:user, :question).by_votes
     @decorator = Questions::ShowDecorator.new(@question)
