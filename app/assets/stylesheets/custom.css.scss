@@ -13,15 +13,12 @@ html, body {
 	background-position: center!important;
 	background-attachment: fixed!important;
 }
-
 hr {
 	margin: 12px 0;
 }
-
 a {
 	color : $teal;
 }
-
 a:hover {
 	text-decoration: none;
 }
@@ -45,8 +42,7 @@ a:hover {
 	     url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
 	font-weight: lighter;
  	font-style: normal;
-}
-	
+}	
 h1 {
 	font-size: 36px;
 	font-family: 'BebasNeueRegular';
@@ -56,15 +52,13 @@ h1 {
 	color: $red;
 	/*text-shadow: 0px 2px 2px #777;		*/
 	letter-spacing:0px;				
-}
-		
+}		
 h2 {
 	font-size: 25px; 
 	font-family: 'BebasNeueRegular';
 	margin-top: .75em;
 	color: #777;
 }
-
 h3 {
 	font-size: 22px; 
 	font-family: 'BebasNeueRegular';
@@ -110,16 +104,9 @@ h6 {
 small {
 	line-height: 5px;
 }	
-label {
-	font-size: 18px;
-	font-weight: 200;
-	color: #06434D;
-	vertical-align: middle;
-}	
 center h1 {
 	text-align:center!important;
 }
-
 .universe {
 	color: $asphalt;
 	display: inline;
@@ -143,7 +130,6 @@ red, red a {
 }
 /*----------------------Containers ------------------------------*/
 
-
 #wrap {
 	min-height: 100%;
 	height: auto !important;
@@ -165,21 +151,6 @@ red, red a {
 }
 .container .home {
 	text-align:center;
-}
-h1.circle {
-	border-radius: 50%;
-	width:70px;
-	height: 70px;
-	background:#fff;
-	margin-bottom: 70px;
-	display:table-cell;
-	text-align: center;
-	vertical-align: middle;
-	border: 5px solid #bbb;
-	box-shadow: 0 0 0 8px $red, 0px 0px 0px 12px #fff;
-}
-.circle-box {
-	margin: 30px auto 0;
 }
 
 /*--------------- logo------------ */
@@ -287,7 +258,7 @@ tr.titles {
 	color: #777;
 }
 
-/*---------------- sublime video settings ----------------*/
+/*---------------- sublime video + upload  ----------------*/
 body .sublimevideo-zi .sublimevideo-uj {
 	/*height: 700px!important;*/
 }
@@ -296,7 +267,6 @@ body .sublimevideo-zi .sublimevideo-uj {
   width: 400px;
   padding-top: 10px;
   margin-top: 10px;
-
   .progress {
     margin-top: 8px;
     border: solid 1px #555;
@@ -323,7 +293,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 /*--------------------- Questions index ---------------------*/
 
-/* ----questions + videos--------*/
+/*=videos=*/
 
 .videos {
 	display: inline-block;
@@ -365,6 +335,8 @@ body .sublimevideo-zi .sublimevideo-uj {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+/*=questions=*/
+
 .questions {
 	display:block;
 	vertical-align:top;
@@ -455,15 +427,19 @@ body .sublimevideo-zi .sublimevideo-uj {
 	font-family: 'BebasNeueRegular';
 	color: #4fc392;
 }
-/*.videos img {
-	width: 100%;
-	display: block;
-	margin-left:auto;
-	margin-right:auto;
-}	*/
 
+/* js loading */
 
-/*----------- Question form videos ----------*/
+#loading {
+	display:none;
+	color: #ccc;
+}
+.loading {
+	height:30px;
+	width:30px;
+}
+
+/*----------- Question form - videos select ----------*/
 
 #scroll {
 	overflow: auto;
@@ -520,7 +496,6 @@ body .sublimevideo-zi .sublimevideo-uj {
 		
 /*--------------------------- video dropzone ------------------------*/
 
-
 #dropzone {
     height: auto;
     text-align: left;
@@ -528,8 +503,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 h3.video-upload {
 	margin: 0px;
-	color: #fff;
-	
+	color: #fff;	
 }
 #dropzone.fade, #smooth {
     -webkit-transition: all 0.5s ease-in-out;
@@ -637,7 +611,7 @@ body #header-search {
 #comment-textarea {
 	height: 70px;
 }
-.comment, .related {
+.comment {
 	height: auto;
 	padding: 12px 20px;;
 	border-bottom: 1px solid #ddd;
@@ -647,10 +621,10 @@ body #header-search {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 } 
-.comment:hover, .related:hover {
+.comment:hover {
 	background: #ddd;
 }
-.comment-info, .related-info {
+.comment-info {
 	width: auto;
 	margin-right:5px;
 	display:inline-block;
@@ -674,8 +648,46 @@ body #header-search {
 		color: #777;
 	}
 } 
+
+/* Related questions */
+
+.related {
+	height: auto;
+	padding: 5px 0 5px;
+	border-bottom: 1px solid #eee;
+	position:relative;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.related:hover {
+	background: #eee;
+}
+.related-info {
+	width: auto;
+	margin-right:5px;
+	display:inline-block;
+	vertical-align:top;
+	#no-correct-answer, .index-vote {
+		margin:0;
+	}
+}
+.related-questions {
+	margin: 0 0 10px;
+}
+#related {
+	width:100%;
+}
+.related:last-of-type {
+	margin-bottom: 20px;
+}
+.relatedh2 {
+	margin: 0px 0 5px;
+	font-family: "HelveticaNeue";
+	font-weight:300;
+}
 .related-content {
-	width: 80%;
+	width: 79%;
 	display:inline-block;
 	position:relative;
 	vertical-align:middle;
@@ -701,17 +713,7 @@ body #header-search {
 }
 .comments-area {
 }
-#related {
-	width:100%;
-}
-.related-title, .related-title a {
-}
-.relatedh2 {
-	margin: 0px 0 5px;
-	font-family: "HelveticaNeue";
-	font-weight:300;
-	
-}
+
 /*----- questions content font styles ------*/
 
 .question-content h1 {

@@ -1,49 +1,29 @@
-<%= content_for :head do %>
-	<title>
-	   <% if params[:tag] %>
-			<%= params[:tag] %>
-	   <% elsif params[:search] %>	
-			<%= params[:search] %>
-	   <% else %>
-			Welcome to Teebox
-	   <% end %>
-	</title>
-<% end %>
-
-<div id="tiny-push"></div>
-	
-	<% if params[:tag] %>
-		<%= render partial: "shared/tag_cloud", locals: {tags: @decorator.tags, decorator: @decorator }%>
-		<%= display_results(questions, params[:tag]) %>
-	<% elsif params[:search] %>
-		<%= display_results(questions, params[:search]) %>
-	<% end %><hr>
-	
-	<div class="row">
-		<% questions.each do |question| %>
-		<div class="span12">
-			<div class="question-image">
+<% questions.each do |question| %>
+	<div class="span12">
+		<div class="question-image">
 			<%= question.video ? (link_to image_tag(question.video.screenshot_url(:mini)), question) : (link_to image_tag("video_screen.jpg"), question) %>
-			</div>
-	
+		</div>
 		<div class="question-info">
 			<div class="index-title">
 				<%= link_to question.title.capitalize, question %>
 			</div>
-	
 			<div class="profile-info" id="index">
 				<div class="index-vote pull-left">
 					<%= question.votes_count  %>
 				</div>	
-		
 				<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
 					<%= question.answers_count %>
 				</div>
 				<%= profile_link_helper(question) %>
-				</div>
 			</div>
+		</div>
 		<hr>
 	</div>
-	<% end %>
-	<%= will_paginate questions %>
+<% end %>
+
+<%= will_paginate questions %>	
+
+<div id="loading">
+	<%= image_tag("spinner.gif", class: "loading") %>
+	Loading more questions...
 </div>

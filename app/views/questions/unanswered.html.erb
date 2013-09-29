@@ -1,9 +1,13 @@
 <%= content_for :head do %>
-<title>Unanswered Questions</title>
+	<title>Unanswered Questions</title>
 <% end %>
 
 <%= render template: "shared/teebox_banner" %>
 
 <%= render partial: "shared/nav_links", locals: {tags: @decorator.tags, decorator: @decorator} %>
 
-<%= render partial: "questions/questions", locals: {questions: @decorator.unanswered_questions}%>
+<div id="tiny-push"></div>
+
+<div class="row" id="questions-index">
+	<%= render partial: "questions/questions", locals: {questions: @decorator.unanswered_questions}%>
+</div>

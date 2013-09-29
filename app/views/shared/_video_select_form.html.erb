@@ -2,20 +2,20 @@
 	<div id="token">
     	<% current_user.videos.each do |video| %>
 	  		<div class="videos form" data-id="<%= video.id %>">
-				<div class="selected <%= question.video_id == video.id ? 'selected_video' : '' %>">
-					<i class="icon-ok-sign" id="ok-icon"></i>
-				</div>
-		
-				<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen.jpg" %>
-				<div id='<%= "#{video.id}_token" %>' class="selected-img">
-					<%= image_tag(screenshot) %>
-				</div>										
-														
-				<div class="video-title">
-					<%= File.basename(video.file).titleize %>
-				</div>	
-					uploaded <%= time_ago_in_words(video.created_at) %> ago																	
-	   			</div>
+			<div class="selected <%= question.video_id == video.id ? 'selected_video' : '' %>">
+				<i class="icon-ok-sign" id="ok-icon"></i>
+			</div>
+	
+			<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen.jpg" %>
+			<div id='<%= "#{video.id}_token" %>' class="selected-img">
+				<%= image_tag(screenshot) %>
+			</div>										
+													
+			<div class="video-title">
+				<%= File.basename(video.file).titleize %>
+			</div>	
+				uploaded <%= time_ago_in_words(video.created_at) %> ago																	
+   			</div>
     	<% end %>
 	</div>
 <% else %>
