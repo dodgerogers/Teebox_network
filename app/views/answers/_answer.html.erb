@@ -1,4 +1,4 @@
-<div id="answer_<%= answer.id %>">
+<div id="answer_<%= answer.id %>" class="answer-box">
 	<div class="answer">	
 		<div class="answer-content">
 			<a name='<%= "answer_#{answer.id}" %>'></a>
@@ -24,7 +24,11 @@
 													vote_path: method(:vote_answer_path) } %>
 			</div>
 			<%= profile_link_helper(answer) %>
-			<%= edit_delete_links(answer, {path: edit_answer_path(answer), edit_id: "edit-answer", delete_id: "delete-answer" }) %>
+											
+	<%= content_tag :div, class: "edit-destroy-links" do %>
+		<%= link_to " Edit", edit_answer_path(answer), id: "edit-answer", remote: true if can? :destroy, answer %>
+		<%= link_to " Delete ", answer, id: "delete-answer", remote: :true, method: :delete, confirm: "Are you sure" if can? :destroy, answer %>
+	<% end %>	
 		</div>
 	</div>
 	
@@ -35,4 +39,4 @@
 		<%= link_to "Add comment", "#", class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: answer} %>
 	</div>
-</div><hr>
+</div>

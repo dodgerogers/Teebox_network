@@ -8,9 +8,11 @@
 	<div class="comment-content">
 		<a name='<%= "comment_#{comment.id}" %>'></a>
 		<%= simple_format(clickable_links(comment.content)) %>
-		<small>Asked by <%= link_to comment.user.username.titleize, comment.user, id: "profile-username" %>
-		<%= time_ago_in_words(comment.created_at) %> ago.	
-		<%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if can? :destroy, comment %></small>
+		<small>
+			<%= link_to comment.user.username.titleize, comment.user, id: "profile-username" %>
+			<%= time_ago_in_words(comment.created_at) %> ago.	
+			<%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true if can? :destroy, comment %>
+		</small>
 	</div>
 </div>
 

@@ -629,7 +629,9 @@ body #header-search {
 #question-box {
 	position: relative;
 }
-
+.action_links, .profile, .edit-destroy-links {
+	display:inline;
+}
 
 /*-------------------- comments + related questions ----------------*/
 #comment-textarea {
@@ -796,6 +798,11 @@ body #header-search {
 }
 #answer_body_ifr {
 	height:200px!important;
+}
+.answer-box {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ededed;
+	margin-bottom: 10px;
 }
 .answer {
 	-moz-box-sizing: border-box;

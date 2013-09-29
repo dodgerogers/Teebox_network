@@ -9,7 +9,7 @@
 			<div class="video-container">
 				<%= @decorator.sublime_player %>
 			</div>	
-			<%= @decorator.youtube_player %>
+				<%= @decorator.youtube_player %>
 
 			<div class="question">
 				<h1><%= @decorator.title.titleize %></h1>
@@ -22,7 +22,11 @@
 			
 			<div class="form-area">
 			<div class="profile-info" id="question-profile-info">
-				<%= render partial: "votes/form", locals: { votes_count: "questions", id: @decorator.id, object: @decorator, vote_path: method(:vote_question_path) } %> 
+				<%= render partial: "votes/form", locals: { votes_count: "questions", 
+															id: @decorator.id, 
+															object: @decorator, 
+															vote_path: method(:vote_question_path) } %> 
+				
 				<%= profile_link_helper(@question) %>
 				<%= link_to "Edit", edit_question_path(@question) if can? :update, @question %>
 				<%= link_to "Delete", @question, method: :delete, confirm: "Are you sure?" if can? :destroy, @question %>
@@ -34,17 +38,18 @@
 		<div id="question_<%= @question.id %>">
 			<%= nested_comments(@question.comments.includes(:user)) %>
 		</div><br>
-			<%= link_to "Add comment", "#", class: "comment-button" %>
-			<%= render partial: "comments/form", locals: {commentable: @question} %>
+		<%= link_to "Add comment", "#", class: "comment-button" %>
+		<%= render partial: "comments/form", locals: {commentable: @question} %>
 	</div>
 	
 	<div id='answers-count'>
 		<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
 	</div>
-
-		<%= render template: "answers/index" %>
-		<a href="#" id="answer-button" class="default submit">Answer question</a><br>
-		<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
+	
+	<%= render template: "answers/index" %>
+	<a href="#" id="answer-button" class="default submit">Answer question</a><br>
+	<br><%= render partial: "answers/form", locals: { question_id: @question.id } %>
+	
 	</div>
 	<div class="span4">
 		<%= render partial: "shared/related_questions", locals: {questions: @decorator.related_questions } %>

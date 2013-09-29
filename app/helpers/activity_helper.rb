@@ -6,7 +6,11 @@ module ActivityHelper
   
   def get_activity_path(activity)
     if activity.trackable_type == "Comment"
-     activity.trackable.commentable_type == "Question" ? "#{url_for(activity.trackable.commentable)}#comment_#{activity.trackable.id}" : "#{url_for(activity.trackable.commentable.question)}#comment_#{activity.trackable.id}"
+      if activity.trackable.commentable_type == "Question"
+        "#{url_for(activity.trackable.commentable)}#comment_#{activity.trackable.id}" 
+      else
+        "#{url_for(activity.trackable.commentable.question)}#comment_#{activity.trackable.id}"
+      end
     elsif activity.trackable_type == "Answer"
       "#{url_for(activity.trackable.question)}#answer_#{activity.trackable.id}"
     else

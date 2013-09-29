@@ -1,20 +1,23 @@
 <%= content_for :head do %>
-	<title><% if params[:tag] %>
-		<%= "#{params[:tag]}" %>
-	<% elsif params[:search] %>	
-		<%= params[:search] %>
-	<% else %>
-		Welcome to Teebox
-	<% end %></title>
+	<title>
+	   <% if params[:tag] %>
+			<%= params[:tag] %>
+	   <% elsif params[:search] %>	
+			<%= params[:search] %>
+	   <% else %>
+			Welcome to Teebox
+	   <% end %>
+	</title>
 <% end %>
 
-
 <div id="tiny-push"></div>
+	
 	<% if params[:tag] %>
 		<%= render partial: "shared/tag_cloud", locals: {tags: @decorator.tags, decorator: @decorator }%>
-		<h2 class="zero-margin universe"><%= params[:tag] %></h2>
-		<%= pluralize(questions.size, "Question") %> found</h2><hr>
-	<% end %>		
+		<%= display_results(questions, params[:tag]) %>
+	<% elsif params[:search] %>
+		<%= display_results(questions, params[:search]) %>
+	<% end %><hr>
 	
 	<div class="row">
 		<% questions.each do |question| %>
@@ -26,20 +29,21 @@
 		<div class="question-info">
 			<div class="index-title">
 				<%= link_to question.title.capitalize, question %>
-		</div>
+			</div>
 	
-		<div class="profile-info" id="index">
-			<div class="index-vote pull-left">
-				<%= question.votes_count  %>
-			</div>	
+			<div class="profile-info" id="index">
+				<div class="index-vote pull-left">
+					<%= question.votes_count  %>
+				</div>	
 		
-			<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
-				<%= question.answers_count %>
+				<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
+					<%= question.answers_count %>
+				</div>
+				<%= profile_link_helper(question) %>
+				</div>
 			</div>
-			<%= profile_link_helper(question) %>
-			</div>
-		</div>
-	<hr></div>
+		<hr>
+	</div>
 	<% end %>
 	<%= will_paginate questions %>
 </div>

@@ -17,6 +17,7 @@ module VideoHelper
     @site_token = load_config("sublime.yml")["SITE"]["TOKEN"]
   end
   
+  #remove?
   def video_select(video)
    "var form = $('#question_video_id');
 	  var icon = $('.#{video.id}_icon');

@@ -15,15 +15,7 @@ describe ApplicationHelper do
     it "returns formatted html" do
       @answer = create(:answer, user: @user1)
       avatar_url = Digest::MD5.hexdigest(@user1.email.downcase)
-      helper.profile_link_helper(@answer).should eq "<a href=\"/users/#{@user1.to_param}\"><img alt=\"#{avatar_url.titleize}\" src=\"http://gravatar.com/avatar/#{avatar_url}.png?s=35&amp;d=identicon\" /></a><a href=\"/users/#{@user1.to_param}\" id=\"profile-reputation\">200</a><a href=\"/users/#{@user1.to_param}\" id=\"profile-username\">#{@user1.username.titleize}</a><br>Posted less than a minute ago".html_safe
-    end
-  end
-  
-  describe "edit_delete_link helper" do
-    it "returns formatted html" do
-      current_user = @user1
-      @answer = create(:answer, user: @user1)
-      helper.edit_delete_links(@answer, { path: edit_answer_path(@answer), delete_id: "delete-answer", edit_id: "edit-answer" }).should eq "<a href=\"/answers/1\" data-confirm=\"Are you sure\" data-method=\"delete\" data-remote=\"true\" id=\"delete-answer\" rel=\"nofollow\">Delete </a><a href=\"/answers/1/edit\" data-remote=\"true\" id=\"edit-answer\">Edit</a>".html_safe
+      helper.profile_link_helper(@answer).should eq "<div class=\"profile\"><a href=\"/users/#{@user1.to_param}\"><img alt=\"#{avatar_url.titleize}\" src=\"http://gravatar.com/avatar/#{avatar_url}.png?s=35&amp;d=identicon\" /></a><a href=\"/users/#{@user1.to_param}\" id=\"profile-reputation\">200</a><a href=\"/users/#{@user1.to_param}\" id=\"profile-username\">#{@user1.username.titleize}</a><br>Posted less than a minute ago</div>".html_safe
     end
   end
   
