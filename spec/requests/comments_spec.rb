@@ -4,11 +4,28 @@ include AnswerHelper
 include CommentHelper
 
 describe "Commments" do
-  it "creates a new comment" do
+  it "creates a new comment on a question" do
     visit root_path
     sign_in_user
     create_and_find_question
     create_comment
+  end
+  
+  it "creates a new comment on an answer" do
+    visit root_path
+    sign_in_user
+    create_and_find_question
+    create_answer
+    page.should have_selector("div", id: "question-answers")
+    within('#question-answers') do
+        fill_in "comment-textarea", with: "try a grip change"
+    end
+    within("#question-answers") do
+      expect {
+        click_button "Create comment"
+      }.to change(Comment, :count).by(1)
+    end
+    page.should have_content "try a grip change"
   end
   
   it "fails to create comment with invalid params" do

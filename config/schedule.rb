@@ -9,7 +9,7 @@ every :day, at: "11:30am" do
   rake "delete_capybara"
 end
 
-every 55.minutes do
+every :day, at: "02:00am" do
   rake "rank_users"
 end
 

@@ -7,6 +7,9 @@
 	.navbar .container {
 		max-width: 940px;
 	}
+	.comment-content {
+		width:83%;
+	}
 }
 @media (min-width: 768px) and (max-width: 979px) {
 	.navbar .container {
@@ -73,6 +76,9 @@
 	#no-padding {
 		padding-left: 5px;
 		padding-right: 5px;
+	}
+	.comment-content {
+		width:75%;
 	}
 }
 @media (min-width: 480px) and (max-width: 767px) {
@@ -162,6 +168,9 @@
 	.question-info {
 		width: 100%;
 	}
+	.comment-content {
+		width:75%;
+	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
 	body {
@@ -204,6 +213,7 @@
 		font-size: 15px;
 		width:100%;
 		margin: 0px;
+		font-weight: 500;
 	}
 	#index {
 		width:100%;
@@ -267,7 +277,10 @@
 	.profile-info {
 		width: 100%;
 	}
-	.comment-content, .related-content {
-		width: 75%;
+	.comment-content {
+		width: 70%;
+	}
+	.comment-grav {
+		display:none;
 	}
 }
