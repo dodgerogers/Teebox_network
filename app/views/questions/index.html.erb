@@ -34,3 +34,7 @@
 		<%= render partial: "questions/questions", locals: {questions: @decorator.newest_questions} %>
 	<% end %>
 </div>
+
+<div class="load-questions">
+	<%= link_to "Load more questions", '#', class: "default next" %>
+</div>

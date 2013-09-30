@@ -430,9 +430,19 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 /* js loading */
 
+.next_page, .previous_page {
+	display:none;
+}
 #loading {
 	display:none;
 	color: #ccc;
+	text-align:center;
+	padding: 5px 0;
+	background: #fff;
+}
+.load-questions {
+	text-align:center;
+	margin: 0 auto;
 }
 .loading {
 	height:30px;
@@ -566,6 +576,7 @@ body #header-search {
 .pagination .current {
     font-style: normal;
     background-color: $red;
+	border-radius: 50%;
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
