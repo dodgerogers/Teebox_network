@@ -25,14 +25,14 @@
 		border-radius: 0px;
 		margin: 5px 0px 2px;
 	}
-	.unread {
+	.navbar .unread {
 		background: $blackhole!important;
 	}
 	#notifications-area {
 		width:100%;
 		margin: 0 0 2px;
 	}
-	#notification:last-of-type {
+	.navbar #notification:last-of-type {
 		border-bottom: 1px solid $midnight;
 	}
 	.nav-collapse .nav > li {
@@ -98,14 +98,14 @@
 		border-radius: 0px;
 		margin: 5px 0px 2px;
 	}
-	.unread {
+	.navbar .unread {
 		background: $blackhole!important;
 	}
 	#notifications-area {
 		width:100%;
 		margin: 0 0 2px;
 	}
-	#notification:last-of-type {
+	.navbar #notification:last-of-type {
 		border-bottom: 1px solid $midnight;
 	}
 	.padded {
@@ -193,14 +193,14 @@
 		border-radius: 0px;
 		margin: 5px 0px 2px;
 	}
-	.unread {
+	.navbar .unread {
 		background: $blackhole!important;
 	}
 	#notifications-area {
 		width:100%;
 		margin: 0 0 2px;
 	}
-	#notification:last-of-type {
+	.navbar #notification:last-of-type {
 		border-bottom: 1px solid $midnight;
 	}
 	.padded {

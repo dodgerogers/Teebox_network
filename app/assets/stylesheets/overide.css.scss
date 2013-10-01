@@ -74,6 +74,9 @@
 .dropdown .dropdown-menu .nav-header {
 	color: $teal;
 }
+.dropdown-backdrop {
+    position: static;
+}
 .navbar .btn-navbar {
 	background:$ocean ;
 }
@@ -90,6 +93,9 @@
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
+}
+.dropdown-menu {
+	padding: 0px;
 }
 .navbar .btn-navbar {
 	background: $midnight;

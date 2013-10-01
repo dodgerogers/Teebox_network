@@ -14,39 +14,39 @@
 			  <%= form_tag questions_path, method: "get", class: "form-control navbar-form pull-left" do %>
 					<%= text_field_tag :search, params[:search], placeholder: "Search" %>
 			  <% end %>
-		<% if user_signed_in? %>
-		<li class="dropdown">
-			<a id="notifications" href="#" class="dropdown-toggle <%= number_of_activities(current_user) > 0 ? 'new-notifications' : '' %>" data-toggle="dropdown" title="Notifications">
-			<div class="notifications-count large" id="">
-				<%= number_of_activities(current_user) %>
-			</div>
-			</a>
-			<ul class="dropdown-menu span6" id="notifications-area">
-				
-			</ul>
-		</li>
-		<li>
-			<%= link_to current_user do %>
-				<div id="current-user-rep"><%= number_to_human(current_user.reputation) %></div>
-      			<div id="current-user"><%= current_user.username.titleize %></div>
-			<% end %>
-		</li>
+			<% if user_signed_in? %>
+				<li class="dropdown">
+					<a id="notifications" href="#" class="<%= number_of_activities(current_user) > 0 ? 'new-notifications' : '' %>" title="Notifications">
+						<div class="notifications-count large" id="">
+							<%= number_of_activities(current_user) %>
+						</div>
+					</a>
+					<ul class="dropdown-menu span6" id="notifications-area">
+					</ul>
+				</li>
+				<li>
+					<%= link_to current_user do %>
+						<div id="current-user-rep"><%= number_to_human(current_user.reputation) %></div>
+		      			<div id="current-user"><%= current_user.username.titleize %></div>
+					<% end %>
+				</li>
 			
-		<li class="dropdown">
-			<a href="#" class="dropdown-toggle cog" data-toggle="dropdown">
-				<i class="icon-cog large"></i>
-			</a>
-			<ul class="dropdown-menu">
-				<li class="nav-header">My Account</li>
-				<li class="divider"></li>
-				<li><%= link_to raw("<i class='icon-cog'></i> Edit Profile"), edit_user_registration_path %></li>
-				<li><%= link_to raw("<i class='icon-off'></i> Logout"), destroy_user_session_path, method: :delete %></li>
-				<li><%= link_to raw("<i class='icon-signal'></i> Reports"), reports_path if can? :read, Report %></li>
-			</ul></li>
-		<% else %>
-		 	<li><%= link_to "Sign up", new_user_registration_path %></li>
-			<li><%= link_to "Login", new_user_session_path %></li>
-		<% end %>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle cog" data-toggle="dropdown">
+						<i class="icon-cog large"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li class="nav-header">My Account</li>
+						<li class="divider"></li>
+						<li><%= link_to raw("<i class='icon-cog'></i> Edit Profile"), edit_user_registration_path %></li>
+						<li><%= link_to raw("<i class='icon-off'></i> Logout"), destroy_user_session_path, method: :delete %></li>
+						<li><%= link_to raw("<i class='icon-signal'></i> Reports"), reports_path if can? :read, Report %></li>
+					</ul>
+				</li>
+			<% else %>
+		 		<li><%= link_to "Sign up", new_user_registration_path %></li>
+				<li><%= link_to "Login", new_user_session_path %></li>
+			<% end %>
 		</div>
        </ul>
 	</div>
