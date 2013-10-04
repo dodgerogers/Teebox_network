@@ -1,0 +1,155 @@
+@import "variables.css.scss";
+
+body .blue-fuzz {
+	background: url(footer.png);
+	color: #fff;
+	a, label {
+		opacity: 1.0;
+		color: #fff;
+	}
+	.btn {
+		color: #333;
+	}
+}
+body .dark-fuzz {
+	background: url(dark-footer.jpg);
+	color: #fff;
+	a, label {
+		opacity: 1.0;
+		color: #fff;
+	}
+	.btn {
+		color: #333;
+	}
+}
+body .blue-transparent {
+	background: $universe;
+	opacity: 0.95;
+	color: #fff;
+	a, label {
+		opacity: 1.0;
+		color: #fff;
+	}
+	.btn {
+		color: #333;
+	}
+}
+body .transparent {
+	background: transparent;
+	padding: 30px;
+}
+
+/* full page backgrounds */
+
+.sebonak-xl {
+	background: url(backgrounds/sebonak-large.jpg);	  
+}
+.beach-xl {
+	background: url(backgrounds/teebox-beach-xl.jpg);
+}
+.banff-xl {
+	background: url(backgrounds/banff-l.jpg);
+}
+.teebox-xl {
+	background: url(backgrounds/teebox-landscape-xl.jpg);
+}
+.kauri-xl {
+	background: url(backgrounds/teebox-kauri.png);
+}
+.sebonak-cutout {
+	background: url(backgrounds/sebonak-cutout.jpg);
+}
+/* <!-- full page backgrounds --> */
+	
+body .forest {	
+	background: url(backgrounds/teebox-landscape-tall.png);
+	color: #fff;
+	background-position: center bottom;
+}
+body .forest-cutout {
+	background: url(backgrounds/forest-cutout.jpg);
+	color: #fff;
+	background-position: center bottom;
+}
+body .banff {
+	background: url(backgrounds/banff-l.jpg);
+	color: #fff;
+	background-position: center 73%;
+}
+body .banff-cutout {
+	background: url(backgrounds/banff-cutout.jpg);
+	color: #fff;
+	background-position: center 73%;
+}
+body .sky {
+	background: url(backgrounds/teebox-landscape-tall.png);
+	color: #fff;
+	background-position: center center;	
+}
+body .kauri {
+	background: url(backgrounds/teebox-kauri.png);
+	color: #fff;
+	background-position: center 70%;	
+}
+body .beach {
+	background: url(backgrounds/teebox-beach.png);
+	color: #fff;
+	background-position: center 92%;
+}
+body .crest-cutout {
+	background: url(backgrounds/crest-cutout.jpg);
+	color: #fff;
+	background-position: center 60%;
+}
+body .ocean {
+	background: url(backgrounds/teebox-ocean.png);
+	color: #fff;
+	background-position: center 70%;	
+}
+body .ocean-cutout {
+	background: url(backgrounds/ocean-cutout.jpg);
+	color: #fff;
+	background-position: center 55%;
+}
+body .sebonak {
+	background: url(backgrounds/sebonak-large.jpg);
+	color: #fff;
+	background-position: center 63%;	
+}
+body .sebonak-cutout-mini {
+	background: url(backgrounds/sebonak-cutout-mini.jpg);
+	color: #fff;
+	background-position: center 55%;	
+}
+body .heath {
+	background: url(backgrounds/Heath.jpg);
+	color: #fff;
+	background-position: 2% 45%;	
+}
+body .heath-cutout {
+	background: url(backgrounds/heath-cutout.jpg);
+	color: #fff;
+	background-position: 2% 35%;
+}
+.blue {
+	background: $sky;
+	color: #fff;
+}
+.grey {
+	background: #dedede;
+}
+.sky a, .beach a, .ocean a, .kauri a {
+	color: #fff;
+}
+.sky label, .beach label, .ocean label {
+}
+.red-border {
+	border: 1px solid $red;
+	outline: 2px solid $red;
+	outline-offset: -10px;
+}
+.stitched {
+	border: 1px solid $universe;
+	outline: 2px dashed $red;
+	outline-offset: -10px;
+}

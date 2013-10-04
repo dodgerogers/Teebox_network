@@ -804,7 +804,8 @@ body #header-search {
 	background: $dark-red;
 }
 .direct-upload {
-	display:inline;
+	display:inline-block;
+	vertical-align: top;
 } 
 .lineheight {
 	line-height: 30px;
