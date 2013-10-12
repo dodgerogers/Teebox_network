@@ -42,9 +42,9 @@
 			<li>
 	        <div class="ch-item ch-img-1">
 	            <div class="ch-info">
-	               <h3>Another stat</h3>
+	               <h3>Member Since</h3>
 	            </div>
-				<h1><%= number_to_human(rand(1..20000)) %></h1>
+				<h1><%= decorator.created_at.strftime('%m/%y') %></h1>
 	        </div>
 	    	</li>
 		</ul>

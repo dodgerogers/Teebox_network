@@ -10,11 +10,8 @@
 		<div class="span5">
 		  <center>	
 			<h4>Got a hitch in your swing?<br>Anyone can ask. Anyone can answer.<br> Everyone can progress</h4>
-			<% if current_user %>
-				<%= link_to "Find out more", info_path, class: "default next"%>
-			<% else %>
-				<%= link_to "Find out more", info_path, class: "default next"%>
-			<% end %>
+				<%= link_to "Sign Up", new_user_registration_path, class: "default next" unless current_user %>
+				<%= link_to "Find out more", info_path, class: "default asphalt"%>
 		  </center>
 		</div>
 		<div class="span2">

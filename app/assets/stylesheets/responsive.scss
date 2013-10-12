@@ -80,6 +80,9 @@
 	.comment-content {
 		width:75%;
 	}
+	.container .semi {
+		width:100%;
+	}
 }
 @media (min-width: 480px) and (max-width: 767px) {
 	body {
@@ -170,6 +173,9 @@
 	}
 	.comment-content {
 		width:75%;
+	}
+	.container .semi {
+		width:100%;
 	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
@@ -282,5 +288,8 @@
 	}
 	.comment-grav {
 		display:none;
+	}
+	.container .semi {
+		width:100%;
 	}
 }

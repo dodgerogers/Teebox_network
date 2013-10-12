@@ -1,28 +1,36 @@
-<div class="hero-unit sebonak">
+<%= content_for :head do %>
+	<title>Welcome <%= @user.username.titleize %></title>
+<% end %>
+
+<div class="hero-unit sandy-hills">
 	<center>
-		<h1 class="welcome-banner" id="welcome-h1">
-			Welcome to Teebox
+		<h1 class="welcome-banner">
+			Welcome to Teebox<br><%= @user.username %>
 		</h1><br>
-		<%= link_to user_path(@user) do %>
-		<h1 class="lobster welcome-red">
-			<%= @user.username %>
-		</h1>
-		<% end %>	
 	</center>
-</div>
-<div class="hero-unit sky"><center>
-	<%= link_to root_path do %>
-		<h1 class="lobster welcome-white">
-			Golf guru? Help some folks out
-		</h1>
-	<% end %>
-	or
-	<center>
-	<%= link_to videos_path do %>
-		<h1 class="lobster welcome-red">
-			Ask a question
-		</h1>
-	<% end %>
-	Still can't hit the pacific from the beach?
-	</center>
+	<div class="row">
+		<div class="span5 semi">
+			<div class="well blue-transparent">
+				<h3 class="welcome-white">Need Some tips?</h3>
+				<p>Upload a video and ask your question to get your game back on track.<br>
+					Or find an answer to your problems in our most popular questions</p><br>
+				<%= link_to "Popular Questions", highest_votes_path, class: "default next" %>
+				<%= link_to "Ask a question", videos_path, class: "default success" %>
+			</div>
+		</div>
+		<div class="span5 semi">
+			<div class="well blue-transparent">
+				<h3 class="welcome-white">Golfing Guru?</h3>	
+				<p>Here are some golfers who need your help<p>
+				<!-- move out to partial -->
+				<ul>
+				<% Question.all[-2..-1].each do |q| %>
+					<li><%= link_to q.title, q %></li>
+				<% end %>
+				</ul>
+				<%= link_to 'View unanswered questions', unanswered_path, class: "default asphalt" %>	
+				<!-- questions -->	
+			</div>
+		</div>
+	</div>	
 </div>

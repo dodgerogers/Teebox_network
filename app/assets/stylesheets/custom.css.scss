@@ -121,6 +121,7 @@ green, green a {
 red, red a {
 	color: $red;
 }
+
 .green-bg, tr.green-bg td {
 	background:$green!important;
 	color: #fff;
@@ -165,6 +166,9 @@ red, red a {
 	       -o-transition: all 1s ease;
 	      -ms-transition: all 1s ease;
 	          transition: all 1s ease;
+}
+.info-logo {
+	border-bottom: 1px solid #fff;
 }
 .banner-text {
 	display:inline-block;
@@ -802,6 +806,12 @@ body #header-search {
 }
 .next:hover {
 	background: $dark-red;
+}
+.universe {
+	background: $universe;
+}
+.universe:hover {
+	background: $blackhole;
 }
 .direct-upload {
 	display:inline-block;

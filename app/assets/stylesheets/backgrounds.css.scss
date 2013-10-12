@@ -11,21 +11,11 @@ body .blue-fuzz {
 		color: #333;
 	}
 }
-body .dark-fuzz {
-	background: url(dark-footer.jpg);
-	color: #fff;
-	a, label {
-		opacity: 1.0;
-		color: #fff;
-	}
-	.btn {
-		color: #333;
-	}
-}
 body .blue-transparent {
 	background: $universe;
 	opacity: 0.95;
 	color: #fff;
+	border: none!important;
 	a, label {
 		opacity: 1.0;
 		color: #fff;
@@ -44,20 +34,20 @@ body .transparent {
 .sebonak-xl {
 	background: url(backgrounds/sebonak-large.jpg);	  
 }
-.beach-xl {
-	background: url(backgrounds/teebox-beach-xl.jpg);
-}
 .banff-xl {
 	background: url(backgrounds/banff-l.jpg);
 }
 .teebox-xl {
 	background: url(backgrounds/teebox-landscape-xl.jpg);
 }
-.kauri-xl {
-	background: url(backgrounds/teebox-kauri.png);
-}
 .sebonak-cutout {
 	background: url(backgrounds/sebonak-cutout.jpg);
+}
+.bally-bunion-xl {
+	background: url(backgrounds/bally-bunion.jpg);
+}
+.sandy-hills-xl {
+	background: url(backgrounds/sandy-hills-cutout.jpg);
 }
 /* <!-- full page backgrounds --> */
 	
@@ -79,32 +69,17 @@ body .banff {
 body .banff-cutout {
 	background: url(backgrounds/banff-cutout.jpg);
 	color: #fff;
-	background-position: center 73%;
+	background-position: center 50%;
+}
+body .bally-bunion {
+	background: url(backgrounds/bally-bunion.jpg);
+	color: #fff;
+	background-position: center center;
 }
 body .sky {
 	background: url(backgrounds/teebox-landscape-tall.png);
 	color: #fff;
 	background-position: center center;	
-}
-body .kauri {
-	background: url(backgrounds/teebox-kauri.png);
-	color: #fff;
-	background-position: center 70%;	
-}
-body .beach {
-	background: url(backgrounds/teebox-beach.png);
-	color: #fff;
-	background-position: center 92%;
-}
-body .crest-cutout {
-	background: url(backgrounds/crest-cutout.jpg);
-	color: #fff;
-	background-position: center 60%;
-}
-body .ocean {
-	background: url(backgrounds/teebox-ocean.png);
-	color: #fff;
-	background-position: center 70%;	
 }
 body .ocean-cutout {
 	background: url(backgrounds/ocean-cutout.jpg);
@@ -121,7 +96,7 @@ body .sebonak-cutout-mini {
 	color: #fff;
 	background-position: center 55%;	
 }
-.sandy-hills {
+body .sandy-hills {
 	background: url(backgrounds/sandy-hills-cutout.jpg);
 	color: #fff;
 	background-position: center 52%;

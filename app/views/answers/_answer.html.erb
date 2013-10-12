@@ -11,7 +11,8 @@
 					<%= link_to raw("<i class='icon-ok-sign'></i>"), correct_answer_path(answer), 
 															 id: "tick", class: "correct_#{answer.id}", 
 															 remote: true, 
-														     method: :put %>
+														     method: :put,
+															 title: "Did this help you? Mark it as correct" %>
 				<% else %>
 					<% if answer.correct == true %>
 						<div id="tick", class='correct_<% answer.id %>'><i class="icon-ok-sign"></i></div>

@@ -1,66 +1,15 @@
 <%= content_for :head do %>
 	<title>Find out more</title>
-	<%= javascript_include_tag "modernizr.custom.js","classie.js", "cbpScroller.js" %>
 <% end %>
 
-<center><%= image_tag "old-school-logo.png" %></center>
-<div id="cbp-so-scroller" class="cbp-so-scroller">
-	<section class="cbp-so-section">
-		<article class="cbp-so-side cbp-so-side-left">
-			<h2>Welcome to Teebox</h2>
-		</article>
-		<figure class="cbp-so-side cbp-so-side-right">
-			<p>Teebox is a site where golfers help each other out with their game by asking and answering questions. Anyone can post a question and get tips, and anyone can answer. You get points for providing helpful objective answers and comments as well as asking well written questions which help others.</p>
-		</figure>
-	</section>
-	<section class="cbp-so-section">
-		<figure class="cbp-so-side cbp-so-side-left">
-		<h2>image</h2>
-		</figure>
-		<article class="cbp-so-side cbp-so-side-right">
-			<h2>Get your answer&nbsp;<i class="icon-ok-sign"></i></h2>
-			<p>All you have to do is upload a video or your swing, chipping action or putting stroke, add a title so people know what you're talking about, add tags to categorize and then ask your question. </p>
-		</article>
-	</section>
-	<section class="cbp-so-section">
-		<article class="cbp-so-side cbp-so-side-left">
-			<h2>Marzipan gingerbread</h2>
-			<p>Soufflé bonbon jelly cotton candy liquorice dessert jelly bear claw candy canes. Pudding halvah bonbon marzipan powder. Marzipan gingerbread sweet jelly.</p>
-		</article>
-		<figure class="cbp-so-side cbp-so-side-right">
-			<h2>We only want to help</h2>
-		</figure>
-	</section>
-	<section class="cbp-so-section">
-		<figure class="cbp-so-side cbp-so-side-left">
-		<h2>Only a buck a month you cheapskate</h2>
-		</figure>
-		<article class="cbp-so-side cbp-so-side-right">
-			<h2>Carrot cake</h2>
-			<p>Sesame snaps sweet wafer danish. Chupa chups carrot cake icing donut halvah bonbon. Chocolate cake candy marshmallow pudding dessert marzipan jujubes sugar plum.</p>
-		</article>
-	</section>
-	<section class="cbp-so-section">
-		<article class="cbp-so-side cbp-so-side-left">
-			<h2>Pudding lollipop</h2>
-			<p>Chupa chups pudding lollipop gummi bears gummies cupcake pie. Cookie cotton candy caramels. Oat cake dessert applicake. Sweet roll tiramisu sweet roll sweet roll.</p>
-		</article>
-		<figure class="cbp-so-side cbp-so-side-right">
-			<h2>No more ideas</h2>
-		</figure>
-	</section>
-	<section class="cbp-so-section">
-		<figure class="cbp-so-side cbp-so-side-left">
-		<h2>Some more motivational text yeah!</h2>
-		</figure>
-		<article class="cbp-so-side cbp-so-side-right">
-			<h2>Soufflé bonbon</h2>
-			<p>Does your swing need some polishing? Go ask a questions and get your answer. Already a pro or got some invaluable advice for your reverse pivot? Go find some people to help.</p>
-		</article>
-	</section>
+<div class="hero-unit forest-cutout">
+	<center>
+		<%= image_tag "old-school-logo.png" %><br>
+	</center>
+		<ul>
+		<li>Teebox is a question and answer site for golfers of all abilities.</li> 
+		<li>You can either ask a question to get help with your swing or answer questions.</li>
+		<li></li>
+		</ul>
 </div>
 
-
-<%= javascript_tag do %>
-new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
-<% end %>
