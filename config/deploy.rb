@@ -1,9 +1,8 @@
-require "rvm/capistrano"
+require "bundler/capistrano"
 
-set :stages, %w[staging production]
-set :default_stage, 'production'
-
-server "162.243.40.138", :web, :app, :db, primary: true
+set :stages, %w(staging production)
+set :default_stage, "production"
+require "capistrano/ext/multistage"
 
 set :application, "Teebox_network"
 set :user, "andrew"

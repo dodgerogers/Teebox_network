@@ -55,7 +55,6 @@ gem "faker"
 gem "pg_search"
 gem 'obscenity'
 gem "capistrano"
-gem "rvm-capistrano"
 gem "unicorn"
 
 # To use ActiveModel has_secure_password

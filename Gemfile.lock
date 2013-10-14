@@ -217,8 +217,6 @@ GEM
       rspec (~> 2.9.0)
     ruby-hmac (0.4.0)
     rubyzip (0.9.9)
-    rvm-capistrano (1.5.0)
-      capistrano (>= 2.15.4)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -311,7 +309,6 @@ DEPENDENCIES
   rack (= 1.4.1)
   rails (= 3.2.3)
   rspec-rails (= 2.9.0)
-  rvm-capistrano
   sass-rails (~> 3.2.3)
   shoulda-matchers
   simplecov
