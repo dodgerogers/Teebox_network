@@ -1,4 +1,3 @@
-require "bundler/capistrano"
 require "rvm/capistrano"
 
 set :stages, %w[staging production]
