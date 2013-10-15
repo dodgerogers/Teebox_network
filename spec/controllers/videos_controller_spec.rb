@@ -6,7 +6,7 @@ describe VideosController do
     @user = create(:user)
     @user.confirm!
     sign_in @user
-    @video = create(:video, user_id: @user)
+    @video = create(:video, user_id: @user.id)
     controller.stub!(:current_user).and_return(@user)
     Video.any_instance.stub(:take_screenshot).and_return(true)
   end

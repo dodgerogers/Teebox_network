@@ -3,6 +3,7 @@ TeeboxNetwork::Application.routes.draw do
   devise_for :users, controllers: { confirmations: "confirmations" }, path_names: { sign_in: "login", sign_out: "logout" }
   resources :users, only: [:show, :index]
   resources :signed_urls, only: :index
+  
   root to: "questions#index"
   
   get "tagged/:tag", to: "questions#index", as: :tagged
@@ -41,6 +42,7 @@ TeeboxNetwork::Application.routes.draw do
       get 'notifications'
     end
   end
+  
   resources :reports, only: [:index, :new, :create, :destroy] do
     collection do
       get "stats"

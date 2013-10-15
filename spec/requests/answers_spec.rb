@@ -37,10 +37,10 @@ describe "Answers" do
   it "edits the answer successfullly with valid params" do
     visit root_path
      sign_in_user
-     question = FactoryGirl.create(:question)
+     question = create(:question)
      visit questions_path
      visit question_path(question)
-     answer = FactoryGirl.create(:answer)
+     answer = create(:answer, question_id: question.id)
      visit question_path(question)
      page.should have_content answer.body
      page.should have_selector("a", id: "edit-answer")

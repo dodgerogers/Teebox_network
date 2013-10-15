@@ -11,7 +11,7 @@ describe AnswersController do
     sign_in @user1
     sign_in @user2
     @question = create(:question, user: @user2)
-    @answer = create(:answer, user: @user1)
+    @answer = create(:answer, user: @user1, question_id: @question.id)
     @vote = attributes_for(:vote, votable_id: @answer, user_id: @user2)
     controller.stub!(:current_user).and_return(@user1)
     stub_model_methods 
@@ -51,21 +51,21 @@ describe AnswersController do
     #end
     
     it "assigns the requested question as @answer" do
-      @answer = create(:answer, body: "weaken your grip")
+      @answer = create(:answer, body: "weaken your grip", question_id: @question.id)
       put :update, id: @answer, answer: attributes_for(:answer)
       assigns(:answer).should eq(@answer)
     end
     
     describe "with valid params" do
       it "updates the requested answer" do
-        @answer = create(:answer, body: "weaken your grip")
+        @answer = create(:answer, body: "weaken your grip", question_id: @question.id)
         put :update, id: @answer, answer: attributes_for(:answer, body: "close your stance")
         @answer.reload
         @answer.body.should eq("close your stance")
       end
 
       it "redirects to the post" do
-        @answer = create(:answer, body: "weaken your grip")
+        @answer = create(:answer, body: "weaken your grip", question_id: @question.id)
         put :update, id: @answer, answer: attributes_for(:answer, body: "close your stance")
         @answer.reload
         response.should redirect_to :back
@@ -74,7 +74,7 @@ describe AnswersController do
 
     describe "with invalid params" do
       it "doesn not change @answer attributes" do
-        @answer = create(:answer, body: "weaken your grip")
+        @answer = create(:answer, body: "weaken your grip", question_id: @question.id)
         put :update, id: @answer, answer: attributes_for(:answer, body: ""), format: "js"
         @answer.reload
         @answer.body.should_not eq("")
@@ -83,7 +83,7 @@ describe AnswersController do
     
     describe "an answer as correct" do
       it "successfully updates" do
-        @answer = create(:answer, body: "weaken your grip")
+        @answer = create(:answer, body: "weaken your grip", question_id: @question.id)
         put :correct, id: @answer, answer: @answer, format: "js"
         @answer.reload
         @answer.correct.should eq(true)
@@ -94,7 +94,7 @@ describe AnswersController do
     describe "Destroy vote" do
     it "destroys the requested answer" do
       @question = create(:question, user: @user1)
-      @answer = create(:answer, user: @user2)
+      @answer = create(:answer, user: @user2, question_id: @question.id)
       expect {
         delete :destroy, id: @answer
       }.to change(Answer, :count).by(-1)

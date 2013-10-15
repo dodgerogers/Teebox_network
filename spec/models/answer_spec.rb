@@ -3,7 +3,8 @@ require "spec_helper"
 describe Answer do  
   before(:each) do
     @user1 = create(:user)
-    @answer = create(:answer, correct: true, user_id: @user1.id, body: "i hook the ball with a weak grip")
+    @question = create(:question, user: @user1)
+    @answer = create(:answer, correct: true, user: @user1, body: "i hook the ball with a weak grip", question_id: @question.id)
   end
   
   subject { @answer }
@@ -57,9 +58,9 @@ describe Answer do
         @user2 = create(:user)
         @user3 = create(:user)
         @user4 = create(:user)
-        a1 = create(:answer, user: @user2, correct: false, body: "your grip is too strong", votes_count: 3) 
-        a2 = create(:answer, user: @user3, correct: false, body: "your weight shift is incorrect", votes_count: 2) 
-        a3 = create(:answer, user: @user4, correct: false, body: "stop moving your head", votes_count: 1) 
+        a1 = create(:answer, user: @user2, correct: false, body: "your grip is too strong", votes_count: 3, question_id: @question.id) 
+        a2 = create(:answer, user: @user3, correct: false, body: "your weight shift is incorrect", votes_count: 2, question_id: @question.id) 
+        a3 = create(:answer, user: @user4, correct: false, body: "stop moving your head", votes_count: 1, question_id: @question.id) 
         a4 = @answer
         Answer.by_votes.should == [a1, a2, a3, a4] 
     end

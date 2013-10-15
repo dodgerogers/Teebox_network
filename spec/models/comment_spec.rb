@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe Comment do
   before(:each) do
-    @comment = FactoryGirl.create(:comment)
+    @user1 = create(:user)
+    @question = create(:question, user: @user1)
+    @comment = FactoryGirl.create(:comment, commentable_id: @question.id)
   end
   
   subject { @comment }

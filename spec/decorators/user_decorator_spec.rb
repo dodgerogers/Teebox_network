@@ -7,9 +7,9 @@ describe UserDecorator do
     sign_in @user1
     @decorator = UserDecorator.new(@user1)
     @decorator.stub!(:current_user).and_return(@user1)
-    @answer = create(:answer, user: @user1)
-    @comment = create(:comment, user: @user1)
     @question = create(:question, user: @user1)
+    @answer = create(:answer, user: @user1, question_id: @question.id)
+    @comment = create(:comment, user: @user1, commentable_id: @question.id)
   end
   
   describe "change_picture" do

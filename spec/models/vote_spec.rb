@@ -4,8 +4,9 @@ describe Vote do
   before(:each) do
     @user2 = create(:user)
     @user = create(:user)
-    @answer = create(:answer, user: @user)
-    @vote = create(:vote, user: @user2)
+    @question = create(:question, user: @user2)
+    @answer = create(:answer, user: @user, question_id: @question.id)
+    @vote = create(:vote, user: @user2, votable_id: @answer.id)
   end
   
   subject { @vote }

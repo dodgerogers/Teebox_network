@@ -14,7 +14,7 @@ describe QuestionHelper do
       helper.stub!(:total_entires).and_return(:size)
       @questions = create(:question, user: @user1)
       #paginate questions for total_entries method
-      helper.display_results([@questions].paginate, "tag").should eq "<h2 class=\"zero-margin universe\">tag</h2><div>1 Question found</div>"
+      helper.display_results([@questions].paginate, "tag").should eq "<h2 class=\"zero-margin\">tag</h2><div>1 Question found</div>"
     end
   end
 end

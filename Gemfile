@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
-gem 'rack', '1.4.1'
+gem 'rails', '3.2.14'
+gem 'rack', '1.4.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,8 +24,8 @@ group :test do
 end
 
 group :assets do
-  gem 'twitter-bootstrap-rails'
-  gem "less-rails" 
+  gem "twitter-bootstrap-rails"
+  gem "less-rails"
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
@@ -54,8 +54,8 @@ gem "populator"
 gem "faker"
 gem "pg_search"
 gem 'obscenity'
-gem "capistrano"
 gem "unicorn"
+gem "capistrano", "~> 2.15.5"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

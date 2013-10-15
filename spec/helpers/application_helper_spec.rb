@@ -9,11 +9,12 @@ describe ApplicationHelper do
     @user2.confirm!
     sign_in @user1
     sign_in @user2
+    @question = create(:question, user: @user1)
   end
   
   describe "profile_link_helper" do
     it "returns formatted html" do
-      @answer = create(:answer, user: @user1)
+      @answer = create(:answer, user: @user1, question_id: @question.id)
       avatar_url = Digest::MD5.hexdigest(@user1.email.downcase)
       helper.profile_link_helper(@answer).should eq "<div class=\"profile\"><a href=\"/users/#{@user1.to_param}\"><img alt=\"#{avatar_url.titleize}\" src=\"http://gravatar.com/avatar/#{avatar_url}.png?s=35&amp;d=identicon\" /></a><a href=\"/users/#{@user1.to_param}\" id=\"profile-reputation\">200</a><a href=\"/users/#{@user1.to_param}\" id=\"profile-username\">#{@user1.username.titleize}</a><br>Posted less than a minute ago</div>".html_safe
     end

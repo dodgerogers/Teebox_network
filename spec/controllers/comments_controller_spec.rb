@@ -11,7 +11,7 @@ describe CommentsController do
     sign_in @user
     sign_in @user2
     @commentable = create(:question, id: 1, title: "slicing the ball", body: "the ball cuts")
-    @comment = create(:comment, user_id: @user.id)
+    @comment = create(:comment, user_id: @user.id, commentable_id: @commentable.id)
     @vote = attributes_for(:vote, votable_id: @comment, user_id: @user2)
     controller.stub!(:current_user).and_return(@user)
     @request.env['HTTP_REFERER'] = "http://test.host/questions/#{@commentable.id}"
@@ -62,7 +62,7 @@ describe CommentsController do
     
   describe "DELETE destroy" do
     before(:each) do
-      @comment = create(:comment)
+      @comment = create(:comment, commentable_id: @commentable.id)
   end
 
     it "destroys the requested comment" do
