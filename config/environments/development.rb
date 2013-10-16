@@ -22,8 +22,8 @@ TeeboxNetwork::Application.configure do
    :address => "smtp.gmail.com",
    :port => 587,
    :domain => "gmail.com",
-   :user_name => "andrewcmagics@gmail.com",
-   :password => "azonic12",
+   :user_name => ENV["EMAIL_USERNAME"],
+   :password => ENV["EMAIL_PASSWORD"],
    :authentication => "plain",
    :enable_starttls_auto => true
   }
@@ -46,13 +46,4 @@ TeeboxNetwork::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
-
-  #AWS
-  ENV['S3_BUCKET'] = 'teebox-network'
-  ENV['AWS_SECRET_KEY_ID'] = 'VGCeJnocdXKOV4vAXTb497nW8HTXdn606PqCBMR2'
-  ENV['AWS_ACCESS_KEY_ID'] = 'AKIAJ37ROJEVQS6AEO4A'
-  
-  #FFMPEG location
-  ENV["FFMPEG_LOCATION"] = "/usr/local/bin/ffmpeg"
 end
