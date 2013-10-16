@@ -1,6 +1,6 @@
 require 'active_support/concern'
 
-module Commentable
+module Teebox::Commentable
   extend ActiveSupport::Concern
 
   included do
