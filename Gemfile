@@ -34,7 +34,7 @@ group :assets do
   gem "font-awesome-rails"
 end
 
-gem 'devise'
+gem 'devise', "~> 2.2.7"
 gem 'jquery-rails'
 gem 'therubyracer'
 gem 'carrierwave'
