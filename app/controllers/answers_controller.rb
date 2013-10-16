@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show]
   load_and_authorize_resource
-  require 'Teebox/commentable'
+  require 'teebox/commentable'
   include Teebox::Commentable
   
   def create

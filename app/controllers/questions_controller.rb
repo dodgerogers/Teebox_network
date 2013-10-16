@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_filter :index, only: [:unanswered, :highest_votes]
   load_and_authorize_resource except: [:index, :show]
   caches_page :index
-  require 'Teebox/commentable'
+  require 'teebox/commentable'
   include Teebox::Commentable
   
   def new
