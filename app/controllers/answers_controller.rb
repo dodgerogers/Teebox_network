@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   load_and_authorize_resource
   require 'teebox/commentable'
-  include Teebox::Commentable
+  #include Teebox::Commentable
   
   def create
     @answer = current_user.answers.build(params[:answer])

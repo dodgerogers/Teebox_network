@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   load_and_authorize_resource except: [:index, :show]
   caches_page :index
   require 'teebox/commentable'
-  include Teebox::Commentable
+  #include Teebox::Commentable
   
   def new
     @question = Question.new
