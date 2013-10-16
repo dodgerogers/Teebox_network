@@ -47,5 +47,5 @@ namespace :deploy do
       exit
     end
   end
-  before "deploy", "depoly:check_revision"
+  before "deploy", "deploy:check_revision"
 end
