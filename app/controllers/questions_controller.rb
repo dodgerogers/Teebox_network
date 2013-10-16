@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :highest_votes, :unanswered]
   before_filter :index, only: [:unanswered, :highest_votes]
   load_and_authorize_resource except: [:index, :show]
-  caches_page :index
+  #caches_page :index
   require 'teebox/commentable'
   include Teebox::Commentable
   
