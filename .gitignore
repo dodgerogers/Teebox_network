@@ -19,8 +19,8 @@
 #ignore aws credentials
 /config/environments/development.rb
 
-#ignore all tmp upload files
-/public/uploads/*
-
 #ignore coverage test results
 /coverage/*
+
+#ignore database.yml
+/config/database.yml
