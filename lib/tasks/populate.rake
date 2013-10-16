@@ -4,7 +4,7 @@ namespace :db do
     require 'populator'
     require 'faker'
     
-    User.populate 100 do |u|
+    User.populate 10 do |u|
         u.username    = Faker::Name.name
         u.email       = Faker::Internet.email
         u.encrypted_password    = "password1"
@@ -14,12 +14,12 @@ namespace :db do
         u.confirmation_sent_at = Time.now
       end
       
-    Tag.populate 200 do |tag|
-      tag.name = Populator.words(1..2).titleize
-      tag.explanation = Populator.sentences(1)
-    end  
+    #Tag.populate 10 do |tag|
+    #  tag.name = Populator.words(1..2).titleize
+    #  tag.explanation = Populator.sentences(1)
+    #end  
     
-    Question.populate 400 do |question|
+    Question.populate 10 do |question|
       question.title = Populator.words(5..12).titleize
       question.body = Populator.sentences(4..8)
       question.user_id = User.all.map(&:id)
