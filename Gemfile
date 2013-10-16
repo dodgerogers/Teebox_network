@@ -56,6 +56,7 @@ gem "pg_search"
 gem 'obscenity'
 gem "unicorn"
 gem "capistrano", "~> 2.15.5"
+gem 'daemons'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

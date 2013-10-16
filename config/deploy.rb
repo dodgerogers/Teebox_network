@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require "delayed/recipes"
 
 server "162.243.40.138", :web, :app, :db, primary: true
 
@@ -7,6 +8,7 @@ set :user, "andrew"
 set :deploy_to, "/home/#{user}/rails/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, true
+set :rails_env, "production"
 
 set :scm, :git 
 set :repository,  "https://github.com/dodgerogers/Teebox_network"
@@ -16,6 +18,12 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # only keep the last 5 releases
+after "deploy", "delayed_job:restart"
+
+# delayed jobs workers
+#after "deploy:stop",    "delayed_job:stop"
+#after "deploy:start",   "delayed_job:start"
+#after "deploy:restart", "delayed_job:restart"
 
 namespace :deploy do
   %w[start stop restart].each do |command|
