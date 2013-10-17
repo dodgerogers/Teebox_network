@@ -20,6 +20,8 @@ module TeeboxNetwork
     config.autoload_paths += %W(#{config.root}/decorators)
     config.eager_load_paths += %W(#{config.root}/lib)
     #config.eager_load_paths += %W(#{config.root}/lib/teebox/commentable.rb)
+    
+    config.exceptions_app = self.routes
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.

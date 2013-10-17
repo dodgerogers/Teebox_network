@@ -1,0 +1,11 @@
+<body class="sandy-hills-xl">
+	<div class="hero-unit center blue-transparent">
+		<h1>404 This is not the page you were looking for<br></h1>
+		<% if @exception %>
+		  <p><%= @exception.message %></p>
+		<% else %>
+		  <p>The page you were looking for doesn't exist (404)</p>
+		<% end %>
+		<%= link_to raw('<i class="icon-home"></i> Home')%>
+	</div>
+</div>

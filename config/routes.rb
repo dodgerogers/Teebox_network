@@ -4,6 +4,8 @@ TeeboxNetwork::Application.routes.draw do
   resources :users, only: [:show, :index]
   resources :signed_urls, only: :index
   
+  match '(errors)/:status', to: 'errors#show', constraints: {status: /\d{3}/}
+  
   root to: "questions#index"
   
   get "tagged/:tag", to: "questions#index", as: :tagged
