@@ -2,56 +2,57 @@
 <title><%= resource.username.to_s.humanize %> Edit</title>
 <% end %>
 
-<div class="row">
-	<div class="span1"></div>
-	<div class="span8 center hero-unit blue-transparent">
-		<h1>Update <%= resource.username.to_s.humanize %> <i class="icon-cog"></i></h1><br>
+<body class="heath-cutout-xl">
+	<div class="row">
+		<div class="span1"></div>
+		<div class="span8 center hero-unit blue-transparent">
+			<h1>Update Your Profile <i class="icon-cog"></i></h1><br>
 
-		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-		<%= devise_error_messages! %>
+			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+			<%= devise_error_messages! %>
 
-			<div>
-			<label><i class='icon-picture'></i> Profile Picture</label>
-			<%= link_to "Change your profile picture", "http://gravatar.com", title: "Change your profile picture", target: :blank %>
-			</div><br>
+				<div>
+				<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
+				<%= f.email_field :email %>
+				</div><br>
 
-			<div>
-			<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
-			<%= f.email_field :email %>
-			</div><br>
+				<div>
+				<%= f.label :username, raw("<i class='icon-user'></i> Username")  %>
+				<%= f.text_field :username %>
+				</div><br>
 
-			<div>
-			<%= f.label :username, raw("<i class='icon-user'></i> Username")  %>
-			<%= f.text_field :username %>
-			</div><br>
+				  <div>
+				<%= f.label :password, raw("<i class='icon-lock'></i> Password") %> <small>(leave blank if you don't want to change it)</small>
+				<%= f.password_field :password, :autocomplete => "off" %>
+				</div><br>
 
-			  <div>
-			<%= f.label :password, raw("<i class='icon-lock'></i> Password") %> <small>(leave blank if you don't want to change it)</small>
-			<%= f.password_field :password, :autocomplete => "off" %>
-			</div><br>
+				<div>
+				<%= f.label :password_confirmation, raw("<i class='icon-lock'></i> Password Confirmation") %>
+				<%= f.password_field :password_confirmation %>
+				</div><br>
 
-			<div>
-			<%= f.label :password_confirmation, raw("<i class='icon-lock'></i> Password Confirmation") %>
-			<%= f.password_field :password_confirmation %>
-			</div><br>
+				<div>
+				<%= f.label :current_password %> <small>(we need your current password to confirm your changes)</small>
+				<%= f.password_field :current_password %>
+				</div><br>
 
-			<div>
-			<%= f.label :current_password %> <small>(we need your current password to confirm your changes)</small>
-			<%= f.password_field :current_password %>
-			</div><br>
+				<div>
+				<%= link_to image_tag(avatar_url(resource, 100)), resource, id: "gravatar" %><br><br>	
+				<label><i class='icon-picture'></i> Profile Picture</label>
+				<%= link_to "Change your profile picture", "http://gravatar.com", title: "Change your profile picture", target: :blank %>
+				</div><br>
+				<div>
+				<%= f.submit "Update", class: "default submit" %>
+				</div>
+			<% end %>
 
-			<div>
-			<%= f.submit "Update", class: "default submit" %>
-			</div>
-		<% end %>
+			<h2>Cancel my account</h2>
 
-		<h2>Cancel my account</h2>
+			<p>Unhappy? 
+			<%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+			.</p>
 
-		<p>Unhappy? 
-		<%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>
-		.</p>
-
-		<%= link_to "Back", :back %>
+			<%= link_to "Back", :back %>
+		</div>
 	</div>
-</div>
-
+</body>

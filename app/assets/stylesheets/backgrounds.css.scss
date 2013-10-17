@@ -49,64 +49,68 @@ body .transparent {
 .sandy-hills-xl {
 	background: url(backgrounds/sandy-hills-cutout.jpg);
 }
+.heath-cutout-xl {
+	background: url(backgrounds/heath-cutout.jpg);
+}
+
 /* <!-- full page backgrounds --> */
 	
-body .forest {	
+.container .forest {	
 	background: url(backgrounds/teebox-landscape-tall.png);
 	color: #fff;
 	background-position: center bottom;
 }
-body .forest-cutout {
+.container .forest-cutout {
 	background: url(backgrounds/forest-cutout.jpg);
 	color: #fff;
 	background-position: center bottom;
 }
-body .banff {
+.container .banff {
 	background: url(backgrounds/banff-l.jpg);
 	color: #fff;
 	background-position: center 73%;
 }
-body .banff-cutout {
+.container .banff-cutout {
 	background: url(backgrounds/banff-cutout.jpg);
 	color: #fff;
 	background-position: center 50%;
 }
-body .bally-bunion {
+.container .bally-bunion {
 	background: url(backgrounds/bally-bunion.jpg);
 	color: #fff;
 	background-position: center center;
 }
-body .sky {
+.container .sky {
 	background: url(backgrounds/teebox-landscape-tall.png);
 	color: #fff;
 	background-position: center center;	
 }
-body .ocean-cutout {
+.container .ocean-cutout {
 	background: url(backgrounds/ocean-cutout.jpg);
 	color: #fff;
 	background-position: center 55%;
 }
-body .sebonak {
+.container .sebonak {
 	background: url(backgrounds/sebonak-large.jpg);
 	color: #fff;
 	background-position: center 63%;	
 }
-body .sebonak-cutout-mini {
+.container .sebonak-cutout-mini {
 	background: url(backgrounds/sebonak-cutout-mini.jpg);
 	color: #fff;
 	background-position: center 55%;	
 }
-body .sandy-hills {
+.container .sandy-hills {
 	background: url(backgrounds/sandy-hills-cutout.jpg);
 	color: #fff;
 	background-position: center 52%;
 }
-body .heath {
+.container .heath {
 	background: url(backgrounds/Heath.jpg);
 	color: #fff;
 	background-position: 2% 45%;	
 }
-body .heath-cutout {
+.container .heath-cutout {
 	background: url(backgrounds/heath-cutout.jpg);
 	color: #fff;
 	background-position: 2% 35%;
