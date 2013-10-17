@@ -5,7 +5,7 @@
 <div class="hero-unit sandy-hills">
 	<center>
 		<h1 class="welcome-banner">
-			Welcome <%= @user.username %><br> Lets get started
+			Welcome <%= @user.username %><br><br>
 		</h1>
 		<br>
 	</center>
@@ -13,8 +13,7 @@
 		<div class="span5 semi">
 			<div class="well blue-transparent">
 				<h3 class="welcome-white">Improve</h3>
-				<p>Upload a video and ask your question to get your game back on track.<br>
-					Or find an answer to your problems in our most popular questions</p>
+				<p>View our list of popular questions or ask a question to improve your game.</p>
 				<%= link_to "View Popular Questions", highest_votes_path, class: "default next" %>
 				<%= link_to "Ask a question", videos_path, class: "default success" %>
 			</div>
@@ -24,12 +23,10 @@
 				<h3 class="welcome-white">Help</h3>	
 				<p>Here are some golfers who need your help<p>
 				<!-- move out to partial -->
-				<ul>
-				<% if Question.any? %>	
-					<% Question.all[-2..-1].each do |q| %>
+				<ul>	
+					<% @questions.each do |q| %>
 						<li><%= link_to q.title, q %></li>
 					<% end %>
-				<% end %>
 				</ul>
 				<%= link_to 'View unanswered questions', unanswered_path, class: "default asphalt" %>	
 				<!-- questions -->	

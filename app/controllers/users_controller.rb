@@ -26,4 +26,8 @@ class UsersController < ApplicationController
   def comments_index
     @comments = @user.comments.order("created_at desc").paginate(page: params[:page], per_page: 10).includes(:commentable)
   end
+  
+  def welcome
+    @questions = Question.where(correct: false).limit(2)
+  end
 end
