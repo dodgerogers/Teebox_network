@@ -1,7 +1,7 @@
 <% questions.each do |question| %>
 	<div class="span12">
 		<div class="question-image">
-			<%= question.video ? (link_to image_tag(question.video.screenshot_url(:mini)), question) : (link_to image_tag("video_screen1.jpg"), question) %>
+			<%= question.video ? (link_to image_tag(question.video.screenshot_url(:mini)), question) : (link_to image_tag("video_screen.jpg"), question) %>
 		</div>
 		<div class="question-info">
 			<div class="index-title">
