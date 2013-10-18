@@ -1,8 +1,8 @@
 <form action="http://teebox-network.s3.amazonaws.com" data-remote="true" class="direct-upload" enctype="multipart/form-data" method="post">
 	<!-- type="hidden"-->
-	<%= ENV["EMAIL_USERNAME"] %><br>
-	<%= ENV["S3_BUCKET"]%><br>
-	<%= ENV["AWS_ACCESS_KEY_ID"] %><br>
+	EMAIL: <%= ENV["EMAIL_USERNAME"] %><br>
+	BUCKET: <%= ENV["S3_BUCKET"] %><br>
+	KEY: <%= ENV["AWS_ACCESS_KEY_ID"] %><br>
 	
   <input name="key" type="hidden" />
   <input name="AWSAccessKeyId" type="hidden" value="<%= ENV["AWS_ACCESS_KEY_ID"] %>" />
