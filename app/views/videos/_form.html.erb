@@ -1,9 +1,4 @@
 <form action="http://teebox-network.s3.amazonaws.com" data-remote="true" class="direct-upload" enctype="multipart/form-data" method="post">
-	<!-- type="hidden"-->
-	EMAIL: <%= ENV["EMAIL_USERNAME"] %><br>
-	BUCKET: <%= ENV["S3_BUCKET"] %><br>
-	KEY: <%= ENV["AWS_ACCESS_KEY_ID"] %><br>
-	
   <input name="key" type="hidden" />
   <input name="AWSAccessKeyId" type="hidden" value="<%= ENV["AWS_ACCESS_KEY_ID"] %>" />
   <input name="acl" type="hidden" value="public-read" />
@@ -15,7 +10,12 @@
   	<input name="file" type="file" />
 </div>
 </form>
-
+<hr>
+<!-- type="hidden"-->
+EMAIL: <%= ENV["EMAIL_USERNAME"] %><br>
+BUCKET: <%= ENV["S3_BUCKET"] %><br>
+KEY: <%= ENV["AWS_ACCESS_KEY_ID"] %><br>
+<hr>
 <%= form_for @video, html: { multipart: true, id: "new_video" }, remote: true do |f| %>
 	<% if @video.errors.any? %>
 	<div id="error_explanation">
