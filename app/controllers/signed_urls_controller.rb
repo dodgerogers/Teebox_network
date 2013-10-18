@@ -2,7 +2,7 @@ require 'openssl'
 
 class SignedUrlsController < ApplicationController
   
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   def index
     render json: {
       policy: s3_upload_policy_document,
@@ -20,7 +20,7 @@ class SignedUrlsController < ApplicationController
       {
         expiration: 30.minutes.from_now.utc.strftime('%Y-%m-%dT%H:%M:%S.000Z'),
         conditions: [
-          { bucket: "teebox-network" },
+          { bucket: ENV['S3_BUCKET'] },
           { acl: 'public-read' },
           ["starts-with", "$key", "uploads/"],
           ["content-length-range", 0, 5242880],
@@ -35,7 +35,7 @@ class SignedUrlsController < ApplicationController
     Base64.encode64(
       OpenSSL::HMAC.digest(
         OpenSSL::Digest::Digest.new('sha1'),
-        'VGCeJnocdXKOV4vAXTb497nW8HTXdn606PqCBMR2',
+        ENV['AWS_SECRET_KEY_ID'],
         s3_upload_policy_document
       )
     ).gsub(/\n/, '')
