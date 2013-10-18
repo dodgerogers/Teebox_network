@@ -113,9 +113,6 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     ffi (1.1.5)
-    figaro (0.7.0)
-      bundler (~> 1.0)
-      rails (>= 3, < 5)
     fog (1.10.1)
       builder
       excon (~> 0.20)
@@ -301,7 +298,6 @@ DEPENDENCIES
   execjs
   factory_girl_rails (= 1.4.0)
   faker
-  figaro
   fog
   font-awesome-rails
   jquery-fileupload-rails
