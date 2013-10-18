@@ -10,13 +10,7 @@
   	<input name="file" type="file" />
 </div>
 </form>
-<hr>
-<!-- type="hidden"-->
-EMAIL: <%= CONFIG[:email_username]  %><br>
-BUCKET: <%= CONFIG[:s3_bucket] %><br>
-KEY: <%= CONFIG[:aws_access_key_id] %><br>
 
-<hr>
 <%= form_for @video, html: { multipart: true, id: "new_video" }, remote: true do |f| %>
 	<% if @video.errors.any? %>
 	<div id="error_explanation">
