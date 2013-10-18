@@ -14,6 +14,8 @@ set :scm, :git
 set :repository,  "https://github.com/dodgerogers/Teebox_network"
 set :branch, "master"
 
+set :keep_releases, 2
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
