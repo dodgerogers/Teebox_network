@@ -1,3 +1,5 @@
+require 'openssl'
+
 class SignedUrlsController < ApplicationController
   
   before_filter :authenticate_user!
