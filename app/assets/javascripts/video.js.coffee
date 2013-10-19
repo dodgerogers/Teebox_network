@@ -28,13 +28,14 @@ jQuery ->
        
       else
          $('#failed').modal('show')
-         $('.modal-body').html('')
-         $('.modal-body').append("<b>Filename:</b> " + data.files[0].name + " <br><b>Size:</b> " + (data.files[0].size / 1000000).toFixed(2) + " MB <br><br><b>File Exceeds the 5MB file size limit or is not a valid video format</b>")
+  	      $('#dropzone').show()
+         $('.video-upload-info').html('').append("<b><red>Upload Failed</red></b><br><b>Filename:</b> " + data.files[0].name + " <br><b>Size:</b> " + (data.files[0].size / 1000000).toFixed(2) + " MB <br><br><b>File Exceeds the 5MB file size limit or is not a valid video format</b>")
 
      send: (e, data) ->
+          $("#failed").modal('show')
           $(".progress, #dropzone").fadeIn()
           $.each data.files, (index, file) ->
-             $('#upload').html("").append("<h3 class='video-upload'>" + file.name + " " + (file.size / 1000000 ).toFixed(2) + ' MB' + '</h3>')
+             $('.video-upload-info').html("").append("<b>Filename:</b> " + file.name + "<br><b>Size:</b> " + (file.size / 1000000 ).toFixed(2) + ' MB')
 
 
      progress: (e, data) ->
@@ -52,5 +53,3 @@ jQuery ->
 
      done: (event, data) ->
        $("#new_video").submit()
-       $(".progress").fadeOut 1200, ->
-           $(".bar").css "width", 0

@@ -1,5 +1,5 @@
 <%= content_for :head do %>
-	<title><%= current_user.username.titleize %> videos</title>
+	<title>My Videos</title>
 <% end %>
 
 <%= render template: "videos/new" %>
@@ -7,7 +7,7 @@
 <h2>Video Library</h2><hr>
 
 <div id="videos">
-<%= render @videos %>
+	<%= render @videos %>
 </div>
 
 <%= render partial: "shared/failed_video_upload" %>

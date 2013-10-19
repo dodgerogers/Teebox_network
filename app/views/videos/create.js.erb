@@ -4,7 +4,13 @@ alert("Failed to upload Video: <%= j @video.errors.full_messages.join(', ').html
 var video = $("<%= j render(@video) %>").hide();
 $('#videos').prepend(video);
 video.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
-$("#upload").html("").append("<h3 class='welcome-banner'>Uploaded <i class='icon-ok-sign'></i></h3><br>").fadeIn(1000);
-$("#dropzone").fadeOut(1200);
+$(".video-upload-info").html("").append("<b>Video Uploaded <i class='icon-ok-sign'></i></b><br>").fadeIn();
+function hideModal() {
+    $("#failed").modal('hide');
+}
+window.setTimeout(function() {hideModal();},1500);
+$(".progress").hide(function() {
+  return $(".bar").css("width", 0);
+});
 <% end %>
 
