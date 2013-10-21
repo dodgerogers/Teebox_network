@@ -17,7 +17,7 @@ class Video < ActiveRecord::Base
   end
   
   def take_screenshot
-    location = "#{Rails.root}/public/uploads/tmp/screenshots/#{unique}_#{File.basename(file)}.jpg"
+    location = "/home/andrew/rails/teebox/current/public/uploads/tmp/screenshots/#{unique}_#{File.basename(file)}.jpg"
     FFMPEG.ffmpeg_binary = CONFIG[:ffmpeg_location]
     if self.file.include? "http://#{CONFIG[:s3_bucket]}.s3.amazonaws.com/"
        self.screenshot = FFMPEG::Movie.new(self.file).screenshot(location, seek_time: 1)
