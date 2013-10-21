@@ -23,6 +23,7 @@ class VideosController < ApplicationController
     @video = current_user.videos.build(params[:video])
     respond_to do |format|
       if @video.save
+        logger.debug("#{Rails.root}")
         @video.delay.take_screenshot
         format.html { redirect_to videos_path, notice: 'Video was successfully uploaded.' }
         format.json { render json: @video, status: :created, location: @video }

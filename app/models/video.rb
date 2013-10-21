@@ -21,9 +21,7 @@ class Video < ActiveRecord::Base
     FFMPEG.ffmpeg_binary = CONFIG[:ffmpeg_location]
     if self.file.include? "http://#{CONFIG[:s3_bucket]}.s3.amazonaws.com/"
        self.screenshot = FFMPEG::Movie.new(self.file).screenshot(location, seek_time: 1)
-       File.delete(location) if self.save!
-    else
-      logger.debug("Upload failed")
+       File.delete(location) if self.save! else logger.debug("Screenshot failed")
     end
   end
   
