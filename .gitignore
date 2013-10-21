@@ -14,6 +14,7 @@
 # Ignore all logfiles, tempfiles and test videos.
 /log/*.log
 /spec/fixtures/*
+/tmp
 
 #ignore aws credentials
 /config/environments/development.rb
