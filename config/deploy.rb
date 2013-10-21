@@ -20,7 +20,6 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # only keep the last 5 releases
-after "deploy", 
 after "deploy", "delayed_job:restart"
 
 # delayed jobs workers
