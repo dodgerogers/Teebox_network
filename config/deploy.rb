@@ -20,6 +20,7 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # only keep the last 5 releases
+after "deploy", 
 after "deploy", "delayed_job:restart"
 
 # delayed jobs workers
@@ -47,6 +48,7 @@ namespace :deploy do
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
+    sudo "mkdir -p #{current_path}/public/uploads/tmp/screenshots"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
   

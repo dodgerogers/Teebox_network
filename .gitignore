@@ -15,8 +15,9 @@
 /log/*.log
 /spec/fixtures/*
 /tmp
+/public/uploads
 
-#ignore aws credentials
+#ignore dev credentials
 /config/environments/development.rb
 
 #ignore coverage test results
