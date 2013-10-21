@@ -13,7 +13,6 @@
 
 # Ignore all logfiles, tempfiles and test videos.
 /log/*.log
-/tmp
 /spec/fixtures/*
 
 #ignore aws credentials
