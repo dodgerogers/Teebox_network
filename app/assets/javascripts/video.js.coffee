@@ -35,7 +35,7 @@ jQuery ->
           $("#failed").modal('show')
           $(".progress, #dropzone").fadeIn()
           $.each data.files, (index, file) ->
-             $('.video-upload-info').html("").append("<b>Filename:</b> " + file.name + "<br><b>Size:</b> " + (file.size / 1000000 ).toFixed(2) + ' MB')
+             $('.video-upload-info').html("").append(file.name + " " + (file.size / 1000000 ).toFixed(2) + ' MB')
 
 
      progress: (e, data) ->

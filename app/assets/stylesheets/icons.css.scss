@@ -21,6 +21,15 @@
 	vertical-align:middle;
 	font-size: 105px;
 }
+.upload-icon {
+	margin: 5px 10px;
+}
+.modal-header .close, .close a {
+	color: $red;
+	text-shadow: 0 1px 0 $blackhole;
+	opacity: 1.0;
+	margin: 5px;
+}
 .rotate90 {
 	height:105px;
 	margin: 0 30px 0 20px;

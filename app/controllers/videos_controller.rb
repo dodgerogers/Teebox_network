@@ -39,7 +39,7 @@ class VideosController < ApplicationController
     if @video.destroy
       @video.delete_key
         respond_to do |format|
-          format.html { redirect_to videos_path }
+          format.html { redirect_to videos_path, notice: "Video deleted" }
           format.js
       end
     end

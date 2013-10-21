@@ -11,7 +11,7 @@
 				<%= image_tag(screenshot) %>
 			</div>										
 													
-			<div class="video-title">
+			<div>
 				<%= File.basename(video.file).titleize %>
 			</div>	
 				uploaded <%= time_ago_in_words(video.created_at) %> ago																	
@@ -19,6 +19,6 @@
     	<% end %>
 	</div>
 <% else %>
-	<%= link_to "0 videos found. Add some videos", videos_path, class: "default submit" %><br>
+	<%= link_to "0 videos found. Add some videos", videos_path %><br>
 <% end %>
 <br>

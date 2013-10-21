@@ -4,10 +4,10 @@
 
 <%= render template: "videos/new" %>
 
-<h2>Video Library</h2><hr>
+<legend>Video Library</legend>
 
 <div id="videos">
 	<%= render @videos %>
 </div>
 
-<%= render partial: "shared/failed_video_upload" %>
+<%= render partial: "shared/video_upload" %>
