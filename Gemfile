@@ -12,6 +12,7 @@ gem "pg"
 group :development do
   gem "better_errors"
   gem "bullet"
+  gem "lol_dba"
 end
 
 group :test do
@@ -58,6 +59,7 @@ gem 'obscenity'
 gem "unicorn"
 gem "capistrano", "~> 2.15.5"
 gem 'daemons'
+
 
 
 # To use ActiveModel has_secure_password

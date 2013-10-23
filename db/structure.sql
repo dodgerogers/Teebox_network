@@ -769,6 +769,20 @@ CREATE INDEX index_videos_on_user_id ON videos USING btree (user_id);
 
 
 --
+-- Name: index_votes_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_votes_on_user_id ON votes USING btree (user_id);
+
+
+--
+-- Name: index_votes_on_votable_id_and_votable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_votes_on_votable_id_and_votable_type ON votes USING btree (votable_id, votable_type);
+
+
+--
 -- Name: questions_body; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -860,3 +874,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130816225806');
 INSERT INTO schema_migrations (version) VALUES ('20130819181152');
 
 INSERT INTO schema_migrations (version) VALUES ('20130822215602');
+
+INSERT INTO schema_migrations (version) VALUES ('20131023184933');

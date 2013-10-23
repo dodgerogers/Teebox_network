@@ -154,6 +154,10 @@ GEM
     libv8 (3.16.14.3)
     libwebsocket (0.1.5)
       addressable
+    lol_dba (1.6.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      railties (>= 3.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -309,6 +313,7 @@ DEPENDENCIES
   jquery-tokeninput-rails
   launchy
   less-rails
+  lol_dba
   mini_magick
   obscenity
   pg
