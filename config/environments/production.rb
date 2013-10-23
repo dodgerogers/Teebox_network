@@ -30,8 +30,9 @@ TeeboxNetwork::Application.configure do
    :domain => "gmail.com",
    :user_name => ENV['EMAIL_USERNAME'],
    :password => ENV['EMAIL_PASSWORD'],
-   :authentication => "plain",
-   :enable_starttls_auto => true
+   :authentication => :plain,
+   :enable_starttls_auto => true,
+   :openssl_verify_mode  => 'none'
   }
   
   # Defaults to Rails.root.join("public/assets")
