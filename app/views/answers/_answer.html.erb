@@ -35,7 +35,7 @@
 	
 	<div class="comments-area">
 		<div id="answer_<%= answer.id %>">
-			<%= nested_comments(answer.comments.includes(:user).order(:created_at)) %>
+			<%= nested_comments(answer.comments.includes(:user)) %>
 		</div><br>
 		<%= link_to "Add comment", "#", class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: answer} %>

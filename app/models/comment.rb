@@ -11,8 +11,9 @@ class Comment < ActiveRecord::Base
   
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
   validates_length_of :content, minimum: 10, maximum: 350
-  
   validates :content, obscenity: true
+  
+  default_scope order: "created_at"
   
   after_create :display_mentions
   
