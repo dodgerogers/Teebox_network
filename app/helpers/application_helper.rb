@@ -16,10 +16,6 @@ module ApplicationHelper
       "Posted #{time_ago_in_words(object.created_at)} ago"
     end
   end
-    
-  def clickable_links(text)
-    text.gsub(URI.regexp, '<a href="\0">\0</a>')
-  end
   
   def avatar_url(user, size=35)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user

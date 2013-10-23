@@ -13,5 +13,17 @@ class Comment < ActiveRecord::Base
   validates_length_of :content, minimum: 10, maximum: 350
   
   validates :content, obscenity: true
-    
+  
+  after_create :display_mentions
+  
+  def display_mentions
+    self.content.scan(/@([a-z0-9_]+)/i).flatten.each do |u|
+      user = User.find_by_username(u)
+      unless user == nil || self.user == user
+        self.content.gsub!(/#{Regexp.escape("@#{u}")}/, "<a href='/users/#{user.id}-#{u}'>@#{u}</a>")
+        self.delay.create_activity :create, owner: self.user, recipient: user unless user.id == self.commentable.user_id
+      end
+      self.save!
+    end
+  end
 end

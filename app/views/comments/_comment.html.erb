@@ -7,7 +7,7 @@
 	
 	<div class="comment-content">
 		<a name='<%= "comment_#{comment.id}" %>'></a>
-		<%= simple_format(clickable_links(comment.content)) %>
+		<%= simple_format(comment.content) %>
 		<small>
 			<%= link_to comment.user.username.titleize, comment.user, id: "profile-username" %>
 			<%= time_ago_in_words(comment.created_at) %> ago.	

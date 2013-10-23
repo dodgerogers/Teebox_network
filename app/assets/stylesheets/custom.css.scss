@@ -832,9 +832,10 @@ body #header-search {
 	height:200px!important;
 }
 .answer-box {
-	padding-bottom: 10px;
-	border-bottom: 1px solid #ededed;
+	padding: 10px;
+	border: 1px solid #eee;
 	margin-bottom: 10px;
+	border-radius: 5px;
 }
 .answer {
 	-moz-box-sizing: border-box;

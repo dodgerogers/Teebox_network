@@ -11,6 +11,7 @@ gem "pg"
 
 group :development do
   gem "better_errors"
+  gem "bullet"
 end
 
 group :test do
@@ -57,7 +58,7 @@ gem 'obscenity'
 gem "unicorn"
 gem "capistrano", "~> 2.15.5"
 gem 'daemons'
-#gem "figaro"
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

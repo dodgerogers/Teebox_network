@@ -14,7 +14,19 @@
 
 	
 	<div class="field">
-	<%= f.text_area :content, id: "comment-textarea", class: "comment-textarea", placeholder: "Enter content" %>
+	<% id = rand(1..2000) %>
+	<%= f.text_area :content, id: "comment-textarea", class: "comment-form_#{id}", placeholder: "Enter content" %>
+	<script type="text/javascript">
+	  $('.comment-form_<%= id %>').wysihtml5({
+		"font-styles": false,
+		"emphasis" : true,
+		"lists" : false,
+		"html" : false,
+		"link" :true,
+		"image" : false,
+		"color" :false
+	});
+	</script>
 	</div>
 	
 	<%= f.submit "Create comment", class: "default success" %>

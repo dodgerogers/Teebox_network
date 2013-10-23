@@ -15,7 +15,7 @@
 			<div class="question">
 				<h1><%= @decorator.title.titleize %></h1>		
 				<div class="question-content">
-					<%= simple_format @question.body %>
+					<%= simple_format(@question.body) %>
 				</div>
 			
 				<%= @decorator.question_tags %>

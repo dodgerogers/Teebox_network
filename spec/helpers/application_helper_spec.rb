@@ -27,12 +27,6 @@ describe ApplicationHelper do
     end
   end
   
-  describe "clickable_links" do
-    it "returns a link" do
-      helper.clickable_links("http://www.teebox.co").should eq "<a href=\"http://www.teebox.co\">http://www.teebox.co</a>".html_safe
-    end
-  end
-  
   describe "points_from_correct" do
     it "returns no correct answers" do
       @question = create(:question)

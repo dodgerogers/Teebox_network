@@ -17,7 +17,7 @@ class ActivitiesController < ApplicationController
   
   def read
     @activity = PublicActivity::Activity.find(params[:id])
-    @activity.toggle(:read) #if @activity.read == false
+    @activity.toggle(:read) if @activity.read == false
     if @activity.save
       redirect_to get_activity_path(@activity)
     else
