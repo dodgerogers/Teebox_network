@@ -16,18 +16,6 @@ module VideoHelper
   def sublimevideo_rails
     @site_token = load_config("sublime.yml")["SITE"]["TOKEN"]
   end
-  
-  #remove?
-  def video_select(video)
-   "var form = $('#question_video_id');
-	  var icon = $('.#{video.id}_icon');
-	  var video = $('##{video.id}');
-	  $('.selected').hide();
-		$('.videos').removeClass('shadow');
-	  form.val(form.val() == #{video.id} ? 0 : #{video.id});  
-	  form.val() == #{video.id} ? icon.show() : icon.hide();
-	  form.val() ==  #{video.id} ? video.addClass('shadow') : video.removeClass('shadow');"
-	end
 
   def load_config(filename)
     YAML::load(ERB.new(IO.read("config/#{filename}")).result)

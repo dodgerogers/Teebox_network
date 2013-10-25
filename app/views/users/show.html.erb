@@ -7,14 +7,14 @@
 <div class="row">
 <% if @decorator.questions_index.any? %>	
   <div class="span6">
-		<b><%= link_to "View all Questions", questions_index_path(@user) %></b><br><br>
+		<b><%= link_to "View Questions", questions_index_path(@user) %></b><br><br>
 		<%= render partial: "users/tables/question_table", locals: {questions: @decorator.questions_index.limit(4)} %>
   </div>
 <% end %>
 	
 <% if @decorator.answers_index.any? %>	
   <div class="span6">
-		<b><%= link_to "View all Answers", answers_index_path(@user) %></b><br><br>
+		<b><%= link_to "View Answers", answers_index_path(@user) %></b><br><br>
 		<%= render partial: "users/tables/answer_table", locals: {answers: @decorator.answers_index.limit(4)} %>
   </div>
 <% end %>
@@ -23,7 +23,7 @@
 <div class="row">
 <% if @decorator.comments_index.any? %>
   <div class="span6">
-		<b><%= link_to "View all Comments", comments_index_path(@user) %></b><br><br>
+		<b><%= link_to "View Comments", comments_index_path(@user) %></b><br><br>
 		<%= render partial: "users/tables/comment_table", locals: {comments: @decorator.comments_index.limit(4)} %>
   </div>
 <% end %>

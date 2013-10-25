@@ -24,15 +24,14 @@
 	<% answers.each do |answer| %>	
 	    <tr>
 			<td>
-				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>" id="user-answers">
+				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %> center">
 					<%= answer.correct == true && answer.user != answer.question.user  ? 
 						raw("<i class='icon-ok-sign'></i>") : raw("<i class='icon-ok-sign'></i>") %>
 				</div>
 			</td>
 			<td>
 				<div class="green-tick" id="user-answers">	
-					<%= answer.correct == true && answer.user != answer.question.user  ? 
-						raw("+20") : raw("") %>
+					<%= answer.correct == true && answer.user != answer.question.user  ? "+20" : "" %>
 				</div>
 			</td>
 			<td>
@@ -40,8 +39,10 @@
 					<%= answer.points > 0 ? "+#{answer.points}" : answer.points %>
 				</div>
 			</td>
-	      <td class="left"><a href='<%= "#{url_for(answer.question)}#answer_#{answer.id}" %>'>
-				<%= truncate(answer.body, length: 75) %></a>
+	      <td class='left'>
+			<%= link_to "#{url_for(answer.question)}#answer_#{answer.id}" do %>
+				<%= strip_links(truncate(answer.body, length: 75)) %>
+			<% end %>	
 		  </td>
 	    </tr>
 	<% end %>

@@ -3,21 +3,11 @@
 <% end %>
 <%= javascript_include_tag 'raphael.js', 'morris.js', "load_morris.js" %>
 
-	<div class='row'>
-		<div class='span12'>
-			<div class='hero-unit transparent'>
-				<center>
-					<h1>Teebox Report - <%= Time.now.to_date %></h1>
-					<%= render partial: "reports/form" %>
-					<%= render partial: "reports/totals", locals: {reports: @all_reports }%><br><br>
-				</center>
-				<b>Totals</b>
-				<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>
-			</div>
-		</div>
-	</div>		
-	<div class="row">		
-		<div class="span12">		
-
-		</div>
-	</div>
+<div class="hero-unit blue-transparent">
+	<center>
+		<h1>Report - <%= Time.now.to_date %></h1>
+		<%= render partial: "reports/form" %>
+		<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>
+		<%= render partial: "reports/totals", locals: {reports: @all_reports }%>
+	</center>
+</div>

@@ -33,13 +33,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="comments-area">
-			<div id="question_<%= @question.id %>">
-				<%= nested_comments(@question.comments.includes(:user)) %>
-			</div><br>
-			<%= link_to "Add comment", "#", class: "comment-button" %>
-			<%= render partial: "comments/form", locals: {commentable: @question} %>
+			<div class="comments-area">
+				<div id="question_<%= @question.id %>">
+					<%= nested_comments(@question.comments.includes(:user)) %>
+				</div><br>
+				<%= link_to "Add comment", "#", class: "comment-button" %>
+				<%= render partial: "comments/form", locals: {commentable: @question} %>
+			</div>
 		</div>
 	
 		<div id='answers-count'>

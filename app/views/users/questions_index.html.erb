@@ -2,8 +2,8 @@
 	<title><%= @user.username %> questions</title>
 <% end %>
 
-	<div class="span12">
-	<b><%= link_to @user.username.titleize, user_path(@user) %> Questions</b><br><br>
-	<%= render partial: "users/tables/question_table", locals: {questions: @questions} %>
-	</div>
+<b><%= link_to @user.username.titleize, user_path(@user) %></b><br>
+Questions<br><br>
+<%= render partial: "users/tables/question_table", locals: {questions: @questions} %>
+<%= link_to "Back to Profile", user_path %>
 <%= will_paginate @questions %>

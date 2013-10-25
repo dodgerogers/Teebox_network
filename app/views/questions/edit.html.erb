@@ -2,9 +2,8 @@
 	<title>Edit <%= @question.title %></title>
 <% end %>
 
-
-	<h1>Edit your question <i class=" icon-question-sign"></i></h1>
-	<%= link_to raw("<i class='icon-circle-arrow-left'></i> Back to videos"), videos_path, class: "default asphalt" %></center>
-			<br><br>
-		
-	<%= render partial: "questions/form" %>	
+<h1>Edit your question <i class=" icon-question-sign"></i></h1>
+<%= link_to raw("<i class='icon-circle-arrow-left'></i> Back to videos"), videos_path, class: "default asphalt" %></center>
+<br><br>
+	
+<%= render partial: "questions/form" %>	

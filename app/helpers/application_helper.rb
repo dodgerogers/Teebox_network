@@ -3,7 +3,7 @@ module ApplicationHelper
   def points_from_correct(question)
     if question.correct == true
       correct = question.answers.find_by_correct(true)
-      correct ? (correct.try(:user) == question.user ? "" : "+5") : ""
+      correct ? (correct.try(:user) == question.user ? "0" : "+5") : "0"
     end
 	end
   

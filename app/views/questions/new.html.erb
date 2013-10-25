@@ -2,10 +2,12 @@
 	<title>Create question</title>
 <% end %>
 
-	<div class="hero-unit banff-cutout">
-		<h1 class="video-upload">
-			Step 2: Ask your question <i class=" icon-question-sign"></i>
-		</h1>
-			<%= link_to raw("<i class='icon-circle-arrow-left'></i> Back to videos"), videos_path, class: "default universe" %>
-	</div>
-	<%= render partial: "questions/form" %>	
+<div class="center hero-unit sandy-hills">
+	<h1 class="video-upload">
+		Step 2: Ask your question <i class=" icon-question-sign"></i> 
+	</h1>
+	<b>Make sure your question is clear, concise and can be answered.<br>
+		Try to include as much info as possible</b><br><br>
+		<%= link_to raw("<i class='icon-circle-arrow-left'></i> Back to videos"), videos_path, class: "default submit" %>
+</div>
+<%= render partial: "questions/form" %>	

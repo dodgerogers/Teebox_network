@@ -1,22 +1,13 @@
-	<div class="related-questions">	
-		<h2 class="relatedh2">Related Questions</h2>
-			<%= link_to "Ask a question", videos_path, class: "default success" %>
-	</div>		
-		<% questions.each do |question| %>
-			<div class="related" id="related">
-				<div class="related-info">
-					<div class="index-vote">
-						<%= question.votes_count %>
-					</div><br>
-					<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
-						<%= question.answers_count %>
-					</div>
-				</div>
-			
-				<div class="related-content">
-					<%= link_to question.title.capitalize, question %><br>
-					<small>Asked <%= time_ago_in_words(question.created_at) %> ago.</small>
-				</div>
+<div class="related-questions">	
+	<h2 class="relatedh2">Related Questions</h2>
+</div>		
+	<% questions.each do |question| %>
+		<div class="related" id="related">
+		
+			<div class="related-content">
+				<%= link_to question.title.capitalize, question %><br>
+				<small>Asked <%= time_ago_in_words(question.created_at) %> ago.</small>
 			</div>
-		<% end %>
-	
+		</div>
+	<% end %>
+<%= link_to "Ask a question", videos_path, class: "default success" %><br><br>	

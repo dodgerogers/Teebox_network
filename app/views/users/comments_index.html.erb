@@ -2,9 +2,8 @@
 	<title><%= @user.username %> comments</title>
 <% end %>
 
-<div class="span12">
-	<b><%= link_to @user.username.titleize, user_path(@user) %> Comments</b><br><br>
-	<%= render partial: "users/tables/comment_table", locals: {comments: @comments} %>
-	<%= link_to "Profile", user_path, class: "default asphalt" %>
-	</div>
+<b><%= link_to @user.username.titleize, user_path(@user) %></b><br>
+Comments<br><br>
+<%= render partial: "users/tables/comment_table", locals: {comments: @comments} %>
+<%= link_to "Back to Profile", user_path %>
 <%= will_paginate @comments %>

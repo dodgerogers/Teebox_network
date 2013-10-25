@@ -27,11 +27,4 @@ describe VideoHelper do
       helper.sublimevideo_rails.should eq "27jd216p"
     end
   end
-  
-  describe "video_select" do
-    it "renders the correct js" do
-      video = create(:video)
-      helper.video_select(video).should eq "var form = $('#question_video_id');\n\t  var icon = $('.1_icon');\n\t  var video = $('#1');\n\t  $('.selected').hide();\n\t\t$('.videos').removeClass('shadow');\n\t  form.val(form.val() == 1 ? 0 : 1);  \n\t  form.val() == 1 ? icon.show() : icon.hide();\n\t  form.val() ==  1 ? video.addClass('shadow') : video.removeClass('shadow');"
-  	  end
-	  end
 end

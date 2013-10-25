@@ -18,8 +18,15 @@
 					<%= comment.points > 0 ? "+#{comment.points}" : comment.points %>
 				</div>
 			</td>
-	      <td class="left"><a href='<%= "#{url_for(comment.commentable)}#comment_#{comment.id}" %>'>
-				<%= truncate(comment.content, length: 75) %></a>
+	      <td class="left">
+		<% if comment.commentable_type == "Question" %>
+			<% comment_url = comment.commentable %>
+		<% else %>
+			<% comment_url = comment.commentable.question %>
+		<% end %>
+			<%= link_to "#{url_for(comment_url)}#comment_#{comment.id}" do %>
+				<%= strip_links(truncate(comment.content, length: 100)) %>
+			<% end %>	
 		  </td>
 	    </tr>
 	<% end %>

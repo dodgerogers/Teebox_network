@@ -108,12 +108,9 @@ small {
 center h1 {
 	text-align:center!important;
 }
-.universe {
-	color: $asphalt;
-	display: inline;
-	margin: 0 5px 0 0;
+.center {
+	text-align:center;
 }
-
 /* custom colors */
 
 green, green a {
@@ -121,6 +118,11 @@ green, green a {
 }
 red, red a {
 	color: $red;
+}
+.universe {
+	color: $asphalt;
+	display: inline;
+	margin: 0 5px 0 0;
 }
 
 .green-bg, tr.green-bg td {
@@ -130,6 +132,7 @@ red, red a {
 		color: #fff!important;
 	}
 }
+
 /*----------------------Containers ------------------------------*/
 
 #wrap {
@@ -296,6 +299,10 @@ body .sublimevideo-zi .sublimevideo-uj {
   }
 }
 
+.upload-form, .instructions {
+	display:inline-block;
+	margin:5px;
+}
 /*--------------------- Questions index ---------------------*/
 
 /*=videos=*/
@@ -625,6 +632,11 @@ body #header-search {
 }
 #question-box {
 	position: relative;
+	padding:10px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #eee;
 }
 .action_links, .profile, .edit-destroy-links {
 	display:inline;
@@ -676,7 +688,7 @@ body #header-search {
 
 .related {
 	height: auto;
-	padding: 5px 0 5px;
+	padding: 5px;
 	border-bottom: 1px solid #eee;
 	position:relative;
 	-moz-box-sizing: border-box;
@@ -696,13 +708,13 @@ body #header-search {
 	}
 }
 .related-questions {
-	margin: 0 0 10px;
+	margin: 0 0 5px;
 }
 #related {
 	width:100%;
 }
 .related:last-of-type {
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 .relatedh2 {
 	margin: 0px 0 5px;
@@ -858,7 +870,7 @@ body #header-search {
 	font-weight:bolder;
 	display: inline-block;
 	padding: 0px;
-	margin: 6px 0 0;
+	margin: 7px 0 0;
 	font-family: 'BebasNeueRegular';
 	width: 55px;
 }
@@ -873,6 +885,9 @@ body #header-search {
 	font-size: 42px;
 	float:left;
 	margin: 0 3px 0 0;
+}
+table .default-tick, .default-tick a {
+	float:none;
 }
 /*-------------------- Votes ----------------*/
 
