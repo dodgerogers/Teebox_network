@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="span12">
-	<%= link_to "Popular Tags", tags_path, class: "tabs" %>&nbsp
+	<%= link_to "Popular Tags", tags_path, class: "tabs" %>&nbsp;
 	<% tags.each do |tag| %>
 		<div class="tag_cloud_tag">
 			<%= link_to "#{tag.name} x #{tag.tag_count}", tagged_path(tag.name), class:  decorator.tag_class(tag) %>

@@ -25,8 +25,20 @@ describe ActivityHelper do
   end
   
   describe "get_activity_path" do
-    it "redirects to activity url" do
+    it "redirects to activity url for answer" do
       helper.get_activity_path(@activity).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#answer_#{@answer.id}")
+    end
+    
+    it "redirects to activity url for comment on question" do
+      @comment = create(:comment, user: @user2, commentable_id: @question.id, content: "buy a new set of irons")
+      @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, trackable_type: "Comment")
+      helper.get_activity_path(@activity2).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#comment_#{@comment.id}")
+    end
+    
+    it "redirects to activity url for comment on answer" do
+      @comment = create(:comment, user: @user2, commentable_id: @answer.id, commentable_type: "Answer", content: "buy a new set of irons")
+      @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, trackable_type: "Comment")
+      helper.get_activity_path(@activity2).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#comment_#{@comment.id}")
     end
     
     it "redirects to welcome url" do

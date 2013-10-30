@@ -17,15 +17,9 @@ describe Questions::ShowDecorator do
      end
    end
    
-  describe "sublime_player" do
-    it "renders player video element" do
-      @decorator.sublime_video(@question.video.file, @question.video.id).should eq "<video id='video_#{@question.video.id}' class='sublime' poster='' width='475px' height='' data-name='http://teebox-network.s3.amazonaws.com/uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v' data-uid='http://teebox-network.s3.amazonaws.com/uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v' preload='none' data-autoresize='fit'>\n      <source src='http://teebox-network.s3.amazonaws.com/uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v' /></video>".html_safe
+   describe "related_questions" do
+    it "maps array of similarly titled questions" do
+      #model.related_questions
     end
-  end
-  
-  describe "youtube_player" do
-    it "renders correct youtube element" do
-      @decorator.youtube_player.should eq "<iframe class='youtube-player' type='text/html' width='100%' height='400' src='http://www.youtube.com/embed/' frameborder='0'></iframe>".html_safe
-    end
-  end
+  end 
 end

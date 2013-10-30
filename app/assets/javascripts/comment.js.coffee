@@ -3,4 +3,3 @@ jQuery ->
   $(".comment-button").click (event) ->
     event.preventDefault()
     $(this).next(".new_comment").toggle()
-

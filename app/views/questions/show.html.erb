@@ -7,10 +7,10 @@
 	<div class="span8">
 		<div id="question-box">
 			<div class="video-container">
-				<%= @decorator.sublime_player %>
+				<%= sublime_video(@decorator.video) if @decorator.video.present? %>
 			</div>	
 				
-			<%= @decorator.youtube_player %>
+			<%= youtube_url_html5(@decorator.youtube_url) if @decorator.youtube_url.present? %>
 
 			<div class="question">
 				<h1><%= @decorator.title.titleize %></h1>		

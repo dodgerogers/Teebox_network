@@ -13,16 +13,12 @@ class Questions::IndexDecorator < ApplicationDecorator
     @params
   end
   
-  def current_page
-    "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
-  end
-  
   def tag_class(tag)
-    current_page == tagged_url(tag.name) ? "current_tag" : "tag" 
+    current_page?(tagged_url(tag.name)) ? "current_tag" : "tag" 
   end
   
   def tab_class(url)
-    current_page == url ? "submit" : "asphalt" 
+    current_page?(url) ? "submit" : "asphalt" 
   end
 
   def questions
@@ -31,11 +27,6 @@ class Questions::IndexDecorator < ApplicationDecorator
 
   def tags
     @tags.joins(:taggings).select('tags.*, count(tag_id) as "tag_count"').group("tags.id").order('tag_count desc')
-    #@tags.find_by_sql(%Q{ select tags.name as tag_name, count(*) as "tag_count"
-                          #from tags
-                          #inner join taggings on taggings.tag_id = tags.id
-                          #group by tags.name
-                          #order by tag_count desc })
   end
 
   def tagged_questions

@@ -1,15 +1,18 @@
 <%= content_for :head do %>
-	<title>Find out more</title>
+	<title>About us</title>
 <% end %>
 
-<div class="hero-unit forest-cutout">
-	<center>
-		<%= image_tag "old-school-logo.png" %><br>
-	</center>
-		<ul>
-		<li>Teebox is a question and answer site for golfers of all abilities.</li> 
-		<li>You can either ask a question to get help with your swing or answer questions.</li>
-		<li></li>
-		</ul>
+<div id="teebox-carousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#teebox-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#teebox-carousel" data-slide-to="1"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item"><%= render template: "shared/teebox_banner" %></div>
+    <div class="item"><%= render template: "shared/how_it_works" %></div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#teebox-carousel" data-slide="prev"><i class='icon-chevron-sign-left'></i></a>
+  <a class="carousel-control right" href="#teebox-carousel" data-slide="next"><i class='icon-chevron-sign-right'></i></a>
 </div>
-

@@ -11,7 +11,7 @@
 	<% end %>
 
 	<div>
-  		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video") %>
+  		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video <small> - Click to select</small>") %>
   		<%= render partial: "shared/video_select_form", locals: { question: @question } %>
 		<%= f.hidden_field :video_id %>
 	</div>
@@ -23,17 +23,17 @@
 
 	<div>
 		<%= f.label :title, raw("<i class='icon-font'></i> Title") %>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, placeholder: "Try and make your title as concise and explanatory as possible..." %>
 	</div><br>
 
 	<div>
-	  <%= f.label :tag_tokens, raw("<i class='icon-tags'></i> Tags <small>maximum of 5</small>") %>
+	  <%= f.label :tag_tokens, raw("<i class='icon-tags'></i> Tags - <small>Maximum of 5</small>") %>
 	  <%= f.text_field :tag_tokens, data: { preload: @question.tags } %>
 	</div><br>
 
 	<div>
 		<%= f.label :body, raw("<i class='icon-align-justify'></i> Body") %>
-		<%= f.text_area :body, class: "wysihtml5" %>
+		<%= f.text_area :body, placeholder: "Be sure to include as much info as you can, what club you are using, the shape of the ball flight, contact quality...", class: "wysihtml5" %>
 		<script type="text/javascript">
 		  $('.wysihtml5').wysihtml5();
 		</script>	

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = create(:user)
     Devise::Mailer.stub(:delay).and_return(Devise::Mailer)
   end
   

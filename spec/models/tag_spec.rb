@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Tag do
   before(:each) do
-    @tag = FactoryGirl.create(:tag)
+    @tag = create(:tag)
   end
   
   subject { @tag }

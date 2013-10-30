@@ -5,7 +5,7 @@ describe Comment do
     @user1 = create(:user, username: "dodgerogers747")
     @user2 = create(:user, username: "randyrogers")
     @question = create(:question, user: @user1, title: "My swing is too short", body: "my flexibility isn't great")
-    @comment = FactoryGirl.create(:comment, commentable_id: @question.id, content: "this is a comment for @randyrogers", user: @user1)
+    @comment = create(:comment, commentable_id: @question.id, content: "this is a comment for @randyrogers", user: @user1)
     Comment.any_instance.stub(:display_mentions).and_return(@comment)
   end
   

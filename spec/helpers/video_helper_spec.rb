@@ -10,15 +10,15 @@ describe VideoHelper do
   
   describe "youtube_url_html5" do
     it "renders video player iframe" do
-      helper.youtube_url_html5("http://www.youtube.com/watch?v=c59tCXiRwBk").should eq "<iframe class='youtube-player' type='text/html' width='100%' height='400' src='http://www.youtube.com/embed/c59tCXiRwBk' frameborder='0'></iframe>"
+      helper.youtube_url_html5("http://www.youtube.com/watch?v=c59tCXiRwBk").should eq "<video class=\"sublime\" data-autoresize=\"fit\" data-name=\"c59tCXiRwBk\" data-uid=\"c59tCXiRwBk\" data-youtube-id=\"c59tCXiRwBk\" height=\"374\" preload=\"none\" width=\"748\"><source src=\"c59tCXiRwBk\" /></video>"
     end
   end
   
   describe "sublime_video" do
     it "renders sublime video element" do
-      @video = create(:video)
-      helper.sublime_video(@video, @video.id).should eq "<video id='video_#{@video.id}' class='sublime' poster='' width='475px' height='' data-name='#{@video}' data-uid='#{@video}' preload='none' data-autoresize='fit'>
-      <source src='#{@video}' /></video>"
+      @user = create(:user)
+      @video ||= create(:video, user: @user)
+      helper.sublime_video(@video).should eq "<video class=\"sublime\" data-autoresize=\"fit\" data-name=\"#{@video.file}\" data-uid=\"#{@video.id}\" height=\"374\" id=\"video_#{@video.id}\" preload=\"none\" width=\"748\"><source src=\"#{@video.file}\" /></video>"
     end
   end
   

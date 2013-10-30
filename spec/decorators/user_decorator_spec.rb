@@ -18,20 +18,13 @@ describe UserDecorator do
     end
   end  
   
-  describe "my_videos" do
-    it "renders link to videos " do
-      @decorator.my_videos.should eq "<a href=\"/videos\" class=\"default next\">My Videos</a>"
-    end
-  end
-  
   describe "link_helper" do
     it "renders link to objects" do
       @decorator.link_helper("questions", questions_path, @user1.questions).should eq "<a href=\"/questions\" class=\"default next\">View all questions</a>"
     end
   end
   
-  
-  #simulate users objects
+  #------- REFACTOR simulate users objects -----#
   describe "questions" do
     it "returns users questions" do
       @decorator.questions_index.should eq(@decorator.questions_index)

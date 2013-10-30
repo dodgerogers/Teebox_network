@@ -22,6 +22,7 @@
 //= require twitter/bootstrap/bootstrap-tooltip
 //= require twitter/bootstrap/bootstrap-collapse
 //= require twitter/bootstrap/bootstrap-popover
+//= require twitter/bootstrap/bootstrap-carousel
 //= require jquery-fileupload/basic
 //= require jquery.tokeninput
 //= require bootstrap-wysihtml5

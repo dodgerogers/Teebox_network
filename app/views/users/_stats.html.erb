@@ -4,7 +4,7 @@
 			<center>
 			
 			<h2 class="video-upload"><%= @decorator.username %></h2>
-			<%= @decorator.my_videos %>
+			<%= link_to "My Videos", videos_path, class: "default next" %>
 			<%= link_to "Ask Question", new_question_path, class: "default submit" if current_user == @user %>
 			</center>
 		</div>
