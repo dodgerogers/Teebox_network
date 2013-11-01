@@ -2,6 +2,7 @@ require "bundler/capistrano"
 require "delayed/recipes"
 
 server "162.243.40.138", :web, :app, :db, primary: true
+role :whenever, "162.243.40.138"
 
 set :application, "teebox"
 set :user, "andrew"
@@ -14,6 +15,7 @@ set :scm, :git
 set :repository,  "https://github.com/dodgerogers/Teebox_network"
 set :branch, "master"
 
+set :whenever_roles, "whenever"
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
 
