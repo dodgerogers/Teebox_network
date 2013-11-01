@@ -47,6 +47,14 @@ describe ReportsController do
         response.should redirect_to reports_path
       end
     end
+    
+    describe "with invalid params" do
+      it "redirects to reports index" do
+        Report.any_instance.stub(:save).and_return(false)
+        post :create, report: attributes_for(:report)
+        response.should redirect_to reports_path
+      end
+    end
   end
   
   describe "DELETE destroy" do    

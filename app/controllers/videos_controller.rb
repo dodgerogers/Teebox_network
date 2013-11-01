@@ -38,9 +38,9 @@ class VideosController < ApplicationController
     @video = Video.destroy(params[:id])
     if @video.destroy
       @video.delete_key
-        respond_to do |format|
-          format.html { redirect_to videos_path, notice: "Video deleted" }
-          format.js
+      respond_to do |format|
+        format.html { redirect_to videos_path, notice: "Video deleted" }
+        format.js
       end
     end
   end

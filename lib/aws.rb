@@ -5,6 +5,7 @@ class Aws < Video
      files = []
      screenshots.each do |object| 
        ar = File.split(object)
+       # synthesise the mini screenshot files
        ar[-1] = ar[-1].prepend("mini_")
        files << File.join(*ar)
      end
@@ -20,9 +21,16 @@ class Aws < Video
      files = self.get_screenshots.zip(self.get_videos).flatten.compact
      number_of_files = (bucket.map(&:key) - files)
      if number_of_files.size > 0
-        p "Deleting #{number_of_files.size} AWS::S3 objects"
-        valid = bucket.map(&:key) & files
-        bucket.each { |obj| obj.delete unless valid.include? obj.key } 
+        puts "Would you like to delete #{number_of_files.size} erroneous AWS::S3 objects? Answer y/n"
+        if gets.chomp.downcase == "y"
+          valid = bucket.map(&:key) & files
+          bucket.each do |obj| 
+            puts "deleting #{obj.key}"
+            obj.delete unless valid.include? obj.key
+          end
+        else
+          puts "Operation cancelled"
+        end 
      else
        "No AWS::S3 objects to clean" 
      end

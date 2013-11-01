@@ -14,6 +14,9 @@ set :scm, :git
 set :repository,  "https://github.com/dodgerogers/Teebox_network"
 set :branch, "master"
 
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
 set :keep_releases, 2
 
 default_run_options[:pty] = true

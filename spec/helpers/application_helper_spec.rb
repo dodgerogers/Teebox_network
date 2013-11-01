@@ -20,6 +20,13 @@ describe ApplicationHelper do
     end
   end
   
+  describe "social_links" do
+    it "returns formatted social links" do
+      page = "/questions"
+      helper.social_links(page).should eq "<div><a href=\"http://facebook.com/sharer.php?u=/questions\" target=\"_blank\"><i class='icon-facebook-sign large facebook'></i> </a><a href=\"https://plus.google.com/share?url=/questions\" target=\"_blank\"><i class='icon-google-plus-sign large google'></i> </a><a href=\"https://twitter.com/share?url=/questions\" target=\"_blank\"><i class='icon-twitter large twitter'></i> </a></div>"
+    end
+  end
+  
   describe "avatar url" do
     it "returns a href" do
       @gravatar_id = Digest::MD5.hexdigest(@user2.email.downcase)

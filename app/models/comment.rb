@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
   after_create :display_mentions
   
   def display_mentions
-    self.content.scan(/@([a-z0-9_]+)/i).flatten.each do |u|
+    self.content.scan(/\B@([a-z0-9_]+)/i).flatten.each do |u|
       user = User.find_by_username(u)
       unless user == nil || self.user == user
         self.content.gsub!(/#{Regexp.escape("@#{u}")}/, "<a href='/users/#{user.id}-#{u}'>@#{u}</a>")

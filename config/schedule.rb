@@ -1,19 +1,12 @@
-set :environment, "development" 
-set :output, {
-    :error    => "log/error.log",
-    :standard => "log/cron.log" 
-}
+set :output, "#{path}/log/cron.log"
 
 every :day, at: "11:30am" do
   rake "generate_report"
-  rake "delete_capybara"
 end
 
 every :day, at: "02:00am" do
   rake "rank_users"
 end
-
-
 
 # Use this file to easily define all of your cron jobs.
 #

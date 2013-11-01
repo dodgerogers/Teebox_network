@@ -48,7 +48,7 @@ h1 {
 	font-family: 'BebasNeueRegular';
 	font-weight: 100;
 	margin-bottom: 12px;
-	margin-top: .5em;
+	margin-top: 10px;
 	color: $red;
 	/*text-shadow: 0px 2px 2px #777;		*/
 	letter-spacing:0px;				
@@ -271,7 +271,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	/*height: 700px!important;*/
 }
 .sublimevideo-View:first-child {
-	margin-bottom:10px;
+	margin-bottom:0px;
 }
 .upload {
   border-top: solid 1px #CCC;
@@ -643,6 +643,7 @@ body #header-search {
 }
 .action_links, .profile, .edit-destroy-links {
 	display:inline;
+	vertical-align: middle;
 }
 
 /*-------------------- comments + related questions ----------------*/
@@ -652,7 +653,8 @@ body #header-search {
 .comment {
 	height: auto;
 	padding: 10px;
-	border-bottom: 1px solid #ddd;
+	border-radius: 5px;
+	margin-bottom: 1px;
 	background: #eee;
 	position:relative;
 	-moz-box-sizing: border-box;

@@ -30,8 +30,6 @@ class ReportsController < ApplicationController
     @report = Report.destroy(params[:id])
     if @report.destroy
      redirect_to reports_path, notice: "Report deleted"
-    else
-     redirect_to reports_path, notice: "Delete failed, please try again"
    end
   end
 end

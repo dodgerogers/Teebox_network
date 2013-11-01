@@ -3,7 +3,7 @@ require 'spec_helper'
 describe UsersController do
   include Devise::TestHelpers
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = create(:user)
     @user.confirm!
     sign_in @user
   end
@@ -41,6 +41,13 @@ describe UsersController do
     it "renders comments template" do
       get :comments_index, id: @user.id
       response.should render_template :comments_index
+    end
+  end
+  
+  describe "welcome_page" do
+    it "redirects to welcome path" do
+      get :welcome, id: @user.id
+      response.should render_template :welcome
     end
   end
 end

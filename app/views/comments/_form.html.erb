@@ -15,7 +15,7 @@
 	
 	<div class="field">
 	<% id = rand(1..2000) %>
-	<%= f.text_area :content, id: "comment-textarea", class: "comment-form_#{id}", placeholder: "Enter content" %>
+	<%= f.text_area :content, id: "comment-textarea", class: "comment-form_#{id}", placeholder: "To reply to someone add @ in front of their username" %>
 	<script type="text/javascript">
 	  $('.comment-form_<%= id %>').wysihtml5({
 		"font-styles": false,

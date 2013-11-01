@@ -17,6 +17,14 @@ module ApplicationHelper
     end
   end
   
+  def social_links(page)
+    content_tag :div do
+      (link_to raw("<i class='icon-facebook-sign large facebook'></i> "), "http://facebook.com/sharer.php?u=#{page}", target: "_blank") +
+      (link_to raw("<i class='icon-google-plus-sign large google'></i> "), "https://plus.google.com/share?url=#{page}", target: "_blank") +
+      (link_to raw("<i class='icon-twitter large twitter'></i> "), "https://twitter.com/share?url=#{page}", target: "_blank")
+    end
+  end
+  
   def avatar_url(user, size=35)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"

@@ -83,6 +83,12 @@
 	.container .semi {
 		width:100%;
 	}
+	.social-buttons {
+		width: 29%;
+	}
+	.profile-info {
+		width:70%;
+	}
 }
 @media (min-width: 480px) and (max-width: 767px) {
 	body {
@@ -177,6 +183,15 @@
 	.container .semi {
 		width:100%;
 	}
+	.social-buttons {
+		width: 29%;
+	}
+	.profile-info {
+		width:70%;
+	}
+	.container .forest-cutout {
+		background-position: center 70%;
+	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
 	body {
@@ -219,7 +234,7 @@
 		font-size: 15px;
 		width:100%;
 		margin: 0px;
-		font-weight: 500;
+		font-weight: 300;
 	}
 	#index {
 		width:100%;
@@ -308,4 +323,12 @@
 	.carousel-control {
 		top: 76%;
 	}
+	.social-buttons {
+		width:100%;
+		text-align:left;
+		margin-top:2px;
+	}
+	.container .forest-cutout {
+		background-position: center 70%;
+	}		
 }

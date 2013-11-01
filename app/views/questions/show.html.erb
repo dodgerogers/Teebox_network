@@ -5,13 +5,14 @@
 
 <div class="row">
 	<div class="span8">
+		<div class="video-container">
+			<%= sublime_video(@decorator.video) if @decorator.video.present? %>
+			<% if @decorator.youtube_url.present? %>
+				<br>
+				<%= youtube_url_html5(@decorator.youtube_url) %>
+			<% end %>	
+		</div>
 		<div id="question-box">
-			<div class="video-container">
-				<%= sublime_video(@decorator.video) if @decorator.video.present? %>
-			</div>	
-				
-			<%= youtube_url_html5(@decorator.youtube_url) if @decorator.youtube_url.present? %>
-
 			<div class="question">
 				<h1><%= @decorator.title.titleize %></h1>		
 				<div class="question-content">
@@ -30,6 +31,9 @@
 					    <%= profile_link_helper(@question) %>
 						<%= link_to "Edit", edit_question_path(@question) if can? :update, @question %>
 						<%= link_to "Delete", @question, method: :delete, confirm: "Are you sure?" if can? :destroy, @question %>
+					</div>
+					<div class="social-buttons">
+						<%= social_links(request.original_url) %>
 					</div>
 				</div>
 			</div>

@@ -13,10 +13,6 @@ module VideoHelper
   end             
   
   def sublimevideo_rails
-    @site_token = load_config("sublime.yml")["SITE"]["TOKEN"]
-  end
-
-  def load_config(filename)
-    YAML::load(ERB.new(IO.read("config/#{filename}")).result)
+    @site_token = CONFIG[:sublime_token]
   end
 end

@@ -32,8 +32,6 @@ class Answer < ActiveRecord::Base
     end
   end 
   
-  private
-  
   def truthness(answer, truth)
     answer.correct == truth && answer.user != answer.question.user
   end

@@ -22,9 +22,9 @@ class CommentsController < ApplicationController
   
   def destroy
     @comment = Comment.destroy(params[:id])
-        respond_to do |format|
-          format.js
-      end
+    respond_to do |format|
+      format.js
+    end
   end
        
   def vote 

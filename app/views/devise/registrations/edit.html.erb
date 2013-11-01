@@ -7,42 +7,43 @@
 		<div class="span2"></div>
 		<div class="span8">
 			<div class=" hero-unit blue-transparent">
-			<h1>Update Your Profile <i class="icon-cog"></i></h1><br>
+			<h1>Update Your Profile <i class="icon-cog"></i></h1>
 
 			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 			<%= devise_error_messages! %>
 
-				<div>
+				<div class="registration">
 				<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
 				<%= f.email_field :email %>
-				</div><br>
+				</div>
 
-				<div>
+				<div class="registration">
 				<%= f.label :username, raw("<i class='icon-user'></i> Username")  %>
 				<%= f.text_field :username %>
-				</div><br>
+				</div>
 
-				  <div>
+				<div class="registration">
 				<%= f.label :password, raw("<i class='icon-lock'></i> Password") %> <small>(leave blank if you don't want to change it)</small>
 				<%= f.password_field :password, :autocomplete => "off" %>
-				</div><br>
+				</div>
 
-				<div>
+				<div class="registration">
 				<%= f.label :password_confirmation, raw("<i class='icon-lock'></i> Password Confirmation") %>
 				<%= f.password_field :password_confirmation %>
-				</div><br>
+				</div>
 
-				<div>
+				<div class="registration">
 				<%= f.label :current_password %> <small>(we need your current password to confirm your changes)</small>
 				<%= f.password_field :current_password %>
-				</div><br>
+				</div>
 
-				<div>
+				<div class="registration">
 				<%= link_to image_tag(avatar_url(resource, 100)), resource, id: "gravatar" %><br><br>	
 				<label><i class='icon-picture'></i> Profile Picture</label>
 				<%= link_to "Change your profile picture", "http://gravatar.com", title: "Change your profile picture", target: :blank %>
-				</div><br>
-				<div>
+				</div>
+				
+				<div class="registration">
 				<%= f.submit "Update", class: "default submit" %>
 				</div>
 			<% end %>
@@ -51,7 +52,7 @@
 
 			<p>Unhappy? 
 			<%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>
-			.</p>
+			</p>
 
 			<%= link_to "Back", :back %>
 		</div>

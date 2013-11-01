@@ -40,21 +40,32 @@ describe ActivitiesController do
   end
   
   describe "read" do
-    it "assigns the requested activity as @activity" do
-    put :read, id: @activity
-    assigns(:activity).should eq(@activity)
-    end
+    describe "with valid params" do
+      it "assigns the requested activity as @activity" do
+        put :read, id: @activity
+        assigns(:activity).should eq(@activity)
+      end
 
-    it "toggles the read column" do
-      put :read, id: @activity
-      @activity.reload
-      @activity.read.should eq true
-    end
+      it "toggles the read column" do
+        put :read, id: @activity
+        @activity.reload
+        @activity.read.should eq true
+      end
 
-    it "redirects to the post" do
-      put :read, id: @activity
-      @activity.reload
-      response.should redirect_to "#{url_for(@activity.trackable.question)}#answer_#{@activity.trackable.id}"
+      it "redirects to the post" do
+        put :read, id: @activity
+        @activity.reload
+        response.should redirect_to "#{url_for(@activity.trackable.question)}#answer_#{@activity.trackable.id}"
+      end
+      
+    describe "with invalid params" do
+      it "redirects to root" do
+        PublicActivity::Activity.any_instance.stub(:save).and_return(false)
+        put :read, id: @activity
+        @activity.reload
+        response.should redirect_to root_path
+        end
+      end
     end
   end
 end
