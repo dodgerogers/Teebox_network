@@ -2,7 +2,8 @@
 	<title>Welcome <%= @user.username.titleize %></title>
 <% end %>
 
-<div class="hero-unit sandy-hills">
+<body class="sandy-hills-xl">
+<div class="hero-unit transparent">
 	<center>
 		<h1 class="welcome-banner">
 			Welcome <%= @user.username %><br><br>
@@ -21,16 +22,10 @@
 		<div class="span5 semi">
 			<div class="well blue-transparent">
 				<h3 class="welcome-white">Help</h3>	
-				<p>Here are some golfers who need your help<p>
-				<!-- move out to partial -->
-				<ul>	
-					<% @questions.each do |q| %>
-						<li><%= link_to q.title, q %></li>
-					<% end %>
-				</ul>
-				<%= link_to 'View unanswered questions', unanswered_path, class: "default asphalt" %>	
-				<!-- questions -->	
+				<p>Here are some golfers who need your help.</p>
+				<%= link_to 'View unanswered questions', unanswered_path, class: "default asphalt" %>		
 			</div>
 		</div>
 	</div>	
 </div>
+</body>

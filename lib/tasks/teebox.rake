@@ -1,3 +1,5 @@
+require '/Users/andrew/rails/teebox_network/app/models/report'
+
 task generate_report: :environment do
   Report.create
 end
