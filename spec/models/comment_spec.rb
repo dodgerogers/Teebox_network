@@ -55,15 +55,22 @@ describe Comment do
     before { @comment.commentable_type = nil }
     it { should_not be_valid }
   end  
+  
+  describe "duplicate usernames" do
+    before { @comment.content = "@randyrogers @randyrogers" }
+    it { should_not be_valid }
+  end
 
-  describe "display_mentions" do
-    it "containing valid user" do
-      @comment.display_mentions.content.should eq("this is a comment for <a href='/users/#{@user2.id}-#{@user2.username}'>@#{@user2.username}</a>")
-    end
+  describe "mentions" do
+    describe "display_mentions" do
+      it "containing valid user" do
+        @comment.display_mentions.content.should eq("this is a comment for <a href='/users/#{@user2.id}-#{@user2.username}'>@#{@user2.username}</a>")
+      end
     
-    it "no valid users" do
-      @comment.content = "hey @dodgey this is a comment"
-      @comment.display_mentions.content.should eq("hey @dodgey this is a comment")
+      it "no valid users" do
+        @comment.content = "hey @dodgey this is a comment"
+        @comment.display_mentions.content.should eq("hey @dodgey this is a comment")
+      end
     end
   end  
 end

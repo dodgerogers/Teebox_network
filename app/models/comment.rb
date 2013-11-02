@@ -12,19 +12,29 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
   validates_length_of :content, minimum: 10, maximum: 350
   validates :content, obscenity: true
+  validate :mentions_limit
   
   default_scope order: "created_at"
   
   after_create :display_mentions
   
+  def mentions_limit
+    return unless errors.blank?
+    errors.add(:content, "You can only mention someone once") if find_mentions.uniq.length != find_mentions.length
+  end
+  
   def display_mentions
-    self.content.scan(/\B@([a-z0-9_]+)/i).flatten.each do |u|
+    find_mentions.each do |u|
       user = User.find_by_username(u)
-      unless user == nil || self.user == user
+      unless (user == nil || self.user == user)
         self.content.gsub!(/#{Regexp.escape("@#{u}")}/, "<a href='/users/#{user.id}-#{u}'>@#{u}</a>")
         self.delay.create_activity :create, owner: self.user, recipient: user unless user.id == self.commentable.user_id
       end
-      self.save!
     end
+    self.save!
+  end
+  
+  def find_mentions
+    self.content.scan(/@([a-z0-9_]+)/i).flatten
   end
 end
