@@ -18,7 +18,7 @@
 	
 	<div id='params'>
 		<% if params[:search] %>
-			<%= display_results(@decorator.newest_questions, params[:search]) %>
+			<%= display_results(@decorator.questions, params[:search]) %>
 			<hr>
 		<% elsif params[:tag] %>
 			<%= render partial: "shared/tag_cloud", locals: { tags: @decorator.tags, decorator: @decorator }%>

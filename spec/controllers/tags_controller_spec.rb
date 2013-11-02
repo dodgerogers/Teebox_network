@@ -3,16 +3,16 @@ require 'spec_helper'
 describe TagsController do
   include Devise::TestHelpers
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = create(:user)
     @user.confirm!
     sign_in @user
     controller.stub!(:current_user).and_return(@user)
-    @tag = FactoryGirl.attributes_for(:tag)
+    @tag = attributes_for(:tag)
   end
   
   describe "GET show" do
     it "assigns a new tag as @tag" do
-      @tag = create(:tag)
+      @tag = create(:tag, name: "Driver")
       get :show, id: @tag
       assigns(:tag).should eq(@tag)
     end
@@ -129,6 +129,14 @@ describe TagsController do
     it "redirects to the questions list" do
       delete :destroy, id: @tag
       response.should redirect_to tags_path
+    end
+  end
+  
+  describe "question_tags" do
+    it "orders tags by name" do
+      request.accept = "tag/json"
+      get :question_tags, format: "json"
+      response.should be_success
     end
   end
 end

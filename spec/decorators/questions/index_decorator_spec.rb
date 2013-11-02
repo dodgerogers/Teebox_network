@@ -35,14 +35,14 @@ describe Questions::IndexDecorator do
     end
     
     it "returns latest questions" do
-      @decorator.questions.should == [@q1, @q2, @q3] 
+      @decorator.newest_questions.should == [@q3, @q2, @q1] 
     end
     
     it "returns unanswered questions" do
       @decorator.unanswered_questions.should == [@q2, @q3] 
     end
     
-    it "returns unanswered questions" do
+    it "returns popular questions" do
       @decorator.votes_questions.should == [@q2, @q3, @q1] 
     end
   end

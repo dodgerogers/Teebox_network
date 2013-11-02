@@ -1,15 +1,39 @@
 <div id="footer" class="<%= hide_footer %>">
 	<div class="container">
 		<div class="padded row">
-			<div class="span4">
-				Teebox Network Ltd. All Rights Reserved
+			<div class="span3">
+				<div class="footer-title">Questions</div>
+				<ul class="footer-links">
+					<li><%= link_to "Latest Questions", root_path %></li>
+					<li><%= link_to "Unanswered Questions", unanswered_path %></li>
+					<li><%= link_to "Most Popular", highest_votes_path %></li>
+					<li><%= link_to "Tag Vault", tags_path %></li>
+				</ul>	
 			</div>
-			<div class="span4">
+			<div class="span3">
+				<div class="footer-title">About us</div>
+				<ul class="footer-links">
+					<li><%= link_to "Find out more", info_path %></li>
+					<li><%= link_to "Login", new_user_session_path %></li>
+					<li><%= link_to "Sign up", new_user_registration_path %></li>
+				</ul>	
 			</div>
-			<div class="span4">
-			<ul class="footer-menu">
-			</ul>
-		</div>
+			<div class="span3">
+				<div class="footer-title">Teebox</div>
+				<ul class="footer-links">
+					<li><%= link_to "Privacy" %></li>
+					<li><%= link_to "Terms & Conditions" %></li>
+					<li>Teebox Network Ltd All Rights Reserved</li>
+				</ul>
+			</div>
+			<div class="span3">
+				<div class="footer-title">Social</div>
+				<ul class="footer-links">
+					<li><%= link_to raw("<i class='icon-facebook-sign facebook'></i>"), "https://facebook.com" %></li>
+					<li><%= link_to raw("<i class='icon-twitter twitter'></i>"), "https://twitter.com/" %></li>
+					<li><%= link_to raw("<i class='icon-google-plus-sign google'></i>"), "https://plus.google.com/" %></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

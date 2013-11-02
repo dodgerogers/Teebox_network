@@ -98,7 +98,7 @@
 		padding-right: 0px!important;
 	}
 	#margin-bottom {
-		margin: 0 20px;
+		margin: 0 20px 20px;
 	}
 	#mini-push {
 		height:0px;
@@ -191,6 +191,9 @@
 	}
 	.container .forest-cutout {
 		background-position: center 70%;
+	}
+	#footer {
+		height:auto;
 	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
@@ -330,5 +333,8 @@
 	}
 	.container .forest-cutout {
 		background-position: center 70%;
-	}		
+	}	
+	#footer {
+		height:auto;
+	}	
 }

@@ -1,29 +1,10 @@
-<% if params[:search] %> 
-	<% if @decorator.questions.next_page %>
-	  $('#loading').remove(); 
-	  $('.pagination').replaceWith('<%= j render partial: "questions/questions", locals: {questions: @decorator.questions} %>');
-	<% else %>
-	  $('#loading').remove();
-	  $('.pagination').show();
-	  $('.load-questions').hide();
-	<% end %>
-<% elsif params[:tag] %>
-	<% if @decorator.tagged_questions.next_page %>
-	  $('#loading').remove();
-	  $('.pagination').replaceWith('<%= j render partial: "questions/questions", locals: {questions: @decorator.tagged_questions} %>');
-	<% else %>
-	  $('#loading').remove();
-	  $('.pagination').show();
-	  $('.load-questions').hide();
-	<% end %>
-<% else  %>
-	<% if @decorator.newest_questions.next_page %>
-	  $('#loading').remove();
-	  $('.pagination').replaceWith('<%= j render partial: "questions/questions", locals: {questions: @decorator.newest_questions} %>');
-	<% else %>
-	  $('#loading').remove();
-	  $('.pagination').show();
-	  $('.load-questions').hide();
-	<% end %>
+$('.pagination').replaceWith('<%= j render partial: "questions/questions", locals: {questions: @decorator.newest_questions} %>');
+$('#loading').remove();
+<% if !@decorator.newest_questions.next_page %>
+  $('#loading').remove();
+  $('.pagination').show();
+  $('.load-questions').hide();
+<% else %>
+	$('#loading').remove();
 <% end %>
 <% sleep 1 %>
