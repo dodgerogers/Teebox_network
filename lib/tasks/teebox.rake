@@ -1,4 +1,4 @@
-require '/Users/andrew/rails/teebox_network/app/models/report'
+require "#{Rails.root}/app/models/report"
 
 task generate_report: :environment do
   Report.create
