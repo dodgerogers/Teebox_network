@@ -1,5 +1,3 @@
-require "#{Rails.root}/app/models/report"
-require "#{Rails.root}/app/models/question"
 
 task generate_report: :environment do
   Report.create
