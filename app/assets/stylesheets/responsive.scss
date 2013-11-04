@@ -195,6 +195,17 @@
 	#footer {
 		height:auto;
 	}
+	#featurette {
+		text-align:center;
+		[class^="icon-"], #featurette[class*=" icon-"] {
+			display:block;
+			float:none;
+			margin-right:auto;
+		}
+	}
+	.default-xl {
+		width:100%;
+	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
 	body {
@@ -292,6 +303,9 @@
 	.default {
 		margin-top: 10px;
 	}
+	.default-xl {
+		width:100%;
+	}
 	ul.wysihtml5-toolbar {
 		display:none;
 	}
@@ -337,4 +351,15 @@
 	#footer {
 		height:auto;
 	}	
+	#featurette {
+		text-align:center;
+		[class^="icon-"], #featurette[class*=" icon-"] {
+			display:block;
+			float:none;
+			margin-right:auto;
+		}
+	}
+	h1.xl {
+		font-size: 75px!important;
+	}
 }

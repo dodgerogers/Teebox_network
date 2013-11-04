@@ -2,19 +2,41 @@
 	<title>About us</title>
 <% end %>
 
-<div id="teebox-carousel" class="carousel slide">
-  <ol class="carousel-indicators">
-    <li data-target="#teebox-carousel" data-slide-to="0" class="active"></li>
-    <li data-target="#teebox-carousel" data-slide-to="1"></li>
-  </ol>
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item"><%= render template: "shared/teebox_banner" %></div>
-    <div class="item"><%= render template: "shared/how_it_works" %></div>
-  </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#teebox-carousel" data-slide="prev"><i class='icon-chevron-sign-left'></i></a>
-  <a class="carousel-control right" href="#teebox-carousel" data-slide="next"><i class='icon-chevron-sign-right'></i></a>
-</div>
+<body class="teebox-xl">
+	<div class='center hero-unit transparent'>
+		<h1 class="welcome-banner xl">How it works</h1>
+		<p class="lead white">Teebox couldn't be simpler. Ask a question about your swing issues, get some helpful answers and tips. Try them out. Get back to playing your best. And yes, its completely free.</p>
+	</div>
+<!-- START THE FEATURETTES -->
+      <div id="featurette">
+        <i class="icon-camera-retro xl pull-left"></i>
+        <h2 class="featurette-heading">Firstly.&nbsp;<span class="muted">Upload a video of your swing.</span></h2>
+        <p class="lead">Videos give everyone a great insight into you and your swing. We recommend face on or down the line camera angles.</p>
+      </div>
 
+      <div id="featurette">
+		<i class="icon-question-sign xl pull-left red"></i>
+        <h2 class="featurette-heading">Secondly.&nbsp;<span class="muted">Tell everyone what's going wrong.</span></h2>
+        <p class="lead">Talk to us about your issues. Where's the ball going? What shot are you trying to play? Be as specific as possible.</p>
+      </div>
+
+      <div id="featurette">
+		<i class="icon-ok-sign xl pull-left green"></i>
+        <h2 class="featurette-heading">Lastly.&nbsp;<span class="muted">Get your answer.</span></h2>
+        <p class="lead">Anyone can answer your question. A low handicapper or an aspirational beginner. Don't be scared, objectivity is king.</p>
+      </div>
+
+	<div id="featurette">
+		<i class="icon-plus-sign xl pull-left points"></i>
+        <h2 class="featurette-heading">Don't forget.&nbsp;<span class="muted">The Points.</span></h2>
+        <p class="lead">Mark the answer which helped you the most as correct. Vote on comments which helped you out. Points for everyone!</p>
+		<hr>
+		<center>
+		<p class="lead">You'll back in shape in no time.</p>
+		<p class="lead">
+		<%= link_to "Sign up today", new_user_registration_path, class: "default-xl success" %></p></center>
+      </div>
+
+      <!-- /END THE FEATURETTES -->
 <%= javascript_include_tag "teebox_carousel.js" %>
+</body>

@@ -111,7 +111,7 @@ center h1 {
 .center {
 	text-align:center;
 }
-/* custom colors */
+/*------- Custom colors -------*/
 
 green, green a {
 	color: $green;
@@ -119,11 +119,16 @@ green, green a {
 red, red a {
 	color: $red;
 }
+.white {
+	color: #fff;
+}
 .universe {
 	color: $asphalt;
 	display: inline;
 	margin: 0 5px 0 0;
 }
+
+/* Tables */
 
 .green-bg, tr.green-bg td {
 	background:$green!important;
@@ -509,6 +514,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	background: #fff;
 	background-position: center 10%;
 	-webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
 	border-radius: 40px;
 	top: 20%;
 	right: 35%;
@@ -809,6 +815,20 @@ body #header-search {
 	color: #fff;
 	background:#999;
 }
+.default-xl {
+	color: #fff;
+	background: #888;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px 10px!important;
+	border-radius:0px;
+	border:none;
+	display:inline-block;
+	text-shadow:none;
+	line-height:20px!important;
+	margin: 3px 3px 0 0;
+}
 .success {
 	background: $turquoise;
 }
@@ -1094,8 +1114,9 @@ h1.one span {
 	box-sizing: border-box;
 	padding: 3px 7px;
 	background: $red;
-	display:inline;
-	color:#fff;
+	display: inline-block;
+	color: #fff;
+	margin-bottom: 2px;
 }
 .current_tag {
 	-moz-box-sizing: border-box;
@@ -1317,4 +1338,27 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	border: 2px solid #ccc;
 	border-radius: 10px;
 	line-height:20px;
+}
+
+/* Featurette */
+
+#featurette {
+	background: rgba(255, 255, 255, 0.88);
+	border: 1px solid #eee;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0px 20px;
+	margin: 10px 0;	
+	[class^="icon-"], [class*=" icon-"] {
+		margin-top: 20px;
+	}
+}
+.featurette-heading {
+	font-weight: 500;
+	letter-spacing: -1px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }

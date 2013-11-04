@@ -115,17 +115,7 @@
 .cog {
 	margin-top: -2px;
 }
-/*--- buttons ---*/
 
-/*.btn, .btn-group {
-	color:#222!important;
-	background: #eee!important;
-	border: 0px!important;
-	border-radius: 0px;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-color: none!important;
-}*/
 /*---------non bootstrap custom nav elements --------*/
 .gravatar {
 	width: 50px;
@@ -301,9 +291,6 @@ form#new_video {
 	margin: 0;
 	display:none;
 }
-input:-webkit-autofill {
-	background-color: #fff!important; 
-}
 #search {
 	background:$ocean;
 	border:none;
@@ -340,10 +327,6 @@ input:-webkit-autofill {
 .table th, .table td {
 	text-align:center;
 	vertical-align: middle;
-}
-.white {
-	background: #fff;
-	color: #777;
 }
 table , .table a { 
 	color: $teal; 
@@ -440,4 +423,7 @@ table , .table a {
 }
 .slide, .left {
 	background: transparent!important;
+}
+.muted {
+	color: #bbb;
 }

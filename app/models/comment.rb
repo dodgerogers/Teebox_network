@@ -35,6 +35,6 @@ class Comment < ActiveRecord::Base
   end
   
   def find_mentions
-    self.content.scan(/@([a-z0-9_]+)/i).flatten
+    @mentions ||= self.content.scan(/@([a-z0-9_]+)/i).flatten
   end
 end
