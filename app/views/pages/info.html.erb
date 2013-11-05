@@ -2,10 +2,13 @@
 	<title>About us</title>
 <% end %>
 
-	<div class='center hero-unit transparent' id="no-padding">
-		<h1 class="xl">How it works</h1>
+
+	<div class='center hero-unit blue-transparent' id="fullwidth">
+		<h1 class="welcome-banner xl">How it works</h1>
 		<p class="lead">Teebox couldn't be simpler. Ask a question about your swing issues, get some helpful answers and tips.<br>Try them out. Get back to playing your best. And yes, its completely free.</p>
 	</div>
+	
+<div class="container" id="margin-bottom">	
 <!-- START THE FEATURETTES -->
       <div id="featurette">
         <i class="icon-camera-retro xl pull-left"></i>
@@ -28,13 +31,13 @@
 	<div id="featurette">
 		<i class="icon-plus-sign xl pull-left points"></i>
         <h2 class="featurette-heading">Don't forget.&nbsp;<span class="muted">The Points.</span></h2>
-        <p class="lead">Mark the answer which helped you the most as correct. Vote on comments which helped you out. Points for everyone!</p>
+        <p class="lead">Mark your favorite answer as correct. Vote on comments or other answers which helped you out. Points for everyone!</p>
 		<hr>
 		<center>
 		<p class="lead">You'll back in shape in no time.</p>
 		<p class="lead">
 		<%= link_to "Sign up today", new_user_registration_path, class: "default-xl success" %></p></center>
       </div>
-
       <!-- /END THE FEATURETTES -->
+</div>
 <%= javascript_include_tag "teebox_carousel.js" %>
