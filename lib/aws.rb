@@ -6,6 +6,7 @@ class Aws < Video
      screenshots.each do |object| 
        ar = File.split(object)
        # synthesise the mini screenshot files
+       # files << object.screenshot_url(:mini)
        ar[-1] = ar[-1].prepend("mini_")
        files << File.join(*ar)
      end
