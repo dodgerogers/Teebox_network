@@ -17,6 +17,7 @@ FactoryGirl.define do
     video_id :video
     answers_count 5
     votes_count 5
+    correct false
   end    
   
   factory :video do

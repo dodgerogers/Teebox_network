@@ -16,7 +16,7 @@ describe Aws do
   end
   
   describe "get_videos" do
-    it "maps an array of formetted videos file attributes" do
+    it "maps an array of formatted videos file attributes" do
       subject.get_videos.should eq ["uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v"]
     end
   end

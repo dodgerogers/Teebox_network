@@ -10,6 +10,6 @@ module ActivityHelper
     elsif a.trackable_type == "Answer"
       object = a.trackable.question
     end
-    a.trackable_type == "User" ? welcome_path(a.recipient_id) : "#{url_for(object)}##{a.trackable_type.downcase}_#{a.trackable.id}"
+    a.trackable_type == "User" ? info_path : "#{url_for(object)}##{a.trackable_type.downcase}_#{a.trackable.id}"
   end
 end

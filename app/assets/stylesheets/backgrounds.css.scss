@@ -24,6 +24,11 @@ body .blue-transparent {
 		color: #333;
 	}
 }
+body .darkblue-transparent {
+	@extend .blue-transparent;
+	background: $blackhole;
+}
+
 body .transparent {
 	background: transparent;
 	padding: 30px;
@@ -121,6 +126,11 @@ body .transparent {
 	background: url(backgrounds/Yas-links.jpg);
 	color: #fff;
 	background-position: center 95%;
+}
+.container .grass {
+	background: url(backgrounds/teebox-grass.jpg);
+	color: #fff;
+	background-position: center bottom;
 }
 .blue {
 	background: $sky;

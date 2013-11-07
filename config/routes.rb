@@ -4,7 +4,7 @@ TeeboxNetwork::Application.routes.draw do
   resources :users, only: [:show, :index]
   resources :signed_urls, only: :index
   
-  match '(errors)/:status', to: 'errors#show', constraints: {status: /\d{3}/}
+  match '(errors)/:status', to: 'errors#show', constraints: { status: /\d{3}/ }
   
   root to: "questions#index"
   
@@ -12,7 +12,7 @@ TeeboxNetwork::Application.routes.draw do
   
   get "question_tags", to: "tags#question_tags", as: :question_tags #tokenInput json tags
   get "questions/unanswered", to: "questions#unanswered", as: :unanswered
-  get "questions/highest_votes", to: "questions#highest_votes", as: :highest_votes
+  get "questions/popular", to: "questions#popular", as: :popular
   
   get "users/:id/questions_index", to: "users#questions_index", as: :questions_index
   get "users/:id/answers_index", to: "users#answers_index", as: :answers_index

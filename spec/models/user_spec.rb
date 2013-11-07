@@ -41,6 +41,12 @@ describe User do
     it { should be_valid }
   end 
   
+  describe "to_param" do
+    it "returns id and username string" do
+      @user.to_param.should eq "#{@user.id}-#{@user.username}"
+    end
+  end
+  
   describe "create_welcome_notification" do
     it "triggers after_create" do
       subject.should_receive(:after_create)

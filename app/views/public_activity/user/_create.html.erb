@@ -5,11 +5,9 @@
 	<div class="message">
 		Welcome to Teebox 	
 		<%= link_to activity.recipient.username, activity.recipient %>!
-		Click  
-		<%= link_to read_activity_path(activity), method: :put do %>
-			here
-		<% end %>
-		to read our quick start guide.<br>
+		Need a refresher on how it works? Click
+		<%= link_to "here", read_activity_path(activity), method: :put %>
+		<br>
 		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
 	</div>	
 <% end %>

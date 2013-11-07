@@ -54,6 +54,13 @@ describe Answer do
     it { should_not be_profane }
   end
   
+  describe "toggle_question_correct" do
+    it "toggles to true" do
+      @answer.toggle_question_correct
+      @answer.question.correct.should eq true
+    end
+  end
+  
   describe "Scopes" do
     it "returns an array sorted by votes" do
         @user3 = create(:user)
@@ -67,23 +74,16 @@ describe Answer do
   end
   
   describe "adding reputation" do
-    describe "truthness" do
+    describe "#truthness" do
       it "returns true when not your question and correct answer" do
         @answer2 = create(:answer, correct: true, user: @user2, body: "You have a weak grip", question_id: @question.id)
         @answer2.truthness(@answer2, true).should eq true
       end
     end
     
-    describe "update_reputation" do
+    describe "#update_reputation" do
       it "updates users reputation" do
-        #@answer.update_reputations(answer, your_rep, my_rep, operator)
-      end
-    end
-    
-    describe "add_reputation" do
-      it "adds +20 to answerer and +5 to question owner" do
-        # answer.user.update_attributes(reputation: (answer.user.reputation.send(operator, your_rep)))
-        # answer.question.user.update_attributes(reputation: (answer.question.user.reputation.send(operator, my_rep)))
+        @answer.update_reputations(@answer, 20, 5, :+).should eq true
       end
     end
   end

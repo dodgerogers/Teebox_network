@@ -1,4 +1,5 @@
 require 'spec_helper'
+include TagHelper
 
 describe Question do
   before(:each) do
@@ -20,14 +21,15 @@ describe Question do
   it { should have_many(:comments)}
   it { should have_many(:votes)}
   it { should have_many(:answers)}
-  it { should have_many(:tags)}
+  it { should have_many(:tags).through(:taggings)}
   it { should have_many(:taggings)}
   it { should validate_presence_of(:title)}
   it { should validate_presence_of(:body)}
   it { should validate_presence_of(:user_id)}
   
-  describe "tag limit" do
-    #set 6 question tags
+  describe "over tag_limit" do
+    before { @question.tags << tag_list }
+    it { should_not be_valid }
   end
   
    describe "long title" do
@@ -49,7 +51,16 @@ describe Question do
       before { @question.body = "fuck" }
       it { should_not be_profane }
     end
+    
+    describe "tagged_with " do
+      it "finds a tag by name" do
+        @tag = create(:tag, name: "shank")
+        @question.tags << @tag
+        Question.tagged_with(@tag.name).should eq [@question]
+      end
+    end
 
+    #move questions to helper
     describe "Scopes" do
     it "returns a sorted array of unanswered questions" do 
       @user1 = create(:user)

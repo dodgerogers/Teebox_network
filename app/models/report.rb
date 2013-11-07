@@ -5,7 +5,7 @@ class Report < ActiveRecord::Base
                   :questions_total, :users_total
   before_save :set_records
   before_save :set_totals
-  after_create :set_averages
+  #after_create :set_averages
   
   default_scope order('created_at')
   
@@ -15,12 +15,12 @@ class Report < ActiveRecord::Base
     self.users = record_query(User)
   end
   
-  def set_averages
-    self.questions_average = average(Report.all.collect(&:questions))
-    self.answers_average = average(Report.all.collect(&:answers))
-    self.users_average = average(Report.all.collect(&:users))
-    self.save!
-  end
+  # def set_averages
+  #     self.questions_average = average(Report.all.collect(&:questions))
+  #     self.answers_average = average(Report.all.collect(&:answers))
+  #     self.users_average = average(Report.all.collect(&:users))
+  #     self.save!
+  #   end
   
   def set_totals
     self.answers_total = Answer.all.size
@@ -30,9 +30,9 @@ class Report < ActiveRecord::Base
   
   private
   
-  def average(objects)
-    objects.sum.to_f / Report.all.size if Report.all.size > 0
-  end
+  # def average(objects)
+  #     objects.sum.to_f / Report.all.size if Report.all.size > 0
+  #   end
   
   def record_query(object)
     object.where("created_at > ?", 1.day.ago).size

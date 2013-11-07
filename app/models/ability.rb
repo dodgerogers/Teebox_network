@@ -11,17 +11,17 @@ class Ability
       can [:new, :create, :highest_votes, :unanswered, :read, :vote], Question
       can [:update, :edit, :destroy, :correct], Question do |question|
         question.try(:user) == user
-    end
+      end
       #Answers
       can [:new, :create, :read, :vote, :correct], Answer
       can [:update, :destroy, :edit, :correct], Answer do |answer|
         answer.try(:user) == user
-    end
+      end
       #Comments
       can [:new, :create, :read, :vote], Comment
       can [:destroy], Comment do |comment|
         comment.try(:user) == user
-    end
+      end
       #Videos
       can [:new, :create], Video
       can [:destroy], Video do |video|

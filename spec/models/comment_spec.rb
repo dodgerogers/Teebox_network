@@ -55,11 +55,12 @@ describe Comment do
     before { @comment.commentable_type = nil }
     it { should_not be_valid }
   end  
-
-  # describe "mentions_limit" do
-  #     before { @comment.content = "@randrogers @randyrogers" }
-  #     it { should_not be_valid }
-  #   end
+  
+  describe "find_mentions" do
+    it "returns array of names" do
+      @comment.find_mentions.should eq(["randyrogers"])
+    end
+  end
 
   describe "mentions" do
     describe "display_mentions" do

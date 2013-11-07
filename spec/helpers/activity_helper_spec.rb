@@ -43,7 +43,7 @@ describe ActivityHelper do
     
     it "redirects to welcome url" do
        @activity2 = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, trackable_type: "User")
-      helper.get_activity_path(@activity2).should eq welcome_path(@activity.recipient_id)
+      helper.get_activity_path(@activity2).should eq info_path
     end
   end
 end

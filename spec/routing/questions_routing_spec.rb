@@ -39,8 +39,8 @@ describe QuestionsController do
       get("/questions/unanswered").should route_to("questions#unanswered")
     end
     
-    it "routes to #question_votes" do
-      get("/questions/highest_votes").should route_to("questions#highest_votes")
+    it "routes to #popular" do
+      get("/questions/popular").should route_to("questions#popular")
     end
   end
 end

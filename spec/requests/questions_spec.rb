@@ -38,6 +38,7 @@ describe "Questions" do
     end
     page.should have_content "Edit your question"
     fill_in "question_title", with: "this is a new title"
+    fill_in "question_tag_tokens", with: "spine angle"
     click_button "Save"
     expect {
       question.title.should eq "this is a new title"
