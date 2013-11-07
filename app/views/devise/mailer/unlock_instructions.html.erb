@@ -1,7 +1,27 @@
-<p>Hello <%= @resource.email %>!</p>
+<!DOCTYPE html>
+<HTML lang="en">
+	<head>
+	  	<title>Teebox Unclock Instructions</title>
+		<style type="text/css">
+			body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:300}
+			h1 { color: #fff; margin: 5px 0 }
+			h2 { margin: 5px 0}
+			a { text-decoration: none}
+			red { color: #E95A4D }
+			.container { margin: 0 auto; width:100%; max-width:940px }
+			.hero-unit { padding: 30px; width: auto; background: #08262C; color: #fff; text-align:center}
+			.default { color: #fff;	background: #31838f;-moz-box-sizing: border-box;-webkit-box-sizing: border-box; box-sizing: border-box; padding: 5px 10px!important; border-radius:0px; border:none; display:inline-block; text-shadow:none; line-height:20px!important; margin: 3px 3px 0 0; }
+		</style>
+	</head>
+	<body>
+		<div class="container">		
+			<div class="hero-unit">
+				<p>Hello <%= @resource.email %>!</p>
+				<p>Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
+				<p>Click the link below to unlock your account:</p>
+				<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @resource.unlock_token) %></p>
+			</div>
+		</div>
+	</body>
+</html>
 
-<p>Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
-
-<p>Click the link below to unlock your account:</p>
-
-<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>

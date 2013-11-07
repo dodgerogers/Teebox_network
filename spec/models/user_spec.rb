@@ -60,14 +60,14 @@ describe User do
       subject.send_on_create_confirmation_instructions
     end
     
-    it 'send_on_create_confirmation_instructions' do
-      subject.should_receive(:send_reset_password_instructions)
-      subject.send_reset_password_instructions
-    end
-    
-    it 'send_unlock_instructions' do
-      subject.should_receive(:send_unlock_instructions)
-      subject.send_unlock_instructions
-    end
+    # it 'send_on_create_confirmation_instructions' do
+    #       subject.should_receive(:send_reset_password_instructions)
+    #       subject.send_reset_password_instructions
+    #     end
+    #     
+    #     it 'send_unlock_instructions' do
+    #       subject.should_receive(:send_unlock_instructions)
+    #       subject.send_unlock_instructions
+    #     end
   end
 end
