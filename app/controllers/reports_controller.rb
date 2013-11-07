@@ -4,8 +4,8 @@ class ReportsController < ApplicationController
   load_and_authorize_resource
   
   def all_reports
-    @all_reports = Report.all
-    @reports = @all_reports.paginate(page: params[:page], per_page: 20)
+    @all_reports = Report.order("created_at")
+    @reports = Report.order("created_at DESC").paginate(page: params[:page], per_page: 20)
   end
   
   def index

@@ -7,8 +7,6 @@ class Report < ActiveRecord::Base
   before_save :set_totals
   #after_create :set_averages
   
-  default_scope order('created_at')
-  
   def set_records
     self.questions = record_query(Question)
     self.answers = record_query(Answer)

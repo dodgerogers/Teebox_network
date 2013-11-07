@@ -1,7 +1,6 @@
 <%= content_for :head do %>
 	<title>Reports</title>
 <% end %>
-<%= javascript_include_tag 'raphael.js', 'morris.js', "load_morris.js" %>
 
 <div class="hero-unit blue-transparent">
 	<center>
@@ -11,3 +10,5 @@
 		<%= render partial: "reports/totals", locals: {reports: @all_reports }%>
 	</center>
 </div>
+
+<%= javascript_include_tag 'raphael.js', 'morris.js', "load_morris.js", defer: "defer" %>
