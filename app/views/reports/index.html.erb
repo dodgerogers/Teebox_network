@@ -1,13 +1,13 @@
 <%= content_for :head do %>
-	<title>Reports</title>
+	<title>Teebox Reports</title>
 <% end %>
 
 <div class="hero-unit blue-transparent">
 	<center>
-		<h1>Report - <%= Time.now.to_date %></h1>
+		<h1>Teebox Report - <%= time_tag Time.now.to_date %></h1>
 		<%= render partial: "reports/form" %>
 		<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>
-		<%= render partial: "reports/totals", locals: {reports: @all_reports }%>
+		<%= render partial: "reports/totals", locals: { reports: @all_reports }%>
 	</center>
 </div>
 

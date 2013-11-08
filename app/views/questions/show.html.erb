@@ -1,6 +1,6 @@
 <%= content_for :head do %>
 	<title><%= @decorator.title %></title>
-	<%= javascript_include_tag "sublime.js" %>
+	<%= javascript_include_tag "sublime.js", defer: "defer" %>
 <% end %>
 
 <div class="row">

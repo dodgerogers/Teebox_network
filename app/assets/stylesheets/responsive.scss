@@ -10,6 +10,9 @@
 	.comment-content {
 		width:83%;
 	}
+	.cog {
+		margin-top: 0px;
+	}
 }
 @media (min-width: 768px) and (max-width: 979px) {
 	.navbar .container {
@@ -88,6 +91,9 @@
 	}
 	.profile-info {
 		width:70%;
+	}
+	.cog {
+		margin-top: 0px;
 	}
 }
 @media (min-width: 480px) and (max-width: 767px) {
@@ -208,6 +214,9 @@
 	}
 	h1.xl {
 		font-size: 75px!important;
+	}
+	.cog {
+		margin-top: 0px;
 	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
@@ -364,5 +373,8 @@
 	}
 	h1.xl {
 		font-size: 50px!important;
+	}
+	.cog {
+		margin-top: 0px;
 	}
 }

@@ -6,21 +6,20 @@
 		<%= favicon_link_tag 'teebox-app-icon.png', rel: 'apple-touch-icon', type: 'image/png'%>
 		<%= favicon_link_tag 'teebox-startup-image.png', rel: 'apple-touch-startup-image', type: "image/png" %>
 	  	<%= stylesheet_link_tag    "application", media: "all" %>
-		<%= javascript_include_tag "application", media: 'all', defer: "defer" %>
+		<%= javascript_include_tag "application", media: 'all' %>
 		<%= csrf_meta_tags %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--<meta name="apple-mobile-web-app-capable" content="yes">-->
 	</head>
 	<body>
 		<div id="wrap">
-			<%= render template: "layouts/header" %>	
-		
+			<%= render template: "layouts/header" %>			
 			<div class="container" id="margin-bottom">
 					<% flash.each do |name, msg| %>
-					 	<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+					 	<div class="alert alert-<%= name == :notice ? "success" : "error" %> fade in">
 						 	<a class="close" data-dismiss="alert">&#215;</a>
 						   	<%= content_tag :div, msg, :id => "flash" if msg.is_a?(String) %>
-							</div>
+						</div>
 		    		<% end %>
 				<%= yield  %>
 			</div>
