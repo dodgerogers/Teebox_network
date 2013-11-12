@@ -36,10 +36,9 @@
 	<div class="comments-area">
 		<div id="answer_<%= answer.id %>">
 			<%= render answer.comments.includes(:user) %>
-			<!-- nested_comments(answer.comments.includes(:user)) -->
-		</div><br>
+		</div>
 		
-		<%= link_to "Add comment", "#", class: "comment-button" %>
+		<%= link_to "Add comment", "#" , class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: answer} %>
 	</div>
 </div>
