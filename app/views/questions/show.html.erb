@@ -39,8 +39,9 @@
 			</div>
 			<div class="comments-area">
 				<div id="question_<%= @question.id %>">
-					<%= nested_comments(@question.comments.includes(:user)) %>
-				</div><br>
+					<%= render @question.comments.includes(:user) %>
+				</div>
+				<br>
 				<%= link_to "Add comment", "#", class: "comment-button" %>
 				<%= render partial: "comments/form", locals: {commentable: @question} %>
 			</div>
@@ -50,12 +51,15 @@
 			<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
 		</div>
 	
-		<%= render template: "answers/index" %>
+		<div id="question-answers">
+			<%= render @answers %>
+		</div>
+		
 		<a href="#" id="answer-button" class="default submit">Answer question</a>
 		<br><br>
 		<%= render partial: "answers/form", locals: { question_id: @question.id } %>
 	</div>
 	<div class="span4">
-		<%= render partial: "shared/related_questions", locals: {questions: @decorator.related_questions } %>
+		<%= render partial: "shared/related_questions", locals: { questions: @decorator.related_questions } %>
 	</div>
 </div>

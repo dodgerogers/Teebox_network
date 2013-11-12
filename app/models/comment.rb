@@ -10,13 +10,21 @@ class Comment < ActiveRecord::Base
   has_many :activities, class_name: "PublicActivity::Activity", as: :trackable, dependent: :destroy
   
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
-  validates_length_of :content, minimum: 10, maximum: 350
+  validates_length_of :content, minimum: 10
   validates :content, obscenity: true
   validate :mentions_limit
+  validate :content_minus_links
   
   default_scope order: "created_at"
   
   after_create :display_mentions
+  
+  def content_minus_links
+    return unless errors.blank?
+    if ActionController::Base.helpers.strip_links(self.content).each_char.count > 350
+      errors.add(:content, "exceeds 350 characters")
+    end
+  end
   
   def mentions_limit
     return unless errors.blank?
@@ -25,7 +33,7 @@ class Comment < ActiveRecord::Base
   
   def display_mentions
     find_mentions.each do |u|
-      user = User.find_by_username(u)
+      user = User.where(username: u)[0]
       unless (user == nil || self.user == user)
         self.content.gsub!(/#{Regexp.escape("@#{u}")}/, "<a href='/users/#{user.id}-#{u}'>@#{u}</a>")
         self.delay.create_activity :create, owner: self.user, recipient: user unless user.id == self.commentable.user_id

@@ -84,6 +84,7 @@ describe Answer do
     describe "#update_reputation" do
       it "updates users reputation" do
         @answer.update_reputations(@answer, 20, 5, :+).should eq true
+        #response.should be ok
       end
     end
   end

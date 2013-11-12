@@ -20,19 +20,24 @@ describe Comment do
   it { should have_many(:activities) }
   it { should have_many(:votes) }
   it { should ensure_length_of(:content).is_at_least(10) }
-  it { should ensure_length_of(:content).is_at_most(350) }
   it { should validate_presence_of(:user_id) }
   it { should validate_presence_of(:content) }
   it { should validate_presence_of(:commentable_id) }
   it { should validate_presence_of(:commentable_type) }
+  #it { should ensure_length_of(:content).is_at_most(350).with_message("content exceeds 350 characters") }
   
   describe 'content' do
     before { @comment.content = nil }
     it { should_not be_valid }
   end
    
-  describe 'content' do
+  describe 'short content' do
     before { @comment.content = "comment" }
+    it { should_not be_valid }
+  end
+  
+  describe 'long content' do
+    before { @comment.content = ('a' * 351) }
     it { should_not be_valid }
   end
     

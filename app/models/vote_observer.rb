@@ -1,5 +1,6 @@
 class VoteObserver < ActiveRecord::Observer
   
+  #refactor yield to a block
   def after_create(vote)
       votable = vote.votable_type.downcase
       user_rep = vote.votable.user
