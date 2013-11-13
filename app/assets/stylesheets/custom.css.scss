@@ -690,8 +690,9 @@ body #header-search {
 .comment:hover {
 	background: #ddd;
 }
-.comment:last-of-type {
-	margin-bottom: 10px;
+.comment-button {
+	margin: 10px 0 0;
+	display: inline-block;
 }
 .comment-info {
 	width: auto;

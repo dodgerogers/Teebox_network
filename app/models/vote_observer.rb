@@ -1,11 +1,7 @@
 class VoteObserver < ActiveRecord::Observer
   
-  #refactor yield to a block
   def after_create(vote)
-      votable = vote.votable_type.downcase
-      user_rep = vote.votable.user
-      user_rep.update_attributes(reputation: (user_rep.reputation + vote.points))
-      votable = vote.votable_type.downcase.pluralize
-      vote.votable.update_attributes(votes_count: vote.votable.votes.sum("value"), points: vote.votable.votes.sum("points"))
+    vote.user_rep.update_attributes(reputation: (vote.user_rep.reputation + vote.points))
+    vote.votable.update_attributes(votes_count: vote.sum_points("value"), points: vote.sum_points("points"))
   end
 end

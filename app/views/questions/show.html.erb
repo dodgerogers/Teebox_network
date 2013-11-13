@@ -41,7 +41,6 @@
 				<div id="question_<%= @question.id %>">
 					<%= render @question.comments.includes(:user) %>
 				</div>
-				<br>
 				<%= link_to "Add comment", "#", class: "comment-button" %>
 				<%= render partial: "comments/form", locals: {commentable: @question} %>
 			</div>

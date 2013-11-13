@@ -202,7 +202,9 @@
 };
 /*---------------------+ forms----------------------*/
 
-
+input {
+	vertical-align:bottom;
+}
 select, input[type="text"], input[type="password"], 
 input[type="datetime"], input[type="datetime-local"], input[type="date"], 
 input[type="month"], input[type="time"], input[type="week"], 
@@ -238,7 +240,6 @@ iframe.wysihtml5-sandbox {
 #search-tags {
 	width: 73%;
 }
-
 .form-area {
 	padding: 10px;
 	margin-top: 20px;

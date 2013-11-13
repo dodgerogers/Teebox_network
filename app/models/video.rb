@@ -11,7 +11,6 @@ class Video < ActiveRecord::Base
   
   mount_uploader :screenshot, ScreenshotUploader
     
-  
   def to_param
     "#{id} - #{File.basename(self.file)}".parameterize
   end

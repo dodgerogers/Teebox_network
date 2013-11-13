@@ -46,6 +46,22 @@ describe Vote do
       it { should_not be_valid }
    end
    
+   describe "user_rep" do
+     it "returns vote user" do
+       @vote.user_rep.should eq @user
+     end
+   end
+   
+   describe "sum_points" do
+      it "adds points for value" do
+        @vote.sum_points("value").should eq 1
+      end
+      
+      it "adds points for points" do
+        @vote.sum_points("points").should eq 5
+      end
+    end
+    
    #describe Vote do
    #   it 'should add specified points to a user' do
    #     lambda { subject.add_points(100) }.should change { subject.points }.by(100)
