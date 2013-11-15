@@ -56,10 +56,11 @@ class AnswersController < ApplicationController
   end
   
   def correct 
+    #move 3 methods into AnswerCorrect class
     if @answer.toggle_correct(:correct)
         @answer.create_activity :correct, owner: current_user, 
                                           recipient: @answer.user unless @answer.user == @answer.question.user || @answer.correct == false
-         @answer.toggle_question_correct
+         @answer.question.toggle_correct(:correct)
          @answer.add_reputation
           respond_to do |format|
             format.html { redirect_to :back, notice: "Answer submitted" }

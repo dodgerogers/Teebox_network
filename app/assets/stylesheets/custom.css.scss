@@ -13,6 +13,7 @@ html, body {
 	background-position: center bottom!important;
 	background-attachment: fixed!important;
 	-webkit-overflow-scrolling: touch;
+	//font-family: "OpenSansRegular",Helvetica,Arial,sans-serif!important;//
 }
 hr {
 	margin: 12px 0;
@@ -907,7 +908,7 @@ body #header-search {
 	box-sizing: border-box;
 	padding: 0px;
 	position: relative;
-	margin: 0 0 15px;
+	margin: 0 0 10px;
 }
 #tick {
 	display:inline-block;

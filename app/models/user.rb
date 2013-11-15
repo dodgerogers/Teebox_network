@@ -28,16 +28,7 @@ class User < ActiveRecord::Base
     self.create_activity :create, recipient: self
   end
   
-  #Devise delayed mailers
   def send_on_create_confirmation_instructions
     Devise::Mailer.delay.confirmation_instructions(self)
   end
-
-  #def send_reset_password_instructions
-  #  Devise::Mailer.delay.reset_password_instructions(self)
-  #end
-
-  #def send_unlock_instructions
-  #  Devise::Mailer.delay.unlock_instructions(self)
-  #end
 end

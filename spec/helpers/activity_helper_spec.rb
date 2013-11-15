@@ -17,33 +17,26 @@ describe ActivityHelper do
 
   subject { @activity }
   
-  describe "number_of_activities with welcome notification" do
-    it "retrieves size of array" do
-      #accounts for activity created when signing up a user
-      helper.number_of_activities(@user1).should eq(2)
-    end
-  end
-  
-  describe "get_activity_path" do
+  describe "build_activity_path" do
     it "redirects to activity url for answer" do
-      helper.get_activity_path(@activity).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#answer_#{@answer.id}")
+      helper.build_activity_path(@activity).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#answer_#{@answer.id}")
     end
     
     it "redirects to activity url for comment on question" do
       @comment = create(:comment, user: @user2, commentable_id: @question.id, content: "buy a new set of irons")
       @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, trackable_type: "Comment")
-      helper.get_activity_path(@activity2).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#comment_#{@comment.id}")
+      helper.build_activity_path(@activity2).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#comment_#{@comment.id}")
     end
     
     it "redirects to activity url for comment on answer" do
       @comment = create(:comment, user: @user2, commentable_id: @answer.id, commentable_type: "Answer", content: "buy a new set of irons")
       @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, trackable_type: "Comment")
-      helper.get_activity_path(@activity2).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#comment_#{@comment.id}")
+      helper.build_activity_path(@activity2).should eq("/questions/#{@question.id}-i-can-t-hit-my-#{@number}-iron#comment_#{@comment.id}")
     end
     
     it "redirects to welcome url" do
        @activity2 = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, trackable_type: "User")
-      helper.get_activity_path(@activity2).should eq info_path
+      helper.build_activity_path(@activity2).should eq info_path
     end
   end
 end

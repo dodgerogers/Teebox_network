@@ -1,6 +1,6 @@
 class UserDecorator < ApplicationDecorator
   delegate_all
-  decorate :user
+  decorates :user
   include Draper::LazyHelpers
   
   def change_picture

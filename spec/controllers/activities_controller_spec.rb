@@ -28,7 +28,7 @@ describe ActivitiesController do
   
   describe "get_notifications" do
     it "retrieves notifications" do
-      controller.get_notifications.should eq([@activity])
+      Activity.user_notifications(@user1).should eq([@activity])
     end
   end
   
@@ -60,7 +60,7 @@ describe ActivitiesController do
       
     describe "with invalid params" do
       it "redirects to root" do
-        PublicActivity::Activity.any_instance.stub(:save).and_return(false)
+        Activity.any_instance.stub(:save).and_return(false)
         put :read, id: @activity
         @activity.reload
         response.should redirect_to root_path

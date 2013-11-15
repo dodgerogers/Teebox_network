@@ -1,6 +1,6 @@
-class Questions::ShowDecorator < ApplicationDecorator
+class Questions::ShowDecorator < Draper::Decorator
   delegate_all
-  decorate :question
+  decorates :question
   include Draper::LazyHelpers
   
   def question_tags

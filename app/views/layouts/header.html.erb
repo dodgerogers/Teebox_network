@@ -16,9 +16,9 @@
 			  <% end %>
 			<% if user_signed_in? %>
 				<li class="dropdown">
-					<a id="notifications" href="#" class="<%= number_of_activities(current_user) > 0 ? 'new-notifications pulse' : '' %>" title="Notifications">
+					<a id="notifications" href="#" class="<%= Activity.new_activities(current_user) > 0 ? 'new-notifications pulse' : '' %>" title="Notifications">
 						<div class="notifications-count large" id="">
-							<%= number_of_activities(current_user) %>
+							<%= Activity.new_activities(current_user) %>
 						</div>
 					</a>
 					<ul class="dropdown-menu span6" id="notifications-area">

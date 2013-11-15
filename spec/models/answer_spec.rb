@@ -54,9 +54,9 @@ describe Answer do
     it { should_not be_profane }
   end
   
-  describe "toggle_question_correct" do
+  describe "toggle_correct question" do
     it "toggles to true" do
-      @answer.toggle_question_correct
+      @answer.question.toggle_correct(:correct)
       @answer.question.correct.should eq true
     end
   end

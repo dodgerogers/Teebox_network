@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  include AnswerHelper
+  include Teebox::Toggle
   require 'obscenity/active_model'
   
   attr_accessible :title, :body, :youtube_url, :video_id, :votes_count, :answers_count, :points, :correct, :tag_tokens

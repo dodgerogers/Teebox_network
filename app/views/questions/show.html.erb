@@ -16,7 +16,7 @@
 			<div class="question">
 				<h1><%= @decorator.title.titleize %></h1>		
 				<div class="question-content">
-					<%= simple_format(@question.body) %>
+					<%= simple_format(@decorator.body) %>
 				</div>
 			
 				<%= @decorator.question_tags %>
@@ -28,9 +28,9 @@
 																	object: @decorator, 
 																	vote_path: method(:vote_question_path) } %> 
 				
-					    <%= profile_link_helper(@question) %>
-						<%= link_to "Edit", edit_question_path(@question) if can? :update, @question %>
-						<%= link_to "Delete", @question, method: :delete, confirm: "Are you sure?" if can? :destroy, @question %>
+					    <%= profile_link_helper(@decorator) %>
+						<%= link_to "Edit", edit_question_path(@decorator) if can? :update, @decorator %>
+						<%= link_to "Delete", @decorator, method: :delete, confirm: "Are you sure?" if can? :destroy, @decorator %>
 					</div>
 					<div class="social-buttons">
 						<%= social_links(request.original_url) %>
@@ -38,16 +38,16 @@
 				</div>
 			</div>
 			<div class="comments-area">
-				<div id="question_<%= @question.id %>">
-					<%= render @question.comments.includes(:user) %>
+				<div id="question_<%= @decorator.id %>">
+					<%= render @decorator.comments.includes(:user) %>
 				</div>
 				<%= link_to "Add comment", "#", class: "comment-button" %>
-				<%= render partial: "comments/form", locals: {commentable: @question} %>
+				<%= render partial: "comments/form", locals: {commentable: @decorator} %>
 			</div>
 		</div>
 	
 		<div id='answers-count'>
-			<h3><%= pluralize(@question.answers_count, "Answer")  %></h3>
+			<h3><%= pluralize(@decorator.answers_count, "Answer")  %></h3>
 		</div>
 	
 		<div id="question-answers">
@@ -56,7 +56,7 @@
 		
 		<a href="#" id="answer-button" class="default submit">Answer question</a>
 		<br><br>
-		<%= render partial: "answers/form", locals: { question_id: @question.id } %>
+		<%= render partial: "answers/form", locals: { question_id: @decorator.id } %>
 	</div>
 	<div class="span4">
 		<%= render partial: "shared/related_questions", locals: { questions: @decorator.related_questions } %>

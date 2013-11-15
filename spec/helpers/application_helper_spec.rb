@@ -51,7 +51,7 @@ describe ApplicationHelper do
   describe "hide footer" do
     it "shouldn't hide footer on home page" do
       helper.hide_footer.should eq ''
-      end
+    end
   end
   
   describe "percent_of" do

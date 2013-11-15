@@ -11,6 +11,7 @@ class Comment < ActiveRecord::Base
   
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
   validates_length_of :content, minimum: 10
+  
   validates :content, obscenity: true
   validate :mentions_limit
   validate :content_minus_links

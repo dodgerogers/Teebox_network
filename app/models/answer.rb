@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-  include AnswerHelper
+  include Teebox::Toggle
   include PublicActivity::Common
   require 'obscenity/active_model'
   
@@ -20,18 +20,15 @@ class Answer < ActiveRecord::Base
   
   scope :by_votes, order: "votes_count DESC"
   
-  def toggle_question_correct
-    self.question.toggle_correct(:correct)
-  end
-  
+  #refactor this, ugly as
   def add_reputation
     if truthness(self, true)
       update_reputations(self, 20, 5, :+)
     elsif truthness(self, false)
       update_reputations(self, 20, 5, :-)
     end
-  end 
-  
+  end
+   
   def truthness(answer, truth)
     answer.correct == truth && answer.user != answer.question.user
   end

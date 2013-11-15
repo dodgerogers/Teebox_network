@@ -17,6 +17,8 @@ class ReportsController < ApplicationController
   
   def create
     @report = Report.new(params[:report])
+    # totals = ReportTotal.new(@report)
+    #     totals.create!
     respond_to do |format|
       if @report.save
         format.html { redirect_to reports_path, notice: "Report Created" }

@@ -1,6 +1,28 @@
 @import "variables.css.scss";
 
-/*---- containers -------*/
+// Buttons //
+
+.btn {
+	border-radius: 0px!important;
+	-webkit-border-radius: 0px!important;
+	-moz-border-radius: 0px!important;
+	color: #fff!important;
+	text-shadow: 0px 0px 0px #fff!important;
+	background: #888;
+	border: none!important;
+	background-image: none!important;
+	background-color: #888!important;
+	border-color: #888!important;
+	box-shadow: 0px 0px 0px #fff;
+	-webkit-box-shadow: 0px 0px 0px #fff;
+	-moz-box-shadow: 0px 0px 0px #fff;
+}
+.btn:hover {
+	background: #999;
+	background-color: #999!important;
+}
+
+//---- containers -------//
 
 #margin-bottom {
 	margin-bottom: 40px;
@@ -233,9 +255,7 @@ textarea, iframe.wysihtml5-sandbox {
 	box-sizing: border-box;
 }
 iframe.wysihtml5-sandbox {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	max-height:200px;
 }
 #search-tags {
 	width: 73%;
@@ -260,8 +280,8 @@ label {
 	vertical-align: middle;
 }
 
-input[type="checkbox"] {
-	margin: 0px 0 5px;
+#user_remember_me {
+	margin: 0px 0 9px;
 }
 input[type="email"]
 {
@@ -274,7 +294,7 @@ input[type="email"]
 	display:inline-block;
 	margin-bottom: 0px;
 }
-/* ----------- input field -------*/
+/* ----------- file uplaod input field -------*/
 
 .fileUpload {
 	position: relative;

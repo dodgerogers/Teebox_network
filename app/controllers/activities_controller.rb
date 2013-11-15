@@ -16,16 +16,16 @@ class ActivitiesController < ApplicationController
   end
   
   def read
-    @activity = PublicActivity::Activity.find(params[:id])
-    @activity.toggle(:read) if @activity.read == false
+    @activity = Activity.find(params[:id])
+    @activity.read_activity
     if @activity.save
-      redirect_to get_activity_path(@activity)
+      redirect_to build_activity_path(@activity)
     else
-      redirect_to root_path, notice: "Didnt work"  
+      redirect_to root_path, notice: "Fraid we couldn't do that"  
     end
   end
   
   def get_notifications
-    @notifications = PublicActivity::Activity.find_all_by_recipient_id(current_user.id, include: [:owner, :trackable, :recipient], order: "created_at DESC")
+    @notifications = Activity.user_notifications(current_user)
   end
 end

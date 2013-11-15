@@ -19,10 +19,10 @@ class QuestionsController < ApplicationController
   end
   
   def show
-    @question = Question.find(params[:id])
+    question = Question.find(params[:id])
     @answer = Answer.new
-    @answers = @question.answers.includes(:question, :user).by_votes
-    @decorator = Questions::ShowDecorator.new(@question)
+    @decorator = Questions::ShowDecorator.new(question)
+    @answers = @decorator.answers.includes(:question, :user).by_votes
   end
   
   def create

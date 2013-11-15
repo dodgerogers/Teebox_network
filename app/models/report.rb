@@ -15,9 +15,11 @@ class Report < ActiveRecord::Base
   end
   
   def set_totals
-    self.answers_total = Answer.all.size
-    self.questions_total = Question.all.size
-    self.users_total = User.all.size
+    self.class.transaction do
+      self.answers_total = Answer.all.size
+      self.questions_total = Question.all.size
+      self.users_total = User.all.size
+    end  
   end
   
   private

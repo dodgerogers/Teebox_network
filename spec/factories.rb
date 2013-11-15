@@ -72,7 +72,7 @@ FactoryGirl.define do
     updated_by "Andy"
   end
   
-  factory :activity, class: 'PublicActivity::Activity' do
+  factory :activity do
      trackable_id :answer
      recipient_id :user
      owner_id :user

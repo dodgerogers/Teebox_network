@@ -19,9 +19,10 @@ describe QuestionsController do
   end
 
   describe "GET show" do
-    it "assigns a new question as @question" do
-      get :show, id: @question
-      assigns(:question).should eq(@question)
+    it "assigns a new decorator as @decorator" do
+      @decorator = @question
+      get :show, id: @decorator
+      assigns(:decorator).should eq(@decorator)
     end
     
     it "renders the show template" do

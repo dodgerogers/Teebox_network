@@ -1,9 +1,10 @@
 <% if @answer.errors.any? %>
   	alert("Failed to submit: <%= j @answer.errors.full_messages.join(', ').html_safe %>");
 <% else %>
+	var answer = $('.correct_<%= @answer.id %>')
 	<% if @answer.correct == true %>
-		$('.correct_<%= @answer.id %>').css('color', '#4fc392');
+		answer.css('color', '#4fc392');
 	<% else %>
-		$('.correct_<%= @answer.id %>').css('color', '#ccc');
+		answer.css('color', '#ccc');
 	<% end %>
 <% end %>
