@@ -1,8 +1,9 @@
 <b>Welcome to Teebox Network Beta.</b>
 
-more info to come soon.
+<p>A question and answer site for golfers. Upload a video, ask a question and get an answer</p>
 
-rake db:create 
+Environment
+Ruby 1.9.3p143
+Rails 3.2.14
+Postgresql
 
-Postgresql DB
-rake db:structure:load
