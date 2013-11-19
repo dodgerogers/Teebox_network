@@ -8,6 +8,10 @@ every :day, at: "02:00am" do
   rake "db:rank_users"
 end
 
+every 2.days, at: "03:00am" do
+  rake "delete_prod_log"
+end
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.

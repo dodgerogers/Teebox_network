@@ -32,6 +32,10 @@ task :delete_capybara do
   FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/capybara/*")
 end
 
+task :delete_prod_log do
+  FileUtils.rm "#{Rails.root}/log/production.log"
+end
+
 task :delete_dev_logs do
   FileUtils.rm "#{Rails.root}/log/development.log"
 end
