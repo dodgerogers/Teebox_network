@@ -32,9 +32,6 @@
 						<%= link_to "Edit", edit_question_path(@decorator) if can? :update, @decorator %>
 						<%= link_to "Delete", @decorator, method: :delete, confirm: "Are you sure?" if can? :destroy, @decorator %>
 					</div>
-					<div class="social-buttons">
-						<%= social_links(request.original_url) %>
-					</div>
 				</div>
 			</div>
 			<div class="comments-area">
@@ -58,7 +55,12 @@
 		<br><br>
 		<%= render partial: "answers/form", locals: { question_id: @decorator.id } %>
 	</div>
-	<div class="span4">
+	
+	<aside class="span4">
 		<%= render partial: "shared/related_questions", locals: { questions: @decorator.related_questions } %>
-	</div>
+		<div class="social-buttons">
+			<p>Know someone who can help?</p>
+			<%= social_links(request.original_url) %>
+		</div>
+	</aside>
 </div>

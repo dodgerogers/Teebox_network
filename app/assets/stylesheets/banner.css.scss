@@ -131,28 +131,3 @@ a .welcome-white:hover {
 .ch-item:hover .ch-info p {
     opacity: 1;
 }
-
-/*----- borderless circles ---*/
-
-.circle-wrap {
-	opacity: 0.9;
-    border: 2px solid $universe;
-    height: 40px;
-    width: 40px;
-    margin: 0px;
-    border-radius: 50%;
-	display:inline-block;
-	box-shadow: 0 1px 1px #297D8B;
-}
-
-.inner-wrap {
-	box-shadow: 0 1px 1px #297D8B;
-	opacity: 0.9;
-	color: #fff;
-    background: $universe;
-    height: 36px;
-    width: 36px;
-    border-radius: 50%; 
-    margin: auto;
-    margin-top: 2px;
-}

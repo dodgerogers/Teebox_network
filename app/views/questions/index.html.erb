@@ -27,7 +27,7 @@
 		<% end %>
 	</div>
 
-<div class="row" id="questions-index">
+<section class="row" id="questions-index">
 	<% if params[:search] %> 
 		<%= render partial: "questions/questions", locals: { questions: @decorator.questions } %>
 	<% elsif params[:tag] %>
@@ -35,7 +35,7 @@
 	<% else  %>
 		<%= render partial: "questions/questions", locals: { questions: @decorator.newest_questions } %>
 	<% end %>
-</div>
+</section>
 
 <div class="load-questions">
 	<%= link_to "Load more questions", '#', class: "default next" if current_page?(root_path) %>

@@ -2,24 +2,18 @@
 	<title>Tags Vault</title>
 <% end %>
 
-<div class='row'>
-	<div class='span12'>
-		<div class='hero-unit blue-fuzz red-border'>
-			<center>
-				<%= render partial: "tags/info" %>
-				<%= form_tag tags_path, id: "tag-search", method: "get" do %>
-				<%= text_field_tag :search, params[:search], id: "search-tags", placeholder: "Search for tags" %>
-				<% end %>
-				<%= link_to "Create a new Tag", new_tag_path, class: "default success" %>
-			</center>
-			</div>
-		</div>
+	<div class='hero-unit blue-fuzz red-border'>
+		<center>
+			<%= render partial: "tags/info" %>
+			<%= form_tag tags_path, id: "tag-search", method: "get" do %>
+			<%= text_field_tag :search, params[:search], id: "search-tags", placeholder: "Search for tags" %>
+			<% end %>
+			<%= link_to "Create a new Tag", new_tag_path, class: "default success" %>
+		</center>
 	</div>
 	
-<div class='row'>
-	<div id="tags" class="span12">
+	<section id="tags">
 		<%= render @tags %>
 	</div>
-</div>
 
 <%= will_paginate @tags %>

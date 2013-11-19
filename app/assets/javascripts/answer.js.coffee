@@ -4,3 +4,7 @@ jQuery ->
   $("#answer-button").click (event) ->
     event.preventDefault()
     $("#new_answer").toggle()
+    if $('#answer-button').text() == "Cancel"
+      $(this).text("Answer Question") 
+    else
+      $(this).text("Cancel")

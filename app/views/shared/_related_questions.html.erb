@@ -3,11 +3,10 @@
 </div>		
 	<% questions.each do |question| %>
 		<div class="related" id="related">
-		
 			<div class="related-content">
 				<%= link_to question.title.capitalize, question %><br>
 				<small>Asked <%= time_ago_in_words(question.created_at) %> ago.</small>
 			</div>
 		</div>
 	<% end %>
-<%= link_to "Ask a question", videos_path, class: "default success" %><br><br>	
+<p><%= link_to "Ask a question", videos_path, class: "default success" %></p>

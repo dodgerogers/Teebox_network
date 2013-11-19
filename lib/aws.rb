@@ -1,4 +1,4 @@
-class Aws < Video
+class AmazonS3
   
   def self.get_screenshots
      screenshots = Video.all.map(&:screenshot).map {|file| file.to_s.gsub!("https://teebox-network.s3.amazonaws.com/", "") }

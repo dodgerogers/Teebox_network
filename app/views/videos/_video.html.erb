@@ -1,4 +1,4 @@
-<div id='video_<%="#{video.id}" %>' class="videos">
+<article id='video_<%="#{video.id}" %>' class="videos">
 	
 	<%= image_tag("spinner.gif", class: "loading loading_#{video.id}") %>
 		
@@ -13,4 +13,4 @@
 												 							class: "pull-right red large", 
 												 							id: "delete-video_#{video.id}",
 												 							onclick: "$('.loading_#{video.id}').show();" %></p>
-</div>
+</article>
