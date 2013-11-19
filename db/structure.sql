@@ -225,11 +225,8 @@ ALTER SEQUENCE questions_id_seq OWNED BY questions.id;
 CREATE TABLE reports (
     id integer NOT NULL,
     questions integer,
-    questions_average double precision,
     answers integer,
-    answers_average double precision,
     users integer,
-    users_average double precision,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     answers_total integer,
@@ -876,3 +873,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130819181152');
 INSERT INTO schema_migrations (version) VALUES ('20130822215602');
 
 INSERT INTO schema_migrations (version) VALUES ('20131023184933');
+
+INSERT INTO schema_migrations (version) VALUES ('20131118225423');

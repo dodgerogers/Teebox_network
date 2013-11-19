@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_filter :authenticate_user! 
-  before_filter :all_reports
+  before_filter :all_reports, except: [:create, :destroy]
   load_and_authorize_resource
   
   def all_reports
@@ -17,21 +17,19 @@ class ReportsController < ApplicationController
   
   def create
     @report = Report.new(params[:report])
-    # totals = ReportTotal.new(@report)
-    #     totals.create!
-    respond_to do |format|
-      if @report.save
-        format.html { redirect_to reports_path, notice: "Report Created" }
-      else
-        format.html { redirect_to reports_path, notice: "Report generation failed" }
-      end
+    totals = GenerateReport.new(@report)
+    totals.create
+    if @report.save
+      redirect_to reports_path, notice: "Report Created"
+    else
+     redirect_to reports_path, notice: "Report generation failed"
     end
   end 
   
   def destroy
     @report = Report.destroy(params[:id])
     if @report.destroy
-     redirect_to reports_path, notice: "Report deleted"
+     redirect_to stats_reports_path, notice: "Report deleted"
    end
   end
 end

@@ -8,6 +8,6 @@
 		Need a refresher on how it works? Click
 		<%= link_to "here", read_activity_path(activity), method: :put %>
 		<br>
-		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+		<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
 	</div>	
 <% end %>

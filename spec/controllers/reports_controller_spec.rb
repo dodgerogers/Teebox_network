@@ -66,7 +66,7 @@ describe ReportsController do
 
     it "redirects to the posts list" do
       delete :destroy, id: @report
-      response.should redirect_to reports_path
+      response.should redirect_to stats_reports_path
     end
   end
 end

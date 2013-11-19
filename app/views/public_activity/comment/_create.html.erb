@@ -8,7 +8,7 @@
 		<%= Comment.find(activity.trackable_id).commentable_type == "Question" ? 
 			activity.trackable.commentable.title : truncate(activity.trackable.commentable.body, length: 50)  %>
 		<% end %><br>
-		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+		<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
 	</div>	
 <% else %>
 	User has removed comment

@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Answer do  
   before(:each) do
+    #move this to helper as it shares code with correct answer spec
     @user1 = create(:user)
     @user2 = create(:user)
     @question = create(:question, user: @user1)
@@ -70,22 +71,6 @@ describe Answer do
         a3 = create(:answer, user: @user4, correct: false, body: "stop moving your head", votes_count: 3, question_id: @question.id) 
         a4 = @answer
         Answer.by_votes.should == [a3, a2, a1, a4] 
-    end
-  end
-  
-  describe "adding reputation" do
-    describe "#truthness" do
-      it "returns true when not your question and correct answer" do
-        @answer2 = create(:answer, correct: true, user: @user2, body: "You have a weak grip", question_id: @question.id)
-        @answer2.truthness(@answer2, true).should eq true
-      end
-    end
-    
-    describe "#update_reputation" do
-      it "updates users reputation" do
-        @answer.update_reputations(@answer, 20, 5, :+).should eq true
-        #response.should be ok
-      end
     end
   end
 end

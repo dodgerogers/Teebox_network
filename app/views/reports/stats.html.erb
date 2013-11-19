@@ -23,7 +23,7 @@
 			<td><%= report.answers_total %></td>
 			<td><%= report.users %></td>
 			<td><%= report.users_total %></td>
-			<td><%= report.created_at.strftime('%d/%m/%y %H:%S %p') %></td>
+			<td><%= report.created_at.strftime('%e %b %Y') %></td>
 			<td><%= link_to raw("<i class='icon-remove-sign red'></i>"), report, method: :delete %></td>
 		</tr>
 		<% end %>

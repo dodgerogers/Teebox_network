@@ -4,19 +4,19 @@ TeeboxNetwork::Application.load_tasks
 
 describe "rank_users" do
   it "should rank the users" do
-      Rake::Task['rank_users'].invoke
+      Rake::Task['db:rank_users'].invoke
   end
 end
 
 describe "rm_tags" do
   it " should delete all tags" do
-    Rake::Task['rm_tags'].invoke
+    Rake::Task['db:rm_tags'].invoke
   end
 end
 
 describe "rm_test_users" do
   it "should rank the users" do
-      Rake::Task['rm_test_users'].invoke
+      Rake::Task['db:rm_test_users'].invoke
   end
 end
 
@@ -28,7 +28,7 @@ end
 
 describe "generate_report" do
   it "creates record" do
-      Rake::Task['generate_report'].invoke
+      Rake::Task['db:generate_report'].invoke
   end
 end
 

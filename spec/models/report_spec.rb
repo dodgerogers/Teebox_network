@@ -7,11 +7,8 @@ describe Report do
   
   subject { @report }
   it { should respond_to(:questions) }
-  it { should respond_to(:questions_average) }
   it { should respond_to(:answers) }
-  it { should respond_to(:answers_average) }
   it { should respond_to(:users) }
-  it { should respond_to(:users_average) }
   it { should respond_to(:questions_total) }
   it { should respond_to(:answers_total) }
   it { should respond_to(:users_total) }  

@@ -1,11 +1,11 @@
 set :output, "#{path}/log/cron.log"
 
 every :day, at: "11:30am" do
-  rake "generate_report"
+  rake "db:generate_report"
 end
 
 every :day, at: "02:00am" do
-  rake "rank_users"
+  rake "db:rank_users"
 end
 
 # Use this file to easily define all of your cron jobs.

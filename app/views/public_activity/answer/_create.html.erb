@@ -7,7 +7,7 @@
 		<%= link_to read_activity_path(activity), method: :put do %>
 			<%= activity.trackable.question.title %>
 		<% end %><br>
-		<small>created <%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+		<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
 	</div>
 <% else %>
 	User has removed answer

@@ -10,7 +10,7 @@ class ActivitiesController < ApplicationController
   
   def notifications
     respond_to do |format|
-      format.html { render partial: "activities/index", locals: { activities: @notifications }   }
+      format.html { render partial: "activities/index", locals: { activities: @notifications.limit(6) }   }
       format.js { render partial: "activities/index" }
     end
   end

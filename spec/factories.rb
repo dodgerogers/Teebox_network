@@ -80,10 +80,10 @@ FactoryGirl.define do
   
   factory :report do
     answers 10
-    answers_average 10
+    answers_total 10
     questions 10
-    questions_average 10
+    questions_total 10
     users 10
-    users_average 10
+    users_total 10
   end
 end
