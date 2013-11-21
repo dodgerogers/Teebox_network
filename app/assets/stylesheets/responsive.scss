@@ -116,8 +116,15 @@
 	.home .ch-info p {
 	    opacity: 1;
 	}
-	.home h4 {
-		font-size: 16px;
+	.home {
+		-webkit-transition: all 0.5s ease;
+     	-moz-transition: all 0.5s ease;
+      	-o-transition: all 0.5s ease;
+	    -ms-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+		h4 {
+			font-size: 16px;
+		}
 	}
 }
 @media (min-width: 480px) and (max-width: 767px) {
@@ -254,11 +261,11 @@
 		border-radius: 0px;
 		-webkit-border-radius: 0px;
 		-moz-border-radius: 0px;
-		-webkit-transition: all 0.3s ease;
-     	-moz-transition: all 0.3s ease;
-      	-o-transition: all 0.3s ease;
-	    -ms-transition: all 0.3s ease;
-        transition: all 0.3s ease;
+		-webkit-transition: all 0.5s ease;
+     	-moz-transition: all 0.5s ease;
+      	-o-transition: all 0.5s ease;
+	    -ms-transition: all 0.5s ease;
+        transition: all 0.5s ease;
 		h4 {
 			font-size: 16px;
 		}
@@ -438,6 +445,25 @@
 		}
 		h1 {
 			font-size: 28px;
+		}
+	}
+	#nav_links {
+		background: $midnight;
+		margin: -20px -20px -10px -20px;
+		text-align:center;
+		display:table;
+		width:100%;
+		padding: 0px 20px;
+		vertical-align:middle;
+		.default {
+			display:table-cell;
+			padding: 9px 5px!important;
+			margin:0px;
+			background: none;
+		}
+		.submit {
+			color: $red;
+			font-weight:bold;
 		}
 	}
 }
