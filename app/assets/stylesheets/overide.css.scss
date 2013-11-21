@@ -107,6 +107,9 @@ form .btn {
 .navbar .btn-navbar {
 	background:$ocean ;
 }
+.navbar .btn-navbar:hover {
+	background: $universe!important;
+}
 .navbar .nav li #gravatar {
 	padding: 5px 0px 0 5px;
 }
@@ -123,12 +126,6 @@ form .btn {
 }
 .dropdown-menu {
 	/*padding: 0px;*/
-}
-.navbar .btn-navbar {
-	background: $midnight;
-}
-.navbar .btn-navbar:hover {
-	background: $ocean;
 }
 .navbar .nav-info a {
 	display:inline-block;

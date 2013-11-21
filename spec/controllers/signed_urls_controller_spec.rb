@@ -9,11 +9,11 @@ describe SignedUrlsController do
     @policy = @controller.instance_eval {s3_upload_policy_document}
     end
     
-    describe "s3_upload_policy_document" do
-      it "returns policy" do
-        #@controller.instance_eval { s3_upload_policy_document.should }.should eq @policy
-      end
+  describe "index calls s3_upload_signature" do
+    it "should add policy document" do
+      #@controller.should_receive(:s3_upload_policy_document).with(@policy)
     end
   end
+end
 
   

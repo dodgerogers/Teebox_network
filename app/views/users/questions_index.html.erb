@@ -2,8 +2,7 @@
 	<title><%= @user.username %> questions</title>
 <% end %>
 
-<b><%= link_to @user.username.titleize, user_path(@user) %></b><br>
-Questions<br><br>
+<p>Questions asked by <%= link_to @user.username.titleize, user_path(@user) %></p>
 <%= render partial: "users/tables/question_table", locals: {questions: @questions} %>
 <%= link_to "Back to Profile", user_path %>
 <%= will_paginate @questions %>

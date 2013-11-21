@@ -9,6 +9,7 @@ namespace :db do
         u.email       = Faker::Internet.email
         u.encrypted_password    = "password1"
         u.reputation  = rand(1..200)
+        u.rank        = 0
         u.role        = "tester"
         u.confirmed_at = Time.now
         u.confirmation_sent_at = Time.now

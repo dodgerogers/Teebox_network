@@ -25,7 +25,7 @@ describe Video do
     end
     
   describe "get_key" do
-    it "extracts the key" do
+    it "extracts the aws key" do
       subject.get_key("http://teebox-network.s3.amazonaws.com/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v").should eq "22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v"  
     end 
   end

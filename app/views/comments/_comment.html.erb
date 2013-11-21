@@ -1,4 +1,4 @@
-<div id='comment_<%="#{comment.id}" %>' class="comment">		
+<article id='comment_<%="#{comment.id}" %>' class="comment">		
 	
 	<div class="comment-info">
 	   <%= render partial: "votes/form",locals: { votes_count: "comments", id: comment.id, object: comment, vote_path: method(:vote_comment_path) } %>
@@ -16,5 +16,5 @@
 			<% end %>
 		</small>
 	</div>
-</div>
+</article>
 
