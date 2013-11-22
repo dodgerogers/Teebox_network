@@ -1,6 +1,5 @@
 @import "variables.css.scss";
 
-
 @media (min-width: 1200px) {
 }
 @media (min-width: 980px) and (max-width: 1199px) {
@@ -9,9 +8,6 @@
 	}
 	.comment-content {
 		width:83%;
-	}
-	.cog {
-		margin-top: 0px;
 	}
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -52,7 +48,6 @@
 	}
 	.nav-collapse .nav > li a:hover {
 		background: $universe;
-	
 	}
 	.nav-collapse .navbar-form {
 		padding: 0px;
@@ -89,9 +84,6 @@
 	.container .semi {
 		width:100%;
 	}
-	.profile-info {
-		
-	}
 	.cog {
 		margin-top: 0px;
 		i {
@@ -116,7 +108,7 @@
 	.home .ch-info p {
 	    opacity: 1;
 	}
-	.home {
+	.mobile {
 		-webkit-transition: all 0.5s ease;
      	-moz-transition: all 0.5s ease;
       	-o-transition: all 0.5s ease;
@@ -211,9 +203,6 @@
 	.show {
 		display:none;
 	}
-	ul.wysihtml5-toolbar {
-		
-	}
 	.question-info {
 		width: 100%;
 	}
@@ -223,14 +212,8 @@
 	.container .semi {
 		width:100%;
 	}
-	.profile-info {
-		
-	}
 	.default {
 		margin-top: 5px;
-	}
-	.container .forest-cutout {
-		//background-position: center 70%;//
 	}
 	#footer {
 		height:auto;
@@ -255,7 +238,7 @@
 			font-size: 18px;
 		}
 	}
-	.home {
+	.mobile {
 		margin-top: -30px;
 		margin: -30px -20px 20px;
 		border-radius: 0px;
@@ -269,6 +252,50 @@
 		h4 {
 			font-size: 16px;
 		}
+	}
+	#nav_links {
+		background: $gundam;
+		margin:-20px -20px 0;
+		text-align:center;
+		padding: 0px;
+		.default {
+			padding: 9px 5px!important;
+			margin:0px;
+			background: none;
+		}
+		.submit {
+			color: $red;
+			font-weight:bold;
+		}
+	}
+	.alert {
+		margin: -30px -20px 30px -20px;
+		border-radius: 0px;
+		-webkit-border-radius:0px;
+		-moz-border-radius: 0px;
+	}
+	.red-border {
+		border: none;
+		outline:none;
+	}
+	.span2.inline-span {
+		display:inline-block;
+		width:115px;
+		.ch-grid li {
+			height:85px;
+			width:85px;
+		}
+		.ch-item {
+			h1 {
+				margin: 26px 3px 0 0;
+			}
+			h3 {
+				padding-top:25px;
+			}
+		}
+	}
+	.hero-unit .user-page {
+		margin-top: 0px;
 	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
@@ -331,7 +358,6 @@
 	}
 	.nav-collapse .nav > li a:hover {
 		background: $universe;
-	
 	}
 	.nav-collapse .navbar-form {
 		padding: 0px;
@@ -373,9 +399,6 @@
 	.default-xl {
 		width:100%;
 	}
-	ul.wysihtml5-toolbar {
-		
-	}
 	.question-info {
 		width: 100%;
 	}
@@ -407,12 +430,13 @@
 			font-size: 25px;
 			line-height:25px;
 		}
+		.vote-box h1 {
+			font-size: 45px;
+			line-height:40px;
+		}
 	}
 	.carousel-control {
 		top: 76%;
-	}
-	.container .forest-cutout {
-		//background-position: center 70%;//
 	}	
 	#footer {
 		height:auto;
@@ -434,7 +458,7 @@
 			font-size: 18px;
 		}
 	}
-	.home {
+	.mobile {
 		margin-top: -30px;
 		margin: -30px -20px 20px;
 		border-radius: 0px;
@@ -448,15 +472,11 @@
 		}
 	}
 	#nav_links {
-		background: $midnight;
-		margin: -20px -20px -10px -20px;
+		background: $gundam;
+		margin:-20px -20px 0;
 		text-align:center;
-		display:table;
-		width:100%;
-		padding: 0px 20px;
-		vertical-align:middle;
+		padding: 0px;
 		.default {
-			display:table-cell;
 			padding: 9px 5px!important;
 			margin:0px;
 			background: none;
@@ -465,5 +485,34 @@
 			color: $red;
 			font-weight:bold;
 		}
+	}
+	.alert {
+		margin: -30px -20px 30px -20px;
+		border-radius: 0px;
+		-webkit-border-radius:0px;
+		-moz-border-radius: 0px;
+	}
+	.red-border {
+		border: none;
+		outline:none;
+	}
+	.span2.inline-span {
+		display:inline-block;
+		width:100%;
+		.ch-grid li {
+			height:85px;
+			width:85px;
+		}
+		.ch-item {
+			h1 {
+				margin: 26px 3px 0 0;
+			}
+			h3 {
+				padding-top:25px;
+			}
+		}
+	}
+	.hero-unit .user-page {
+		margin-top: 0px;
 	}
 }

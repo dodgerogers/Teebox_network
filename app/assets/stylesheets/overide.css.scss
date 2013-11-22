@@ -92,9 +92,10 @@ form .btn {
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
 	color: #fff;
 	background: $ocean;
+	padding-bottom: 7px;
 }
 .navbar .pull-right > li > .dropdown-menu, .navbar .nav > li > .dropdown-menu.pull-right {
-	top: 44px;
+	top: 42px;
 }
 .navbar .nav > li > a:hover {
 	color: #999;

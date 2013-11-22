@@ -6,7 +6,7 @@
 					<i class="icon-ok-sign" id="ok-icon"></i>
 				</div>
 	
-				<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen.jpg" %>
+				<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen-xl.jpg" %>
 				<div id='<%= "#{video.id}_token" %>' class="selected-img">
 						<%= image_tag(screenshot) %>
 				</div>

@@ -1,14 +1,11 @@
-<div class="center hero-unit yas-links">
+<section class="center hero-unit yas-links mobile">
 	<div class="row">
 		<div class="span4">
 			<center>
-			
-			<h2 class="video-upload"><%= @decorator.username %></h2>
-			<%= link_to "My Videos", videos_path, class: "default next" %>
-			<%= link_to "Ask Question", new_question_path, class: "default submit" if current_user == @user %>
+			<h1 class="welcome-banner user-page"><%= @decorator.username %></h1>
 			</center>
 		</div>
-	<div class="span2">
+	<article class="span2 inline-span">
 		<ul class="ch-grid">
 			<li>
 	        <div class="ch-item ch-img-1">
@@ -19,8 +16,8 @@
 	        </div>
 	    	</li>
 		</ul>
-	</div>
-	<div class="span2">
+	</article>
+	<article class="span2 inline-span">
 		<ul class="ch-grid">
 			<li>
 	        <div class="ch-item ch-img-1">
@@ -35,8 +32,8 @@
 	        </div>
 	    	</li>
 		</ul>
-	</div>
-	<div class="span2">
+	</article>
+	<article class="span2 inline-span">
 		<ul class="ch-grid">
 			<li>
 	        <div class="ch-item ch-img-1">
@@ -47,6 +44,6 @@
 	        </div>
 	    	</li>
 		</ul>
-	</div>
+	</article>
 </div>
-</div>	
+</section>	

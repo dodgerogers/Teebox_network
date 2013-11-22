@@ -3,7 +3,7 @@ require "spec_helper"
 module AnswerHelper
   def create_and_find_question
     visit questions_path
-    click_link "Ask a Question"
+    click_link "Ask"
     page.should have_content "Step 1: Upload a Video"
     click_link "Step 2"
     page.should have_content "Step 2: Ask your question"

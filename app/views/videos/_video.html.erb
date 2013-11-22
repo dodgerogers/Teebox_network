@@ -2,7 +2,7 @@
 	
 	<%= image_tag("spinner.gif", class: "loading loading_#{video.id}") %>
 		
-  	<%= video.screenshot.present? ? (link_to image_tag(video.screenshot), video) : (link_to image_tag("video_screen.jpg"), video) %>
+  	<%= video.screenshot.present? ? (link_to image_tag(video.screenshot), video) : (link_to image_tag("video_screen-xl.jpg"), video) %>
 	<br>
 	<h4><%= link_to File.basename(video.file).titleize, video %></h4>
 	

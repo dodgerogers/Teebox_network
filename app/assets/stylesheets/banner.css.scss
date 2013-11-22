@@ -5,8 +5,11 @@
 .welcome-banner {
 	color: #fff!important;
 	letter-spacing:3px!important;
-	margin: 0!important;
+	margin: 0;
 	text-shadow:0 3px 0px $red;
+}
+.hero-unit .user-page {
+	margin-top: 42px;
 }
 .video-upload {
 	color: #fff!important;
@@ -104,10 +107,10 @@ a .welcome-white:hover {
     transition: all 0.4s ease-in-out;
     transform: scale(0);
 }
-.ch-item h1 {
+.hero-unit .ch-item h1 {
 	text-align: center;
 	vertical-align: middle;
-	margin: 32px 0 0 0!important;
+	margin: 32px 0 0 0;
 	text-shadow: 0 3px 3px #666;
 	color: #fff!important;
 }
