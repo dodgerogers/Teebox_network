@@ -10,7 +10,7 @@ module ApplicationHelper
   def profile_link_helper(object)
     content_tag :div, class: "profile" do
       (link_to image_tag(avatar_url(object.user)), object.user) +
-      (link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation") +
+      (link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation", class: "user_#{object.user.id}") +
       (link_to object.user.username.titleize, object.user, id: "profile-username") +
       "<br>".html_safe +
       "Posted #{time_ago_in_words(object.created_at)} ago"

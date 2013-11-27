@@ -1,11 +1,13 @@
 <% if @answer.new_record? %>
-	alert("Failed to create answer: <%= j @answer.errors.full_messages.join(', ').html_safe %>");
+	alert("<%= j @answer.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-var answer = $("<%= j render(@answer) %>").hide();
-$('#question-answers').append(answer);
-answer.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
-$('#new_answer').hide();
-$('.new_comment').hide();
-$('.wysihtml5-sandbox').contents().find('body').html('');
+	var answer = $("<%= j render(@answer) %>").hide();
+	$('#question-answers').append(answer);
+	answer.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
+	$('#new_answer').hide();
+	$('.new_comment').hide();
+	$('#answer-button').text("Answer Question");
+	$('.wysihtml5-sandbox').contents().find('body').html('');
+	$('#answers-count h3').text("<%= pluralize(@answer.question.answers_count + 1, 'Answer') %>");
 <% end %>
 

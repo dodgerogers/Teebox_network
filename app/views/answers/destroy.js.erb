@@ -1,1 +1,2 @@
 $('#answer_<%="#{@answer.id}"%>').effect('highlight', {color: "#f7f7f7"}, 200).fadeOut();
+$('#answers-count h3').text("<%= pluralize(@answer.question.answers_count - 1, 'Answer') %>");

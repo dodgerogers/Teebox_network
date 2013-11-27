@@ -1,9 +1,9 @@
 class VideosController < ApplicationController
   
   before_filter :authenticate_user!
+  load_and_authorize_resource
   
   def show
-    @video = Video.find(params[:id])
   end
   
   def index
@@ -15,8 +15,7 @@ class VideosController < ApplicationController
     @video = Video.new
   end
   
-  def new
-    @video = Video.new
+  def new   
   end
   
   def create

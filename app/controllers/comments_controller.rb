@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user! 
   before_filter :load_commentable
   load_and_authorize_resource except: [:new, :index]
-  
+  include Teebox::Votable
   
   def create 
     @comment = @commentable.comments.build(params[:comment])
@@ -26,19 +26,6 @@ class CommentsController < ApplicationController
       format.js
     end
   end
-       
-  def vote 
-    @vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Comment")
-      respond_to do |format|
-      if @vote.save
-        format.html {redirect_to :back, notice: "Vote submitted"}
-        format.js
-      else
-        format.html {redirect_to :back, alert: "You can't vote on your own content"}
-        format.js
-      end
-    end
-  end  
   
   private
   

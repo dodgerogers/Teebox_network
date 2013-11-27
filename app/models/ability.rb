@@ -24,7 +24,7 @@ class Ability
       end
       #Videos
       can [:new, :create], Video
-      can [:destroy], Video do |video|
+      can [:destroy, :read], Video do |video|
         video.try(:user) == user
       end
       can [:new, :create, :read, :edit, :update], Tag

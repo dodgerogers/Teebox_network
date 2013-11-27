@@ -12,7 +12,7 @@
 															 id: "tick", class: "correct_#{answer.id}", 
 															 remote: true, 
 														     method: :put,
-															 title: "Did this help you? Mark it as correct" %>
+															 title: "Most helpful? Mark it as correct" %>
 				<% else %>
 					<% if answer.correct == true %>
 						<div id="tick", class='correct_<% answer.id %>'><i class="icon-ok-sign"></i></div>

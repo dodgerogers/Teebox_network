@@ -1,0 +1,2055 @@
+# Logfile created on 2013-11-25 23:11:02 -0500 by logger.rb/31641
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:02 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/4-randyrogers" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4-randyrogers"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "4-randyrogers"]]
+  Rendered users/_stats.html.erb (1.1ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE "questions"."user_id" = 4[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "answers" WHERE "answers"."user_id" = 4
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."user_id" = 4[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" = 4 ORDER BY created_at, created_at desc LIMIT 4
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" IN (5)[0m
+  Rendered users/tables/_comment_table.html.erb (3.5ms)
+  Rendered users/show.html.erb within layouts/application (11.7ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  Rendered layouts/header.html.erb (3.3ms)
+  Rendered layouts/footer.html.erb (1.4ms)
+Completed 200 OK in 33ms (Views: 28.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:10 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:11 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:11 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:11 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:11 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:11 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Processing by QuestionsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  Rendered shared/teebox_banner.html.erb (1.6ms)
+  Rendered shared/_nav_links.html.erb (1.2ms)
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT "questions".* FROM "questions" ORDER BY created_at DESC LIMIT 20 OFFSET 0[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3)
+  [1m[36mVideo Load (0.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."id" IN (7) ORDER BY created_at DESC[0m
+  Rendered questions/_questions.html.erb (7.9ms)
+  Rendered questions/index.html.erb within layouts/application (12.6ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  Rendered layouts/header.html.erb (3.1ms)
+  Rendered layouts/footer.html.erb (1.4ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spinner.gif" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /spinner.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds/forest-cutout.jpg" for 127.0.0.1 at 2013-11-25 23:11:16 -0500
+Served asset /backgrounds/forest-cutout.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/users/3-dodgerogers" for 127.0.0.1 at 2013-11-25 23:11:19 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3-dodgerogers"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3-dodgerogers"]]
+  Rendered users/_stats.html.erb (0.9ms)
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "questions" WHERE "questions"."user_id" = 3
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."user_id" = 3 ORDER BY created_at desc LIMIT 4[0m
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" IN (5)
+  Rendered users/tables/_question_table.html.erb (2.8ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."user_id" = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."user_id" = 3
+  Rendered users/show.html.erb within layouts/application (10.2ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  Rendered layouts/header.html.erb (3.4ms)
+  Rendered layouts/footer.html.erb (1.8ms)
+Completed 200 OK in 88ms (Views: 83.8ms | ActiveRecord: 2.9ms)
+user: andrew
+localhost:3000http://localhost:3000/users/3-dodgerogers
+Unused Eager Loading detected
+  Question => [:answers]
+  Remove from your finder: :include => [:answers]
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:11:20 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-25 23:15:19 -0500
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  Rendered shared/teebox_banner.html.erb (44.7ms)
+  Rendered shared/_nav_links.html.erb (1.2ms)
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" ORDER BY created_at DESC LIMIT 20 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3)[0m
+  [1m[35mVideo Load (0.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."id" IN (7) ORDER BY created_at DESC
+  Rendered questions/_questions.html.erb (96.3ms)
+  Rendered questions/index.html.erb within layouts/application (144.8ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  Rendered layouts/header.html.erb (13.7ms)
+  Rendered layouts/footer.html.erb (2.0ms)
+Completed 200 OK in 256ms (Views: 167.2ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spinner.gif" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /spinner.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds/forest-cutout.jpg" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /backgrounds/forest-cutout.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/BebasNeue-webfont.woff" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /BebasNeue-webfont.woff - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2013-11-25 23:15:20 -0500
+Served asset /fontawesome-webfont.woff - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  Rendered shared/teebox_banner.html.erb (1.7ms)
+  Rendered shared/_nav_links.html.erb (1.9ms)
+  [1m[35mQuestion Load (0.7ms)[0m  SELECT "questions".* FROM "questions" ORDER BY created_at DESC LIMIT 20 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3)[0m
+  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."id" IN (7) ORDER BY created_at DESC
+  Rendered questions/_questions.html.erb (8.3ms)
+  Rendered questions/index.html.erb within layouts/application (14.9ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  Rendered layouts/header.html.erb (4.2ms)
+  Rendered layouts/footer.html.erb (1.9ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:44 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spinner.gif" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Served asset /spinner.gif - 304 Not Modified (0ms)
+
+
+Started GET "/questions/5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero" for 127.0.0.1 at 2013-11-25 23:16:45 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"]]
+  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."id" = 7 ORDER BY created_at DESC LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."question_id" = 5[0m
+  Rendered votes/_form.html.erb (1.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = 5 AND "comments"."commentable_type" = 'Question' ORDER BY created_at
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (4)[0m
+  Rendered votes/_form.html.erb (0.9ms)
+  Rendered comments/_comment.html.erb (4.3ms)
+  Rendered comments/_form.html.erb (1.3ms)
+  [1m[35mAnswer Load (0.5ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 5 ORDER BY votes_count DESC
+  Rendered collection (0.0ms)
+  Rendered answers/_form.html.erb (1.7ms)
+  [1m[36mQuestion Load (0.9ms)[0m  [1mSELECT "questions".*, ((ts_rank((to_tsvector('english', coalesce("questions"."title"::text, ''))), (to_tsquery('english', ''' ' || ' Praesent' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'orci' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'metus,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'pulvinar' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ac' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'mi' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'eu,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ornare' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'faucibus' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'libero. ' || ' ''' || ':*')), 0))) AS pg_search_rank FROM "questions" WHERE (((to_tsvector('english', coalesce("questions"."title"::text, ''))) @@ (to_tsquery('english', ''' ' || ' Praesent' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'orci' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'metus,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'pulvinar' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ac' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'mi' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'eu,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ornare' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'faucibus' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'libero. ' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "questions"."id" ASC LIMIT 7[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3)
+  Rendered shared/_related_questions.html.erb (0.3ms)
+  Rendered questions/show.html.erb within layouts/application (51.8ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  Rendered layouts/header.html.erb (3.4ms)
+  Rendered layouts/footer.html.erb (1.4ms)
+Completed 200 OK in 159ms (Views: 63.7ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/assets/sublime.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /sublime.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysiwyg-color.css" for 127.0.0.1 at 2013-11-25 23:16:46 -0500
+Served asset /bootstrap-wysihtml5/wysiwyg-color.css - 304 Not Modified (0ms)
+
+
+Started GET "/questions/5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"]]
+  [1m[35mVideo Load (0.4ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."id" = 7 ORDER BY created_at DESC LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."question_id" = 5[0m
+  Rendered votes/_form.html.erb (1.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = 5 AND "comments"."commentable_type" = 'Question' ORDER BY created_at
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (4)[0m
+  Rendered votes/_form.html.erb (0.7ms)
+  Rendered comments/_comment.html.erb (2.8ms)
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[35mAnswer Load (0.3ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 5 ORDER BY votes_count DESC
+  Rendered collection (0.0ms)
+  Rendered answers/_form.html.erb (1.0ms)
+  [1m[36mQuestion Load (1.1ms)[0m  [1mSELECT "questions".*, ((ts_rank((to_tsvector('english', coalesce("questions"."title"::text, ''))), (to_tsquery('english', ''' ' || ' Praesent' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'orci' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'metus,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'pulvinar' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ac' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'mi' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'eu,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ornare' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'faucibus' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'libero. ' || ' ''' || ':*')), 0))) AS pg_search_rank FROM "questions" WHERE (((to_tsvector('english', coalesce("questions"."title"::text, ''))) @@ (to_tsquery('english', ''' ' || ' Praesent' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'orci' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'metus,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'pulvinar' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ac' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'mi' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'eu,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ornare' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'faucibus' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'libero. ' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "questions"."id" ASC LIMIT 7[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3)
+  Rendered shared/_related_questions.html.erb (0.3ms)
+  Rendered questions/show.html.erb within layouts/application (31.1ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  Rendered layouts/header.html.erb (3.4ms)
+  Rendered layouts/footer.html.erb (1.5ms)
+Completed 200 OK in 53ms (Views: 45.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/sublime.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /sublime.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysiwyg-color.css" for 127.0.0.1 at 2013-11-25 23:17:36 -0500
+Served asset /bootstrap-wysihtml5/wysiwyg-color.css - 304 Not Modified (0ms)
+
+
+Started GET "/questions/5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", "5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"]]
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."id" = 7 ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."question_id" = 5
+  Rendered votes/_form.html.erb (1.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = 5 AND "comments"."commentable_type" = 'Question' ORDER BY created_at[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (4)
+  Rendered votes/_form.html.erb (0.7ms)
+  Rendered comments/_comment.html.erb (2.8ms)
+  Rendered comments/_form.html.erb (1.1ms)
+  [1m[36mAnswer Load (0.4ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 5 ORDER BY votes_count DESC[0m
+  Rendered collection (0.0ms)
+  Rendered answers/_form.html.erb (0.7ms)
+  [1m[35mQuestion Load (0.9ms)[0m  SELECT "questions".*, ((ts_rank((to_tsvector('english', coalesce("questions"."title"::text, ''))), (to_tsquery('english', ''' ' || ' Praesent' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'orci' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'metus,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'pulvinar' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ac' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'mi' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'eu,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ornare' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'faucibus' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'libero. ' || ' ''' || ':*')), 0))) AS pg_search_rank FROM "questions" WHERE (((to_tsvector('english', coalesce("questions"."title"::text, ''))) @@ (to_tsquery('english', ''' ' || ' Praesent' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'orci' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'metus,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'pulvinar' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ac' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'mi' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'eu,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ornare' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'faucibus' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'libero. ' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "questions"."id" ASC LIMIT 7
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3)[0m
+  Rendered shared/_related_questions.html.erb (0.3ms)
+  Rendered questions/show.html.erb within layouts/application (29.9ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  Rendered layouts/header.html.erb (3.5ms)
+  Rendered layouts/footer.html.erb (1.4ms)
+Completed 200 OK in 51ms (Views: 44.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/sublime.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /sublime.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysiwyg-color.css" for 127.0.0.1 at 2013-11-25 23:17:47 -0500
+Served asset /bootstrap-wysihtml5/wysiwyg-color.css - 304 Not Modified (0ms)
+
+
+Started GET "/questions/5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"}
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", "5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"]]
+  [1m[36mVideo Load (0.6ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."id" = 7 ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."question_id" = 5
+  Rendered votes/_form.html.erb (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = 5 AND "comments"."commentable_type" = 'Question' ORDER BY created_at[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "5-praesent-orci-metus-pulvinar-ac-mi-eu-ornare-faucibus-libero"]]
+  Rendered votes/_form.html.erb (1.4ms)
+  Rendered comments/_comment.html.erb (6.5ms)
+  Rendered comments/_form.html.erb (1.2ms)
+  [1m[35mAnswer Load (0.4ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 5 ORDER BY votes_count DESC
+  Rendered collection (0.0ms)
+  Rendered answers/_form.html.erb (0.7ms)
+  [1m[36mQuestion Load (0.9ms)[0m  [1mSELECT "questions".*, ((ts_rank((to_tsvector('english', coalesce("questions"."title"::text, ''))), (to_tsquery('english', ''' ' || ' Praesent' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'orci' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'metus,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'pulvinar' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ac' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'mi' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'eu,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ornare' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'faucibus' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'libero. ' || ' ''' || ':*')), 0))) AS pg_search_rank FROM "questions" WHERE (((to_tsvector('english', coalesce("questions"."title"::text, ''))) @@ (to_tsquery('english', ''' ' || ' Praesent' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'orci' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'metus,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'pulvinar' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ac' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'mi' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'eu,' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'ornare' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'faucibus' || ' ''' || ':*') || to_tsquery('english', ''' ' || 'libero. ' || ' ''' || ':*')))) ORDER BY pg_search_rank DESC, "questions"."id" ASC LIMIT 7[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3)
+  Rendered shared/_related_questions.html.erb (0.3ms)
+  Rendered questions/show.html.erb within layouts/application (33.9ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "activities" WHERE "activities"."read" = 'f' AND "activities"."recipient_id" = 3
+  Rendered layouts/header.html.erb (3.4ms)
+  Rendered layouts/footer.html.erb (1.5ms)
+Completed 200 OK in 54ms (Views: 47.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/sublime.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /sublime.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backgrounds.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /backgrounds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /bootstrap-wysihtml5/core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /bootstrap-wysihtml5/index.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/banner.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /banner.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /icons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/overide.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /overide.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/responsive.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/variables.css?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /variables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/vendor/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /jquery-fileupload/vendor/jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /jquery-fileupload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/basic.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /jquery-fileupload/basic.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-fileupload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /jquery-fileupload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /bootstrap-wysihtml5/wysihtml5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/core.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /bootstrap-wysihtml5/core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/index.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /bootstrap-wysihtml5/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/authorize.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /authorize.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cancel.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /cancel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /comment.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notifications.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:05 -0500
+Served asset /notifications.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pagination-button.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /pagination-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tooltips.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /video.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answer.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /answer.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/video_select.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /video_select.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /vote.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-wysihtml5/wysiwyg-color.css" for 127.0.0.1 at 2013-11-25 23:18:06 -0500
+Served asset /bootstrap-wysihtml5/wysiwyg-color.css - 304 Not Modified (0ms)

@@ -1,5 +1,8 @@
 TeeboxNetwork::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  
+  #rotate 3 log files, limit to 1mb each
+  config.logger = Logger.new(Rails.root.join("log",Rails.env + ".log"),3,1*1024*1024)
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

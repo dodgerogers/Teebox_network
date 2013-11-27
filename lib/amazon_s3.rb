@@ -1,5 +1,6 @@
 class AmazonS3
   
+  # Can move screenshots and videos into 1 method
   def self.get_screenshots
      screenshots = Video.all.map(&:screenshot).map {|file| file.to_s.gsub!("https://teebox-network.s3.amazonaws.com/", "") }
      files = []
@@ -33,7 +34,7 @@ class AmazonS3
           puts "Operation cancelled"
         end 
      else
-       "No AWS::S3 objects to clean" 
+       puts "No AWS::S3 objects to clean" 
      end
    end
 end

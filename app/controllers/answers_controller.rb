@@ -4,6 +4,7 @@ class AnswersController < ApplicationController
   load_and_authorize_resource
   require 'teebox/commentable'
   include Teebox::Commentable
+  include Teebox::Votable
   
   def create
     @answer = current_user.answers.build(params[:answer])
@@ -40,19 +41,6 @@ class AnswersController < ApplicationController
      respond_to do |format|
        format.js
      end
-  end
-  
-  def vote 
-    @vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: "Answer")
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to :back, notice: "Vote submitted" }
-        format.js
-      else
-        format.html { redirect_to :back, alert: "You can't vote on your own content" }
-        format.js
-      end
-    end
   end
   
   def correct 

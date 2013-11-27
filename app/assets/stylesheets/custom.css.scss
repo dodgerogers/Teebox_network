@@ -425,9 +425,15 @@ body .sublimevideo-zi .sublimevideo-uj {
 	font-size: 20px;
 	margin-top: 5px;
 }
-#answers-count h3 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	letter-spacing: -1px;
+#answers-count {
+	background: $green-sea;
+	padding: 0px 10px;
+	text-align: center;
+	h3 {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		letter-spacing: -1px;
+		color: #fff;
+	}
 }
 #correct-answer {
 	color: white !important;
@@ -669,7 +675,6 @@ body #header-search {
 }
 .action_links, .profile, .edit-destroy-links {
 	display:inline;
-	vertical-align: middle;
 }
 
 /*-------------------- comments + related questions ----------------*/
@@ -969,16 +974,14 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 .vote-box h1 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight:400;
+	font-size: 45px;
+	margin: 0px 3px 0px 0px;	
+	letter-spacing:-2px;
+	color: #bbb;
 }
 #questions, #comments, #answers { 
 	display: inline-block; 
 }	
-.vote-box h1 { 
-	font-size: 45px;
-	margin: 0px 3px 0px 0px;	
-	letter-spacing:-2px;
-	color: #ccc;
-}
 #arrows { 
 	display: inline-block;
 	/*text-shadow: 2px 2px 2px #777;*/
@@ -999,7 +1002,7 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	display:inline-block;
 }
 .default-arrows h1 {
-	color: #ccc;
+	color: #bbb;
 	display:inline-block;
 }
 /*-------------------- reputation ----------------*/

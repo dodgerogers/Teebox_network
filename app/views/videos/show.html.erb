@@ -1,6 +1,6 @@
 <%= content_for :head do %>
 	<title><%= File.basename(@video.file).titleize %></title>
-	<%= javascript_include_tag "sublime.js" %>
+	<%= javascript_include_tag "sublime.js", defer: "defer" %>
 <% end %>
 
 <div class='row'>
@@ -16,7 +16,7 @@
 		</div>
 		<hr>
 		<%= link_to "My Videos", videos_path, class: "default submit" %>
-		<%= link_to "Delete", video_path(@video), class: "default next", method: :delete if @video.user == current_user %>
+		<%= link_to "Delete", video_path(@video), class: "default next", method: :delete %>
 	</div>	
 </div>	
 

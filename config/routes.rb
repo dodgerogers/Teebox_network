@@ -4,9 +4,9 @@ TeeboxNetwork::Application.routes.draw do
   resources :users, only: [:show, :index]
   resources :signed_urls, only: :index
   
-  match '(errors)/:status', to: 'errors#show', constraints: { status: /\d{3}/ }
-  
   root to: "questions#index"
+  
+  match '(errors)/:status', to: 'errors#show', constraints: { status: /\d{3}/ }
   
   get "tagged/:tag", to: "questions#index", as: :tagged
   
@@ -19,7 +19,7 @@ TeeboxNetwork::Application.routes.draw do
   get "users/:id/comments_index", to: "users#comments_index", as: :comments_index
   get "users/:id/welcome", to: "users#welcome", as: :welcome
 
-  get "pages/info", to: "pages#info", as: :info
+  get "how_it_works", to: "pages#info", as: :info
   
   resources :questions do
      resources :comments, except: [:edit, :update]

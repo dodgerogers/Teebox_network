@@ -1,10 +1,10 @@
-<% votable = @vote.votable_type.downcase %>
 <% if @vote.new_record? %>
-alert("Failed to create vote: <%= j @vote.errors.full_messages.join(', ').html_safe %>");
+alert("<%= j @vote.errors.full_messages.join(', ').html_safe %>");
 <% else %>
 var votes = $("<h1><%= @vote.votable.votes_count %></h1>");
-<% if @vote.value == -1 %>
-document.getElementById('<%= "#{votes_count}_#{id}" %>').className += " orange-arrows";
-<% end %>
+// <% if @vote.value == -1 %>
+// document.getElementById('<%= "#{votes_count}_#{id}" %>').className += " orange-arrows";
+// <% end %>
 $('#<%= "#{votes_count}_#{id}" %>').html(votes.fadeIn(1000));
+$('.user_<%= @vote.votable.user.id %>').text("<%= @vote.votable.user.reputation %>");
 <% end %>
