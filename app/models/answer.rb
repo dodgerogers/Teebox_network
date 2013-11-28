@@ -21,6 +21,6 @@ class Answer < ActiveRecord::Base
   scope :by_votes, order: "votes_count DESC"
   
   def is_false?
-    self.user == self.question.user || self.correct == false || self.activities.where(trackable_id: self.id).exists?
+    self.user == self.question.user || self.correct == false
   end
 end
