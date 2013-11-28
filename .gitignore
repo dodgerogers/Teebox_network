@@ -11,7 +11,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
-# Ignore all logfiles, tempfiles and test videos.
+# Ignore all logfiles, tempfiles and test videos but keep the folder.
 /log/*
 /log/*.log
 /spec/fixtures/*
