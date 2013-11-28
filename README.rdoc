@@ -1,9 +1,3 @@
 <b>Welcome to Teebox Network Beta.</b>
 
-<p>A question and answer site for golfers. Upload a video, ask a question and get an answer</p>
-
-Environment
-Ruby 1.9.3p143
-Rails 3.2.14
-Postgresql
-
+Details to follow
