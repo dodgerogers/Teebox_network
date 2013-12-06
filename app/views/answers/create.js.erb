@@ -9,5 +9,6 @@
 	$('#answer-button').text("Answer Question");
 	$('.wysihtml5-sandbox').contents().find('body').html('');
 	$('#answers-count h3').text("<%= pluralize(@answer.question.answers_count + 1, 'Answer') %>");
+	$('#answers-count').addClass("answered");
 <% end %>
 

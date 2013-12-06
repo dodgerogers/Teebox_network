@@ -1,4 +1,4 @@
-@import "variables.css.scss";
+@import "variables";
 
 /* --------- */
 
@@ -100,9 +100,9 @@ h6 {
 	font-family: "lobster_1.3regular";
 }		
 #answer-button {
-}
-#answer-button:hover {
-	text-decoration:none;	
+	&:hover {
+		text-decoration:none;	
+	}
 }
 small {
 	line-height: 5px;
@@ -229,9 +229,9 @@ red, red a {
 	color: $gundam;
 	a {
 		color: inherit;
-	}
-	a:hover {
-		color: #666;
+		&:hover {
+			color: #666;
+		}
 	}
 	.span3 {
 		margin-bottom: 10px;
@@ -257,13 +257,19 @@ red, red a {
 	       -o-transition: all 1s ease;
 	      -ms-transition: all 1s ease;
 	          transition: all 1s ease;
+	&:hover {
+		-webkit-transform: rotate(360deg); 
+		-moz-transform: rotate(360deg); 
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
 }
-#browsers img:hover {
-	-webkit-transform: rotate(360deg); 
-	-moz-transform: rotate(360deg); 
-	-o-transform: rotate(360deg);
-	-ms-transform: rotate(360deg);
-}
+//#browsers img:hover {
+//	-webkit-transform: rotate(360deg); 
+//	-moz-transform: rotate(360deg); 
+//	-o-transform: rotate(360deg);
+//	-ms-transform: rotate(360deg);
+//}
 .padded {
 	padding: 10px 0 0;
 }
@@ -426,14 +432,23 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin-top: 5px;
 }
 #answers-count {
-	background: $green-sea;
-	padding: 0px 10px;
 	text-align: center;
+	-webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 	h3 {
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		letter-spacing: -1px;
 		color: #fff;
 	}
+}
+.unanswered {
+	background: $asphalt;
+}
+.answered {
+	background: $green-sea;
 }
 #correct-answer {
 	color: white !important;
@@ -641,10 +656,13 @@ body #header-search {
 .pagination a {
 	color: #777;
 	font-weight:300;
+	&:hover, &:focus {
+	    text-decoration: bold; 
+	}
 }
-.pagination a:hover, .pagination a:focus {
-    text-decoration: bold; 
-}
+//.pagination a:hover, .pagination a:focus {
+//    text-decoration: bold; 
+//}
 
 /*-------------------- questions & videos profile info ----------*/
 
@@ -691,10 +709,13 @@ body #header-search {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	&:hover {
+		background: #ddd;
+	}
 } 
-.comment:hover {
-	background: #ddd;
-}
+//.comment:hover {
+//	background: #ddd;
+//}
 .comment-button {
 	margin: 10px 0 0;
 	display: inline-block;
@@ -733,9 +754,9 @@ body #header-search {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-}
-.related:hover {
-	background: #eee;
+	&:hover {
+		background: #eee;
+	}
 }
 .related-info {
 	width: auto;
@@ -788,17 +809,19 @@ body #header-search {
 
 /*----- questions content font styles ------*/
 
-.question-content h1 {
+.question-content {
+	h1 {
 	color: #555;
 	font-size: 22px;
-}
-.question-content h2 {
-	color: #666;
-	font-size: 18px;
-}
-.question-content h3 {
-	color: #777;
-	font-size: 15px;
+	}
+	h2 {
+		color: #666;
+		font-size: 18px;
+	}
+	h3 {
+		color: #777;
+		font-size: 15px;
+	}
 }
 
 /*-------------------- buttons ----------------*/
@@ -840,45 +863,45 @@ body #header-search {
 }
 .success {
 	background: $turquoise;
-}
-.success:hover {
-	background: $green-sea;
+	&:hover {
+		background: $green-sea;
+	}
 }
 .emerald {
 	background: $emerald;
-}
-.emerald:hover {
-	background: $dark-emerald;
+	&:hover {
+		background: $dark-emerald;
+	}
 }
 .asphalt {
 	background: $asphalt;
-}
-.asphalt:hover {
-	background: $midnight;
+	&:hover {
+		background: $midnight;
+	}
 }
 .purple {
 	background: $amethyst;
-}
-.purple:hover {
-	background: $wisteria;
+	&:hover {
+		background: $wisteria;
+	}
 }
 .submit {
 	background: $teal;
-}
-.submit:hover {
-	background: #10545d;
+	&:hover {
+		background: #10545d;
+	}
 }
 .next {
 	background: $red;
-}
-.next:hover {
-	background: $dark-red;
+	&:hover {
+		background: $dark-red;
+	}
 }
 .universe {
 	background: $universe;
-}
-.universe:hover {
-	background: $blackhole;
+	&:hover {
+		background: $blackhole;
+	}
 }
 .direct-upload {
 	display:inline-block;
@@ -970,14 +993,14 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 }
 .vote-box {
 	display:inline-block!important;
-}
-.vote-box h1 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight:400;
-	font-size: 45px;
-	margin: 0px 3px 0px 0px;	
-	letter-spacing:-2px;
-	color: #bbb;
+	h1 {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight:400;
+		font-size: 45px;
+		margin: 0px 3px 0px 0px;	
+		letter-spacing:-2px;
+		color: #bbb;
+	}
 }
 #questions, #comments, #answers { 
 	display: inline-block; 
@@ -1053,6 +1076,10 @@ h1.one span {
 	vertical-align:top;
 	display:inline-block;
 	float:none!important;
+	&:hover {
+		background: #eee;
+		color: #999;
+	}
 	.tag-title {
 		padding: 2px;
 		font-size: 20px;
@@ -1077,10 +1104,6 @@ h1.one span {
 	}
 	a:hover {
 	}
-}
-.tag-container:hover {
-	background: #eee;
-	color: #999;
 }
 .tag-search  a {
 	color: #fff!important;
@@ -1135,7 +1158,6 @@ a.tag:hover, a.current_tag:hover {
 a.tag:active, a.current_tag:active {
 	background: $teal;
 }
-
 .report-container {
 	font-weight: 300;
 	margin: 0 5px;

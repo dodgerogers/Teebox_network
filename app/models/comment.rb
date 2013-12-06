@@ -29,7 +29,9 @@ class Comment < ActiveRecord::Base
   
   def mentions_limit
     return unless errors.blank?
-    errors.add(:content, "You can only mention someone once") if find_mentions.uniq.length != find_mentions.length
+    if find_mentions.uniq.length != find_mentions.length
+      errors.add(:content, "You can only mention someone once") 
+    end
   end
   
   def display_mentions

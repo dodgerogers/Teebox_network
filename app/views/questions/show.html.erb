@@ -42,7 +42,7 @@
 			</section>
 		</div>
 	
-		<div id='answers-count'>
+		<div id='answers-count' class="<%= @decorator.answers_count > 0 ? 'answered' : 'unanswered' %>">
 			<h3><%= pluralize(@decorator.answers_count, "Answer")  %></h3>
 		</div>
 	

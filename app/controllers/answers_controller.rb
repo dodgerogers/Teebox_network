@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
     respond_to do |format|
     if @answer.save
         @answer.create_activity :create, owner: current_user, recipient: @answer.question.user unless current_user == @answer.question.user
-        format.html { redirect_to :back, notice: 'Answer created'}
+        format.html { redirect_to @answer.question, notice: 'Answer created'}
         format.js
     else
         format.html {  redirect_to :back, notice: "Please try again" }
@@ -37,7 +37,8 @@ class AnswersController < ApplicationController
   end
   
   def destroy
-     @answer = Answer.destroy(params[:id])
+     @answer = Answer.find(params[:id])
+     @answer.destroy
      respond_to do |format|
        format.js
      end

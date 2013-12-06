@@ -1,2 +1,10 @@
-$('#answer_<%="#{@answer.id}"%>').effect('highlight', {color: "#f7f7f7"}, 200).fadeOut();
-$('#answers-count h3').text("<%= pluralize(@answer.question.answers_count - 1, 'Answer') %>");
+<% unless @answer.errors.blank? %>
+	alert("<%= j @answer.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+	$('#answer_<%="#{@answer.id}"%>').effect('highlight', {color: "#f7f7f7"}, 200).fadeOut();
+	$('#answers-count h3').text("<%= pluralize(@answer.question.answers_count - 1, 'Answer') %>");
+	<% if @answer.question.answers_count = 0 %>
+		$('#answers-count').removeClass("answered");
+		$("#answers-count").addClass("unanswered");
+	<% end %>
+<% end %>

@@ -18,9 +18,16 @@ class Answer < ActiveRecord::Base
   validates_uniqueness_of :user_id, scope: :question_id, message: "Only 1 answer per question per user"
   validates :body, obscenity: true
   
+  before_destroy :check_correct
+  
   scope :by_votes, order: "votes_count DESC"
   
   def is_false?
     self.user == self.question.user || self.correct == false
+  end
+  
+  def check_correct
+    errors.add(:base, "You can't delete a correct answer") if self.correct == true
+    errors.blank?
   end
 end
