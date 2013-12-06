@@ -1,3 +1,3 @@
 <b>Welcome to Teebox Network Beta.</b>
 
-Details to follow
+Points Branch - Refactor system for giving out points. 
