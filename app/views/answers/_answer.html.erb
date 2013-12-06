@@ -20,7 +20,6 @@
 				<% end %>
 				</div>
 				<%= render partial: "votes/form", 	locals: { votes_count: "answers", 
-													id: answer.id, 
 													object: answer, 
 													vote_path: method(:vote_answer_path) } %>
 			</div>

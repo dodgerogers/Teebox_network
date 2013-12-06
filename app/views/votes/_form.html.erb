@@ -1,11 +1,11 @@
 <div class="vote">
-	<div id='<%= "#{votes_count}_#{id}" %>' class="vote-box">
-		<div class='<%= object.votes_count < 1 ? 'orange-arrows' : 'default-arrows' %>'>
+	<div id='<%= "#{votes_count}_#{object.id}" %>' class="vote-box">
+		<div class='default-arrows'>
 			<h1><%= object.votes_count %></h1>
 		</div>
 	</div>
 	<div id="arrows">
-		<%= link_to raw("&#9650;"), vote_path.call(object, value: 1),id: "upvote", remote: true,  method: "post" %><br>
+		<%= link_to raw("&#9650;"), vote_path.call(object, value: 1), id: "upvote", remote: true,  method: "post" %><br>
 		<%= link_to raw(" &#9660;") , vote_path.call(object, value: -1), id: "downvote", remote: true, method: "post" %>
 	</div>
 </div>

@@ -23,8 +23,7 @@
 			
 				<div class="form-area">
 					<div class="profile-info" id="question-profile-info">
-						<%= render partial: "votes/form", locals: { votes_count: "questions", 
-																	id: @decorator.id, 
+						<%= render partial: "votes/form", locals: { votes_count: "questions",  
 																	object: @decorator, 
 																	vote_path: method(:vote_question_path) } %> 
 					    <%= profile_link_helper(@decorator) %>

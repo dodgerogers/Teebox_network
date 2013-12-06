@@ -2,9 +2,6 @@
 alert("<%= j @vote.errors.full_messages.join(', ').html_safe %>");
 <% else %>
 var votes = $("<h1><%= @vote.votable.votes_count %></h1>");
-// <% if @vote.value == -1 %>
-// document.getElementById('<%= "#{votes_count}_#{id}" %>').className += " orange-arrows";
-// <% end %>
 $('#<%= "#{votes_count}_#{id}" %>').html(votes.fadeIn(1000));
 $('.user_<%= @vote.votable.user.id %>').text("<%= @vote.votable.user.reputation %>");
 <% end %>
