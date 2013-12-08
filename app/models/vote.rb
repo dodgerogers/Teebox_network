@@ -1,5 +1,6 @@
 class Vote < ActiveRecord::Base
   
+  has_one :point, as: :pointable, dependent: :destroy
   attr_accessible :value, :votable_id, :votable_type, :points
   belongs_to :votable, polymorphic: true
   belongs_to :user
@@ -10,6 +11,7 @@ class Vote < ActiveRecord::Base
   validate :ensure_not_author
   
   before_validation :create_points
+  after_create :update_points_and_counts
   
   def ensure_not_author 
     if self.votable
@@ -21,8 +23,8 @@ class Vote < ActiveRecord::Base
     self.value == 1 ? self.points = 5 : self.points = -5
   end
   
-  def user_rep
-    self.votable.user
+  def update_points_and_counts
+    self.votable.update_attributes(votes_count: self.sum_points("value"), points: self.sum_points("points"))
   end
   
   def sum_points(column)

@@ -18,6 +18,7 @@ describe Vote do
   it { should respond_to(:points) }
   it { should belong_to(:votable) }
   it { should belong_to(:user) }
+  it { should have_one(:point) }
   it { should validate_uniqueness_of(:value).scoped_to([:votable_id, :user_id])}
   it { should ensure_inclusion_of(:value).in_array([1, -1]) }
   
@@ -44,12 +45,6 @@ describe Vote do
    describe "vote value" do
       before { @vote.value = 5 }
       it { should_not be_valid }
-   end
-   
-   describe "user_rep" do
-     it "returns vote user" do
-       @vote.user_rep.should eq @user
-     end
    end
    
    describe "sum_points" do

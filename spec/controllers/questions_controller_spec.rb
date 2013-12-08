@@ -137,16 +137,18 @@ describe QuestionsController do
   
   describe "POST vote" do
     it "creates vote with valid params" do
-      Question.stub(:find).and_return(@question)
+      #Question.stub(:find).and_return(@question)
       expect {
-        post :vote, id: attributes_for(:question_vote, user: @user2), value: 1
+        post :vote, id: @question, value: 1, vote: attributes_for(:question_vote, user_id: @user2)
+        #post :vote, id: @question, vote: attributes_for(:vote, user: @user1, value: 1, votable_type: "Question")
       }.to change(Vote, :count).by(1)
     end
     
-    it "doesn't create a vote with invalid params" do
-      Question.stub(:find).and_return(@question)
+    it "fails with invalid params" do
+      #Question.stub(:find).and_return(@question)
       expect {
-        post :vote, id: attributes_for(:question_vote, user: @user1), value: nil
+        post :vote, id: @question, value: nil, vote: attributes_for(:question_vote, user_id: @user2)
+        #post :vote, id: @question, vote: attributes_for(:vote, user: @user1, value: nil, votable_type: "Question")
       }.to_not change(Vote, :count).by(1)
     end
   end

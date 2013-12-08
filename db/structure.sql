@@ -179,6 +179,40 @@ ALTER SEQUENCE delayed_jobs_id_seq OWNED BY delayed_jobs.id;
 
 
 --
+-- Name: points; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE points (
+    id integer NOT NULL,
+    user_id integer,
+    pointable_id integer,
+    pointable_type character varying(255),
+    value integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: points_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE points_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: points_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE points_id_seq OWNED BY points.id;
+
+
+--
 -- Name: questions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -478,6 +512,13 @@ ALTER TABLE ONLY delayed_jobs ALTER COLUMN id SET DEFAULT nextval('delayed_jobs_
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY points ALTER COLUMN id SET DEFAULT nextval('points_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY questions ALTER COLUMN id SET DEFAULT nextval('questions_id_seq'::regclass);
 
 
@@ -553,6 +594,14 @@ ALTER TABLE ONLY comments
 
 ALTER TABLE ONLY delayed_jobs
     ADD CONSTRAINT delayed_jobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: points_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY points
+    ADD CONSTRAINT points_pkey PRIMARY KEY (id);
 
 
 --
@@ -672,6 +721,13 @@ CREATE INDEX index_comments_on_commentable_type ON comments USING btree (comment
 --
 
 CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
+
+
+--
+-- Name: index_points_on_pointable_id_and_pointable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_points_on_pointable_id_and_pointable_type ON points USING btree (pointable_id, pointable_type);
 
 
 --
@@ -875,3 +931,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130822215602');
 INSERT INTO schema_migrations (version) VALUES ('20131023184933');
 
 INSERT INTO schema_migrations (version) VALUES ('20131118225423');
+
+INSERT INTO schema_migrations (version) VALUES ('20131206183110');

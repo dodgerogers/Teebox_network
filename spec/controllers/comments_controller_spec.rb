@@ -54,7 +54,7 @@ describe CommentsController do
       it "re-renders the 'new' template" do
         Comment.stub!(:find).and_return(@commentable)
         Comment.any_instance.stub(:save).and_return(false)
-        post :create,comment: attributes_for(:comment), commentable: @commentable.id
+        post :create, comment: attributes_for(:comment), commentable: @commentable.id
         response.should redirect_to("http://test.host/questions/#{@commentable.id}")
       end
     end
@@ -74,16 +74,16 @@ describe CommentsController do
     
   describe "POST vote" do
     it "creates vote with valid params" do
-      Comment.stub!(:find).and_return(@commentable)
+      #Comment.stub!(:find).and_return(@commentable)
       expect {
-        post :vote, id: @vote, value: 1
+        post :vote, id: @comment, value: 1, vote: attributes_for(:vote)
       }.to change(Vote, :count).by(1)
     end
     
-    it "doesn't create a vote with invalid params" do
-      Comment.stub(:find).and_return(@commentable)
+    it "fails with invalid params" do
+      #Comment.stub(:find).and_return(@commentable)
       expect {
-        post :vote, id: @vote, value: nil
+        post :vote, id: @comment, value:0, vote: attributes_for(:vote)
       }.to_not change(Vote, :count).by(1)
     end
   end

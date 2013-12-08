@@ -66,6 +66,13 @@ FactoryGirl.define do
     points 5
   end
   
+  factory :point do
+    user
+    pointable_id :vote
+    pointable_type "Vote"
+    value 5
+  end  
+  
   factory :tag do
     name "slice"
     explanation "ball curves from left to right"

@@ -11,6 +11,8 @@ module Teebox::Votable
     @vote = current_user.votes.build(value: params[:value], votable_id: params[:id], votable_type: self.controller_name.singularize.capitalize.to_s)
     respond_to do |format|
       if @vote.save
+        @point = @vote.votable.user.points.build(value: @vote.points, pointable_id: @vote.id, pointable_type: @vote.class.name.capitalize)
+        @point.save
         format.html { redirect_to :back, notice: "Vote submitted" }
         format.js
       else

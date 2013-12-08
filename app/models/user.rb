@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :tags
+  has_many :points, dependent: :destroy
   
   after_create :create_welcome_notification
   

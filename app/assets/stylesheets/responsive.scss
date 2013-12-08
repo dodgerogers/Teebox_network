@@ -299,6 +299,9 @@
 	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
+	html, body {
+		background: #fff;
+	}
 	body {
 		padding-top: 0px!important;
 		padding-bottom: 0px!important;
@@ -419,13 +422,15 @@
 	}
 	.answer-box {
 		padding: 0px 0px 10px 0px;
-		border:none;
+		//border:none;
 		border-bottom: 1px solid #eee;
 		margin-bottom: 10px;
+		box-shadow: 0px 0px 0px #fff;
 	}
 	#question-box {
 		padding:0px;
 		border: 0px solid #eee;
+		box-shadow: 0px 0px 0px #fff;
 		h1 {
 			font-size: 25px;
 			line-height:25px;

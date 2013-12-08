@@ -3,5 +3,5 @@ alert("<%= j @vote.errors.full_messages.join(', ').html_safe %>");
 <% else %>
 var votes = $("<h1><%= @vote.votable.votes_count %></h1>");
 $('#<%= "#{votes_count}_#{id}" %>').html(votes.fadeIn(1000));
-$('.user_<%= @vote.votable.user.id %>').text("<%= @vote.votable.user.reputation %>");
+$('.user_<%= @vote.votable.user.id %>').text("<%= @vote.point.user.reputation %>");
 <% end %>

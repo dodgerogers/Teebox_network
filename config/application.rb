@@ -67,6 +67,6 @@ module TeeboxNetwork
     config.assets.version = '1.0'
     
     #enable the loading of observers
-    config.active_record.observers = :vote_observer
+    #config.active_record.observers = :vote_observer
   end
 end
