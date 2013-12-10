@@ -7,6 +7,6 @@
 	<% else %>
 		answer.css('color', '#ccc');
 	<% end %>
-	$('.user_<%= @answer.user.id %>').text("<%= @answer.user.reputation %>");
-	$('.user_<%= @answer.question.user.id %>').text("<%= @answer.question.user.reputation %>");
+	$('.user_<%= @answer.user.id %>').text("<%= @answer.point.user.reputation %>");
+	$('.user_<%= @answer.question.user.id %>').text("<%= @answer.question.point.user.reputation %>");
 <% end %>

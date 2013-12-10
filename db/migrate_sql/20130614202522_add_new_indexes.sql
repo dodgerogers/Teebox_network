@@ -1,0 +1,9 @@
+CREATE  INDEX "index_answers_on_question_id" ON "answers" ("question_id");
+CREATE  INDEX "index_answers_on_user_id" ON "answers" ("user_id");
+CREATE  INDEX "index_comments_on_commentable_id" ON "comments" ("commentable_id");
+CREATE  INDEX "index_comments_on_commentable_type" ON "comments" ("commentable_type");
+CREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id");
+CREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id");
+CREATE  INDEX "index_videos_on_user_id" ON "videos" ("user_id");
+CREATE  INDEX "index_videos_on_question_id" ON "videos" ("question_id");
+INSERT INTO schema_migrations (version) VALUES (20130614202522);

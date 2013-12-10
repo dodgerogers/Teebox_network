@@ -28,7 +28,7 @@
 																	vote_path: method(:vote_question_path) } %> 
 					    <%= profile_link_helper(@decorator) %>
 						<%= link_to "Edit", edit_question_path(@decorator) if can? :update, @decorator %>
-						<%= link_to "Delete", @decorator, method: :delete, confirm: "Are you sure?" if can? :destroy, @decorator %>
+						<%= link_to "Delete", @decorator, method: :delete, confirm: "Are you sure? You will lose any points associated with this question" if can? :destroy, @decorator %>
 					</div>
 				</div>
 			</div>

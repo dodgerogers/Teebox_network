@@ -13,8 +13,10 @@ html, body {
 	background-position: center bottom!important;
 	background-attachment: fixed!important;
 	-webkit-overflow-scrolling: touch;
-	background: $ice;
 	//font-family: "OpenSansRegular",Helvetica,Arial,sans-serif!important;//
+}
+body {
+	background: $ice;
 }
 hr {
 	margin: 12px 0;
@@ -59,7 +61,7 @@ h1 {
 h2 {
 	font-size: 25px; 
 	font-family: 'BebasNeueRegular';
-	margin-top: .75em;
+	margin-top: 0px;
 	color: #777;
 }
 h3 {
@@ -755,7 +757,7 @@ body #header-search {
 	margin-top: 5px;
 }
 .comment-content {
-	width: 87%;
+	width: 80%;
 	display:inline-block;
 	position:relative;
 	vertical-align:top;
@@ -1414,4 +1416,7 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	-webkit-border-radius: 0px;
     -moz-border-radius: 0px;
 	border-radius: 0px;
+}
+.fullwidth {
+	width:100%;
 }

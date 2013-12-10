@@ -1,0 +1,17 @@
+<% if point.value > 0 %>
+	<i class="icon-thumbs-up"></i>
+	<span class="green">+<%= point.value %></span>
+	Upvote on
+<% else %>
+	<i class="icon-thumbs-down"></i>
+	<span class="red"><%= point.value %></span>
+	Downvote on
+<% end %>
+
+<% if point.pointable.votable_type == "Answer" %>
+	<%= link_to truncate(point.pointable.votable.body, length: 60), point.pointable.votable.question %>
+<% elsif point.pointable.votable_type == "Comment" %>
+	<%= link_to truncate(point.pointable.votable.content, length: 60), point.pointable.votable.commentable %>
+<% elsif point.pointable.votable_type == "Question" %>
+	<%= link_to truncate(point.pointable.votable.title, length: 60), point.pointable.votable %>
+<% end %>

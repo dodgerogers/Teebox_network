@@ -12,7 +12,7 @@
 			<%= link_to comment.user.username.titleize, comment.user, id: "profile-username" %>
 			<%= time_ago_in_words(comment.created_at) %> ago.	
 			<% if can? :destroy, comment %>
-				<%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", remote: :true %>
+				<%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", confirm: "Are you sure? You will lose any points associated with this comment", remote: :true %>
 			<% end %>
 		</small>
 	</div>

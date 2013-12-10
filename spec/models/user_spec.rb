@@ -20,6 +20,7 @@ describe User do
    it { should have_many(:answers)}
    it { should have_many(:votes)}
    it { should have_many(:tags)}
+   it { should have_many(:points) }
 
  describe 'email' do
    before { @user.email = nil }

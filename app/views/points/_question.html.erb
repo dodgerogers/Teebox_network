@@ -1,0 +1,8 @@
+<i class="icon-thumbs-up"></i>
+<% if point.value > 0 %>	
+	<span class="green">+<%= point.value %></span>
+<% else %>
+	<span class="red"><%= point.value %></span>
+<% end %>
+You checked an answer as correct
+<%= link_to point.pointable.title, point.pointable %>

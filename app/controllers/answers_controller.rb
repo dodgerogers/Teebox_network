@@ -9,11 +9,12 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.build(params[:answer])
     respond_to do |format|
-    if @answer.save
+      if @answer.save
+        Teebox::Pointable.create_point(@answer.user, @answer)
         @answer.create_activity :create, owner: current_user, recipient: @answer.question.user unless current_user == @answer.question.user
         format.html { redirect_to @answer.question, notice: 'Answer created'}
         format.js
-    else
+      else
         format.html {  redirect_to :back, notice: "Please try again" }
         format.js
       end

@@ -6,16 +6,6 @@
 			</a>
 		</td>
 		<td>
-			<a href="#" data-toggle="tooltip" id='correct-points' title="Answer points">
-				<i class="icon-plus-sign"></i>
-			</a>
-		</td>
-		<td>
-			<a href="#" data-toggle="tooltip" id='answer-votes' title="Answer votes">
-				<i class="icon-thumbs-up"></i>
-			</a>
-		</td>
-		<td>
 			<a href="#" data-toggle="tooltip" id='answer-text' title="Answer content">
 				<i class="icon-align-justify"></i>
 			</a>
@@ -29,19 +19,9 @@
 						raw("<i class='icon-ok-sign'></i>") : raw("<i class='icon-ok-sign'></i>") %>
 				</div>
 			</td>
-			<td>
-				<div class="green-tick" id="user-answers">	
-					<%= answer.correct == true && answer.user != answer.question.user  ? "+20" : "" %>
-				</div>
-			</td>
-			<td>
-				<div id="<%= answer.points > 0 ? 'plus-points' : 'no-points' %>">
-					<%= answer.points > 0 ? "+#{answer.points}" : answer.points %>
-				</div>
-			</td>
 	      <td class='left'>
 			<%= link_to "#{url_for(answer.question)}#answer_#{answer.id}" do %>
-				<%= strip_links(truncate(answer.body, length: 75)) %>
+				<%= strip_links(truncate(answer.body, length: 200)) %>
 			<% end %>	
 		  </td>
 	    </tr>

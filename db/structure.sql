@@ -731,6 +731,13 @@ CREATE INDEX index_points_on_pointable_id_and_pointable_type ON points USING btr
 
 
 --
+-- Name: index_points_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_points_on_user_id ON points USING btree (user_id);
+
+
+--
 -- Name: index_questions_on_tags; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 

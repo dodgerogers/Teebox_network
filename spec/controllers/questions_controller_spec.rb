@@ -12,9 +12,7 @@ describe QuestionsController do
     sign_in @user2
     @question = create(:question, user: @user1)
     controller.stub!(:current_user).and_return(@user1)
-    stub_model_methods
-    Vote.any_instance.stub(:sum_votes).and_return(true)
-    Vote.any_instance.stub(:user_reputation).and_return(true)
+    @vote = attributes_for(:question_vote, votable_id: @question.id, user_id: @user2, votable_type: "Question", value: 1)
     @request.env['HTTP_REFERER'] = "/questions/#{@question}/"
   end
 
@@ -51,6 +49,12 @@ describe QuestionsController do
         expect {
           post :create, question: attributes_for(:question), user: @user1
         }.to change(Question, :count).by(1)
+      end
+      
+      it "also creates question point" do
+        expect {
+          post :create, question: attributes_for(:question), user: @user1
+        }.to change(Point, :count).by(1)
       end
 
       it "assigns a newly created question as @question" do
@@ -137,18 +141,16 @@ describe QuestionsController do
   
   describe "POST vote" do
     it "creates vote with valid params" do
-      #Question.stub(:find).and_return(@question)
+      controller.stub(:current_user).and_return(@user2)
       expect {
-        post :vote, id: @question, value: 1, vote: attributes_for(:question_vote, user_id: @user2)
-        #post :vote, id: @question, vote: attributes_for(:vote, user: @user1, value: 1, votable_type: "Question")
+        post :vote, id: @question.id, value: 1
       }.to change(Vote, :count).by(1)
     end
     
     it "fails with invalid params" do
-      #Question.stub(:find).and_return(@question)
+      controller.stub(:current_user).and_return(@user2)
       expect {
-        post :vote, id: @question, value: nil, vote: attributes_for(:question_vote, user_id: @user2)
-        #post :vote, id: @question, vote: attributes_for(:vote, user: @user1, value: nil, votable_type: "Question")
+        post :vote, id: @question.id, value: nil
       }.to_not change(Vote, :count).by(1)
     end
   end

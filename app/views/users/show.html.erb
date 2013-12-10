@@ -2,31 +2,27 @@
 	<title><%= @decorator.username.titleize %></title>
 <% end %>
 
-<%= render partial: "users/stats", locals: {decorator: @decorator}%>
+<%= render partial: "users/stats", locals: { decorator: @decorator } %>
 
-<div class="row">
-	<% if @decorator.questions_index.any? %>	
-	  <div class="span6">
-			<b><%= link_to "View Questions", questions_index_path(@decorator) %></b><br><br>
-			<%= render partial: "users/tables/question_table", locals: {questions: @decorator.questions_index.limit(4)} %>
-	  </div>
-	<% end %>
-	
-	<% if @decorator.answers_index.any? %>	
-	  <div class="span6">
-			<b><%= link_to "View Answers", answers_index_path(@decorator) %></b><br><br>
-			<%= render partial: "users/tables/answer_table", locals: {answers: @decorator.answers_index.limit(4)} %>
-	  </div>
-	<% end %>
-</div>
-
-<div class="row">
-	<% if @decorator.comments_index.any? %>
-	  <div class="span6">
-			<b><%= link_to "View Comments", comments_index_path(@decorator) %></b><br><br>
-			<%= render partial: "users/tables/comment_table", locals: {comments: @decorator.comments_index.limit(4)} %>
-	  </div>
-	<% end %>
-</div>		
+<section class="row">
+	<div class="span6">
+		<h2>Points Breakdown</h2>
+		<table class="table">
+		<% @decorator.points_activity.each do |p| %>
+			<tr><td class="left">
+				<%= render partial: "points/#{p.pointable.class.name.downcase}", locals: { point: p } %>
+			</td></tr>
+		<% end %>
+		</table>
+		
+		<%= will_paginate @decorator.points_activity %>
+	</div>
+	<div class="span6">
+		<h2>Your Activity</h2>
+		<%= link_to "Questions", questions_index_path(@decorator), class: "center default-xl next fullwidth" %><br>
+		<%= link_to "Answers", answers_index_path(@decorator), class: "center default-xl success fullwidth" %><br>
+		<%= link_to "Comments", comments_index_path(@decorator), class: "center default-xl asphalt fullwidth" %><br>
+	</div>
+</section>	
 	
 

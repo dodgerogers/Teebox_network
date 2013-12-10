@@ -1,11 +1,6 @@
 <table class="table table-condensed table-borderless">
 		<tr class="grey">
 			<td>
-				<a href="#" data-toggle="tooltip" id='comment-votes' title="Comment votes">
-					<i class="icon-thumbs-up"></i>
-				</a>
-			</td>
-			<td>
 				<a href="#" data-toggle="tooltip" id='comment-text' title="Comment content">
 					<i class="icon-align-justify"></i>
 				</a>
@@ -13,11 +8,6 @@
 		</tr>
 		<% comments.each do |comment| %>	
 	    <tr>
-			<td>
-				<div id="<%= comment.points > 0 ? 'plus-points' : 'no-points' %>">
-					<%= comment.points > 0 ? "+#{comment.points}" : comment.points %>
-				</div>
-			</td>
 	      <td class="left">
 		<% if comment.commentable_type == "Question" %>
 			<% comment_url = comment.commentable %>
@@ -25,7 +15,7 @@
 			<% comment_url = comment.commentable.question %>
 		<% end %>
 			<%= link_to "#{url_for(comment_url)}#comment_#{comment.id}" do %>
-				<%= strip_links(truncate(comment.content, length: 100)) %>
+				<%= strip_links(truncate(comment.content, length: 200)) %>
 			<% end %>	
 		  </td>
 	    </tr>

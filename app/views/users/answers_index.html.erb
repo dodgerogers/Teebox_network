@@ -2,7 +2,7 @@
 	<title><%= @user.username %> answers</title>
 <% end %>
 
-<p><%= link_to @user.username.titleize, user_path(@user) %> answers</p>
-<%= render partial: "users/tables/answer_table", locals: {answers: @answers} %>
-<%= link_to "Back to Profile", user_path(@user) %>
+<h2>Answers</h2>
+<%= render partial: "users/tables/answer_table", locals: { answers: @answers } %>
 <%= will_paginate @answers %>
+<%= link_to "Back to #{@user.username.titleize}", user_path(@user) %>

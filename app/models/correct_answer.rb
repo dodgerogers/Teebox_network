@@ -13,11 +13,9 @@ class CorrectAnswer < Answer
   
   def add_reputation
     if answer_correct?(true)
-      update_answer_user_rep(20, :+)
-      update_question_user_rep(5, :+)
-    elsif answer_correct?(false)
-      update_answer_user_rep(20, :-)
-      update_question_user_rep(5, :-)
+      update_points([@answer, 12], [@answer.question, 5])
+    else
+      update_points([@answer], [@answer.question])
     end
   end
    
@@ -25,11 +23,7 @@ class CorrectAnswer < Answer
     @answer.correct == truth && @answer.user != @answer.question.user
   end
   
-  def update_answer_user_rep(points, operator)
-    @answer.user.update_attributes(reputation: (@answer.user.reputation.send(operator, points)))
-  end
-  
-  def update_question_user_rep(points, operator)
-    @answer.question.user.update_attributes(reputation: (@answer.question.user.reputation.send(operator, points)))
+  def update_points(*objects)
+    objects.each {|obj| obj[0].point.update_attributes(value: obj[1]) }
   end
 end

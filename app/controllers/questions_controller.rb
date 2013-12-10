@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build(params[:question])
     if @question.save
+      Teebox::Pointable.create_point(@question.user, @question)
       redirect_to @question, notice: "Question Created"
     else
       render :new, notice: "Please try again"

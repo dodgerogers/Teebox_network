@@ -7,6 +7,7 @@ class CreatePointsTable < ActiveRecord::Migration
       t.timestamps
     end
     add_index :points, [:pointable_id, :pointable_type]
+    add_index :points, :user_id
   end
 
   def down

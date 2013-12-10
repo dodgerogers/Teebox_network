@@ -12,10 +12,9 @@ describe CommentsController do
     sign_in @user2
     @commentable = create(:question, id: 1, title: "slicing the ball", body: "the ball cuts")
     @comment = create(:comment, user_id: @user.id, commentable_id: @commentable.id)
-    @vote = attributes_for(:vote, votable_id: @comment, user_id: @user2)
+    @vote = attributes_for(:comment_vote, votable_id: @comment.id, user_id: @user2)
     controller.stub!(:current_user).and_return(@user)
     @request.env['HTTP_REFERER'] = "http://test.host/questions/#{@commentable.id}"
-    stub_model_methods
   end
   
   subject { @comment }
@@ -74,16 +73,16 @@ describe CommentsController do
     
   describe "POST vote" do
     it "creates vote with valid params" do
-      #Comment.stub!(:find).and_return(@commentable)
+      controller.stub(:current_user).and_return(@user2)
       expect {
-        post :vote, id: @comment, value: 1, vote: attributes_for(:vote)
+        post :vote, id: @comment.id, value: 1
       }.to change(Vote, :count).by(1)
     end
     
     it "fails with invalid params" do
-      #Comment.stub(:find).and_return(@commentable)
+      controller.stub(:current_user).and_return(@user2)
       expect {
-        post :vote, id: @comment, value:0, vote: attributes_for(:vote)
+        post :vote, id: @comment.id, value: nil
       }.to_not change(Vote, :count).by(1)
     end
   end

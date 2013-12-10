@@ -1,0 +1,8 @@
+<i class="icon-check-sign"></i>
+<% if point.value > 0 %>	
+	<span class="green">+<%= point.value %></span>
+<% else %>
+	<span class="red"><%= point.value %></span>
+<% end %>
+Your answer was checked as correct
+<%= link_to truncate(point.pointable.question.title, length: 40), point.pointable.question %>

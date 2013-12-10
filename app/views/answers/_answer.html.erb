@@ -27,7 +27,7 @@
 											
 	<%= content_tag :div, class: "edit-destroy-links" do %>
 		<%= link_to " Edit", edit_answer_path(answer), id: "edit-answer", remote: true if can? :destroy, answer %>
-		<%= link_to " Delete ", answer, id: "delete-answer", remote: :true, method: :delete, confirm: "Are you sure" if can? :destroy, answer %>
+		<%= link_to " Delete ", answer, id: "delete-answer", remote: :true, method: :delete, confirm: "Are you sure? You will lose any points associated with this answer" if can? :destroy, answer %>
 	<% end %>	
 		</div>
 	</div>

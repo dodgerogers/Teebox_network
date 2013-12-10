@@ -1,5 +1,4 @@
 class Answer < ActiveRecord::Base
-  
   include PublicActivity::Common
   include Teebox::Activity
   include Teebox::Toggle
@@ -11,6 +10,7 @@ class Answer < ActiveRecord::Base
   belongs_to :question, counter_cache: true
   has_many :votes, as: :votable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_one :point, as: :pointable, dependent: :destroy
    
   validates_presence_of :body, :user_id, :question_id
   validates_length_of :body, minimum: 10, maximum: 5000
@@ -20,6 +20,7 @@ class Answer < ActiveRecord::Base
   
   before_destroy :check_correct
   
+  default_scope include: :question
   scope :by_votes, order: "votes_count DESC"
   
   def is_false?

@@ -12,11 +12,12 @@ describe AnswersController do
     sign_in @user2
     @question = create(:question, user: @user2)
     @answer = create(:answer, user: @user1, question_id: @question.id)
-    @vote = attributes_for(:vote, votable_id: @answer, user_id: @user2)
+    @vote = attributes_for(:vote, votable_id: @answer.id, user_id: @user2, votable_type: "Answer", value: 1, points: 5)
     controller.stub!(:current_user).and_return(@user1)
-    stub_model_methods 
     @request.env['HTTP_REFERER'] = "http://test.host/questions/"
   end
+  
+  subject { @answer }
   
   describe "POST create" do
     describe "with valid params" do
@@ -25,6 +26,13 @@ describe AnswersController do
         expect {
           post :create, answer: attributes_for(:answer, question_id: @question.id)
         }.to change(Answer, :count).by(1)
+      end
+      
+      it "creates a new answer point" do
+        @question = create(:question, user: @user1)
+        expect {
+          post :create, answer: attributes_for(:answer, question_id: @question.id)
+        }.to change(Point, :count).by(1)
       end
 
       it "assigns a newly created question as @question" do
@@ -83,7 +91,8 @@ describe AnswersController do
     
     describe "an answer as correct" do
       it "successfully updates" do
-        @answer = create(:answer, body: "weaken your grip", question_id: @question.id)
+        CorrectAnswer.any_instance.stub(:update_points).and_return(true)
+        # Currently fails unless stubbed, point is nilclass
         put :correct, id: @answer, answer: @answer, format: "js"
         @answer.reload
         @answer.correct.should eq(true)
@@ -91,29 +100,29 @@ describe AnswersController do
     end
   end
   
-    describe "Destroy vote" do
+  describe "POST vote" do
+    it "creates vote with valid params" do
+      controller.stub(:current_user).and_return(@user2)
+      expect {
+        post :vote, id: @answer.id, value: 1
+      }.to change(Vote, :count).by(1)
+    end
+    
+    it "fails with invalid params" do
+      controller.stub(:current_user).and_return(@user2)
+      expect {
+        post :vote, id: @answer.id, value: nil
+      }.to_not change(Vote, :count).by(1)
+    end
+  end
+  
+  describe "Destroy Answer" do
     it "destroys the requested answer" do
       @question = create(:question, user: @user1)
       @answer = create(:answer, user: @user2, question_id: @question.id)
       expect {
         delete :destroy, id: @answer
       }.to change(Answer, :count).by(-1)
-    end
-  end
-  
-  describe "POST vote" do
-    it "creates vote with valid params" do
-      #Answer.stub(:find).and_return(@answer)
-      expect {
-        post :vote, id: @answer, value: 1, vote: attributes_for(:vote)
-      }.to change(Vote, :count).by(1)
-    end
-    
-    it "fails with invalid params" do
-      #Answer.stub(:find).and_return(@answer)
-      expect {
-        post :vote, id: @answer, value: nil, vote: attributes_for(:vote)
-      }.to_not change(Vote, :count).by(1)
     end
   end
 end

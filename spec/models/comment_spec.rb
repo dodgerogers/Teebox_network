@@ -19,12 +19,12 @@ describe Comment do
   it { should belong_to(:commentable) }
   it { should have_many(:activities) }
   it { should have_many(:votes) }
+  it { should have_one(:point) }
   it { should ensure_length_of(:content).is_at_least(10) }
   it { should validate_presence_of(:user_id) }
   it { should validate_presence_of(:content) }
   it { should validate_presence_of(:commentable_id) }
   it { should validate_presence_of(:commentable_type) }
-  #it { should ensure_length_of(:content).is_at_most(350).with_message("content exceeds 350 characters") }
   
   describe 'content' do
     before { @comment.content = nil }

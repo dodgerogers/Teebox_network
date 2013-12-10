@@ -3,6 +3,10 @@ class UserDecorator < ApplicationDecorator
   decorates :user
   include Draper::LazyHelpers
   
+  def points_activity
+    @points ||= model.points.where("value != 0").order("updated_at desc").includes(:pointable).paginate(page: params[:page], per_page: 6)
+  end
+  
   def change_picture
     link_to raw('<i class="icon-cloud-upload"></i>'), "http://gravatar.com", title: "Change your profile picture", target: :blank if current_user == model
   end
