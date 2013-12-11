@@ -14,14 +14,18 @@
 			</td></tr>
 		<% end %>
 		</table>
-		
 		<%= will_paginate @decorator.points_activity %>
 	</div>
+	
 	<div class="span6">
 		<h2>Your Activity</h2>
-		<%= link_to "Questions", questions_index_path(@decorator), class: "center default-xl next fullwidth" %><br>
-		<%= link_to "Answers", answers_index_path(@decorator), class: "center default-xl success fullwidth" %><br>
-		<%= link_to "Comments", comments_index_path(@decorator), class: "center default-xl asphalt fullwidth" %><br>
+		<center>
+		<%= link_to "Questions", questions_index_path(@decorator), class: "default-xl next fullwidth" if @decorator.questions_index.any? %>
+		<br>
+		<%= link_to "Answers", answers_index_path(@decorator), class:  "default-xl success fullwidth" if @decorator.answers_index.any? %>
+		<br>
+		<%= link_to "Comments", comments_index_path(@decorator), class: "default-xl asphalt fullwidth" if @decorator.comments_index.any? %>
+		</center>
 	</div>
 </section>	
 	

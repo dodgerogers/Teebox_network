@@ -18,15 +18,17 @@
 				<div class="question-content">
 					<%= simple_format(@decorator.body) %>
 				</div>
-			
-				<%= @decorator.question_tags %>
-			
-				<div class="form-area">
-					<div class="profile-info" id="question-profile-info">
-						<%= render partial: "votes/form", locals: { votes_count: "questions",  
-																	object: @decorator, 
-																	vote_path: method(:vote_question_path) } %> 
-					    <%= profile_link_helper(@decorator) %>
+				
+				<div class="question-tags">
+					<%= @decorator.question_tags %>
+				</div>
+				
+				<div class="profile-info" id="question-profile-info">
+					<%= render partial: "votes/form", locals: { votes_count: "questions",  
+																object: @decorator, 
+																vote_path: method(:vote_question_path) } %> 
+				    <%= profile_link_helper(@decorator) %>
+					<div class="profile">
 						<%= link_to "Edit", edit_question_path(@decorator) if can? :update, @decorator %>
 						<%= link_to "Delete", @decorator, method: :delete, confirm: "Are you sure? You will lose any points associated with this question" if can? :destroy, @decorator %>
 					</div>

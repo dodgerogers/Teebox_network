@@ -3,9 +3,8 @@
 <% else %>
 	$('#answer_<%="#{@answer.id}"%>').effect('highlight', {color: "#f7f7f7"}, 200).fadeOut();
 	$('#answers-count h3').text("<%= pluralize(@answer.question.answers_count - 1, 'Answer') %>");
-	<% if @answer.question.answers_count == 0 %>
+	<% if @answer.question.answers_count == 1 %>	
 		$('#answers-count').removeClass("answered");
-		$("#answers-count").addClass("unanswered");
 	<% end %>
 	$('.user_<%= @answer.user.id %>').text("<%= @answer.point.user.reputation %>");
 <% end %>

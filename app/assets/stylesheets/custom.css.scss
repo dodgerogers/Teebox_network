@@ -725,16 +725,19 @@ body #header-search {
 }
 .comment {
 	height: auto;
-	padding: 10px;
-	border-radius: 5px;
-	margin-bottom: 1px;
-	background: #eee;
+	padding: 7px 0px 7px;
+	border-radius: 0px;
+	background: #fff;
 	position:relative;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	border-top: 1px solid #eee;
 	&:hover {
-		background: #ddd;
+		background: #fefefe;
+	}
+	&:last-of-type {
+	
 	}
 } 
 //.comment:hover {
@@ -824,8 +827,15 @@ body #header-search {
 	position:relative;
 }
 .question {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 	padding: 0px;
-	position:relative;
+	position: relative;
+	margin: 0 0 10px;
+	.question-tags {
+		margin: 5px 0px 10px;
+	}
 }
 #new_comment {
 	margin: 12px 0 0;
