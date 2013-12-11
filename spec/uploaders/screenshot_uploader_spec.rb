@@ -38,7 +38,7 @@ describe ScreenshotUploader do
     
   describe "store_dir" do
     it "allocates path to uploads" do
-      @uploader.store_dir.should eq("uploads/user/screenshot/1")
+      @uploader.store_dir.should eq("uploads/user/screenshot/#{@user.id}")
     end
   end  
   
