@@ -1,6 +1,6 @@
 class DeferredGarbageCollection
   
-  DEFERRED_GC_THRESHOLD = (ENV['DEFER_GC'] || 15.0).to_f
+  DEFERRED_GC_THRESHOLD = (ENV['DEFER_GC'] || 5.0).to_f
   
   @@last_run_gc = Time.now
   
