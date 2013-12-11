@@ -13,7 +13,7 @@ module ApplicationHelper
       (link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation", class: "user_#{object.user.id}") +
       (link_to object.user.username.titleize, object.user, id: "profile-username") +
       "<br>".html_safe +
-      "Posted #{time_ago_in_words(object.created_at)} ago"
+      "<small>Posted #{time_ago_in_words(object.created_at)} ago</small>".html_safe
     end
   end
   

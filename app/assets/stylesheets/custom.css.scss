@@ -109,6 +109,7 @@ h6 {
 }
 small {
 	line-height: 5px;
+	color: #777;
 }	
 center h1 {
 	text-align:center!important;
@@ -760,9 +761,6 @@ body #header-search {
 	p {
 		margin: 0;
 	}
-	small {
-		color: #777;
-	}
 } 
 
 /* Related questions */
@@ -808,9 +806,6 @@ body #header-search {
 	vertical-align:middle;
 	p {
 		margin: 0;
-	}
-	small {
-		color: #777;
 	}
 }
 .question-content, .answer-content {
@@ -1126,7 +1121,6 @@ h1.one span {
 	}
 	small {
 		margin-top: 3px;
-		color: #ccc;
 	}
 	small a {
 		color: $sky;

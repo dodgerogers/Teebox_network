@@ -32,7 +32,7 @@ describe "Questions" do
     visit root_path
     sign_in_user
     create_and_find_question
-    within('.form-area') do
+    within('.profile-info') do
       page.should have_content "Edit"
       click_link "Edit"
     end
