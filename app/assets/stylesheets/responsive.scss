@@ -406,11 +406,17 @@
 	.question-info {
 		width: 100%;
 	}
-	.profile-info img {
-		display:none;
+	.profile-info {
+		vertical-align:bottom;
+		img {
+			display:none;
+		}
+	}
+	.profile-info-index img {
+		display:inline-block;
 	}
 	.profile {
-		vertical-align:middle;
+		vertical-align:bottom;
 	}
 	.comment-content {
 		width: 70%;
@@ -521,5 +527,8 @@
 	}
 	.hero-unit .user-page {
 		margin-top: 0px;
+	}
+	.vote {
+		margin: -1px 5px 0 0;
 	}
 }

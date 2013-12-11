@@ -23,7 +23,7 @@
 					<%= @decorator.question_tags %>
 				</div>
 				
-				<div class="profile-info" id="question-profile-info">
+				<div class="profile-info">
 					<%= render partial: "votes/form", locals: { votes_count: "questions",  
 																object: @decorator, 
 																vote_path: method(:vote_question_path) } %> 

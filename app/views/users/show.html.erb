@@ -21,9 +21,7 @@
 		<h2>Your Activity</h2>
 		<center>
 		<%= link_to "Questions", questions_index_path(@decorator), class: "default-xl next fullwidth" if @decorator.questions_index.any? %>
-		<br>
 		<%= link_to "Answers", answers_index_path(@decorator), class:  "default-xl success fullwidth" if @decorator.answers_index.any? %>
-		<br>
 		<%= link_to "Comments", comments_index_path(@decorator), class: "default-xl asphalt fullwidth" if @decorator.comments_index.any? %>
 		</center>
 	</div>

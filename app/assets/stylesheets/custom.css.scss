@@ -682,22 +682,15 @@ body #header-search {
 
 /*-------------------- questions & videos profile info ----------*/
 
-.profile-info {
+.profile-info, .profile-info-index {
 	display:inline-block;
 	width:100%;
 	vertical-align:top;
-}
-#index {
-	width: 315px;
-	vertical-align:bottom;
-}
-#question-profile-info {
-	background: none;
-}
-.profile-info img {
-	float: left;
-	margin-right: 5px;
-	margin-top: 4px;
+	img {
+		float: left;
+		margin-right: 5px;
+		margin-top: 4px;
+	}
 }
 #question-box {
 	position: relative;
