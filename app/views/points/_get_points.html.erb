@@ -8,7 +8,7 @@
 		</td></tr>
 	<% end %>
 	</table>
-	<%= link_to "View all", points_path(@decorator) %>
+	<%= link_to "View all", points_path(@decorator.id) %>
 <% else %>
 	<p>No points yet. Go help some people out.</p>
 <% end %>	
