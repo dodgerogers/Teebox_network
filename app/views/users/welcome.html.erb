@@ -2,31 +2,33 @@
 	<title>Welcome <%= @user.username.titleize %></title>
 <% end %>
 
-<body class="sandy-hills-xl">
-<div class="hero-unit transparent mobile">
-	<center>
-		<h1 class="welcome-banner">
-			Welcome <%= @user.username %>
-			<br><br>
-		</h1>
-		<br>
-	</center>
-	<div class="row">
-		<div class="span5 semi">
-			<div class="well blue-transparent">
-				<h3 class="welcome-white">Improve</h3>
-				<p>View our list of popular questions or ask a question.</p>
-				<%= link_to "View Popular Questions", popular_path, class: "center default-xl next", id: "welcome-button"  %>
-				<%= link_to "Ask a question", videos_path, class: "center default-xl success", id: "welcome-button" %>
-			</div>
+<html class="mobile-scroll">
+	<body class="teebox-xl">
+		<div class="hero-unit transparent mobile">
+			<center>
+				<h1 class="welcome-banner">
+					Welcome <%= @user.username %>
+				</h1>
+				<br>
+			</center>
+			<div class="row">
+				<div class="span5 semi">
+					<div class="well blue-transparent">
+						<h3 class="welcome-white">Improve</h3>
+						<p>View our list of popular questions or ask a question.</p>
+						<%= link_to "View Popular Questions", popular_path, class: "center default-xl next", id: "welcome-button"  %>
+						<%= link_to "Ask a question", videos_path, class: "center default-xl success", id: "welcome-button" %>
+					</div>
+				</div>
+				<div class="span5 semi">
+					<div class="well blue-transparent">
+						<h3 class="welcome-white">Help</h3>	
+						<p>Low handicapper? Swing plane guru?</p>
+						<p>Here are some golfers who need your help.</p>
+						<%= link_to 'View unanswered questions', unanswered_path, class: "center default-xl asphalt", id: "welcome-button" %>		
+					</div>
+				</div>
+			</div>	
 		</div>
-		<div class="span5 semi">
-			<div class="well blue-transparent">
-				<h3 class="welcome-white">Help</h3>	
-				<p>Low handicapper? Swing plane guru? Here are some golfers who need your help.</p>
-				<%= link_to 'View unanswered questions', unanswered_path, class: "center default-xl asphalt", id: "welcome-button" %>		
-			</div>
-		</div>
-	</div>	
-</div>
-</body>
+	</body>
+</html>

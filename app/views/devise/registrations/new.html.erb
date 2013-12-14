@@ -2,44 +2,46 @@
 <title>Sign Up</title>
 <% end %>
 
-<body class="sebonak-cutout">
-	<div class="row">
-		<div class="span2"></div>
-			<div class="span8"> 
-				<div class="hero-unit blue-transparent">
-				<h1>Create an Account</h1>
+<html class="mobile-scroll">
+	<body class="sebonak-cutout mobile-scroll">
+		<div class="row">
+			<div class="span2"></div>
+				<div class="span8"> 
+					<div class="hero-unit blue-transparent">
+					<h1>Create an Account</h1>
 
-					<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-					  <%= devise_error_messages! %>
+						<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+						  <%= devise_error_messages! %>
 
-					  	<div class="registration">
-							<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
-						  	<%= f.email_field :email, placeholder: "Email" %>
+						  	<div class="registration">
+								<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
+							  	<%= f.email_field :email, placeholder: "Email" %>
+							</div>
+
+						  	<div class="registration">
+								<%= f.label :username, raw("<i class='icon-user'></i> Username") %>
+							  	<%= f.text_field :username, placeholder: "Username" %>
+							</div>
+
+						  	<div class="registration">
+								<%= f.label :password, raw("<i class='icon-lock'></i> Password") %>
+							  	<%= f.password_field :password, placeholder: "Password" %>
+							</div>
+
+						  	<div class="registration">
+								<%= f.label :password_confirmation, raw("<i class='icon-lock'></i> Password Confirmation") %>
+							  	<%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+							</div>
+
+						  <div class="registration">
+						<%= f.submit "Sign up", class: "default success" %>
 						</div>
+						<% end %>
 
-					  	<div class="registration">
-							<%= f.label :username, raw("<i class='icon-user'></i> Username") %>
-						  	<%= f.text_field :username, placeholder: "Username" %>
-						</div>
-
-					  	<div class="registration">
-							<%= f.label :password, raw("<i class='icon-lock'></i> Password") %>
-						  	<%= f.password_field :password, placeholder: "Password" %>
-						</div>
-
-					  	<div class="registration">
-							<%= f.label :password_confirmation, raw("<i class='icon-lock'></i> Password Confirmation") %>
-						  	<%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
-						</div>
-
-					  <div class="registration">
-					<%= f.submit "Sign up", class: "default success" %>
-					</div>
-					<% end %>
-
-					<%= render "devise/shared/links" %>
-			</div>
-			</div>
-		<div class="span2"></div>
-	</div>
-</body>
+						<%= render "devise/shared/links" %>
+				</div>
+				</div>
+			<div class="span2"></div>
+		</div>
+	</body>
+</html>

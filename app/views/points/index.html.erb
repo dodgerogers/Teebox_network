@@ -1,0 +1,5 @@
+<%= render partial: "points/get_points", locals: { points: @points } %>
+
+<%= will_paginate @points %>
+
+<%= link_to "Back to profile", user_path(@user) %>

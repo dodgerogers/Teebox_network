@@ -6,15 +6,7 @@
 
 <section class="row">
 	<div class="span6">
-		<h2>Points Breakdown</h2>
-		<table class="table">
-		<% @decorator.points_activity.each do |p| %>
-			<tr><td class="left">
-				<%= render partial: "points/#{p.pointable.class.name.downcase}", locals: { point: p } %>
-			</td></tr>
-		<% end %>
-		</table>
-		<%= will_paginate @decorator.points_activity %>
+		<%= render partial: "points/get_points", locals: { points: Point.find_points(@decorator).limit(5) } %>
 	</div>
 	
 	<div class="span6">

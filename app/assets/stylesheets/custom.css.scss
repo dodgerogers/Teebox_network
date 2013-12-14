@@ -13,7 +13,6 @@ html, body {
 	-o-background-size: cover!important;
 	background-size: cover!important;
 	-webkit-overflow-scrolling: touch;
-	overflow: scroll;
 	//font-family: "OpenSansRegular",Helvetica,Arial,sans-serif!important;//
 }
 body {
@@ -859,7 +858,6 @@ body #header-search {
 	border-radius:0px;
 	-webkit-border-radius: 0px;
 	-moz-border-radius:0px;
-	
 	border:none;
 	display:inline-block;
 	text-shadow:none;
@@ -883,6 +881,9 @@ body #header-search {
 	text-shadow:none;
 	line-height:20px!important;
 	margin: 3px 3px 0 0;
+	&:hover {
+		color: #fff;
+	}
 }
 #welcome-button {
 	width:100%;

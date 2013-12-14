@@ -1,0 +1,14 @@
+<h2>Points Breakdown</h2>
+
+<% if points.any? %>
+	<table class="table">	
+	<% points.each do |p| %>
+		<tr><td class="left">
+			<%= render partial: "points/#{p.pointable.class.name.downcase}", locals: { point: p } %>
+		</td></tr>
+	<% end %>
+	</table>
+	<%= link_to "View all", points_path(@decorator) %>
+<% else %>
+	<p>No points yet. Go help some people out.</p>
+<% end %>	

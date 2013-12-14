@@ -2,28 +2,30 @@
 <title>Forgot your password</title>
 <% end %>
 
-<body class="teebox-xl">
-	<div class="row">
-		<div class="span2"></div>
-		<div class="span8">
-			<div class=" hero-unit blue-transparent">
-			<h1>Forgot your password?</h1>
+<html class="mobile-scroll">
+	<body class="teebox-xl mobile-scroll">
+		<div class="row">
+			<div class="span2"></div>
+			<div class="span8">
+				<div class=" hero-unit blue-transparent">
+				<h1>Forgot your password?</h1>
 
-			<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-			<%= devise_error_messages! %>
+				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+				<%= devise_error_messages! %>
 
-			<div class="registration">
-				<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
-			  	<%= f.email_field :email, class: "input-xxlarge" %>
-			</div>
+				<div class="registration">
+					<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
+				  	<%= f.email_field :email, class: "input-xxlarge" %>
+				</div>
 
-			<div class="registration">
-				<%= f.submit "Send reset instructions", class: "default submit" %>
-			</div>
-			<% end %>
+				<div class="registration">
+					<%= f.submit "Send reset instructions", class: "default submit" %>
+				</div>
+				<% end %>
 
-			<%= render "devise/shared/links" %>
+				<%= render "devise/shared/links" %>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</html>

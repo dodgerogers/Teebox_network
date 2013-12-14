@@ -18,8 +18,11 @@ TeeboxNetwork::Application.routes.draw do
   get "users/:id/answers_index", to: "users#answers_index", as: :answers_index
   get "users/:id/comments_index", to: "users#comments_index", as: :comments_index
   get "users/:id/welcome", to: "users#welcome", as: :welcome
+  get "users/:id/points", to: "points#index", as: :points
 
   get "how_it_works", to: "pages#info", as: :info
+  
+  resources :points, only: :index
   
   resources :questions do
      resources :comments, except: [:edit, :update]

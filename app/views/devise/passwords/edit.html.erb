@@ -2,34 +2,36 @@
 <title>Change your password</title>
 <% end %>
 
-<body class="teebox-xl">
-	<div class="row">
-		<div class="span2"></div>
-		<div class="span8">
-			<div class=" hero-unit blue-transparent">
-			<h1>Change your password</h1>
+<html class="mobile-scroll">
+	<body class="teebox-xl mobile-scroll">
+		<div class="row">
+			<div class="span2"></div>
+			<div class="span8">
+				<div class=" hero-unit blue-transparent">
+				<h1>Change your password</h1>
 
-			<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-			  <%= devise_error_messages! %>
-			  <%= f.hidden_field :reset_password_token %>
+				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+				  <%= devise_error_messages! %>
+				  <%= f.hidden_field :reset_password_token %>
 
-			<div class="registration">
-				<%= f.label :password, "New password" %>
-			  	<%= f.password_field :password %>
-			</div>
+				<div class="registration">
+					<%= f.label :password, "New password" %>
+				  	<%= f.password_field :password %>
+				</div>
 
-			<div class="registration">
-				<%= f.label :password_confirmation, "Confirm new password" %>
-			  	<%= f.password_field :password_confirmation %>
-			</div>
+				<div class="registration">
+					<%= f.label :password_confirmation, "Confirm new password" %>
+				  	<%= f.password_field :password_confirmation %>
+				</div>
 
-			<div class="registration">
-				<%= f.submit "Change my password", class: "default asphalt" %>
-			</div>
-			<% end %>
+				<div class="registration">
+					<%= f.submit "Change my password", class: "default asphalt" %>
+				</div>
+				<% end %>
 
-			<%= render "devise/shared/links" %>
+				<%= render "devise/shared/links" %>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
+	</body>
+</html>

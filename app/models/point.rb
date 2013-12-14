@@ -11,4 +11,8 @@ class Point < ActiveRecord::Base
   def user_reputation
     self.user.update_attributes(reputation: self.user.points.sum("value"))
   end
+  
+  def self.find_points(user)
+    user.points.where("value != 0").order("updated_at desc").includes(:pointable)
+  end
 end

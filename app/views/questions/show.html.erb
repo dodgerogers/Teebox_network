@@ -60,7 +60,8 @@
 		<%= render partial: "shared/related_questions", locals: { questions: @decorator.related_questions } %>
 		<div class="social-buttons">
 			<p>Know someone who can help?</p>
-			<%= social_links(request.original_url) %>
+			<p><%= social_links(request.original_url) %></p>
 		</div>
+		<p><%= link_to "Ask a question", videos_path, class: "default success" %></p>
 	</aside>
 </div>
