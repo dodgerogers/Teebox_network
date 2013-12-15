@@ -1391,8 +1391,8 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 /* Featurette */
 
 #featurette {
-	background: #fff;
-	/*border: 1px solid #eee;*/
+	margin: 10px 0;
+	border-bottom: 1px solid #eee;
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 	border-radius: 5px;
@@ -1400,7 +1400,9 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 0px 20px;
-	/*margin: 10px 0;	*/
+	&:last-of-type {
+		border-bottom: 0px solid #fff;
+	}
 	[class^="icon-"], [class*=" icon-"] {
 		margin-top: 0px;
 	}
