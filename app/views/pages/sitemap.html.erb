@@ -1,0 +1,41 @@
+<div class="hero-unit rotator mobile">
+<center><h1 class="welcome-banner">In case you get lost...</h1></center>
+</div>
+
+<div class="row">
+	<div class="span6">
+		<b>Pages</b>
+		<ul class="sitemap">
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "How it Works", info_path %></li>
+			<li><%= link_to "Leaderboard", users_path %></li>
+			<li><%= link_to "Latest Questions", root_path %></li>
+			<li><%= link_to "Unanswered Questions", unanswered_path %></li>
+			<li><%= link_to "Popular", popular_path %></li>
+			<% if current_user %>
+				<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+			<% else %>
+				<li><%= link_to "Login", new_user_session_path %></li>
+				<li><%= link_to "Sign up", new_user_registration_path %></li>
+			<% end %>
+		</ul>
+		
+		<b>Questions</b>
+		<ul class="sitemap">	
+			<% @questions.each do |q| %>		
+				<li><%= link_to q.title.titleize, q %></li>
+			<% end %>
+		</ul>
+	</div>
+
+	<div class="span6">			
+		<b>Tags</b>
+		<ul class="sitemap">
+			<li><%= link_to "Tag Vault", tags_path %></li>
+			<% @tags.each do |t| %>
+				<li><%= link_to t.name, tagged_path(t.name) %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>	
+	

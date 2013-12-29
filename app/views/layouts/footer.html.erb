@@ -11,21 +11,16 @@
 				</ul>	
 			</div>
 			<div class="span3">
-				<div class="footer-title">About us</div>
+				<div class="footer-title">Teebox</div>
 				<ul class="footer-links">
-					<li><%= link_to "Find out more", info_path %></li>
-					<% if current_user %>
-						<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-					<% else %>
-						<li><%= link_to "Login", new_user_session_path %></li>
-						<li><%= link_to "Sign up", new_user_registration_path %></li>
-					<% end %>
+					<li><%= link_to "How it Works", info_path %></li>
+					<li><%= link_to "Leaderboard", users_path %></li>
+					<li><%= link_to "Sitemap", sitemap_path %></li>
 				</ul>	
 			</div>
 			<div class="span3">
-				<div class="footer-title">Teebox</div>
+				<div class="footer-title">About</div>
 				<ul class="footer-links">
-					<li><%= link_to "Privacy" %></li>
 					<li><%= link_to "Terms & Conditions" %></li>
 					<li>Teebox Network Ltd All Rights Reserved</li>
 				</ul>
@@ -33,9 +28,15 @@
 			<div class="span3">
 				<div class="footer-title">Social</div>
 				<ul class="footer-links">
-					<li><%= link_to raw("<i class='icon-facebook-sign facebook'></i>"), "https://www.facebook.com/TeeboxNetwork" %></li>
-					<li><%= link_to raw("<i class='icon-twitter twitter'></i>"), "https://twitter.com/Teebox_network" %></li>
-					<li><%= link_to raw("<i class='icon-google-plus-sign google'></i>"), "https://plus.google.com/" %></li>
+					<li><%= link_to raw("<i class='icon-facebook-sign facebook'></i>"), "https://www.facebook.com/TeeboxNetwork" %>
+					<%= link_to raw("<i class='icon-twitter twitter'></i>"), "https://twitter.com/Teebox_network" %>
+					<%= link_to raw("<i class='icon-google-plus-sign google'></i>"), "https://plus.google.com/" %></li>
+					<% if current_user %>
+						<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+					<% else %>
+						<li><%= link_to "Login", new_user_session_path %></li>
+						<li><%= link_to "Sign up", new_user_registration_path %></li>
+					<% end %>
 				</ul>
 			</div>
 		</div>

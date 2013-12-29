@@ -6,7 +6,6 @@ gem 'rack', '1.4.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'mysql2'
 gem "pg"
 
 group :development do
@@ -21,7 +20,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem "launchy"
-  gem "simplecov", :require => false
+  gem "simplecov","0.7.1", :require => false
   gem 'shoulda-matchers', :require => false
 end
 

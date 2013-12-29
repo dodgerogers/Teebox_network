@@ -126,6 +126,7 @@
 		padding-bottom: 0px!important;
 		padding-left: 0px!important;
 		padding-right: 0px!important;
+		font-weight: 300;
 	}
 	#margin-bottom {
 		margin: 0 20px 20px;
@@ -297,6 +298,9 @@
 	}
 	.hero-unit .user-page {
 		margin-top: 0px;
+	}
+	#questions-index .span12 {
+		border-bottom: 1px solid #eee;
 	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
@@ -536,5 +540,7 @@
 	.mobile-scroll {
 		overflow: scroll;
 	}
-	
+	#questions-index .span12 {
+		border-bottom: 1px solid #eee;
+	}
 }

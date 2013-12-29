@@ -20,7 +20,8 @@ TeeboxNetwork::Application.routes.draw do
   get "users/:id/welcome", to: "users#welcome", as: :welcome
   get "users/:id/points", to: "points#index", as: :points
 
-  get "how_it_works", to: "pages#info", as: :info
+  get "how-it-works", to: "pages#info", as: :info
+  get "sitemap", to: 'pages#sitemap', as: :sitemap
   
   resources :points, only: :index
   

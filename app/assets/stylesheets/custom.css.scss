@@ -250,7 +250,7 @@ red, red a {
 	height: 150px;
 }
 #mini-push {
-	height:60px;
+	height:30px;
 }
 #tiny-push {
 	height:30px;
@@ -394,7 +394,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 #questions-index .span12 {
 	padding-bottom: 10px;
 	margin-bottom: 9px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 0px solid #eee;
 }
 
 .questions {
@@ -1421,3 +1421,10 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 .fullwidth {
 	width:100%;
 }
+
+ul.sitemap {
+	margin: 0 0 10px 10px;
+	li {
+		list-style: none;
+	}
+} 
