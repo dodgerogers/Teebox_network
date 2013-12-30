@@ -5,7 +5,7 @@
 		</div>
 	</div>
 	<div id="arrows">
-		<%= link_to raw("&#9650;"), vote_path.call(object, value: 1), id: "upvote", remote: true,  method: "post" %><br>
-		<%= link_to raw(" &#9660;") , vote_path.call(object, value: -1), id: "downvote", remote: true, method: "post" %>
+		<%= link_to raw("&#9650"), vote_path.call(object, value: 1), id: "upvote", remote: true,  method: "post" %><br>
+		<%= link_to raw("&#9660") , vote_path.call(object, value: -1), id: "downvote", remote: true, method: "post" %>
 	</div>
 </div>
