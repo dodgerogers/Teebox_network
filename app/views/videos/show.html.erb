@@ -12,9 +12,9 @@
 		<div class="profile-info">
 			<%= link_to image_tag(avatar_url(@video.user)), @video.user %>
 			<small><%= link_to @video.user.username.titleize, user_path(@video.user) %><br>
-			Uploded <%= time_ago_in_words(@video.created_at) %> ago</small>
+			<%= time_ago_in_words(@video.created_at) %> ago</small>
 		</div>
-		<hr>
+		<br><br>
 		<%= link_to "My Videos", videos_path, class: "default submit" %>
 		<%= link_to "Delete", video_path(@video), class: "default next", method: :delete %>
 	</div>	

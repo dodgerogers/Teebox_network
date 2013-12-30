@@ -213,7 +213,7 @@ form .btn {
 
 input {
 	vertical-align:bottom;
-	font-family: $museo;
+	font-family: $lucida;
 }
 select, input[type="text"], input[type="password"], 
 input[type="datetime"], input[type="datetime-local"], input[type="date"], 
@@ -241,6 +241,7 @@ textarea, iframe.wysihtml5-sandbox {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	font-family: $lucida;
 }
 iframe.wysihtml5-sandbox {
 	max-height:200px;
