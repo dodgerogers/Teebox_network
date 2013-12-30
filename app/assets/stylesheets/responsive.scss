@@ -18,7 +18,7 @@
 		width:80%;
 	}
 	.index-title {
-		font-size: 15px;
+		font-size: 14px;
 	}
 	#notifications {
 		border-radius: 0px;
@@ -119,6 +119,9 @@
 			font-size: 16px;
 		}
 	}
+	p.banner {
+		font-size: 14px;
+	}
 }
 @media (min-width: 480px) and (max-width: 767px) {
 	body {
@@ -156,7 +159,7 @@
 		display:none;
 	}
 	.index-title {
-		font-size: 15px;
+		font-size: 14px;
 		margin: 0px;
 	}
 	.nav-collapse .nav > li {
@@ -302,6 +305,9 @@
 	#questions-index .span12 {
 		border-bottom: 1px solid #eee;
 	}
+	p.banner {
+		font-size: 14px;
+	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
 	body {
@@ -346,7 +352,7 @@
 		display:none;
 	}
 	.index-title {
-		font-size: 15px;
+		font-size: 14px;
 		width:100%;
 		margin: 0px;
 		font-weight: 300;
@@ -542,5 +548,8 @@
 	}
 	#questions-index .span12 {
 		border-bottom: 1px solid #eee;
+	}
+	p.banner {
+		font-size: 14px;
 	}
 }

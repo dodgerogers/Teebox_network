@@ -15,7 +15,7 @@ class Question < ActiveRecord::Base
   has_one :point, as: :pointable, dependent: :destroy
 
   validates_presence_of :title, :body, :user_id
-  validates_length_of :title, minimum: 10, maximum: 90
+  validates_length_of :title, minimum: 10, maximum: 85
   validate :tag_limit
   validate :ensure_own_video
   
