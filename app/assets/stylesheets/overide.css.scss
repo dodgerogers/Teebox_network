@@ -31,11 +31,11 @@ form .btn {
 	width:100%;
 }
 
-/*-------- navbar --------*/
+//-------- navbar --------//
 
 .navbar .container {
 	margin-top: 3px;
-	/*margin-bottom: 6px;*/
+	//margin-bottom: 6px;//
 	max-width:1170px;
 }
 .navbar-inner {
@@ -51,16 +51,16 @@ form .btn {
 }
 .navbar-inner {
 	border: none;
-	background: #125a68; /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: #125a68; // Old browsers //
+	// IE9 SVG, needs conditional override of 'filter' to 'none' //
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiMzMTgzOGYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTI1YTY4IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
-	background: -moz-linear-gradient(top, $teal 10%, #125a68 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,$teal), color-stop(100%,#125a68)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, $teal 10%,#125a68 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, $teal 10%,#125a68 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, $teal 10%,#125a68 100%); /* IE10+ */
-	background: linear-gradient(to bottom, $teal 10%,#125a68 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#31838f', endColorstr='#125a68',GradientType=0 ); /* IE6-8 */
+	background: -moz-linear-gradient(top, $teal 10%, #125a68 100%); // FF3.6+ //
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,$teal), color-stop(100%,#125a68)); // Chrome,Safari4+ //
+	background: -webkit-linear-gradient(top, $teal 10%,#125a68 100%); // Chrome10+,Safari5.1+ //
+	background: -o-linear-gradient(top, $teal 10%,#125a68 100%); // Opera 11.10+ //
+	background: -ms-linear-gradient(top, $teal 10%,#125a68 100%); // IE10+ //
+	background: linear-gradient(to bottom, $teal 10%,#125a68 100%); // W3C //
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#31838f', endColorstr='#125a68',GradientType=0 ); // IE6-8 //
 	border:none;
 }
 .navbar {
@@ -127,7 +127,7 @@ form .btn {
 	border-radius: 0px;
 }
 .dropdown-menu {
-	/*padding: 0px;*/
+	//padding: 0px;//
 }
 .navbar .nav-info a {
 	display:inline-block;
@@ -137,7 +137,12 @@ form .btn {
 	margin-top: -2px;
 }
 
-/*---------non bootstrap custom nav elements --------*/
+// font //
+.lead {
+	font-size: 19px;
+}
+
+//---------non bootstrap custom nav elements --------//
 .gravatar {
 	width: 50px;
 	height: 100%;
@@ -148,7 +153,7 @@ form .btn {
 .message {
 	display:inline;
 }
-/* Notifications count in header --*/
+// Notifications count in header --//
 
 #notifications {
 	background: $ocean;
@@ -173,7 +178,7 @@ form .btn {
 	background: $universe;
 }
 
-/*-- Notifications in dropdown --*/
+//-- Notifications in dropdown --//
 
 #notification {
 	height: auto;
@@ -190,7 +195,7 @@ form .btn {
 	background: #f0f0f0;
 }
 
-/*-- current user elements --*/
+//-- current user elements --//
 
 #current-user {
 	padding-left: 5px;
@@ -209,7 +214,7 @@ form .btn {
 #no-margin {
 	margin: 0px;
 };
-/*---------------------+ forms----------------------*/
+//---------------------+ forms----------------------//
 
 input {
 	vertical-align:bottom;
@@ -283,7 +288,7 @@ input[type="email"]
 	display:inline-block;
 	margin-bottom: 0px;
 }
-/* ----------- file uplaod input field -------*/
+// ----------- file uplaod input field -------//
 
 .fileUpload {
 	position: relative;
@@ -325,7 +330,7 @@ form#new_video {
 	box-shadow: 0px 1px 1px #297D8B;
 	color: #fff;
 }
-/*---------------- hero unit + wells----------------------*/
+//---------------- hero unit + wells----------------------//
 
 .hero-unit h1 {
     font-size: 36px;
@@ -339,7 +344,7 @@ form#new_video {
 }
 
 
-/* Tables */
+// Tables //
 
 .table-borderless td,
 .table-borderless th {
@@ -353,7 +358,7 @@ form#new_video {
 .table a { 
 	color: $teal; 
 }
-/* misc */
+// misc //
 
 .left {
 	text-align:left!important;
@@ -376,7 +381,7 @@ form#new_video {
 .zero-margin {
 	margin: 0px;
 }
-/*-------------------- errors ------------------*/
+//-------------------- errors ------------------//
 
 #error_explanation {
 		background: $red;
@@ -394,7 +399,7 @@ form#new_video {
 		}
 }
 
-/* alerts */
+// alerts //
 .alert {
 	font-weight:bold;
 }
@@ -414,7 +419,7 @@ form#new_video {
 	}
 }
 
-/* Modal */
+// Modal //
 
 .modal-header {
 	background: $universe;
@@ -423,11 +428,11 @@ form#new_video {
 	color: #fff!important;
 	text-shadow: 0px 2px 0px $asphalt;
 	letter-spacing: 0px!important;
-	/*font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+	//font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;//
 	font-weight:300!important;
 }
 
-/* carousel */
+// carousel //
 
 .carousel-control {
 	top:45%;

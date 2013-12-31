@@ -2,6 +2,7 @@
 	<h2 class="related-h2">Related Questions</h2>
 </div>	
 <section class="related-sidebar">	
+	<%= "No related questions found" unless questions.any? %>
 	<% questions.each do |question| %>
 		<div class="related" id="related">
 			<div class="related-content">

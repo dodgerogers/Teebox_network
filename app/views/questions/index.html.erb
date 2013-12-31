@@ -1,12 +1,7 @@
 <%= content_for :head do %>
 	<title>
-	   <% if params[:tag] %>
-			<%= params[:tag] %>
-	   <% elsif params[:search] %>	
-			<%= params[:search] %>
-	   <% else %>
-			Teebox Network
-	   <% end %>
+	   <%= params[:tag] || params[:search] %>
+		- Teebox Network
 	</title>
 <% end %>
 
@@ -19,11 +14,11 @@
 	<div id='params'>
 		<% if params[:search] %>
 			<%= display_results(@decorator.questions, params[:search]) %>
-			<hr>
+			<br>
 		<% elsif params[:tag] %>
 			<%= render partial: "shared/tag_cloud", locals: { tags: @decorator.tags, decorator: @decorator }%>
 			<%= display_results(@decorator.tagged_questions, params[:tag]) %>
-			<hr>
+			<br>
 		<% end %>
 	</div>
 
