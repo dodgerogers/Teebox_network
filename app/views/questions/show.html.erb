@@ -1,5 +1,5 @@
 <%= content_for :head do %>
-	<%= javascript_include_tag "sublime.js" %>
+	<%= javascript_include_tag "sublime.js", defer: "defer" %>
 <% end %>
 
 <% meta_title(@decorator.title) %>
