@@ -1,13 +1,11 @@
-<%= content_for :head do %>
-<title>Resend confirmation instructions</title>
-<% end %>
+<% meta_title("Resend confirmation instructions") %>
 
 <html class="mobile-scroll">
 	<body class="teebox-xl mobile-scroll">
 		<div class="row">
 			<div class="span2"></div>
 				<div class="span7 hero-unit blue-transparent">
-				  <h1 class="welcome-banner">Resend confirmation instructions</h1>
+				  <h1>Resend confirmation instructions</h1>
 
 			<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
 				  <%= devise_error_messages! %>

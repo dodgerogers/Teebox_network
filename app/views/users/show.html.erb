@@ -1,6 +1,4 @@
-<%= content_for :head do %>
-	<title><%= @decorator.username.titleize %></title>
-<% end %>
+<% meta_title(@decorator.username.titleize) %>
 
 <%= render partial: "users/stats", locals: { decorator: @decorator } %>
 

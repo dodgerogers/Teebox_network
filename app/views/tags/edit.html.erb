@@ -1,8 +1,6 @@
-<%= content_for :head do %>
-	<title>Edit <%= @tag.name %> Tag</title>
-<% end %>
+<% meta_title("Edit: #{@tag.name}") %>
 
 <div class="hero-unit blue-transparent">
-		<h1 class="welcome-banner">Edit <%= @tag.name %></h1><br><br>
-<%= render partial: "tags/form" %>
+	<h1>Edit <%= @tag.name %></h1>
+	<%= render partial: "tags/form" %>
 </div>

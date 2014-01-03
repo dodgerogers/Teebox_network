@@ -1,6 +1,4 @@
-<%= content_for :head do %>
-	<title>Welcome <%= @user.username.titleize %></title>
-<% end %>
+<% meta_title("Welcome #{@user.username.titleize}") %>
 
 <html class="mobile-scroll">
 	<body class="teebox-xl mobile-scroll">

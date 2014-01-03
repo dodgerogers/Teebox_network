@@ -1,6 +1,4 @@
-<%= content_for :head do %>
-	<title>Notifications</title>
-<% end %>
+<% meta_title("Notifications") %>
 
 <%= render partial: "activities/index", locals: { activities: @activities } %>
 <%= will_paginate @activities %>

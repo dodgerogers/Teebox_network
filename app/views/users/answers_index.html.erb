@@ -1,6 +1,4 @@
-<%= content_for :head do %>
-	<title><%= @user.username %> answers</title>
-<% end %>
+<% meta_title("#{@user.username} answers") %>
 
 <h2>Answers</h2>
 <%= render partial: "users/tables/answer_table", locals: { answers: @answers } %>

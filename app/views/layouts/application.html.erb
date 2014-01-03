@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <HTML lang="en">
 	<head>
-	  	<%= yield :head %>
+		<title><%= meta_title %></title>
+		<meta name="description" content="<%= meta_description %>">
+		<meta name="keywords" content="<%= meta_keywords %>">
+		<%= yield :head %>
 		<%= favicon_link_tag "/favicon.ico" %>
 		<%= favicon_link_tag 'teebox-app-icon.png', rel: 'apple-touch-icon', type: 'image/png'%>
 		<%= favicon_link_tag 'teebox-startup-image.png', rel: 'apple-touch-startup-image', type: "image/png" %>
@@ -15,12 +18,12 @@
 		<div id="wrap">
 			<%= render template: "layouts/header" %>			
 			<div class="container" id="margin-bottom">
-					<% flash.each do |name, msg| %>
-					 	<div class="alert alert-<%= name == :notice ? "success" : "error" %> fade in">
-						 	<a class="close" data-dismiss="alert">&#215;</a>
-						   	<%= content_tag :div, msg, :id => "flash" if msg.is_a?(String) %>
-						</div>
-		    		<% end %>
+				<% flash.each do |name, msg| %>
+				 	<div class="alert alert-<%= name == :notice ? "success" : "error" %> fade in">
+					 	<a class="close" data-dismiss="alert">&#215;</a>
+					   	<%= content_tag :div, msg, :id => "flash" if msg.is_a?(String) %>
+					</div>
+	    		<% end %>
 				<%= yield  %>
 			</div>
 			<div id="push" class="<%= hide_footer %>"></div>

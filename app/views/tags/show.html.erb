@@ -1,6 +1,4 @@
-<%= content_for :head do %>
-	<title><%= @tag.name.titleize %></title>
-<% end %>
+<% meta_title(@tag.name.titleize) %>
 
-<br><%= render @tag %><br>
+<%= render @tag %><br>
 <%= link_to "Tag Vault", tags_path, class: "default" %>

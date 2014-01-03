@@ -1,6 +1,4 @@
-<%= content_for :head do %>
-	<title>Editing <%= @question.title %></title>
-<% end %>
+<% meta_title("Edit: #{@question.title}")%>
 
 <h1>Edit your question <i class=" icon-question-sign"></i></h1>
 <%= link_to raw("<i class='icon-circle-arrow-left'></i> Back to videos"), videos_path, class: "default asphalt" %></center>

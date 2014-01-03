@@ -1,15 +1,17 @@
 <%= content_for :head do %>
-	<title><%= @decorator.title %></title>
-	<%= javascript_include_tag "sublime.js", defer: "defer" %>
+	<%= javascript_include_tag "sublime.js" %>
 <% end %>
+
+<% meta_title(@decorator.title) %>
+<% meta_keywords(@decorator.tags.map(&:name).join(", ")) %>
+<% meta_description(@decorator.title) %>
 
 <div class="row">
 	<div class="span8">
 		<div class="video-container">
 			<%= sublime_video(@decorator.video) if @decorator.video.present? %>
 			<% if @decorator.youtube_url.present? %>
-				<br>
-				<%= youtube_url_html5(@decorator.youtube_url) %>
+				<br><%= youtube_url_html5(@decorator.youtube_url) %>
 			<% end %>	
 		</div>
 		<div id="question-box">
@@ -48,11 +50,12 @@
 		</div>
 	
 		<section id="question-answers">
-			<%= render @answers %>
+			<%= render @answers %> <!-- Render @decorator.answers rm answers index -->
 		</section>
 		
 		<a href="#" id="answer-button" class="default submit">Answer question</a>
-		<br><br>
+		<br>
+		<br>
 		<%= render partial: "answers/form", locals: { question_id: @decorator.id } %>
 	</div>
 	

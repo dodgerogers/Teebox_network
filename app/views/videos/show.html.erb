@@ -1,7 +1,7 @@
 <%= content_for :head do %>
-	<title><%= File.basename(@video.file).titleize %></title>
-	<%= javascript_include_tag "sublime.js", defer: "defer" %>
+	<%= javascript_include_tag "sublime.js" %>
 <% end %>
+<% meta_title(File.basename(@video.file).titleize) %>
 
 <div class='row'>
 	<div class='span7'>
@@ -15,7 +15,7 @@
 			<%= time_ago_in_words(@video.created_at) %> ago</small>
 		</div>
 		<br><br>
-		<%= link_to "My Videos", videos_path, class: "default submit" %>
+		<%= link_to "Video library", videos_path, class: "default submit" %>
 		<%= link_to "Delete", video_path(@video), class: "default next", method: :delete %>
 	</div>	
 </div>

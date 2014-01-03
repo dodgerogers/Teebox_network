@@ -7,3 +7,5 @@ load(aws_credentials) if File.exists?(aws_credentials)
 
 # Initialize the rails application
 TeeboxNetwork::Application.initialize!
+
+META = YAML.load_file("#{Rails.root}/config/meta.yml")

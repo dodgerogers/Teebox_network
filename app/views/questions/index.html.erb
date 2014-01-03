@@ -1,9 +1,5 @@
-<%= content_for :head do %>
-	<title>
-	   <%= params[:tag] || params[:search] %>
-		- Teebox Network
-	</title>
-<% end %>
+<% meta_title(params[:tag] || params[:search]) %>
+<% meta_keywords(params[:tag] || params[:search]) %>
 
 <%= render template: "shared/teebox_banner" %>
 
