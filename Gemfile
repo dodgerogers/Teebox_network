@@ -58,6 +58,7 @@ gem 'obscenity'
 gem "unicorn"
 gem "capistrano", "~> 2.15.5"
 gem 'daemons'
+gem 'newrelic_rpm'
 
 
 
