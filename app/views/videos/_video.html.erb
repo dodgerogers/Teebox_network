@@ -1,13 +1,10 @@
 <article id='video_<%="#{video.id}" %>' class="videos">
-	
-	<%= image_tag("spinner.gif", class: "loading loading_#{video.id}") %>
-		
-  	<%= video.screenshot.present? ? (link_to image_tag(video.screenshot), video) : (link_to image_tag("video_screen-xl.jpg"), video) %>
+	<%= image_tag("spinner.gif", class: "loading loading_#{video.id}") %>	
+	<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen-xl.jpg" %>
+	<%= link_to image_tag(screenshot), video %>
 	<br>
 	<h4><%= link_to File.basename(video.file).titleize, video %></h4>
-	
-	<p><%= video.created_at.strftime("%d/%m/%y")  %>
-	
+	<p><small><%= video.created_at.strftime("%d/%m/%y")  %></small>
 	<%= link_to raw("<i class='icon-remove-sign'></i>"), video_path(video), method: :delete, 
 												 							remote: true, 
 												 							class: "pull-right red large", 

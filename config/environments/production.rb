@@ -22,7 +22,7 @@ TeeboxNetwork::Application.configure do
 
 
   # Mailer settings
-  config.action_mailer.default_url_options = {:host => '162.243.40.138'}
+  config.action_mailer.default_url_options = {:host => 'http://beta.teeboxnetwork.com'} # change to beta.teeboxnetwork.com
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
    :address => "smtp.gmail.com",

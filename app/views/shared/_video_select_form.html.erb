@@ -1,7 +1,7 @@
 <% if current_user.videos.any? %>
 	<div id="token">
     	<% current_user.videos.each do |video| %>
-	  		<div class="videos form" data-id="<%= video.id %>">
+	  		<article class="videos form" data-id="<%= video.id %>">
 				<div class="selected <%= question.video_id == video.id ? 'selected_video' : '' %>">
 					<i class="icon-ok-sign" id="ok-icon"></i>
 				</div>
@@ -10,9 +10,9 @@
 				<div id='<%= "#{video.id}_token" %>' class="selected-img">
 						<%= image_tag(screenshot) %>
 				</div>
-					<%= File.basename(video.file).titleize %><br>
-					<%= video.created_at.strftime("%d/%m/%y") %>																	
-   			</div>
+					<h4><%= truncate(File.basename(video.file).titleize, length: 22) %><h4>
+					<small><%= video.created_at.strftime("%d/%m/%y") %></small>																
+   			</article>
     	<% end %>
 	</div>
 <% else %>
