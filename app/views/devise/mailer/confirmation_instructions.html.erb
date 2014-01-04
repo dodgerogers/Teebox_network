@@ -4,20 +4,19 @@
 	  	<title>Teebox Network Confirmation</title>
 		<style type="text/css">
 			body { font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-	 		font-weight:300}
+	 		font-weight:300;background: #08262C;}
 			h1 { color: #fff; margin: 5px 0 }
 			h2 { margin: 5px 0}
 			a { text-decoration: none}
-			red { color: #E95A4D }
 			.container { margin: 0 auto; width:100%; max-width:940px }
-			.hero-unit { padding: 30px; width: auto; background: #08262C; color: #fff; text-align:center}
+			.hero-unit { padding: 30px 20px; width: auto; color: #fff; text-align:center}
 			.default { color: #fff;	background: #31838f;-moz-box-sizing: border-box;-webkit-box-sizing: border-box; box-sizing: border-box; padding: 5px 10px!important; border-radius:0px; border:none; display:inline-block; text-shadow:none; line-height:20px!important; margin: 3px 3px 0 0; }
 		</style>
 	</head>
 	<body>
 		<div class="container">		
 			<div class="hero-unit">
-				<h1><red>Welcome to Teebox</red></h1>
+				<h1>Welcome to Teebox</h1>
 				<p><%= @resource.email %></p>
 				<p>You can confirm your account email through the link below:</p>
 				<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @resource.confirmation_token), class: "default" %></p>
