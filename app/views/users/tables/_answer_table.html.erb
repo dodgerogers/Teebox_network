@@ -1,12 +1,12 @@
 <table class="table table-condensed table-borderless">
 	<tr class="grey">
 		<td>
-			<a href="#" data-toggle="tooltip" id='answer-correct' title="Marked as correct">
+			<a href="#" data-toggle="tooltip" id='answer-correct' title="Green if accepted as correct">
 				<i class="icon-ok-sign"></i>
 			</a>
 		</td>
 		<td>
-			<a href="#" data-toggle="tooltip" id='answer-text' title="Answer content">
+			<a href="#" data-toggle="tooltip" id='answer-text' title="The Content">
 				<i class="icon-align-justify"></i>
 			</a>
 		</td>
@@ -15,8 +15,7 @@
 	    <tr>
 			<td>
 				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %> center">
-					<%= answer.correct == true && answer.user != answer.question.user  ? 
-						raw("<i class='icon-ok-sign'></i>") : raw("<i class='icon-ok-sign'></i>") %>
+					<i class='icon-ok-sign'></i>
 				</div>
 			</td>
 	      <td class='left'>

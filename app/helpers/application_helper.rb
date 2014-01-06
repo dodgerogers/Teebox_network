@@ -1,12 +1,5 @@
 module ApplicationHelper
   
-  def points_from_correct(question)
-    if question.correct == true
-      correct = question.answers.find_by_correct(true)
-      correct ? (correct.try(:user) == question.user ? "0" : "+5") : "0"
-    end
-	end
-  
   def profile_link_helper(object)
     content_tag :div, class: "profile" do
       (link_to image_tag(avatar_url(object.user)), object.user) +
@@ -28,10 +21,6 @@ module ApplicationHelper
   def avatar_url(user, size=35)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"
-  end
-  
-  def hide_footer
-    current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_confirmation_path) ? 'hide' : ''
   end
   
   def percent_of(a, b)

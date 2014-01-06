@@ -34,25 +34,25 @@ describe ApplicationHelper do
     end
   end
   
-  describe "points_from_correct" do
-    it "returns no correct answers" do
-      @question = create(:question)
-      @answer = create(:answer, question_id: @question.id, correct: false)
-      helper.points_from_correct(@question).should eq nil
-    end
-    
-    it "returns +5 points" do
-      @question = create(:question, user_id: @user1.id, correct: true)
-      @answer = create(:answer, user_id: @user2.id, question_id: @question.id, correct: true)
-      helper.points_from_correct(@question).should eq "+5"
-    end
-  end
+  # describe "points_from_correct" do
+  #     it "returns no correct answers" do
+  #       @question = create(:question)
+  #       @answer = create(:answer, question_id: @question.id, correct: false)
+  #       helper.points_from_correct(@question).should eq nil
+  #     end
+  #     
+  #     it "returns +5 points" do
+  #       @question = create(:question, user_id: @user1.id, correct: true)
+  #       @answer = create(:answer, user_id: @user2.id, question_id: @question.id, correct: true)
+  #       helper.points_from_correct(@question).should eq "+5"
+  #     end
+  #   end
   
-  describe "hide footer" do
-    it "shouldn't hide footer on home page" do
-      helper.hide_footer.should eq ''
-    end
-  end
+  # describe "hide footer" do
+  #     it "shouldn't hide footer on home page" do
+  #       helper.hide_footer.should eq ''
+  #     end
+  #   end
   
   describe "percent_of" do
     it "calculates correct -% when value a == 0" do

@@ -1,12 +1,12 @@
 <table class="table table-borderless">
 	<tr class="grey">
 		<td>
-			<a href="#" data-toggle="tooltip" id='question-correct' title="Number of answers. Green if question has an accepted answer.">
+			<a href="#" data-toggle="tooltip" id='question-correct' title="#Answers. Green if answer has been accepted.">
 				<i class="icon-ok-sign"></i>
 			</a>
 		</td>
 		<td>
-			<a href="#" data-toggle="tooltip" id='question-text' title="Question content">
+			<a href="#" data-toggle="tooltip" id='question-text' title="The Content">
 				<i class="icon-align-justify"></i>
 			</a>
 		</td>
@@ -18,8 +18,8 @@
 					<%= question.answers_count %>
 				</div>
 			</td>
-	      	<td>
-				<%= link_to question.title.titleize, question %>
+	      	<td class="left">
+				<%= link_to raw("<b>#{question.title.titleize}:</b><br>#{truncate(question.body, length: 120)}"), question %>
 			</td>
 	    </tr>
 	<% end %>
