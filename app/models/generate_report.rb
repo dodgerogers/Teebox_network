@@ -6,9 +6,9 @@ class GenerateReport < Report
   
   def create
     @report.class.transaction do
-      @models.each do |attribute|
-        @report.send("#{attribute.pluralize}"+ "=", record_query(attribute))
-        @report.send("#{attribute.pluralize}_total" + "=", attribute.classify.constantize.all.size)
+      @models.each do |object|
+        @report.send("#{object.pluralize}"+ "=", record_query(object))
+        @report.send("#{object.pluralize}_total" + "=", object.classify.constantize.all.size)
       end
     end
   end

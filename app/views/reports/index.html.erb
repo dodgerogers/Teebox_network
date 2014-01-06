@@ -1,12 +1,13 @@
 <% meta_title("Reports") %>
 
-<div class="hero-unit blue-transparent">
-	<center>
-		<h1>Teebox Report - <%= time_tag Time.now.to_date %></h1>
-		<%= render partial: "reports/form" %>
-		<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>
-		<%= render partial: "reports/totals", locals: { reports: @all_reports }%>
-	</center>
-</div>
-
-<%= javascript_include_tag 'raphael.js', 'morris.js', "load_morris.js", defer: "defer" %>
+<body class="teebox-xl">
+	<div class="hero-unit blue-transparent">
+		<center>
+			<h1>Teebox Report - <%= time_tag Time.now.to_date %></h1>
+			<%= render partial: "reports/form" %>
+			<%= content_tag :div, "", id: "area", data: { totals: @all_reports } %>
+			<%= render partial: "reports/totals", locals: { reports: @all_reports }%>
+		</center>
+	</div>
+	<%= javascript_include_tag 'raphael.js', 'morris.js', "load_morris.js", defer: "defer" %>
+</body>
