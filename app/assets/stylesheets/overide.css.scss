@@ -3,9 +3,7 @@
 // Buttons //
 
 form .btn {
-	border-radius: 0px!important;
-	-webkit-border-radius: 0px!important;
-	-moz-border-radius: 0px!important;
+	@include border-radius(0px!important);
 	color: #fff!important;
 	text-shadow: 0px 0px 0px #fff!important;
 	background: #888;
@@ -39,15 +37,7 @@ form .btn {
 	max-width:1170px;
 }
 .navbar-inner {
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
+	@include border-radius;
 }
 .navbar-inner {
 	border: none;
@@ -122,9 +112,7 @@ form .btn {
 	background:$ocean;
 }
 .dropdown-menu {
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
+	@include border-radius;
 }
 .dropdown-menu {
 	//padding: 0px;//
@@ -139,9 +127,14 @@ form .btn {
 
 // font //
 .lead {
-	font-size: 19px;
+	font-size: 18px;
+	margin-bottom: 10px;
 }
-
+.big-lead {
+	@extend .lead;
+	font-size: 28px;
+	margin: 0 0 15px;
+}
 //---------non bootstrap custom nav elements --------//
 .gravatar {
 	width: 50px;
@@ -227,25 +220,17 @@ input[type="number"], input[type="email"], input[type="url"],
 input[type="search"], input[type="tel"], input[type="color"], 
 .uneditable-input {
 	height: 30px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
+	@include box-sizing;
+	@include border-radius;
 }
 input[type="password"] {
 	margin-bottom: 0px;
 }
 textarea, iframe.wysihtml5-sandbox {
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
+	@include border-radius;
 	width:100%!important;
 	max-height:250px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	font-family: $lucida;
 }
 iframe.wysihtml5-sandbox {
@@ -257,14 +242,12 @@ iframe.wysihtml5-sandbox {
 .form-area {
 	padding: 10px;
 	margin-top: 10px;
-	border-radius: 5px;
+	@include border-radius(5px);
 	margin-bottom: 1px;
 	background: #fff;
 	border-top: 1px solid #fff;
 	max-width: 1040px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	font-weight:300;
 }
 label {
@@ -344,8 +327,11 @@ form#new_video {
 .hero-unit {
 	padding: 30px 60px;
 	font-size:14px;
+	@include box-sizing;
 }
-
+.well {
+	@include box-sizing;
+}
 
 // Tables //
 
@@ -387,19 +373,17 @@ form#new_video {
 //-------------------- errors ------------------//
 
 #error_explanation {
-		background: $red;
-		padding: 15px 30px;
-		-webkit-border-radius: 3px;
-		border-radius: 3px;
-		-moz-border-radius: 3px;
-		margin-bottom: 20px;	
-		h2 {
-			margin:0px;
-			color: #ddd;
-		}	
-		ul li {
-			color: #fff;
-		}
+	background: $red;
+	padding: 15px 30px;
+	@include border-radius(3px);
+	margin-bottom: 20px;	
+	h2 {
+		margin:0px;
+		color: #ddd;
+	}	
+	ul li {
+		color: #fff;
+	}
 }
 
 // alerts //
@@ -443,9 +427,7 @@ form#new_video {
 	text-align: center;
 	background: none;
 	border: 0px solid #ffffff;
-	-webkit-border-radius: 23px;
-	-moz-border-radius: 23px;
-	border-radius: 0px;
+	@include border-radius(23px);
 	opacity: 0.5;
 }
 .carousel-indicators {

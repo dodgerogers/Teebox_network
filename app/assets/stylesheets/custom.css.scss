@@ -49,6 +49,7 @@ a:hover {
  	font-style: normal;
 }	
 // font face //
+
 h1 {
 	font-size: 36px;
 	font-family: 'BebasNeueRegular';
@@ -56,7 +57,7 @@ h1 {
 	margin-bottom: 12px;
 	margin-top: 10px;
 	color: $red;
-	/*text-shadow: 0px 2px 2px #777;		*/
+	//text-shadow: 0px 2px 2px #777;//
 	letter-spacing:0px;				
 }		
 h2 {
@@ -64,6 +65,9 @@ h2 {
 	font-family: 'BebasNeueRegular';
 	margin-top: 0px;
 	color: #777;
+	&.large {
+		font-size:30px;
+	}
 }
 h3 {
 	font-size: 22px; 
@@ -91,8 +95,7 @@ h6 {
     margin-top: 1.285em;
 }	
 
-
-/* custom font styles */
+// custom font styles //
 
 .bebas {
 	font-family: 'BebasNeueRegular';
@@ -103,22 +106,14 @@ h6 {
 .lobster {
 	font-family: "lobster_1.3regular";
 }		
-#answer-button {
-	&:hover {
-		text-decoration:none;	
-	}
-}
 small {
 	line-height: 5px;
 	color: #777;
 }	
-center h1 {
-	text-align:center!important;
-}
 .center {
 	text-align:center;
 }
-/*------- Custom colors -------*/
+//------- Custom colors -------//
 
 green, green a {
 	color: $green;
@@ -135,17 +130,7 @@ red, red a {
 	margin: 0 5px 0 0;
 }
 
-/* Tables */
-
-.green-bg, tr.green-bg td {
-	background:$green!important;
-	color: #fff;
-	a {
-		color: #fff!important;
-	}
-}
-
-/*----------------------Containers ------------------------------*/
+//----------------------Containers ------------------------------//
 
 #wrap {
 	min-height: 100%;
@@ -169,7 +154,7 @@ red, red a {
 .container .home {
 	text-align:center;
 }
-/*--------------- logo------------ */
+//--------------- logo------------ //
 
 .logo {
 	display:inline-block;
@@ -220,12 +205,12 @@ red, red a {
 	margin-left:10px;
 	width: 75px;
 }
-/* ------------------------- Header --------------------------------------------*/
+// ------------------------- Header --------------------------//
 
 .ask-question {
 	float: right;
 }
-/* ------------------------- Footer --------------------------------------------*/
+// ------------------------- Footer -----------------------//
 
 #footer {
 	font-weight:400;
@@ -269,12 +254,6 @@ red, red a {
 		-ms-transform: rotate(360deg);
 	}
 }
-//#browsers img:hover {
-//	-webkit-transform: rotate(360deg); 
-//	-moz-transform: rotate(360deg); 
-//	-o-transform: rotate(360deg);
-//	-ms-transform: rotate(360deg);
-//}
 .padded {
 	padding: 10px 0 0;
 }
@@ -283,7 +262,6 @@ red, red a {
 	font-weight: 400;
 	color: #999;
 }
-
 ul.footer-links {
 	margin: 5px 0px;
 	li {
@@ -297,14 +275,21 @@ ul.footer-links {
 	border-bottom: 1px solid #2C333C;
 	font-weight: 300;
 }
-/*---------------------------- tables -------------------------------------------*/
+//---------------------------- tables -----------------------//
 
 tr.titles {
 	font-family: 'BebasNeueRegular';
 	color: #777;
 }
+.green-bg, tr.green-bg td {
+	background:$green!important;
+	color: #fff;
+	a {
+		color: #fff!important;
+	}
+}
 
-/*---------------- sublime video + upload  ----------------*/
+//---------------- sublime video + upload  ----------------//
 body .sublimevideo-zi .sublimevideo-uj {
 	/*height: 700px!important;*/
 }
@@ -319,8 +304,7 @@ body .sublimevideo-zi .sublimevideo-uj {
   .progress {
     margin-top: 8px;
     border: solid 1px #555;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
+    @include border-radius(3px);
     .bar {
       height: 10px;
       background: #3EC144;
@@ -339,26 +323,23 @@ body .sublimevideo-zi .sublimevideo-uj {
     color: #777;
   }
 }
-
 .upload-form, .instructions {
 	display:inline-block;
 	margin:5px;
 }
-/*--------------------- Questions index ---------------------*/
 
-/*=videos=*/
+//--------------------- Questions index ---------------------//
+
+// videos //
 
 .videos {
 	display: inline-block;
-	//background: #fff;
 	position: relative;
 	vertical-align:top;
 	padding: 0px;
 	margin: 0px 15px 15px 0px;
 	width: 200px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 }
 .form {
 	cursor: pointer;
@@ -384,20 +365,18 @@ body .sublimevideo-zi .sublimevideo-uj {
 	display:none;
 }
 .video-container {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 }
-/*=questions=*/
 
-// Question index //
+// Questions //
+
+// index //
 
 #questions-index .span12 {
 	padding-bottom: 10px;
 	margin-bottom: 9px;
 	border-bottom: 0px solid #eee;
 }
-
 .questions {
 	display:block;
 	vertical-align:top;
@@ -405,9 +384,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin: 0px;
 	margin-bottom: 5px;
 	border-bottom: 1px solid #ECECEC;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 }
 .question-info {
 	display: inline-block;
@@ -421,15 +398,21 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 .question-image:hover {
 }
+.title-holder {
+	margin: 0 auto;
+	width:100%;
+	vertical-align: middle;
+	height:31px;
+}
 .index-title {
-	display:block;
+	display:inline-block;
 	vertical-align:top;
 	font-size: 16px;
 	font-weight: 300;
-	margin: 0 0 10px;
-	font-weight: light;
-}
-.index-title a:hover {
+	vertical-align:middle;
+	line-height:1.5;
+	a:hover {
+	}
 }
 .questions:hover, .videos:hover {
 }
@@ -451,9 +434,7 @@ body .sublimevideo-zi .sublimevideo-uj {
     -ms-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-	-webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-	border-radius: 4px;
+	@include border-radius(4px);
 	h3 {
 		font-family: $lucida;
 		letter-spacing: -1px;
@@ -508,8 +489,13 @@ body .sublimevideo-zi .sublimevideo-uj {
 	font-family: 'BebasNeueRegular';
 	color: #4fc392;
 }
+#answer-button {
+	&:hover {
+		text-decoration:none;	
+	}
+}
 
-/* js loading */
+// loading questions //
 
 .next_page, .previous_page {
 }
@@ -536,7 +522,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	text-align:center;
 }
 
-/*----------- Question form - videos select ----------*/
+//----------- Question form - videos select ----------//
 
 #scroll {
 	overflow: auto;
@@ -553,9 +539,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	position: absolute;
 	background: #fff;
 	background-position: center 10%;
-	-webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-	border-radius: 40px;
+	@include border-radius(40px);
 	top: 20%;
 	right: 35%;
 	height: 51px;
@@ -594,7 +578,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	box-shadow: 0px 4px 0px $red;
 }
 		
-/*--------------------------- video dropzone ------------------------*/
+//------------------- video dropzone ----------------*/
 
 #dropzone {
     height: auto;
@@ -635,10 +619,10 @@ h3.video-upload {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EE0E0E0', endColorstr='#ff5f5f5', GradientType=0);	
 }
 .progress .bar-success {
-	background: $green; /* Old browsers */
+	background: $green; // Old browsers //
 }
 
-/*---------------------- search ---------------------*/
+/*---------------------- header search ---------------------*/
 
 body #header-search {
 	display:inline;
@@ -666,7 +650,7 @@ body #header-search {
 .pagination .current {
     font-style: normal;
     background-color: $red;
-	border-radius: 50%;
+	@include border-radius(50%);
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
@@ -680,11 +664,8 @@ body #header-search {
 	    text-decoration: bold; 
 	}
 }
-//.pagination a:hover, .pagination a:focus {
-//    text-decoration: bold; 
-//}
 
-/*-------------------- questions & videos profile info ----------*/
+/*-------------------- questions & videos user profile info ----------*/
 
 .profile-info, .profile-info-index {
 	display:inline-block;
@@ -699,10 +680,7 @@ body #header-search {
 #question-box {
 	position: relative;
 	padding:10px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	//border: 1px solid #eee;
+	@include box-sizing;
 	background: #fff;
 	box-shadow: 0px 4px 0px #eee;
 	border-bottom-left-radius: 5px;
@@ -716,19 +694,17 @@ body #header-search {
 	display:inline;
 }
 
-/*-------------------- comments + related questions ----------------*/
+//-------------------- comments + related questions ----------------//
 #comment-textarea {
 	height: 70px;
 }
 .comment {
 	height: auto;
 	padding: 7px 0px 7px;
-	border-radius: 0px;
+	@include border-radius;
 	background: #fff;
 	position:relative;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	border-top: 1px solid #eee;
 	&:hover {
 		background: #fefefe;
@@ -737,9 +713,6 @@ body #header-search {
 	
 	}
 } 
-//.comment:hover {
-//	background: #ddd;
-//}
 .comment-button {
 	margin: 10px 0 0;
 	display: inline-block;
@@ -766,15 +739,13 @@ body #header-search {
 	}
 } 
 
-/* Related questions */
+// Related questions //
 
 .related {
 	height: auto;
 	padding: 5px;
 	position:relative;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	&:hover {
 		background: #fff;
 	}
@@ -818,9 +789,7 @@ body #header-search {
 	position:relative;
 }
 .question {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	padding: 0px;
 	position: relative;
 	margin: 0 0 10px;
@@ -832,7 +801,7 @@ body #header-search {
 	margin: 12px 0 0;
 }
 
-/*----- questions content font styles ------*/
+//----- questions content font styles ------//
 
 .question-content {
 	h1 {
@@ -854,31 +823,25 @@ body #header-search {
 .default {
 	color: #fff;
 	background: #888;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	padding: 5px 10px!important;
-	border-radius:0px;
-	-webkit-border-radius: 0px;
-	-moz-border-radius:0px;
+	@include border-radius;
 	border:none;
 	display:inline-block;
 	text-shadow:none;
 	line-height:20px!important;
 	margin: 3px 3px 0 0;
-}
-.default:hover {
-	color: #fff;
-	background:#999;
+	&:hover {
+		color: #fff;
+		background:#999;
+	}
 }
 .default-xl {
 	color: #fff;
 	background: #888;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	padding: 10px 10px!important;
-	border-radius:0px;
+	@include border-radius;
 	border:none;
 	display:inline-block;
 	text-shadow:none;
@@ -940,7 +903,7 @@ body #header-search {
 .lineheight {
 	line-height: 30px;
 }
-/*-------------------- Answers ----------------*/
+//-------------------- Answers ----------------//
 
 #answer_body_tbl {
 	height:100%!important;
@@ -951,16 +914,13 @@ body #header-search {
 }
 .answer-box {
 	padding: 10px;
-	//border: 1px solid #eee;
 	margin-bottom: 10px;
-	border-radius: 5px;
+	@include border-radius(5px);
 	background: #fff;
 	box-shadow: 0px 4px 0px #eee;
 }
 .answer {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	padding: 0px;
 	position: relative;
 	margin: 0 0 10px;
@@ -997,16 +957,9 @@ body #header-search {
 table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	float:none;
 }
-/*-------------------- Votes ----------------*/
+//-------------------- Votes ----------------//
 
 .vote {
-	/*width: 13%;
-	padding: 0px 0px 0px 0px;
-	margin: 6px 0px 0px;
-	vertical-align: top;
-	text-align:center;
-	position: absolute;
-	left:-90px;*/
 	display:inline-block;
 	color: #bbb;
 	float: left;
@@ -1039,19 +992,22 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 }	
 #arrows { 
 	display: inline-block;
-	/*text-shadow: 2px 2px 2px #777;*/
 }	
-#upvote,#downvote {
+#upvote {
 	color: #bbb;
-	font-family: $helvetica;	
+	font-family: $helvetica;
+	&:hover {
+		color: $green;
+		text-decoration: none;
+	}	
 }
-#upvote:hover {
-	color: $green;
-	text-decoration: none;
-}
-#downvote:hover {
-	color: $red;
-	text-decoration: none;
+#downvote {
+	color: #bbb;
+	font-family: $helvetica;
+	&:hover {
+		color: $red;
+		text-decoration: none;
+	}	
 }
 .orange-arrows h1{
 	color: #bbb;
@@ -1061,7 +1017,7 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	color: #bbb;
 	display:inline-block;
 }
-/*-------------------- reputation ----------------*/
+//-------------------- reputation ----------------//
 
 .reputation {
 	text-shadow: 0px 3px 3px #2a2a2a;
@@ -1075,37 +1031,14 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	margin-right: 3px;
 }
 
-/*-------------------- tags + reports ----------------*/
+//-------------------- tags + reports ----------------//
 
-h1.one {
-    margin-top: 0;
-	position: relative;
-	width:50%;
-}
-h1.one:before {
-	content: "";
-	display: block;
-	border-top: solid 1px $red;
-	width: 100%;
-	height: 1px;
-	position: absolute;
-	top: 50%;
-	z-index: 1;
-}
-h1.one span {
-	background: $universe;
-	padding: 0 5px;
-	position: relative;
-	z-index: 5;
-}
 .tag-container {
 	color: #777;
 	font-weight: 300;
 	margin: 0;
 	padding: 5px 10px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	vertical-align:top;
 	display:inline-block;
 	float:none!important;
@@ -1162,9 +1095,7 @@ h1.one span {
 	display:inline;
 }
 .tag {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	padding: 3px 7px;
 	background: $red;
 	display: inline-block;
@@ -1172,9 +1103,7 @@ h1.one span {
 	margin-bottom: 3px;
 }
 .current_tag {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	padding: 4px 8px;
 	background: $teal;
 }
@@ -1194,9 +1123,7 @@ a.tag:active, a.current_tag:active {
 	font-weight: 300;
 	margin: 0 5px;
 	padding: 5px 10px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	vertical-align:top;
 	display:inline-block;
 	float:none!important;
@@ -1223,7 +1150,7 @@ a.tag:active, a.current_tag:active {
 	color: $red!important;
 	display:inline-block;
 }
-/*-------------------- tags autocomplete  ----------------*/
+//-------------------- tags autocomplete  ----------------//
 
 ul.token-input-list {
     overflow: hidden; 
@@ -1240,7 +1167,6 @@ ul.token-input-list {
     list-style-type: none;
     clear: left;
 }
-
 ul.token-input-list li input {
     border: 0;
     width: 100px;
@@ -1250,7 +1176,6 @@ ul.token-input-list li input {
     -webkit-appearance: caret;
 	list-style: none;
 }
-
 li.token-input-token {
     overflow: hidden; 
     margin: 3px;
@@ -1258,9 +1183,7 @@ li.token-input-token {
 	background: $red;
     color: #fff;
     cursor: default;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
+    @include border-radius(2px);
     float: left;
     white-space: nowrap;
 }
@@ -1332,7 +1255,7 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	color: #444;
 }
 
-/*-------------------- user stats  ----------------*/
+//-------------------- user stats  ----------------//
 
 #stats {
 	display: block;
@@ -1342,9 +1265,7 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	margin: 0px 10px 0px 0;
 	background: #ededed;
 	display:inline-block;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	text-align:center;
 }
 .stat-title {
@@ -1352,19 +1273,17 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	background: $red;
 	color: #fff;
 	padding: 3px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 }
 .stat-value h1 {
 	font-size: 50px;
 }
 
-/*----------- scrollbars -----------*/
+//----------- scrollbars -----------//
 
 ::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px #ddd;
-	border-radius:1px;
+	@include border-radius(1px);
 	background-color: #f5f5f5;
 }
 ::-webkit-scrollbar {
@@ -1373,12 +1292,12 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	-webkit-box-shadow: inset 0px 0px 6px #ddd; 
 }
 ::-webkit-scrollbar-thumb {
-	border-radius: 1px;
+	@include border-radius(1px);
 	background: #ccc;
 	cursor: pointer; 
 }
 
-/*morris */
+// morris graphs //
 .morris-hover-row-label {
 	color: #444;
 }
@@ -1388,22 +1307,18 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 	background: #fff; 
 	padding: 10px; 
 	border: 2px solid #ccc;
-	border-radius: 10px;
+	@include border-radius(10px);
 	line-height:20px;
 }
 
-/* Featurette */
+// Featurettes //
 
 #featurette {
 	margin: 10px 0;
 	border-bottom: 1px solid #eee;
-	-webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-	border-radius: 5px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	@include box-sizing;
 	padding: 0px 20px;
+	min-height:110px;
 	&:last-of-type {
 		border-bottom: 0px solid #fff;
 	}
@@ -1418,14 +1333,11 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item:hover {
 }
 #fullwidth {
 	margin: -30px 0 30px;
-	-webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-	border-radius: 0px;
+	@include border-radius;
 }
 .fullwidth {
 	width:100%;
 }
-
 ul.sitemap {
 	margin: 0 0 10px 0px;
 	li {

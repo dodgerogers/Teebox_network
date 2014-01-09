@@ -29,6 +29,10 @@ body .darkblue-transparent {
 	background: $blackhole;
 }
 
+body .semi-transparent {
+	background-color:rgba(255, 255, 255, 0.9);
+}
+
 body .transparent {
 	background: transparent;
 	padding: 30px;
@@ -54,11 +58,11 @@ body .transparent {
 .sandy-hills-xl {
 	background: url(backgrounds/sandy-hills-xl.jpg);
 }
-.heath-cutout-xl {
-	background: url(backgrounds/heath-cutout.jpg);
-}
 .yas-links-xl {
 	background: url(backgrounds/Yas-links-xl.jpg);
+}
+.fairytale-xl {
+	background: url(backgrounds/fairytale.jpg);
 }
 /* <!-- full page backgrounds --> */
 	

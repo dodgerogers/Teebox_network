@@ -1,3 +1,21 @@
+// fonts //
+$lucida: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+$helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// functions and mixins //
+// usage - @include box-sizing; or @include box-sizing(content-box); //
+
+@mixin box-sizing($value: border-box) {
+	-webkit-box-sizing: $value;
+	-moz-box-sizing: $value;
+	box-sizing: $value;
+}
+@mixin border-radius($value: 0px) {
+	-webkit-border-radius: $value;
+	-moz-border-radius: $value;
+	border-radius: $value;
+}
+
 // Colors //
 $ice: #f6f7f8;
 $orange: #f1693c;
@@ -18,7 +36,3 @@ $ocean: #0A323A;
 $universe: #08262C;
 $blackhole: #03191D;
 $gundam: #4E545C;
-
-// fonts //
-$lucida: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-$helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;

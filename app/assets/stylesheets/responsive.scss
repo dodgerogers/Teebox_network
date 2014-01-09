@@ -19,9 +19,10 @@
 	}
 	.index-title {
 		font-size: 14px;
+		line-height:1.2;
 	}
 	#notifications {
-		border-radius: 0px;
+		@include border-radius;
 		margin: 5px 0px 1px;
 		box-shadow: none;
 	}
@@ -138,7 +139,7 @@
 		height:0px;
 	}
 	#notifications {
-		border-radius: 0px;
+		@include border-radius;
 		margin: 5px 0px 1px;
 		box-shadow: none;
 	}
@@ -158,9 +159,16 @@
 	.question-image {
 		display:none;
 	}
+	.title-holder {
+		height:auto;
+	}
 	.index-title {
 		font-size: 14px;
+		width:100%;
 		margin: 0px;
+		font-weight: 300;
+		height:auto;
+		line-height:1.5;
 	}
 	.nav-collapse .nav > li {
 		background: $ocean;
@@ -246,9 +254,7 @@
 	.mobile {
 		margin-top: -30px;
 		margin: -30px -20px 20px;
-		border-radius: 0px;
-		-webkit-border-radius: 0px;
-		-moz-border-radius: 0px;
+		@include border-radius;
 		-webkit-transition: all 0.5s ease;
      	-moz-transition: all 0.5s ease;
       	-o-transition: all 0.5s ease;
@@ -275,9 +281,7 @@
 	}
 	.alert {
 		margin: -30px -20px 30px -20px;
-		border-radius: 0px;
-		-webkit-border-radius:0px;
-		-moz-border-radius: 0px;
+		@include border-radius;
 	}
 	.red-border {
 		border: none;
@@ -328,7 +332,7 @@
 		padding-right: 5px;
 	}
 	#notifications {
-		border-radius: 0px;
+		@include border-radius;
 		margin: 5px 0px 1px;
 		box-shadow: none;
 	}
@@ -351,11 +355,16 @@
 	.question-image {
 		display:none;
 	}
+	.title-holder {
+		height:auto;
+	}
 	.index-title {
 		font-size: 14px;
 		width:100%;
 		margin: 0px;
 		font-weight: 300;
+		height:auto;
+		line-height:1.5;
 	}
 	#index {
 		width:100%;
@@ -486,9 +495,7 @@
 	.mobile {
 		margin-top: -30px;
 		margin: -30px -20px 20px;
-		border-radius: 0px;
-		-webkit-border-radius: 0px;
-		-moz-border-radius: 0px;
+		@include border-radius;
 		h4 {
 			font-size: 16px;
 		}
@@ -513,9 +520,7 @@
 	}
 	.alert {
 		margin: -30px -20px 30px -20px;
-		border-radius: 0px;
-		-webkit-border-radius:0px;
-		-moz-border-radius: 0px;
+		@include border-radius;
 	}
 	.red-border {
 		border: none;

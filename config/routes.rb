@@ -22,6 +22,7 @@ TeeboxNetwork::Application.routes.draw do
 
   get "how-it-works", to: "pages#info", as: :info
   get "sitemap", to: 'pages#sitemap', as: :sitemap
+  get "about", to: 'pages#about', as: :about
   
   resources :points, only: :index
   

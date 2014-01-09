@@ -19,4 +19,11 @@ describe PagesController do
       response.should render_template :sitemap
     end
   end
+  
+  describe "about us" do
+    it "renders about us template" do
+      get :about
+      response.should render_template :about
+    end
+  end
 end

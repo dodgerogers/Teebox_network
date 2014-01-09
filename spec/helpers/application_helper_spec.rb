@@ -27,6 +27,12 @@ describe ApplicationHelper do
     end
   end
   
+  describe "personal_links" do
+    it "returns formatted personal links" do
+      helper.personal_links.should eq "<span><a href=\"https://twitter.com/AndrewRogers747\" target=\"_blank\"><i class='icon-twitter twitter'></i> </a><a href=\"https://plus.google.com/+andyrogers747/\" target=\"_blank\"><i class='icon-google-plus-sign google'></i> </a><a href=\"http://www.linkedin.com/profile/view?id=52220364&amp;trk=nav_responsive_tab_profile\" target=\"_blank\"><i class='icon-linkedin facebook'></i></a></span>"
+    end
+  end
+  
   describe "avatar url" do
     it "returns a href" do
       @gravatar_id = Digest::MD5.hexdigest(@user2.email.downcase)

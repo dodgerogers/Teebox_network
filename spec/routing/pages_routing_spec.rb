@@ -12,4 +12,8 @@ describe PagesController do
   it "routes to #sitemap.xml" do
     get('/sitemap.xml').should route_to('pages#sitemap', format: "xml")
   end
+  
+  it "routes to #about" do
+    get("/about").should route_to('pages#about')
+  end
 end

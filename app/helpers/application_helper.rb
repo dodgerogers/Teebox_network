@@ -18,6 +18,14 @@ module ApplicationHelper
     end
   end
   
+  def personal_links
+    content_tag :span do
+      (link_to raw("<i class='icon-twitter twitter'></i> "), "https://twitter.com/AndrewRogers747", target: "_blank") +
+    	(link_to raw("<i class='icon-google-plus-sign google'></i> "), "https://plus.google.com/+andyrogers747/", target: "_blank") +
+    	(link_to raw("<i class='icon-linkedin facebook'></i>"), "http://www.linkedin.com/profile/view?id=52220364&trk=nav_responsive_tab_profile", target: "_blank")
+  	end
+	end
+  
   def avatar_url(user, size=35)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase) if user
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"

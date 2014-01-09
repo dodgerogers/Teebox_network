@@ -1,6 +1,6 @@
 # See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
 #
 # To ban all spiders from the entire site uncomment the next two lines:
-# When complete, add the site's xml sitemap URL to this page e.g http:/teebox-network.com/sitemap.xml
+# When complete, add the site's xml sitemap URL to this page e.g http://beta.teebox-network.com/sitemap.xml
 User-Agent: *
 Disallow: /
