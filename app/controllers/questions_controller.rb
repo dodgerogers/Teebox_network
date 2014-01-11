@@ -1,7 +1,6 @@
 class QuestionsController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered]
-  before_filter :index, only: [:unanswered, :popular]
   load_and_authorize_resource except: [:index, :show]
   require 'teebox/commentable'
   include Teebox::Commentable
@@ -56,7 +55,15 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.destroy(params[:id])
     if @question.destroy
-     redirect_to root_path, notice: "Question deleted"
-   end
+      redirect_to root_path, notice: "Question deleted"
+    end
+  end
+  
+  def unanswered
+    @unanswered = Question.unanswered.includes(:user, :video).paginate(page: params[:page], per_page: 20)
+  end
+
+  def popular
+    @popular = Question.popular.includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end
 end

@@ -3,30 +3,26 @@
 
 <%= render template: "shared/teebox_banner" %>
 
-<%= render partial: "shared/nav_links", locals: { decorator: @decorator } %>
-
-<div id="tiny-push"></div>
+<%= render partial: "shared/nav_links" %>
 	
-	<div id='params'>
-		<% if params[:search] %>
-			<%= display_results(@decorator.questions, params[:search]) %>
-			<br>
-		<% elsif params[:tag] %>
-			<%= render partial: "shared/tag_cloud", locals: { tags: @decorator.tags, decorator: @decorator }%>
-			<%= display_results(@decorator.tagged_questions, params[:tag]) %>
-			<br>
-		<% end %>
-	</div>
+<div id='params'>
+	<% if params[:search] %>
+		<%= display_results(@decorator.search, params[:search]) %>
+		<br>
+	<% elsif params[:tag] %>
+		<%= render partial: "shared/tag_cloud", locals: { tags: @decorator.tags, decorator: @decorator }%>
+		<%= display_results(@decorator.tagged_questions, params[:tag]) %>
+		<br>
+	<% end %>
+</div>
 
-<section class="row" id="questions-index">
 	<% if params[:search] %> 
-		<%= render partial: "questions/questions", locals: { questions: @decorator.questions } %>
+		<%= render partial: "questions/questions", locals: { questions: @decorator.search } %>
 	<% elsif params[:tag] %>
 		<%= render partial: "questions/questions", locals: { questions: @decorator.tagged_questions } %>
 	<% else  %>
 		<%= render partial: "questions/questions", locals: { questions: @decorator.newest_questions } %>
 	<% end %>
-</section>
 
 <div class="load-questions">
 	<%= link_to "Load more questions", '#', class: "default next" if current_page?(root_path) %>

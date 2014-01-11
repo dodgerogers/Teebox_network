@@ -1,6 +1,6 @@
 set :output, "#{path}/log/cron.log"
 
-every :day, at: "2:50pm" do
+every :day, at: "8:00am" do
   rake "db:generate_report"
 end
 

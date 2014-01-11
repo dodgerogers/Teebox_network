@@ -1,5 +1,5 @@
 module VideoHelper
-	
+  
   def youtube_url_html5(video)
     video_tag([video], class: "sublime", size: "748x374", preload: "none", data: {"youtube-id" => strip_url(video), name: video, uid: video, autoresize: "fit"})
   end

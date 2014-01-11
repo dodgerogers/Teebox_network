@@ -11,9 +11,6 @@
 		</div>
 	<% end %>
 	
-	<%= f.hidden_field :updated_by, value: current_user.username %>
-	<%= f.hidden_field :user_id, value: current_user.id %>
-	
 	<div class="field">
 		<%= f.label :name, raw('<i class="icon-align-justify"></i> Name') %>
 		<%= f.text_field :name, placeholder: "Enter name" %>

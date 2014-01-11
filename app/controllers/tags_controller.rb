@@ -26,10 +26,10 @@ class TagsController < ApplicationController
   
   def update
     @tag = Tag.find(params[:id])
-    # @tag.user_id = current_user.id
+    @tag.user_id, @tag.updated_by = current_user.id, current_user.username
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        format.html {  redirect_to tags_path, notice: "Tag created" }
+        format.html {  redirect_to tags_path, notice: "Tag updated" }
         format.json { head :no_content }
       else
         format.html { render :edit, notice: "Try again"  }

@@ -19,7 +19,8 @@ describe Questions::ShowDecorator do
    
    describe "related_questions" do
     it "maps array of similarly titled questions" do
-      #model.related_questions
+      @question2 = create(:question, user: @user, title: "slicing ball with driver")
+      @decorator.related_questions.should eq [@question2]
     end
   end 
 end

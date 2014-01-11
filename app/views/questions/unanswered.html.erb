@@ -2,10 +2,6 @@
 
 <%= render template: "shared/teebox_banner" %>
 
-<%= render partial: "shared/nav_links", locals: {tags: @decorator.tags, decorator: @decorator} %>
+<%= render partial: "shared/nav_links" %>
 
-<div id="tiny-push"></div>
-
-<div class="row" id="questions-index">
-	<%= render partial: "questions/questions", locals: {questions: @decorator.unanswered_questions}%>
-</div>
+<%= render partial: "questions/questions", locals: { questions: @unanswered } %>

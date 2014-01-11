@@ -1,4 +1,5 @@
 require "spec_helper"
+include QuestionHelper
 
 describe Questions::IndexDecorator do
   before(:each) do
@@ -11,39 +12,10 @@ describe Questions::IndexDecorator do
     end
   end
   
-  describe "tag_class" do
-    it "returns tag as class" do
-      tag = create(:tag)
-      @decorator.tag_class(tag).should eq("tag")
-    end
-  end
-  
-  describe "tab_class" do
-    it "returns asphalt as class" do
-      tag = create(:tag)
-      @decorator.tab_class(tag).should eq("asphalt")
-    end
-  end
-  
   describe "questions scope" do
-    
-    before(:each) do
-      @user1 = create(:user)
-      @q1 = create(:question, user: @user1, correct: true, body: "im slicing it now", votes_count: 1) 
-      @q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball", votes_count: 10) 
-      @q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis", votes_count: 5)
-    end
-    
     it "returns latest questions" do
+      create_questions # QuestionHelper
       @decorator.newest_questions.should == [@q3, @q2, @q1] 
-    end
-    
-    it "returns unanswered questions" do
-      @decorator.unanswered_questions.should == [@q2, @q3] 
-    end
-    
-    it "returns popular questions" do
-      @decorator.popular_questions.should == [@q2, @q3, @q1] 
     end
   end
 end
