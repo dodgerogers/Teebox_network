@@ -35,6 +35,20 @@ describe QuestionsController do
       response.should render_template :index
     end
   end
+  
+  describe "GET popular" do
+    it "renders popular template" do
+      get :popular
+      response.should render_template :popular
+    end
+  end
+  
+  describe "GET unanswered" do
+    it "renders unanswered template" do
+      get :unanswered
+      response.should render_template :unanswered
+    end
+  end
 
   describe "GET new" do
     it "assigns a new question as @question" do

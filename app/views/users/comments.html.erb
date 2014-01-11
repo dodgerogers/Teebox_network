@@ -1,0 +1,20 @@
+<% meta_title("#{@user.username} comments") %>
+
+<h2>Comments</h2>
+
+<table class="table">
+	<% @comments.each do |comment| %>	
+	    <tr>
+	      <td class="left">
+			<% parent = comment.commentable_type == "Question" ? comment.commentable : comment.commentable.question %>
+			<%= link_to "#{url_for(parent)}#comment_#{comment.id}" do %>
+			<b><%= parent.title %>&nbsp;<i class="icon-question-sign"></i></b><br>
+				<%= strip_links(truncate(comment.content, length: 120)) %>
+			<% end %>	
+		  </td>
+	    </tr>
+	<% end %>
+</table>
+	
+<%= will_paginate @comments %>
+<%= link_to "Back to #{@user.username.titleize}", user_path(@user) %>

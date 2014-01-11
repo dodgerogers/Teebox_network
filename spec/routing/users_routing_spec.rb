@@ -8,15 +8,19 @@ describe UsersController do
     end
     
     it "routes to #questions" do
-      get("/users/1/questions_index").should route_to("users#questions_index", :id => "1")
+      get("/users/1/questions").should route_to("users#questions", :id => "1")
     end
     
     it "routes to #answers" do
-      get("/users/1/answers_index").should route_to("users#answers_index", :id => "1")
+      get("/users/1/answers").should route_to("users#answers", :id => "1")
     end
       
     it "routes to #comments" do
-      get("/users/1/comments_index").should route_to("users#comments_index", :id => "1")
+      get("/users/1/comments").should route_to("users#comments", :id => "1")
+    end
+    
+    it "routes to users#welcome" do
+      get("/users/1/welcome").should route_to('users#welcome', :id => "1")
     end
     
     it "routes to #index" do

@@ -43,7 +43,7 @@ describe Questions::IndexDecorator do
     end
     
     it "returns popular questions" do
-      @decorator.votes_questions.should == [@q2, @q3, @q1] 
+      @decorator.popular_questions.should == [@q2, @q3, @q1] 
     end
   end
 end

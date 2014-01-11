@@ -154,8 +154,10 @@ form .btn {
 	margin: 5px 5px 2px;
 	color: #fff;
 	box-shadow: 0px 1px 1px $teal;
+	&:hover {
+		background: $universe;
+	}
 }
-
 .new-notifications {
 	background: $red!important;
 	box-shadow: 0px 0px 2px $universe!important;
@@ -167,9 +169,6 @@ form .btn {
 	color: #fff;
 	text-shadow: 0px 1px 1px #000;
 }
-#notifications:hover {
-	background: $universe;
-}
 
 //-- Notifications in dropdown --//
 
@@ -177,12 +176,12 @@ form .btn {
 	height: auto;
 	padding: 10px 15px 10px;
 	border-top: 1px solid #E9E9E9;
-}
-#notification:last-of-type {
-	border-bottom: 1px solid #E9E9E9;
-}
-#notification:hover {
-	background: #eee;
+	&:hover {
+		background: #eee;
+	}
+	&:last-of-type {
+		border-bottom: 1px solid #E9E9E9;
+	}
 }
 .unread {
 	background: #f0f0f0;

@@ -1,6 +1,0 @@
-<% meta_title("#{@user.username} comments") %>
-
-<h2>Comments</h2>
-<%= render partial: "users/tables/comment_table", locals: {comments: @comments} %>
-<%= will_paginate @comments %>
-<%= link_to "Back to #{@user.username.titleize}", user_path(@user) %>

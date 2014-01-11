@@ -33,9 +33,6 @@
 		width:100%;
 		margin: 0 0 1px;
 	}
-	.navbar #notification:last-of-type {
-		border-bottom: 1px solid $midnight;
-	}
 	.nav-collapse .nav > li {
 		background: $ocean;
 		color: #fff;
@@ -65,6 +62,9 @@
 		margin: 0px;
 		border-top: 1px solid $ocean;
 		background: $universe;
+	}
+	.navbar #notification:last-of-type {
+		border-bottom: 1px solid $midnight;
 	}
 	.navbar #notification a {
 		color: $green;
@@ -150,9 +150,6 @@
 		width:100%;
 		margin: 0 0 1px;
 	}
-	.navbar #notification:last-of-type {
-		border-bottom: 1px solid $midnight;
-	}
 	.padded {
 		padding: 10px 20px 0;
 	}
@@ -200,6 +197,9 @@
 		margin: 0px;
 		border-top: 1px solid $ocean;
 		background: $universe;
+	}
+	.navbar #notification:last-of-type {
+		border-bottom: 1px solid $midnight;
 	}
 	.navbar #notification .gravatar {
 		display:none;
@@ -346,9 +346,6 @@
 		width:100%;
 		margin: 0 0 1px;
 	}
-	.navbar #notification:last-of-type {
-		border-bottom: 1px solid $midnight;
-	}
 	.padded {
 		padding: 10px 20px 0;
 	}
@@ -398,6 +395,9 @@
 		margin: 0px;
 		border-top: 1px solid $ocean;
 		background: $universe;
+	}
+	.navbar #notification:last-of-type {
+		border-bottom: 1px solid $midnight;
 	}
 	.navbar #notification .gravatar {
 		display:none;
@@ -528,17 +528,20 @@
 	}
 	.span2.inline-span {
 		display:inline-block;
-		width:100%;
+		width:30%;
 		.ch-grid li {
-			height:85px;
-			width:85px;
+			height:60px;
+			width:60px;
 		}
 		.ch-item {
 			h1 {
-				margin: 26px 3px 0 0;
+				margin: 18px 3px 0 0;
+				font-size:24px;
 			}
-			h3 {
-				padding-top:25px;
+			h3, h3 a {
+				padding-top:18px;
+				font-size:12px;
+				line-height:1.2;
 			}
 		}
 	}

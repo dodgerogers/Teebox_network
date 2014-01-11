@@ -1,6 +1,0 @@
-<% meta_title("#{@user.username} answers") %>
-
-<h2>Answers</h2>
-<%= render partial: "users/tables/answer_table", locals: { answers: @answers } %>
-<%= will_paginate @answers %>
-<%= link_to "Back to #{@user.username.titleize}", user_path(@user) %>

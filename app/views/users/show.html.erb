@@ -4,16 +4,16 @@
 
 <section class="row">
 	<div class="span6">
-		<%= render partial: "points/get_points", locals: { points: Point.find_points(@decorator).limit(5) } %>
-		<%= link_to "View all", points_path(@decorator) if Point.find_points(@decorator).any? %>
+		<%= render partial: "points/get_points", locals: { points: @points.limit(5) } %>
+		<%= link_to "View all", points_path(@decorator) if @points.any? %>
 	</div>
 	
 	<div class="span6">
 		<h2>Your Activity</h2>
 		<center>
-		<%= link_to "Questions", questions_index_path(@decorator), class: "default-xl next fullwidth" if @decorator.questions_index.any? %>
-		<%= link_to "Answers", answers_index_path(@decorator), class:  "default-xl success fullwidth" if @decorator.answers_index.any? %>
-		<%= link_to "Comments", comments_index_path(@decorator), class: "default-xl asphalt fullwidth" if @decorator.comments_index.any? %>
+			<%= link_to "Questions", user_questions_path(@decorator), class: "default-xl next fullwidth" %>
+			<%= link_to "Answers", user_answers_path(@decorator), class:  "default-xl success fullwidth" %>
+			<%= link_to "Comments", user_comments_path(@decorator), class: "default-xl asphalt fullwidth" %>
 		</center>
 	</div>
 </section>	

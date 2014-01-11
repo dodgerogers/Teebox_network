@@ -23,23 +23,4 @@ describe UserDecorator do
       @decorator.link_helper("questions", questions_path, @user1.questions).should eq "<a href=\"/questions\" class=\"default next\">View all questions</a>"
     end
   end
-  
-  #------- REFACTOR simulate users objects -----#
-  describe "questions" do
-    it "returns users questions" do
-      @decorator.questions_index.should eq(@decorator.questions_index)
-    end  
-  end
-  
-  describe "answers" do
-    it "returns users answers" do
-      @decorator.answers_index.should eq(@decorator.answers_index)
-    end
-  end
-  
-  describe "comments" do
-    it "returns users comments" do
-      @decorator.comments_index.should eq(@decorator.comments_index)
-    end
-  end
 end

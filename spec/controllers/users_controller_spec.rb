@@ -29,18 +29,18 @@ describe UsersController do
   
   describe "GET users objects " do
     it "renders answers template" do
-      get :answers_index, id: @user.id
-      response.should render_template :answers_index
+      get :answers, id: @user.id
+      response.should render_template :answers
     end
     
     it "renders questions template" do
-      get :questions_index, id: @user.id
-      response.should render_template :questions_index
+      get :questions, id: @user.id
+      response.should render_template :questions
     end
     
     it "renders comments template" do
-      get :comments_index, id: @user.id
-      response.should render_template :comments_index
+      get :comments, id: @user.id
+      response.should render_template :comments
     end
   end
   

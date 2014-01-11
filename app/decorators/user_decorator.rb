@@ -10,16 +10,4 @@ class UserDecorator < ApplicationDecorator
   def link_helper(text, path, objects)
     link_to "View all #{text}", path, class: "default next" if objects.any?
   end
-  
-  def questions_index
-    model.questions.includes(:answers).order("created_at desc")
-  end
-  
-  def answers_index
-    model.answers.includes(:question).order("created_at desc")
-  end
-  
-  def comments_index
-    model.comments.includes(:commentable).order("created_at desc")
-  end
 end

@@ -61,9 +61,9 @@ describe Question do
       end
     end
 
-    #move questions to helper
+    #move Questions to helper
     describe "Scopes" do
-    it "returns a sorted array of unanswered questions" do 
+    it "returns unanswered questions" do 
       @user1 = create(:user)
       q1 = create(:question, user: @user1, correct: true, body: "im slicing it now") 
       q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball") 
@@ -72,22 +72,22 @@ describe Question do
       Question.unanswered.should == [q4, q2, q3] 
     end
     
-    it "returns a sorted array questions by votes" do 
+    it "returns questions by votes" do 
       @user1 = create(:user)
       q1 = create(:question, user: @user1, correct: true, body: "im slicing it now", votes_count: 1) 
       q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball", votes_count: 2) 
       q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis", votes_count: 3) 
       q4 = @question
-      Question.by_votes.should == [q4, q3, q2, q1] 
+      Question.popular.should == [q4, q3, q2, q1] 
     end
     
-    it "returns a sorted array questions by date" do 
+    it "newest returns questions by date" do 
       @user1 = create(:user)
       q1 = create(:question, user: @user1, correct: true, body: "im slicing it now", votes_count: 1) 
       q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball", votes_count: 2) 
       q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis", votes_count: 3) 
       q4 = @question
-      Question.by_votes.should == [q4, q3, q2, q1] 
+      Question.newest.should == [q3, q2, q1, q4] 
     end
   end
 end

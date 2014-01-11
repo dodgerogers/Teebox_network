@@ -1,21 +1,21 @@
 <% meta_title("Leaderboard") %>
 
-	<div class="hero-unit blue-fuzz red-border mobile">
-		<center>
-			<h1 class="ranking">
-				Leaderboard  <i class="icon-trophy"></i>
-			</h1>
-			<p>The Leaderboard is a friendly and relaxed way of tracking your score within the Teebox community. Don't see your name? Rankings are calculated every night, so check back in the morning.</p>
-		</center>
-	</div>
+<div class="hero-unit blue-fuzz red-border mobile">
+	<center>
+		<h1 class="ranking">
+			Leaderboard  <i class="icon-trophy"></i>
+		</h1>
+		<p>The Leaderboard is a friendly and relaxed way of tracking your score within the Teebox community. Don't see your name? Rankings are calculated every night, so check back in the morning.</p>
+	</center>
+</div>
 
-	<table class="table table-condensed table-striped table-borderless">	
-		<tr class="grey">
-			<td>#</td>
-			<td>Score</td>
-			<td>Username</td>
-			<td>Member for</td>
-		</tr>		
+<table class="table table-condensed table-striped table-borderless">	
+	<tr class="grey">
+		<td>#</td>
+		<td>Score</td>
+		<td>Username</td>
+		<td>Member for</td>
+	</tr>		
 	<% @users.each do |user| %>
 		<tr class="<%= current_user == user ? 'green-bg' : '' %>">
 			<td><a name='<%= "user_#{user.id}" %>'></a><%= user.rank.try(:ordinalize) %></td>
@@ -24,4 +24,4 @@
 			<td><%= time_ago_in_words(user.created_at)%></td>
 		</tr>	
 	<% end %>
-	</table>
+</table>

@@ -13,7 +13,7 @@ describe Questions::ShowDecorator do
   
   describe "question_tags" do
     it "maps the tags" do
-      #raw model.tags.map(&:attributes).map {|tag| link_to tag["name"], tagged_path(tag["name"]), class: "tag" }.join(" ")
+      @decorator.question_tags.should eq ""
      end
    end
    

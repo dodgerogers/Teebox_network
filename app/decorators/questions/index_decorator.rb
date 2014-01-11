@@ -41,7 +41,7 @@ class Questions::IndexDecorator < ApplicationDecorator
     @questions.unanswered(params[:unanswered]).includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end
 
-  def votes_questions
-    @questions.by_votes(params[:by_votes]).includes(:user, :video).paginate(page: params[:page], per_page: 20)
+  def popular_questions
+    @questions.popular(params[:popular]).includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end
 end

@@ -5,29 +5,30 @@ class UsersController < ApplicationController
   
   def show
     @decorator = UserDecorator.new(@user)
+    @points = Point.find_points(@decorator)
   end
   
   def index
     @users = User.order("rank").reject { |n| n.rank == 0 }#.paginate(page: params[:page], per_page: 50)
   end
   
-  def get_user
-    @user = User.find(params[:id])
-  end
-  
-  def answers_index
+  def answers
     @answers = @user.answers.order("created_at desc").paginate(page: params[:page], per_page: 10).includes(:question)
   end
   
-  def questions_index
+  def questions
     @questions = @user.questions.order("created_at desc").paginate(page: params[:page], per_page: 10)
   end
   
-  def comments_index
+  def comments
     @comments = @user.comments.order("created_at desc").paginate(page: params[:page], per_page: 10).includes(:commentable)
   end
   
   def welcome
     @questions = Question.where(correct: false).limit(2)
+  end
+  
+  def get_user
+    @user = User.find(params[:id])
   end
 end

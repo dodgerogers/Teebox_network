@@ -1,0 +1,22 @@
+<% meta_title("#{@user.username} questions") %>
+
+<h2>Questions</h2>
+
+<table class="table">
+	<% @questions.each do |question| %>
+		<tr>
+			<td>
+			<div id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
+				<%= question.answers_count %>
+			</div>
+		  	</td>
+		  	<td class="left">	
+				<b><%= link_to question.title.titleize, question %></b>
+		  	</td>
+		</tr>
+	<% end %>
+</table>
+
+<%= will_paginate @questions %><br>
+
+<%= link_to "#{@user.username.titleize} profile", user_path(@user) %>

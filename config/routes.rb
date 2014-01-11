@@ -6,20 +6,25 @@ TeeboxNetwork::Application.routes.draw do
   
   root to: "questions#index"
   
+  # Errors
   match '(errors)/:status', to: 'errors#show', constraints: { status: /\d{3}/ }
   
+  # Tags
   get "tagged/:tag", to: "questions#index", as: :tagged
   
+  # Questions
   get "question_tags", to: "tags#question_tags", as: :question_tags #tokenInput json tags
   get "questions/unanswered", to: "questions#unanswered", as: :unanswered
   get "questions/popular", to: "questions#popular", as: :popular
   
-  get "users/:id/questions_index", to: "users#questions_index", as: :questions_index
-  get "users/:id/answers_index", to: "users#answers_index", as: :answers_index
-  get "users/:id/comments_index", to: "users#comments_index", as: :comments_index
+  # Users
   get "users/:id/welcome", to: "users#welcome", as: :welcome
   get "users/:id/points", to: "points#index", as: :points
+  get "users/:id/questions", to: "users#questions", as: :user_questions
+  get "users/:id/answers", to: "users#answers", as: :user_answers
+  get "users/:id/comments", to: "users#comments", as: :user_comments
 
+  # Static
   get "how-it-works", to: "pages#info", as: :info
   get "sitemap", to: 'pages#sitemap', as: :sitemap
   get "about", to: 'pages#about', as: :about

@@ -23,7 +23,7 @@ class Question < ActiveRecord::Base
   validates :title, obscenity: true
   
   scope :unanswered, conditions: { correct: false }
-  scope :by_votes, order: "votes_count DESC"
+  scope :popular, order: "votes_count DESC"
   scope :newest, order: "created_at DESC"
   
   def ensure_own_video 

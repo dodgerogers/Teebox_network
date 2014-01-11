@@ -15,6 +15,7 @@ namespace :db do
   end
 
   task rank_users: :environment do
+    # Should move this into a module method or user method.
      results = {}
      User.order("reputation desc").each { |user| results[user.reputation] = User.where(reputation: user.reputation).map(&:id) }
      results.each_with_index { |user, rank| user[1].each {|u| User.find_by_id(u).update_attributes(rank: rank + 1) } }
@@ -31,10 +32,6 @@ end
 
 task :delete_capybara do
   FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/capybara/*")
-end
-
-task :delete_prod_log do
-  FileUtils.rm "#{Rails.root}/log/production.log"
 end
 
 task :delete_dev_logs do

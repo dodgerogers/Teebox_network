@@ -1,0 +1,23 @@
+<% meta_title("#{@user.username} answers") %>
+
+<h2>Answers</h2>
+<table class="table">
+	<% @answers.each do |answer| %>	
+	    <tr>
+			<td>
+				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %> center">
+					<i class='icon-ok-sign'></i>
+				</div>
+			</td>
+	      <td class='left'>
+			<%= link_to "#{url_for(answer.question)}#answer_#{answer.id}" do %>
+				<b><%= answer.question.title %>&nbsp;<i class="icon-question-sign"></i></b><br>
+				<%= strip_links(truncate(answer.body, length: 120)) %>
+			<% end %>	
+		  </td>
+	    </tr>
+	<% end %>
+</table>
+
+<%= will_paginate @answers %>
+<%= link_to "Back to #{@user.username.titleize}", user_path(@user) %>
