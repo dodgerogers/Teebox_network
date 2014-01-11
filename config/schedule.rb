@@ -1,10 +1,6 @@
 set :output, "#{path}/log/cron.log"
 
-every :hour do
-  rake "carrierwave_tmp"
-end
-
-every :day, at: "12:00am" do
+every :day, at: "2:50pm" do
   rake "db:generate_report"
 end
 
@@ -14,6 +10,10 @@ end
 
 every :day, at: "03:00am" do
   rake "db:rank_users"
+end
+
+every 3.hours do
+  rake "carrierwave_tmp"
 end
 
 # Use this file to easily define all of your cron jobs.
