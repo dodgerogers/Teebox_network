@@ -26,6 +26,9 @@
 		margin: 5px 0px 1px;
 		box-shadow: none;
 	}
+	.navbar .brand {
+		padding: 7px 20px 10px 5px;
+	}
 	.navbar .unread {
 		background: $blackhole!important;
 	}
@@ -142,6 +145,9 @@
 		@include border-radius;
 		margin: 5px 0px 1px;
 		box-shadow: none;
+	}
+	.navbar .brand {
+		padding: 7px 20px 10px 5px;
 	}
 	.navbar .unread {
 		background: $blackhole!important;
@@ -340,7 +346,7 @@
 		background: $blackhole!important;
 	}
 	.navbar .brand {
-		padding: 12px 20px 12px 0px;
+		padding: 7px 20px 10px 5px;
 	}
 	#notifications-area {
 		width:100%;

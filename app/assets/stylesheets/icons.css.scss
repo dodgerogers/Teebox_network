@@ -1,21 +1,73 @@
 @import "variables";
 
-/* custom sizes + colors */
+// Teebox logo icon //
+
+@font-face {
+  font-family: "teebox";
+  src: url("./teebox_504b1ba5684423954b4c617b123cf4c2.eot");
+  src: url("./teebox_504b1ba5684423954b4c617b123cf4c2.eot?#iefix") format("embedded-opentype"),
+       url("./teebox_504b1ba5684423954b4c617b123cf4c2.woff") format("woff"),
+       url("./teebox_504b1ba5684423954b4c617b123cf4c2.ttf") format("truetype"),
+       url("./teebox_504b1ba5684423954b4c617b123cf4c2.svg#teebox") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "teebox";
+    src: url("./teebox_504b1ba5684423954b4c617b123cf4c2.svg#teebox") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-teebox:before {
+  display: inline-block;
+  font-family: "teebox";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-teebox:before { content: "\f100"; }
+
+// custom sizes + colors //
 .large {
 	vertical-align:middle;
 	font-size: 26px;
 }
-.red, .red a, li .red a {
+.red, red {
 	color: $red;
+	li, a {
+		color: $red;
+	}
 }
-.green {
-	color: $emerald;
+.green, green {
+	color: $green;
+	a {
+		color: $green;
+	}
 }
 .points {
 	color: $asphalt;
 }
+.white {
+	color: #fff;
+}
+.universe {
+	color: $asphalt;
+	display: inline;
+	margin: 0 5px 0 0;
+}
 
-/* Social Icon colors */
+// Social Icons //
 
 .social-buttons {
 	display:inline-block;
@@ -34,10 +86,12 @@
 .twitter {
 	color: #4099FF;
 }
-.facebook:hover, .google:hover, .twitter:hover {
-	color: $blackhole;
+.facebook, .google, .twitter {
+	&:hover {
+		color: $blackhole;
+	}
 }
-/* end */
+// end //
 
 .white-shadow {
 	text-shadow: 0px 2px 0px #fff;

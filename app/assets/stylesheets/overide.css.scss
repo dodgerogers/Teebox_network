@@ -32,8 +32,8 @@ form .btn {
 //-------- navbar --------//
 
 .navbar .container {
-	margin-top: 3px;
-	//margin-bottom: 6px;//
+	margin-top: 2px;
+	//margin-bottom: 6px;
 	max-width:1170px;
 }
 .navbar-inner {
@@ -58,14 +58,15 @@ form .btn {
 }
 .navbar .brand {
 	font-family: 'BebasNeueRegular';
-	font-size: 28px;
-	color: $ocean;
+	font-size: 26px;
+	color: #0a323a;
 	letter-spacing: 1px;
-	text-shadow: 0px 1px 1px #297D8B;
-	padding: 12px 20px;
+	text-shadow: 0 0 0 #000;
+	padding: 7px 20px 10px;
+	margin-top: 0px;
 }
-.navbar .beta {
-	color: #fff;
+.navbar #brand {
+	text-shadow: 0px 1px 1px #297D8B;
 }
 .navbar .brand:hover,.navbar .nav > li > a:hover {
 	color: #fff!important;
@@ -97,19 +98,17 @@ form .btn {
     position: static;
 }
 .navbar .btn-navbar {
-	background:$ocean ;
-}
-.navbar .btn-navbar:hover {
-	background: $universe!important;
-}
-.navbar .nav li #gravatar {
-	padding: 5px 0px 0 5px;
+	background:$ocean;
+	margin-top:7px;
+	&:hover {
+		background: $universe!important;
+	}
 }
 .dropdown-menu li > a {
 	color:$teal;
-}
-.dropdown-menu li > a:hover {
-	background:$ocean;
+	&:hover {
+		background:$ocean;
+	}
 }
 .dropdown-menu {
 	@include border-radius;

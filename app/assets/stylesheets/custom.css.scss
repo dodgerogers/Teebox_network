@@ -28,16 +28,7 @@ a:hover {
 	text-decoration: none;
 }
 //  @font face //
-@font-face {
-	font-family: 'lobster_1.3regular';
-    src: url('lobster_1.3-webfont.eot');
-    src: url('lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
-         url('lobster_1.3-webfont.woff') format('woff'),
-         url('lobster_1.3-webfont.ttf') format('truetype'),
-         url('lobster_1.3-webfont.svg#lobster_1.3regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}	
+
 @font-face {
   	font-family: 'BebasNeueRegular';
 	src: url('BebasNeue-webfont.eot');
@@ -48,7 +39,6 @@ a:hover {
 	font-weight: lighter;
  	font-style: normal;
 }	
-// font face //
 
 h1 {
 	font-size: 36px;
@@ -102,32 +92,13 @@ h6 {
 	font-size: 22px;
 	color: $teal;
 	vertical-align: middle;
-}	
-.lobster {
-	font-family: "lobster_1.3regular";
-}		
+}			
 small {
 	line-height: 5px;
 	color: #777;
 }	
 .center {
 	text-align:center;
-}
-//------- Custom colors -------//
-
-green, green a {
-	color: $green;
-}
-red, red a {
-	color: $red;
-}
-.white {
-	color: #fff;
-}
-.universe {
-	color: $asphalt;
-	display: inline;
-	margin: 0 5px 0 0;
 }
 
 //----------------------Containers ------------------------------//
@@ -157,15 +128,7 @@ red, red a {
 //--------------- logo------------ //
 
 .logo {
-	display:inline-block;
-	width:50px;
-}
-.logo img {
-	-webkit-transition: all 1s ease;
-	     -moz-transition: all 1s ease;
-	       -o-transition: all 1s ease;
-	      -ms-transition: all 1s ease;
-	          transition: all 1s ease;
+	color: #34CA8B;
 }
 .info-logo {
 	border-bottom: 1px solid #fff;
