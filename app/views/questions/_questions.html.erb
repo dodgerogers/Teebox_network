@@ -1,35 +1,33 @@
-<section class="row" id="questions-index">
-	<% questions.each do |question| %>
-		<article class="span12">
-			<div class="question-image">
-				<%= display_video(question) %>
+<% questions.each do |question| %>
+	<article class="span12">
+		<div class="question-image">
+			<%= display_video(question) %>
+		</div>
+	
+		<div class="question-info">
+			<div class="title-holder">
+				<div class="index-title">
+					<%= link_to question.title.capitalize, question %>
+				</div>
 			</div>
 		
-			<div class="question-info">
-				<div class="title-holder">
-					<div class="index-title">
-						<%= link_to question.title.capitalize, question %>
-					</div>
+			<div class="profile-info-index">
+				<div class="index-vote pull-left">
+					<%= question.votes_count  %>
+				</div>	
+				<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
+					<%= question.answers_count %>
 				</div>
-			
-				<div class="profile-info-index">
-					<div class="index-vote pull-left">
-						<%= question.votes_count  %>
-					</div>	
-					<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
-						<%= question.answers_count %>
-					</div>
-					<%= profile_link_helper(question) %>
-				</div>
+				<%= profile_link_helper(question) %>
 			</div>
-		</article>
-	<% end %>
+		</div>
+	</article>
+<% end %>
 
-	<%= will_paginate questions %>	
+<%= will_paginate questions %>	
 
-	<div id="loading">
-		<%= image_tag("spinner.gif", class: "loading") %>
-		Loading more questions...
-	</div>
-</section>
+<div id="loading">
+	<%= image_tag("spinner.gif", class: "loading") %>
+	Loading more questions...
+</div>
 

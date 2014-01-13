@@ -9,7 +9,7 @@ every :day, at: "02:00am" do
 end
 
 every :day, at: "03:00am" do
-  rake "db:rank_users"
+  rake "user:rank"
 end
 
 every 3.hours do

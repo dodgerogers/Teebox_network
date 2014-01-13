@@ -20,8 +20,8 @@ namespace :db do
     #  tag.explanation = Populator.sentences(1)
     #end  
     
-    Question.populate 10 do |question|
-      question.title = Populator.words(5..12).titleize
+    Question.populate 20 do |question|
+      question.title = Populator.words(5..9).titleize
       question.body = Populator.sentences(4..8)
       question.user_id = User.all.map(&:id)
       question.votes_count = 0

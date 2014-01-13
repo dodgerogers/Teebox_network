@@ -4,4 +4,6 @@
 
 <%= render partial: "shared/nav_links" %>
 
-<%= render partial: "questions/questions", locals: { questions: @unanswered } %>
+<section class="row" id="questions-index">
+	<%= render partial: "questions/questions", locals: { questions: @unanswered } %>
+</section>	

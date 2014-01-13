@@ -128,7 +128,10 @@ small {
 //--------------- logo------------ //
 
 .logo {
-	color: #34CA8B;
+	color: $emerald;
+	&:hover {
+		color: $dark-emerald;
+	}
 }
 .info-logo {
 	border-bottom: 1px solid #fff;
@@ -467,8 +470,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	display:none;
 	color: #ccc;
 	text-align:center;
-	padding: 5px 0;
-	background: #fff;
+	padding: 10px 0 11px;
 }
 .load-questions {
 	text-align:center;
@@ -602,7 +604,8 @@ body #header-search {
 
 .pagination {
   	text-align: center;
-	cursor: default; 
+	cursor: default;
+	background: none!important;
 }
 .pagination a, .pagination span {
     padding: 0.2em 0.3em; 

@@ -32,4 +32,18 @@ class User < ActiveRecord::Base
   def send_on_create_confirmation_instructions
     Devise::Mailer.delay.confirmation_instructions(self)
   end
+  
+  def self.rank_by_reputation
+    results = {}
+    self.order("reputation desc").each do |user| 
+       results[user.reputation] = self.where(reputation: user.reputation).map(&:id)
+    end
+    results
+  end
+  
+  def self.rank_users
+    self.rank_by_reputation.each_with_index do |users, rank|
+      self.where(id: users[1]).update_all(rank: rank + 1)
+    end
+  end
 end

@@ -4,5 +4,6 @@
 
 <%= render partial: "shared/nav_links" %>
 
-<%= render partial: "questions/questions", locals: { questions: @popular } %>
-	
+<section class="row" id="questions-index">
+	<%= render partial: "questions/questions", locals: { questions: @popular } %>
+</section>
