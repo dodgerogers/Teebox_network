@@ -1,3 +1,12 @@
-$('#answer_<%= "#{@answer.id}" %>').html('<%= escape_javascript(render(partial: "answers/form", locals: {question_id: @answer.question_id}))%>');
+var answer = $("#answer_<%= @answer.id %>");
+var editFormPartial = '<%= escape_javascript(render(partial: "answers/form", locals: {question_id: @answer.question_id}))%>';
 
+answer.find(".answer").html(editFormPartial);
+
+// Cancel button disguards changes and re-renders the @answer template
+answer.on("click", ".cancel-answer ", function(event) {
+	event.preventDefault();
+	answer.replaceWith("<%= escape_javascript(render @answer) %>");
+	$(".new_comment").hide();
+});
 
