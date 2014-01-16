@@ -9,15 +9,9 @@ describe AmazonS3 do
   
   subject { AmazonS3 }
   
-  describe "get_screenshots" do
-    it "maps an array of formatted videos screenshots attributes" do
-      subject.get_screenshots.should eq ["uploads/video/screenshot/1/seven_iron.jpeg", "uploads/video/screenshot/1/mini_seven_iron.jpeg"]
-    end
-  end
-  
-  describe "get_videos" do
-    it "maps an array of formatted videos file attributes" do
-      subject.get_videos.should eq ["uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v"]
+  describe "find_videos" do
+    it "maps an array of formatted videos files and screenshots" do
+      subject.find_videos.should eq ["uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v","uploads/video/screenshot/1/seven_iron.jpeg", "uploads/video/screenshot/1/mini_seven_iron.jpeg"]
     end
   end
   

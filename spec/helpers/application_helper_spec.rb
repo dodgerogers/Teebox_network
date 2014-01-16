@@ -29,7 +29,7 @@ describe ApplicationHelper do
   
   describe "personal_links" do
     it "returns formatted personal links" do
-      helper.personal_links.should eq "<span><a href=\"https://twitter.com/AndrewRogers747\" target=\"_blank\"><i class='icon-twitter twitter'></i> </a><a href=\"https://plus.google.com/+andyrogers747/\" target=\"_blank\"><i class='icon-google-plus-sign google'></i> </a><a href=\"http://www.linkedin.com/profile/view?id=52220364&amp;trk=nav_responsive_tab_profile\" target=\"_blank\"><i class='icon-linkedin facebook'></i></a></span>"
+      helper.personal_links.should eq "<span><a href=\"https://twitter.com/AndrewRogers747\" target=\"_blank\"><i class='icon-twitter twitter'></i> </a><a href=\"https://plus.google.com/+andyrogers747/\" target=\"_blank\"><i class='icon-google-plus-sign google'></i> </a><a href=\"http://www.linkedin.com/profile/view?id=52220364&amp;trk=nav_responsive_tab_profile\" target=\"_blank\"><i class='icon-linkedin facebook'></i> </a><a href=\"https://gist.github.com/dodgerogers\" target=\"_blank\"><i class='icon-github-alt'></i></a></span>"
     end
   end
   
