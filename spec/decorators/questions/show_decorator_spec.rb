@@ -9,11 +9,13 @@ describe Questions::ShowDecorator do
     @video = create(:video, user: @user)
     @question = create(:question, video: @video, user: @user)
     @decorator = Questions::ShowDecorator.new(@question)
+    @tag = create(:tag, name: "shank")
+    @decorator.tags << @tag
   end
   
   describe "question_tags" do
-    it "maps the tags" do
-      @decorator.question_tags.should eq ""
+    it "maps the tags as links" do
+      @decorator.question_tags.should eq "<a href=\"/tagged/#{@tag.name}\" class=\"tag\">#{@tag.name}</a>"
      end
    end
    

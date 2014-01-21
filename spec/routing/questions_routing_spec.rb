@@ -12,11 +12,11 @@ describe QuestionsController do
     end
 
     it "routes to #show" do
-      get("/questions/1").should route_to("questions#show", :id => "1")
+      get("/questions/1").should route_to("questions#show", id: "1")
     end
 
     it "routes to #edit" do
-      get("/questions/1/edit").should route_to("questions#edit", :id => "1")
+      get("/questions/1/edit").should route_to("questions#edit", id: "1")
     end
 
     it "routes to #create" do
@@ -24,11 +24,11 @@ describe QuestionsController do
     end
 
     it "routes to #update" do
-      put("/questions/1").should route_to("questions#update", :id => "1")
+      put("/questions/1").should route_to("questions#update", id: "1")
     end
 
     it "routes to #destroy" do
-      delete("/questions/1").should route_to("questions#destroy", :id => "1")
+      delete("/questions/1").should route_to("questions#destroy", id: "1")
     end
 
     it "routes to #index" do
@@ -41,6 +41,10 @@ describe QuestionsController do
     
     it "routes to #popular" do
       get("/questions/popular").should route_to("questions#popular")
+    end
+    
+    it "routes to #relared" do
+      get('/questions/1/related').should route_to('questions#related', id: "1")
     end
   end
 end

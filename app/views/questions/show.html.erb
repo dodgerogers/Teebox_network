@@ -1,5 +1,5 @@
 <%= content_for :head do %>
-	<%= javascript_include_tag "sublime.js", defer: "defer" %>
+	<%= javascript_include_tag "sublime.js", "related_questions.js", defer: "defer" %>
 <% end %>
 
 <% meta_title(@decorator.title) %>
@@ -14,7 +14,7 @@
 				<br><%= youtube_url_html5(@decorator.youtube_url) %>
 			<% end %>	
 		</div>
-		<div id="question-box">
+		<div id="question-box" data-id="<%= @decorator.id %>">
 			<div class="question">
 				<h1><%= @decorator.title.titleize %></h1>		
 				<div class="question-content">
@@ -60,7 +60,12 @@
 	</div>
 	
 	<aside class="span4">
-		<%= render partial: "shared/related_questions", locals: { questions: @decorator.related_questions } %>
+		<div id="load-related">
+			<!-- questions/related loaded here -->
+			<div id="loading" class="left">
+				<%= image_tag("spinner.gif", class: "loading") %> Loading questions...
+			</div>
+		</div>
 		<div class="social-buttons">
 			<p>Know someone who can help?</p>
 			<p><%= social_links(request.original_url) %></p>

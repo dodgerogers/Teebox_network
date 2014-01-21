@@ -1,4 +1,4 @@
-jQuery(function() {
+$(function() {
     var form = $('#question_video_id');
 	var video = $('.videos');
 	var icon = $('.selected');

@@ -5,16 +5,12 @@
 
 <%= render partial: "shared/nav_links" %>
 	
-<div id='params'>
-	<% if params[:search] %>
-		<%= display_results(@decorator.search, params[:search]) %>
-		<br>
-	<% elsif params[:tag] %>
-		<%= render partial: "shared/tag_cloud", locals: { tags: @decorator.tags, decorator: @decorator }%>
-		<%= display_results(@decorator.tagged_questions, params[:tag]) %>
-		<br>
-	<% end %>
-</div>
+<% if params[:search] %>
+	<%= display_results(@decorator.search, params[:search]) %>
+<% elsif params[:tag] %>
+	<%= render partial: "tags/tag_cloud", locals: { questions: Tag.cloud } %>
+	<%= display_results(@decorator.tagged_questions, params[:tag]) %>
+<% end %>
 
 <section class="row" id="questions-index">
 	<% if params[:search] %> 

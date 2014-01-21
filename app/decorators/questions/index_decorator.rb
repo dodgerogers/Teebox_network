@@ -15,10 +15,7 @@ class Questions::IndexDecorator < ApplicationDecorator
     @search ||= Question.text_search(params[:search]).includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end
 
-  def tags
-    Tag.joins(:taggings).select('tags.*, count(tag_id) as "tag_count"').group("tags.id").order('tag_count desc')
-  end
-
+  # Essentially a wrapper adding pagination for the tagged_with method tested in question_spec.rb
   def tagged_questions
     @tagged ||= Question.tagged_with(params[:tag]).includes(:user, :video).paginate(page: params[:page], per_page: 20)
   end

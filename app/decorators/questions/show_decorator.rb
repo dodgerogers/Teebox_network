@@ -8,6 +8,6 @@ class Questions::ShowDecorator < Draper::Decorator
   end
   
   def related_questions
-    Question.text_search(model.title).includes(:user).limit(7).reject { |n| n == model }
+    Question.text_search(model.title).limit(7).reject { |n| n == model }
   end
 end

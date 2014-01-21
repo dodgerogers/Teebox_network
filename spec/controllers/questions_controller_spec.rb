@@ -49,6 +49,13 @@ describe QuestionsController do
       response.should render_template :unanswered
     end
   end
+  
+  describe "GET related" do
+    it "renders related template" do
+      get :related, id: @question.id
+      response.should render_template :related
+    end
+  end
 
   describe "GET new" do
     it "assigns a new question as @question" do

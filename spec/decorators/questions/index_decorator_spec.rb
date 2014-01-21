@@ -4,6 +4,7 @@ include QuestionHelper
 describe Questions::IndexDecorator do
   before(:each) do
     @decorator = Questions::IndexDecorator.new()
+    @tag = create(:tag, name: "shank")
   end
   
   describe "params parameter" do

@@ -59,7 +59,7 @@ describe Comment do
   describe "commentable type" do
     before { @comment.commentable_type = nil }
     it { should_not be_valid }
-  end  
+  end 
   
   describe "find_mentions" do
     it "returns array of names" do
@@ -78,5 +78,5 @@ describe Comment do
         @comment.display_mentions.content.should eq("hey @dodgey this is a comment")
       end
     end
-  end  
+  end
 end

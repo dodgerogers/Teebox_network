@@ -1,4 +1,4 @@
-jQuery(function() {
+$(function() {
   	var paths;
 	paths = window.location.href.indexOf("users") > -1 || window.location.href.indexOf("highest_votes") > -1 || window.location.href.indexOf("unanswered") > -1;
 	if ($('.pagination').length && !paths) {

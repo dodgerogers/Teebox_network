@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered]
+  before_filter :set_question, only: [:show, :related]
   load_and_authorize_resource except: [:index, :show]
   require 'teebox/commentable'
   include Teebox::Commentable
@@ -19,9 +20,8 @@ class QuestionsController < ApplicationController
   end
   
   def show
-    question = Question.find(params[:id])
+    # Use decorator from set_question
     @answer = Answer.new
-    @decorator = Questions::ShowDecorator.new(question)
     @answers = @decorator.answers.includes(:question, :user).by_votes
   end
   
@@ -65,5 +65,20 @@ class QuestionsController < ApplicationController
 
   def popular
     @popular = Question.popular.includes(:user, :video).paginate(page: params[:page], per_page: 20)
+  end
+  
+  def related
+    # Use decorator from set_question, and related_questions from index decorator
+    @related = @decorator.related_questions 
+    respond_to do |format|
+      format.html { render layout: false }
+    end
+  end
+  
+  private
+  
+  def set_question
+    question = Question.find(params[:id])
+    @decorator = Questions::ShowDecorator.new(question)
   end
 end

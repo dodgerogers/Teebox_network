@@ -22,6 +22,10 @@ class Tag < ActiveRecord::Base
     end
   end
   
+  def self.cloud
+    self.joins(:taggings).select('tags.*, count(tag_id) as "tag_count"').group("tags.id").order('tag_count desc')
+  end
+  
   def self.tokens(query)
     tags = where("name ilike ?", "%#{query}%")
     if tags.empty?

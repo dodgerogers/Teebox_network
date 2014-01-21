@@ -1,4 +1,4 @@
-jQuery(function() {
+$(function() {
   $(".new_comment").hide();
   $(document.body).on("click", ".comment-button", function(event) {
     event.preventDefault();
