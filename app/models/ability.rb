@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     elsif user.role == 'standard'
       #Questions
-      can [:new, :create, :highest_votes, :unanswered, :read, :vote], Question
+      can [:new, :create, :popular, :unanswered, :read, :vote, :related], Question
       can [:update, :edit, :destroy, :correct], Question do |question|
         question.try(:user) == user
       end
@@ -29,7 +29,7 @@ class Ability
       end
       can [:new, :create, :read, :edit, :update], Tag
     else
-      can [:highest_votes, :unanswered, :read, :vote], Question
+      can [:popular, :unanswered, :read, :vote, :related], Question
     end
   end
 end

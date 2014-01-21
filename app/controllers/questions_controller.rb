@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
   
-  before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered]
+  before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered, :related]
   before_filter :set_question, only: [:show, :related]
-  load_and_authorize_resource except: [:index, :show]
+  load_and_authorize_resource except: [:index, :show, :related]
   require 'teebox/commentable'
   include Teebox::Commentable
   include Teebox::Votable
