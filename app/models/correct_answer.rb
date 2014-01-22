@@ -15,7 +15,7 @@ class CorrectAnswer < Answer
     if answer_correct?(true)
       update_points([@answer, 12], [@answer.question, 5])
     else
-      update_points([@answer], [@answer.question])
+      update_points([@answer, 0], [@answer.question, 0])
     end
   end
    

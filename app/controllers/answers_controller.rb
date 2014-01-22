@@ -49,7 +49,7 @@ class AnswersController < ApplicationController
     if @answer.toggle_correct(:correct)
       points = CorrectAnswer.new(@answer)
       points.create
-      @answer.create_activity :correct, owner: current_user, recipient: @answer.user unless @answer.is_false?
+      #@answer.create_activity :correct, owner: current_user, recipient: @answer.user unless @answer.is_false?
       respond_to do |format|
         format.html { redirect_to :back, notice: "Answer submitted" }
         format.js
