@@ -706,12 +706,9 @@ body #header-search {
 
 .related {
 	height: auto;
-	padding: 5px;
+	//padding: 5px;
 	position:relative;
 	@include box-sizing;
-	&:hover {
-		background: #fff;
-	}
 }
 .related-info {
 	width: auto;
@@ -858,6 +855,9 @@ body #header-search {
 	&:hover {
 		background: $blackhole;
 	}
+}
+.start-tour {
+	width:310px;
 }
 .direct-upload {
 	display:inline-block;
@@ -1311,10 +1311,18 @@ ul.sitemap {
 // Tags and search params
 #nav_links {
 	margin-bottom: 30px;
+	position:relative;
 }
 #params {
 	margin: 0px 0 15px;
 }
 #tag_cloud {
 	margin-bottom: 15px;
+}
+
+// Popovers //
+
+#nav-popover {
+	height:1px;
+	position:relative;
 }

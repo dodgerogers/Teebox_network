@@ -16,15 +16,14 @@
 					<li><%= link_to "About us", about_path %></li>
 					<li><%= link_to "How it Works", info_path %></li>
 					<li><%= link_to "Leaderboard", users_path %></li>
-					<li><%= link_to "Sitemap", sitemap_path %></li>
 				</ul>	
 			</div>
 			<div class="span3">
 				<div class="footer-title">Company</div>
 				<ul class="footer-links">
-					<li><%= link_to "Terms & Conditions" %></li>
-					<li><%= link_to "Privacy" %></li>
-					<li><%= link_to "©Teebox Network" %></li>
+					<li>© Teebox Network</li>
+					<li><%= link_to "Take the tour", '#', id: "welcome-start-tour", "data-ref" => "welcome-tour" %></li>
+					<li><%= link_to "Sitemap", sitemap_path %></li>
 				</ul>
 			</div>
 			<div class="span3">
@@ -43,4 +42,5 @@
 			</div>
 		</div>
 	</div>
+	<%= javascript_include_tag "start_tour.js" %>
 </footer>
