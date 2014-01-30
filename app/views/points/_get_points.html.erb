@@ -1,9 +1,11 @@
 <% if points.any? %>
 	<table class="table">	
 	<% points.each do |p| %>
+		<% cache ["points", p] do %>
 		<tr><td class="left">
 			<%= render partial: "points/#{p.pointable.class.name.downcase}", locals: { point: p } %>
 		</td></tr>
+		<% end %>
 	<% end %>
 	</table>
 <% else %>

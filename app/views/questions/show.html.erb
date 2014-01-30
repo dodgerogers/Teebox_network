@@ -11,9 +11,7 @@
 	<div class="span8">
 		<div class="video-container">
 			<%= sublime_video(@decorator.video) if @decorator.video.present? %>
-			<% if @decorator.youtube_url.present? %>
-				<br><%= youtube_url_html5(@decorator.youtube_url) %>
-			<% end %>	
+			<%= youtube_url_html5(@decorator.youtube_url) if @decorator.youtube_url.present? %>
 		</div>
 		<div id="question-box" data-id="<%= @decorator.id %>">
 			<div class="question">
@@ -21,15 +19,11 @@
 				<div class="question-content">
 					<%= simple_format(@decorator.body) %>
 				</div>
-				
 				<div class="question-tags">
 					<%= @decorator.question_tags %>
 				</div>
-				
 				<div class="profile-info">
-					<%= render partial: "votes/form", locals: { votes_count: "questions",  
-																object: @decorator, 
-																vote_path: method(:vote_question_path) } %> 
+					<%= render partial: "votes/form", locals: { votes_count: "questions", object: @decorator, vote_path: method(:vote_question_path) } %> 
 				    <%= profile_link_helper(@decorator) %>
 					<div class="profile">
 						<%= link_to "Edit", edit_question_path(@decorator) if can? :update, @decorator %>
@@ -37,6 +31,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<section class="comments-area">
 				<div id="question_<%= @decorator.id %>">
 					<%= render @decorator.comments.includes(:user) %>
@@ -45,18 +40,16 @@
 				<%= render partial: "comments/form", locals: {commentable: @decorator} %>
 			</section>
 		</div>
-	
+		
 		<div id='answers-count' class="<%= @decorator.answers_count > 0 ? 'answered' : 'unanswered' %>">
 			<h3><%= pluralize(@decorator.answers_count, "Answer")  %></h3>
 		</div>
-	
+		
 		<section id="question-answers">
-			<%= render @answers %> <!-- Render @decorator.answers rm answers index -->
+			<%= render @answers %>
 		</section>
 		
-		<a href="#" id="answer-button" class="default submit">Answer question</a>
-		<br>
-		<br>
+		<a href="#" id="answer-button" class="default submit">Answer question</a><br><br>
 		<%= render partial: "answers/form", locals: { question_id: @decorator.id } %>
 	</div>
 	

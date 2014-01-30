@@ -1,17 +1,18 @@
 <% if activity.trackable %>
-	<div class="gravatar">
+<!-- load commentable to avoid n+1 when loading activities -->
+<% comment = Comment.find(activity.trackable, include: :commentable) %>
+
+  	<div class="gravatar">
 		<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
 	</div>
-	<div class="message">	
-		<%= link_to activity.owner.username, activity.owner %> commented on
-		<%= link_to read_activity_path(activity), method: :put do %>
-			<% c = activity.trackable.commentable_type == "Question" ? 
-			activity.trackable.commentable.title : activity.trackable.commentable.body  %>
-			<%= truncate(c, length: 60) %>
-		<% end %><br>
-		<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
-	</div>	
+	<div class="message">        
+    	<%= link_to activity.owner.username, activity.owner %> commented on
+	    <%= link_to read_activity_path(activity), method: :put do %>
+	    	<% c = comment.commentable_type == "Question" ? comment.commentable.title : comment.commentable.body  %>
+		    <%= truncate(c, length: 60) %>
+	    <% end %><br>
+	    <small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
+	</div>        
 <% else %>
-	User has removed comment
+        User has removed comment
 <% end %>
-	

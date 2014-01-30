@@ -34,7 +34,7 @@
 	
 	<div class="comments-area">
 		<div id="answer_<%= answer.id %>">
-			<%= render answer.comments.includes(:user) %>
+			<%= render answer.comments %>
 		</div>
 		
 		<%= link_to "Add comment", "#" , class: "comment-button" %>

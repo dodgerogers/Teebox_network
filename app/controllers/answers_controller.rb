@@ -8,8 +8,8 @@ class AnswersController < ApplicationController
   
   
   def show
+    # So we don't have to use an if/else whenever we want to link to an answers question from comments
     @answer = Answer.find(params[:id])
-    # So we don't have to use an if/else whenever we want to link to an answers question
     redirect_to @answer.question
   end
   
@@ -57,7 +57,6 @@ class AnswersController < ApplicationController
     if @answer.toggle_correct(:correct)
       points = CorrectAnswer.new(@answer)
       points.create
-      #@answer.create_activity :correct, owner: current_user, recipient: @answer.user unless @answer.is_false?
       respond_to do |format|
         format.html { redirect_to :back, notice: "Answer submitted" }
         format.js
