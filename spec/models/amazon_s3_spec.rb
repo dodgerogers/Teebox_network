@@ -11,7 +11,7 @@ describe AmazonS3 do
   
   describe "find_videos" do
     it "maps an array of formatted videos files and screenshots" do
-      subject.find_videos.should eq ["uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v","uploads/video/screenshot/1/seven_iron.jpeg", "uploads/video/screenshot/1/mini_seven_iron.jpeg"]
+      subject.find_videos.should eq ["uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v","uploads/video/screenshot/#{@video.id}/seven_iron.jpeg", "uploads/video/screenshot/#{@video.id}/mini_seven_iron.jpeg"]
     end
   end
   

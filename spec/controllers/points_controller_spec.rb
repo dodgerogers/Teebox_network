@@ -14,4 +14,11 @@ describe PointsController do
       response.should render_template :index
     end
   end
+  
+  describe "GET breakdown" do
+    it "fetches points with 200" do
+      get :breakdown, id: @user.id
+      response.status.should be(200)
+    end
+  end
 end

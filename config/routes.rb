@@ -1,9 +1,5 @@
 TeeboxNetwork::Application.routes.draw do
-
-  devise_for :users, controllers: { confirmations: "confirmations" }, path_names: { sign_in: "login", sign_out: "logout" }
-  resources :users, only: [:show, :index]
-  resources :signed_urls, only: :index
-  
+    
   root to: "questions#index"
   
   # Errors
@@ -23,11 +19,16 @@ TeeboxNetwork::Application.routes.draw do
   get "users/:id/questions", to: "users#questions", as: :user_questions
   get "users/:id/answers", to: "users#answers", as: :user_answers
   get "users/:id/comments", to: "users#comments", as: :user_comments
+  get "/users/:id/breakdown", to: 'points#breakdown', as: :breakdown
 
   # Static
   get "how-it-works", to: "pages#info", as: :info
   get "sitemap", to: 'pages#sitemap', as: :sitemap
   get "about", to: 'pages#about', as: :about
+  
+  devise_for :users, controllers: { confirmations: "confirmations" }, path_names: { sign_in: "login", sign_out: "logout" }
+  resources :users, only: [:show, :index]
+  resources :signed_urls, only: :index
   
   resources :points, only: :index
   

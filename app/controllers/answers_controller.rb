@@ -6,6 +6,14 @@ class AnswersController < ApplicationController
   include Teebox::Commentable
   include Teebox::Votable
   
+  
+  def show
+    @answer = Answer.find(params[:id])
+    # So we don't have to use an if/else whenever we want to link to an answers question
+    redirect_to @answer.question
+  end
+  
+  
   def create
     @answer = current_user.answers.build(params[:answer])
     respond_to do |format|

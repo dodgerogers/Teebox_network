@@ -9,10 +9,4 @@
 	Downvote on
 <% end %>
 
-<% if point.pointable.votable_type == "Answer" %>
-	<%= link_to truncate(point.pointable.votable.body, length: 60), point.pointable.votable.question %>
-<% elsif point.pointable.votable_type == "Comment" %>
-	<%= link_to truncate(point.pointable.votable.content, length: 60), point.pointable.votable.commentable %>
-<% elsif point.pointable.votable_type == "Question" %>
-	<%= link_to truncate(point.pointable.votable.title, length: 60), point.pointable.votable %>
-<% end %>
+<%= build_point_path(point) %>

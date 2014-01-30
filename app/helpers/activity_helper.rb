@@ -1,10 +1,25 @@
 module ActivityHelper
   def build_activity_path(a)
-    if a.trackable_type == "Comment"
-      object = a.trackable.commentable_type == "Question" ? a.trackable.commentable : a.trackable.commentable.question
-    elsif a.trackable_type == "Answer"
-      object = a.trackable.question
+    case a.trackable_type
+    when "Comment"
+      a.trackable.commentable
+    when "Answer"
+      a.trackable
+    when "User"
+      info_path
     end
-    a.trackable_type == "User" ? info_path : "#{url_for(object)}##{a.trackable_type.downcase}_#{a.trackable.id}"
+  end
+  
+  def build_point_path(point)
+    p = point.pointable
+    case p.votable_type
+    when "Answer"
+      text = p.votable.body; path = p.votable 
+    when "Question"
+      text = p.votable.title; path = p.votable 
+    when "Comment"
+      text = p.votable.content; path = p.votable.commentable
+  	end
+    link_to truncate(text, length: 60), path
   end
 end

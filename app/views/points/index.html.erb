@@ -1,5 +1,7 @@
 <% meta_title("Points breakdown") %>
 
+<h2>Points Breakdown</h2>
+
 <%= render partial: "points/get_points", locals: { points: @points } %>
 
 <%= will_paginate @points %>

@@ -4,12 +4,15 @@
 
 <section class="row">
 	<div class="span6">
-		<%= render partial: "points/get_points", locals: { points: @points.limit(5) } %>
+		<h2>Points Breakdown</h2>
+		<div id="points-breakdown" data-user-id="<%= @decorator.id %>">
+			<%= render partial: "shared/loading", locals: { message: "points" } %>
+		</div>
 		<%= link_to "View all", points_path(@decorator) if @points.any? %>
 	</div>
 	
 	<div class="span6">
-		<h2>Your Activity</h2>
+		<h2>Activity</h2>
 		<center>
 			<%= link_to "Questions", user_questions_path(@decorator), class: "default-xl next fullwidth" %>
 			<%= link_to "Answers", user_answers_path(@decorator), class:  "default-xl success fullwidth" %>
@@ -18,4 +21,6 @@
 	</div>
 </section>	
 	
+<!-- Loads points via ajax -->	
+<%= javascript_include_tag "points.js", defer: "defer" %>	
 

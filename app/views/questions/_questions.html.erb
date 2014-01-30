@@ -26,8 +26,5 @@
 
 <%= will_paginate questions %>	
 
-<div id="loading">
-	<%= image_tag("spinner.gif", class: "loading") %>
-	Loading more questions...
-</div>
+<%= render partial: "shared/loading", locals: { message: "questions" } %>
 

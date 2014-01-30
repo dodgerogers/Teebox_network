@@ -22,11 +22,11 @@ describe QuestionHelper do
   describe "display_video" do
     it "renders default image when no video present" do
       @question.video = nil
-      helper.display_video(@question).should eq "<a href=\"/questions/1-slicing-the-ball\"><img alt=\"Video_screen\" src=\"/assets/video_screen.jpg\" /></a>"
+      helper.display_video(@question).should eq "<a href=\"/questions/#{@question.id}-slicing-the-ball\"><img alt=\"Video_screen\" src=\"/assets/video_screen.jpg\" /></a>"
     end
     
     it "renders default image when video present but no screenshot" do
-      helper.display_video(@question).should eq "<a href=\"/questions/1-slicing-the-ball\"><img alt=\"Video_screen\" src=\"/assets/video_screen.jpg\" /></a>"
+      helper.display_video(@question).should eq "<a href=\"/questions/#{@question.id}-slicing-the-ball\"><img alt=\"Video_screen\" src=\"/assets/video_screen.jpg\" /></a>"
     end
     
     it "renders screenshot when video present" do

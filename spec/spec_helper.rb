@@ -8,10 +8,16 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require "rake"
 require "shoulda/matchers"
+require "capybara/rspec"
+require "capybara/webkit/matchers"
+Capybara.javascript_driver = :webkit
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+# Reduce IO during tests
+Rails.logger.level = 4
 
 RSpec.configure do |config|
     
@@ -20,13 +26,6 @@ RSpec.configure do |config|
   
   #Disable observers by default
   ActiveRecord::Base.observers.disable :all
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -59,6 +58,7 @@ RSpec.configure do |config|
   end
   
   config.before(:each) do
+    DatabaseCleaner.strategy = (example.metadata[:js] ? :truncation : :transaction)
     DatabaseCleaner.start
   end
   
@@ -68,4 +68,5 @@ RSpec.configure do |config|
   
   config.before(:all) { DeferredGarbageCollection.start }
   config.after(:all) { DeferredGarbageCollection.reconsider }
+  config.include(Capybara::Webkit::RspecMatchers, type: :feature)
 end

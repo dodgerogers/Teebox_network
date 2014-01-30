@@ -463,26 +463,21 @@ body .sublimevideo-zi .sublimevideo-uj {
 
 .next_page, .previous_page {
 }
-#loading, #load-notifications {
+.loading {
 	display:none;
 	color: #ccc;
 	text-align:center;
 	padding: 10px 0 11px;
+	img {
+		height:30px;
+		width:30px;
+		text-align:center;
+	}
 }
 .load-questions {
+	display:none;
 	text-align:center;
 	margin: 0 auto;
-	display:none;
-}
-.loading {
-	height:30px;
-	width:30px;
-	text-align:center;
-}
-.load-notifications {
-	display:block;
-	color: #ccc;
-	text-align:center;
 }
 
 //----------- Question form - videos select ----------//
@@ -709,6 +704,7 @@ body #header-search {
 	//padding: 5px;
 	position:relative;
 	@include box-sizing;
+	margin-bottom: 10px;
 }
 .related-info {
 	width: auto;
@@ -734,7 +730,6 @@ body #header-search {
 	font-family: $lucida;
 }
 .related-content {
-	width: 79%;
 	display:inline-block;
 	position:relative;
 	vertical-align:middle;

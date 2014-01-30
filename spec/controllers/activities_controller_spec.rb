@@ -55,7 +55,7 @@ describe ActivitiesController do
       it "redirects to the post" do
         put :read, id: @activity
         @activity.reload
-        response.should redirect_to "#{url_for(@activity.trackable.question)}#answer_#{@activity.trackable.id}"
+        response.should redirect_to @activity.trackable
       end
       
     describe "with invalid params" do

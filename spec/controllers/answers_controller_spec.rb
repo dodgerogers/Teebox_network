@@ -19,6 +19,19 @@ describe AnswersController do
   
   subject { @answer }
   
+  describe "GET show" do
+    it "assigns a new decorator as @decorator" do
+      get :show, id: @answer
+      assigns(:answer).should eq(@answer)
+    end
+    
+    it "renders the show template" do
+      get :show, id: @answer
+      response.should redirect_to @answer.question
+    end
+  end
+  
+  
   describe "POST create" do
     describe "with valid params" do
       it "creates a new answer" do

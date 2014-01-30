@@ -11,7 +11,8 @@
 			</div>
 		  	</td>
 		  	<td class="left">	
-				<b><%= link_to question.title.titleize, question %></b>
+				<b><%= link_to question.title.titleize, question %></b><br>
+				<small>Posted <%= time_ago_in_words question.created_at %> ago</small>
 		  	</td>
 		</tr>
 	<% end %>

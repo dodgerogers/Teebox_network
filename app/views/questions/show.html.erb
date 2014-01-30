@@ -1,4 +1,5 @@
 <%= content_for :head do %>
+	<!-- Loads video player and related questions via ajax -->
 	<%= javascript_include_tag "sublime.js", "related_questions.js", defer: "defer" %>
 <% end %>
 
@@ -62,9 +63,7 @@
 	<aside class="span4">
 		<div id="load-related">
 			<!-- questions/related loaded here -->
-			<div id="loading" class="left">
-				<%= image_tag("spinner.gif", class: "loading") %> Loading questions...
-			</div>
+			<%= render partial: "shared/loading", locals: { message: "related questions..." } %>
 		</div>
 		<div class="social-buttons">
 			<p>Know someone who can help?</p>

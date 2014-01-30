@@ -20,16 +20,14 @@
 			
 			<% if user_signed_in? %>
 				<li class="dropdown">
-					<a id="notifications" href="#" class="<%= Activity.new_activities(current_user) > 0 ? 'new-notifications pulse' : '' %>" title="Notifications">
+					<a id="notifications" href="#" class="<%= Activity.new_activities(current_user) > 0 ? 'new-notifications' : '' %>" title="Notifications">
 						<div class="notifications-count large" id="">
 							<%= Activity.new_activities(current_user) %>
 						</div>
 					</a>
 					<ul class="dropdown-menu span6" id="notifications-area">
 						<!-- notifications loaded here by notifications.js -->
-						<div id="load-notifications">
-							<%= image_tag("spinner.gif", class: "loading") %> Loading notifications...
-						</div>
+						<%= render partial: "shared/loading", locals: { message: "notifications" } %>
 					</ul>
 				</li>
 				<li id="user-profile-tour">

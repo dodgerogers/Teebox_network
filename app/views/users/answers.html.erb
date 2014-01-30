@@ -12,7 +12,8 @@
 	      <td class='left'>
 			<%= link_to "#{url_for(answer.question)}#answer_#{answer.id}" do %>
 				<b><%= answer.question.title %>&nbsp;<i class="icon-question-sign"></i></b><br>
-				<%= strip_links(truncate(answer.body, length: 120)) %>
+				<%= strip_links(truncate(answer.body, length: 120)) %><br>
+				<small>Posted <%= time_ago_in_words answer.created_at %> ago</small>
 			<% end %>	
 		  </td>
 	    </tr>

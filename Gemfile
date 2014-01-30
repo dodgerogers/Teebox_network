@@ -18,6 +18,7 @@ group :test do
   gem 'rspec-rails', '2.9.0'
   gem 'factory_girl_rails', '1.4.0'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem "launchy"
   gem "simplecov","0.7.1", :require => false
@@ -58,9 +59,6 @@ gem 'obscenity'
 gem "unicorn"
 gem "capistrano", "~> 2.15.5"
 gem 'daemons'
-gem 'newrelic_rpm'
-
-
 
 
 # To use ActiveModel has_secure_password

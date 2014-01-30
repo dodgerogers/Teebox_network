@@ -1,19 +1,25 @@
 require "spec_helper"
 include UsersHelper
 
+
 describe "Videos" do
+  before(:each) do
+    @file = "#{Rails.root}/spec/fixtures/files/edited_driver_swing.m4v"
+  end
+  
   it "creates video record" do
     visit root_path
     sign_in_user
-    click_link "Ask"
-    page.should have_content "Step 1: Upload a Video"
-    #add create video here here
+    visit videos_path
+    within("form.direct-upload") do
+      attach_file("file", @file)
+    end
+    click_link "OK"
+    # The custom upload button hides the form field, which causes issues with jQuery fileupload
   end
   
-  it "deletes video" do
+  it "deletes video", js: true do
     visit root_path
     sign_in_user
-    @video = create(:video)
-    #need to create a video here
   end
 end
