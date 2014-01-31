@@ -149,8 +149,9 @@ form .btn {
 // Notifications count in header --//
 
 #notifications {
+	//font-family: $bebas;
 	background: $ocean;
-	padding: 5px 11px 5px;
+	padding: 5px 12px 5px;
 	margin: 5px 5px 2px;
 	color: #fff;
 	box-shadow: 0px 1px 1px $teal;
@@ -165,7 +166,7 @@ form .btn {
 }
 .notifications-count {
 	font-weight:400!important;
-	font-size: 18px;
+	font-size: 20px;
 	color: #fff;
 	text-shadow: 0px 1px 1px #000;
 }
@@ -334,6 +335,28 @@ form#new_video {
 
 // Tables //
 
+table.teebox-table {
+	margin-bottom: 5px;
+	td {
+		text-align:left;
+		&.vote-container {
+			white-space: nowrap;
+			padding: 0px;
+			text-align:center;
+		}
+	}
+	img {
+		width:100%;
+		max-width:50px;
+		margin: 0 0px 0px 10px;
+		float: none;
+	}
+}
+.navbar table.teebox-table {
+	tr:last-of-type {
+		border-bottom: 1px solid #ddd;
+	}
+}
 .table-borderless td,
 .table-borderless th {
     border: 0;
@@ -482,24 +505,6 @@ form#new_video {
 .tour-step-background {
 	@include border-radius;
 	background: #f2f2f2;
-}
-	
-// carousel //
-
-.carousel-control {
-	top:45%;
-	font-size: 40px;
-	text-align: center;
-	background: none;
-	border: 0px solid #ffffff;
-	@include border-radius(23px);
-	opacity: 0.5;
-}
-.carousel-indicators {
-	
-}
-.slide, .left {
-	background: transparent!important;
 }
 .muted {
 	color: #bbb;

@@ -1,18 +1,20 @@
 <% if activity.trackable %>
 <!-- load commentable to avoid n+1 when loading activities -->
-<% comment = Comment.find(activity.trackable, include: :commentable) %>
-
-  	<div class="gravatar">
-		<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
-	</div>
-	<div class="message">        
-    	<%= link_to activity.owner.username, activity.owner %> commented on
-	    <%= link_to read_activity_path(activity), method: :put do %>
-	    	<% c = comment.commentable_type == "Question" ? comment.commentable.title : comment.commentable.body  %>
-		    <%= truncate(c, length: 60) %>
-	    <% end %><br>
-	    <small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
-	</div>        
+	<% comment = Comment.find(activity.trackable, include: :commentable) %>
+  	<td>
+		<div class="gravatar">
+			<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
+		</div>
+	</td>
+	<td>
+		<div class="message">        
+	    	<%= link_to activity.owner.username, activity.owner %> commented on
+		    <%= link_to read_activity_path(activity), method: :put do %>
+		    	<%= comment.commentable_type == "Question" ? comment.commentable.title : truncate(comment.commentable.body, length: 80) %>
+		    <% end %><br>
+		    <small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
+		</div>
+	</td>      
 <% else %>
-        User has removed comment
+    <td>User has removed comment</td>
 <% end %>

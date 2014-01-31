@@ -15,7 +15,7 @@
 		</div>
 		<div id="question-box" data-id="<%= @decorator.id %>">
 			<div class="question">
-				<h1><%= @decorator.title.titleize %></h1>		
+				<h3><%= @decorator.title.titleize %></h3>		
 				<div class="question-content">
 					<%= simple_format(@decorator.body) %>
 				</div>
@@ -33,9 +33,9 @@
 			</div>
 			
 			<section class="comments-area">
-				<div id="question_<%= @decorator.id %>">
+				<table class="table teebox-table" id="question_<%= @decorator.id %>">
 					<%= render @decorator.comments.includes(:user) %>
-				</div>
+				</table>
 				<%= link_to "Add comment", "#", class: "comment-button" %>
 				<%= render partial: "comments/form", locals: {commentable: @decorator} %>
 			</section>

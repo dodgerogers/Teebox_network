@@ -1,13 +1,17 @@
 <% if activity.trackable %>
-	<div class="gravatar">
-		<%= link_to image_tag(avatar_url(activity.recipient, 40)), activity.recipient, id: "gravatar" %>
-	</div>
-	<div class="message">
-		Welcome to Teebox 	
-		<%= link_to activity.recipient.username, activity.recipient %>!
-		Need a refresher on how it works? Click
-		<%= link_to "here", read_activity_path(activity), method: :put %>
-		<br>
-		<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
-	</div>	
+	<td>
+		<div class="gravatar">
+			<%= link_to image_tag(avatar_url(activity.recipient, 40)), activity.recipient, id: "gravatar" %>
+		</div>
+	</td>
+	<td>
+		<div class="message">
+			Welcome to Teebox 	
+			<%= link_to activity.recipient.username, activity.recipient %>!
+			Need a refresher on how it works? Click
+			<%= link_to "here", read_activity_path(activity), method: :put %>
+			<br>
+			<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
+		</div>
+	</td>	
 <% end %>

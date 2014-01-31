@@ -1,12 +1,9 @@
-<article id='comment_<%="#{comment.id}" %>' class="comment">		
-	
-	<div class="comment-info">
-	   <%= render partial: "votes/form",locals: { votes_count: "comments", object: comment, vote_path: method(:vote_comment_path) } %>
-		<%=  link_to image_tag(avatar_url(comment.user)), comment.user, class: "comment-grav" %>
-	</div>
-	
-	<div class="comment-content">
-		<a name='<%= "comment_#{comment.id}" %>'></a>
+<tr id='comment_<%="#{comment.id}" %>'>
+	<td class="vote-container">
+		<%= render partial: "votes/form", locals: { votes_count: "comments", object: comment, vote_path: method(:vote_comment_path) } %> 
+	</td>	
+
+	<td class="comment-content">
 		<%= simple_format(comment.content) %>
 		<small>
 			<%= link_to comment.user.username.titleize, comment.user, id: "profile-username" %>
@@ -15,6 +12,7 @@
 				<%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", confirm: "Are you sure? You will lose any points associated with this comment", remote: :true %>
 			<% end %>
 		</small>
-	</div>
-</article>
+	</td>
+</tr>
+
 

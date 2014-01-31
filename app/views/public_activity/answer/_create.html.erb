@@ -1,14 +1,18 @@
 <% if activity.trackable %>
-	<div class="gravatar">
-		<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
-	</div>
-	<div class="message">
-		<%= link_to activity.owner.username, activity.owner %> answered 
-		<%= link_to read_activity_path(activity), method: :put do %>
-			<%= truncate(activity.trackable.question.title, length: 60) %>
-		<% end %><br>
-		<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
-	</div>
+	<td>
+		<div class="gravatar">
+			<%= link_to image_tag(avatar_url(activity.owner, 40)), activity.owner, id: "gravatar" %>
+		</div>
+	</td>
+	<td>	
+		<div class="message">
+			<%= link_to activity.owner.username, activity.owner %> answered 
+			<%= link_to read_activity_path(activity), method: :put do %>
+				<%= activity.trackable.question.title %>
+			<% end %><br>
+			<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
+		</div>
+	</td>
 <% else %>
-	User has removed answer
+	<td>User has removed answer</td>
 <% end %>

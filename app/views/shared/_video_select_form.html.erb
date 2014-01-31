@@ -10,7 +10,7 @@
 				<div id='<%= "#{video.id}_token" %>' class="selected-img">
 						<%= image_tag(screenshot) %>
 				</div>
-					<h4><%= truncate(File.basename(video.file).titleize, length: 22) %><h4>
+					<h5><%= truncate(File.basename(video.file).titleize, length: 22) %></h5>
 					<small><%= video.created_at.strftime("%d/%m/%y") %></small>																
    			</article>
     	<% end %>

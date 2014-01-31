@@ -30,7 +30,7 @@ a:hover {
 //  @font face //
 
 @font-face {
-  	font-family: 'BebasNeueRegular';
+  	font-family: $bebas;
 	src: url('BebasNeue-webfont.eot');
 	src: url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
 		 url('BebasNeue-webfont.woff') format('woff'),
@@ -41,18 +41,17 @@ a:hover {
 }	
 
 h1 {
+	font-family: $bebas;
 	font-size: 36px;
-	font-family: 'BebasNeueRegular';
 	font-weight: 100;
 	margin-bottom: 12px;
 	margin-top: 10px;
 	color: $red;
-	//text-shadow: 0px 2px 2px #777;//
-	letter-spacing:0px;				
+	letter-spacing:0px;			
 }		
 h2 {
-	font-size: 25px; 
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
+	font-size: 26px; 
 	margin-top: 0px;
 	color: #777;
 	&.large {
@@ -60,35 +59,39 @@ h2 {
 	}
 }
 h3 {
-	font-size: 22px; 
-	font-family: 'BebasNeueRegular';
-	font-weight: 400;
-    margin-bottom: .857em;
-	margin-top: .857em;
-	color: $green;	
+	font-family: $lucida;
+	font-size: 24px;
+	line-height: 28px;
+	color: $red;
+	font-weight: bold;
 }
-h4 {			
-	font-size: 18px;
+h4 {
+	margin: 0px;
+	font-size: 22px;
+	font-weight:400;
+	color: #777;
+	font-family: $lucida;
+}
+h5 {
+ 	font-size: 18px;
 	font-weight:300;
 	line-height:25px;
 	letter-spacing:0px;
-	margin-bottom: 0.5em;
-}
-h5 {
- 	font-size: 1.125em; /* = 18px */
-    margin-bottom: 1.125em;
-    margin-top: 1.125em;
+	margin:3px 0;
 }
 h6 {
-    font-size: 1.000em; /* = 16px */
-    margin-bottom: 1.285em;
-    margin-top: 1.285em;
-}	
+	padding: 2px 0px;
+	font-size: 20px;
+	font-weight:300;
+	color: $green-sea;
+	margin: 3px 0;
+}
+	
 
 // custom font styles //
 
 .bebas {
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 	font-size: 22px;
 	color: $teal;
 	vertical-align: middle;
@@ -241,7 +244,7 @@ ul.footer-links {
 //---------------------------- tables -----------------------//
 
 tr.titles {
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 	color: #777;
 }
 .green-bg, tr.green-bg td {
@@ -381,7 +384,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 .questions:hover, .videos:hover {
 }
 #q-answers-count {
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 	display: inline-block;
 	padding: 7px 14px;
 	background: #409C69;
@@ -400,8 +403,7 @@ body .sublimevideo-zi .sublimevideo-uj {
     transition: all 0.5s ease-in-out;
 	@include border-radius(4px);
 	h3 {
-		font-family: $lucida;
-		letter-spacing: -1px;
+		padding: 5px 0;
 		color: #fff;
 	}
 }
@@ -422,7 +424,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	font-weight: 300;
 	margin: 4px 5px 0 0;
 	font-size: 22px;
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 }
 #no-correct-answer {
 	color: white !important;
@@ -433,7 +435,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	font-weight: 300;
 	margin: 4px 5px 0 0;
 	font-size: 22px;
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 }
 #no-points {
 	display: inline-block;
@@ -441,7 +443,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	text-align:center;
 	vertical-align:middle;
 	margin: 7px 6px 0 0;
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 	color: $red;
 }
 #plus-points {
@@ -450,7 +452,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	text-align:center;
 	vertical-align:middle;
 	margin: 7px 6px 0 0;
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 	color: #4fc392;
 }
 #answer-button {
@@ -544,7 +546,8 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 h3.video-upload {
 	margin: 0px;
-	color: #fff;	
+	color: #fff;
+	font-family: $bebas;
 }
 #dropzone.fade, #smooth {
     -webkit-transition: all 0.5s ease-in-out;
@@ -688,10 +691,10 @@ body #header-search {
 	margin-top: 5px;
 }
 .comment-content {
-	width: 87%;
-	display:inline-block;
-	position:relative;
-	vertical-align:top;
+	//width: 87%;
+	//display:inline-block;
+	//position:relative;
+	//vertical-align:top;
 	p {
 		margin: 0;
 	}
@@ -705,6 +708,9 @@ body #header-search {
 	position:relative;
 	@include box-sizing;
 	margin-bottom: 10px;
+	&:last-of-type {
+		margin-bottom: 5px;
+	}
 }
 .related-info {
 	width: auto;
@@ -716,18 +722,10 @@ body #header-search {
 	}
 }
 .related-questions {
-	margin: 0 0 5px;
+	margin: 10px 0 10px;
 }
 #related {
 	width:100%;
-}
-.related:last-of-type {
-	margin-bottom: 5px;
-}
-.related-h2 {
-	margin: 0px 0 0px;
-	font-weight:400;
-	font-family: $lucida;
 }
 .related-content {
 	display:inline-block;
@@ -758,6 +756,7 @@ body #header-search {
 
 //----- questions content font styles ------//
 
+// For users input
 .question-content {
 	h1 {
 	color: #555;
@@ -897,20 +896,20 @@ body #header-search {
 	display: inline-block;
 	padding: 0px;
 	margin: 7px 0 0;
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 	width: 55px;
 }
 .green-tick a, .green-tick {
 	color: #4fc392;
-	font-size: 42px;
+	font-size: 44px;
 	float:left;
 	margin: 0 3px 0 0;
 }
 .default-tick a, .default-tick {
 	color: #bbb;
-	font-size: 42px;
+	font-size: 44px;
 	float:left;
-	margin: 0 3px 0 0;
+	margin: 0px 3px 0 0;
 }
 table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	float:none;
@@ -932,12 +931,12 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	font-weight: 300;
 	margin: 4px 5px 0 0;
 	font-size: 22px;
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 }
 .vote-box {
 	display:inline-block!important;
 	h1 {
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-family: $bebas;
 		font-weight:400;
 		font-size: 45px;
 		margin: 0px 3px 0px 0px;	
@@ -967,10 +966,6 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 		text-decoration: none;
 	}	
 }
-.orange-arrows h1{
-	color: #bbb;
-	display:inline-block;
-}
 .default-arrows h1 {
 	color: #bbb;
 	display:inline-block;
@@ -985,7 +980,7 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 #profile-reputation {
 	color: $red;
 	font-weight: 400;
-	font-family: 'BebasNeueRegular';
+	font-family: $bebas;
 	margin-right: 3px;
 }
 
@@ -1002,30 +997,12 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	float:none!important;
 	&:hover {
 		background: #eee;
-		color: #999;
 	}
-	.tag-title {
-		padding: 2px;
-		font-size: 20px;
-		font-weight:300;
+	h6 {
 		color: $green-sea;
 		a {
 			color: $green-sea;
 		}
-	}
-	.tag-explanation {
-		padding: 2px;
-	}
-	small {
-		margin-top: 3px;
-	}
-	small a {
-		color: $sky;
-	}
-	a {
-		color: $teal;
-	}
-	a:hover {
 	}
 }
 .tag-search  a {
@@ -1045,6 +1022,7 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	margin-bottom: 3px;
 	display:inline-block;
 }
+// Find out what this is
 #tags h1 {
 	font-size: 20px;
 	display:inline;

@@ -33,9 +33,9 @@
 	</div>
 	
 	<div class="comments-area">
-		<div id="answer_<%= answer.id %>">
+		<table class="table teebox-table" id="answer_<%= answer.id %>">
 			<%= render answer.comments %>
-		</div>
+		</table>
 		
 		<%= link_to "Add comment", "#" , class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: answer} %>

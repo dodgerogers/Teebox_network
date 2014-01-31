@@ -6,11 +6,13 @@
 	.navbar .container {
 		max-width: 940px;
 	}
-	.comment-content {
-		width:83%;
-	}
 }
 @media (min-width: 768px) and (max-width: 979px) {
+	// fonts 
+	h3 {
+		font-size: 20px;
+		line-height: 24px;
+	}
 	.navbar .container {
 		max-width: 724px;
 	}
@@ -28,9 +30,6 @@
 	}
 	.navbar .brand {
 		padding: 7px 20px 10px 5px;
-	}
-	.navbar .unread {
-		background: $blackhole!important;
 	}
 	#notifications-area {
 		width:100%;
@@ -61,29 +60,31 @@
 		color: $red;
 		text-align: center;
 	}
-	.navbar #notification {
-		margin: 0px;
-		border-top: 1px solid $ocean;
-		background: $universe;
-	}
-	.navbar #notification:last-of-type {
-		border-bottom: 1px solid $midnight;
-	}
-	.navbar #notification a {
-		color: $green;
-		background: none;
-		padding: 0px;
-		font-weight: 500;
-	}
-	.navbar #notification:hover {
-		background: $ocean;
+	.navbar table.teebox-table {
+		margin-bottom:0px;
+		tr:last-of-type {
+			border-bottom: 1px solid $ocean;
+		}
+		td {
+			margin: 0px;
+			border-top: 1px solid $ocean;
+			background: $universe;
+		}
+		a {
+			color: $green;
+			background: none;
+			padding: 0px;
+			font-weight: 500;
+		}
+		tr.unread {
+			td {
+				background: $blackhole;
+			}
+		}
 	}
 	#no-padding {
 		padding-left: 5px;
 		padding-right: 5px;
-	}
-	.comment-content {
-		width:75%;
 	}
 	.container .semi {
 		width:100%;
@@ -128,6 +129,11 @@
 		padding-left: 0px!important;
 		padding-right: 0px!important;
 		font-weight: 300;
+	}
+	// fonts 
+	h3 {
+		font-size: 20px;
+		line-height: 24px;
 	}
 	#margin-bottom {
 		margin: 0 20px 20px;
@@ -193,34 +199,33 @@
 		color: $red;
 		text-align: center;
 	}
-	.navbar #notification {
-		margin: 0px;
-		border-top: 1px solid $ocean;
-		background: $universe;
-	}
-	.navbar #notification:last-of-type {
-		border-bottom: 1px solid $midnight;
-	}
-	.navbar #notification .gravatar {
-		display:none;
-	}
-	.navbar #notification a {
-		color: $green;
-		background: none;
-		padding: 0px;
-		font-weight: 500;
-	}
-	.navbar #notification:hover {
-		background: $ocean;
+	.navbar table.teebox-table {
+		margin-bottom:0px;
+		tr:last-of-type {
+			border-bottom: 1px solid $ocean;
+		}
+		td {
+			margin: 0px;
+			border-top: 1px solid $ocean;
+			background: $universe;
+		}
+		a {
+			color: $green;
+			background: none;
+			padding: 0px;
+			font-weight: 500;
+		}
+		tr.unread {
+			td {
+				background: $blackhole;
+			}
+		}
 	}
 	.show {
 		display:none;
 	}
 	.question-info {
 		width: 100%;
-	}
-	.comment-content {
-		width:75%;
 	}
 	.container .semi {
 		width:100%;
@@ -348,6 +353,11 @@
 		padding-right: 0px!important;
 		background:none;
 	}
+	// fonts
+	h3 {
+		font-size: 18px;
+		line-height: 22px;
+	}
 	#margin-bottom {
 		margin: 0 20px 20px;
 	}
@@ -418,25 +428,30 @@
 		color: $red;
 		text-align: center;
 	}
-	.navbar #notification {
-		margin: 0px;
-		border-top: 1px solid $ocean;
-		background: $universe;
-	}
-	.navbar #notification:last-of-type {
-		border-bottom: 1px solid $midnight;
-	}
-	.navbar #notification .gravatar {
-		display:none;
-	}
- 	.navbar #notification a {
-		color: $green;
-		background: none;
-		padding: 0px;
-		font-weight: 500;
-	}
-	.navbar #notification:hover {
-		background: $ocean;
+	.navbar table.teebox-table {
+		margin-bottom:0px;
+		tr:last-of-type {
+			border-bottom: 1px solid $ocean;
+		}
+		td {
+			margin: 0px;
+			border-top: 1px solid $ocean;
+			background: $universe;
+			.gravatar {
+				display:none!important;
+			}
+		}
+		a {
+			color: $green;
+			background: none;
+			padding: 0px;
+			font-weight: 500;
+		}
+		tr.unread {
+			td {
+				background: $blackhole;
+			}
+		}
 	}
 	.hero-unit {
 		padding: 30px 30px;
@@ -466,9 +481,6 @@
 	.profile {
 		vertical-align:bottom;
 	}
-	.comment-content {
-		width: 70%;
-	}
 	.comment-grav {
 		display:none;
 	}
@@ -480,17 +492,10 @@
 		margin-bottom: 10px;
 		box-shadow: 0px 0px 0px #fff;
 	}
-	.answer-box, #question-box {
-	
-	}
 	#question-box {
 		padding:0px;
 		border: 0px solid #eee;
 		box-shadow: 0px 0px 0px #fff;
-		h1 {
-			font-size: 25px;
-			line-height:25px;
-		}
 		.vote-box h1 {
 			font-size: 45px;
 			line-height:40px;
@@ -566,6 +571,7 @@
 				padding-top:18px;
 				font-size:12px;
 				line-height:1.2;
+				margin-left: 2px;
 			}
 		}
 	}
@@ -573,7 +579,10 @@
 		margin-top: 0px;
 	}
 	.vote {
-		margin: -1px 5px 0 0;
+		margin: 2px 5px 0 0;
+	}
+	.default-tick, .default-tick a {
+		margin: -1px 3px 0 0;
 	}
 	.mobile-scroll {
 		overflow: scroll;

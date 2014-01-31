@@ -19,7 +19,6 @@ p.banner {
 	color: #fff!important;
 	text-shadow: 0px 2px 0px $asphalt;
 	letter-spacing: 0px!important;
-	/*font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;*/
 	font-weight:300!important;
 }
 .video-upload-info {
@@ -36,12 +35,12 @@ p.banner {
 .hero-unit .welcome-username {
 	text-shadow: 0px 2px 0px $red;
 	color: #fff;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: $helvetica;
 	text-transform: uppercase;
 }
 .welcome-white {
 	color: #fff!important;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: $helvetica;
 	font-weight:400;
 	margin: 0!important;
 }
@@ -117,6 +116,7 @@ a .welcome-white:hover {
 	color: #fff!important;
 }
 .ch-info h3, .ch-info h3 a {
+	font-family: $bebas;
     color: #fff;
     letter-spacing: 2px;
     font-size: 18px;
