@@ -3,13 +3,13 @@
 # -- Unicorn Killer code
 
 	# Unicorn self-process killer
-  require 'unicorn/worker_killer'
+  # require 'unicorn/worker_killer'
 
   # Max requests per worker
-  use Unicorn::WorkerKiller::MaxRequests, 50, 100
+  # use Unicorn::WorkerKiller::MaxRequests, 50, 100
 
   # Max memory size (RSS) per worker
-  use Unicorn::WorkerKiller::Oom, (40 * (1024**2)), (60 * (1024**2))
+  # use Unicorn::WorkerKiller::Oom, (40 * (1024**2)), (60 * (1024**2))
 
 # -- End Unicorn Killer
 
