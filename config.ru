@@ -13,5 +13,13 @@
 
 # -- End Unicorn Killer
 
+# GC config
+if Rails.env.production?
+  GC_FREQUENCY = 40
+  require_dependency "unicorn/oob_gc"
+  GC.disable
+  use Unicorn::OobGC, GC_FREQUENCY
+end
+
 require ::File.expand_path('../config/environment',  __FILE__)
 run TeeboxNetwork::Application

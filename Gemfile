@@ -67,8 +67,7 @@ gem "capistrano", "~> 2.15.5"
 gem 'daemons'
 gem "unicorn"
 #gem "unicorn-worker-killer"
-gem 'newrelic_rpm'
-
+#gem 'newrelic_rpm'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
