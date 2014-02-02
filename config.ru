@@ -2,7 +2,7 @@
 
 if ENV["RAILS_ENV"] == "production"
   GC_FREQUENCY = 20
-  require_dependency "unicorn/oob_gc"
+  require "unicorn/oob_gc"
   GC.disable
   use Unicorn::OobGC, GC_FREQUENCY
   
