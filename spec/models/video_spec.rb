@@ -15,12 +15,12 @@ describe Video do
   it { should belong_to(:user) }
   
   describe 'file' do
-     before { @video.file = nil }
+     before { subject.file = nil }
      it { should_not be_valid }
    end
    
   describe "user_id" do
-    before { @video.user_id = nil }
+    before { subject.user_id = nil }
       it { should_not be_valid }
     end
     

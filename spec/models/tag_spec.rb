@@ -17,17 +17,17 @@ describe Tag do
   it { should validate_uniqueness_of(:name)}
   
   describe 'name' do
-     before { @tag.name = nil }
+     before { subject.name = nil }
      it { should_not be_valid }
    end
    
    describe "obscenity filter name" do
-     before { @tag.name = "shit" }
+     before { subject.name = "shit" }
      it { should_not be_profane }
    end
    
    describe "validates explanation" do
-     before { @tag.explanation = "fuck" }
+     before { subject.explanation = "fuck" }
      it { should_not be_profane }
    end
 end

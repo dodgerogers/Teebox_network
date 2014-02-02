@@ -27,55 +27,55 @@ describe Comment do
   it { should validate_presence_of(:commentable_type) }
   
   describe 'content' do
-    before { @comment.content = nil }
+    before { subject.content = nil }
     it { should_not be_valid }
   end
    
   describe 'short content' do
-    before { @comment.content = "comment" }
+    before { subject.content = "comment" }
     it { should_not be_valid }
   end
   
   describe 'long content' do
-    before { @comment.content = ('a' * 351) }
+    before { subject.content = ('a' * 351) }
     it { should_not be_valid }
   end
     
   describe "obscenity filter" do
-    before { @comment.content = "shit" }
+    before { subject.content = "shit" }
     it { should_not be_profane }
   end
 
   describe "user_id" do
-    before { @comment.user_id = nil }
+    before { subject.user_id = nil }
     it { should_not be_valid }
   end
 
   describe "commentable id" do
-    before { @comment.commentable_id = nil }
+    before { subject.commentable_id = nil }
     it { should_not be_valid }
   end
 
   describe "commentable type" do
-    before { @comment.commentable_type = nil }
+    before { subject.commentable_type = nil }
     it { should_not be_valid }
   end 
   
   describe "find_mentions" do
     it "returns array of names" do
-      @comment.find_mentions.should eq(["randyrogers"])
+      subject.find_mentions.should eq(["randyrogers"])
     end
   end
 
   describe "mentions" do
     describe "display_mentions" do
       it "containing valid user" do
-        @comment.display_mentions.content.should eq("this is a comment for <a href='/users/#{@user2.id}-#{@user2.username}'>@#{@user2.username}</a>")
+        subject.display_mentions.content.should eq("this is a comment for <a href='/users/#{@user2.id}-#{@user2.username}'>@#{@user2.username}</a>")
       end
     
       it "no valid users" do
-        @comment.content = "hey @dodgey this is a comment"
-        @comment.display_mentions.content.should eq("hey @dodgey this is a comment")
+        subject.content = "hey @dodgey this is a comment"
+        subject.display_mentions.content.should eq("hey @dodgey this is a comment")
       end
     end
   end

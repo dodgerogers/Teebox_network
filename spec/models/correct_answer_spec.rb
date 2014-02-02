@@ -14,14 +14,14 @@ describe CorrectAnswer do
   
   describe "#new" do
     it "takes one parameter and returns a CorrectAnswer object" do
-      @correct.should be_an_instance_of CorrectAnswer
+      subject.should be_an_instance_of CorrectAnswer
     end
   end
 
   describe "adding reputation" do
     describe "answer_correct?" do
       it "returns false" do
-        @correct.answer_correct?(false).should eq false
+        subject.answer_correct?(false).should eq false
       end
     end
   

@@ -14,12 +14,12 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
   validates_length_of :content, minimum: 10
   validates :content, obscenity: true
-  validate :mentions_limit
-  validate :content_minus_links
+  validate :content_minus_links, :mentions_limit, if: 'find_mentions.any?'
   
   default_scope order: "created_at"
   
-  after_create :display_mentions
+  after_create :display_mentions, if: 'find_mentions.any?'
+
   
   def content_minus_links
     return unless errors.blank?
@@ -40,7 +40,7 @@ class Comment < ActiveRecord::Base
       user = User.where(username: u)[0]
       unless (user == nil || self.user == user)
         self.content.gsub!(/#{Regexp.escape("@#{u}")}/, "<a href='/users/#{user.id}-#{u}'>@#{u}</a>")
-        self.delay.create_activity :create, owner: self.user, recipient: user unless user.id == self.commentable.user_id
+        self.create_activity :create, owner: self.user, recipient: user unless user.id == self.commentable.user_id
       end
     end
     self.save!
