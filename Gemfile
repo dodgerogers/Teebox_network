@@ -40,6 +40,7 @@ end
 group :production do
   gem "unicorn"
   gem "unicorn-worker-killer"
+  gem 'newrelic_rpm'
 end
 
 gem 'devise', "~> 2.2.7"
