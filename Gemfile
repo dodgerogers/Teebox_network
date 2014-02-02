@@ -37,6 +37,11 @@ group :assets do
   gem "font-awesome-rails"
 end
 
+group :production do
+  gem "unicorn"
+  gem "unicorn-worker-killer"
+end
+
 gem 'devise', "~> 2.2.7"
 gem 'jquery-rails'
 gem 'therubyracer'
@@ -57,7 +62,6 @@ gem "populator"
 gem "faker"
 gem "pg_search"
 gem 'obscenity'
-gem "unicorn"
 gem "capistrano", "~> 2.15.5"
 gem 'daemons'
 
