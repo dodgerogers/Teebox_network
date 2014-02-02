@@ -38,9 +38,9 @@ group :assets do
 end
 
 group :production do
-  gem "unicorn"
-  gem "unicorn-worker-killer"
-  gem 'newrelic_rpm'
+  # gem "unicorn"
+  #   gem "unicorn-worker-killer"
+  #   gem 'newrelic_rpm'
 end
 
 gem 'devise', "~> 2.2.7"
@@ -65,6 +65,9 @@ gem "pg_search"
 gem 'obscenity'
 gem "capistrano", "~> 2.15.5"
 gem 'daemons'
+gem "unicorn"
+#gem "unicorn-worker-killer"
+gem 'newrelic_rpm'
 
 
 # To use ActiveModel has_secure_password
