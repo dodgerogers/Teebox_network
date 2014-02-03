@@ -1,3 +1,2 @@
-<b>Welcome to Teebox Network Beta.</b>
-
-Points Branch - Decouple the points creation and allocation into separate polymorphic model. 
+<b>Teebox Network Beta.</b>
+ 
