@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  caches_page :info, :about
   
   def info
   end

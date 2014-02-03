@@ -14,12 +14,13 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
   validates_length_of :content, minimum: 10
   validates :content, obscenity: true
-  validate :content_minus_links, :mentions_limit, if: 'find_mentions.any?'
+  
+  with_options if: "find_mentions.any?" do
+    validate :content_minus_links, :mentions_limit
+    after_create :display_mentions
+  end
   
   default_scope order: "created_at"
-  
-  after_create :display_mentions, if: 'find_mentions.any?'
-
   
   def content_minus_links
     return unless errors.blank?

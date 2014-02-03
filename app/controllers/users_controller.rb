@@ -25,10 +25,9 @@ class UsersController < ApplicationController
   end
   
   def welcome
-    @questions = Question.where(correct: false).limit(2)
   end
   
   def get_user
-    @user = User.find(params[:id])
+    @user ||= User.find(params[:id])
   end
 end

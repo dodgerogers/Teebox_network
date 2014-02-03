@@ -10,13 +10,9 @@ worker_processes 2
 timeout 30
 
 # before_fork do |server, worker|
-#   if defined? ActiveRecord::Base
-#     ActiveRecord::Base.connection.disconnect!
-#   end
+#   ActiveRecord::Base.connection.disconnect! if defined? ActiveRecord::Base
 # end
 # 
 # after_fork do |server, worker|
-#   if defined?(ActiveRecord::Base)
-#     ActiveRecord::Base.establish_connection
-#   end
+#   ActiveRecord::Base.establish_connection if defined? ActiveRecord::Base
 # end
