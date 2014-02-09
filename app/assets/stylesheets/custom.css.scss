@@ -131,7 +131,8 @@ small {
 //--------------- logo------------ //
 
 .logo {
-	color: $emerald;
+	color: $green;
+	text-shadow: 0px 1px 1px #555;
 }
 .info-logo {
 	border-bottom: 1px solid #fff;
@@ -307,29 +308,22 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin: 0px 15px 15px 0px;
 	width: 200px;
 	@include box-sizing;
+	h4, h4 a {
+		margin: 0px;
+		padding: 0px 0px;
+		padding: 0px 2px 0px 2px;
+	}
+	.loading {
+		position: absolute;
+		top: 25px;
+		right: 73px;
+		height: 50px;
+		width: 50px;
+		display:none;
+	}
 }
 .form {
 	cursor: pointer;
-}
-.videos h4, .videos h4 a {
-	margin: 0px;
-	padding: 0px 0px;
-	padding: 0px 2px 0px 2px;
-}
-.videos p {
-	padding: 0px 2px 0px 5px;
-	margin:0px;
-}
-.videos small a {
-	margin-left:-4px;
-}
-.videos .loading {
-	position: absolute;
-	top: 25px;
-	right: 73px;
-	height: 50px;
-	width: 50px;
-	display:none;
 }
 .video-container {
 	@include box-sizing;
@@ -500,8 +494,8 @@ body .sublimevideo-zi .sublimevideo-uj {
 	background: #fff;
 	background-position: center 10%;
 	@include border-radius(40px);
-	top: 20%;
-	right: 35%;
+	top: 17%;
+	left: 37%;
 	height: 51px;
 	width: 51px;
 	font-size: 60px;
@@ -601,28 +595,29 @@ body #header-search {
   	text-align: center;
 	cursor: default;
 	background: none!important;
-}
-.pagination a, .pagination span {
-    padding: 0.2em 0.3em; 
-}
-.pagination .disabled {
-    color: #999;
-}
-.pagination .current {
-    font-style: normal;
-    background-color: $red;
-	@include border-radius(50%);
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    line-height: 1.5;
-	color: #fff;
-}
-.pagination a {
-	color: #777;
-	font-weight:300;
-	&:hover, &:focus {
-	    text-decoration: bold; 
+	span {
+		padding: 0.2em 0.3em; 
+	}
+	a {
+		padding: 0.2em 0.3em;
+		color: #777;
+		font-weight:300;
+		&:hover, &:focus {
+		    text-decoration: bold; 
+		}
+	}
+	.disabled {
+		color: #999;
+	}
+	.current {
+	    font-style: normal;
+	    background-color: $red;
+		@include border-radius(50%);
+	    display: inline-block;
+	    width: 1.5em;
+	    height: 1.5em;
+	    line-height: 1.5;
+		color: #fff;
 	}
 }
 
@@ -691,10 +686,6 @@ body #header-search {
 	margin-top: 5px;
 }
 .comment-content {
-	//width: 87%;
-	//display:inline-block;
-	//position:relative;
-	//vertical-align:top;
 	p {
 		margin: 0;
 	}

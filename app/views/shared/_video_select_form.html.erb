@@ -6,9 +6,8 @@
 					<i class="icon-ok-sign" id="ok-icon"></i>
 				</div>
 	
-				<% screenshot = video.screenshot.present? ? video.screenshot : "video_screen-xl.jpg" %>
 				<div id='<%= "#{video.id}_token" %>' class="selected-img">
-						<%= image_tag(screenshot) %>
+						<%= image_tag(display_xl_screenshot(video)) %>
 				</div>
 					<h5><%= truncate(File.basename(video.file).titleize, length: 22) %></h5>
 					<small><%= video.created_at.strftime("%d/%m/%y") %></small>																

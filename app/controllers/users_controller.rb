@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
   
   def comments
-    @comments = @user.comments.order("created_at desc").paginate(page: params[:page], per_page: 10).includes(:commentable)
+    @comments = @user.comments.paginate(page: params[:page], per_page: 10).includes(:commentable)
   end
   
   def welcome

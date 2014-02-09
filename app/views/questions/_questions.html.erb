@@ -2,7 +2,7 @@
 <% cache ["question_#{question.id}", question] do %>
 	<article class="span12">
 		<div class="question-image">
-			<%= display_video(question) %>
+			<%= link_to image_tag(display_mini_screenshot(question.video)), question %>
 		</div>
 	
 		<div class="question-info">

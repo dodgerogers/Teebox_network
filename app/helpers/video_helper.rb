@@ -13,6 +13,14 @@ module VideoHelper
   end             
   
   def sublimevideo_rails
-    @site_token = CONFIG[:sublime_token]
+    @site_token ||= CONFIG[:sublime_token]
+  end
+  
+  def display_xl_screenshot(video)
+    video.screenshot.present? ? video.screenshot : "video_screen.png"
+  end
+  
+  def display_mini_screenshot(video)
+    (video.screenshot_url(:mini) if video) || "video_screen_mini.png"
   end
 end
