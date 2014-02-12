@@ -1,2 +1,3 @@
-<b>Teebox Network Beta.</b>
- 
+<b>Teebox Network</b>
+
+Beta Release coming soon
