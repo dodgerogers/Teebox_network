@@ -8,7 +8,7 @@ set :application, "teebox"
 set :user, "andrew"
 set :deploy_to, "/home/#{user}/rails/#{application}"
 set :deploy_via, :remote_cache
-set :use_sudo, true
+set :use_sudo, false
 set :rails_env, "production"
 
 set :scm, :git 
