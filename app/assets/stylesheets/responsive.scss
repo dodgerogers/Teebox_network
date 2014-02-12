@@ -238,6 +238,7 @@
 	}
 	#featurette {
 		text-align:center;
+		padding:0px;
 		[class^="icon-"], #featurette[class*=" icon-"] {
 			display:block;
 			float:none;
@@ -505,6 +506,7 @@
 		height:auto;
 	}	
 	#featurette {
+		padding: 0px;
 		text-align:center;
 		[class^="icon-"], #featurette[class*=" icon-"] {
 			display:block;

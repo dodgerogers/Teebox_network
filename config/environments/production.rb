@@ -25,14 +25,14 @@ TeeboxNetwork::Application.configure do
   config.action_mailer.default_url_options = {:host => 'beta.teeboxnetwork.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-   :address => "smtp.gmail.com",
-   :port => 587,
-   :domain => "gmail.com",
-   :user_name => CONFIG[:email_username],
-   :password => CONFIG[:email_password],
-   :authentication => :plain,
-   :enable_starttls_auto => true,
-   :openssl_verify_mode  => 'none'
+    address: "smtpout.secureserver.net",
+    domain: "secureserver.net",
+    port: 80,
+    user_name: CONFIG[:email_username],
+    password: CONFIG[:email_password],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
   }
   
   # Defaults to Rails.root.join("public/assets")
