@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
-  caches_page :info, :about
+  caches_page :info, :about, :terms
   
   def info
+  end
+  
+  def terms
   end
   
   def about

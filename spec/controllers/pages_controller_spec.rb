@@ -26,4 +26,11 @@ describe PagesController do
       response.should render_template :about
     end
   end
+  
+  describe "about us" do
+    it "renders about us template" do
+      get :terms
+      response.should render_template :terms
+    end
+  end
 end

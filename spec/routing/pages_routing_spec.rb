@@ -16,4 +16,8 @@ describe PagesController do
   it "routes to #about" do
     get("/about").should route_to('pages#about')
   end
+  
+  it "routes to #terms" do
+    get("/terms-and-conditions").should route_to('pages#terms')
+  end
 end

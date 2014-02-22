@@ -25,6 +25,7 @@ TeeboxNetwork::Application.routes.draw do
   get "how-it-works", to: "pages#info", as: :info
   get "sitemap", to: 'pages#sitemap', as: :sitemap
   get "about", to: 'pages#about', as: :about
+  get "/terms-and-conditions", to: 'pages#terms', as: :terms
   
   devise_for :users, controllers: { confirmations: "confirmations" }, path_names: { sign_in: "login", sign_out: "logout" }
   resources :users, only: [:show, :index]
