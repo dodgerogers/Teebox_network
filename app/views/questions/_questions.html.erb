@@ -1,17 +1,15 @@
 <% questions.each do |question| %>
-<% cache ["question_#{question.id}", question] do %>
+
 	<article class="span12">
 		<div class="question-image">
-			<%= link_to image_tag(display_mini_screenshot(question.video)), question %>
+			<%= link_to image_tag(display_mini_screenshot(question.videos[0])), question %>
 		</div>
-	
 		<div class="question-info">
 			<div class="title-holder">
 				<div class="index-title">
 					<%= link_to question.title.capitalize, question %>
 				</div>
 			</div>
-		
 			<div class="profile-info-index">
 				<div id="tour-vote" class="index-vote pull-left">
 					<%= question.votes_count  %>
@@ -23,7 +21,6 @@
 			</div>
 		</div>
 	</article>
-	<% end %>
 <% end %>
 
 <%= will_paginate questions %>	

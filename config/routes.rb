@@ -26,6 +26,7 @@ TeeboxNetwork::Application.routes.draw do
   get "sitemap", to: 'pages#sitemap', as: :sitemap
   get "about", to: 'pages#about', as: :about
   get "/terms-and-conditions", to: 'pages#terms', as: :terms
+  get "/playlist", to: 'pages#playlist', as: :playlist
   
   devise_for :users, controllers: { confirmations: "confirmations" }, path_names: { sign_in: "login", sign_out: "logout" }
   resources :users, only: [:show, :index]

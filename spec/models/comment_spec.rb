@@ -77,6 +77,12 @@ describe Comment do
         subject.content = "hey @dodgey this is a comment"
         subject.display_mentions.content.should eq("hey @dodgey this is a comment")
       end
+      
+      it "contains duplicate users" do
+        comment = FactoryGirl.build(:comment, content: "hey @randyrogers this is a comment @randyrogers", commentable_id: @question.id)
+        comment.valid?
+        comment.errors[:content].should eq ["You can only mention someone once"]
+      end
     end
   end
 end

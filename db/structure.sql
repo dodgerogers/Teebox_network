@@ -179,6 +179,38 @@ ALTER SEQUENCE delayed_jobs_id_seq OWNED BY delayed_jobs.id;
 
 
 --
+-- Name: playlists; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE playlists (
+    id integer NOT NULL,
+    question_id integer,
+    video_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: playlists_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE playlists_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: playlists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE playlists_id_seq OWNED BY playlists.id;
+
+
+--
 -- Name: points; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -512,6 +544,13 @@ ALTER TABLE ONLY delayed_jobs ALTER COLUMN id SET DEFAULT nextval('delayed_jobs_
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY playlists ALTER COLUMN id SET DEFAULT nextval('playlists_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY points ALTER COLUMN id SET DEFAULT nextval('points_id_seq'::regclass);
 
 
@@ -594,6 +633,14 @@ ALTER TABLE ONLY comments
 
 ALTER TABLE ONLY delayed_jobs
     ADD CONSTRAINT delayed_jobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: playlists_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY playlists
+    ADD CONSTRAINT playlists_pkey PRIMARY KEY (id);
 
 
 --
@@ -721,6 +768,20 @@ CREATE INDEX index_comments_on_commentable_type ON comments USING btree (comment
 --
 
 CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
+
+
+--
+-- Name: index_playlists_on_question_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_playlists_on_question_id ON playlists USING btree (question_id);
+
+
+--
+-- Name: index_playlists_on_video_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_playlists_on_video_id ON playlists USING btree (video_id);
 
 
 --
@@ -940,3 +1001,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131023184933');
 INSERT INTO schema_migrations (version) VALUES ('20131118225423');
 
 INSERT INTO schema_migrations (version) VALUES ('20131206183110');
+
+INSERT INTO schema_migrations (version) VALUES ('20140224183359');

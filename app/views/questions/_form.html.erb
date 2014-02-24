@@ -11,9 +11,10 @@
 	<% end %>
 
 	<div>
-  		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video <small> - Click to select</small>") %>
-  		<%= render partial: "shared/video_select_form", locals: { question: @question } %>
-		<%= f.hidden_field :video_id %>
+  		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video <small> - Select up to 3</small>") %>
+		<!-- locals for showing selected videos in edit -->
+  		<%= render partial: "shared/video_select_form", locals: { question: @question } %> 
+		<%= f.hidden_field :video_list %>
 	</div>
 
 	<div>
@@ -42,3 +43,7 @@
 	<%= f.submit "Save", class: "default success" %>
 	<%= link_to "Cancel", root_path , class: "default" %>
 <% end %>
+
+<%= content_for :footer do %>
+	<%= javascript_include_tag "video_select.js" %>
+<% end %>	

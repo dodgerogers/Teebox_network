@@ -14,7 +14,6 @@ FactoryGirl.define do
     body "i cut across the ball"
     user
     youtube_url "http://youtube.com"
-    video_id :video
     answers_count 5
     votes_count 5
     correct false

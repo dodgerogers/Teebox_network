@@ -1,9 +1,12 @@
 require 'spec_helper'
 include TagHelper
+include VideoHelper
 
 describe Question do
   before(:each) do
     @question = create(:question)
+    @video = create(:video)
+    @question.videos << @video
   end
   
   subject {@question}
@@ -23,14 +26,31 @@ describe Question do
   it { should have_many(:answers)}
   it { should have_many(:tags).through(:taggings)}
   it { should have_many(:taggings)}
+  it { should have_many(:videos).through(:playlists)}
+  it { should have_many(:playlists)}
   it { should have_one(:point) }
   it { should validate_presence_of(:title)}
   it { should validate_presence_of(:body)}
   it { should validate_presence_of(:user_id)}
   
-  describe "over tag_limit" do
+  describe "exceed tag_limit" do
     before { @question.tags << tag_list }
     it { should_not be_valid }
+  end
+  
+  describe "exceed video_limit" do
+    before { @question.videos << video_list }
+    it { should_not be_valid }
+  end
+  
+  describe "video_list" do
+    it "video_list setter" do
+      @question.video_list.should eq "#{@video.id}"
+    end
+    
+    it "video_list getter" do
+      @question.videos.should eq [@video]
+    end
   end
   
    describe "long title" do

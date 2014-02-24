@@ -3,7 +3,8 @@ require "spec_helper"
 describe VideoHelper do
   before(:each) do
     @question = create(:question)
-    @video = create(:video)
+    @user = create(:user)
+    @video = create(:video, user: @user)
   end
   
   describe "strip_url" do
@@ -20,8 +21,6 @@ describe VideoHelper do
   
   describe "sublime_video" do
     it "renders sublime video element" do
-      @user = create(:user)
-      @video = create(:video, user: @user)
       helper.sublime_video(@video).should eq "<video class=\"sublime\" data-autoresize=\"fit\" data-name=\"#{@video.file}\" data-uid=\"#{@video.id}\" height=\"374\" id=\"video_#{@video.id}\" preload=\"none\" width=\"748\"><source src=\"#{@video.file}\" /></video>"
     end
   end
@@ -41,8 +40,15 @@ describe VideoHelper do
     
     describe "display_mini_screenshot" do
       it "displays with nil video" do
-        helper.display_mini_screenshot(@question.video).should eq "video_screen_mini.png"
+        helper.display_mini_screenshot(@question.videos[0]).should eq "video_screen_mini.png"
       end
+    end
+  end
+  
+  describe "persist_selected" do
+    it "displays selected class" do
+      @question.videos << @video
+      helper.persist_selected(@question, @video).should eq 'selected_video'
     end
   end
 end

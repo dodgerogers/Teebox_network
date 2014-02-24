@@ -7,7 +7,8 @@ describe Questions::ShowDecorator do
     @user.confirm!
     sign_in @user
     @video = create(:video, user: @user)
-    @question = create(:question, video: @video, user: @user)
+    @question = create(:question, user: @user)
+    @question.videos << @video
     @decorator = Questions::ShowDecorator.new(@question)
     @tag = create(:tag, name: "shank")
     @decorator.tags << @tag

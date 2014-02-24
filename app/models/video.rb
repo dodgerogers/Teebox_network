@@ -1,8 +1,9 @@
 class Video < ActiveRecord::Base
   
-  attr_accessible :question_id, :file, :screenshot
+  attr_accessible :file, :screenshot
   
-  has_many :questions
+  has_many :questions, through: :playlists
+  has_many :playlists
   belongs_to :user
   
   validates_presence_of :user_id, :file

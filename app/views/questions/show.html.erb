@@ -1,6 +1,6 @@
 <%= content_for :head do %>
-	<!-- Loads video player and related questions via ajax -->
-	<%= javascript_include_tag "sublime.js", "related_questions.js", defer: "defer" %>
+	<!-- inits video player, loads related questions via ajax -->
+	<%= javascript_include_tag "sublime.js", "playlist.js", "related_questions.js", defer: "defer" %>
 <% end %>
 
 <% meta_title(@decorator.title) %>
@@ -10,8 +10,7 @@
 <div class="row">
 	<div class="span8">
 		<div class="video-container">
-			<%= sublime_video(@decorator.video) if @decorator.video.present? %>
-			<%= youtube_url_html5(@decorator.youtube_url) if @decorator.youtube_url.present? %>
+			<%= render partial: "videos/playlist", locals: { videos: @decorator.videos } %>
 		</div>
 		<div id="question-box" data-id="<%= @decorator.id %>">
 			<div class="question">

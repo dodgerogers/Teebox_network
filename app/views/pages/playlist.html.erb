@@ -1,0 +1,31 @@
+<%= content_for :head do %>
+	<!-- Loads video player and related questions via ajax -->
+	<%= stylesheet_link_tag "playlist.css" %>
+	<%= javascript_include_tag "sublime.js" %>
+<% end %>
+
+<!-- SUBLIME PLAYLIST TEST -->
+<% videos ||= Video.all[-3..-1] %>
+<div id="playlist1" class="sv_playlist">
+	<% videos.each do |vid| %>
+		<div class="video_wrap">
+			<video id="video<%= vid.id %>" poster="" width="432" height="234" preload="none" data-autoresize="fit">
+				<source src="<%= vid.file %>"/>
+			</video>		
+		</div>
+	<% end %>
+	<ul class="thumbs">	
+		<% videos.each do |vid| %>
+			<li id="thumbnail_video<%= vid.id %>">
+				<a href="">
+					<img alt="" src="<%= display_xl_screenshot(vid) %>">
+					<span class="play" />
+				</a>
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+<%= content_for :footer do %>
+	<%= javascript_include_tag "playlist.js" %>
+<% end %>

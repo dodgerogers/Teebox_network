@@ -23,4 +23,8 @@ module VideoHelper
   def display_mini_screenshot(video)
     (video.screenshot_url(:mini) if video) || "video_screen_mini.png"
   end
+  
+  def persist_selected(question, video)
+    question.videos.map(&:id).include?(video.id) ? 'selected_video' : ''
+  end
 end

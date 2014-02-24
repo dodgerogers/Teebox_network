@@ -2,7 +2,8 @@
 	<div id="token">
     	<% current_user.videos.each do |video| %>
 	  		<article class="videos form" data-id="<%= video.id %>">
-				<div class="selected <%= question.video_id == video.id ? 'selected_video' : '' %>">
+				<!-- Question passed in to partial from the form template. Adds selected div -->
+				<div class="selected <%= persist_selected(question, video) %>">
 					<i class="icon-ok-sign" id="ok-icon"></i>
 				</div>
 	
