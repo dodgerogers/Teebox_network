@@ -78,6 +78,11 @@ FactoryGirl.define do
     updated_by "Andy"
   end
   
+  factory :tagging do
+    tag_id :tag
+    question_id :question
+  end
+  
   factory :activity do
      trackable_id :answer
      recipient_id :user

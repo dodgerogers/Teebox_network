@@ -26,6 +26,7 @@ ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # only keep the last 5 releases
 after "deploy", "delayed_job:restart"
+# after "deploy:update_code", "deploy:migrate"
 
 # delayed jobs workers
 #after "deploy:stop",    "delayed_job:stop"

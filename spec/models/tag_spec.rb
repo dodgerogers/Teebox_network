@@ -30,4 +30,12 @@ describe Tag do
      before { subject.explanation = "fuck" }
      it { should_not be_profane }
    end
+   
+   describe "tag_cloud" do
+     it "lists most popular tags" do
+       @question = create(:question)
+       @tagging = create(:tagging, question_id: @question.id, tag_id: @tag.id)
+       Tag.cloud.should eq [@tag]
+     end
+   end
 end

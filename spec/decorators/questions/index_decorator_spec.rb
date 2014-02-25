@@ -19,4 +19,21 @@ describe Questions::IndexDecorator do
       @decorator.newest_questions.should == [@q3, @q2, @q1] 
     end
   end
+  
+  describe "tagged_questions" do
+    it "params[:tag]" do
+      @question = create(:question)
+      @question.tags << @tag
+      @decorator.params[:tag] = "shank"
+      @decorator.tagged_questions.should eq [@question]
+    end
+  end
+  
+  describe "search" do
+    it "params[:search]" do
+      @question = create(:question)
+      @decorator.params[:search] = "slicing"
+      @decorator.search.should eq [@question]
+    end
+  end
 end

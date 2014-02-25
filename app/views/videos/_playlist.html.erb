@@ -6,8 +6,8 @@
 			</video>		
 		</div>
 	<% end %>
-	<ul class="thumbs">	
-		<% unless videos.length <= 1 %>
+	<% unless videos.length <= 1 %>	
+		<ul class="thumbs">	
 			<% videos.each do |vid| %>
 				<li id="thumbnail_video<%= vid.id %>">
 					<a href="#">
@@ -16,6 +16,7 @@
 					</a>
 				</li>
 			<% end %>
-		<% end %>	
-	</ul>
+			<%= link_to raw("hide playlist"), '#', class: "thumbnail_select default next" %>	
+		</ul>
+	<% end %>
 </div>

@@ -34,50 +34,56 @@ describe Question do
   it { should validate_presence_of(:user_id)}
   
   describe "exceed tag_limit" do
-    before { @question.tags << tag_list }
+    before { subject.tags << tag_list }
     it { should_not be_valid }
   end
   
   describe "exceed video_limit" do
-    before { @question.videos << video_list }
+    before { subject.videos << video_list }
     it { should_not be_valid }
   end
   
   describe "video_list" do
     it "video_list setter" do
-      @question.video_list.should eq "#{@video.id}"
+      subject.video_list.should eq "#{@video.id}"
     end
     
     it "video_list getter" do
-      @question.videos.should eq [@video]
+      subject.videos.should eq [@video]
     end
   end
   
    describe "long title" do
-     before { @question.title = ("a" * 91) }
+     before { subject.title = ("a" * 91) }
       it { should_not be_valid }
    end
    
    describe "short title" do
-      before { @question.title = ("a" * 9) }
+      before { subject.title = ("a" * 9) }
        it { should_not be_valid }
     end
     
     describe "obscenity filter title" do
-      before { @question.title = "shit" }
+      before { subject.title = "shit" }
       it { should_not be_profane }
     end
     
     describe "validates body" do
-      before { @question.body = "fuck" }
+      before { subject.body = "fuck" }
       it { should_not be_profane }
     end
     
     describe "tagged_with " do
       it "finds a tag by name" do
         @tag = create(:tag, name: "shank")
-        @question.tags << @tag
-        Question.tagged_with(@tag.name).should eq [@question]
+        subject.tags << @tag
+        Question.tagged_with(@tag.name).should eq [subject]
+      end
+    end
+    
+    describe "text_search" do
+      it "returns all when search nil" do
+        Question.text_search("").should eq [subject]
       end
     end
 
@@ -88,7 +94,7 @@ describe Question do
       q1 = create(:question, user: @user1, correct: true, body: "im slicing it now") 
       q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball") 
       q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis") 
-      q4 = @question
+      q4 = subject
       Question.unanswered.should == [q4, q2, q3] 
     end
     
@@ -97,7 +103,7 @@ describe Question do
       q1 = create(:question, user: @user1, correct: true, body: "im slicing it now", votes_count: 1) 
       q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball", votes_count: 2) 
       q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis", votes_count: 3) 
-      q4 = @question
+      q4 = subject
       Question.popular.should == [q4, q3, q2, q1] 
     end
     
@@ -106,7 +112,7 @@ describe Question do
       q1 = create(:question, user: @user1, correct: true, body: "im slicing it now", votes_count: 1) 
       q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball", votes_count: 2) 
       q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis", votes_count: 3) 
-      q4 = @question
+      q4 = subject
       Question.newest.should == [q3, q2, q1, q4] 
     end
   end
