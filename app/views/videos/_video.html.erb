@@ -2,7 +2,7 @@
 	<%= image_tag("spinner.gif", class: "loading loading_#{video.id}") %>	
 	<%= link_to image_tag(display_xl_screenshot(video)), video %>
 	<br>
-	<h5><%= link_to File.basename(video.file).titleize, video %></h5>
+	<h5><%= link_to truncate(File.basename(video.file).titleize, length: 22), video %></h5>
 	<p><small><%= video.created_at.strftime("%d/%m/%y")  %></small>
 	<%= link_to raw("<i class='icon-remove-sign'></i>"), video_path(video), method: :delete, 
 												 							remote: true, 

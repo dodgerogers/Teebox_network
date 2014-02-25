@@ -60,11 +60,11 @@ class QuestionsController < ApplicationController
   end
   
   def unanswered
-    @unanswered = Question.unanswered.includes(:user, :video).paginate(page: params[:page], per_page: 20)
+    @unanswered = Question.unanswered.includes(:user, :videos).paginate(page: params[:page], per_page: 20)
   end
 
   def popular
-    @popular = Question.popular.includes(:user, :video).paginate(page: params[:page], per_page: 20)
+    @popular = Question.popular.includes(:user, :videos).paginate(page: params[:page], per_page: 20)
   end
   
   def related
