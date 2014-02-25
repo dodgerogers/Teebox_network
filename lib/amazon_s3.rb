@@ -5,7 +5,9 @@ class AmazonS3
   def self.find_videos
     files = []
     Video.all.each do |v|
-      files << v.file; files << v.screenshot.to_s; files << v.screenshot_url(:mini).to_s
+      files << v.file 
+      files << v.screenshot.to_s
+      files << v.screenshot_url(:mini).to_s
     end
     files.map {|file| file.split(/\//)[3..-1].join('/') }
   end
@@ -15,12 +17,14 @@ class AmazonS3
     files = self.find_videos
     number_of_files = (bucket.map(&:key) - self.find_videos)
     if number_of_files.size > 0
-      puts "Would you like to delete #{number_of_files.size} erroneous AWS::S3 objects? Answer y/n"
+      puts "Would you like to delete #{number_of_files.size} erroneous AWS::S3 objects?\n#{number_of_files}\n Answer y/n"
       if gets.chomp.downcase == "y"
         valid = bucket.map(&:key) & files
         bucket.each do |obj| 
-          puts "deleting #{obj.key}"
-          obj.delete unless valid.include? obj.key
+          unless valid.include? obj.key
+            puts "deleting #{obj.key}"
+            obj.delete 
+          end
         end
       else
         puts "Operation cancelled"

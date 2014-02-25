@@ -628,7 +628,13 @@
 			left:80px!important;
 		}
 	}
-	.sv_playlist ul.thumbs {
-		padding-left:0px;
+	.sv_playlist {
+		ul.thumbs {
+			padding-left:0px;
+		}
+		.thumbnail_select {
+			margin:4px!important;
+			font-size:9px;
+		}
 	}
 }
