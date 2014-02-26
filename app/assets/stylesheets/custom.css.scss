@@ -402,11 +402,11 @@ body .sublimevideo-zi .sublimevideo-uj {
 }
 .unanswered {
 	background: $gundam;
-	box-shadow: 0px 3px 0px #333;
+	@include box-shadow(0px,3px,0px,#333);
 }
 .answered {
 	background: $green-sea;
-	box-shadow: 0px 3px 0px #367964;
+	@include box-shadow(0px,3px,0px,#367964);
 }
 #correct-answer {
 	color: white !important;
@@ -473,6 +473,10 @@ body .sublimevideo-zi .sublimevideo-uj {
 	display:none;
 	text-align:center;
 	margin: 0 auto;
+	.default {
+		@include border-radius(4px);
+		@include box-shadow(0px, 4px, 0px, $dark-red);
+	}
 }
 
 //----------- Question form - videos select ----------//
@@ -527,7 +531,7 @@ body .sublimevideo-zi .sublimevideo-uj {
 	margin: 4px 0 0;
 }
 .shadow {
-	box-shadow: 0px 4px 0px $red;
+	@include box-shadow(0px,4px,0px,$red);
 }
 		
 //------------------- video dropzone ----------------*/
@@ -637,7 +641,7 @@ body #header-search {
 	padding:10px;
 	@include box-sizing;
 	background: #fff;
-	box-shadow: 0px 4px 0px #eee;
+	@include box-shadow(0px,4px,0px,#eee);
 	border-bottom-left-radius: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-moz-border-bottom-left-radius: 5px;
@@ -842,6 +846,8 @@ body #header-search {
 }
 .start-tour {
 	width:310px;
+	@include border-radius(4px);
+	@include box-shadow(0px,4px,0px,$dark-red);
 }
 .direct-upload {
 	display:inline-block;
@@ -864,7 +870,7 @@ body #header-search {
 	margin-bottom: 10px;
 	@include border-radius(5px);
 	background: #fff;
-	box-shadow: 0px 4px 0px #eee;
+	@include box-shadow(0px,4px,0px,#eee);
 }
 .answer {
 	@include box-sizing;

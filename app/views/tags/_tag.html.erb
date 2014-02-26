@@ -1,12 +1,9 @@
 <article class='tag-container span4'>
 	<h6><%= link_to tag.name, tagged_path(tag.name) %></h6>
-		<p><%= tag.explanation.present? ? tag.explanation.capitalize : "Add an explanation for this tag" %>
+		<p><%= tag.explanation %><br>
 		<small>
-			<%= link_to tag.updated_by, user_path(tag.user_id) if tag.user_id %>
-			Updated <%= time_ago_in_words(tag.updated_at) %> ago
-
+			updated <%= time_ago_in_words(tag.updated_at) %> ago
 			<%= link_to "Delete", tag, method: :delete if can? :destroy, tag %>
 			<%= link_to "Edit", edit_tag_path(tag) if can? :edit, tag %>
-		</small>
-		</p>
+		</small></p>
 </article>	

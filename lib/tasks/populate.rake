@@ -15,10 +15,10 @@ namespace :db do
         u.confirmation_sent_at = Time.now
       end
       
-    #Tag.populate 10 do |tag|
-    #  tag.name = Populator.words(1..2).titleize
-    #  tag.explanation = Populator.sentences(1)
-    #end  
+    Tag.populate 20 do |tag|
+      tag.name = Populator.words(1..2).titleize
+      tag.explanation = Populator.sentences(1)
+    end  
     
     Question.populate 20 do |question|
       question.title = Populator.words(5..9).titleize

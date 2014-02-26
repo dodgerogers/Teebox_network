@@ -13,14 +13,14 @@
 	
 	<div class="field">
 		<%= f.label :name, raw('<i class="icon-align-justify"></i> Name') %>
-		<%= f.text_field :name, placeholder: "Enter name" %>
+		<%= f.text_field :name, placeholder: "Spine Angle, Chipping etc" %>
 	</div><br>
 
 	<div class="field">
 		<%= f.label :explanation, raw('<i class="icon-info-sign"></i> Explanation') %>
-		<%= f.text_field :explanation, placeholder: "Enter an explanation" %>
+		<%= f.text_area :explanation, placeholder: "Try and be as concise as possible",size: "30x4" %>
 	</div><br>
 	
-	<%= f.submit "Save Tag", class: "default submit" %><br>
+	<p><%= f.submit "Save Tag", class: "default submit" %></p>
 	<%= link_to "Back to Tag Vault", tags_path %>
-	<% end %>
+<% end %>

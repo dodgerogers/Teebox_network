@@ -7,9 +7,6 @@ class PagesController < ApplicationController
   def terms
   end
   
-  def playlist
-  end
-  
   def about
     @user = User.where(username: "dodgerogers")[0]
   end

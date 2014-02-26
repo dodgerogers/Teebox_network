@@ -1,6 +1,7 @@
 <% meta_title("#{@user.username} comments") %>
 
 <h2>Comments</h2>
+<%= raw "<p>No comments yet</p>" unless @comments.any? %>
 
 <table class="table">
 	<% @comments.each do |comment| %>	

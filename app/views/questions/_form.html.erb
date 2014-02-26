@@ -13,7 +13,7 @@
 	<div>
   		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video <small> - Select up to 3</small>") %>
 		<!-- locals for showing selected videos in edit -->
-  		<%= render partial: "shared/video_select_form", locals: { question: @question } %> 
+  		<%= render partial: "videos/video_select", locals: { question: @question } %> 
 		<%= f.hidden_field :video_list %>
 	</div>
 

@@ -1,6 +1,8 @@
 <% meta_title("#{@user.username} answers") %>
 
 <h2>Answers</h2>
+<%= raw "<p>No answers yet</p>" unless @answers.any? %>
+
 <table class="table">
 	<% @answers.each do |answer| %>	
 	    <tr>

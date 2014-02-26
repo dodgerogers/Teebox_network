@@ -16,6 +16,11 @@ $bebas: 'BebasNeueRegular';
 	-moz-border-radius: $value;
 	border-radius: $value;
 }
+@mixin box-shadow($horz: 0px, $vert: 0px, $blur: 0px, $color: #fff) {
+	box-shadow: $horz $vert $blur $color;
+	-webkit-box-shadow: $horz $vert $blur $color;
+	-moz-box-shadow: $horz $vert $blur $color;
+}
 
 // Colors //
 $ice: #f6f7f8;

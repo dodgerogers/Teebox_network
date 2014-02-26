@@ -1,4 +1,5 @@
 class Tag < ActiveRecord::Base
+  require 'obscenity/active_model'
   
   attr_accessible :name, :explanation, :updated_by, :user_id
   has_many :taggings
@@ -8,11 +9,17 @@ class Tag < ActiveRecord::Base
   validates :name, obscenity: true
   validates :explanation, obscenity: true 
   
+  after_initialize :init
+  
   include PgSearch
-  pg_search_scope :search, against: [:name, :explanation], 
-    using: { tsearch: { prefix: true, 
-                        dictionary: "english", 
-                        any_word: true } }
+  pg_search_scope :search,  against: [:name, :explanation], 
+                            using: { tsearch: { prefix: true, 
+                            dictionary: "english", 
+                            any_word: true } }
+                            
+  def init
+    self.explanation ||= "no explanation"
+  end                          
   
   def self.text_search(query)
     if query.present?
