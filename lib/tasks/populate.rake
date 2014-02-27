@@ -5,20 +5,15 @@ namespace :db do
     require 'faker'
     
     User.populate 10 do |u|
-        u.username    = Faker::Name.name
-        u.email       = Faker::Internet.email
-        u.encrypted_password    = "password1"
-        u.reputation  = rand(1..200)
-        u.rank        = 0
-        u.role        = "tester"
-        u.confirmed_at = Time.now
-        u.confirmation_sent_at = Time.now
-      end
-      
-    Tag.populate 20 do |tag|
-      tag.name = Populator.words(1..2).titleize
-      tag.explanation = Populator.sentences(1)
-    end  
+      u.username    = Faker::Name.name
+      u.email       = Faker::Internet.email
+      u.encrypted_password    = "password1"
+      u.reputation  = rand(1..200)
+      u.rank        = 0
+      u.role        = "tester"
+      u.confirmed_at = Time.now
+      u.confirmation_sent_at = Time.now
+    end
     
     Question.populate 20 do |question|
       question.title = Populator.words(5..9).titleize

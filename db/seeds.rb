@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Tag.destroy_all
+File.read("#{Rails.root}/config/tags.txt").split("\n\n").each do |line|
+  name, explanation = line.split(":")
+  Tag.create!(name: name, explanation: explanation)
+end

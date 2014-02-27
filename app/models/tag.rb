@@ -6,8 +6,8 @@ class Tag < ActiveRecord::Base
   has_many :questions, through: :taggings
   validates :name, presence: true, uniqueness: true, length: { maximum: 100, minimum: 2}
   
-  validates :name, obscenity: true
-  validates :explanation, obscenity: true 
+  validates :name, obscenity: true #{sanitize: true, replacement: "[censored]"} 
+  validates :explanation, obscenity: true #{sanitize: true, replacement: "[censored]"} 
   
   after_initialize :init
   
