@@ -14,7 +14,6 @@ describe Comment do
   it { should respond_to(:content) }
   it { should respond_to(:user_id) }
   it { should respond_to(:commentable) }
-  it { should respond_to(:points) }
   it { should belong_to(:user) }
   it { should belong_to(:commentable) }
   it { should have_many(:activities) }

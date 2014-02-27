@@ -7,7 +7,7 @@ describe QuestionHelper do
     @user1.confirm!
     sign_in @user1
     @video = create(:video, user_id: @user1.id)
-    @question = create(:question, user: @user1, video_id: @video.id)
+    @question = create(:question, user: @user1)
   end
   
   describe "display_results" do

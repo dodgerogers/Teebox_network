@@ -21,7 +21,6 @@ namespace :db do
       question.user_id = User.all.map(&:id)
       question.votes_count = 0
       question.answers_count = 0
-      question.points = 0
       question.correct = false
     end
   end

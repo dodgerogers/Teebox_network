@@ -79,8 +79,7 @@ CREATE TABLE answers (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     votes_count integer DEFAULT 0,
-    correct boolean DEFAULT false,
-    points integer DEFAULT 0
+    correct boolean DEFAULT false
 );
 
 
@@ -115,8 +114,7 @@ CREATE TABLE comments (
     user_id integer,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    votes_count integer DEFAULT 0,
-    points integer DEFAULT 0
+    votes_count integer DEFAULT 0
 );
 
 
@@ -256,10 +254,8 @@ CREATE TABLE questions (
     youtube_url character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    video_id integer DEFAULT 0,
     votes_count integer DEFAULT 0,
     answers_count integer DEFAULT 0,
-    points integer DEFAULT 0,
     correct boolean DEFAULT false,
     tags character varying(255)
 );
@@ -451,7 +447,6 @@ CREATE TABLE videos (
     id integer NOT NULL,
     file character varying(255),
     user_id integer,
-    question_id integer,
     screenshot character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
@@ -813,13 +808,6 @@ CREATE INDEX index_questions_on_user_id ON questions USING btree (user_id);
 
 
 --
--- Name: index_questions_on_video_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_questions_on_video_id ON questions USING btree (video_id);
-
-
---
 -- Name: index_reports_on_answers; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -873,13 +861,6 @@ CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
-
-
---
--- Name: index_videos_on_question_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_videos_on_question_id ON videos USING btree (question_id);
 
 
 --
@@ -1003,3 +984,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131118225423');
 INSERT INTO schema_migrations (version) VALUES ('20131206183110');
 
 INSERT INTO schema_migrations (version) VALUES ('20140224183359');
+
+INSERT INTO schema_migrations (version) VALUES ('20140227015722');
