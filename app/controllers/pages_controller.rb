@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   end
   
   def sitemap
-    @static_pages = [root_path, info_path, users_path, root_path, unanswered_path, popular_path, sitemap_path, about_path]
+    @static_pages = [root_path, info_path, users_path, root_path, unanswered_path, popular_path, sitemap_path, about_path, terms_path]
     @questions = Question.order("created_at desc")
     @tags = Tag.order(:name)
     respond_to do |format|

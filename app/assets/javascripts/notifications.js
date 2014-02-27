@@ -1,4 +1,4 @@
-jQuery(function() {
+$(function() {
   var arr = [];
   $("#notifications").click(function(event) {
     arr.push(1);

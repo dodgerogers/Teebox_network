@@ -1,4 +1,4 @@
-jQuery(function() {
+$(function() {
   return $(".direct-upload").each(function(data) {
     var form;
     form = $(this);
@@ -49,7 +49,8 @@ jQuery(function() {
         return $(".bar").css("width", percent + "%");
       },
       fail: function(e, data) {
-        return console.log("fail");
+        console.log("Uploading failed");
+		return $("#dropzone").html("").append("<b>Upload failed, please try again <i class='icon-remove-sign red'></i><br></b>").fadeIn();
       },
       success: function(data) {
         var url;

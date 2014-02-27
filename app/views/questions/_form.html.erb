@@ -12,15 +12,10 @@
 
 	<div>
   		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video <small> - Select up to 3</small>") %>
-		<!-- locals for showing selected videos in edit -->
+		<!-- @question for persisting selected videos in edit -->
   		<%= render partial: "videos/video_select", locals: { question: @question } %> 
 		<%= f.hidden_field :video_list %>
 	</div>
-
-	<div>
-		<%= f.label :youtube_url, raw("<i class='icon-youtube'></i> YouTube URL") %>
-		<%= f.text_field :youtube_url, placeholder: "Already have a video on YouTube? Paste the URL here" %>
-	</div><br>
 
 	<div>
 		<%= f.label :title, raw("<i class='icon-font'></i> Title") %>

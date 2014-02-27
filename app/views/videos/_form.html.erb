@@ -1,21 +1,20 @@
-<form action="http://<%= CONFIG[:s3_bucket] %>.s3.amazonaws.com" data-remote="true" class="direct-upload" enctype="multipart/form-data" method="post">
-  <input name="key" type="hidden" />
-  <input name="AWSAccessKeyId" type="hidden" value="<%= CONFIG[:aws_access_key_id] %>" />
-  <input name="acl" type="hidden" value="public-read" />
-  <input name="policy" type="hidden" />
-  <input name="signature" type="hidden" />
-  <input name="success_action_status" type="hidden" value="201" />
-<div class="fileUpload default submit">
-	<span>Select File  <i class="icon-plus-sign"></i></span>
-  	<input name="file" type="file" id="video-test-upload" />
-</div>
+<form accept-charset="UTF-8" action="http://<%= CONFIG[:s3_bucket] %>.s3.amazonaws.com" data-remote="true" class="direct-upload" enctype="multipart/form-data" method="post">
+  	<%= hidden_field_tag :key %>
+	<%= hidden_field_tag :AWSAccessKeyId, CONFIG[:aws_access_key_id] %>
+	<%= hidden_field_tag :acl, "public-read" %>
+	<%= hidden_field_tag :policy %>
+	<%= hidden_field_tag :signature %>
+	<%= hidden_field_tag :success_action_status, "201" %>
+	<div class="fileUpload default submit">
+		<span>Select File  <i class="icon-plus-sign"></i></span>
+		<%= file_field_tag :file, id: "video-test-upload" %>
+	</div>
 </form>
 
 <%= form_for @video, html: { multipart: true, id: "new_video" }, remote: true do |f| %>
 	<% if @video.errors.any? %>
 	<div id="error_explanation">
   		<h2><%= pluralize(@video.errors.count, "error") %> prohibited this post from being saved:</h2>
-
   		<ul>
   			<% @video.errors.full_messages.each do |msg| %>
     			<li><%= msg %></li>
@@ -27,5 +26,3 @@
 <% end %>
 
 <%= link_to raw('Step 2 &nbsp;<i class="icon-circle-arrow-right"></i>'), new_question_path, class: "default next" %><br>
-	
-	

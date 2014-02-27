@@ -1,4 +1,4 @@
-jQuery(function() {
+$(function() {
   $('#new_answer').hide();
   return $("#answer-button").click(function(event) {
     event.preventDefault();

@@ -14,7 +14,7 @@
 		</div>
 		<div id="question-box" data-id="<%= @decorator.id %>">
 			<div class="question">
-				<h3><%= @decorator.title.titleize %></h3>		
+				<h3><%= @decorator.title.capitalize %></h3>		
 				<div class="question-content">
 					<%= simple_format(@decorator.body) %>
 				</div>

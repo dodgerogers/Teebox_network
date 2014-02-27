@@ -1,4 +1,4 @@
-jQuery(function() {
+$(function() {
   $('#answer-correct').tooltip();
   $('#correct-points').tooltip();
   $('#answer-votes').tooltip();
