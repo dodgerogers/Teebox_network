@@ -13,7 +13,7 @@ class TagsController < ApplicationController
   
   def index
     @tag = Tag.new
-    @tags = Tag.order("name").paginate(page: params[:page], per_page: 20).text_search(params[:search])
+    @tags = Tag.order("name").paginate(page: params[:page], per_page: 21).text_search(params[:search])
   end
   
   def create

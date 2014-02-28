@@ -4,8 +4,6 @@ Alignment: The position of the body in relation to the initial target.
 
 Angle of Attack: A term that describes the relative angle which the clubhead approaches the ball at impact which, in turn, helps determine the distance and trajectory which the ball travels.
 
-Approach: A shot hit towards the green.
-
 Axis: Generally refers to a straight line (the spine) that the upper body rotates around in the course of the golf swing.
 
 Backswing: The motion that involves the club and every element of the body in taking the club away from the ball and setting it in position at the top of the backswing from which the club can be delivered to the ball at impact.
@@ -29,8 +27,6 @@ Bowed Wrist: The position of the wrists at the top of the backswing in which the
 Break: The amount a putt will curve to the side because of the slope, grain and wind that affect the movement of the ball.
 
 Bunker: A hollow comprised of sand or grass or both that exists as an obstacle and, in some cases, a hazard.
-
-Cambered: Sole A rounding of the sole of the club to reduce drag. A four-way cambered sole is one that is rounded at every edge of a wood.
 
 Carry: The distance a ball will fly in the air, usually to carry a hazard or safely reach a target.
 
@@ -157,8 +153,6 @@ Groove: A description of a swing that consistently follows the same path, time a
 Half Shot: A shot played with an abbreviated swing and reduced swing speed. This shot is often played when trying to keep the ball out of a strong wind.
 
 Heel: The part of the clubhead nearest the hosel. A shot hit off the heel is said to be "heeled."
-
-Heel and Toe: Weighted: A club design where weight is distributed towards the heel and toe of a club, usually an iron, to reduce the effect of mis-hits.
 
 High Side: The side of the hole that a putt breaks from.
 
