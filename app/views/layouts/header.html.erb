@@ -5,13 +5,11 @@
 			<i class='icon-teebox logo'></i>
 			<span id="brand">Teebox</a>
 		<% end %>
-		
 		<a class="btn btn-navbar" id="collapse-dropdown" data-toggle="collapse" data-target=".nav-collapse">
 		   <span class="icon-bar"></span>
 		   <span class="icon-bar"></span>
 		   <span class="icon-bar"></span>
 		 </a>
-		
 		<div class="nav-collapse collapse">
     		<ul class="nav pull-right">
 			  <li><%= form_tag questions_path, method: "get", class: "form-control navbar-form pull-left" do %>
@@ -38,7 +36,6 @@
 		      			<div id="current-user"><%= current_user.username.titleize %></div>
 					<% end %>
 				</li>
-			
 				<li class="dropdown">
 					<a href="#" id="account-dropdown" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-cog cog"></i>

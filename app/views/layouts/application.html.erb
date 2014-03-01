@@ -4,12 +4,12 @@
 		<title><%= meta_title %></title>
 		<meta name="description" content="<%= meta_description %>">
 		<meta name="keywords" content="<%= meta_keywords %>">
-		<%= yield :head %>
 		<%= favicon_link_tag "/favicon.ico" %>
 		<%= favicon_link_tag 'teebox-app-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
 	  	<%= stylesheet_link_tag    "application", media: "all" %>
 		<%= javascript_include_tag "application", media: 'all' %>
 		<%= csrf_meta_tags %>
+		<%= yield :head %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta property="og:image" content="<%= asset_path('teebox-app-icon.png') %>" />
 		<!--<meta name="apple-mobile-web-app-capable" content="yes">-->
