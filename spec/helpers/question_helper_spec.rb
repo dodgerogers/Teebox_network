@@ -22,7 +22,7 @@ describe QuestionHelper do
   
   describe "social_meta_info" do
     it "displays meta content tags" do
-      helper.social_meta_info(@question).should eq "<meta content=\"summary\" name=\"twitter:card\"></meta><meta content=\"http://test.host\" name=\"twitter:url\"></meta><meta content=\"@teebox_network\" name=\"twitter:site\"></meta><meta content=\"@teebox_network\" name=\"twitter:creator\"></meta><meta content=\"slicing the ball\" name=\"twitter:title\"></meta><meta content=\"i cut across the ball\" name=\"twitter:description\"></meta><meta content=\"video_screen.png\" name=\"twitter:image\"></meta><meta content=\"video_screen.png\" property=\"og:image\"></meta>"
+      helper.social_meta_info(@question).should eq "<meta content=\"summary\" name=\"twitter:card\"></meta><meta content=\"http://test.host\" name=\"twitter:url\"></meta><meta content=\"@teebox_network\" name=\"twitter:site\"></meta><meta content=\"slicing the ball\" name=\"twitter:title\"></meta><meta content=\"i cut across the ball\" name=\"twitter:description\"></meta><meta content=\"video_screen.png\" name=\"twitter:image\"></meta><meta content=\"video_screen.png\" property=\"og:image\"></meta>"
     end
   end
 end

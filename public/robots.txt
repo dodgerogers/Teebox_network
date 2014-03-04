@@ -3,4 +3,5 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # When complete, add the site's xml sitemap URL to this page e.g http://beta.teebox-network.com/sitemap.xml
 User-Agent: *
-Disallow: /
+Disallow: /uploads/tmp
+Disallow: /uploads/user

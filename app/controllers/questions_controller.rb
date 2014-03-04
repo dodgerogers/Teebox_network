@@ -79,6 +79,6 @@ class QuestionsController < ApplicationController
   
   def set_question
     question = Question.find(params[:id])
-    @decorator = Questions::ShowDecorator.new(question)
+    @decorator ||= Questions::ShowDecorator.new(question)
   end
 end

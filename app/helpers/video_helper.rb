@@ -29,6 +29,6 @@ module VideoHelper
   end
   
   def social_image(videos)
-    video = (videos.any? ? display_xl_screenshot(videos[0]) : "video_screen.png")
+    video = (videos.any? ? display_xl_screenshot(videos[0]) : asset_path("video_screen.png"))
   end
 end

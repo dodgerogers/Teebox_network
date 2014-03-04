@@ -12,8 +12,7 @@ module QuestionHelper
     content_tag(:meta, nil,  name: "twitter:card", content: "summary") +
     content_tag(:meta, nil,  name: "twitter:url", content: request.original_url) +
     content_tag(:meta, nil, name: "twitter:site", content: "@teebox_network") +
-    content_tag(:meta, nil, name: "twitter:creator", content: "@teebox_network") +
-    content_tag(:meta, nil, name: "twitter:title", content: "#{question.title}") +
+    content_tag(:meta, nil, name: "twitter:title", content: "#{truncate(question.title, length: 70)}") +
     content_tag(:meta, nil, name: "twitter:description", content: "#{truncate(question.body, length: 200)}") +
     content_tag(:meta, nil, name: "twitter:image", content: "#{images}") +
     content_tag(:meta, nil, property: "og:image", content: "#{images}")
