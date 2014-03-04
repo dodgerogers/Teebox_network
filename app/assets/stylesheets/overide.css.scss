@@ -425,6 +425,18 @@ table.teebox-table {
 		color: $dark-red;
 	}
 }
+#enable-javascript {
+	color: #fff;
+	text-shadow: 0px 0px 0px #000;
+	#flash {
+		color: #1C6150;
+		text-shadow: 0 0px 0px #fff;
+		color: #fff;
+	}
+	a {
+		color: $universe;
+	}
+}
 
 // Modal //
 .modal.fade.in {

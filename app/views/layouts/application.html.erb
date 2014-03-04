@@ -18,6 +18,7 @@
 		<div id="wrap">
 			<%= render template: "layouts/header" %>			
 			<div class="container" id="margin-bottom">
+				<%= render template: "layouts/enable_javascript" %>
 				<% flash.each do |name, msg| %>
 				 	<div class="alert alert-<%= name == :notice ? "success" : "error" %> fade in">
 					 	<a class="close" data-dismiss="alert">&#215;</a>
