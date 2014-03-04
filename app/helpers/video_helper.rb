@@ -16,7 +16,7 @@ module VideoHelper
     @site_token ||= CONFIG[:sublime_token]
   end
   
-  def display_xl_screenshot(video)
+  def display_xl_screenshot(video) 
     video.screenshot.present? ? video.screenshot : "video_screen.png"
   end
   
@@ -26,5 +26,9 @@ module VideoHelper
   
   def persist_selected(question, video)
     question.videos.map(&:id).include?(video.id) ? 'selected_video' : ''
+  end
+  
+  def social_image(videos)
+    video = (videos.any? ? display_xl_screenshot(videos[0]) : "video_screen.png")
   end
 end

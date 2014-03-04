@@ -2,9 +2,12 @@ require "spec_helper"
 
 describe VideoHelper do
   before(:each) do
-    @question = create(:question)
     @user = create(:user)
-    @video = create(:video, user: @user)
+    @question = create(:question, user_id: @user.id)
+    @video = create(:video, user_id: @user.id)
+    # Stub the mounted screenshot uploader, as we just want to test strings essentially
+    Video.any_instance.stub(:screenshot).and_return("https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg")
+    @question.videos << @video
   end
   
   describe "strip_url" do
@@ -31,23 +34,28 @@ describe VideoHelper do
     end
   end
   
-  describe "display video screenshots" do
+  describe "screenshots" do
     describe "display_xl_screenshot" do
       it "with nil screenshot" do
-        helper.display_xl_screenshot(@video).should eq "video_screen.png"
+        helper.display_xl_screenshot(@video).should eq "https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
       end
     end
     
     describe "display_mini_screenshot" do
-      it "displays with nil video" do
+      it "with nil video" do
         helper.display_mini_screenshot(@question.videos[0]).should eq "video_screen_mini.png"
+      end
+    end
+    
+    describe "social_image" do
+      it "displays url with video" do
+        helper.social_image(@question.videos).should eq "https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
       end
     end
   end
   
   describe "persist_selected" do
     it "displays selected class" do
-      @question.videos << @video
       helper.persist_selected(@question, @video).should eq 'selected_video'
     end
   end

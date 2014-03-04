@@ -25,6 +25,11 @@ FactoryGirl.define do
     screenshot "https://#{CONFIG[:s3_bucket]}.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
   end
   
+  factory :playlist do
+    question_id :question
+    video_id :video
+  end
+  
   factory :comment do
     user
     commentable_id :question
