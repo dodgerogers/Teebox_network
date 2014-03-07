@@ -19,7 +19,7 @@ class Video < ActiveRecord::Base
   def take_screenshot
     location = "#{Rails.root}/public/uploads/tmp/screenshots/#{unique}_#{File.basename(self.file)}.jpg"
     if self.file.include? "http://#{CONFIG[:s3_bucket]}.s3.amazonaws.com/"
-       self.screenshot = FFMPEG::Movie.new(self.file).screenshot(location, seek_time: 1)
+       self.screenshot = FFMPEG::Movie.new(self.file).screenshot(location, {seek_time: 1, resolution: "200x100"}, preserve_aspect_ratio: :width)
        File.delete(location) if self.save!
     end
   end
