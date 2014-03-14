@@ -10,25 +10,24 @@
 
 <div class="row">
 	<div class="span8">
+		
 		<div class="video-container">
 			<%= render partial: "videos/playlist", locals: { videos: @decorator.videos } %>
 		</div>
+		
 		<div id="question-box" data-id="<%= @decorator.id %>">
 			<div class="question">
-				<h3><%= @decorator.title.capitalize %></h3>		
+				<h3><%= @decorator.title.capitalize %></h3>
+				<%= meta_info(@decorator) %>
+				<%= link_to raw("<i class='icon-edit-sign'></i>"), edit_question_path(@decorator), title: "Edit" if can? :update, @decorator %>
+				<%= link_to raw("<i class='icon-remove-sign'></i>"), @decorator, method: :delete, confirm: "Are you sure? You will lose any points associated with this question", title: "Delete" if can? :destroy, @decorator %>
+				<p></p>	
 				<div class="question-content">
 					<%= simple_format(@decorator.body) %>
 				</div>
 				<div class="question-tags">
+					<i class="icon-tags"></i>
 					<%= @decorator.question_tags %>
-				</div>
-				<div class="profile-info">
-					<%= render partial: "votes/form", locals: { votes_count: "questions", object: @decorator, vote_path: method(:vote_question_path) } %> 
-				    <%= profile_link_helper(@decorator) %>
-					<div class="profile">
-						<%= link_to "Edit", edit_question_path(@decorator) if can? :update, @decorator %>
-						<%= link_to "Delete", @decorator, method: :delete, confirm: "Are you sure? You will lose any points associated with this question" if can? :destroy, @decorator %>
-					</div>
 				</div>
 			</div>
 			
@@ -48,7 +47,6 @@
 		<section id="question-answers">
 			<%= render @answers %>
 		</section>
-		
 		<a href="#" id="answer-button" class="default submit">Answer question</a><br><br>
 		<%= render partial: "answers/form", locals: { question_id: @decorator.id } %>
 	</div>

@@ -32,8 +32,7 @@ describe "Questions" do
     visit root_path
     sign_in_user
     create_and_find_question
-    within('.profile-info') do
-      page.should have_content "Edit"
+    within('#question-box') do
       click_link "Edit"
     end
     page.should have_content "Edit your question"

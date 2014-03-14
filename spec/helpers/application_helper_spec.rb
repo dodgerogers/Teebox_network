@@ -12,6 +12,22 @@ describe ApplicationHelper do
     @question = create(:question, user: @user1)
   end
   
+  describe "demodularize()" do
+    it "returns first segment from module name" do
+      helper.demodularize(Questions::ShowDecorator.new(@question)).should eq "Question"
+    end
+    
+    it "returns class name" do
+      helper.demodularize(@user1).should eq "User"
+    end
+  end
+  
+  describe "meta_info" do
+    it "returns formatted profile links" do
+      helper.meta_info(@question).should eq "<span class=\"meta_info\"><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">200</a><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><i class=\"icon-calendar\"></i>less than a minute ago <div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Question_#{@question.id}\">\n\t\t5 votes\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green'></i></a>\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red'></i></a>\n</div></span>"
+    end
+  end
+  
   describe "profile_link_helper" do
     it "returns formatted html" do
       @answer = create(:answer, user: @user1, question_id: @question.id)
@@ -23,7 +39,7 @@ describe ApplicationHelper do
   describe "social_links" do
     it "returns formatted social links" do
       page = "/questions"
-      helper.social_links(page).should eq "<div><a href=\"http://facebook.com/sharer.php?u=/questions\" target=\"_blank\"><i class='icon-facebook-sign large facebook'></i> </a><a href=\"https://plus.google.com/share?url=/questions\" target=\"_blank\"><i class='icon-google-plus-sign large google'></i> </a><a href=\"https://twitter.com/share?url=/questions\" target=\"_blank\"><i class='icon-twitter large twitter'></i> </a></div>"
+      helper.social_links(page).should eq "<div><a href=\"http://facebook.com/sharer.php?u=/questions\" target=\"_blank\"><i class='icon-facebook-sign medium facebook'></i> </a><a href=\"https://plus.google.com/share?url=/questions\" target=\"_blank\"><i class='icon-google-plus-sign medium google'></i> </a><a href=\"https://twitter.com/share?url=/questions\" target=\"_blank\"><i class='icon-twitter medium twitter'></i> </a></div>"
     end
   end
   

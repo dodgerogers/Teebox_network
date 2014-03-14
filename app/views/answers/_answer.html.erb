@@ -19,16 +19,11 @@
 					<% end %>
 				<% end %>
 				</div>
-				<%= render partial: "votes/form", 	locals: { votes_count: "answers", 
-													object: answer, 
-													vote_path: method(:vote_answer_path) } %>
 			</div>
-			<%= profile_link_helper(answer) %>
-											
-	<%= content_tag :div, class: "edit-destroy-links" do %>
-		<%= link_to " Edit", edit_answer_path(answer), id: "edit-answer", remote: true if can? :destroy, answer %>
-		<%= link_to " Delete ", answer, id: "delete-answer", remote: :true, method: :delete, confirm: "Are you sure? You will lose any points associated with this answer" if can? :destroy, answer %>
-	<% end %>	
+			
+		<%= meta_info(answer) %>						
+		<%= link_to raw("<i class='icon-edit-sign'></i>"), edit_answer_path(answer), id: "edit-answer", remote: true, title: "Edit" if can? :destroy, answer %>
+		<%= link_to raw("<i class='icon-remove-sign'></i>"), answer, id: "delete-answer", remote: :true, method: :delete, confirm: "Are you sure? You will lose any points associated with this answer", title: "Delete" if can? :destroy, answer %>	
 		</div>
 	</div>
 	

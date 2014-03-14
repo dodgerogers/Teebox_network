@@ -1,4 +1,5 @@
 module MetaHelper
+  
   def meta_title(title=nil)
     meta_builder(:title, title) { content_for(:title) + " | " + META['title'] }
   end

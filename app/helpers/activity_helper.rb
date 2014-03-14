@@ -1,4 +1,5 @@
 module ActivityHelper
+  
   def build_activity_path(a)
     case a.trackable_type
     when "Comment"

@@ -1,7 +1,7 @@
 <% if @vote.new_record? %>
-alert("<%= j @vote.errors.full_messages.join(', ').html_safe %>");
+	alert("<%= j @vote.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-var votes = $("<h1><%= @vote.votable.votes_count %></h1>");
-$('#<%= "#{votes_count}_#{id}" %>').html(votes.fadeIn(1000));
-$('.user_<%= @vote.votable.user.id %>').text("<%= @vote.point.user.reputation %>");
+	var votes = "<%= pluralize(@vote.votable.votes_count, 'vote') %>";
+	$('#<%= "#{@vote.votable.class}_#{@vote.votable.id}" %>').html(votes);
+	$('.user_<%= @vote.votable.user.id %>').text("<%= @vote.point.user.reputation %>");
 <% end %>

@@ -1,4 +1,5 @@
 module TagHelper
+  
   def tag_class(tag)
     current_page?(tagged_url(tag.name)) ? "current_tag" : "tag" 
   end

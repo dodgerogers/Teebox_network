@@ -1,17 +1,10 @@
 <tr id='comment_<%="#{comment.id}" %>'>
-	<td class="vote-container">
-		<%= render partial: "votes/form", locals: { votes_count: "comments", object: comment, vote_path: method(:vote_comment_path) } %> 
-	</td>	
-
 	<td class="comment-content">
-		<%= simple_format(comment.content) %>
-		<small>
-			<%= link_to comment.user.username.titleize, comment.user, id: "profile-username" %>
-			<%= time_ago_in_words(comment.created_at) %> ago.	
-			<% if can? :destroy, comment %>
-				<%= link_to " Delete", [@commentable, comment], method: :delete, id: "delete-comment", confirm: "Are you sure? You will lose any points associated with this comment", remote: :true %>
-			<% end %>
-		</small>
+		<p><%= simple_format(comment.content) %></p>
+		<span>
+			<%= meta_info(comment) %>
+			<%= link_to raw("<i class='icon-remove-sign'></i>"), [@commentable, comment], method: :delete, id: "delete-comment", confirm: "Are you sure? You will lose any points associated with this comment", remote: :true, title: "Delete" if can? :destroy, comment %>
+		</span>
 	</td>
 </tr>
 

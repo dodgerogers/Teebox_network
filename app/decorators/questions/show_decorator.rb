@@ -4,7 +4,7 @@ class Questions::ShowDecorator < Draper::Decorator
   include Draper::LazyHelpers
   
   def question_tags
-    raw model.tags.map {|tag| link_to tag.name, tagged_path(tag.name), class: "tag" }.join(" ")
+    raw model.tags.map {|tag| link_to tag.name, tagged_path(tag.name) }.join(", ")
   end
   
   def related_questions

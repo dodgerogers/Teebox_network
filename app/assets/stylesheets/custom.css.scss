@@ -626,6 +626,11 @@ body #header-search {
 
 /*-------------------- questions & videos user profile info ----------*/
 
+.meta_info * {
+	&:after {
+		content: " ";
+	}
+}
 .profile-info, .profile-info-index {
 	display:inline-block;
 	width:100%;
@@ -690,7 +695,7 @@ body #header-search {
 }
 .comment-content {
 	p {
-		margin: 0;
+		
 	}
 } 
 
@@ -897,15 +902,15 @@ body #header-search {
 }
 .green-tick a, .green-tick {
 	color: #4fc392;
-	font-size: 43px;
+	font-size: 26px;
 	float:left;
-	margin: 0px 4px 0 0;
+	margin: -1px 4px 0 0;
 }
 .default-tick a, .default-tick {
 	color: #bbb;
-	font-size: 43px;
+	font-size: 26px;
 	float:left;
-	margin: 0px 4px 0 0;
+	margin: -1px 4px 0 0;
 }
 table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	float:none;

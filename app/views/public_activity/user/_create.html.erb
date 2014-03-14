@@ -11,7 +11,7 @@
 			Need a refresher on how it works? Click
 			<%= link_to "here", read_activity_path(activity), method: :put %>
 			<br>
-			<small>created <%= time_ago_in_words(activity.created_at) %> ago</small>
+			<small><i class="icon-calendar"></i>&nbsp;<%= time_ago_in_words(activity.created_at) %> ago</small>
 		</div>
 	</td>	
 <% end %>

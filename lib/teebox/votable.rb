@@ -13,10 +13,10 @@ module Teebox::Votable
       if @vote.save
         Teebox::Pointable.create_point(@vote.votable.user, @vote, @vote.points)
         format.html { redirect_to :back, notice: "Vote submitted" }
-        format.js
+        format.js { render partial: "votes/vote" }
       else
         format.html { redirect_to :back, alert: "Vote submission failed" }
-        format.js
+        format.js { render partial: "votes/vote" }
       end
     end
   end

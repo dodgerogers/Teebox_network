@@ -16,7 +16,7 @@ describe Questions::ShowDecorator do
   
   describe "question_tags" do
     it "maps the tags as links" do
-      @decorator.question_tags.should eq "<a href=\"/tagged/#{@tag.name}\" class=\"tag\">#{@tag.name}</a>"
+      @decorator.question_tags.should eq "<a href=\"/tagged/#{@tag.name}\">#{@tag.name}</a>"
      end
    end
    
