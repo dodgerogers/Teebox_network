@@ -19,8 +19,8 @@
 			<div class="question">
 				<h3><%= @decorator.title.capitalize %></h3>
 				<%= meta_info(@decorator) %>
-				<%= link_to raw("<i class='icon-edit-sign'></i>"), edit_question_path(@decorator), title: "Edit" if can? :update, @decorator %>
-				<%= link_to raw("<i class='icon-remove-sign'></i>"), @decorator, method: :delete, confirm: "Are you sure? You will lose any points associated with this question", title: "Delete" if can? :destroy, @decorator %>
+				<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_question_path(@decorator), title: "Edit" if can? :update, @decorator %>
+				<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @decorator, method: :delete, confirm: "Are you sure? You will lose any points associated with this question", title: "Delete" if can? :destroy, @decorator %>
 				<p></p>	
 				<div class="question-content">
 					<%= simple_format(@decorator.body) %>

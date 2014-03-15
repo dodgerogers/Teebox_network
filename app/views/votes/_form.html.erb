@@ -5,6 +5,6 @@
 	</span>
 </div>
 <div id="arrows">
-	<%= link_to raw("<i class='icon-plus-sign-alt green'></i>"), vote_path.call(object, value: 1), id: "upvote", remote: true,  method: "post", title: "Upvote" %>
-	<%= link_to raw("<i class='icon-minus-sign-alt red'></i>") , vote_path.call(object, value: -1), id: "downvote", remote: true, method: "post", title: "Downvote" %>
+	<%= link_to raw("<i class='icon-plus-sign-alt green sm'></i>"), vote_path.call(object, value: 1), id: "upvote", remote: true,  method: "post", title: "Upvote" %>
+	<%= link_to raw("<i class='icon-minus-sign-alt red sm'></i>") , vote_path.call(object, value: -1), id: "downvote", remote: true, method: "post", title: "Downvote" %>
 </div>

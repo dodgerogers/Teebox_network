@@ -39,6 +39,10 @@
 .icon-teebox:before { content: "\f100"; }
 
 // custom sizes + colors //
+.xl {
+	vertical-align:middle;
+	font-size: 100px!important;
+}
 .large {
 	vertical-align:middle;
 	font-size: 26px;
@@ -46,6 +50,10 @@
 .medium {
 	vertical-align:middle;
 	font-size: 20px;
+}
+.sm {
+	vertical-align:middle;
+	font-size: 18px;
 }
 .red, red {
 	color: $red;
@@ -102,10 +110,6 @@
 }
 .right-margin {
 	margin: 0 10px 0 0;
-}
-.xl {
-	vertical-align:middle;
-	font-size: 100px!important;
 }
 .upload-icon {
 	margin: 5px 10px;

@@ -6,6 +6,7 @@
 	<div class="span6">
 		<h2>Points Breakdown</h2>
 		<div id="points-breakdown" data-user-id="<%= @decorator.id %>">
+			<!-- Points loaded via Ajax -->
 			<%= render partial: "shared/loading", locals: { message: "points" } %>
 		</div>
 		<%= link_to "View all", points_path(@decorator) if @points.any? %>
