@@ -1,12 +1,12 @@
-<%= content_for :head do %>
-	<%= social_meta_info(@decorator) %>
-	<!-- inits video player, loads related questions via ajax -->
-	<%= javascript_include_tag "sublime.js", "playlist.js", "related_questions.js", defer: "defer" %>
-<% end %>
-
 <% meta_title(@decorator.title) %>
 <% meta_keywords(@decorator.tags.map(&:name).join(", ")) %>
 <% meta_description(@decorator.title) %>
+
+<%= content_for :head do %>
+	<%= social_meta_info(@decorator) %>
+	<!-- inits video player, loads related questions via ajax -->
+	<%= javascript_include_tag "sublime.js", "playlist.js" %>
+<% end %>
 
 <div class="row">
 	<div class="span8">
@@ -63,3 +63,7 @@
 		<p><%= link_to "Ask a question", videos_path %></p>
 	</aside>
 </div>
+
+<%= content_for :footer do %>
+	<%= javascript_include_tag "related_questions.js", defer: "defer" %>
+<% end %>	
