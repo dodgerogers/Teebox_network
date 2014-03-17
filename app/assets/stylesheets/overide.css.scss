@@ -57,8 +57,8 @@ form .btn {
 .navbar .brand {
 	font-family: 'BebasNeueRegular';
 	font-size: 24px;
-	color: #0a323a;
-	color: $gundam;
+	//color: #0a323a;
+	color: $light-gundam;
 	letter-spacing: 1px;
 	text-shadow: 0 0 0 #000;
 	padding: 8px 20px 9px;
@@ -73,8 +73,8 @@ form .btn {
 }
 .navbar .nav > li > a {
 	font-weight:bold;
-	color: #0A323A;
-	color: $gundam;
+	//color: #0A323A;
+	color: $light-gundam;
 	//text-shadow: 0px 1px 1px #297D8B;
 	text-shadow: 0px 0px 0px #297D8B;
 	padding: 10px 15px 10px;
@@ -306,13 +306,13 @@ form#new_video {
 	display:none;
 }
 #search {
-	background:$ocean;
+	background:$gundam;
 	border:none;
 	//@include box-shadow(0px,1px,1px,#297D8B);
 	color: #fff;
 	margin-top: 6px;
 	&:focus {
-		background: $gundam;
+		background: $light-gundam;
 		-webkit-box-shadow: 0 0 1px #fff;
 		-moz-box-shadow: 0 0 1px #fff;
 		box-shadow: 0 0 1px #fff;
