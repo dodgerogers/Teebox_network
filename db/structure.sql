@@ -103,6 +103,39 @@ ALTER SEQUENCE answers_id_seq OWNED BY answers.id;
 
 
 --
+-- Name: carrierwave_videos; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE carrierwave_videos (
+    id integer NOT NULL,
+    file character varying(255),
+    screenshot character varying(255),
+    user_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: carrierwave_videos_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE carrierwave_videos_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: carrierwave_videos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE carrierwave_videos_id_seq OWNED BY carrierwave_videos.id;
+
+
+--
 -- Name: comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -174,6 +207,37 @@ CREATE SEQUENCE delayed_jobs_id_seq
 --
 
 ALTER SEQUENCE delayed_jobs_id_seq OWNED BY delayed_jobs.id;
+
+
+--
+-- Name: impressions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE impressions (
+    id integer NOT NULL,
+    impressionable_id integer,
+    impressionable_type character varying(255),
+    ip_address character varying(255)
+);
+
+
+--
+-- Name: impressions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE impressions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: impressions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE impressions_id_seq OWNED BY impressions.id;
 
 
 --
@@ -257,7 +321,8 @@ CREATE TABLE questions (
     votes_count integer DEFAULT 0,
     answers_count integer DEFAULT 0,
     correct boolean DEFAULT false,
-    tags character varying(255)
+    tags character varying(255),
+    impressions_count integer DEFAULT 0
 );
 
 
@@ -525,6 +590,13 @@ ALTER TABLE ONLY answers ALTER COLUMN id SET DEFAULT nextval('answers_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY carrierwave_videos ALTER COLUMN id SET DEFAULT nextval('carrierwave_videos_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
 
 
@@ -533,6 +605,13 @@ ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq':
 --
 
 ALTER TABLE ONLY delayed_jobs ALTER COLUMN id SET DEFAULT nextval('delayed_jobs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY impressions ALTER COLUMN id SET DEFAULT nextval('impressions_id_seq'::regclass);
 
 
 --
@@ -615,6 +694,14 @@ ALTER TABLE ONLY answers
 
 
 --
+-- Name: carrierwave_videos_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY carrierwave_videos
+    ADD CONSTRAINT carrierwave_videos_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -628,6 +715,14 @@ ALTER TABLE ONLY comments
 
 ALTER TABLE ONLY delayed_jobs
     ADD CONSTRAINT delayed_jobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: impressions_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY impressions
+    ADD CONSTRAINT impressions_pkey PRIMARY KEY (id);
 
 
 --
@@ -742,6 +837,13 @@ CREATE INDEX index_answers_on_question_id ON answers USING btree (question_id);
 --
 
 CREATE INDEX index_answers_on_user_id ON answers USING btree (user_id);
+
+
+--
+-- Name: index_carrierwave_videos_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_carrierwave_videos_on_user_id ON carrierwave_videos USING btree (user_id);
 
 
 --
@@ -988,3 +1090,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140224183359');
 INSERT INTO schema_migrations (version) VALUES ('20140227015722');
 
 INSERT INTO schema_migrations (version) VALUES ('20140301055615');
+
+INSERT INTO schema_migrations (version) VALUES ('20140304163254');
+
+INSERT INTO schema_migrations (version) VALUES ('20140317192207');
+
+INSERT INTO schema_migrations (version) VALUES ('20140317214157');

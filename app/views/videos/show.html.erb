@@ -1,8 +1,8 @@
+<% meta_title(File.basename(@video.file).titleize) %>
+
 <%= content_for :head do %>
 	<%= javascript_include_tag "sublime.js", defer: "defer" %>
 <% end %>
-
-<% meta_title(File.basename(@video.file).titleize) %>
 
 <div class='row'>
 	<div class='span7'>

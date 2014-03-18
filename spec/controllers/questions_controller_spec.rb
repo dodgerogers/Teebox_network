@@ -27,6 +27,12 @@ describe QuestionsController do
       get :show, id: @question
       response.should render_template :show
     end
+    
+    it "creates an impression record" do
+      expect {
+        get :show, id: @question
+      }.to change(Impression, :count).by(1)
+    end
   end
   
   describe "GET index" do
@@ -135,11 +141,6 @@ describe QuestionsController do
         @question.reload
         @question.title.should_not eq("")
       end
-
-      #it "re-renders the 'edit' template" do
-      #  put :update, id: @question, post: FactoryGirl.attributes_for(:post)
-      #  response.should redirect_to posts_url
-      #end
     end
   end
 
@@ -157,6 +158,21 @@ describe QuestionsController do
     it "redirects to the questions list" do
       delete :destroy, id: @question
       response.should redirect_to root_path
+    end
+    
+    it "delets association: point" do
+      post :create, question: attributes_for(:question), user: @user1
+      expect {
+        delete :destroy, id: Question.last
+      }.to change(Point, :count).by(-1)
+    end
+    
+    it "deletes association: impressions" do
+      post :create, question: attributes_for(:question), user: @user1
+      get :show, id: Question.last
+      expect {
+        delete :destroy, id: Question.last
+      }.to change(Impression, :count).by(-1)
     end
   end
   

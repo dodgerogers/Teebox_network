@@ -14,6 +14,7 @@
 		  	<td class="left">	
 				<b><%= link_to question.title.titleize, question %></b><br>
 				<small><i class="icon-calendar"></i> <%= time_ago_in_words question.created_at %> ago</small>
+				<small><i class="icon-eye-open"></i> <%= pluralize(question.impressions_count, "view") %></small>
 		  	</td>
 			<td>
 				<%= link_to raw("<i class='icon-edit-sign'></i>"), edit_question_path(question) if can? :update, question %>

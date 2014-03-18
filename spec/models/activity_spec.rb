@@ -12,6 +12,18 @@ describe Activity do
   
   subject { @activity }
   
+  it { should respond_to(:owner_id) }
+  it { should respond_to(:owner_type) }
+  it { should respond_to(:key) }
+  it { should respond_to(:parameters) }
+  it { should respond_to(:recipient_id) }
+  it { should respond_to(:recipient_type) }
+  it { should respond_to(:read) }
+  it { should respond_to(:trackable_id) }
+  it { should respond_to(:trackable_type) }
+  it { should belong_to(:trackable)}
+  it { should belong_to(:owner)}
+  
   describe "new_activities" do
     it "shows number of new_activities" do
       #accounts for activity created when signing up a user

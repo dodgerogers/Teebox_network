@@ -18,13 +18,20 @@
 		<div id="question-box" data-id="<%= @decorator.id %>">
 			<div class="question">
 				<h3><%= @decorator.title.capitalize %></h3>
+				
+				<!-- meta info -->
 				<%= meta_info(@decorator) %>
+				
+				<!-- actions -->
 				<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_question_path(@decorator), title: "Edit" if can? :update, @decorator %>
 				<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @decorator, method: :delete, confirm: "Are you sure? You will lose any points associated with this question", title: "Delete" if can? :destroy, @decorator %>
-				<p></p>	
+				<p></p>
+				<!-- meta end -->
+				
 				<div class="question-content">
 					<%= simple_format(@decorator.body) %>
 				</div>
+				
 				<div class="question-tags">
 					<i class="icon-tags"></i>
 					<%= @decorator.question_tags %>
@@ -47,23 +54,29 @@
 		<section id="question-answers">
 			<%= render @answers %>
 		</section>
+		
 		<a href="#" id="answer-button" class="default submit">Answer question</a><br><br>
 		<%= render partial: "answers/form", locals: { question_id: @decorator.id } %>
+		
 	</div>
 	
 	<aside class="span4">
+		
 		<div id="load-related">
 			<!-- questions/related loaded here -->
 			<%= render partial: "shared/loading", locals: { message: "related questions..." } %>
 		</div>
+		
 		<div class="social-buttons">
 			<p>Know someone who can help?</p>
 			<p><%= social_links(request.original_url) %></p>
 		</div>
+		
 		<p><%= link_to "Ask a question", videos_path %></p>
+		
 	</aside>
 </div>
 
 <%= content_for :footer do %>
-	<%= javascript_include_tag "related_questions.js", defer: "defer" %>
+	<%= javascript_include_tag "related_questions.js", async: "async" %>
 <% end %>	

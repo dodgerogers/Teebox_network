@@ -7,11 +7,7 @@ class VideosController < ApplicationController
   end
   
   def index
-    @videos = Video.where(user_id: current_user.id).all
-    respond_to do |format|
-      format.html { @videos }
-      format.json { render json: @videos }
-    end
+    @videos = current_user.videos
     @video = Video.new
   end
   

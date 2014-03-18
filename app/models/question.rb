@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   include Teebox::Toggle
+  include Teebox::Impressionable
   require 'obscenity/active_model'
   
   attr_accessible :title, :body, :youtube_url, :votes_count, :answers_count, :points, :correct, :tag_tokens, :video_list

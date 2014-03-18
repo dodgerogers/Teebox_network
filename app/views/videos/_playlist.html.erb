@@ -1,22 +1,22 @@
-<div id="playlist1" class="sv_playlist">
-	<% videos.each do |vid| %>
-		<div class="video_wrap">
-			<video id="video<%= vid.id %>" poster="" width="748" height="374" preload="none" data-autoresize="fit">
-				<source src="<%= vid.file %>"/>
-			</video>		
-		</div>
-	<% end %>
-	<% unless videos.length <= 1 %>	
-		<ul class="thumbs">	
-			<% videos.each do |vid| %>
-				<li id="thumbnail_video<%= vid.id %>">
-					<a href="#">
-						<%= image_tag display_xl_screenshot(vid) %>
-						<span class="play" />
-					</a>
-				</li>
-			<% end %>
-			<%= link_to raw("hide playlist"), '#', class: "thumbnail_select default next" %>	
-		</ul>
-	<% end %>
-</div>
+<% if videos.any? %>
+	<div id="playlist1" class="sv_playlist">
+		<% videos.each do |video| %>
+			<div class="video_wrap">
+				<%= video_tag([video.file], id: "video#{video.id}", size: "748x374", preload: "none", data: {autoresize: "fit"}) %>		
+			</div>
+		<% end %>
+		<% unless videos.length <= 1 %>	
+			<ul class="thumbs">	
+				<% videos.each do |vid| %>
+					<li id="thumbnail_video<%= vid.id %>">
+						<a href="#">
+							<%= image_tag display_xl_screenshot(vid) %>
+							<span class="play" />
+						</a>
+					</li>
+				<% end %>
+				<%= link_to raw("hide playlist"), '#', class: "thumbnail_select default next" %>	
+			</ul>
+		<% end %>
+	</div>
+<% end %>	

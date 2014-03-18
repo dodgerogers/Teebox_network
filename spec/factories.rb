@@ -102,4 +102,10 @@ FactoryGirl.define do
     users 10
     users_total 10
   end
+  
+  factory :impression do
+    impressionable_id :question
+    impressionable_type "Question"
+    ip_address "127.0.0.1"
+  end
 end

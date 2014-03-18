@@ -1,11 +1,11 @@
 class QuestionsController < ApplicationController
+  include Teebox::Commentable
+  include Teebox::Votable
+  include Teebox::Impression
   
   before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered, :related]
   before_filter :set_question, only: [:show, :related]
   load_and_authorize_resource except: [:index, :show, :related]
-  require 'teebox/commentable'
-  include Teebox::Commentable
-  include Teebox::Votable
   
   def new
     @question = Question.new
@@ -23,12 +23,13 @@ class QuestionsController < ApplicationController
     # Use decorator from set_question
     @answer = Answer.new
     @answers = @decorator.answers.includes(:question, :user, { comments: :user }).by_votes
+    Teebox::Impression.create(@decorator, request)
   end
   
   def create
     @question = current_user.questions.build(params[:question])
     if @question.save
-      Teebox::Pointable.create_point(@question.user, @question)
+      Teebox::Pointable.create(@question.user, @question)
       redirect_to @question, notice: "Question Created"
     else
       render :new, notice: "Please try again"

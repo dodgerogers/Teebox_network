@@ -10,6 +10,7 @@ describe ApplicationHelper do
     sign_in @user1
     sign_in @user2
     @question = create(:question, user: @user1)
+    @answer = create(:answer, user: @user1, question_id: @question.id)
   end
   
   describe "demodularize()" do
@@ -23,14 +24,23 @@ describe ApplicationHelper do
   end
   
   describe "meta_info" do
-    it "returns formatted profile links" do
-      helper.meta_info(@question).should eq "<span class=\"meta_info\"><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">200</a><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><i class=\"icon-calendar\"></i>less than a minute ago <div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Question_#{@question.id}\">\n\t\t5 votes\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></span>"
+    it "returns formatted links for question" do
+      helper.meta_info(@question).should eq "<span class=\"meta_info\"><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">#{@user1.reputation}</a><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><i class=\"icon-calendar\"></i>less than a minute ago <i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}<br><div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Question_#{@question.id}\">\n\t\t5 votes\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></span>"
+    end
+    
+    it "returns formatted links for answer" do
+      helper.meta_info(@answer).should eq "<span class=\"meta_info\"><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">#{@user1.reputation}</a><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><i class=\"icon-calendar\"></i>less than a minute ago <div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Answer_#{@answer.id}\">\n\t\t0 votes\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/answers/#{@answer.id}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/answers/#{@answer.id}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></span>"
+    end
+  end
+  
+  describe "meta_views" do
+    it "returns formatted views count" do
+      helper.meta_impressions(@question).should eq "<i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}<br>"
     end
   end
   
   describe "profile_link_helper" do
     it "returns formatted html" do
-      @answer = create(:answer, user: @user1, question_id: @question.id)
       avatar_url = Digest::MD5.hexdigest(@user1.email.downcase)
       helper.profile_link_helper(@answer).should eq "<div class=\"profile\"><a href=\"/users/#{@user1.to_param}\"><img alt=\"#{avatar_url.titleize}\" src=\"http://gravatar.com/avatar/#{avatar_url}.png?s=35&amp;d=identicon\" /></a><a href=\"/users/#{@user1.to_param}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">200</a><a href=\"/users/#{@user1.to_param}\" id=\"profile-username\">#{@user1.username.titleize}</a><br><small>less than a minute ago</small></div>".html_safe
     end

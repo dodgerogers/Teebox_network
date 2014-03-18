@@ -11,8 +11,15 @@ module ApplicationHelper
       (link_to object.user.username, object.user) +
       content_tag(:i, nil, class: "icon-calendar") +
       ("#{time_ago_in_words(object.created_at)} ago ") +
+      (meta_impressions(object) if object.is_a?(Question)) +
 		  (render partial: "votes/form", locals: { object: object, vote_path: method("vote_#{demodularize(object).downcase}_path") })
 	  end
+	end
+	
+	def meta_impressions(object)
+    (content_tag(:i, nil, class: "icon-eye-open")) +
+		(pluralize(object.impressions_count, "view")) +
+		("<br>".html_safe)
 	end
 	
   def profile_link_helper(object)

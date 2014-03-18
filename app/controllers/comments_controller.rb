@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
   include Teebox::Votable
   
   def create 
-    # current user build? as commentable is passed in to params
     @comment = @commentable.comments.build(params[:comment])
     @comment.user_id = current_user.id
     respond_to do |format|
