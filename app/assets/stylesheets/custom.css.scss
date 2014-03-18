@@ -408,6 +408,14 @@ body .sublimevideo-zi .sublimevideo-uj {
 	background: $green-sea;
 	@include box-shadow(0px,3px,0px,#367964);
 }
+.correct-answer-bg {
+	background: $universe;
+	color: $ice;
+	margin-bottom: 10px!important;
+	padding: 5px 10px!important;
+	@include box-sizing;
+	@include border-radius(4px);
+}
 #correct-answer {
 	color: white !important;
 	font-weight: bolder;
@@ -873,23 +881,22 @@ body #header-search {
 .answer-box {
 	padding: 10px;
 	margin-bottom: 10px;
-	@include border-radius(5px);
 	background: #fff;
+	@include border-radius(5px);
 	@include box-shadow(0px,4px,0px,#eee);
+	.answer {
+		-webkit-transition: all 0.5s ease-in-out;
+	    -moz-transition: all 0.5s ease-in-out;
+	    -ms-transition: all 0.5s ease-in-out;
+	    -o-transition: all 0.5s ease-in-out;
+	    transition: all 0.5s ease-in-out;
+	}
 }
 .answer {
 	@include box-sizing;
 	padding: 0px;
 	position: relative;
 	margin: 0 0 10px;
-}
-#tick {
-	display:inline-block;
-	vertical-align: top;
-	text-decoration:none;
-}
-#tick:hover {
-	color: #4fc392;
 }
 #user-answers {
 	font-size: 25px;
@@ -900,17 +907,22 @@ body #header-search {
 	font-family: $bebas;
 	width: 55px;
 }
-.green-tick a, .green-tick {
-	color: #4fc392;
+#tick {
+	display:inline-block;
+	vertical-align: top;
+	text-decoration:none;
 	font-size: 26px;
 	float:left;
-	margin: -1px 4px 0 0;
+	margin: -3px 4px 0 0;
+}
+#tick:hover {
+	color: #4fc392;
+}
+.green-tick a, .green-tick {
+	color: #4fc392;
 }
 .default-tick a, .default-tick {
 	color: #bbb;
-	font-size: 26px;
-	float:left;
-	margin: -1px 4px 0 0;
 }
 table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	float:none;

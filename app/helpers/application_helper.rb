@@ -19,7 +19,7 @@ module ApplicationHelper
 	def meta_impressions(object)
     (content_tag(:i, nil, class: "icon-eye-open")) +
 		(pluralize(object.impressions_count, "view")) +
-		("<br>".html_safe)
+		("<p></p>".html_safe)
 	end
 	
   def profile_link_helper(object)
@@ -36,7 +36,8 @@ module ApplicationHelper
     content_tag :div do
       (link_to raw("<i class='icon-facebook-sign medium facebook'></i> "), "http://facebook.com/sharer.php?u=#{page}", target: "_blank") +
       (link_to raw("<i class='icon-google-plus-sign medium google'></i> "), "https://plus.google.com/share?url=#{page}", target: "_blank") +
-      (link_to raw("<i class='icon-twitter medium twitter'></i> "), "https://twitter.com/share?url=#{page}", target: "_blank")
+      (link_to raw("<i class='icon-twitter medium twitter'></i> "), "https://twitter.com/share?url=#{page}", target: "_blank") +
+      (link_to raw("<i class='icon-envelope-alt medium'></i>"), "mailto:#{page}")
     end
   end
   

@@ -1,5 +1,5 @@
 <article id="answer_<%= answer.id %>" class="answer-box">
-	<div class="answer">	
+	<div class="answer <%= 'correct-answer-bg' if answer.correct == true %>">	
 		<div class="answer-content">
 			<a name='<%= "answer_#{answer.id}" %>'></a>
 			<%= simple_format(answer.body) %>
@@ -8,11 +8,7 @@
 		<div class="controls">
 			<div id="correct_answer_<%= answer.id %>" class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %>">
 				<% if answer.question.user == current_user %>
-					<%= link_to raw("<i class='icon-ok-sign'></i>"), correct_answer_path(answer), 
-															 id: "tick", class: "correct_#{answer.id}", 
-															 remote: true, 
-														     method: :put,
-															 title: "Most helpful? Mark it as correct" %>
+					<%= link_to raw("<i class='icon-ok-sign'></i>"), correct_answer_path(answer), id: "tick", class: "correct_#{answer.id}", remote: true, method: :put, title: "Most helpful? Mark it as correct" %>
 				<% else %>
 					<% if answer.correct == true %>
 						<div id="tick" class='correct_<% answer.id %>'><i class="icon-ok-sign"></i></div>
@@ -21,9 +17,11 @@
 				</div>
 			</div>
 			
+		<!-- meta info -->	
 		<%= meta_info(answer) %>						
 		<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_answer_path(answer), id: "edit-answer", remote: true, title: "Edit" if can? :destroy, answer %>
-		<%= link_to raw("<i class='icon-remove-sign sm'></i>"), answer, id: "delete-answer", remote: :true, method: :delete, confirm: "Are you sure? You will lose any points associated with this answer", title: "Delete" if can? :destroy, answer %>	
+		<%= link_to raw("<i class='icon-remove-sign sm'></i>"), answer, id: "delete-answer", remote: :true, method: :delete, confirm: "Are you sure? You will lose any points associated with this answer", title: "Delete" if can? :destroy, answer %>
+		<!-- meta info end -->
 		</div>
 	</div>
 	

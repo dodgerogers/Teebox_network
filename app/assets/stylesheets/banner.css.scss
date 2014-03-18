@@ -93,6 +93,8 @@ a .welcome-white:hover {
     cursor: default;
     transition: all 0.4s ease-in-out;
 	box-shadow: inset 0px 0px 0px 3px #fff, 0 0px 0px 4px $red;
+	-webkit-box-shadow: inset 0px 0px 0px 3px #fff, 0 0px 0px 4px $red;
+	-moz-box-shadow: inset 0px 0px 0px 3px #fff, 0 0px 0px 4px $red;
 }
 .ch-img-1 { 
     background: $teal;
