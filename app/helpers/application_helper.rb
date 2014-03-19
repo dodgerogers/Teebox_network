@@ -37,7 +37,7 @@ module ApplicationHelper
       (link_to raw("<i class='icon-facebook-sign medium facebook'></i> "), "http://facebook.com/sharer.php?u=#{page}", target: "_blank") +
       (link_to raw("<i class='icon-google-plus-sign medium google'></i> "), "https://plus.google.com/share?url=#{page}", target: "_blank") +
       (link_to raw("<i class='icon-twitter medium twitter'></i> "), "https://twitter.com/share?url=#{page}", target: "_blank") +
-      (link_to raw("<i class='icon-envelope-alt medium'></i>"), "mailto:#{page}")
+      (link_to raw("<i class='icon-envelope-alt medium'></i>"), "mailto: ?subject=Question on Teebox&body=#{page}")
     end
   end
   
