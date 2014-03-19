@@ -20,6 +20,12 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 Rails.logger.level = 4
 
 RSpec.configure do |config|
+  
+  #Stub out the mailers, enable them when needed.
+  config.before(:each) do
+    QuestionMailer.any_instance.stub(:new_question_email)
+    User.any_instance.stub(:send_on_create_confirmation_instructions)
+  end
     
   #factory girl helpers :create(:object) & build(:object)
   config.include FactoryGirl::Syntax::Methods

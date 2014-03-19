@@ -110,6 +110,25 @@ describe QuestionsController do
       end
     end
   end
+  
+  describe "new_question_email email" do
+    before(:each) do
+      QuestionMailer.any_instance.unstub(:new_question_email)
+      ActionMailer::Base.deliveries = []
+      ActionMailer::Base.perform_deliveries = true
+      User.any_instance.stub(:send_on_create_confirmation_instructions).and_return(true)
+      @user = create(:user, username: "dodgerogers")
+    end
+    
+    after(:each) do
+      ActionMailer::Base.deliveries.clear
+    end
+    
+    it "successfully sends after create" do
+      post :create, question: attributes_for(:question), user: @user1
+      ActionMailer::Base.deliveries.count.should eq 1
+    end
+  end
 
   describe "PUT update" do
     before(:each) do
