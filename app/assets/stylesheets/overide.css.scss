@@ -256,6 +256,9 @@ label {
 	font-weight: 200;
 	color: #06434D;
 	vertical-align: middle;
+	.modal & {
+		font-size: 14px;
+	}
 }
 .input-xxlarge {
 	width:100%;

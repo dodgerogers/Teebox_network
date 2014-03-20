@@ -517,10 +517,18 @@
 	#featurette {
 		padding: 0px;
 		text-align:center;
+		h2 {
+			font-size:20px;
+			margin-bottom:0px;
+		}
+		.lead {
+			font-size:14px;
+		}
 		[class^="icon-"], #featurette[class*=" icon-"] {
 			display:block;
 			float:none;
 			margin-right:auto;
+			font-size:60px!important;
 		}
 	}
 	h1.xl {
@@ -648,5 +656,15 @@
 	}
 	.profile-info {
 		line-height:22px;
+	}
+	.instructions {
+		margin: 0px;
+		.rotate90 {
+			height:85px;
+			margin: 0px 20px;
+		}
+		[class*="icon"].xl {
+			font-size: 80px!important;
+		}
 	}
 }

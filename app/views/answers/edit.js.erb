@@ -1,6 +1,7 @@
 var answer = $("#answer_<%= @answer.id %>");
 var editFormPartial = '<%= escape_javascript(render(partial: "answers/form", locals: {question_id: @answer.question_id}))%>';
 
+answer.find(".answer").css("background","#fff");
 answer.find(".answer").html(editFormPartial);
 
 // Cancel button disguards changes and re-renders the @answer template

@@ -3,7 +3,7 @@ require "spec_helper"
 module QuestionHelper
   def click_on_question
     click_link "Ask"
-    page.should have_content "Step 1: Upload a Video"
+    page.should have_content "Step 1: Upload Videos"
     click_link "Step 2"
     page.should have_content "Ask your question"
   end

@@ -65,21 +65,11 @@ body .transparent {
 	background: url(backgrounds/whistler.jpg);
 }
 /* <!-- full page backgrounds --> */
-	
-.container .forest {	
-	background: url(backgrounds/teebox-landscape-tall.png);
-	color: #fff;
-	background-position: center bottom;
-}
+
 .container .forest-cutout {
 	background: url(backgrounds/forest-cutout.jpg);
 	color: #fff;
 	background-position: center bottom;
-}
-.container .banff {
-	background: url(backgrounds/banff-l.jpg);
-	color: #fff;
-	background-position: center 73%;
 }
 .container .banff-cutout {
 	background: url(backgrounds/banff-cutout.jpg);
@@ -90,11 +80,6 @@ body .transparent {
 	background: url(backgrounds/bally-bunion.jpg);
 	color: #fff;
 	background-position: center 86%;
-}
-.container .sky {
-	background: url(backgrounds/teebox-landscape-tall.png);
-	color: #fff;
-	background-position: center center;	
 }
 .container .cabot {
 	background: url(backgrounds/cabot.jpg);
@@ -131,6 +116,12 @@ body .transparent {
 	color: #fff;
 	background-position: center 50%;
 }
+.container .how_it_works {
+	background: url(backgrounds/how-it-works.jpg);
+	color: #fff;
+	background-position: center 50%;
+}
+
 .blue {
 	background: $sky;
 	color: #fff;
