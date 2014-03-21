@@ -39,9 +39,10 @@
 			</div>
 			
 			<section class="comments-area">
-				<table class="table teebox-table" id="question_<%= @decorator.id %>">
+				<div id="question_<%= @decorator.id %>">
 					<%= render @decorator.comments.includes(:user) %>
-				</table>
+				</div>
+				
 				<%= link_to "Add comment", "#", class: "comment-button" %>
 				<%= render partial: "comments/form", locals: {commentable: @decorator} %>
 			</section>

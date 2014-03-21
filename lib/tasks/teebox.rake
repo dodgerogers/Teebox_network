@@ -9,6 +9,12 @@ namespace :db do
   task rm_tags: :environment do
     Tag.destroy_all
   end
+  
+  task social_statistics: :environment do
+    social = Statistics::Social.new
+    social.generate
+    social.save!
+  end
 end
 
 namespace :user do
@@ -31,12 +37,4 @@ end
 
 task :delete_capybara do
   FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/capybara/*")
-end
-
-task :delete_dev_logs do
-  FileUtils.rm "#{Rails.root}/log/development.log"
-end
-
-task :delete_test_logs do
-  FileUtils.rm "#{Rails.root}/log/test.log"
 end

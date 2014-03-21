@@ -21,7 +21,6 @@ class Question < ActiveRecord::Base
   validates_presence_of :title, :body, :user_id
   validates_length_of :title, minimum: 10, maximum: 85
   validate :tag_limit, :video_limit
-  #validate :ensure_own_video
   
   validates :body, obscenity: true
   validates :title, obscenity: true
@@ -41,23 +40,13 @@ class Question < ActiveRecord::Base
   def video_limit
     errors.add(:video_list, "Maximum of 3 videos") if self.videos.size > 3 if self.videos
   end
-  
-  # WILL BE AFFECTED, Only for admins anyway
-  # def ensure_own_video 
-  #     if self.video
-  #       errors.add(:video_id, "You can only use your own videos") if self.video.user.id != self.user_id
-  #     end
-  #   end
       
   def to_param
     "#{id} - #{title}".parameterize
   end
   
   include PgSearch
-  pg_search_scope :search, against: [:title], 
-    using: { tsearch: { prefix: true, 
-                        dictionary: "english",
-                        any_word: true } }
+  pg_search_scope :search, against: [:title], using: { tsearch: { prefix: true, dictionary: "english", any_word: true } }
   
   def self.text_search(query)
     if query.present?
@@ -78,4 +67,10 @@ class Question < ActiveRecord::Base
   def tag_limit
     errors.add(:tag_tokens, "Maximum of 5 Tags per Question") if self.tags.size > 5 if self.tags
   end
+  
+  # def ensure_own_video 
+  #     if self.video
+  #       errors.add(:video_id, "You can only use your own videos") if self.video.user.id != self.user_id
+  #     end
+  #   end
 end

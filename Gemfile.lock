@@ -46,6 +46,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    atomic (1.1.15)
     aws-sdk (1.3.9)
       httparty (~> 0.7)
       json (~> 1.4)
@@ -57,6 +58,7 @@ GEM
       erubis (>= 2.6.6)
     bootstrap-wysihtml5-rails (0.3.1.20)
       railties (>= 3.0)
+    buftok (0.2.0)
     builder (3.0.4)
     bullet (4.6.0)
       uniform_notifier
@@ -106,6 +108,7 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.1.3)
+    equalizer (0.0.9)
     erubis (2.7.0)
     excon (0.20.1)
     execjs (1.4.0)
@@ -117,6 +120,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.1.5)
     fog (1.10.1)
       builder
@@ -133,6 +138,9 @@ GEM
     formatador (0.2.4)
     highline (1.6.19)
     hike (1.2.3)
+    http (0.5.0)
+      http_parser.rb
+    http_parser.rb (0.6.0)
     httparty (0.9.0)
       multi_json (~> 1.0)
       multi_xml
@@ -164,11 +172,15 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memoizable (0.4.1)
+      thread_safe (~> 0.2.0)
     mime-types (1.25)
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
     multi_json (1.8.4)
     multi_xml (0.5.1)
+    multipart-post (2.0.0)
+    naught (1.0.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -246,6 +258,7 @@ GEM
       rubyzip
     shoulda-matchers (2.2.0)
       activesupport (>= 3.0.0)
+    simple_oauth (0.2.0)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
@@ -260,10 +273,23 @@ GEM
       libv8 (~> 3.16.14.0)
       ref
     thor (0.18.1)
+    thread_safe (0.2.0)
+      atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    twitter (5.8.0)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      equalizer (~> 0.0.9)
+      faraday (~> 0.9.0)
+      http (~> 0.5.0)
+      http_parser.rb (~> 0.6.0)
+      json (~> 1.8)
+      memoizable (~> 0.4.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.2.0)
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
       execjs
@@ -332,6 +358,7 @@ DEPENDENCIES
   simplecov (= 0.7.1)
   streamio-ffmpeg!
   therubyracer
+  twitter
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   unicorn

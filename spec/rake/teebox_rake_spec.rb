@@ -20,6 +20,12 @@ describe "rm_tags" do
   end
 end
 
+describe "social_statistics" do
+  it "invoke Social new" do
+    Rake::Task['db:social_statistics'].invoke
+  end
+end
+
 describe "generate_report" do
   it "creates record" do
       Rake::Task['db:generate_report'].invoke

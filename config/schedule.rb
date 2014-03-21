@@ -1,7 +1,7 @@
 set :output, "#{path}/log/cron.log"
 
-every :day, at: "8:00am" do
-  rake "db:generate_report"
+every :day, at: "01:00am" do
+  rake "db:social_statistics"
 end
 
 every :day, at: "02:00am" do
@@ -10,6 +10,10 @@ end
 
 every :day, at: "03:00am" do
   rake "user:rank"
+end
+
+every :day, at: "8:00am" do
+  rake "db:generate_report"
 end
 
 every 3.hours do

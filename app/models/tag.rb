@@ -12,10 +12,7 @@ class Tag < ActiveRecord::Base
   after_initialize :init
   
   include PgSearch
-  pg_search_scope :search,  against: [:name, :explanation], 
-                            using: { tsearch: { prefix: true, 
-                            dictionary: "english", 
-                            any_word: true } }
+  pg_search_scope :search,  against: [:name, :explanation], using: { tsearch: { prefix: true, dictionary: "english", any_word: true } }
                             
   def init
     self.explanation ||= "no explanation"

@@ -391,6 +391,38 @@ CREATE TABLE schema_migrations (
 
 
 --
+-- Name: socials; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE socials (
+    id integer NOT NULL,
+    likes integer,
+    followers integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: socials_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE socials_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: socials_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE socials_id_seq OWNED BY socials.id;
+
+
+--
 -- Name: taggings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -646,6 +678,13 @@ ALTER TABLE ONLY reports ALTER COLUMN id SET DEFAULT nextval('reports_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY socials ALTER COLUMN id SET DEFAULT nextval('socials_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY taggings ALTER COLUMN id SET DEFAULT nextval('taggings_id_seq'::regclass);
 
 
@@ -755,6 +794,14 @@ ALTER TABLE ONLY questions
 
 ALTER TABLE ONLY reports
     ADD CONSTRAINT reports_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: socials_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY socials
+    ADD CONSTRAINT socials_pkey PRIMARY KEY (id);
 
 
 --
@@ -1096,3 +1143,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140304163254');
 INSERT INTO schema_migrations (version) VALUES ('20140317192207');
 
 INSERT INTO schema_migrations (version) VALUES ('20140317214157');
+
+INSERT INTO schema_migrations (version) VALUES ('20140320173622');

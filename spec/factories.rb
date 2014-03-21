@@ -108,4 +108,9 @@ FactoryGirl.define do
     impressionable_type "Question"
     ip_address "127.0.0.1"
   end
+  
+  factory :social, class: Statistics::Social do
+    likes 10
+    followers 400
+  end
 end

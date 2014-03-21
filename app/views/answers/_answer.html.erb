@@ -26,9 +26,9 @@
 	</div>
 	
 	<div class="comments-area">
-		<table class="table teebox-table" id="answer_<%= answer.id %>">
+		<div id="answer_<%= answer.id %>">
 			<%= render answer.comments %>
-		</table>
+		</div>
 		
 		<%= link_to "Add comment", "#" , class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: answer} %>
