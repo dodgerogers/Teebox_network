@@ -6,8 +6,7 @@ class AmazonS3
     files = []
     Video.all.each do |v|
       files << v.file 
-      files << v.screenshot.to_s
-      files << v.screenshot_url(:mini).to_s
+      files << v.screenshot
     end
     files.map {|file| file.split(/\//)[3..-1].join('/') }
   end

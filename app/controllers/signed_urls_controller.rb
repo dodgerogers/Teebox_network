@@ -7,7 +7,7 @@ class SignedUrlsController < ApplicationController
     render json: {
       policy: s3_upload_policy_document,
       signature: s3_upload_signature,
-      key: "uploads/video/file/#{SecureRandom.uuid}/#{params[:doc][:title]}",
+      key: "uploads/video/#{SecureRandom.uuid}/#{params[:doc][:title]}",
       success_action_redirect: "/"
     }
   end

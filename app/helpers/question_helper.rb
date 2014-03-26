@@ -6,17 +6,4 @@ module QuestionHelper
   	  content_tag(:div, "#{pluralize(questions.total_entries, "Question")} found")
 	  end
   end
-  
-  def social_meta_info(question)
-    images ||= social_image(question.videos)
-    content_tag(:meta, nil, name: "twitter:card", content: "summary") +
-    content_tag(:meta, nil, name: "twitter:site", content: "@teebox_network") +
-    content_tag(:meta, nil, name: "twitter:creator", content: "@teebox_network") +
-    content_tag(:meta, nil, name: "twitter:url", content: request.original_url) +
-    content_tag(:meta, nil, name: "twitter:domain", content: request.original_url.split("/")[0..2].join("/")) +
-    content_tag(:meta, nil, name: "twitter:title", content: "#{truncate(question.title, length: 70)}") +
-    content_tag(:meta, nil, name: "twitter:description", content: "#{truncate(question.body, length: 200)}") +
-    content_tag(:meta, nil, name: "twitter:image", content: "#{images}") +
-    content_tag(:meta, nil, property: "og:image", content: "#{images}")
-  end
 end

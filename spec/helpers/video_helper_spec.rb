@@ -5,8 +5,6 @@ describe VideoHelper do
     @user = create(:user)
     @question = create(:question, user_id: @user.id)
     @video = create(:video, user_id: @user.id)
-    # Stub the mounted screenshot uploader, as we just want to test string return
-    Video.any_instance.stub(:screenshot).and_return("https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg")
     @question.videos << @video
   end
   
@@ -43,13 +41,7 @@ describe VideoHelper do
     
     describe "display_mini_screenshot" do
       it "with nil video" do
-        helper.display_mini_screenshot(@question.videos[0]).should eq "video_screen_mini.png"
-      end
-    end
-    
-    describe "social_image" do
-      it "displays url with video" do
-        helper.social_image(@question.videos).should eq "https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
+        helper.display_mini_screenshot(@question.videos[0]).should eq "https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
       end
     end
   end

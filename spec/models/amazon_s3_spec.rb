@@ -2,16 +2,14 @@ require "spec_helper"
 
 describe AmazonS3 do
   before(:each) do
-    @pic = File.open("#{Rails.root}/spec/fixtures/files/seven_iron.jpeg")
-    @video = create(:video, screenshot: @pic)
-    ScreenshotUploader.any_instance.stub(:store!).and_return(@pic)
+    @video = create(:video)
   end
   
   subject { AmazonS3 }
   
   describe "find_videos" do
     it "maps an array of formatted videos files and screenshots" do
-      subject.find_videos.should eq ["uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v","uploads/video/screenshot/#{@video.id}/seven_iron.jpeg", "uploads/video/screenshot/#{@video.id}/mini_seven_iron.jpeg"]
+      subject.find_videos.should eq ["uploads/video/file/22120817-19bf-40ec-96f1-3c904772370b/3-wood-creamed.m4v", "uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"]
     end
   end
   

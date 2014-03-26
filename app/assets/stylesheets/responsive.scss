@@ -668,3 +668,15 @@
 		}
 	}
 }
+// Deals with awkward left align on video library page. Diff 484px
+@media (min-width: 270px) and (max-width: 484px) {
+	h4.video-library {
+		text-align:center;
+	}
+	section#videos {
+		text-align:center;
+		.videos {
+			margin: 0px 10px 15px;
+		}
+	}
+}

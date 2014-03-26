@@ -30,6 +30,7 @@ TeeboxNetwork::Application.routes.draw do
   devise_for :users, controllers: { confirmations: "confirmations" }, path_names: { sign_in: "login", sign_out: "logout" }
   resources :users, only: [:show, :index]
   resources :signed_urls, only: :index
+  post "/aws/end_point", to: 'aws_notifications#end_point', as: :end_point
   
   resources :points, only: :index
   

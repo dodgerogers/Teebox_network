@@ -21,14 +21,10 @@ module VideoHelper
   end
   
   def display_mini_screenshot(video)
-    (video.screenshot_url(:mini) if video) || "video_screen_mini.png"
+    (video.screenshot if video) || "video_screen_mini.png"
   end
   
   def persist_selected(question, video)
     question.videos.map(&:id).include?(video.id) ? 'selected_video' : ''
-  end
-  
-  def social_image(videos)
-    video = (videos.any? ? display_xl_screenshot(videos[0]) : asset_path("video_screen.png"))
   end
 end

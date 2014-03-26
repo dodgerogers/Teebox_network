@@ -1,24 +1,23 @@
 $(function() {
   return $(".direct-upload").each(function(data) {
-    var form;
-    form = $(this);
+    var form = $(this);
+	var errors = [];
     return $(this).fileupload({
       url: form.attr("action"),
       type: "POST",
       autoUpload: true,
       dataType: "xml",
       add: function(event, data) {
-        var file, types;
-        types = /(\.|\/)(ogg|ogv|3gp|mp4|m4v|webm|mov)$/i;
-        file = data.files[0];
-        if (data.files[0].size < 5242880 && (types.test(file.type) || types.test(file.name))) {
+        var types = /^(\S+)(\.|\/)(ogg|ogv|3gp|mp4|m4v|webm|mov)*$/i;
+        var file = data.files[0];
+        if (file.size < 5242880 && (types.test(file.name))) {
           $.ajax({
             url: "/signed_urls",
             type: "GET",
             dataType: "json",
             data: {
               doc: {
-                title: data.files[0].name
+                title: file.name
               }
             },
             async: false,
@@ -30,16 +29,23 @@ $(function() {
           });
           return data.submit();
         } else {
-          $('#failed').modal('show');
-          $('#dropzone').show();
-          return $('.video-upload-info').html('').append("<b><red>Upload Failed</red></b><br><b>Filename:</b> " + data.files[0].name + " <br><b>Size:</b> " + (data.files[0].size / 1000000).toFixed(2) + " MB <br><br><b>File Exceeds the 5MB file size limit or is not a valid video format</b>");
-        }
+			// Handle the error messages
+			if (file.size > 5242880) {
+				errors.push("File exceeds the 5MB size limit.");
+			} else if (file.name.indexOf(" ") >= 0) {
+				errors.push("File is not a valid video format or the filename contains spaces.");
+			}
+          	$('#failed').modal('show');
+          	$('#dropzone').show();
+          	$('.video-upload-info').html('').append("<b><red>Upload Failed</red></b><br><b>Filename:</b> " + file.name + " <br><b>Size:</b> " + (file.size / 1000000).toFixed(2) + " MB <br><br><b>" + errors.toString(" ") + "</b>");
+      		return errors.length = 0; // Clear the error array
+		}
       },
       send: function(e, data) {
         $("#failed").modal('show');
         $(".progress, #dropzone").fadeIn();
-        return $.each(data.files, function(index, file) {
-          return $('.video-upload-info').html("").append(file.name + " " + (file.size / 1000000).toFixed(2) + ' MB');
+        $.each(data.files, function(index, file) {
+          return $('.video-upload-info').html("").append("<b>Filename:</b> " + file.name + " <br><b>Size:</b> " + (file.size / 1000000).toFixed(2) + " MB");
         });
       },
       progress: function(e, data) {
