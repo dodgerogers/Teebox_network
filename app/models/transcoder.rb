@@ -1,17 +1,11 @@
-require "aws-sdk"
-
-class Transcoder < Video
+class Transcoder
   def initialize(video)
     @video = video
     @filename = File.basename(@video.file, File.extname(@video.file))
   end
   
   def create
-    transcoder = AWS::ElasticTranscoder::Client.new(
-        region: "us-east-1", 
-        access_key_id: CONFIG[:aws_access_key_id], 
-        secret_access_key: CONFIG[:aws_secret_key_id]
-    )
+    transcoder = AWS::ElasticTranscoder::Client.new(region: "us-east-1")
     options = {
       pipeline_id: CONFIG[:aws_pipeline_id],
       input: { 
