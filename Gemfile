@@ -53,7 +53,7 @@ gem "mini_magick"
 gem "whenever", :require => false
 gem 'execjs'
 gem 'will_paginate', '3.0.3'
-gem 'aws-sdk','~> 1.0'
+gem 'aws-sdk'
 gem 'bootstrap-wysihtml5-rails'
 gem 'draper', :git => "git://github.com/drapergem/draper.git"
 gem "delayed_job_active_record"

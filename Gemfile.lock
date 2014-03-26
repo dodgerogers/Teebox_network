@@ -313,7 +313,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 1.0)
+  aws-sdk
   better_errors
   bootstrap-wysihtml5-rails
   bullet

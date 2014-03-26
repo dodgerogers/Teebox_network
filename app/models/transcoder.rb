@@ -5,7 +5,11 @@ class Transcoder < Video
   end
   
   def create
-    transcoder = AWS::ElasticTranscoder::Client.new(region: "us-east-1")
+    transcoder = AWS::ElasticTranscoder::Client.new(
+        region: "us-east-1", 
+        access_key_id: CONFIG[:aws_access_key_id], 
+        secret_access_key: CONFIG[:aws_secret_key_id]
+    )
     options = {
       pipeline_id: CONFIG[:aws_pipeline_id],
       input: { 
