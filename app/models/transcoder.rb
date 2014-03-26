@@ -18,7 +18,7 @@ class Transcoder
         },
       outputs: [
         {
-          key: "#{@filename}.mp4", 
+          key: "#{@filename}-1.mp4", 
           preset_id: '1395783135978-fq7lgp', #Generic mp4'1351620000001-000020', 
           rotate: "auto", 
           thumbnail_pattern: "#{@filename}-{count}"
