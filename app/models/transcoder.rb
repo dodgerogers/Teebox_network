@@ -1,3 +1,5 @@
+require "aws-sdk"
+
 class Transcoder < Video
   def initialize(video)
     @video = video
