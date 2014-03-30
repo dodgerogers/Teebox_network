@@ -7,8 +7,12 @@ class VideosController < ApplicationController
   end
   
   def index
-    @videos = current_user.videos
+    @videos = current_user.videos.where("id > ?", params[:after].to_i)
     @video = Video.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def new   

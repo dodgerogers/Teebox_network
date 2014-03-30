@@ -5,12 +5,15 @@
 	$('#videos').prepend(video);
 	video.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
 	$(".video-upload-info").html("").append("<b>Video Uploaded <i class='icon-ok-sign green'></i></b><br>").fadeIn();
-	function hideModal() {
-	    $("#failed").modal('hide');
-	}
-	window.setTimeout(function() { hideModal(); },1500);
-$(".progress").hide(function() {
-  return $(".bar").css("width", 0);
-});
+	
+	// hide the upload modal
+	window.setTimeout(function() { 
+		$("#failed").modal('hide'); 
+	}, 1500);
+	
+	// Reset the progress bar
+	$(".progress").hide(function() {
+	  return $(".bar").css("width", 0);
+	});
 <% end %>
 

@@ -51,4 +51,15 @@ describe VideoHelper do
       helper.persist_selected(@question, @video).should eq 'selected_video'
     end
   end
+  
+  describe "video_processed?" do
+    it "shows processed icon when complete" do
+      helper.video_processed?(@video).should eq "<a href=\"#\" title=\"Processing\"><i class=\"icon-bar-chart processing green\"></i></a>"
+    end
+    
+    it "shows failed icon when ERROR" do
+      @video2 = create(:video, status: "ERROR")
+      helper.video_processed?(@video2).should eq "<a href=\"#\" title=\"Encoding Failed\"><i class=\"icon-exclamation-sign processing red\"></i></a>"
+    end
+  end
 end

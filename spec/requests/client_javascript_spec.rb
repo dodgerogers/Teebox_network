@@ -5,7 +5,7 @@ include QuestionHelper
 
 describe "javascript testing", js: true do
   describe "GET /activities/notifications in navbar" do
-    it "displays 1 notification" do
+    it "displays 1 notification", speed: "slow" do
       visit root_path
       sign_in_user
       click_link "notifications"
@@ -19,7 +19,7 @@ describe "javascript testing", js: true do
   end
 
   describe "GET points breakdown" do
-    it "displays points" do
+    it "displays points", speed: "slow" do
       visit root_path
       sign_in_user
       find('#user-profile-tour').click_link("200")
@@ -34,7 +34,7 @@ describe "javascript testing", js: true do
   end
 
   describe "teebox tour" do
-    it "starts on click" do
+    it "starts on click", speed: "slow" do
       visit root_path
       within("#footer") do
         click_link "welcome-start-tour"

@@ -547,7 +547,8 @@ CREATE TABLE videos (
     screenshot character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    job_id character varying(255)
+    job_id character varying(255),
+    status character varying(255)
 );
 
 
@@ -1148,3 +1149,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140317214157');
 INSERT INTO schema_migrations (version) VALUES ('20140320173622');
 
 INSERT INTO schema_migrations (version) VALUES ('20140324212935');
+
+INSERT INTO schema_migrations (version) VALUES ('20140327145821');

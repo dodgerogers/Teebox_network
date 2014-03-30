@@ -314,13 +314,34 @@ body .sublimevideo-zi .sublimevideo-uj {
 	}
 	.loading {
 		position: absolute;
-		top: 25px;
+		top: 15px;
 		right: 73px;
 		height: 50px;
 		width: 50px;
 		display:none;
 	}
+	.video-screenshot {
+		position: relative;
+		.processing {
+			position:absolute;
+			bottom:5px;
+			right:7px;
+			opacity: 1.0;
+		}
+		i.icon-bar-chart {
+			animation: pulsate 1.2s ease-out;
+			animation-iteration-count: infinite;
+			-webkit-animation: pulsate 1.2s ease-out;
+			-webkit-animation-iteration-count: infinite;
+		}
+	}
 }
+@-webkit-keyframes pulsate {
+    0% { opacity: 0.5; }
+    50% { opacity: 1.0; }
+    100% { opacity: 0.5; }
+}
+
 .form {
 	cursor: pointer;
 }

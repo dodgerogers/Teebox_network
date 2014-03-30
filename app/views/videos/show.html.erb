@@ -13,7 +13,7 @@
 		<div class="profile-info">
 			<%= link_to image_tag(avatar_url(@video.user)), @video.user %>
 			<small><%= link_to @video.user.username.titleize, user_path(@video.user) %><br>
-			<%= time_ago_in_words(@video.created_at) %> ago</small>
+			<i class="icon-calendar"></i>&nbsp;<%= time_ago_in_words(@video.created_at) %> ago</small>
 		</div>
 		<br><br>
 		<%= link_to "Video library", videos_path, class: "default submit" %>

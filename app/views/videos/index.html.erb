@@ -4,8 +4,8 @@
 
 <h4 class="video-library">Video Library</h4><br>
 
-<section id="videos">
+<%= content_tag(:section, id: "videos", data: { url: videos_path }) do %>
 	<%= render @videos %>
-</section>
+<% end %>
 
 <%= render partial: "shared/modals/video_upload" %>

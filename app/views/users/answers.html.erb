@@ -7,13 +7,12 @@
 	<% @answers.each do |answer| %>	
 	    <tr>
 			<td>
-				<div class="<%= answer.correct == true ? 'green-tick' : 'default-tick' %> center">
-					<i class='icon-ok-sign'></i>
+				<div class="<%= correct_answer?(answer) %> center">
+					<i class='icon-ok-sign large'></i>
 				</div>
 			</td>
 	      <td class='left'>
-			<%= link_to "#{url_for(answer.question)}#answer_#{answer.id}" do %>
-				<b><%= answer.question.title %>&nbsp;<i class="icon-question-sign"></i></b><br>
+			<%= link_to answer.question do %>
 				<%= strip_links(truncate(answer.body, length: 120)) %><br>
 				<small><i class="icon-calendar"></i> <%= time_ago_in_words answer.created_at %> ago</small>
 			<% end %>	

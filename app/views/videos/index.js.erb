@@ -1,0 +1,6 @@
+var videos = $("<%= j render(@videos) %>").hide();
+var videosDiv = $("#videos .videos");
+$("#videos .videos").first().fadeOut(250, function(){
+	$("#videos").prepend(videos);
+	$("#videos .videos").first().fadeIn(250);
+});

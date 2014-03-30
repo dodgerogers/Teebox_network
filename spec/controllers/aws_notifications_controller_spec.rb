@@ -17,7 +17,7 @@ describe AwsNotificationsController do
       message = JSON.parse(@confirmation_raw_json)
       SNSConfirmation.should_receive(:confirm).with(message["TopicArn"], message["Token"])
       @request.env["RAW_POST_DATA"] = @confirmation_raw_json
-      post :end_point, {}
+      post :end_point
     end
   end
   
@@ -34,7 +34,7 @@ describe AwsNotificationsController do
       notification = JSON.parse(@video_processing_json)
       Video.should_receive(:retrieve_payload).with(notification)
       @request.env["RAW_POST_DATA"] = @video_processing_json
-      post :end_point, {}
+      post :end_point
     end
   end
 end

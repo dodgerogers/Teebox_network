@@ -17,7 +17,7 @@ module VideoHelper
   end
   
   def display_xl_screenshot(video) 
-    video.screenshot.present? ? video.screenshot : "video_screen.png"
+    video.screenshot.present? ? video.screenshot : "video_screen.jpg"
   end
   
   def display_mini_screenshot(video)
@@ -26,5 +26,14 @@ module VideoHelper
   
   def persist_selected(question, video)
     question.videos.map(&:id).include?(video.id) ? 'selected_video' : ''
+  end
+  
+  def video_processed?(video)
+    case video.status
+    when "Submitted"
+      link_to content_tag(:i, nil, class: "icon-bar-chart processing green"), '#', title: "Processing"
+    when "ERROR"
+      link_to content_tag(:i, nil, class: "icon-exclamation-sign processing red"), '#', title: "Encoding Failed"
+    end
   end
 end
