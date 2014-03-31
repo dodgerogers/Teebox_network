@@ -31,10 +31,6 @@ task :delete_tmp_files do
   FileUtils.rm_rf Dir.glob("#{Rails.root}/public/uploads/tmp/screenshots/*")
 end
 
-task :carrierwave_tmp do 
-  CarrierWave.clean_cached_files!
-end
-
 task :delete_capybara do
   FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/capybara/*")
 end

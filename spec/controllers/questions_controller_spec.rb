@@ -28,6 +28,11 @@ describe QuestionsController do
       response.should render_template :show
     end
     
+    it "renders the show JSON template" do
+      get :show, id: @question, format: "JSON"
+      response.should render_template :show
+    end
+    
     it "creates an impression record" do
       expect {
         get :show, id: @question

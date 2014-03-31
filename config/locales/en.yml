@@ -4,6 +4,8 @@
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
+      less_than_x_minutes:
+          one: "%{count} minute"   
       about_x_hours:
         one:   "1 hour"
         other: "%{count} hours"

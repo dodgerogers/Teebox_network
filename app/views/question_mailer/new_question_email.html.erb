@@ -8,8 +8,8 @@
 		</style>
 	</head>
 	<body>
-		<h3><%= link_to @question.title, controller: "questions", action: "show", id: @question.id, only_path: false %></h3>
+		<b><%= link_to @question.title, controller: "questions", action: "show", id: @question.id, only_path: false %></b>
 		<p><%= @question.user.username %></p>
-		<p><%= time_ago_in_words @question.created_at %> ago</p>
+		<small><%= time_ago_in_words @question.created_at %> ago</small>
 	</body>
 </HTML>	

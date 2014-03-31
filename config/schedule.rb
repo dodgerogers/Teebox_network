@@ -8,16 +8,16 @@ every :day, at: "02:00am" do
   rake "delete_tmp_files"
 end
 
-every :day, at: "03:00am" do
+every :day, at: "02:10am" do
+   command "backup perform -t teebox -c #{Whenever.path}/Backup/config.rb"
+end
+
+every :day, at: "02:20am" do
   rake "user:rank"
 end
 
-every :day, at: "8:00am" do
+every :day, at: "02:30am" do
   rake "db:generate_report"
-end
-
-every 3.hours do
-  rake "carrierwave_tmp"
 end
 
 # Use this file to easily define all of your cron jobs.
