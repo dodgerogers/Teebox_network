@@ -13,11 +13,11 @@ describe AmazonS3 do
     end
   end
   
-  describe "cleanup" do
-    it "returns nil array difference" do
-    end
-    
-    it "returns file array difference" do
-    end
-  end
+  # describe "cleanup" do
+  #     it "returns nil array difference" do
+  #     end
+  #     
+  #     it "returns file array difference" do
+  #     end
+  #   end
 end
