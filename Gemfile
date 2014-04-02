@@ -67,6 +67,7 @@ gem "capistrano", "~> 2.15.5"
 gem 'daemons'
 gem "unicorn"
 gem "twitter"
+gem 'jbuilder'
 #gem "unicorn-worker-killer"
 #gem 'newrelic_rpm'
 

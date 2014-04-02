@@ -31,9 +31,9 @@ module VideoHelper
   def video_processed?(video)
     case video.status
     when "Submitted"
-      link_to content_tag(:i, nil, class: "icon-bar-chart processing green"), '#', title: "Processing"
+      link_to content_tag(:i, nil, class: "icon-bar-chart green"), '#', class: "processing", title: "Processing", rel: "tooltip"
     when "ERROR"
-      link_to content_tag(:i, nil, class: "icon-exclamation-sign processing red"), '#', title: "Encoding Failed"
+      link_to content_tag(:i, nil, class: "icon-exclamation-sign red"), '#', class: "processing", title: "Encoding Failed", rel: "tooltip"
     end
   end
 end

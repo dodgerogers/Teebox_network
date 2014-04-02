@@ -29,8 +29,9 @@ describe QuestionsController do
     end
     
     it "renders the show JSON template" do
-      get :show, id: @question, format: "JSON"
-      response.should render_template :show
+      get :show, id: @question, format: "json"
+      response.should be_success
+      response.content_type.should eq Mime::JSON
     end
     
     it "creates an impression record" do
@@ -44,6 +45,12 @@ describe QuestionsController do
     it "renders index template" do
       get :index
       response.should render_template :index
+    end
+    
+    it "renders index.js template" do
+      get :index, format: "js"
+      response.should be_success
+      response.content_type.should eq Mime::JS
     end
   end
   

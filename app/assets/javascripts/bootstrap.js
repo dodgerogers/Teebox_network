@@ -1,4 +1,6 @@
 $(function() {
   $("a[rel~=popover], .has-popover").popover();
-  return $("a[rel~=tooltip], .has-tooltip").tooltip();
+  return $("body").tooltip({
+	selector: "a[rel~=tooltip], .has-tooltip"
+  });
 });

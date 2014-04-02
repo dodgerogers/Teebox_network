@@ -24,14 +24,18 @@ class Video < ActiveRecord::Base
     
     # If the job completed successfully we'll save the json response to the db otherwise we'll notify the user it failed
     if message["state"] == "COMPLETED"
-      # Delete the original video
+      
+      # Delete the original video on S3
       AWS::S3.new.buckets[CONFIG[:s3_bucket]].objects[video.get_key].delete
+      
+      # Update the screenshot, file and status from the JSOn response
       video.update_attributes(
         file: "#{bucket}#{message["outputs"][0]["key"]}", 
         screenshot: "#{bucket}#{message["outputs"][0]["thumbnailPattern"]}".gsub!('-{count}', '-00001.jpg'),
         status: message["state"]
       )
     else
+      # Save the status when something goes wrong
       video.update_attributes(status: message["state"])
     end
   end
