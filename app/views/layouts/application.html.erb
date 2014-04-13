@@ -2,8 +2,8 @@
 <HTML lang="en">
 	<head>
 		<title><%= meta_title %></title>
-		<meta name="description" content="<%= meta_description %>">
-		<meta name="keywords" content="<%= meta_keywords %>">
+		<%= content_tag(:meta, nil, name: "description", content: meta_description) %>
+		<%= content_tag(:meta, nil, name: "keywords", content: meta_keywords) %>
 		<%= favicon_link_tag "/favicon.ico" %>
 		<%= favicon_link_tag 'teebox-app-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
 	  	<%= stylesheet_link_tag    "application", media: "all" %>
