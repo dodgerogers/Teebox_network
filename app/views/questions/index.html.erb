@@ -1,7 +1,9 @@
 <% meta_title(params[:tag] || params[:search]) %>
 <% meta_keywords(params[:tag] || params[:search]) %>
 
-<%= render template: "shared/teebox_banner" %>
+<%= content_for(:banner) do %>
+	<%= render template: "shared/teebox_banner" %>
+<% end %>	
 
 <%= render partial: "shared/nav_links" %>
 	

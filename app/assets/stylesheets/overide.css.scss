@@ -329,16 +329,16 @@ form#new_video {
 }
 //---------------- hero unit + wells----------------------//
 
-.hero-unit h1 {
-    font-size: 36px;
-	color: $red;
-	margin-bottom: 12px;
-	margin-top: 10px;
-}
 .hero-unit {
 	padding: 30px 60px;
 	font-size:14px;
 	@include box-sizing;
+	h1 {
+	    font-size: 36px;
+		color: $red;
+		margin-bottom: 12px;
+		margin-top: 10px;
+	}
 }
 .well {
 	@include box-sizing;
@@ -420,6 +420,15 @@ table.teebox-table {
 }
 
 // alerts //
+
+// Rule for the full width layout alerts
+body .banner-alert {
+	@include box-sizing;
+	@include border-radius(0px);
+	margin: -30px 0px 30px 0px;
+}
+// end
+
 .alert {
 	font-weight:bold;
 }

@@ -38,7 +38,7 @@ body .transparent {
 	padding: 30px;
 }
 
-/* full page backgrounds */
+// Full page backgrounds
 
 .sebonak-xl {
 	background: url(backgrounds/sebonak.jpg);	  
@@ -64,7 +64,27 @@ body .transparent {
 .whistler-xl {
 	background: url(backgrounds/whistler.jpg);
 }
-/* <!-- full page backgrounds --> */
+// end
+
+// Full homepage width banner 
+
+.forest-banner {
+	background: $sky url(backgrounds/forest-banner.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	color: #fff!important;
+	& .hero-unit {
+		@include border-radius(0px);
+		background:none;
+		background-color:none;
+	}
+	.mobile {
+		margin:-30px 0px 20px;
+	}
+}
+// end
+
+// Regular standard width hero-unit banner
 
 .container .forest-cutout {
 	background: url(backgrounds/forest-cutout.jpg);

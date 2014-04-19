@@ -430,12 +430,12 @@ body .sublimevideo-zi .sublimevideo-uj {
 	@include box-shadow(0px,3px,0px,#367964);
 }
 .correct-answer-bg {
-	background: $universe;
-	color: $ice;
-	margin-bottom: 10px!important;
+	background: $ice;
+	//color: $ice;
+	margin-bottom: 0px!important;
 	padding: 5px 10px!important;
 	@include box-sizing;
-	@include border-radius(4px);
+	@include border-radius(4px 4px 0px 0px);
 }
 #correct-answer {
 	color: white !important;

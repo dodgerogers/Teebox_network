@@ -1,6 +1,8 @@
 <% meta_title("Popular Questions") %>
 
-<%= render template: "shared/teebox_banner" %>
+<%= content_for(:banner) do %>
+	<%= render template: "shared/teebox_banner" %>
+<% end %>
 
 <%= render partial: "shared/nav_links" %>
 

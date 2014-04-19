@@ -49,7 +49,7 @@ describe ApplicationHelper do
   describe "social_links" do
     it "returns formatted social links" do
       page = "/questions"
-      helper.social_links(page).should eq "<div><a href=\"http://facebook.com/sharer.php?u=/questions\" target=\"_blank\"><i class='icon-facebook-sign medium facebook'></i> </a><a href=\"https://plus.google.com/share?url=/questions\" target=\"_blank\"><i class='icon-google-plus-sign medium google'></i> </a><a href=\"https://twitter.com/share?url=/questions\" target=\"_blank\"><i class='icon-twitter medium twitter'></i> </a><a href=\"mailto: ?subject=Question on Teebox&amp;body=/questions\"><i class='icon-envelope-alt medium'></i></a></div>"
+      helper.social_links(page).should eq "<div><a href=\"http://facebook.com/sharer.php?u=/questions\" target=\"_blank\"><i class='icon-facebook-sign medium facebook'></i> </a><a href=\"https://plus.google.com/share?url=/questions\" target=\"_blank\"><i class='icon-google-plus-sign medium google'></i> </a><a href=\"https://twitter.com/share?url=/questions\" target=\"_blank\"><i class='icon-twitter medium twitter'></i> </a><a href=\"https://www.linkedin.com/cws/share?url=/questions\" target=\"_blank\"><i class='icon-linkedin-sign medium facebook'></i> </a><a href=\"mailto: ?subject=Question on Teebox&amp;body=/questions\"><i class='icon-envelope-alt medium'></i></a></div>"
     end
   end
   

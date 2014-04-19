@@ -17,15 +17,18 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<%= render template: "layouts/header" %>			
+			<%= render template: "layouts/header" %>
+			<!-- page specific alert styles -->
+			<%= render partial: "layouts/enable_javascript", locals: { banner: "banner-alert" } %>
+			<% flash.each do |name, msg| %>
+			 	<div class="alert banner-alert alert-<%= name == :notice ? "success" : "error" %> fade in">
+				 	<a class="close" data-dismiss="alert">&#215;</a>
+				   	<%= content_tag :div, msg, :id => "flash" if msg.is_a?(String) %>
+				</div>
+			<% end %>
+			<!-- end -->
+			<%= yield :banner %>
 			<div class="container" id="margin-bottom">
-				<%= render partial: "layouts/enable_javascript" %>
-				<% flash.each do |name, msg| %>
-				 	<div class="alert alert-<%= name == :notice ? "success" : "error" %> fade in">
-					 	<a class="close" data-dismiss="alert">&#215;</a>
-					   	<%= content_tag :div, msg, :id => "flash" if msg.is_a?(String) %>
-					</div>
-				<% end %>
 				<%= yield  %>
 			</div>
 			<div id="push"></div>
