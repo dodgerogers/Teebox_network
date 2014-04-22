@@ -358,7 +358,7 @@
 		padding-bottom: 0px!important;
 		padding-left: 0px!important;
 		padding-right: 0px!important;
-		background:none;
+		//background:none;
 	}
 	// fonts
 	h3 {
@@ -498,14 +498,14 @@
 		width:100%;
 	}
 	.answer-box {
-		padding: 0px 0px 10px 0px;
+		padding: 15px;
 		margin-bottom: 10px;
-		box-shadow: 0px 0px 0px #fff;
+		//box-shadow: 0px 0px 0px #fff;
 	}
 	#question-box {
-		padding:0px;
+		padding:15px;
 		border: 0px solid #eee;
-		box-shadow: 0px 0px 0px #fff;
+		//box-shadow: 0px 0px 0px #fff;
 		.vote-box h1 {
 			font-size: 45px;
 			line-height:40px;
@@ -666,6 +666,10 @@
 		[class*="icon"].xl {
 			font-size: 80px!important;
 		}
+	}
+	#tick {
+		font-size:26px;
+		margin-top: -3px;
 	}
 }
 // Deals with awkward left align on video library page. Diff 484px
