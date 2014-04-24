@@ -14,12 +14,6 @@ describe AnswerHelper do
     @false_answer = create(:answer, user: @user2, question_id: @question.id, correct: false)
   end
   
-  describe "correct_answer_bg(answer)" do
-    it "returns bg class if true" do
-      helper.correct_answer_bg(@answer).should eq "correct-answer-bg"
-    end
-  end
-  
   describe "correct_answer?(answer)" do
     it "returns green tick when true" do
       helper.correct_answer?(@answer).should eq "green-tick"

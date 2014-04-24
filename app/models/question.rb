@@ -3,7 +3,7 @@ class Question < ActiveRecord::Base
   include Teebox::Impressionable
   require 'obscenity/active_model'
   
-  attr_accessible :title, :body, :youtube_url, :votes_count, :answers_count, :points, :correct, :tag_tokens, :video_list
+  attr_accessible :title, :body, :youtube_url, :votes_count, :answers_count, :comments_count, :points, :correct, :tag_tokens, :video_list
   #remove video_id, plus points
   attr_reader :tag_tokens
   
@@ -29,6 +29,10 @@ class Question < ActiveRecord::Base
   scope :popular, order: "votes_count DESC"
   scope :newest, order: "created_at DESC"
   
+  def to_param
+    "#{id} - #{title}".parameterize
+  end
+  
   def video_list
     self.videos.map(&:id).join(",")
   end
@@ -39,10 +43,6 @@ class Question < ActiveRecord::Base
   
   def video_limit
     errors.add(:video_list, "Maximum of 3 videos") if self.videos.size > 3 if self.videos
-  end
-      
-  def to_param
-    "#{id} - #{title}".parameterize
   end
   
   include PgSearch

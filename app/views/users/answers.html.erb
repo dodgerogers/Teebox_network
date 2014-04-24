@@ -12,7 +12,7 @@
 				</div>
 			</td>
 	      <td class='left'>
-			<%= link_to answer.question do %>
+			<%= link_to answer do %>
 				<%= strip_links(truncate(answer.body, length: 120)) %><br>
 				<small><i class="icon-calendar"></i> <%= time_ago_in_words answer.created_at %> ago</small>
 			<% end %>	

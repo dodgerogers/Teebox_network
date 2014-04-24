@@ -20,14 +20,14 @@ describe AnswersController do
   subject { @answer }
   
   describe "GET show" do
-    it "assigns a new decorator as @decorator" do
-      get :show, id: @answer
+    it "assigns a new answer as @answer" do
+      get :show, question_id: @question.id, id: @answer
       assigns(:answer).should eq(@answer)
     end
     
     it "renders the show template" do
-      get :show, id: @answer
-      response.should redirect_to @answer.question
+      get :show, question_id: @question.id, id: @answer
+      response.should render_template :show
     end
   end
   

@@ -79,7 +79,8 @@ CREATE TABLE answers (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     votes_count integer DEFAULT 0,
-    correct boolean DEFAULT false
+    correct boolean DEFAULT false,
+    comments_count integer DEFAULT 0
 );
 
 
@@ -322,7 +323,8 @@ CREATE TABLE questions (
     answers_count integer DEFAULT 0,
     correct boolean DEFAULT false,
     tags character varying(255),
-    impressions_count integer DEFAULT 0
+    impressions_count integer DEFAULT 0,
+    comments_count integer DEFAULT 0
 );
 
 
@@ -1151,3 +1153,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140320173622');
 INSERT INTO schema_migrations (version) VALUES ('20140324212935');
 
 INSERT INTO schema_migrations (version) VALUES ('20140327145821');
+
+INSERT INTO schema_migrations (version) VALUES ('20140423165345');

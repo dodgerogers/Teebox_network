@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
   def show
     # Use decorator from set_question
     @answer = Answer.new
-    @answers = @decorator.answers.includes(:question, :user, { comments: :user }).by_votes
+    @answers = @decorator.answers.includes(:user, :question).by_votes
     Teebox::Impression.create(@decorator, request)
   end
   

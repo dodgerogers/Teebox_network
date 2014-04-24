@@ -1,10 +1,18 @@
 <% if @comment.new_record? %>
 	alert("Failed to create comment: <%= j @comment.errors.full_messages.join(', ').html_safe %>");
 <% else %>
+	// Set the comment
 	var comment = $("<%= j render(@comment) %>").hide();
-	$('.comments-area #<%= "#{@comment.commentable_type.downcase}_#{@comment.commentable.id}" %>').append(comment);
+	var targetDiv = $('#<%= "#{@comment.commentable_type.downcase}_#{@comment.commentable.id}" %>_comments section');
+	
+	// first find the correct div then append the hidden comment
+	targetDiv.append(comment);
+	
+	// FadeIn the comment
 	comment.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
-	$('.wysihtml5-sandbox').contents().find('body').html('');
+	
+	// Find the correct wysihtml form and clear it
+	$('#<%= "#{@comment.commentable_type.downcase}_#{@comment.commentable.id}" %>_comments').parents(".comments-area").find('.wysihtml5-sandbox').contents().find('body').text('');
 	$('.new_comment').hide();
 <% end %>
 

@@ -4,7 +4,7 @@ class Answer < ActiveRecord::Base
   include Teebox::Toggle
   require 'obscenity/active_model'
   
-  attr_accessible :body, :question_id, :votes_count, :correct, :points
+  attr_accessible :body, :question_id, :votes_count, :correct, :points, :comments_count
   
   belongs_to :user
   belongs_to :question, counter_cache: true
@@ -22,6 +22,10 @@ class Answer < ActiveRecord::Base
   
   default_scope include: :question
   scope :by_votes, order: "votes_count DESC"
+  
+  def to_param
+    "#{id} - #{question.title}".parameterize
+  end
   
   def is_false?
     self.user == self.question.user || self.correct == false

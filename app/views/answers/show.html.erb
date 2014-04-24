@@ -1,0 +1,9 @@
+<body class="teebox-xl">
+	<div class="center-block">
+		<div class="span8 clearfix">
+			<%= render @answer %>
+			<i class="icon-hand-left white"></i>
+			<%= link_to "View question: #{@answer.question.title}", @answer.question, class: "white" %>
+		</div>
+	</div>
+</body>	

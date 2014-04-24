@@ -2,10 +2,6 @@ require "spec_helper"
 
 describe AnswersController do
 
-    it "routes to #index" do
-      get("/answers").should route_to("answers#index")
-    end
-
     it "routes to #new" do
       get("/answers/new").should route_to("answers#new")
     end

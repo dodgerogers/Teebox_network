@@ -1,9 +1,19 @@
 class CommentsController < ApplicationController
   
-  before_filter :authenticate_user! 
+  before_filter :authenticate_user!, except: [:index]
   before_filter :load_commentable
-  load_and_authorize_resource except: [:new, :index]
+  load_and_authorize_resource except: [:new]
   include Teebox::Votable
+  
+  def show
+  end
+  
+  def index
+    @comments = @commentable.comments.includes(:user, :commentable)#.paginate(page: params[:page], per_page: 3)
+    respond_to do |format|
+      format.html { render layout: false }
+    end
+  end
   
   def create 
     @comment = @commentable.comments.build(params[:comment])

@@ -1,13 +1,10 @@
 module ActivityHelper
   
   def build_activity_path(activity)
-    case activity.trackable_type
-    when "Comment"
-      activity.trackable.commentable
-    when "Answer"
-      activity.trackable
-    when "User"
+    if activity.trackable_type == "User"
       info_path
+    else
+      activity.trackable
     end
   end
   
@@ -15,11 +12,12 @@ module ActivityHelper
     p = point.pointable
     case p.votable_type
     when "Answer"
-      link_to truncate(p.votable.body, length: 60), p.votable 
+      text = p.votable.body
     when "Question"
-      link_to truncate(p.votable.title, length: 60), p.votable 
+      text = p.votable.title 
     when "Comment"
-      link_to truncate(p.votable.content, length: 60), p.votable.commentable
+      text = p.votable.content
   	end
+  	link_to truncate(text, length: 60), p.votable 
   end
 end

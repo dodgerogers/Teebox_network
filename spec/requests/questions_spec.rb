@@ -32,7 +32,7 @@ describe "Questions" do
     visit root_path
     sign_in_user
     create_and_find_question
-    within('#question-box') do
+    within('#question') do
       click_link "Edit"
     end
     page.should have_content "Edit your question"

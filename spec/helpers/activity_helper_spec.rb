@@ -28,13 +28,13 @@ describe ActivityHelper do
     it "comment on question redirects to question" do
       @comment = create(:comment, user: @user2, commentable_id: @question.id, content: "buy a new set of irons")
       @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, trackable_type: "Comment")
-      helper.build_activity_path(@activity2).should eq(@question) ##comment_#{@comment.id}
+      helper.build_activity_path(@activity2).should eq(@comment) ##comment_#{@comment.id}
     end
     
     it "comment on answer redirects to answer" do
       @comment = create(:comment, user: @user2, commentable_id: @answer.id, commentable_type: "Answer", content: "buy a new set of irons")
       @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, trackable_type: "Comment")
-      helper.build_activity_path(@activity2).should eq(@answer) ##comment_#{@comment.id}
+      helper.build_activity_path(@activity2).should eq(@comment) ##comment_#{@comment.id}
     end
     
     it "redirects to info_url" do
@@ -45,7 +45,7 @@ describe ActivityHelper do
   
   describe "build_point_path" do
     it "returns path to question from answer" do
-      helper.build_point_path(@point).should eq "<a href=\"/answers/#{@answer.id}\">try changing your face angle by #{@number} degrees</a>"
+      helper.build_point_path(@point).should eq "<a href=\"/answers/#{@answer.id}-#{@answer.question.title.parameterize}\">try changing your face angle by #{@number} degrees</a>"
     end
     
     it "returns question path" do
@@ -57,7 +57,7 @@ describe ActivityHelper do
     it "returns question path from comment" do
       @vote2 = create(:vote, user: @user2, votable_id: @comment.id, votable_type: "Comment")
       @point3 = create(:point, pointable_id: @vote2.id, user_id: @user2.id)
-      helper.build_point_path(@point3).should eq "<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}\">#{@comment.content}</a>"
+      helper.build_point_path(@point3).should eq "<a href=\"/comments/#{@comment.id}\">#{@comment.content}</a>"
     end
   end
 end

@@ -654,6 +654,12 @@ body #header-search {
 
 /*-------------------- questions & videos user profile info ----------*/
 
+.content-box {
+	position: relative;
+	padding:20px;
+	background: #fff;
+	@include box-sizing;
+}
 .meta_info * {
 	&:after {
 		content: " ";
@@ -668,12 +674,6 @@ body #header-search {
 		margin-right: 5px;
 		margin-top: 4px;
 	}
-}
-#question-box {
-	position: relative;
-	padding:20px;
-	@include box-sizing;
-	background: #fff;
 }
 .action_links, .profile, .edit-destroy-links {
 	display:inline;
@@ -711,14 +711,21 @@ body #header-search {
 		margin:0;
 	}
 }
-.comment-grav img {
-	margin-top: 5px;
-}
-.comment-content {
-	p {
-		
+
+.comment-content { p {	} } 
+
+.toggle-comments {
+	display:block;
+	background: $ice;
+	@include box-sizing;
+	@include border-radius(4px);
+	text-align:center;
+	padding:5px 0px;
+	color: $gundam;
+	&:hover {
+		background: $dark-ice;
 	}
-} 
+}
 
 // Related questions //
 
@@ -884,18 +891,25 @@ body #header-search {
 }
 //-------------------- Answers ----------------//
 
+.content-box-margin {
+	@extend .content-box;
+	margin-bottom: 10px;
+}
+.content-box-margin.single {
+	.comment {
+		border:0px;
+		p:empty {
+			display:none;
+		}
+	}
+}
+
 #answer_body_tbl {
 	height:100%!important;
 	width: 100%!important;
 }
 #answer_body_ifr {
 	height:200px!important;
-}
-.answer-box {
-	padding: 20px;
-	margin-bottom: 10px;
-	background: #fff;
-	@include box-sizing;
 }
 .answer {
 	@include box-sizing;

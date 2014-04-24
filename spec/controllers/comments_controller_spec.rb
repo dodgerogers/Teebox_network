@@ -19,41 +19,55 @@ describe CommentsController do
   
   subject { @comment }
   
-  describe "POST create" do
+  describe "GET show" do
+    it "assigns a new decorator as @decorator" do
+      get :show, id: @comment
+      assigns(:comment).should eq(@comment)
+    end
+    
+    it "renders the show template" do
+      get :show, id: @comment
+      response.should render_template :show
+    end
+  end
+  
+  describe "GET index" do
+    it "renders index template" do
+      get :index, question_id: @commentable.id
+      response.should render_template :index
+    end
+  end
+        
+  describe "POST create on question" do
      describe "with valid params" do
       it "creates a new comment" do
-        Comment.stub!(:find).and_return(@commentable)
         expect {
-          post :create, comment: attributes_for(:comment), commentable: @commentable.id
+          post :create, question_id: @commentable.id, comment: attributes_for(:comment)
         }.to change(Comment, :count).by(1)
       end
 
       it "assigns a newly created comment as @comment" do
-        Comment.stub!(:find).and_return(@commentable)
-        post :create, comment: attributes_for(:comment), commentable: @commentable.id
+        post :create, question_id: @commentable.id, comment: attributes_for(:comment)
         assigns(:comment).should be_a(Comment)
         assigns(:comment).should be_persisted
       end
       
       it "redirects to the commentable question" do
-        Comment.stub!(:find).and_return(@commentable)
-        post :create, comment: attributes_for(:comment), commentable: @commentable.id
+        post :create, question_id: @commentable.id, comment: attributes_for(:comment), commentable: @commentable
         response.should redirect_to("http://test.host/questions/#{@commentable.id}")
       end
     end
     
     describe "with invalid params" do
       it "assigns a newly created but unsaved comment as @comment" do
-        Comment.stub!(:find).and_return(@commentable)
         Comment.any_instance.stub(:save).and_return(false)
-        post :create,comment: attributes_for(:comment), commentable: @commentable.id
+        post :create, question_id: @commentable.id, comment: attributes_for(:comment), commentable: @commentable
         assigns(:comment).should be_a_new(Comment)
       end
 
       it "re-renders the 'new' template" do
-        Comment.stub!(:find).and_return(@commentable)
         Comment.any_instance.stub(:save).and_return(false)
-        post :create, comment: attributes_for(:comment), commentable: @commentable.id
+        post :create, question_id: @commentable.id, comment: attributes_for(:comment), commentable: @commentable
         response.should redirect_to("http://test.host/questions/#{@commentable.id}")
       end
     end
@@ -62,11 +76,11 @@ describe CommentsController do
   describe "DELETE destroy" do
     before(:each) do
       @comment = create(:comment, commentable_id: @commentable.id)
-  end
+    end
 
     it "destroys the requested comment" do
       expect {
-        delete :destroy, id: @comment
+        delete :destroy, question_id: @commentable.id, id: @comment
       }.to change(Comment, :count).by(-1)
     end
   end

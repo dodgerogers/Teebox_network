@@ -33,7 +33,6 @@ TeeboxNetwork::Application.routes.draw do
   post "/aws/end_point", to: 'aws_notifications#end_point', as: :end_point
   
   resources :points, only: :index
-  
   resources :questions do
     resources :comments, except: [:edit, :update]
     member do
@@ -42,11 +41,12 @@ TeeboxNetwork::Application.routes.draw do
     end
   end
   
-  resources :comments do 
+  # must be a better way to do this
+  resources :comments, except: [:edit, :update, :new, :create, :destroy, :index] do
     member { post :vote }
-  end 
+  end
   
-  resources :answers do 
+  resources :answers, except: :index do 
     member { post :vote }
     member { put :correct }
     resources :comments, except: [:edit, :update]
@@ -56,14 +56,10 @@ TeeboxNetwork::Application.routes.draw do
   resources :tags
   resources :activities, only: :index do
     member { put :read }
-    collection do
-      get 'notifications'
-    end
+    collection { get 'notifications' }
   end
   
   resources :reports, only: [:index, :new, :create, :destroy] do
-    collection do
-      get "stats"
-    end
+    collection { get "stats" }
   end
 end

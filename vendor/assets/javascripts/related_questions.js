@@ -1,1 +1,1 @@
-loadRecords("#load-related", ("/questions/" + $("#question-box").data("id") + "/related"), "related questions");
+loadRecords("#load-related", ("/questions/" + $("#question").data("id") + "/related"), "related questions");

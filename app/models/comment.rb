@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
   
   attr_accessible :content, :votes_count, :parent_id, :commentable_id, :commentable_type, :points
   
-  belongs_to :commentable, polymorphic: true
+  belongs_to :commentable, polymorphic: true, counter_cache: true
   belongs_to :user
   has_many :votes, as: :votable, dependent: :destroy
   has_one :point, as: :pointable, dependent: :destroy

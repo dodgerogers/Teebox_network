@@ -27,38 +27,44 @@ describe Answer do
   #it { should validate_uniqueness_of(:user_id).scoped_to(:question_id).with_message("user_id Only 1 answer per question per user (1)") }
 
   describe 'body' do
-     before { @answer.body = nil }
+     before { subject.body = nil }
      it { should_not be_valid }
    end
    
    describe "user_id" do
-     before { @answer.user_id = nil }
+     before { subject.user_id = nil }
       it { should_not be_valid }
    end
     
   describe "question_id" do
-     before { @answer.question_id = nil }
+     before { subject.question_id = nil }
       it { should_not be_valid }
   end
   
   describe "length to short" do
-    before { @answer.body = ("a" * 9) }
+    before { subject.body = ("a" * 9) }
     it { should_not be_valid }
   end
   
   describe "length to long" do
-    before { @answer.body = ("a" * 5001) }
+    before { subject.body = ("a" * 5001) }
     it { should_not be_valid }
   end
   
   describe "obscenity filter" do
-    before { @answer.body = "shit" }
+    before { subject.body = "shit" }
     it { should_not be_profane }
+  end
+  
+  describe "to_param" do
+    it "appends question title to url" do
+      subject.to_param.should eq "#{subject.id}-#{subject.question.title.parameterize}"
+    end
   end
   
   describe "is_false" do
     it "returns true when same user" do
-      @answer.is_false?.should eq true
+      subject.is_false?.should eq true
     end
     
     it "returns false when not same user" do
@@ -72,14 +78,14 @@ describe Answer do
     end
       
     it "allows destroy when true" do  
-      @answer.check_correct.should eq true
+      subject.check_correct.should eq true
     end
   end
   
   describe "toggle_correct question" do
     it "toggles to true" do
-      @answer.question.toggle_correct(:correct)
-      @answer.question.correct.should eq true
+      subject.question.toggle_correct(:correct)
+      subject.question.correct.should eq true
     end
   end
   
@@ -89,7 +95,7 @@ describe Answer do
         @user4 = create(:user)
         a1 = create(:answer, user: @user3, correct: false, body: "your weight shift is incorrect", votes_count: 2, question_id: @question.id) 
         a2 = create(:answer, user: @user4, correct: false, body: "stop moving your head", votes_count: 3, question_id: @question.id) 
-        Answer.by_votes.should == [a2, a1, @answer, @answer2] 
+        Answer.by_votes.should == [a2, a1, subject, @answer2] 
     end
   end
 end

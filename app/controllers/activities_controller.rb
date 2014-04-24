@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
     if @activity.save
       redirect_to build_activity_path(@activity)
     else
-      redirect_to root_path, notice: "Fraid we couldn't do that"  
+      redirect_to root_path, notice: "Please 'read' your activity again. Sorry"  
     end
   end
   

@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:show]
   load_and_authorize_resource
   require 'teebox/commentable'
   include Teebox::Commentable
@@ -8,11 +8,7 @@ class AnswersController < ApplicationController
   
   
   def show
-    # So we don't have to use an if/else whenever we want to link to an answers question from comments
-    @answer = Answer.find(params[:id])
-    redirect_to @answer.question
   end
-  
   
   def create
     @answer = current_user.answers.build(params[:answer])

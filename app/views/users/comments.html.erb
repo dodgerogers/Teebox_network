@@ -7,7 +7,7 @@
 	<% @comments.each do |comment| %>	
 	    <tr>
 	      <td class="left">
-			<%= link_to "#{url_for(comment.commentable)}#comment_#{comment.id}" do %>
+			<%= link_to comment do %>
 				<%= strip_links(truncate(comment.content, length: 120)) %><br>
 				<small><i class="icon-calendar"></i> <%= time_ago_in_words comment.created_at %> ago</small>
 			<% end %>	

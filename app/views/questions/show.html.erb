@@ -4,18 +4,16 @@
 
 <%= content_for :head do %>
 	<%= social_meta_info(@decorator) %>
-	<!-- inits video player, loads related questions via ajax -->
 	<%= javascript_include_tag "sublime.js", "playlist.js" %>
 <% end %>
 
 <div class="row">
 	<div class="span8">
-		
 		<div class="video-container">
 			<%= render partial: "videos/playlist", locals: { videos: @decorator.videos } %>
 		</div>
 		
-		<div id="question-box" data-id="<%= @decorator.id %>">
+		<div class="content-box" id="question" data-id="<%= @decorator.id %>">
 			<div class="question">
 				<h3><%= @decorator.title.capitalize %></h3>
 				
@@ -38,10 +36,9 @@
 				</div>
 			</div>
 			
-			<section class="comments-area">
-				<div id="question_<%= @decorator.id %>">
-					<%= render @decorator.comments.includes(:user) %>
-				</div>
+			<section class="comments-area">	
+				<!-- Defined in CommentHelper -->
+				<%= display_comments(@decorator) %>
 				
 				<%= link_to "Add comment", "#", class: "comment-button" %>
 				<%= render partial: "comments/form", locals: {commentable: @decorator} %>

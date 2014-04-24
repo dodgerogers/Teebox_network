@@ -1,5 +1,5 @@
-<article id="answer_<%= answer.id %>" class="answer-box">
-	<div class="answer <%= correct_answer_bg(answer) %>">	
+<article id="answer_<%= answer.id %>" class="content-box-margin">
+	<div class="answer">
 		<div class="answer-content">
 			<%= simple_format(answer.body) %>
 		</div>
@@ -27,9 +27,8 @@
 	</div>
 	
 	<div class="comments-area">
-		<div id="answer_<%= answer.id %>">
-			<%= render answer.comments %>
-		</div>
+		<!-- Defined in CommentHelper -->
+		<%= display_comments(answer) %>	
 		
 		<%= link_to "Add comment", "#" , class: "comment-button" %>
 		<%= render partial: "comments/form", locals: {commentable: answer} %>
