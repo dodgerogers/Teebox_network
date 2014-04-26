@@ -31,7 +31,7 @@ class Ability
         comment.try(:user) == user
       end
       
-      # So we can view our own comments and comments made from other people on our content
+      # So we can view our own comments and comments made on our content
       can [:show], Comment do |comment| 
         comment.commentable.try(:user) == user || comment.try(:user) == user
       end
