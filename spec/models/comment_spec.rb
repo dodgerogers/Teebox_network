@@ -36,7 +36,7 @@ describe Comment do
   end
   
   describe 'long content' do
-    before { subject.content = ('a' * 351) }
+    before { subject.content = ('a' * 501) }
     it { should_not be_valid }
   end
     
