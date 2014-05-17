@@ -8,7 +8,7 @@ $(function() {
       autoUpload: true,
       dataType: "xml",
       add: function(event, data) {
-        var types = /^(\S+)(\.|\/)(ogg|ogv|3gp|mp4|m4v|webm|mov)*$/i;
+        var types = /^(\S+)(\.|\/)(ogg|ogv|3gp|mp4|m4v|webm|mov|wmv)*$/i;
         var file = data.files[0];
         if (file.size < 5242880 && (types.test(file.name))) {
           $.ajax({
