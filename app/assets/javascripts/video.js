@@ -1,9 +1,11 @@
 $(function() {
-  return $(".direct-upload").each(function(data) {
+  $(".direct-upload").each(function(data) {
+	
 	var maxFileSize = 12582912;
     var form = $(this);
 	var errors = [];
-    return $(this).fileupload({
+	
+    form.fileupload({
       url: form.attr("action"),
       type: "POST",
       autoUpload: true,
@@ -11,7 +13,7 @@ $(function() {
       add: function(event, data) {
         var types = /^(\S+)(\.|\/)(ogg|ogv|3gp|mp4|m4v|webm|mov|wmv)*$/i;
         var file = data.files[0];
-        if (file.size < maxFileSize && (types.test(file.name))) {
+        if ( (file.size < maxFileSize) && (types.test(file.name))) {
           $.ajax({
             url: "/signed_urls",
             type: "GET",
@@ -29,17 +31,23 @@ $(function() {
             }
           });
           return data.submit();
+
         } else {
+	
 			// Handle the error messages
 			if (file.size > maxFileSize) {
 				errors.push("File exceeds the 12MB size limit.");
-			} else if (file.name.indexOf(" ") >= 0) {
-				errors.push("File is not a valid video format or the filename contains spaces.");
+			} else if ( types.test(file.name) == false ) {
+				errors.push("File is not a valid video format.");
+			} else if ( file.name.indexOf(" ") >= 0 ) {
+				errors.push("Filename contains spaces, please remove.");
 			}
+			
+			// Display the errors and clear array
           	$('#failed').modal('show');
           	$('#dropzone').show();
           	$('.video-upload-info').html('').append("<b><red>Upload Failed</red></b><br><b>Filename:</b> " + file.name + " <br><b>Size:</b> " + (file.size / 1000000).toFixed(2) + " MB <br><br><b>" + errors.toString(" ") + "</b>");
-      		return errors.length = 0; // Clear the error array
+      		return errors.length = 0;
 		}
       },
       send: function(e, data) {
