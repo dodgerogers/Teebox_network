@@ -48,7 +48,7 @@ $(function() {
 			// Display the errors and clear array
           	$('#failed').modal('show');
           	$('#dropzone').show();
-          	$('.video-upload-info').html('').append("<b><red>Upload Failed</red></b><br><b>Filename:</b> " + file.name + " <br><b>Size:</b> " + (file.size / 1000000).toFixed(2) + " MB <br><br><b>" + errors.toString(". ") + "</b>");
+          	$('.video-upload-info').html('').append("<b><red>Upload Failed</red></b><br><b>Filename:</b> " + file.name + " <br><b>Size:</b> " + (file.size / 1000000).toFixed(2) + " MB <br><br><b>" + errors.join(". ") + "</b>");
       		return errors.length = 0;
 		}
       },
