@@ -23,7 +23,7 @@ class SignedUrlsController < ApplicationController
           { bucket: CONFIG[:s3_bucket] },
           { acl: 'public-read' },
           ["starts-with", "$key", "uploads/"],
-          ["content-length-range", 0, 5242880],
+          ["content-length-range", 0, 12582912],
           { success_action_status: '201' }
         ]
       }.to_json
