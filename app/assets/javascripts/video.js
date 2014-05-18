@@ -13,7 +13,7 @@ $(function() {
       add: function(event, data) {
         var types = /^(\S+)(\.|\/)(ogg|ogv|3gp|mp4|m4v|webm|mov|wmv)*$/i;
         var file = data.files[0];
-        if ( (file.size < maxFileSize) && (types.test(file.name))) {
+        if ( (file.size < maxFileSize) && (types.test(file.name)) ) {
           $.ajax({
             url: "/signed_urls",
             type: "GET",
@@ -37,9 +37,11 @@ $(function() {
 			// Handle the error messages
 			if (file.size > maxFileSize) {
 				errors.push("File exceeds the 12MB size limit.");
-			} else if ( types.test(file.name) == false ) {
+			}
+			if ( types.test(file.name) == false ) {
 				errors.push("File is not a valid video format.");
-			} else if ( file.name.indexOf(" ") >= 0 ) {
+			}
+			if ( file.name.indexOf(" ") >= 0 ) {
 				errors.push("Filename contains spaces, please remove.");
 			}
 			
