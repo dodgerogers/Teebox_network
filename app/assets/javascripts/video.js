@@ -36,19 +36,19 @@ $(function() {
 	
 			// Handle the error messages
 			if (file.size > maxFileSize) {
-				errors.push("File exceeds the 12MB size limit.");
+				errors.push("File exceeds the 12MB size limit");
 			}
 			if ( types.test(file.name) == false ) {
-				errors.push("File is not a valid video format.");
+				errors.push("File is not a valid video format");
 			}
 			if ( file.name.indexOf(" ") >= 0 ) {
-				errors.push("Filename contains spaces, please remove.");
+				errors.push("Filename contains spaces");
 			}
 			
 			// Display the errors and clear array
           	$('#failed').modal('show');
           	$('#dropzone').show();
-          	$('.video-upload-info').html('').append("<b><red>Upload Failed</red></b><br><b>Filename:</b> " + file.name + " <br><b>Size:</b> " + (file.size / 1000000).toFixed(2) + " MB <br><br><b>" + errors.toString(" ") + "</b>");
+          	$('.video-upload-info').html('').append("<b><red>Upload Failed</red></b><br><b>Filename:</b> " + file.name + " <br><b>Size:</b> " + (file.size / 1000000).toFixed(2) + " MB <br><br><b>" + errors.toString(". ") + "</b>");
       		return errors.length = 0;
 		}
       },
