@@ -9,15 +9,15 @@ module ActivityHelper
   end
   
   def build_point_path(point)
-    p = point.pointable
-    case p.votable_type
+    obj = point.pointable
+    case obj.votable_type
     when "Answer"
-      text = p.votable.body
+      text = obj.votable.body
     when "Question"
-      text = p.votable.title 
+      text = obj.votable.title 
     when "Comment"
-      text = p.votable.content
+      text = obj.votable.content
   	end
-  	link_to truncate(text, length: 60), p.votable 
+  	link_to truncate(strip_tags(text.to_s), length: 60), obj.votable 
   end
 end

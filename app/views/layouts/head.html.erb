@@ -10,4 +10,9 @@
 <meta name="google-site-verification" content="F719ieOFnrp1nE4XCEUHbeQqkjvCycddAUC-5z4Dkgo" />
 <%= yield :head %>
 <meta property="og:image" content='<%= "#{request.protocol}#{request.host_with_port}#{asset_path('teebox-app-icon.png')}" %>' />
-<!--<meta name="apple-mobile-web-app-capable" content="yes">-->
+
+<!--[if lt IE 9]>
+<div class="alert alert-error" id="enable-javascript">
+	Teebox Network is not fully compatible with your version of Internet Explorer. Please upgrade to 9 or above.
+</div>
+<![endif]-->
