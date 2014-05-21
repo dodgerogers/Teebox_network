@@ -2,7 +2,7 @@
 	<%= content_tag(:div, class: "video-screenshot") do %>
 		<%= image_tag("spinner.gif", class: "loading loading_#{video.id}") %>
 		<%= video_processed?(video) %>	
-		<%= link_to image_tag(display_xl_screenshot(video)), video %>
+		<%= link_to image_tag(display_screenshot(video, :xl)), video %>
 	<% end %>
 	
 	<h5><%= link_to truncate(File.basename(video.file).titleize, length: 19), video %></h5>

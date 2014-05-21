@@ -23,6 +23,13 @@ describe ApplicationHelper do
     end
   end
   
+  describe "strip_links_and_trim" do
+    it "strips html tags and truncates string" do
+      text = "<a href='#'>hello</a> this text contains <div>html</div>"
+      helper.strip_links_and_trim(text).should eq "hello this text contains html"
+    end
+  end
+  
   describe "meta_info" do
     it "returns formatted links for question" do
       helper.meta_info(@question).should eq "<span class=\"meta_info\"><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">#{@user1.reputation}</a><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><i class=\"icon-calendar\"></i>1 minute ago <i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}<p></p><div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Question_#{@question.id}\">\n\t\t5 votes\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></span>"

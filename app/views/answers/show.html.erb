@@ -1,3 +1,7 @@
+<% meta_title("Answer: #{@answer.question.title}") %>
+<% meta_keywords(@answer.question.tags.map(&:name).join(", ")) %>
+<% meta_description(@answer.question.title) %>
+
 <body class="teebox-xl">
 	<div class="center-block">
 		<div class="span8 clearfix">

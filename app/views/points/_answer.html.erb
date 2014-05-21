@@ -5,4 +5,4 @@
 	<span class="red"><%= point.value %></span>
 <% end %>
 Your answer was marked as correct
-<%= link_to truncate(point.pointable.question.title, length: 40), point.pointable %>
+<%= link_to strip_links_and_trim(point.pointable.question.title, 40), point.pointable %>

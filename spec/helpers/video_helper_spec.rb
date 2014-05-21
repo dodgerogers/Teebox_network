@@ -32,16 +32,30 @@ describe VideoHelper do
     end
   end
   
-  describe "screenshots" do
-    describe "display_xl_screenshot" do
-      it "with nil screenshot" do
-        helper.display_xl_screenshot(@video).should eq "https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
+  describe "display_screenshot" do
+    describe "xl" do
+      it "displays large screenshot" do
+        helper.display_screenshot(@video, :xl).should eq "https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
       end
     end
     
-    describe "display_mini_screenshot" do
-      it "with nil video" do
-        helper.display_mini_screenshot(@question.videos[0]).should eq "https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
+    describe "mini" do
+      it "displays mini screenshot" do
+        helper.display_screenshot(@question.videos[0], :mini).should eq "https://teebox-network-dev.s3.amazonaws.com/uploads/video/screenshot/73/3-wood-creamed.m4v.jpg"
+      end
+    end
+    
+    describe "nil video" do
+      before(:each) do
+        @nil_video = create(:video, user_id: @user.id, screenshot: nil)
+      end
+      
+      it "displays xl placeholder image" do
+        helper.display_screenshot(@nil_video, :xl).should eq "video_screen_xl.png"
+      end
+      
+      it "displays mini placeholder image" do
+        helper.display_screenshot(@nil_video, :mini).should eq "video_screen_mini.png"
       end
     end
   end

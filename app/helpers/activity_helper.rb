@@ -18,6 +18,6 @@ module ActivityHelper
     when "Comment"
       text = obj.votable.content
   	end
-  	link_to truncate(strip_tags(text.to_s), length: 60), obj.votable 
+  	link_to strip_links_and_trim(text, 60), obj.votable 
   end
 end

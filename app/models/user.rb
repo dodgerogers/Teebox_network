@@ -1,12 +1,11 @@
 class User < ActiveRecord::Base
-  # :token_authenticatable
-  # :lockable, :timeoutable and :omniauthable
   include PublicActivity::Common
   
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable 
+         :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :reputation, :rank
+  
   validates :username, presence: true, uniqueness: true, length: { maximum: 30 }
 
   has_many :questions, dependent: :destroy

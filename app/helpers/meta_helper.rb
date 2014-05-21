@@ -18,7 +18,7 @@ module MetaHelper
   end
   
   def meta_image(videos)
-    video = (videos.any? ? display_xl_screenshot(videos[0]) : asset_path("video_screen.png"))
+    video = (videos.any? ? display_screenshot(videos[0], :xl) : asset_path("video_screen_xl.png"))
   end
   
   def social_meta_info(question)

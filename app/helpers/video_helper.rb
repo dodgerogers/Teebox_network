@@ -16,12 +16,12 @@ module VideoHelper
     @site_token ||= CONFIG[:sublime_token]
   end
   
-  def display_xl_screenshot(video) 
-    video.screenshot.present? ? video.screenshot : "video_screen.jpg"
-  end
-  
-  def display_mini_screenshot(video)
-    (video.screenshot if video) || "video_screen_mini.png"
+  def display_screenshot(video, size=:xl)
+    if video && video.screenshot.present?
+      video.screenshot
+    else
+      "video_screen_#{size}.png"
+    end
   end
   
   def persist_selected(question, video)

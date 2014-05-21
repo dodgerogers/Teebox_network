@@ -4,6 +4,11 @@ module ApplicationHelper
     object.class.to_s.split("::")[0].singularize
   end
   
+  def strip_links_and_trim(object, length=100, tags=[], attrs=[])
+    # assign tags and attrs to empty arrays so we can still pass sanitize tags to exclude/include
+    truncate(sanitize(object.to_s, tags: tags, attributes: attrs), length: length).gsub("&nbsp;", " ")
+  end
+  
   def meta_info(object)
     content_tag(:span, class: "meta_info") do
       content_tag(:i, nil, class: "icon-user") +
