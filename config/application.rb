@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'carrierwave'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -24,7 +23,6 @@ module TeeboxNetwork
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/decorators)
     config.eager_load_paths += %W(#{config.root}/lib)
-    #config.eager_load_paths += %W(#{config.root}/lib/teebox/commentable.rb)
     
     config.exceptions_app = self.routes
 

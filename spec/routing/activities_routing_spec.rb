@@ -11,6 +11,6 @@ describe ActivitiesController do
     end
 
     it "routes to #read" do
-      put("/activities/1/read").should route_to("activities#read", id: "1")
+      get("/activities/1/read").should route_to("activities#read", id: "1")
     end
 end

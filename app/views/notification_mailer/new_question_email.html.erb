@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Account locked: Teebox Network</title>
+        <title>New question posted on Teebox</title>
         <%= render partial: "shared/email_header" %>
     </head>
     <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
@@ -27,7 +27,7 @@
                     <tbody><tr>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;">
-                            Account locked
+                            New question posted from from @<%= @question.user.username %>
                         </td>
                     </tr>
                 </tbody></table>
@@ -95,9 +95,8 @@
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
                         
-							<p>Hello <%= @resource.email %>. Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
-							<p>Click the link below to unlock your account:</p>
-							<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @resource.unlock_token) %></p>
+							<p><%= link_to @question.title, controller: "questions", action: "show", id: @question.id, only_path: false %></p>
+							<p>Asked by <%= @question.user.username %> about <%= time_ago_in_words @question.created_at %> ago</p>
                             
                         </td>
                     </tr>
@@ -126,7 +125,8 @@
                     <tbody><tr>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
-							Copyright © Teebox Network, All rights reserved.	
+                            
+							<p>Copyright © Teebox Network, All rights reserved.</p>	
                         </td>
                     </tr>
                 </tbody></table>

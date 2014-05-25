@@ -140,7 +140,7 @@ describe QuestionsController do
   
   describe "new_question_email email" do
     before(:each) do
-      QuestionMailer.any_instance.unstub(:new_question_email)
+      NotificationMailer.any_instance.unstub(:new_question_email)
       ActionMailer::Base.deliveries = []
       ActionMailer::Base.perform_deliveries = true
       User.any_instance.stub(:send_on_create_confirmation_instructions).and_return(true)

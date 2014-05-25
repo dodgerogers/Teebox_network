@@ -23,9 +23,10 @@ Rails.logger.level = 4
 
 RSpec.configure do |config|
   
-  #Stub out the mailers, enable them when needed.
+  # Stub out the mailers, enable them when needed.
   config.before(:each) do
-    QuestionMailer.any_instance.stub(:new_question_email)
+    NotificationMailer.any_instance.stub(:new_question_email)
+    NotificationMailer.any_instance.stub(:activity_email)
     User.any_instance.stub(:send_on_create_confirmation_instructions)
   end
     

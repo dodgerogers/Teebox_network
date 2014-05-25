@@ -30,6 +30,8 @@ TeeboxNetwork::Application.routes.draw do
   devise_for :users, controllers: { confirmations: "confirmations" }, path_names: { sign_in: "login", sign_out: "logout" }
   resources :users, only: [:show, :index]
   resources :signed_urls, only: :index
+  
+  # AWS End point for SNS
   post "/aws/end_point", to: 'aws_notifications#end_point', as: :end_point
   
   resources :points, only: :index
@@ -41,7 +43,6 @@ TeeboxNetwork::Application.routes.draw do
     end
   end
   
-  # must be a better way to do this
   resources :comments, except: [:edit, :update, :new, :create, :destroy, :index] do
     member { post :vote }
   end
@@ -55,11 +56,16 @@ TeeboxNetwork::Application.routes.draw do
   resources :videos, except: [:edit, :update]
   resources :tags
   resources :activities, only: :index do
-    member { put :read }
+    #member { put :read }
+    member { get :read }
     collection { get 'notifications' }
   end
   
   resources :reports, only: [:index, :new, :create, :destroy] do
     collection { get "stats" }
+  end
+  
+  if Rails.env.development?
+    mount MailPreview => "mail_view"
   end
 end

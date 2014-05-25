@@ -19,17 +19,29 @@ TeeboxNetwork::Application.configure do
   # Mailer settings default to mailcatcher
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
+  
   config.action_mailer.smtp_settings = {
-    address: "smtpout.secureserver.net",
-    domain: "secureserver.net",
-    port: 80,
-    user_name: CONFIG[:email_username],
-    password: CONFIG[:email_password],
-    authentication: "plain",
-    enable_starttls_auto: true 
+        address: "smtpout.secureserver.net",
+        domain: "secureserver.net",
+        port: 80,
+        user_name: CONFIG[:email_username],
+        password: CONFIG[:email_password],
+        authentication: "plain",
+        enable_starttls_auto: true 
   }
+  
+  # AWS SES settings
+  # config.action_mailer.smtp_settings = {
+  #     address: "email-smtp.us-east-1.amazonaws.com",
+  #     domain: "<localhost:3000>",
+  #     port: 587,
+  #     authentication: :login,
+  #     user_name: CONFIG[:ses_smtp_username],
+  #     password: CONFIG[:ses_password],
+  #     enable_starttls_auto: true
+  #   }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

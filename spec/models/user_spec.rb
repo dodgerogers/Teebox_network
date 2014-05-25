@@ -15,6 +15,7 @@ describe User do
    it { should respond_to(:remember_me)}
    it { should respond_to(:reputation)}
    it { should respond_to(:rank)}
+   it { should respond_to(:notifications)}
    it { should have_many(:questions)}
    it { should have_many(:videos)}
    it { should have_many(:comments)}
@@ -28,13 +29,13 @@ describe User do
    it { should_not be_valid }
  end
  
- describe "password" do
-   before { subject.password = nil }
-   it { should_not be_valid }
- end
+  describe "password" do
+    before { subject.password = nil }
+    it { should_not be_valid }
+  end
  
- describe "password_confirmation" do
-   before { subject.password_confirmation = 'password1' }
+  describe "password_confirmation" do
+    before { subject.password_confirmation = 'password1' }
     it { should_not be_valid }
   end
   
@@ -46,6 +47,16 @@ describe User do
   describe "to_param" do
     it "returns id and username string" do
       subject.to_param.should eq "#{@user.id}-#{@user.username}"
+    end
+  end
+  
+  describe "preferences" do
+    it "returns serialized hash" do
+      subject.preferences.should be_a(Hash)
+    end
+    
+    it "notifications set to true by default" do
+      subject.notifications.should eq "1"
     end
   end
   

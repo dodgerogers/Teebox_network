@@ -7,6 +7,7 @@ FactoryGirl.define do
     u.remember_me true
     u.reputation 200
     u.role "admin"
+    u.notifications "1"
   end
   
   factory :question do 

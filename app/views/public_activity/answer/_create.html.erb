@@ -7,7 +7,7 @@
 	<td>	
 		<div class="message">
 			<%= link_to activity.owner.username, activity.owner %> answered 
-			<%= link_to read_activity_path(activity), method: :put do %>
+			<%= link_to read_activity_url(activity) do %>
 				<%= activity.trackable.question.title %>
 			<% end %><br>
 			<small><i class="icon-calendar"></i>&nbsp;<%= time_ago_in_words(activity.created_at) %> ago</small>

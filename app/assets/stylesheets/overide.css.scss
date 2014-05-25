@@ -138,6 +138,12 @@ form .btn {
 	margin: 0 0 15px;
 }
 //---------non bootstrap custom nav elements --------//
+#gravatar {
+	&.edit {
+		float:left;
+		margin-right:10px;
+	}
+}
 .gravatar {
 	width: 50px;
 	height: 100%;
@@ -225,9 +231,13 @@ input[type="search"], input[type="tel"], input[type="color"],
 	@include box-sizing;
 	@include border-radius;
 }
-input[type="password"] {
+input[type="password"], input[type="email"] {
 	margin-bottom: 0px;
 }
+.input-prepend {
+	margin-bottom:0px;
+}
+
 textarea, iframe.wysihtml5-sandbox {
 	@include border-radius;
 	width:100%!important;
@@ -264,20 +274,21 @@ label {
 .input-xxlarge {
 	width:100%;
 }
-
-#user_remember_me {
-	margin: 0px 0 9px;
-}
-input[type="email"]
-{
-	margin: 0px;
-}
 .registration {
 	margin: 0px 0 20px;
+	&.check {
+		margin-bottom: 0px;
+	}
+	input[type="checkbox"] {
+		margin: 0px 0px 9px;
+	}
 }
 .remember_me {
 	display:inline-block;
 	margin-bottom: 0px;
+}
+label.notify {
+	font-size: 12px;
 }
 // ----------- file uplaod input field -------//
 

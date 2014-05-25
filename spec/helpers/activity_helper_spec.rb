@@ -13,7 +13,7 @@ describe ActivityHelper do
     @question = create(:question, user: @user1, title: "i cannot hit my #{@number} iron", body: "im slicing the ball #{@number} yards")
     @answer = create(:answer, user: @user2, question_id: @question.id, body: "try changing your face angle by #{@number} degrees")
     @comment = create(:comment, commentable_id: @question.id, user_id: @user1.id)
-    @activity = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, trackable_type: "Answer")
+    @activity = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "Answer")
     @vote = create(:vote, user: @user1, votable_id: @answer.id)
     @point = create(:point, pointable_id: @vote.id, user_id: @user2.id)
   end
@@ -27,18 +27,18 @@ describe ActivityHelper do
     
     it "comment on question redirects to question" do
       @comment = create(:comment, user: @user2, commentable_id: @question.id, content: "buy a new set of irons")
-      @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, trackable_type: "Comment")
+      @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "Comment")
       helper.build_activity_path(@activity2).should eq(@comment) ##comment_#{@comment.id}
     end
     
     it "comment on answer redirects to answer" do
       @comment = create(:comment, user: @user2, commentable_id: @answer.id, commentable_type: "Answer", content: "buy a new set of irons")
-      @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, trackable_type: "Comment")
+      @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "Comment")
       helper.build_activity_path(@activity2).should eq(@comment) ##comment_#{@comment.id}
     end
     
     it "redirects to info_url" do
-       @activity2 = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, trackable_type: "User")
+       @activity2 = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "User")
       helper.build_activity_path(@activity2).should eq info_path
     end
   end

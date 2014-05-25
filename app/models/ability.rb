@@ -26,15 +26,16 @@ class Ability
       end
       
       # Comments
-      can [:new, :create, :vote, :index], Comment
+      can [:new, :create, :vote, :read], Comment
       can [:destroy], Comment do |comment| 
         comment.try(:user) == user
       end
       
-      # So we can view our own comments and comments made on our content
-      can [:show], Comment do |comment| 
-        comment.commentable.try(:user) == user || comment.try(:user) == user
-      end
+      # So only correct users can view our own comments and comments made on our content
+      # NOTE: Breaks the notification links when activity is created with @<username>
+      # can [:show], Comment do |comment| 
+      #   comment.commentable.try(:user) == user || comment.try(:user) == user
+      # end
       
       # Videos
       can [:new, :create], Video

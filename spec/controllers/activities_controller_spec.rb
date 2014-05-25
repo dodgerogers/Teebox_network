@@ -16,7 +16,7 @@ describe ActivitiesController do
     @number = rand(1..9)
     @question = create(:question, user: @user1, title: "i can't hit my #{@number} iron", body: "im slicing the ball #{@number} yards")
     @answer = create(:answer, user: @user2, question_id: @question.id, body: "try changing your face angle by #{@number} degrees")
-    @activity = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, trackable_type: "Answer", read: false)
+    @activity = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "Answer", read: false)
   end
 
   describe "GET index" do
@@ -42,18 +42,18 @@ describe ActivitiesController do
   describe "read" do
     describe "with valid params" do
       it "assigns the requested activity as @activity" do
-        put :read, id: @activity
+        get :read, id: @activity
         assigns(:activity).should eq(@activity)
       end
 
       it "toggles the read column" do
-        put :read, id: @activity
+        get :read, id: @activity
         @activity.reload
         @activity.read.should eq true
       end
 
       it "redirects to the post" do
-        put :read, id: @activity
+        get :read, id: @activity
         @activity.reload
         response.should redirect_to @activity.trackable
       end
