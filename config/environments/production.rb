@@ -24,27 +24,28 @@ TeeboxNetwork::Application.configure do
   # Mailer settings
   config.action_mailer.default_url_options = {:host => 'teeboxnetwork.com'}
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-        address: "smtpout.secureserver.net",
-        domain: "secureserver.net",
-        port: 80,
-        user_name: CONFIG[:email_username],
-        password: CONFIG[:email_password],
-        authentication: "plain",
-        enable_starttls_auto: true,
-        openssl_verify_mode: 'none'
-      }
+  
+  # config.action_mailer.smtp_settings = {
+  #         address: "smtpout.secureserver.net",
+  #         domain: "secureserver.net",
+  #         port: 80,
+  #         user_name: CONFIG[:email_username],
+  #         password: CONFIG[:email_password],
+  #         authentication: "plain",
+  #         enable_starttls_auto: true,
+  #         openssl_verify_mode: 'none'
+  #       }
   
   # Amazon SES
-  # config.action_mailer.smtp_settings = {
-  #     address: "email-smtp.us-east-1.amazonaws.com",
-  #     domain: "<teeboxnetwork.com>",
-  #     port: 587,
-  #     authentication: :login,
-  #     user_name: CONFIG[:ses_smtp_username],
-  #     password: CONFIG[:ses_password],
-  #     enable_starttls_auto: true
-  #   }
+  config.action_mailer.smtp_settings = {
+        address: "email-smtp.us-east-1.amazonaws.com",
+        domain: "<teeboxnetwork.com>",
+        port: 587,
+        authentication: :login,
+        user_name: CONFIG[:ses_smtp_username],
+        password: CONFIG[:ses_password],
+        enable_starttls_auto: true
+      }
   
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
