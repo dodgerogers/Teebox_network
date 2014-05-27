@@ -27,7 +27,7 @@
                     <tbody><tr>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;">
-                            Notification from @<%= @activity.owner.username %>
+                            Notification from <%= link_to "@#{@activity.owner.username}", @activity.owner %>
                         </td>
                     </tr>
                 </tbody></table>
