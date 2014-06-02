@@ -25,17 +25,6 @@ TeeboxNetwork::Application.configure do
   config.action_mailer.default_url_options = {:host => 'teeboxnetwork.com'}
   config.action_mailer.delivery_method = :smtp
   
-  # config.action_mailer.smtp_settings = {
-  #         address: "smtpout.secureserver.net",
-  #         domain: "secureserver.net",
-  #         port: 80,
-  #         user_name: CONFIG[:email_username],
-  #         password: CONFIG[:email_password],
-  #         authentication: "plain",
-  #         enable_starttls_auto: true,
-  #         openssl_verify_mode: 'none'
-  #       }
-  
   # Amazon SES
   config.action_mailer.smtp_settings = {
         address: "email-smtp.us-east-1.amazonaws.com",
