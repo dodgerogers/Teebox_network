@@ -13,7 +13,7 @@ describe ApplicationHelper do
     @answer = create(:answer, user: @user1, question_id: @question.id)
   end
   
-  describe "demodularize()" do
+  describe "demodularize" do
     it "returns first segment from module name" do
       helper.demodularize(Questions::ShowDecorator.new(@question)).should eq "Question"
     end
@@ -32,17 +32,17 @@ describe ApplicationHelper do
   
   describe "meta_info" do
     it "returns formatted links for question" do
-      helper.meta_info(@question).should eq "<span class=\"meta_info\"><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">#{@user1.reputation}</a><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><i class=\"icon-calendar\"></i>1 minute ago <i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}<p></p><div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Question_#{@question.id}\">\n\t\t5 votes\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></span>"
+      helper.meta_info(@question).should eq "<ul class=\"meta_info\"><small><li><i class=\"icon-user\"></i><a href=\"/users/#{@question.user.id}-#{@question.user.username}\">#{@question.user.username}</a><a href=\"/users/#{@question.user.id}-#{@question.user.username}\" class=\"user_#{@question.user.id}\" id=\"profile-reputation\">#{@question.user.reputation}</a></li><li><i class=\"icon-calendar\"></i>1 minute ago </li><li><i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}</li><li><div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Question_#{@question.id}\">\n\t\t5\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></li><span></span></small></ul>"
     end
     
     it "returns formatted links for answer" do
-      helper.meta_info(@answer).should eq "<span class=\"meta_info\"><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">#{@user1.reputation}</a><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><i class=\"icon-calendar\"></i>1 minute ago <div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Answer_#{@answer.id}\">\n\t\t0 votes\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/answers/#{@answer.id}-#{@answer.question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/answers/#{@answer.id}-#{@answer.question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></span>"
+      helper.meta_info(@answer).should eq "<ul class=\"meta_info\"><small><li><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">#{@user1.reputation}</a></li><li><i class=\"icon-calendar\"></i>1 minute ago </li><li><div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Answer_#{@answer.id}\">\n\t\t0\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/answers/#{@answer.id}-#{@answer.question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/answers/#{@answer.id}-#{@answer.question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></li><li><div class=\"controls\"><div class=\"default-tick\" id=\"correct_answer_#{@answer.id}\"><div class=\"correct_answer_#{@answer.id}\"><i class=\"icon-ok-sign sm\"></i></div></div></div></li><span></span></small></ul>"
     end
   end
   
   describe "meta_views" do
     it "returns formatted views count" do
-      helper.meta_impressions(@question).should eq "<i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}<p></p>"
+      helper.meta_impressions(@question).should eq "<i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}"
     end
   end
   

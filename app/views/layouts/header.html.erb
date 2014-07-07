@@ -30,10 +30,10 @@
 				</li>
 				<li id="user-profile-tour">
 					<%= link_to current_user do %>
+		      			<div id="current-user"><%= current_user.username.titleize %></div>
 						<div id="current-user-rep" class="user_<%= current_user.id %>">
 							<%= number_to_human(current_user.reputation) %>
 						</div>
-		      			<div id="current-user"><%= current_user.username.titleize %></div>
 					<% end %>
 				</li>
 				<li class="dropdown">

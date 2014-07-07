@@ -7,33 +7,35 @@
 	<%= javascript_include_tag "sublime.js", "playlist.js" %>
 <% end %>
 
+<%= content_for :banner do %>
+	<%= render partial: "videos/playlist", locals: { videos: @decorator.videos } %>
+<% end %>
+
 <div class="row">
 	<div class="span8">
-		<div class="video-container">
-			<%= render partial: "videos/playlist", locals: { videos: @decorator.videos } %>
-		</div>
-		
 		<div class="content-box" id="question" data-id="<%= @decorator.id %>">
 			<div class="question">
 				<h3><%= @decorator.title.capitalize %></h3>
-				
-				<!-- meta info -->
-				<%= meta_info(@decorator) %>
-				
-				<!-- actions -->
-				<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_question_path(@decorator), title: "Edit" if can? :update, @decorator %>
-				<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @decorator, method: :delete, confirm: "Are you sure? You will lose any points associated with this question", title: "Delete" if can? :destroy, @decorator %>
-				<p></p>
-				<!-- meta end -->
+
+				<p class="question-tags">
+					<%= content_tag(:i, nil, class: "icon-tags") if @decorator.tags.any?  %>
+					<%= @decorator.question_tags %>
+				</p>
 				
 				<div class="question-content">
 					<%= simple_format(@decorator.body) %>
 				</div>
 				
-				<div class="question-tags">
-					<i class="icon-tags"></i>
-					<%= @decorator.question_tags %>
-				</div>
+				<%= meta_info(@decorator) do %>
+					<li>
+						<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_question_path(@decorator), 
+							title: "Edit" if can? :update, @decorator %>
+						<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @decorator, 
+							method: :delete, 
+							confirm: "Are you sure? You will lose any points associated with this question", 
+							title: "Delete" if can? :destroy, @decorator %>
+					</li>
+				<% end %>
 			</div>
 			
 			<section class="comments-area">	

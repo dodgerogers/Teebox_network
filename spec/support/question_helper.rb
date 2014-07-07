@@ -8,10 +8,9 @@ module QuestionHelper
     page.should have_content "Ask your question"
   end
   
-  def create_questions
-    @user1 = create(:user)
-    @q1 = create(:question, user: @user1, correct: true, body: "im slicing it now", votes_count: 1) 
-    @q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball", votes_count: 10) 
-    @q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis", votes_count: 5)
+  def create_questions(user)
+    @q1 = create(:question, user: user, correct: true, body: "im slicing it now", votes_count: 1) 
+    @q2 = create(:question, user: user, correct: false, body: "im hooking the ball", votes_count: 2) 
+    @q3 = create(:question, user: user, correct: false, body: "i have taken up tennis", votes_count: 3)
   end
 end

@@ -660,11 +660,6 @@ body #header-search {
 	background: #fff;
 	@include box-sizing;
 }
-.meta_info * {
-	&:after {
-		content: " ";
-	}
-}
 .profile-info, .profile-info-index {
 	display:inline-block;
 	width:100%;
@@ -678,6 +673,29 @@ body #header-search {
 .action_links, .profile, .edit-destroy-links {
 	display:inline;
 }
+.meta_info * {
+	&:after {
+		content: " ";
+	}
+}
+ul.meta_info {
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding:0px;
+	margin:5px 0px 10px;
+	background: $ice;
+	li {
+		list-style:none;
+		padding:8px;
+		display:inline-block;
+	}
+	li:not(:last-child) {
+		border-right:1px solid #eee;
+	}
+	li:last-child {
+		border-right:none;
+	}
+}
 
 //-------------------- comments + related questions ----------------//
 #comment-textarea {
@@ -685,17 +703,29 @@ body #header-search {
 }
 .comment {
 	height: auto;
-	padding: 7px 0px 7px;
+	margin-bottom: 10px;
 	@include border-radius;
 	background: #fff;
 	position:relative;
 	@include box-sizing;
-	border-top: 1px solid #eee;
+	p {
+		margin-bottom:0px;
+		padding:10px;
+		border:1px solid #eee;
+		border-bottom: 0px;
+	}
+	ul.meta_info {
+		margin: 0px;
+		border:1px solid #eee;
+	}
 	&:hover {
 		background: #fefefe;
 	}
-	&:last-of-type {
-	
+	&:first-child {
+		border-top:none;
+	}
+	&:last-child {
+		border-top:none;
 	}
 } 
 .comment-button {
@@ -716,11 +746,11 @@ body #header-search {
 
 .toggle-comments {
 	display:block;
-	background: $ice;
 	@include box-sizing;
 	@include border-radius(4px);
 	text-align:center;
 	padding:5px 0px;
+	background: $ice;
 	color: $gundam;
 	&:hover {
 		background: $dark-ice;
@@ -915,7 +945,7 @@ body #header-search {
 	@include box-sizing;
 	padding: 0px;
 	position: relative;
-	margin: 0 0 10px;
+	margin: 0px;
 }
 #user-answers {
 	font-size: 25px;
@@ -927,12 +957,12 @@ body #header-search {
 	width: 55px;
 }
 #tick {
-	display:inline-block;
-	vertical-align: top;
-	text-decoration:none;
-	font-size: 30px;
-	float:left;
-	margin: -5px 6px 0 0;
+	//display:inline-block;
+	//	vertical-align: top;
+	//	text-decoration:none;
+	//	font-size: 30px;
+	//	float:left;
+	//	margin: -5px 6px 0 0;
 }
 #tick:hover {
 	color: #4fc392;
@@ -1014,6 +1044,7 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	font-weight: 400;
 	font-family: $bebas;
 	margin-right: 3px;
+	display:inline-block;
 }
 
 //-------------------- tags + reports ----------------//

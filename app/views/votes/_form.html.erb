@@ -1,7 +1,7 @@
 <div class="vote-box">
 	<i class="icon-thumbs-up-alt"></i>
 	<span id="<%= "#{demodularize(object)}_#{object.id}" %>">
-		<%= pluralize(object.votes_count, "vote") %>
+		<%= object.votes_count %>
 	</span>
 </div>
 <div id="arrows">

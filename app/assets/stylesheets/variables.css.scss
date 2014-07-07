@@ -21,6 +21,12 @@ $bebas: 'BebasNeueRegular';
 	-webkit-box-shadow: $horz $vert $blur $color;
 	-moz-box-shadow: $horz $vert $blur $color;
 }
+@mixin background-size($size: cover) {
+	-webkit-background-size: $size!important;
+	-moz-background-size: $size!important;
+	-o-background-size: $size!important;
+	background-size: $size!important;
+}
 
 // Colors //
 $ice: #f6f7f8;

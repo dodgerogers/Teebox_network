@@ -1,10 +1,9 @@
 <div class="comment" id='comment_<%="#{comment.id}" %>'>
 	<div class="comment-content">
-		<p><%= simple_format(comment.content) %></p>
-		<span>
-			<%= meta_info(comment) %>
-			<%= link_to raw("<i class='icon-remove-sign sm'></i>"), [comment.commentable, comment], method: :delete, id: "delete-comment", confirm: "Are you sure? You will lose any points associated with this comment", remote: :true, title: "Delete" if can? :destroy, comment %>
-		</span>
+		<%= simple_format(comment.content) %>
+		<%= meta_info(comment) do %>
+			<li><%= link_to raw("<i class='icon-remove-sign sm'></i>"), [comment.commentable, comment], method: :delete, id: "delete-comment", confirm: "Are you sure? You will lose any points associated with this comment", remote: :true, title: "Delete" if can? :destroy, comment %></li>
+		<% end %>
 	</div>
 </div>
 

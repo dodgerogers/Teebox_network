@@ -10,6 +10,7 @@ img {border:none;}
   	display:none;
   	padding:0px;
   	@include box-sizing;
+	border: 1px solid #222;
 }
 
 .sv_playlist .video_wrap.active {
@@ -25,30 +26,26 @@ img {border:none;}
 }
 
 .sv_playlist ul.thumbs {
+	text-align:left;
   	list-style-type:none;
   	width:100%;
-	background: url(footer.png);
 	margin: 0 auto;
 	padding: 0px;
 	@include box-sizing;
 }
 
 .sv_playlist li {
-	display:none;
-  	line-height:0;
-  	width:20%;
-	max-width:120px;
-  	margin: 6px 1px 6px;
-  	background: #000;
-  	display: inline-block;
-	border: 1px solid #333;
+	line-height:0;
+  	width:100%;
+	max-width:170px;
+  	margin: 10px 0px;
+	border: 1px solid #222;
+  	display: block;
   	@include box-sizing;
 }
-
-.sv_playlist li:nth-child(1) {
-  	margin-left:6px;
+.sv_playlist li.active {
+	border: 1px solid $gundam;
 }
-
 .sv_playlist li.active a {
 	span.play:before {
 		content: "";
@@ -87,7 +84,9 @@ img {border:none;}
 .sv_playlist li a:hover span.play {
   	background-color:rgba(0,0,0,0);
 }
-
+.sv_playlist li:hover {
+	border: 1px solid $universe;
+}
 .sv_playlist li.active a span.play {
   	background:none;
 }

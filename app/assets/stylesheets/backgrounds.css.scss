@@ -82,6 +82,11 @@ body .transparent {
 		margin:-30px 0px 20px;
 	}
 }
+.video-banner {
+	@extend .forest-banner;
+	@include background-size;
+	background: url(backgrounds/green-grass.jpg);
+}
 // end
 
 // Regular standard width hero-unit banner
@@ -100,11 +105,6 @@ body .transparent {
 	background: url(backgrounds/bally-bunion.jpg);
 	color: #fff;
 	background-position: center 86%;
-}
-.container .cabot {
-	background: url(backgrounds/cabot.jpg);
-	color: #fff;
-	background-position: center 50%;
 }
 .container .sebonak {
 	background: url(backgrounds/sebonak-large.jpg);

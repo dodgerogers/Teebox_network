@@ -5,26 +5,63 @@ module ApplicationHelper
   end
   
   def strip_links_and_trim(object, length=100, tags=[], attrs=[])
-    # assign tags and attrs to empty arrays so we can still pass sanitize tags to exclude/include
     truncate(sanitize(object.to_s, tags: tags, attributes: attrs), length: length).gsub("&nbsp;", " ")
   end
   
-  def meta_info(object)
-    content_tag(:span, class: "meta_info") do
-      content_tag(:i, nil, class: "icon-user") +
-      (link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation", class: "user_#{object.user.id}") +
-      (link_to object.user.username, object.user) +
-      content_tag(:i, nil, class: "icon-calendar") +
-      ("#{time_ago_in_words(object.created_at)} ago ") +
-      (meta_impressions(object) if object.is_a?(Question)) +
-		  (render partial: "votes/form", locals: { object: object, vote_path: method("vote_#{demodularize(object).downcase}_path") })
+  def meta_info(object)  
+    # ul.meta_info specified in template to include specific action links
+    content_tag(:ul, class: "meta_info") do
+      content_tag(:small) do
+        
+        # object user info
+        content_tag(:li) do
+          content_tag(:i, nil, class: "icon-user") +
+          (link_to object.user.username, object.user) +
+          (link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation", class: "user_#{object.user.id}")
+        end +
+    
+        # timestamp
+        content_tag(:li) do
+          content_tag(:i, nil, class: "icon-calendar") +
+          ("#{time_ago_in_words(object.created_at)} ago ")
+        end +
+    
+        # If the object is a question we'll show the impressions count
+        if object.is_a?(Question)
+          content_tag(:li) { meta_impressions(object) }
+        end +
+        
+        # render the voting form
+        content_tag(:li) do
+    	    (render partial: "votes/form", locals: { object: object, vote_path: method("vote_#{demodularize(object).downcase}_path") })
+        end +
+    
+        # If the object is an answer, we'll show the correct answer toggle form and icon
+        if object.is_a?(Answer)
+          content_tag(:li) do
+            content_tag(:div, class: "controls") do
+              content_tag(:div, id: "correct_answer_#{object.id}", class: correct_answer?(object)) do
+      				  if object.question.user == current_user
+      					  (link_to raw("<i class='icon-ok-sign'></i>"), correct_answer_path(object), id: "tick", class: "correct_#{object.id} sm", remote: true, method: :put, title: "Most helpful? Mark it as correct")
+      				  else
+      					  content_tag(:div, class: "correct_answer_#{object.id}") { content_tag(:i, nil, class: "icon-ok-sign sm") }
+    					  end
+    				  end
+    			  end
+    		  end
+    	  end +
+  	  
+    	  # Now we'll yield to the block so we can inlude the actions links in ul.meta_info 
+    	  content_tag(:span) do
+    	    yield if block_given?
+  	    end
+  	  end
 	  end
 	end
 	
 	def meta_impressions(object)
     (content_tag(:i, nil, class: "icon-eye-open")) +
-		(pluralize(object.impressions_count, "view")) +
-		content_tag(:p, nil)
+		(pluralize(object.impressions_count, "view"))
 	end
 	
   def profile_link_helper(object)

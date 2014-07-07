@@ -19,15 +19,15 @@ $(function(){
 				setTimeout(function(){
 					// Replace the whole section to avoid duplicate comments when toggling after creation
 					div.find("section").html(data);
-					div.find(".toggle-comments").hide();
-					div.find(".loading").hide();
-				}, 1000);	
+					//div.find(".toggle-comments").hide();
+					//div.find(".loading").hide();
+				}, 500);	
 			},
 			error: function(data) {
 				setTimeout(function(){
 					div.prepend("Could not load comments, please refresh the page and try again");
 					div.find(".loading").hide();
-				},1000);
+				}, 500);
 			}
 		});
 	});

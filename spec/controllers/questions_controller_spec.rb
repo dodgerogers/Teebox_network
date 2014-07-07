@@ -53,9 +53,9 @@ describe QuestionsController do
       response.content_type.should eq Mime::JS
     end
     
-    it "renders the homepage layout" do
+    it "renders the fullwidth layout" do
       get :index
-      response.should render_template("layouts/homepage")
+      response.should render_template("layouts/fullwidth")
     end
   end
   
@@ -65,9 +65,9 @@ describe QuestionsController do
       response.should render_template :popular
     end
     
-    it "renders the homepage layout" do
+    it "renders the fullwidth layout" do
       get :popular
-      response.should render_template("layouts/homepage")
+      response.should render_template("layouts/fullwidth")
     end
   end
   
@@ -77,9 +77,9 @@ describe QuestionsController do
       response.should render_template :unanswered
     end
     
-    it "renders the homepage layout" do
+    it "renders the fullwidth layout" do
       get :unanswered
-      response.should render_template("layouts/homepage")
+      response.should render_template("layouts/fullwidth")
     end
   end
   

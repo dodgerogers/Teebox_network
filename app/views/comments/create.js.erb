@@ -9,7 +9,7 @@
 	targetDiv.append(comment);
 	
 	// FadeIn the comment
-	comment.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
+	comment.fadeIn(1000);
 	
 	// Find the correct wysihtml form and clear it
 	$('#<%= "#{@comment.commentable_type.downcase}_#{@comment.commentable.id}" %>_comments').parents(".comments-area").find('.wysihtml5-sandbox').contents().find('body').text('');

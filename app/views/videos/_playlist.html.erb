@@ -1,22 +1,32 @@
 <% if videos.any? %>
-	<div id="playlist1" class="sv_playlist">
-		<% videos.each do |video| %>
-			<div class="video_wrap">
-				<%= video_tag([video.file], id: "video#{video.id}", size: "748x374", preload: "none", data: {autoresize: "fit"}) %>		
-			</div>
-		<% end %>
-		<% unless videos.length <= 1 %>	
-			<ul class="thumbs">	
-				<% videos.each do |vid| %>
-					<li id="thumbnail_video<%= vid.id %>">
-						<a href="#">
-							<%= image_tag(display_screenshot(vid, :mini)) %>
-							<span class="play" />
-						</a>
-					</li>
-				<% end %>
-				<%= link_to raw("hide playlist"), '#', class: "thumbnail_select default next" %>	
-			</ul>
-		<% end %>
+	<div class="video-banner">
+		<div class="hero-unit mobile home" id="minimal-padding">
+			<div class="container">
+				<div class="row">
+					<div id="playlist1" class="sv_playlist">
+						<div class="span8">
+							<% videos.each do |video| %>
+								<div class="video_wrap">
+									<%= video_tag([video.file], id: "video#{video.id}", size: "748x374", preload: "none", data: {autoresize: "fit"}) %>		
+								</div>
+							<% end %>
+						</div>
+					
+						<div class="span4">	
+							<ul class="thumbs">	
+								<% videos.each do |vid| %>
+									<li id="thumbnail_video<%= vid.id %>">
+										<a href="#">
+											<%= image_tag(display_screenshot(vid, :mini)) %>
+											<span class="play" />
+										</a>
+									</li>
+								<% end %>	
+							</ul>
+						</div>	
+					</div>
+				</div>
+			</div>	
+		</div>
 	</div>
 <% end %>	

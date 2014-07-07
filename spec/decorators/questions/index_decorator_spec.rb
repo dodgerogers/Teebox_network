@@ -14,8 +14,12 @@ describe Questions::IndexDecorator do
   end
   
   describe "questions scope" do
+    before(:each) do
+      @user = create(:user)
+    end
+    
     it "returns latest questions" do
-      create_questions # QuestionHelper
+      create_questions(@user) # QuestionHelper
       @decorator.newest_questions.should == [@q3, @q2, @q1] 
     end
   end

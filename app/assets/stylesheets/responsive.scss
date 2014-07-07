@@ -124,6 +124,9 @@
 	p.banner {
 		font-size: 14px;
 	}
+	.sv_playlist li {
+		max-width:130px;
+	}
 }
 @media (min-width: 480px) and (max-width: 767px) {
 	body {
@@ -349,6 +352,17 @@
 		top: 200px!important;
 		.arrow {
 			left:80px!important;
+		}
+	}
+	.sv_playlist {
+		ul.thumbs {
+			padding-left:0px;
+			text-align:center;
+			li {
+				width:30%;
+				display:inline-block;
+				margin: 10px 2px 0;
+			}
 		}
 	}
 }
@@ -648,6 +662,12 @@
 	.sv_playlist {
 		ul.thumbs {
 			padding-left:0px;
+			text-align:center;
+			li {
+				width:30%;
+				display:inline-block;
+				margin: 10px 2px 0;
+			}
 		}
 		.thumbnail_select {
 			margin:4px!important;
@@ -670,6 +690,14 @@
 	#tick {
 		font-size:26px;
 		margin-top: -3px;
+	}
+	ul.meta_info {
+		li {
+			padding: 4px 0px 4px 8px;
+		}
+		li:not(:last-child) {
+			border:none;
+		}
 	}
 }
 // Deals with awkward left align on video library page. Diff 484px

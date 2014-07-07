@@ -1,6 +1,7 @@
 require 'spec_helper'
 include TagHelper
 include VideoHelper
+include QuestionHelper
 
 describe Question do
   before(:each) do
@@ -87,33 +88,22 @@ describe Question do
       end
     end
 
-    #move Questions to helper
     describe "Scopes" do
-    it "returns unanswered questions" do 
-      @user1 = create(:user)
-      q1 = create(:question, user: @user1, correct: true, body: "im slicing it now") 
-      q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball") 
-      q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis") 
-      q4 = subject
-      Question.unanswered.should == [q4, q2, q3] 
-    end
+      before(:each) do
+        @user1 = create(:user)
+        create_questions(@user1) # sets the q1 etc instance vars
+      end
+      
+      it "returns unanswered questions" do 
+        Question.unanswered.should include(@q2, subject, @q3)
+      end
     
-    it "returns questions by votes" do 
-      @user1 = create(:user)
-      q1 = create(:question, user: @user1, correct: true, body: "im slicing it now", votes_count: 1) 
-      q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball", votes_count: 2) 
-      q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis", votes_count: 3) 
-      q4 = subject
-      Question.popular.should == [q4, q3, q2, q1] 
-    end
+      it "returns questions by votes" do 
+        Question.popular.should include(subject, @q3, @q2, @q1)
+      end
     
-    it "newest returns questions by date" do 
-      @user1 = create(:user)
-      q1 = create(:question, user: @user1, correct: true, body: "im slicing it now", votes_count: 1) 
-      q2 = create(:question, user: @user1, correct: false, body: "im hooking the ball", votes_count: 2) 
-      q3 = create(:question, user: @user1, correct: false, body: "i have taken up tennis", votes_count: 3) 
-      q4 = subject
-      Question.newest.should == [q3, q2, q1, q4] 
-    end
-  end
+      it "newest returns questions by date" do 
+        Question.newest.should == [@q3, @q2, @q1, subject] 
+      end
+   end
 end
