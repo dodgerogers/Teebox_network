@@ -15,15 +15,14 @@ module ApplicationHelper
         
         # object user info
         content_tag(:li) do
-          content_tag(:i, nil, class: "icon-user") +
-          (link_to object.user.username, object.user) +
+          (link_to "#{object.user.username} ", object.user) +
           (link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation", class: "user_#{object.user.id}")
         end +
     
         # timestamp
         content_tag(:li) do
           content_tag(:i, nil, class: "icon-calendar") +
-          ("#{time_ago_in_words(object.created_at)} ago ")
+          (" #{time_ago_in_words(object.created_at)} ago")
         end +
     
         # If the object is a question we'll show the impressions count
@@ -38,22 +37,22 @@ module ApplicationHelper
     
         # If the object is an answer, we'll show the correct answer toggle form and icon
         if object.is_a?(Answer)
-          content_tag(:li) do
-            content_tag(:div, class: "controls") do
-              content_tag(:div, id: "correct_answer_#{object.id}", class: correct_answer?(object)) do
-      				  if object.question.user == current_user
-      					  (link_to raw("<i class='icon-ok-sign'></i>"), correct_answer_path(object), id: "tick", class: "correct_#{object.id} sm", remote: true, method: :put, title: "Most helpful? Mark it as correct")
-      				  else
-      					  content_tag(:div, class: "correct_answer_#{object.id}") { content_tag(:i, nil, class: "icon-ok-sign sm") }
-    					  end
-    				  end
-    			  end
+          content_tag(:li, class: correct_answer?(object)) do
+             content_tag(:div, id: "correct_answer_#{object.id}") do
+    				  if object.question.user == current_user
+    					  link_to content_tag(:i, nil, class: "icon-ok-sign sm"), correct_answer_path(object), class: "correct_#{object.id} sm", remote: true, method: :put, title: "Most helpful? Mark it as correct"
+    				  else
+    					  content_tag(:div, class: "correct_answer_#{object.id}") { content_tag(:i, nil, class: "icon-ok-sign sm") }
+  					  end
+  				  end
     		  end
     	  end +
   	  
-    	  # Now we'll yield to the block so we can inlude the actions links in ul.meta_info 
-    	  content_tag(:span) do
-    	    yield if block_given?
+    	  # yield so we can inlude the actions links in ul.meta_info 
+    	  if block_given?
+    	    content_tag(:span) do
+      	    yield
+    	    end
   	    end
   	  end
 	  end

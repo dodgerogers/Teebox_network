@@ -20,6 +20,7 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :title, :body, :user_id
   validates_length_of :title, minimum: 10, maximum: 85
+  validates_length_of :body, minimum: 10, maximum: 5000
   validate :tag_limit, :video_limit
   
   validates :body, obscenity: true

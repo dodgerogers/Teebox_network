@@ -87,6 +87,10 @@ body .transparent {
 	@include background-size;
 	background: url(backgrounds/green-grass.jpg);
 }
+.blue-fuzz-banner {
+	@extend .forest-banner;
+	background: url(footer.png);
+}
 // end
 
 // Regular standard width hero-unit banner
@@ -136,7 +140,7 @@ body .transparent {
 	color: #fff;
 	background-position: center 50%;
 }
-.container .how_it_works {
+.container .how_it_works, .how_it_works {
 	background: url(backgrounds/how-it-works.jpg);
 	color: #fff;
 	background-position: center 50%;
@@ -155,9 +159,7 @@ body .transparent {
 .sky label, .beach label, .ocean label {
 }
 .red-border {
-	border: 1px solid $red;
-	outline: 2px solid $red;
-	outline-offset: -10px;
+	border-bottom: 3px solid $red;
 }
 .stitched {
 	border: 1px solid $universe;

@@ -298,10 +298,6 @@
 		margin: -30px -20px 30px -20px;
 		@include border-radius;
 	}
-	.red-border {
-		border: none;
-		outline:none;
-	}
 	.span2.inline-span {
 		display:inline-block;
 		width:115px;
@@ -584,10 +580,6 @@
 		margin: -30px -20px 30px -20px;
 		@include border-radius;
 	}
-	.red-border {
-		border: none;
-		outline:none;
-	}
 	.span2.inline-span {
 		display:inline-block;
 		width:30%;
@@ -694,6 +686,10 @@
 	ul.meta_info {
 		li {
 			padding: 4px 0px 4px 8px;
+			&.green-tick {
+				background: none;
+				a { color: $green; }
+			}
 		}
 		li:not(:last-child) {
 			border:none;

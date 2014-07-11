@@ -673,11 +673,6 @@ body #header-search {
 .action_links, .profile, .edit-destroy-links {
 	display:inline;
 }
-.meta_info * {
-	&:after {
-		content: " ";
-	}
-}
 ul.meta_info {
 	border-top: 1px solid #eee;
 	border-bottom: 1px solid #eee;
@@ -685,6 +680,7 @@ ul.meta_info {
 	margin:5px 0px 10px;
 	background: $ice;
 	li {
+		line-height: normal;
 		list-style:none;
 		padding:8px;
 		display:inline-block;
@@ -728,10 +724,7 @@ ul.meta_info {
 		border-top:none;
 	}
 } 
-.comment-button {
-	margin: 10px 0 0;
-	display: inline-block;
-}
+
 .comment-info {
 	width: auto;
 	margin-right:5px;
@@ -752,6 +745,7 @@ ul.meta_info {
 	padding:5px 0px;
 	background: $ice;
 	color: $gundam;
+	margin-bottom: 10px;
 	&:hover {
 		background: $dark-ice;
 	}
@@ -956,22 +950,12 @@ ul.meta_info {
 	font-family: $bebas;
 	width: 55px;
 }
-#tick {
-	//display:inline-block;
-	//	vertical-align: top;
-	//	text-decoration:none;
-	//	font-size: 30px;
-	//	float:left;
-	//	margin: -5px 6px 0 0;
-}
-#tick:hover {
-	color: #4fc392;
-}
-.green-tick a, .green-tick {
-	color: #4fc392;
-}
-.default-tick a, .default-tick {
-	color: #bbb;
+li.green-tick, .green-tick {
+	a {
+		color: #fff;
+	}
+	color: #fff;
+	background: $green;
 }
 table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 	float:none;

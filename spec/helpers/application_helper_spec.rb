@@ -32,11 +32,15 @@ describe ApplicationHelper do
   
   describe "meta_info" do
     it "returns formatted links for question" do
-      helper.meta_info(@question).should eq "<ul class=\"meta_info\"><small><li><i class=\"icon-user\"></i><a href=\"/users/#{@question.user.id}-#{@question.user.username}\">#{@question.user.username}</a><a href=\"/users/#{@question.user.id}-#{@question.user.username}\" class=\"user_#{@question.user.id}\" id=\"profile-reputation\">#{@question.user.reputation}</a></li><li><i class=\"icon-calendar\"></i>1 minute ago </li><li><i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}</li><li><div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Question_#{@question.id}\">\n\t\t5\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></li><span></span></small></ul>"
+      helper.meta_info(@question).should have_selector("ul.meta_info") do |content|
+        content.should have_selector(:li)
+      end
     end
     
     it "returns formatted links for answer" do
-      helper.meta_info(@answer).should eq "<ul class=\"meta_info\"><small><li><i class=\"icon-user\"></i><a href=\"/users/#{@user1.id}-#{@user1.username}\">#{@user1.username}</a><a href=\"/users/#{@user1.id}-#{@user1.username}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">#{@user1.reputation}</a></li><li><i class=\"icon-calendar\"></i>1 minute ago </li><li><div class=\"vote-box\">\n\t<i class=\"icon-thumbs-up-alt\"></i>\n\t<span id=\"Answer_#{@answer.id}\">\n\t\t0\n\t</span>\n</div>\n<div id=\"arrows\">\n\t<a href=\"/answers/#{@answer.id}-#{@answer.question.title.parameterize}/vote?value=1\" data-method=\"post\" data-remote=\"true\" id=\"upvote\" rel=\"nofollow\" title=\"Upvote\"><i class='icon-plus-sign-alt green sm'></i></a>\n\t<a href=\"/answers/#{@answer.id}-#{@answer.question.title.parameterize}/vote?value=-1\" data-method=\"post\" data-remote=\"true\" id=\"downvote\" rel=\"nofollow\" title=\"Downvote\"><i class='icon-minus-sign-alt red sm'></i></a>\n</div></li><li><div class=\"controls\"><div class=\"default-tick\" id=\"correct_answer_#{@answer.id}\"><div class=\"correct_answer_#{@answer.id}\"><i class=\"icon-ok-sign sm\"></i></div></div></div></li><span></span></small></ul>"
+      helper.meta_info(@answer).should have_selector("ul.meta_info") do |content|
+        content.should have_selector(:li)
+      end
     end
   end
   

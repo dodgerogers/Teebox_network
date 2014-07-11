@@ -1,14 +1,11 @@
 <% if @answer.errors.any? %>
   	alert("<%= j @answer.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-	var answer = $('.correct_<%= @answer.id %>')
-	var answerDiv = $("#answer_<%= @answer.id %> .answer");
+	var answer = $('.correct_<%= @answer.id %>').closest("li");
 	<% if @answer.correct == true %>
-		answer.css('color', '#4fc392');
-		answerDiv.addClass("correct-answer-bg");
+		answer.addClass("green-tick");
 	<% else %>
-		answer.css('color', '#ccc');
-		answerDiv.removeClass("correct-answer-bg");
+		answer.removeClass("green-tick");
 	<% end %>
 	$('.user_<%= @answer.user.id %>').text("<%= @answer.point.user.reputation %>");
 	$('.user_<%= @answer.question.user.id %>').text("<%= @answer.question.point.user.reputation %>");

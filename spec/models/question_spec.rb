@@ -64,6 +64,11 @@ describe Question do
        it { should_not be_valid }
     end
     
+    describe "long body content" do
+      before { subject.body = ("a" * 5001) }
+      it { should_not be_valid }
+    end
+    
     describe "obscenity filter title" do
       before { subject.title = "shit" }
       it { should_not be_profane }

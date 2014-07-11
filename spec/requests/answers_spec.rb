@@ -52,7 +52,7 @@ describe "Answers" do
     create_and_find_question
     create_answer
     page.should have_selector('div', class: "default-tick")
-    click_link "tick"
+    find("li.default-tick a").click
     page.should have_selector("div", class: "green-tick")
   end
 end

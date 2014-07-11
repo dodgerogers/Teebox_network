@@ -6,10 +6,10 @@
 <table class="table">
 	<% @answers.each do |answer| %>	
 	    <tr>
-			<td>
-				<div class="<%= correct_answer?(answer) %> center">
+			<td class="<%= correct_answer?(answer) %> center">
+				
 					<i class='icon-ok-sign large'></i>
-				</div>
+				
 			</td>
 	      <td class='left'>
 			<%= link_to answer do %>

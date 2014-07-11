@@ -252,9 +252,6 @@ textarea, iframe.wysihtml5-sandbox {
 iframe.wysihtml5-sandbox {
 	max-height:200px;
 }
-#search-tags {
-	width: 73%;
-}
 .form-area {
 	padding: 10px;
 	margin-top: 10px;
@@ -338,10 +335,8 @@ form#new_video {
 	}
 }
 #search-tags {
-	background: $blackhole;
-	border:none;
-	@include box-shadow(0px,1px,1px,#297D8B);
-	color: #fff;
+	width: 60%;
+	@extend #search;
 }
 //---------------- hero unit + wells----------------------//
 

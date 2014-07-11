@@ -6,14 +6,13 @@ class Comment < ActiveRecord::Base
   
   attr_accessible :content, :votes_count, :parent_id, :commentable_id, :commentable_type, :points
   
-  belongs_to :commentable, polymorphic: true, counter_cache: true
   belongs_to :user
+  belongs_to :commentable, polymorphic: true, counter_cache: true
   has_many :votes, as: :votable, dependent: :destroy
   has_one :point, as: :pointable, dependent: :destroy
   
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
-  validates_length_of :content, minimum: 10
-  validate :content_minus_links
+  validates_length_of :content, minimum: 10,  maximum: 500
   validates :content, obscenity: true
   
   with_options if: "find_mentions.any?" do
@@ -27,13 +26,6 @@ class Comment < ActiveRecord::Base
     @mentions ||= self.content.scan(/@([a-z0-9_]+)/i).flatten
   end
   
-  def content_minus_links
-    return unless errors.blank?
-    if ActionController::Base.helpers.strip_links(self.content).each_char.count > 500
-      errors.add(:content, "exceeds 500 characters")
-    end
-  end
-  
   def mentions_limit
     return unless errors.blank?
     if find_mentions.uniq.length != find_mentions.length
@@ -44,9 +36,11 @@ class Comment < ActiveRecord::Base
   def display_mentions
     find_mentions.each do |u|
       user = User.where(username: u)[0]
-      unless (user == nil || self.user == user)
-        self.content.gsub!(/#{Regexp.escape("@#{u}")}/, "<a href='/users/#{user.id}-#{u}'>@#{u}</a>")
-        self.create_activity :create, owner: self.user, recipient: user unless user.id == self.commentable.user_id
+      
+      if user && self.user != user
+        link_structure = "<a href='/users/#{user.id}-#{u}'>@#{u}</a>"
+        self.content.gsub!(/#{Regexp.escape("@#{u}")}/, link_structure)
+        self.create_activity :create, owner: self.user, recipient: user unless user == self.commentable
       end
     end
     self.save!
