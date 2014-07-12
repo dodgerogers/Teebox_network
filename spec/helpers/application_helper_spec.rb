@@ -46,7 +46,7 @@ describe ApplicationHelper do
   
   describe "meta_views" do
     it "returns formatted views count" do
-      helper.meta_impressions(@question).should eq "<i class=\"icon-eye-open\"></i>#{pluralize(@question.impressions_count, 'view')}"
+      helper.meta_impressions(@question).should eq "<i class=\"icon-eye-open\"></i> #{@question.impressions_count}"
     end
   end
   

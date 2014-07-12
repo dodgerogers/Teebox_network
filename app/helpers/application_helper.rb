@@ -60,7 +60,7 @@ module ApplicationHelper
 	
 	def meta_impressions(object)
     (content_tag(:i, nil, class: "icon-eye-open")) +
-		(pluralize(object.impressions_count, "view"))
+		" #{object.impressions_count}"
 	end
 	
   def profile_link_helper(object)

@@ -121,9 +121,11 @@ small {
 	margin:15px 0px 25px;
 }
 .sidebar {
-	width:30%;
-	padding: 10px;
-	display:inline;
+	background: #fff;
+	padding: 10px 20px;
+	margin: 0px auto 20px;
+	@include box-sizing;
+	
 }
 .container .home {
 	text-align:center;
@@ -1341,8 +1343,18 @@ ul.sitemap {
 }
 
 // Popovers //
-
 #nav-popover {
 	height:1px;
 	position:relative;
+}
+
+// Promotion
+section.promotion {
+	padding: 10px 20px;
+	@include box-sizing;
+	margin: 0px auto 20px;
+	color: #ddd;
+	h3 {
+		color: #fff!important;
+	}
 }

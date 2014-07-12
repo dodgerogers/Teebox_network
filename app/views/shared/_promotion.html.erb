@@ -1,0 +1,6 @@
+<% unless current_user %>
+	<section class="promotion blue-fuzz">
+		<h3>Want free, unlimited help with your golf game?</h3>
+		<p><%= link_to "Sign up today", new_user_registration_path, class: "default submit" %></p>
+	</section>	
+<% end %>
