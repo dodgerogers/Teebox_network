@@ -22,6 +22,8 @@ module TeeboxNetwork
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/decorators)
+    config.autoload_paths += %W(#{config.root}/repositories)
+    config.autoload_paths += %W(#{config.root}/interactors)
     config.eager_load_paths += %W(#{config.root}/lib)
     
     config.exceptions_app = self.routes

@@ -46,10 +46,6 @@ end
 gem 'devise', "~> 2.2.7"
 gem 'jquery-rails'
 gem 'therubyracer'
-#gem 'carrierwave'
-#gem 'fog'
-#gem "streamio-ffmpeg", :git => "https://github.com/hartator/streamio-ffmpeg.git", :branch => "patch-1"
-#gem "mini_magick"
 gem "whenever", :require => false
 gem 'execjs'
 gem 'will_paginate', '3.0.3'
@@ -69,9 +65,7 @@ gem "unicorn"
 gem "twitter"
 gem 'jbuilder'
 gem 'mail_view'
-
-#gem "unicorn-worker-killer"
-#gem 'newrelic_rpm'
+gem "interactor"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
