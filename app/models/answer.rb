@@ -4,6 +4,10 @@ class Answer < ActiveRecord::Base
   include Teebox::Toggle
   require 'obscenity/active_model'
   
+  CORRECT_ANSWER = 12
+  QUESTION_MARKED_AS_CORRECT = 5
+  REVERT = 0
+  
   attr_accessible :body, :question_id, :votes_count, :correct, :points, :comments_count
   
   belongs_to :user

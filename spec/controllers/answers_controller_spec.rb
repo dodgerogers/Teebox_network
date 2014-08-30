@@ -48,7 +48,7 @@ describe AnswersController do
         }.to change(Point, :count).by(1)
       end
 
-      it "assigns a newly created question as @question" do
+      it "assigns a newly created answer as @answer" do
         @question = create(:question, user: @user1)
         post :create, answer: attributes_for(:answer, question_id: @question.id)
         assigns(:answer).should be_a(Answer)
@@ -67,10 +67,6 @@ describe AnswersController do
   end
   
   describe "PUT update" do
-    #before(:each) do
-      #@answer = create(:answer, body: "weaken your grip")
-    #end
-    
     it "assigns the requested question as @answer" do
       @answer = create(:answer, body: "weaken your grip", question_id: @question.id)
       put :update, id: @answer, answer: attributes_for(:answer)
@@ -102,13 +98,12 @@ describe AnswersController do
       end
     end
     
-    describe "an answer as correct" do
-      it "successfully updates" do
-        CorrectAnswer.any_instance.stub(:update_points).and_return(true)
-        # Currently fails unless stubbed, point is nilclass
+    describe "correct" do
+      it "successfully updates answer and question reputation" do
+        GeneratePointsRepository.stub(:generate).and_return(true)
         put :correct, id: @answer, answer: @answer, format: "js"
         @answer.reload
-        @answer.correct.should eq(true)
+        response.status.should eq 200
       end
     end
   end

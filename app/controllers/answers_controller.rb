@@ -50,11 +50,10 @@ class AnswersController < ApplicationController
   end
   
   def correct 
-    if @answer.toggle_correct(:correct)
-      points = CorrectAnswer.new(@answer)
-      points.create
+    @answer = CorrectAnswerRepository.toggle(params) 
+    if @answer
       respond_to do |format|
-        format.html { redirect_to :back, notice: "Answer submitted" }
+        format.html { redirect_to @answer.question, notice: "Successful" }
         format.js
       end
     end
