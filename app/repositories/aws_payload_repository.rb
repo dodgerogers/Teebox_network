@@ -11,7 +11,7 @@ class AwsVideoPayloadRepository < BaseRepository
 
     message = notification[:Message]
     
-    bucket = AWS_BUCKET_URL + message[:outputKeyPrefix]
+    bucket = (AWS_BUCKET_URL + message[:outputKeyPrefix])
     attributes = { job_id: message[:jobId], status: message[:state] }
     
     if message[:state] == COMPLETED_STATUS
