@@ -20,13 +20,13 @@ describe GeneratePointsRepository do
     it "raises Argument Error when not supplied a hash" do
       expect { 
         GeneratePointsRepository.generate("string argument") 
-        }.to raise_error(ArgumentError, "args must be a Hash")
+        }.to raise_error(ArgumentError, "GeneratePointsRepo error: args must be a Hash")
     end
     
     it "raises Argument Error when value is not an integer" do
       expect { 
         GeneratePointsRepository.generate({entry: @answer, value: "string"}) 
-        }.to raise_error(ArgumentError, "value must be an integer")
+        }.to raise_error(ArgumentError, "GeneratePointsRepo error: value must be an integer")
     end
   end
 end

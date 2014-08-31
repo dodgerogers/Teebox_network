@@ -2,28 +2,28 @@ class CorrectAnswerRepository < BaseRepository
 
   def self.toggle(answer_params)
     begin
-      @answer = Answer.find(answer_params[:id])
+      answer = Answer.find(answer_params[:id])
     rescue
       return nil
     end
     
-    if @answer
-      @answer.class.transaction do
+    if answer
+      answer.class.transaction do
         
-        @answer.toggle_correct(:correct)
-        @answer.question.toggle_correct(:correct)
+        answer.toggle_correct(:correct)
+        answer.question.toggle_correct(:correct)
         
-        if self.check_correctness_and_user?(@answer, true)
+        if self.check_correctness_and_user?(answer, true)
           GeneratePointsRepository.generate(
-            {entry: @answer, value: Answer::CORRECT_ANSWER}, 
-            {entry: @answer.question, value: Answer::QUESTION_MARKED_AS_CORRECT})
-        elsif self.check_correctness_and_user?(@answer, false)
+            {entry: answer, value: Answer::CORRECT_ANSWER}, 
+            {entry: answer.question, value: Answer::QUESTION_MARKED_AS_CORRECT})
+        elsif self.check_correctness_and_user?(answer, false)
           GeneratePointsRepository.generate(
-            {entry: @answer, value: Answer::REVERT}, 
-            {entry: @answer.question, value: Answer::REVERT})
+            {entry: answer, value: Answer::REVERT}, 
+            {entry: answer.question, value: Answer::REVERT})
         end
       end
-      return @answer
+      return answer
     end
   end
   

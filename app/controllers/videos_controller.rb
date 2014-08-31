@@ -22,8 +22,8 @@ class VideosController < ApplicationController
     @video = current_user.videos.build(params[:video])
     respond_to do |format|
       if @video.save
-        transcode = Transcoder.new(@video)
-        transcode.create
+        transcoder = TranscoderRepository.new(@video)
+        transcoder.create
         format.html { redirect_to videos_path, notice: 'Video was successfully uploaded.' }
         format.json { render json: @video, status: :created, location: @video }
         format.js 
