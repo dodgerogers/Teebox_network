@@ -8,7 +8,6 @@ describe VideosController do
     sign_in @user
     @video = create(:video, user_id: @user.id)
     controller.stub!(:current_user).and_return(@user)
-    Video.any_instance.stub(:take_screenshot).and_return(true)
   end
   
   describe "GET show" do
@@ -86,13 +85,13 @@ describe VideosController do
       Video.any_instance.stub(:delete_key).and_return(@video)
     end
     
-    it "destroys the requested video" do
+    it "destroys successfully" do
       expect {
         delete :destroy, id: @video
       }.to change(Video, :count).by(-1)
     end
 
-    it "redirects to the posts list" do
+    it "redirects to videos#index" do
       delete :destroy, id: @video
       response.should redirect_to videos_url
     end
