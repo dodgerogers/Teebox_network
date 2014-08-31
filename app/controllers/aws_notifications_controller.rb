@@ -2,8 +2,10 @@ require "json"
 
 class AwsNotificationsController < ApplicationController
   def end_point
+    p request.raw_post
+    p "*****************"
     notification = JSON.parse(request.raw_post, symbolize_names: true)
-
+    p notification
     if notification[:Type] == "SubscriptionConfirmation"
       SNSConfirmation.confirm(notification[:TopicArn], notification[:Token])
     elsif notification[:Type] == "Notification"
