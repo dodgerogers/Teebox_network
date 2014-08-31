@@ -74,14 +74,14 @@ describe VideosController do
       it "re-renders the 'new' template" do
         Video.any_instance.stub(:save).and_return(false)
         post :create, video: attributes_for(:video), user_id: @user
-        response.should render_template("new")
+        response.should render_template :new
       end
     end
   end
 
   describe "DELETE destroy" do
     before(:each) do
-      @video = FactoryGirl.create(:video)
+      @video = create(:video)
       Video.any_instance.stub(:delete_key).and_return(@video)
     end
     

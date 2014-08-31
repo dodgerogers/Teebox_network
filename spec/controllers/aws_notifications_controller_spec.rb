@@ -14,8 +14,9 @@ describe AwsNotificationsController do
     end
     
     it "recieves and dispatched subscription confirmation" do
-      message = JSON.parse(@confirmation_raw_json)
-      SNSConfirmation.should_receive(:confirm).with(message["TopicArn"], message["Token"])
+      message = JSON.parse(@confirmation_raw_json, symbolize_names: true)
+      
+      SNSConfirmation.should_receive(:confirm).with(message[:TopicArn], message[:Token])
       @request.env["RAW_POST_DATA"] = @confirmation_raw_json
       post :end_point
     end
@@ -30,11 +31,25 @@ describe AwsNotificationsController do
         "Subject" : "Amazon Elastic Transcoder has finished transcoding job 1395783182474-246e34."
       }'
     end
-    it "dispatches notification" do
-      notification = JSON.parse(@video_processing_json)
-      Video.should_receive(:retrieve_payload).with(notification)
+    
+    it "calls AwsVideoPayloadRepo #retrieve_payload with json response" do
+      notification = JSON.parse(@video_processing_json, symbolize_names: true)
+      
+      AwsVideoPayloadRepository.should_receive(:retrieve_payload).with(notification).and_return(attributes_hash)
+      VideoRepository.should_receive(:find_by_job_and_update).with(attributes_hash)
+      
       @request.env["RAW_POST_DATA"] = @video_processing_json
       post :end_point
+      response.status.should eq 200
+    end
+    
+    def attributes_hash
+      {
+        job_id: "1234",
+        file: "new_file.mp4",
+        screenshot: "new_screenshot.jpg",
+        status: "COMPLETED",
+      }
     end
   end
 end
