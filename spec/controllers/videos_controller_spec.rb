@@ -39,6 +39,10 @@ describe VideosController do
   end
 
   describe "POST create" do
+    before(:each) do
+      TranscoderRepository.any_instance.stub(:generate).and_return(true)
+    end
+    
     describe "with valid params" do
       it "uploads the video file" do
         @file = fixture_file_upload('/files/edited_driver_swing.m4v', 'video/m4v')

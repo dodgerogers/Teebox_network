@@ -76,9 +76,7 @@ $(function() {
         return $("#video_file").val(url);
       },
       done: function(event, data) {
-        $("#new_video").submit();
-		// Refresh the created video in 12 seconds
-		return VideoUpdate.refresh();
+        return $("#new_video").submit();
       }
     });
   });
