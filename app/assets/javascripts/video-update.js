@@ -1,13 +1,10 @@
 this.VideoUpdate = {
-	refresh: function(){
-		setTimeout(this.request, 15000);
-	},
-	request: function(){
+	refresh: function(video_id){
 		$.ajax({
 	        url: $("#videos").data("url"),
 			dataType: 'script',
 	        type: 'GET',
-	        data: { after: $("#videos .videos:eq(1)").data("id") }
+	        data: { after: video_id }
 		});
 	}
 };
