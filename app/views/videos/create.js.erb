@@ -8,16 +8,10 @@
 	video.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
 
 	window.setTimeout(function() { 
-		$("#failed").modal('hide'); 
-		
-		window.setTimeout(function(){
-			var video_div = $("#video_<%= @video.id %>"); 
-			var html = $.parseHTML("<%= j render(@video) %>");
-			video_div.fadeOut(250, function(){
-				video_div.load(html).fadeIn();
-			});
-		}, 12000);
-		
+		$("#failed").modal('hide');
+		window.setTimeout(function() {
+			VideoUpdate.refresh("<%= @video.id %>");
+		}, 15000);
 	}, 1500);
 	
 	$("#progress").hide(function() {
