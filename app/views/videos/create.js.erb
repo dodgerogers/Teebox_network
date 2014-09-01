@@ -1,17 +1,25 @@
 <% if @video.new_record? %>
 	alert("Failed to create Video: <%= j @video.errors.full_messages.join(', ').html_safe %>");
 <% else %>
+	$(".video-upload-info").html("").append("<b>Video Uploaded <i class='icon-ok-sign green'></i></b><br>").fadeIn();
+	
 	var video = $("<%= j render(@video) %>").hide();
 	$('#videos').prepend(video);
 	video.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
-	$(".video-upload-info").html("").append("<b>Video Uploaded <i class='icon-ok-sign green'></i></b><br>").fadeIn();
-	
-	// hide the upload modal
+
 	window.setTimeout(function() { 
 		$("#failed").modal('hide'); 
+		
+		window.setTimeout(function(){
+			var video_div = $("#video_<%= @video.id %>"); 
+			var html = $.parseHTML("<%= j render(@video) %>");
+			video_div.fadeOut(250, function(){
+				video_div.load(html).fadeIn();
+			});
+		}, 12000);
+		
 	}, 1500);
 	
-	// Reset the progress bar
 	$("#progress").hide(function() {
 	  $("#progress .bar").css("width", "0%");
 	});
