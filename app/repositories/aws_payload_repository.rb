@@ -9,7 +9,11 @@ class AwsVideoPayloadRepository < BaseRepository
   def self.retrieve_payload(notification)
     raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "payload must be a valid hash") unless notification.is_a? Hash
 
-    message = notification[:Message]
+    unless notification[:Message].is_a?(Hash)
+      message = JSON.parse(notification[:Message], symbolize_names: true)
+    else
+      message = notification[:Message]
+    end
     
     bucket = (AWS_BUCKET_URL + message[:outputKeyPrefix])
     attributes = { job_id: message[:jobId], status: message[:state] }
