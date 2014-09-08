@@ -28,7 +28,9 @@ describe VideoRepository do
     
     it "raises error when attrs is not a hash" do
       string_arg = "invalid args"
-      expect { VideoRepository.find_by_job_and_update(string_arg) }.to raise_error(ArgumentError, "#{string_arg.class} is not a valid args hash")
+      expect { 
+        VideoRepository.find_by_job_and_update(string_arg) 
+      }.to raise_error(ArgumentError, "#{string_arg.class} is not a valid args hash")
     end
   end
   

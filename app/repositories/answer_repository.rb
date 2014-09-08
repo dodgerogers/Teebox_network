@@ -1,4 +1,4 @@
-class CorrectAnswerRepository < BaseRepository
+class AnswerRepository < BaseRepository
 
   def self.toggle(answer_params)
     begin
@@ -14,11 +14,11 @@ class CorrectAnswerRepository < BaseRepository
         answer.question.toggle_correct(:correct)
         
         if self.check_correctness_and_user?(answer, true)
-          GeneratePointsRepository.generate(
+          PointRepository.generate(
             {entry: answer, value: Answer::CORRECT_ANSWER}, 
             {entry: answer.question, value: Answer::QUESTION_MARKED_AS_CORRECT})
         elsif self.check_correctness_and_user?(answer, false)
-          GeneratePointsRepository.generate(
+          PointRepository.generate(
             {entry: answer, value: Answer::REVERT}, 
             {entry: answer.question, value: Answer::REVERT})
         end

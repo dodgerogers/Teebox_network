@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe GeneratePointsRepository do
+describe PointRepository do
   before(:each) do
     @user1 = create(:user)
     @user2 = create(:user)
@@ -10,22 +10,24 @@ describe GeneratePointsRepository do
   
   describe "#generate" do
     it "assigns points for given objects" do
-      GeneratePointsRepository.generate({entry: @answer, value: 12}, {entry: @question, value: 5})
+      PointRepository.generate({entry: @answer, value: 12}, {entry: @question, value: 5})
       @answer.reload
       @question.reload
       @answer.point.value.should eq 12
       @question.point.value.should eq 5
     end
-    
+  end
+  
+  describe "#find_and_update" do
     it "raises Argument Error when not supplied a hash" do
       expect { 
-        GeneratePointsRepository.generate("string argument") 
+        PointRepository.find_and_update("string argument") 
         }.to raise_error(ArgumentError, "GeneratePointsRepo error: args must be a Hash")
     end
     
     it "raises Argument Error when value is not an integer" do
       expect { 
-        GeneratePointsRepository.generate({entry: @answer, value: "string"}) 
+        PointRepository.find_and_update({entry: @answer, value: "string"}) 
         }.to raise_error(ArgumentError, "GeneratePointsRepo error: value must be an integer")
     end
   end

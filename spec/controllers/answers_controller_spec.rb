@@ -100,7 +100,7 @@ describe AnswersController do
     
     describe "correct" do
       it "successfully updates answer and question reputation" do
-        GeneratePointsRepository.stub(:generate).and_return(true)
+        PointRepository.stub(:generate).and_return(true)
         put :correct, id: @answer, answer: @answer, format: "js"
         @answer.reload
         response.status.should eq 200

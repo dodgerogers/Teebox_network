@@ -20,7 +20,6 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
     if @comment.save
-      # comments can only be voted on and have no point value themselves, hence we don't create one
       @comment.create_activity :create, owner: current_user, recipient: @commentable.user unless current_user == @commentable.user
       format.html { redirect_to :back, notice: 'Comment created'}
       format.js

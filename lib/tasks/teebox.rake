@@ -1,8 +1,7 @@
 namespace :db do
   task generate_report: :environment do
     report = Report.new
-    totals = GenerateReport.new(report)
-    totals.create
+    totals = ReportRepository.generate(report)
     report.save!
   end
 
