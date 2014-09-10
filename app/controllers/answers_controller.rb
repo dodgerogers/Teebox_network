@@ -50,7 +50,7 @@ class AnswersController < ApplicationController
   end
   
   def correct 
-    @answer = CorrectAnswerRepository.toggle(params) 
+    @answer = AnswerRepository.toggle(params) 
     if @answer
       respond_to do |format|
         format.html { redirect_to @answer.question, notice: "Successful" }

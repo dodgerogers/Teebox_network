@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe CorrectAnswerRepository do
+describe AnswerRepository do
   before(:each) do
     @user1 = create(:user)
     @user2 = create(:user)
@@ -10,7 +10,7 @@ describe CorrectAnswerRepository do
   
   describe "#toggle" do
     it "should toggle answer and question correct fields when false" do
-      CorrectAnswerRepository.toggle({id: @answer.id})
+      AnswerRepository.toggle({id: @answer.id})
       @answer.reload
       @answer.correct.should eq true
       @answer.question.correct.should eq true
@@ -21,7 +21,7 @@ describe CorrectAnswerRepository do
       correct_question = create(:question, user: @user2, correct: true)
       correct_answer = create(:answer, question_id: correct_question.id, user: user3, correct: true)
       
-      CorrectAnswerRepository.toggle({id: correct_answer.id})
+      AnswerRepository.toggle({id: correct_answer.id})
       correct_answer.reload
       
       correct_answer.correct.should eq false
@@ -29,7 +29,7 @@ describe CorrectAnswerRepository do
     end
     
     it "returns nil when answer not found" do
-     CorrectAnswerRepository.toggle({id: 999}).should eq nil
+     AnswerRepository.toggle({id: 999}).should eq nil
     end
   end
 end
