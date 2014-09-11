@@ -72,6 +72,7 @@ $(function() {
       success: function(data) {
         var url;
         url = void 0;
+		console.log(data);
         url = decodeURIComponent($(data).find("Location").text());
         return $("#video_file").val(url);
       },
