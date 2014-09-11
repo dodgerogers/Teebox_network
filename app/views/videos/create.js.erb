@@ -9,6 +9,9 @@
 
 	window.setTimeout(function() { 
 		$("#failed").modal('hide');
+		window.setTimeout(function() {
+			VideoUpdate.refresh("<%= @video.id %>");
+		}, 20000);
 	}, 1500);
 	
 	$("#progress").hide(function() {

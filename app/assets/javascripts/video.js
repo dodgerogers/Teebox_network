@@ -73,10 +73,11 @@ $(function() {
         var url;
         url = void 0;
         url = decodeURIComponent($(data).find("Location").text());
-        return $("#video_file").val(url);
-      },
-      done: function(event, data) {
-      	$("#new_video").submit();
+		$("#video_file").val(url);
+		
+		if (url){
+			$("#new_video").submit();
+		}
       }
     });
   });
