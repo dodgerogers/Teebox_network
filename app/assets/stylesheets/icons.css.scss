@@ -39,6 +39,10 @@
 .icon-teebox:before { content: "\f100"; }
 
 // custom sizes + colors //
+.icon-spin {
+	-webkit-animation: spin 2s infinite linear;
+	animation: spin 2s infinite linear;
+}
 .xl {
 	vertical-align:middle;
 	font-size: 100px!important;
