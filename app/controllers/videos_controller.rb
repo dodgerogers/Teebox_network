@@ -22,7 +22,7 @@ class VideosController < ApplicationController
     @video = current_user.videos.build(params[:video])
     respond_to do |format|
       if @video.save
-        Rails.logger.info("********\nSaving video #{@video.id} #{@video.attributes}\n********")
+        Rails.logger.info("**********\nSaving video #{@video.id} #{@video.attributes}\n")
         transcoder = TranscoderRepository.generate(@video)
         format.html { redirect_to videos_path, notice: 'Video was successfully uploaded.' }
         format.js 

@@ -10,13 +10,15 @@ class TranscoderRepository < BaseRepository
     if video
       options_hash = self.options(video)
       job_attributes_hash = self.create_transcoder_job(options_hash)
+      Rails.logger.info("**********\nStarting to update video\n")
       video.update_attributes(job_attributes_hash)
+      Rails.logger.info("**********\nFinished updating video\n")
     end
   end
   
   def self.options(video)
     filename = File.basename(video.file, File.extname(video.file))
-    Rails.logger.info("**********\nCreating transcoder options\n**********")
+    Rails.logger.info("**********\nCreating transcoder options\n")
     options = {
       pipeline_id: CONFIG[:aws_pipeline_id],
       input: { 
@@ -42,7 +44,7 @@ class TranscoderRepository < BaseRepository
   
   def self.create_transcoder_job(options)
     raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "must be a valid options hash") unless options.is_a?(Hash)
-    Rails.logger.info("**********\nGenerating transcoder job\n**********")
+    Rails.logger.info("**********\nGenerating transcoder job\n")
     transcoder = AWS::ElasticTranscoder::Client.new(region: AWS_REGION)
     job = transcoder.create_job(options)
     
