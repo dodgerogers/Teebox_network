@@ -68,12 +68,12 @@ describe VideoHelper do
   
   describe "video_processed?" do
     it "shows processed icon when complete" do
-      helper.video_processed?(@video).should eq "<a href=\"#\" class=\"processing\" rel=\"tooltip\" title=\"Processing\"><i class=\"icon-bar-chart green\"></i></a>"
+      helper.video_processed?(@video).should eq "<a href=\"#\" class=\"processing\" rel=\"tooltip\" title=\"Processing, refresh to update\"><i class=\"icon-gear green icon-spin\"></i></a>"
     end
     
     it "shows failed icon when ERROR" do
       @video2 = create(:video, status: "ERROR")
-      helper.video_processed?(@video2).should eq "<a href=\"#\" class=\"processing\" rel=\"tooltip\" title=\"Encoding Failed\"><i class=\"icon-exclamation-sign red\"></i></a>"
+      helper.video_processed?(@video2).should eq "<a href=\"#\" class=\"processing\" rel=\"tooltip\" title=\"Converting Failed\"><i class=\"icon-exclamation-sign red\"></i></a>"
     end
   end
 end
