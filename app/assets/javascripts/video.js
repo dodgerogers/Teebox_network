@@ -76,8 +76,8 @@ $(function() {
         url = decodeURIComponent($(data).find("Location").text());
 		$("#video_file").val(url);
 		if (url){
+			new_video_form.submit();
 			console.log("Saving Video...");
-			return new_video_form.submit();
 		}
       }
     });

@@ -1,16 +1,19 @@
 <% if @video.new_record? %>
 	alert("Failed to create Video: <%= j @video.errors.full_messages.join(', ').html_safe %>");
 <% else %>
+	console.log("In create.js.erb...");
 	$(".video-upload-info").html("").append("<b>Video Uploaded <i class='icon-ok-sign green'></i></b><br>").fadeIn();
 	
 	var video = $("<%= j render(@video) %>").hide();
 	$('#videos').prepend(video);
 	video.fadeIn(1000).effect('highlight', {color: '#f7f7f7'}, 1000);
+	console.log("Amend text...");
 
 	window.setTimeout(function() { 
 		$("#failed").modal('hide');
 		window.setTimeout(function() {
 			VideoUpdate.refresh("<%= @video.id %>");
+			console.log("Update refresh...");
 		}, 20000);
 	}, 1500);
 	
