@@ -4,6 +4,7 @@ $(function() {
 	var maxFileSize = 12582912;
     var form = $(this);
 	var errors = [];
+	var new_video_form = $("#new_video");
 	
     form.fileupload({
       url: form.attr("action"),
@@ -74,9 +75,9 @@ $(function() {
         url = void 0;
         url = decodeURIComponent($(data).find("Location").text());
 		$("#video_file").val(url);
-		
 		if (url){
-			$("#new_video").submit();
+			console.log("Saving Video...");
+			return new_video_form.submit();
 		}
       }
     });
