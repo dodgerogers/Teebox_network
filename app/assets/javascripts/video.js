@@ -5,6 +5,9 @@ $(function() {
     var form = $(this);
 	var errors = [];
 	var new_video_form = $("#new_video");
+	var aws_policy_url = "/signed_urls";
+	var fail_message = "<b>Upload failed, please try again <i class='icon-remove-sign red'></i><br></b>";
+	var valid_file_types = "ogg, ogv, 3gp, mp4, m4v, webm, mov, wmv";
 	
     form.fileupload({
       url: form.attr("action"),
@@ -16,7 +19,7 @@ $(function() {
         var file = data.files[0];
         if ( (file.size < maxFileSize) && (types.test(file.name)) ) {
           $.ajax({
-            url: "/signed_urls",
+            url: aws_policy_url,
             type: "GET",
             dataType: "json",
             data: {
@@ -40,7 +43,7 @@ $(function() {
 				errors.push("File exceeds the 12MB size limit");
 			}
 			if ( types.test(file.name) == false ) {
-				errors.push("File is not a valid video format");
+				errors.push("File is not a valid video format" + "<br>" + valid_file_types);
 			}
 			if ( file.name.indexOf(" ") >= 0 ) {
 				errors.push("Filename contains spaces");
@@ -68,17 +71,17 @@ $(function() {
       },
       fail: function(e, data) {
         console.log("Uploading failed");
-		return $("#dropzone").html("").append("<b>Upload failed, please try again <i class='icon-remove-sign red'></i><br></b>").fadeIn();
+		return $("#dropzone").html("").append(fail_message).fadeIn();
       },
       success: function(data) {
         var url;
         url = void 0;
         url = decodeURIComponent($(data).find("Location").text());
-		$("#video_file").val(url);
-		if (url){
-			new_video_form.submit();
-			console.log("Saving Video...");
-		}
+		return $("#video_file").val(url);
+	  },
+	  done: function(event, data) {
+      	new_video_form.submit();
+		return VideoUpdate.refresh();
       }
     });
   });
