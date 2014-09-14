@@ -80,8 +80,7 @@ $(function() {
 		return $("#video_file").val(url);
 	  },
 	  done: function(event, data) {
-      	new_video_form.submit();
-		return VideoUpdate.refresh();
+		return new_video_form.submit();
       }
     });
   });

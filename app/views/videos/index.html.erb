@@ -2,7 +2,9 @@
 
 <%= render template: "videos/new" %>
 
-<h4 class="video-library">Video Library</h4><br>
+<p><h4 class="video-library">Video Library</h4></p>
+	<button class="default asphalt" onclick="VideoUpdate.request();">Refresh Videos</button>
+<hr>
 
 <%= content_tag(:section, id: "videos", data: { url: videos_path }) do %>
 	<%= render @videos %>

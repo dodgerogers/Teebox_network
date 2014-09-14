@@ -17,6 +17,7 @@ class AnswerRepository < BaseRepository
           PointRepository.generate(
             {entry: answer, value: Answer::CORRECT_ANSWER}, 
             {entry: answer.question, value: Answer::QUESTION_MARKED_AS_CORRECT})
+            
         elsif self.check_correctness_and_user?(answer, false)
           PointRepository.generate(
             {entry: answer, value: Answer::REVERT}, 
