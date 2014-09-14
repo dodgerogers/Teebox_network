@@ -20,14 +20,15 @@ class VideosController < ApplicationController
   
   def create
     @video = current_user.videos.build(params[:video])
+    Rails.logger.info("*~*~*~*~* Creating video...\n")
     respond_to do |format|
       if @video.save
         transcoder = TranscoderRepository.generate(@video)
-        Rails.logger.info("\n****** Created Transcoder Job, new video attrs - #{@video.attributes.slice("file", "screenshot")}...")
+        Rails.logger.info("*~*~*~*~* Created Transcoder Job, new video attrs - #{@video.attributes.slice("file", "screenshot")}...\n")
         format.html { redirect_to videos_path, notice: 'Video was successfully uploaded.' }
         format.json { render json: @video, status: :created, location: @video }
         format.js 
-        Rails.logger.info("\n****** Finished rendering.")
+        Rails.logger.info("*~*~*~*~* Finished rendering.\n")
       else
         format.html { render action: "new" }
         format.json { render json: @video.errors, status: :unprocessable_entity }
