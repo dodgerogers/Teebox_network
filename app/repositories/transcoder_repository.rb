@@ -8,16 +8,16 @@ class TranscoderRepository < BaseRepository
     raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "not a valid video object") unless video.is_a?(Video)
     
     if video
-      Rails.logger.info("*~*~*~*~* Transcoder#generate starting...\n")
+      Rails.logger.info("*~*~*~*~* Transcoder#generate starting...")
       options_hash = self.options(video)
       job_attributes_hash = self.create_transcoder_job(options_hash)
       video.update_attributes(job_attributes_hash)
-      Rails.logger.info("*~*~*~*~* Transcoder#generate finishing...\n")
+      Rails.logger.info("*~*~*~*~* Transcoder#generate finishing...")
     end
   end
   
   def self.options(video)
-    Rails.logger.info("*~*~*~*~* Transcoder#options...\n")
+    Rails.logger.info("*~*~*~*~* Transcoder#options...")
     filename = File.basename(video.file, File.extname(video.file))
     key = video.file.split("/")
     
@@ -47,7 +47,7 @@ class TranscoderRepository < BaseRepository
   def self.create_transcoder_job(options)
     raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "must be a valid options hash") unless options.is_a?(Hash)
     
-    Rails.logger.info("*~*~*~*~* Transcoder#create_transcoder_job started...\n")
+    Rails.logger.info("*~*~*~*~* Transcoder#create_transcoder_job started...")
     
     transcoder = AWS::ElasticTranscoder::Client.new(
       access_key_id: CONFIG[:aws_access_key_id],
@@ -56,7 +56,7 @@ class TranscoderRepository < BaseRepository
       )
       
     job = transcoder.create_job(options)
-    Rails.logger.info("*~*~*~*~* Transcoder#create_transcoder_job finished...\n")
+    Rails.logger.info("*~*~*~*~* Transcoder#create_transcoder_job finished...")
     
     attributes = {}
     attributes.merge(job_id: job.data[:job][:id], status: job.data[:job][:status]) if job

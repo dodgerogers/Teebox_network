@@ -49,7 +49,7 @@ gem 'therubyracer'
 gem "whenever", :require => false
 gem 'execjs'
 gem 'will_paginate', '3.0.3'
-gem 'aws-sdk'
+gem 'aws-sdk' #a ws-sdk-1.37.0 previous version
 gem 'bootstrap-wysihtml5-rails'
 gem 'draper', :git => "git://github.com/drapergem/draper.git"
 gem "delayed_job_active_record"
