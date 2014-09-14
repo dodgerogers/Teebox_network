@@ -48,7 +48,13 @@ class TranscoderRepository < BaseRepository
     raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "must be a valid options hash") unless options.is_a?(Hash)
     
     Rails.logger.info("*~*~*~*~* Transcoder#create_transcoder_job started...\n")
-    transcoder = AWS::ElasticTranscoder::Client.new(region: AWS_REGION)
+    
+    transcoder = AWS::ElasticTranscoder::Client.new(
+      access_key_id: CONFIG[:aws_access_key_id],
+  		secret_access_key: CONFIG[:aws_secret_key_id],
+      region: AWS_REGION
+      )
+      
     job = transcoder.create_job(options)
     Rails.logger.info("*~*~*~*~* Transcoder#create_transcoder_job finished...\n")
     
