@@ -13,8 +13,8 @@ this.VideoUpdate = {
 		$.ajax({
 	        url: $("#videos").data("url"),
 			dataType: 'script',
-	        type: 'GET',
-	        data: { after: $("#videos .videos:eq(1)").data("id") }
+	        type: 'GET'
+	        //data: { after: $("#videos .videos:eq(1)").data("id") }
 		});
 	}
 };
