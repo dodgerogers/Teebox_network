@@ -1,10 +1,10 @@
 class Activity < PublicActivity::Activity
 
-  def self.user_notifications(user)
+  def self.latest_notifications(user)
     where(recipient_id: user.id).includes(:owner, :trackable, :recipient).order("created_at DESC")
   end
 
-  def self.new_activities(user)
+  def self.unread_notifications(user)
     self.where(read: false, recipient_id: user.id).size
   end
 

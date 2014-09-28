@@ -26,12 +26,6 @@ describe ActivitiesController do
     end
   end
   
-  describe "get_notifications" do
-    it "retrieves notifications" do
-      Activity.user_notifications(@user1).should eq([@activity])
-    end
-  end
-  
   describe "notifications" do
     it "render index partial" do
       get :notifications

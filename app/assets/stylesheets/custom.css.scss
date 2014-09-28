@@ -991,6 +991,9 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 }	
 #arrows { 
 	display: inline-block;
+	a i.sml {
+		line-height:12px;
+	}
 }	
 #upvote {
 	color: #bbb;

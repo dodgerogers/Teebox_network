@@ -7,7 +7,7 @@ describe Answer do
     @user2 = create(:user)
     @question = create(:question, user_id: @user1.id)
     @answer = create(:answer, correct: false, user: @user1, body: "You can still hook the ball with a weak grip", question_id: @question.id)
-    @answer2 = create(:answer, user_id: @user2.id, question: @question, correct: true)
+    @answer2 = create(:answer, user_id: @user2.id, question_id: @question.id, correct: true)
   end
   
   subject { @answer }
@@ -23,8 +23,6 @@ describe Answer do
   it { should have_many(:comments)}
   it { should have_many(:votes)}
   it { should have_one(:point) }
-  #it {should validate_uniqueness_of(:correct).scoped_to(:question_id).with_message("correct You can only have 1 correct answer per question (true)") }
-  #it { should validate_uniqueness_of(:user_id).scoped_to(:question_id).with_message("user_id Only 1 answer per question per user (1)") }
 
   describe 'body' do
      before { subject.body = nil }
@@ -91,11 +89,11 @@ describe Answer do
   
   describe "Scopes" do
     it "returns an array sorted by votes" do
-        @user3 = create(:user)
-        @user4 = create(:user)
-        a1 = create(:answer, user: @user3, correct: false, body: "your weight shift is incorrect", votes_count: 2, question_id: @question.id) 
-        a2 = create(:answer, user: @user4, correct: false, body: "stop moving your head", votes_count: 3, question_id: @question.id) 
-        Answer.by_votes.should == [a2, a1, subject, @answer2] 
+      @user3 = create(:user)
+      @user4 = create(:user)
+      a1 = create(:answer, user: @user3, correct: false, body: "your weight shift is incorrect", votes_count: 2, question_id: @question.id) 
+      a2 = create(:answer, user: @user4, correct: false, body: "stop moving your head", votes_count: 3, question_id: @question.id) 
+      Answer.by_votes.should == [a2, a1, subject, @answer2] 
     end
   end
 end

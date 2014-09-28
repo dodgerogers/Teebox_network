@@ -26,6 +26,6 @@ class ActivitiesController < ApplicationController
   end
   
   def get_notifications
-    @notifications = Activity.user_notifications(current_user)
+    @notifications = Activity.latest_notifications(current_user)
   end
 end

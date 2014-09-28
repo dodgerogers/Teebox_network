@@ -24,10 +24,19 @@ describe Activity do
   it { should belong_to(:trackable)}
   it { should belong_to(:owner)}
   
-  describe "new_activities" do
+  describe "unread_notifications" do
+    it "shows number of unread notifications" do
+      #accounts for activity created when signing up a user
+      Activity.unread_notifications(@user1).should eq(2)
+    end
+  end
+  
+  describe "latest_notifications" do
     it "shows number of new_activities" do
       #accounts for activity created when signing up a user
-      Activity.new_activities(@user1).should eq(2)
+      activities = Activity.latest_notifications(@user1)
+      activities.count.should eq 2
+      activities.first.should eq @activity
     end
   end
 end
