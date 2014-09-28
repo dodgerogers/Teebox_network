@@ -18,9 +18,9 @@
 			
 			<% if user_signed_in? %>
 				<li class="dropdown">
-					<a id="notifications" href="#" class="<%= Activity.new_activities(current_user) > 0 ? 'new-notifications' : '' %>" title="Notifications">
+					<a id="notifications" href="#" class="<%= Activity.unread_notifications(current_user) > 0 ? 'new-notifications' : '' %>" title="Notifications">
 						<div class="notifications-count large" id="">
-							<%= Activity.new_activities(current_user) %>
+							<%= Activity.unread_notifications(current_user) %>
 						</div>
 					</a>
 					<ul class="dropdown-menu span6" id="notifications-area">
