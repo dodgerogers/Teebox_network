@@ -23,7 +23,7 @@ class VideosController < ApplicationController
     Rails.logger.info("*~*~*~*~* Creating video...")
     respond_to do |format|
       if @video.save
-        transcoder = TranscoderRepository.generate(@video)
+        TranscoderRepository.delay.generate(@video)
         Rails.logger.info("*~*~*~*~* Created Transcoder Job, new video attrs - #{@video.attributes.slice("file", "screenshot")}...")
         format.html { redirect_to videos_path, notice: 'Video was successfully uploaded.' }
         format.json { render json: @video, status: :created, location: @video }
