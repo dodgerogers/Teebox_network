@@ -29,7 +29,7 @@ module VideoHelper
   end
   
   def video_processed?(video)
-    case video.status.downcase
+    case video.status.try(:downcase)
     when "submitted"
       link_to content_tag(:i, nil, class: "icon-gear green icon-spin"), '#', class: "processing", title: "Processing, refresh to update", rel: "tooltip"
     when "error"
