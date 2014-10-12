@@ -1,23 +1,24 @@
 class TranscoderRepository < BaseRepository
   
   ERROR_MSG_GENERIC = "TranscoderRepository error: %s"
+  DEFAULT_LOG_MESSAGE = "*~*~*~*~* #{self.class}##{__callee__}: %s"
   AWS_REGION = "us-east-1"
   MP4_PRESET = "1395783135978-fq7lgp"
   
   def self.generate(video)
     raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "not a valid video object") unless video.is_a?(Video)
     
-    if video
-      Rails.logger.info("*~*~*~*~* Transcoder#generate starting...")
-      options_hash = self.options(video)
-      job_attributes_hash = self.create_transcoder_job(options_hash)
-      video.update_attributes(job_attributes_hash)
-      Rails.logger.info("*~*~*~*~* Transcoder#generate finishing...")
-    end
+    Rails.logger.info(sprintf(DEFAULT_LOG_MESSAGE, "Starting..."))
+    
+    options_hash = self.options(video)
+    job_attributes_hash = self.create_transcoder_job(options_hash)
+    video.update_attributes(job_attributes_hash)
+    
+    Rails.logger.info(sprintf(DEFAULT_LOG_MESSAGE, "...Finished"))
   end
   
   def self.options(video)
-    Rails.logger.info("*~*~*~*~* Transcoder#options...")
+    Rails.logger.info(sprintf(DEFAULT_LOG_MESSAGE, 'Creating...'))
     filename = File.basename(video.file, File.extname(video.file))
     key = video.file.split("/")
     
@@ -47,16 +48,12 @@ class TranscoderRepository < BaseRepository
   def self.create_transcoder_job(options)
     raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "must be a valid options hash") unless options.is_a?(Hash)
     
-    Rails.logger.info("*~*~*~*~* Transcoder#create_transcoder_job started...")
+    Rails.logger.info(sprintf(DEFAULT_LOG_MESSAGE, "Starting..."))
     
-    transcoder = AWS::ElasticTranscoder::Client.new(
-      access_key_id: CONFIG[:aws_access_key_id],
-  		secret_access_key: CONFIG[:aws_secret_key_id],
-      region: AWS_REGION
-      )
-      
+    transcoder = AWS::ElasticTranscoder::Client.new(region: AWS_REGION)  
     job = transcoder.create_job(options)
-    Rails.logger.info("*~*~*~*~* Transcoder#create_transcoder_job finished...")
+    
+    Rails.logger.info(sprintf(DEFAULT_LOG_MESSAGE, "...Finished"))
     
     attributes = {}
     attributes.merge(job_id: job.data[:job][:id], status: job.data[:job][:status]) if job

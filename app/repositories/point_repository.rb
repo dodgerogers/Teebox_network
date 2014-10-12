@@ -15,8 +15,8 @@ class PointRepository < BaseRepository
     value = attributes[:value]
     
     Teebox::Pointable.create(entry.user, entry) unless entry.point
-    point = Point.where(pointable_id: entry.id, pointable_type: entry.class.to_s).first
     
+    point = Point.where(pointable_id: entry.id, pointable_type: entry.class.to_s).first 
     point.update_attributes(value: value) if point
   end
 end
