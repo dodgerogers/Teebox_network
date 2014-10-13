@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require "delayed/recipes"
+load 'deploy/assets' 
 
 server "104.131.19.133", :web, :app, :db, primary: true
 role :whenever, "104.131.19.133"
