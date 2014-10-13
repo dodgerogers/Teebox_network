@@ -1,8 +1,8 @@
 require "bundler/capistrano"
 require "delayed/recipes"
 
-server "162.243.40.138", :web, :app, :db, primary: true
-role :whenever, "162.243.40.138"
+server "104.131.19.133", :web, :app, :db, primary: true
+role :whenever, "104.131.19.133"
 
 set :application, "teebox"
 set :user, "andrew"
