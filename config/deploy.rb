@@ -1,6 +1,5 @@
 require "bundler/capistrano"
 require "delayed/recipes"
-load 'deploy/assets' 
 
 server "104.131.19.133", :web, :app, :db, primary: true
 role :whenever, "104.131.19.133"
@@ -25,9 +24,13 @@ set :keep_releases, 2
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
+before "deploy", "deploy:check_revision"
 after "deploy", "deploy:cleanup" # only keep the last 5 releases
 after "deploy", "delayed_job:restart"
 after "deploy:update_code", "deploy:migrate"
+after "deploy:setup", "deploy:setup_config"
+after "deploy:finalize_update", "deploy:symlink_config"
+after "deploy:finalize_update", "deploy:assets:precompile"
 
 # delayed jobs workers
 #after "deploy:stop",    "delayed_job:stop"
@@ -35,6 +38,17 @@ after "deploy:update_code", "deploy:migrate"
 #after "deploy:restart", "delayed_job:restart"
 
 namespace :deploy do
+  namespace :assets do
+    task :precompile, :only => { :primary => true } do
+      run_locally "bundle exec rake assets:precompile"
+      servers = find_servers :roles => [:app], :except => { :no_release => true }
+      servers.each do |server|
+        run_locally "rsync -av ./public/#{assets_prefix}/ #{user}@#{server}:#{current_path}/public/#{assets_prefix}/"
+      end
+      run_locally "rm -rf public/#{assets_prefix}"
+    end
+  end
+  
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
@@ -46,10 +60,8 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     sudo "mkdir -p #{shared_path}/config"
-    #puts File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     puts "Now edit the config files in #{shared_path}"
   end
-  after "deploy:setup", "deploy:setup_config"
   
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
@@ -57,7 +69,6 @@ namespace :deploy do
     sudo "mkdir -p #{release_path}/public/uploads/tmp/screenshots"
     sudo "chmod -R 777 #{release_path}/public/uploads"
   end
-  after "deploy:finalize_update", "deploy:symlink_config"
   
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
@@ -67,5 +78,4 @@ namespace :deploy do
       exit
     end
   end
-  before "deploy", "deploy:check_revision"
 end
