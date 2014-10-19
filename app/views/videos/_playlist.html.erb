@@ -14,10 +14,10 @@
 					
 						<div class="span4">	
 							<ul class="thumbs">	
-								<% videos.each do |vid| %>
-									<li id="thumbnail_video<%= vid.id %>">
+								<% videos.each do |video| %>
+									<li id="thumbnail_video<%= video.id %>">
 										<a href="#">
-											<%= image_tag(display_screenshot(vid, :mini)) %>
+											<%= image_tag(display_screenshot(video, :mini)) %>
 											<span class="play" />
 										</a>
 									</li>

@@ -1,5 +1,17 @@
 module ApplicationHelper
   
+  def application_banner(background_image='forest-banner')
+    content_for :banner do
+      content_tag(:div, class: background_image) do
+    	  content_tag(:div, id: "minimal-padding", class: "hero-unit mobile home") do
+          content_tag(:div, class: "container center") do
+            yield if block_given?
+          end
+        end
+      end
+    end
+  end
+  
   def demodularize(object)
     object.class.to_s.split("::")[0].singularize
   end
@@ -9,33 +21,27 @@ module ApplicationHelper
   end
   
   def meta_info(object)  
-    # ul.meta_info specified in template to include specific action links
     content_tag(:ul, class: "meta_info") do
       content_tag(:small) do
         
-        # object user info
         content_tag(:li) do
           (link_to "#{object.user.username} ", object.user) +
           (link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation", class: "user_#{object.user.id}")
         end +
     
-        # timestamp
         content_tag(:li) do
           content_tag(:i, nil, class: "icon-calendar") +
           (" #{time_ago_in_words(object.created_at)} ago")
         end +
     
-        # If the object is a question we'll show the impressions count
         if object.is_a?(Question)
           content_tag(:li) { meta_impressions(object) }
         end +
         
-        # render the voting form
         content_tag(:li) do
     	    (render partial: "votes/form", locals: { object: object, vote_path: method("vote_#{demodularize(object).downcase}_path") })
         end +
     
-        # If the object is an answer, we'll show the correct answer toggle form and icon
         if object.is_a?(Answer)
           content_tag(:li, class: correct_answer?(object)) do
              content_tag(:div, id: "correct_answer_#{object.id}") do
@@ -48,7 +54,6 @@ module ApplicationHelper
     		  end
     	  end +
   	  
-    	  # yield so we can inlude the actions links in ul.meta_info 
     	  if block_given?
     	    content_tag(:span) do
       	    yield

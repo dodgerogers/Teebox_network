@@ -1,13 +1,8 @@
-<div class="center hero-unit sandy-hills mobile">
+<%= application_banner("video-index-banner") do %>
 	<h1 class="video-upload">Step 1: Upload Videos </h1>
-	<b>You can add up to 3 videos per question.<br>Max file size 12MB.</b><br>
-	<div class="instructions">
-		<div class="rotate90"><i class="xl icon-mobile-phone"></i></div>
-		<i class="icon-ok-sign large green right-margin"></i>
-		<i class="xl icon-mobile-phone right-margin"></i>
-		<i class="icon-remove-sign large red"></i><br>
-	</div>
+	<b>You can add up to 3 videos per question.<br>Max file size 12MB.</b><p></p>
+
 	<div class=".upload-form">
 		<%= render partial: "videos/form" %>
-	</div>		
-</div>
+	</div>
+<% end %>

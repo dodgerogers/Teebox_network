@@ -1,13 +1,11 @@
 <% meta_title("Leaderboard") %>
 
-<%= content_for :banner do %>
-	<div class="blue-fuzz-banner">
-		<div class='hero-unit center blue-fuzz mobile red-border'>
-			<h1 class="ranking">Leaderboard  <i class="icon-trophy"></i></h1>
-			<p>The Leaderboard is a friendly and relaxed way of tracking your score within the Teebox community. Don't see your name? Rankings are calculated every night, so check back in the morning.</p>
-		</div>
-	</div>
+<%= application_banner("blue-fuzz-banner") do %>
+	<h1 class="ranking">Leaderboard  <i class="icon-trophy"></i></h1>
+	<p>The Leaderboard is a friendly and relaxed way of tracking your score within the Teebox community. Don't see your name? Rankings are calculated every night, so check back in the morning.</p>
 <% end %>
+
+
 
 <table class="table table-condensed table-striped table-borderless">	
 	<tr class="grey">
