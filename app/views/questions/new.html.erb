@@ -1,10 +1,11 @@
 <% meta_title("Ask a question") %>
 
-<div class="center hero-unit sandy-hills mobile">
+<%= application_banner("new-question-banner") do %>
 	<h1 class="video-upload">
 		Step 2: Ask your question 
 	</h1>
 	<b><p>Make sure your question is clear, concise and can be answered.</p></b>
-		<%= link_to raw("<i class='icon-circle-arrow-left'></i> Back to videos"), videos_path, class: "default submit" %>
-</div>
+	<%= link_to raw("<i class='icon-circle-arrow-left'></i> Back to videos"), videos_path, class: "default submit" %>
+<% end %>
+
 <%= render partial: "questions/form" %>	

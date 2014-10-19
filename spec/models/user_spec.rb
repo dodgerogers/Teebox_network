@@ -4,7 +4,7 @@ describe User do
   before(:each) do
     @user = create(:user)
     User.any_instance.unstub(:send_on_create_confirmation_instructions)
-    Devise::Mailer.stub(:delay).and_return(Devise::Mailer)
+    #Devise::Mailer.stub(:delay).and_return(Devise::Mailer)
   end
   
   subject { @user }

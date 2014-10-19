@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered, :related]
   before_filter :set_question, only: [:show, :related]
   load_and_authorize_resource except: [:index, :show, :related]
-  layout "fullwidth", only: [:index, :popular, :unanswered, :show] 
+  layout "fullwidth", only: [:index, :popular, :unanswered, :show, :new] 
   
   def new
     @question = Question.new

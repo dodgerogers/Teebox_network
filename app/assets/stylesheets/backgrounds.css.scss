@@ -1,5 +1,7 @@
 @import "variables";
 
+// Full body colors 
+
 body .blue-fuzz {
 	background: url(footer.png);
 	color: #fff;
@@ -63,6 +65,7 @@ body .transparent {
 }
 // end
 
+
 // Full homepage width banner 
 
 .forest-banner {
@@ -82,7 +85,16 @@ body .transparent {
 .video-banner {
 	@extend .forest-banner;
 	@include background-size;
-	background: url(backgrounds/green-grass.jpg);
+	background: url(backgrounds/rotator-cutout.jpg);
+}
+.video-index-banner {
+	@extend .forest-banner;
+	@include background-size;
+	background: url(backgrounds/sandy-hills-xl.jpg);
+	background-position: 100% 100%;
+}
+.new-question-banner {
+	@extend .video-index-banner;
 }
 .blue-fuzz-banner {
 	@extend .forest-banner;
@@ -142,6 +154,8 @@ body .transparent {
 	color: #fff;
 	background-position: center 50%;
 }
+
+// Misc Backgrounds
 
 .sky {
 	background: $sky;
