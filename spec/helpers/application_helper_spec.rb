@@ -70,20 +70,6 @@ describe ApplicationHelper do
     end
   end
   
-  describe "percent_of" do
-    it "calculates correct -% when value a == 0" do
-      helper.percent_of(0, rand(1..200)).should eq(-100)
-    end
-    
-    it "calculates correct +% when value b == 0" do
-      helper.percent_of(rand(1..200), 0).should eq(100)
-    end
-    
-    it "calculates correct +% when value values > 0" do
-      helper.percent_of(2, 5).should eq(-60)
-    end
-  end
-  
   describe "meta_info" do
     it "returns formatted links for a question" do
       html = helper.meta_info(@question)
