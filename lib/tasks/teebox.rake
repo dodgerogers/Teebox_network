@@ -2,7 +2,6 @@ namespace :db do
   task generate_report: :environment do
     report = Report.new
     totals = ReportRepository.generate(report)
-    report.save!
   end
 
   task rm_tags: :environment do

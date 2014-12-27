@@ -98,12 +98,12 @@ FactoryGirl.define do
   end
   
   factory :report do
-    answers 10
-    answers_total 10
-    questions 10
-    questions_total 10
-    users 10
-    users_total 10
+    answers 1
+    answers_total 1
+    questions 1
+    questions_total 1
+    users 2
+    users_total 2
   end
   
   factory :impression do

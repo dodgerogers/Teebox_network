@@ -11,12 +11,12 @@ class ReportsController < ApplicationController
   end
   
   def create
-    @report = Report.new(params[:report])
-    totals = ReportRepository.generate(@report)
-    if @report.save
+    @report = Report.new
+    report_generated = ReportRepository.generate(@report)
+    if report_generated
       redirect_to reports_path, notice: "Report Created"
     else
-     redirect_to reports_path, notice: "Report generation failed"
+      redirect_to reports_path, notice: "Nothing to report"
     end
   end 
   

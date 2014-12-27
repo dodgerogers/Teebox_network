@@ -32,18 +32,18 @@ describe ReportsController do
     describe "with valid params" do
       it "creates a new report" do
         expect {
-          post :create, report: attributes_for(:report)
+          post :create
         }.to change(Report, :count).by(1)
       end
 
       it "assigns a newly created report as @report" do
-        post :create, report: attributes_for(:report)
+        post :create
         assigns(:report).should be_a(Report)
         assigns(:report).should be_persisted
       end
 
       it "redirects to the report index" do
-        post :create, report: attributes_for(:report)
+        post :create
         response.should redirect_to reports_path
       end
     end
@@ -51,7 +51,7 @@ describe ReportsController do
     describe "with invalid params" do
       it "redirects to reports index" do
         Report.any_instance.stub(:save).and_return(false)
-        post :create, report: attributes_for(:report)
+        post :create
         response.should redirect_to reports_path
       end
     end
