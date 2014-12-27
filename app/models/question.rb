@@ -1,10 +1,8 @@
 class Question < ActiveRecord::Base
   include Teebox::Toggle
-  include Teebox::Impressionable
   require 'obscenity/active_model'
   
   attr_accessible :title, :body, :youtube_url, :votes_count, :answers_count, :comments_count, :points, :correct, :tag_tokens, :video_list
-  #remove video_id, plus points
   attr_reader :tag_tokens
   
   belongs_to :user
@@ -17,6 +15,7 @@ class Question < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_one :point, as: :pointable, dependent: :destroy
+  has_many :impressions, as: :impressionable, dependent: :destroy
 
   validates_presence_of :title, :body, :user_id
   validates_length_of :title, minimum: 10, maximum: 85
@@ -68,10 +67,4 @@ class Question < ActiveRecord::Base
   def tag_limit
     errors.add(:tag_tokens, "Maximum of 5 Tags per Question") if self.tags.size > 5 if self.tags
   end
-  
-  # def ensure_own_video 
-  #     if self.video
-  #       errors.add(:video_id, "You can only use your own videos") if self.video.user.id != self.user_id
-  #     end
-  #   end
 end

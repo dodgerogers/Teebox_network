@@ -4,8 +4,6 @@ class AnswersController < ApplicationController
   load_and_authorize_resource
   require 'teebox/commentable'
   include Teebox::Commentable
-  include Teebox::Votable
-  
   
   def show
   end

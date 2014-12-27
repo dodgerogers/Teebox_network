@@ -11,6 +11,7 @@ describe ApplicationHelper do
     sign_in @user2
     @question = create(:question, user: @user1)
     @answer = create(:answer, user: @user1, question_id: @question.id)
+    @comment = create(:comment, user: @user1, commentable: @question)
   end
   
   describe "demodularize" do
@@ -30,43 +31,35 @@ describe ApplicationHelper do
     end
   end
   
-  describe "meta_info" do
-    it "returns formatted links for question" do
-      helper.meta_info(@question).should have_selector("ul.meta_info") do |content|
-        content.should have_selector(:li)
-      end
-    end
-    
-    it "returns formatted links for answer" do
-      helper.meta_info(@answer).should have_selector("ul.meta_info") do |content|
-        content.should have_selector(:li)
-      end
-    end
-  end
-  
-  describe "meta_views" do
-    it "returns formatted views count" do
-      helper.meta_impressions(@question).should eq "<i class=\"icon-eye-open\"></i> #{@question.impressions_count}"
-    end
-  end
-  
   describe "profile_link_helper" do
     it "returns formatted html" do
       avatar_url = Digest::MD5.hexdigest(@user1.email.downcase)
-      helper.profile_link_helper(@answer).should eq "<div class=\"profile\"><a href=\"/users/#{@user1.to_param}\"><img alt=\"#{avatar_url.titleize}\" src=\"http://gravatar.com/avatar/#{avatar_url}.png?s=35&amp;d=identicon\" /></a><a href=\"/users/#{@user1.to_param}\" class=\"user_#{@user1.id}\" id=\"profile-reputation\">200</a><a href=\"/users/#{@user1.to_param}\" id=\"profile-username\">#{@user1.username.titleize}</a><br><small>1 minute ago</small></div>".html_safe
+      profile_link = helper.profile_link_helper(@answer)
+      profile_link.should include @user1.to_param
+      profile_link.should include avatar_url.titleize
+      profile_link.should include avatar_url
+      profile_link.should include @user1.username.titleize
     end
   end
   
   describe "social_links" do
     it "returns formatted social links" do
       page = "/questions"
-      helper.social_links(page).should eq "<div><a href=\"http://facebook.com/sharer.php?u=/questions\" target=\"_blank\"><i class='icon-facebook-sign medium facebook'></i> </a><a href=\"https://plus.google.com/share?url=/questions\" target=\"_blank\"><i class='icon-google-plus-sign medium google'></i> </a><a href=\"https://twitter.com/share?url=/questions\" target=\"_blank\"><i class='icon-twitter medium twitter'></i> </a><a href=\"https://www.linkedin.com/cws/share?url=/questions\" target=\"_blank\"><i class='icon-linkedin-sign medium facebook'></i> </a><a href=\"mailto: ?subject=Question on Teebox&amp;body=/questions\"><i class='icon-envelope-alt medium'></i></a></div>"
+      links = helper.social_links(page)
+      links.should include "http://facebook.com/sharer.php?u=/questions"
+      links.should include "https://plus.google.com/share?url=/questions"
+      links.should include "https://twitter.com/share?url=/questions"
+      links.should include "https://www.linkedin.com/cws/share?url=/questions"
     end
   end
   
   describe "personal_links" do
     it "returns formatted personal links" do
-      helper.personal_links.should eq "<span><a href=\"https://twitter.com/AndrewRogers747\" target=\"_blank\"><i class='icon-twitter twitter'></i> </a><a href=\"https://plus.google.com/+andyrogers747/\" target=\"_blank\"><i class='icon-google-plus-sign google'></i> </a><a href=\"http://www.linkedin.com/profile/view?id=52220364&amp;trk=nav_responsive_tab_profile\" target=\"_blank\"><i class='icon-linkedin facebook'></i> </a><a href=\"https://gist.github.com/dodgerogers\" target=\"_blank\"><i class='icon-github-alt'></i></a></span>"
+      links = helper.personal_links
+      links.should include "https://twitter.com/AndrewRogers747" 
+      links.should include "https://plus.google.com/+andyrogers747/" 
+      links.should include "http://www.linkedin.com/profile/view?id=52220364&amp;trk=nav_responsive_tab_profile" 
+      links.should include "https://gist.github.com/dodgerogers"
     end
   end
   
@@ -88,6 +81,47 @@ describe ApplicationHelper do
     
     it "calculates correct +% when value values > 0" do
       helper.percent_of(2, 5).should eq(-60)
+    end
+  end
+  
+  describe "meta_info" do
+    it "returns formatted links for a question" do
+      html = helper.meta_info(@question)
+      
+      html.should have_selector("ul.meta_info")
+      html.should have_selector('a#profile-reputation')
+      html.should have_selector('i.icon-calendar')
+      html.should have_selector('i.icon-eye-open')
+      html.should have_selector('div#arrows')
+    end
+    
+    it "includes custom html when html passed to block" do
+      html = helper.meta_info(@question) { "this is some custom html" }
+      
+      html.should have_selector("ul.meta_info")
+      html.should have_selector('a#profile-reputation')
+      html.should have_selector('i.icon-calendar')
+      html.should have_selector('div#arrows')
+      html.should include("this is some custom html")
+    end
+    
+    it "returns formatted links for an answer" do
+      html = helper.meta_info(@answer)
+      
+      html.should have_selector("ul.meta_info")
+      html.should have_selector('a#profile-reputation')
+      html.should have_selector('i.icon-calendar')
+      html.should have_selector('div#arrows')
+      html.should have_selector('li.default-tick')
+    end
+    
+    it "returns formatted links for a comment" do
+      html = helper.meta_info(@comment)
+      
+      html.should have_selector("ul.meta_info")
+      html.should have_selector('a#profile-reputation')
+      html.should have_selector('i.icon-calendar')
+      html.should have_selector('div#arrows')
     end
   end
 end

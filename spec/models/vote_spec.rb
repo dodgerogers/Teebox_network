@@ -48,18 +48,12 @@ describe Vote do
    end
    
    describe "sum_points" do
-      it "adds points for value" do
-        @vote.sum_points("value").should eq 1
-      end
-      
-      it "adds points for points" do
-        @vote.sum_points("points").should eq 5
-      end
+    it "adds points for value" do
+      @vote.sum_points("value").should eq 1
     end
     
-   #describe Vote do
-   #   it 'should add specified points to a user' do
-   #     lambda { subject.add_points(100) }.should change { subject.points }.by(100)
-   #   end
-   # end
+    it "adds points for points" do
+      @vote.sum_points("points").should eq 5
+    end
+  end
 end

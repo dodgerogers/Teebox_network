@@ -6,7 +6,7 @@ describe "Abilities" do
     it "can view static pages" do
       ability = Ability.new(User.new)
       
-      [:popular, :unanswered, :read, :vote, :related].each do |action|
+      [:popular, :unanswered, :read, :related].each do |action|
         ability.should be_able_to(action, Question)
       end
       

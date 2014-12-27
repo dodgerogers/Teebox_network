@@ -27,21 +27,16 @@
 				</div>
 				
 				<%= meta_info(@decorator) do %>
-					<li>
-						<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_question_path(@decorator), 
-							title: "Edit" if can? :update, @decorator %>
-						<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @decorator, 
-							method: :delete, 
-							confirm: "Are you sure? You will lose any points associated with this question", 
-							title: "Delete" if can? :destroy, @decorator %>
-					</li>
+					<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_question_path(@decorator), 
+						title: "Edit" if can? :update, @decorator %>
+					<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @decorator, 
+						method: :delete, confirm: "Are you sure? You will lose any points associated with this question", 
+						title: "Delete" if can? :destroy, @decorator %>
 				<% end %>
 			</div>
 			
 			<section class="comments-area">	
-				<!-- Defined in CommentHelper -->
 				<%= display_comments(@decorator) %>
-				
 				<%= link_to "Add comment", "#", class: "comment-button" %>
 				<%= render partial: "comments/form", locals: {commentable: @decorator} %>
 			</section>

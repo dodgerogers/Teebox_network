@@ -14,22 +14,25 @@ class Ability
       # Logged in users can read pretty much everything
       
       # Questions
-      can [:new, :create, :popular, :unanswered, :read, :vote, :related], Question
+      can [:new, :create, :popular, :unanswered, :read,  :related], Question
       can [:update, :edit, :destroy, :correct], Question do |question|
         question.try(:user) == user
       end
       
       # Answers
-      can [:new, :create, :vote, :correct, :read], Answer
+      can [:new, :create,  :correct, :read], Answer
       can [:update, :destroy, :edit, :correct], Answer do |answer|
         answer.try(:user) == user
       end
       
       # Comments
-      can [:new, :create, :vote, :read], Comment
+      can [:new, :create,  :read], Comment
       can [:destroy], Comment do |comment| 
         comment.try(:user) == user
       end
+      
+      # Votes
+      can [:new, :create], Vote
       
       # So only correct users can view our own comments and comments made on our content
       # NOTE: Breaks the notification links when activity is created with @<username>
@@ -47,7 +50,7 @@ class Ability
       can [:read, :question_tags], Tag
       
     else
-      can [:popular, :unanswered, :read, :vote, :related], Question
+      can [:popular, :unanswered, :read, :related], Question
       can [:index], Comment
       can [:show], Answer
     end

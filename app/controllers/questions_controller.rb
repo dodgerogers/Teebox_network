@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   include Teebox::Commentable
-  include Teebox::Votable
   include Teebox::Impression
   
   before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered, :related]

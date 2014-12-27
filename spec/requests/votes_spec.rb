@@ -3,14 +3,7 @@ include UsersHelper
 include QuestionHelper
 include AnswerHelper
 
-describe "Answers votes" do
-  it "creates a new answer" do
-    visit root_path
-    sign_in_user
-    create_and_find_question
-    create_answer
-  end   
-  
+describe "Answers votes" do 
   it "creates a vote with upvote" do
     visit root_path
     sign_in_user

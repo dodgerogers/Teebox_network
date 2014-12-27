@@ -108,22 +108,6 @@ describe AnswersController do
     end
   end
   
-  describe "POST vote" do
-    it "creates vote with valid params" do
-      controller.stub(:current_user).and_return(@user2)
-      expect {
-        post :vote, id: @answer.id, value: 1
-      }.to change(Vote, :count).by(1)
-    end
-    
-    it "fails with invalid params" do
-      controller.stub(:current_user).and_return(@user2)
-      expect {
-        post :vote, id: @answer.id, value: nil
-      }.to_not change(Vote, :count).by(1)
-    end
-  end
-  
   describe "Destroy Answer" do
     it "destroys the requested answer" do
       @question = create(:question, user: @user1)

@@ -15,7 +15,11 @@ describe CommentHelper do
     it "renders <section> div" do
       @question.comments << @comment
       @question.reload
-      helper.display_comments(@question).should eq "<div id=\"question_#{@question.id}_comments\"><section><a href=\"#\" class=\"toggle-comments\" data-div=\"question_#{@question.id}_comments\" data-url=\"http://test.host/questions/#{@question.id}-#{@question.title.parameterize}\">View 1 comment</a><div class=\"loading\">\n\t<img alt=\"Spinner\" src=\"/assets/spinner.gif\" />\n\tLoading comments...\n</div></section></div>"
+      html = helper.display_comments(@question)
+      
+      html.should have_selector('section')
+      html.should include "#{@question.id}-#{@question.title.parameterize}"
+      html.should include "View 1 comment"
     end
   end
 end
