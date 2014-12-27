@@ -6,8 +6,12 @@
 		
 		<div class="profile-info">	
 			<%= meta_info(answer) do %>			
-				<li><%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_answer_path(answer), id: "edit-answer", remote: true, title: "Edit" if can? :destroy, answer %>
-				<%= link_to raw("<i class='icon-remove-sign sm'></i>"), answer, id: "delete-answer", remote: :true, method: :delete, confirm: "Are you sure? You will lose any points associated with this answer", title: "Delete" if can? :destroy, answer %></li>
+				<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_answer_path(answer), 
+					id: "edit-answer", remote: true, title: "Edit" if can? :destroy, answer %>
+				<%= link_to raw("<i class='icon-remove-sign sm'></i>"), answer, 
+					id: "delete-answer", remote: :true, method: :delete, 
+					confirm: "Are you sure? You will lose any points associated with this answer", 
+					title: "Delete" if can? :destroy, answer %>
 			<% end %>	
 		</div><!-- .profile-info -->
 	</div><!-- .answer -->

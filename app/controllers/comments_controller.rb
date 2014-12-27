@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
   before_filter :load_commentable
   load_and_authorize_resource except: [:new]
-  include Teebox::Votable
   
   def show
   end

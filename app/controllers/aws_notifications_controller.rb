@@ -2,6 +2,7 @@ require "json"
 
 class AwsNotificationsController < ApplicationController
   def end_point
+    # This should be in a repository
     notification = JSON.parse(request.raw_post, symbolize_names: true)
     
     if notification[:Type] == "SubscriptionConfirmation"

@@ -1,7 +1,6 @@
 class Comment < ActiveRecord::Base
   
   include PublicActivity::Common
-  include Teebox::Activity
   require 'obscenity/active_model'
   
   attr_accessible :content, :votes_count, :parent_id, :commentable_id, :commentable_type, :points
@@ -10,6 +9,7 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, polymorphic: true, counter_cache: true
   has_many :votes, as: :votable, dependent: :destroy
   has_one :point, as: :pointable, dependent: :destroy
+  has_many :activities, class_name: "PublicActivity::Activity", as: :trackable, dependent: :destroy
   
   validates_presence_of :user_id, :content, :commentable_id, :commentable_type
   validates_length_of :content, minimum: 10,  maximum: 500

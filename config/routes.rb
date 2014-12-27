@@ -34,36 +34,44 @@ TeeboxNetwork::Application.routes.draw do
   # AWS End point for SNS
   post "/aws/end_point", to: 'aws_notifications#end_point', as: :end_point
   
+  # Points
   resources :points, only: :index
   resources :questions do
     resources :comments, except: [:edit, :update]
     member do
-      post :vote
       get "related"
     end
   end
   
-  resources :comments, except: [:edit, :update, :new, :create, :destroy, :index] do
-    member { post :vote }
-  end
+  # Comments
+  resources :comments, except: [:edit, :update, :new, :create, :destroy, :index]
   
+  # Answers
   resources :answers, except: :index do 
-    member { post :vote }
     member { put :correct }
     resources :comments, except: [:edit, :update]
   end
   
+  # Videos
   resources :videos, except: [:edit, :update]
+  
+  # Tags
   resources :tags
+  
+  # Notifications/Activities
   resources :activities, only: :index do
     #member { put :read }
     member { get :read }
     collection { get 'notifications' }
   end
   
+  # Reports
   resources :reports, only: [:index, :new, :create, :destroy] do
     collection { get "stats" }
   end
+  
+  # Votes
+  resources :votes, only: [:create, :new]
   
   if Rails.env.development?
     mount MailPreview => "mail_view"

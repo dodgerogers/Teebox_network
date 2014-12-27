@@ -1,6 +1,5 @@
 class Answer < ActiveRecord::Base
   include PublicActivity::Common
-  include Teebox::Activity
   include Teebox::Toggle
   require 'obscenity/active_model'
   
@@ -15,6 +14,7 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :votable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_one :point, as: :pointable, dependent: :destroy
+  has_many :activities, class_name: "PublicActivity::Activity", as: :trackable, dependent: :destroy
    
   validates_presence_of :body, :user_id, :question_id
   validates_length_of :body, minimum: 10, maximum: 5000

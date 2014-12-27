@@ -16,13 +16,13 @@ class Vote < ActiveRecord::Base
   after_create :update_count
   
   def ensure_not_author 
-    if self.votable
-      errors.add(:base, "You can't vote on your own content.") if self.votable.user_id == self.user_id
+    if self.votable.try(:user_id) == self.user_id
+      errors.add(:base, "You can't vote on your own content.")
     end
   end
   
   def create_points
-    self.value == 1 ? self.points = 5 : self.points = -5
+    self.points = (self.value == 1 ? 5 : -5)
   end
   
   def update_count

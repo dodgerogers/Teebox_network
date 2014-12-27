@@ -84,20 +84,4 @@ describe CommentsController do
       }.to change(Comment, :count).by(-1)
     end
   end
-    
-  describe "POST vote" do
-    it "creates vote with valid params" do
-      controller.stub(:current_user).and_return(@user2)
-      expect {
-        post :vote, id: @comment.id, value: 1
-      }.to change(Vote, :count).by(1)
-    end
-    
-    it "fails with invalid params" do
-      controller.stub(:current_user).and_return(@user2)
-      expect {
-        post :vote, id: @comment.id, value: nil
-      }.to_not change(Vote, :count).by(1)
-    end
-  end
 end
