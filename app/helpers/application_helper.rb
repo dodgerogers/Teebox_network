@@ -70,10 +70,6 @@ module ApplicationHelper
     return "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"
   end
   
-  def percent_of(a, b)
-   x ||= (a == 0 ? -100 : (b == 0 ? 100 : ((a.to_f - b.to_f) / b.to_f) * 100))
-  end
-  
   def meta_info(object, &block)  
     capture do
       content_tag(:ul, class: "meta_info") do
@@ -97,15 +93,15 @@ module ApplicationHelper
   
   def user_metadata(object)
     content_tag(:li) do
-      (link_to "#{object.user.username} ", object.user) +
-      (link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation", class: "user_#{object.user.id}")
+      concat link_to "#{object.user.username} ", object.user
+      concat link_to number_to_human(object.user.reputation), object.user, id: "profile-reputation", class: "user_#{object.user.id}"
     end
   end
   
   def created_at_metadata(object)
     content_tag(:li) do
-      content_tag(:i, nil, class: "icon-calendar") +
-      (" #{time_ago_in_words(object.created_at)} ago")
+      concat content_tag(:i, nil, class: "icon-calendar")
+      concat (" #{time_ago_in_words(object.created_at)} ago")
     end
   end
   
@@ -119,7 +115,7 @@ module ApplicationHelper
   
   def render_votes_form(object)
     content_tag(:li) do
-	    (render partial: "votes/form", locals: { object: object })
+	    render partial: "votes/form", locals: { object: object }
     end
   end
   
@@ -138,7 +134,9 @@ module ApplicationHelper
   end
     
 	def meta_impressions(object)
-    (content_tag(:i, nil, class: "icon-eye-open")) + " #{object.impressions_count}"
+    concat content_tag(:i, nil, class: "icon-eye-open")
+    concat '&nbsp;'.html_safe
+    concat object.impressions_count
 	end
 	
 	def custom_metadata(content)
