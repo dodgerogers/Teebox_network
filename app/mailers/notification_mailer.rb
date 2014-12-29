@@ -1,6 +1,7 @@
 class NotificationMailer < ActionMailer::Base
   include PublicActivity::ViewHelpers
   helper ApplicationHelper
+  helper ActivityHelper
   
   default from: CONFIG[:email_username]
   

@@ -40,9 +40,19 @@ class Comment < ActiveRecord::Base
       if user && self.user != user
         link_structure = "<a href='/users/#{user.id}-#{u}'>@#{u}</a>"
         self.content.gsub!(/#{Regexp.escape("@#{u}")}/, link_structure)
-        self.create_activity :create, owner: self.user, recipient: user unless user == self.commentable
+        unless user == self.commentable
+          repo = ActivityRepository.new(self)
+          repo.generate(:create, owner: self.user, recipient: user)
+        end
       end
     end
     self.save!
+  end
+  
+  def notification_message_format
+    { 
+      link: self.commentable.try(:title) || Application.helpers.strip_links_and_trim(self.commentable.try(:body), 80), 
+      text: 'commented on' 
+    }
   end
 end

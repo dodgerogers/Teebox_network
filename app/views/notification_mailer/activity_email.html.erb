@@ -97,7 +97,7 @@
                         
 							<table class="table teebox-table">
 					 			<tr>
-									<%= render_activity @activity %>
+									<%= render partial: 'activities/activity', locals: { activity: @activity } %>
 								</tr>
 							</table>
                             

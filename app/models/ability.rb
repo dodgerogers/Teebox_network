@@ -34,12 +34,6 @@ class Ability
       # Votes
       can [:new, :create], Vote
       
-      # So only correct users can view our own comments and comments made on our content
-      # NOTE: Breaks the notification links when activity is created with @<username>
-      # can [:show], Comment do |comment| 
-      #   comment.commentable.try(:user) == user || comment.try(:user) == user
-      # end
-      
       # Videos
       can [:new, :create], Video
       can [:destroy, :read], Video do |video|
@@ -47,8 +41,7 @@ class Ability
       end
       
       # Tags
-      can [:read, :question_tags], Tag
-      
+      can [:read, :question_tags], Tag    
     else
       can [:popular, :unanswered, :read, :related], Question
       can [:index], Comment

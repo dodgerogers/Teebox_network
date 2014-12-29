@@ -29,13 +29,13 @@ describe PointRepository do
     it "raises Argument Error when not supplied a hash" do
       expect { 
         PointRepository.find_and_update("string argument") 
-        }.to raise_error(ArgumentError, "GeneratePointsRepo error: args must be a Hash")
+      }.to raise_error(ArgumentError, "GeneratePointsRepo error: args must be a Hash")
     end
     
     it "raises Argument Error when value is not an integer" do
       expect { 
         PointRepository.find_and_update({entry: @answer, value: "string"}) 
-        }.to raise_error(ArgumentError, "GeneratePointsRepo error: value must be an integer")
+      }.to raise_error(ArgumentError, "GeneratePointsRepo error: value must be an integer")
     end
   end
 end

@@ -13,7 +13,8 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         Teebox::Pointable.create(@answer.user, @answer)
-        @answer.create_activity :create, owner: current_user, recipient: @answer.question.user unless current_user == @answer.question.user
+        repo = ActivityRepository.new(@answer)
+        repo.generate(:create, owner: current_user, recipient: @answer.question.user)
         format.html { redirect_to @answer.question, notice: 'Answer created'}
         format.js
       else

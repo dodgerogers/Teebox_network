@@ -56,6 +56,15 @@ describe CommentsController do
         post :create, question_id: @commentable.id, comment: attributes_for(:comment), commentable: @commentable
         response.should redirect_to("http://test.host/questions/#{@commentable.id}")
       end
+      
+      it "calls point and notification creation methods when owner is not equal to the recipient" do        
+        Activity.destroy_all
+        ActivityRepository.any_instance.should_receive(:generate).and_return(create(:activity))
+        
+        post :create, question_id: @commentable.id, comment: attributes_for(:comment), commentable: @commentable
+        
+        Activity.all.size.should eq 1
+      end
     end
     
     describe "with invalid params" do

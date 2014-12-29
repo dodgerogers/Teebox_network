@@ -19,7 +19,8 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
     if @comment.save
-      @comment.create_activity :create, owner: current_user, recipient: @commentable.user unless current_user == @commentable.user
+      repo = ActivityRepository.new(@comment)
+      repo.generate(:create, owner: current_user, recipient: @commentable.user)
       format.html { redirect_to :back, notice: 'Comment created'}
       format.js
     else

@@ -11,53 +11,69 @@ describe ActivityHelper do
     sign_in @user2
     @number = rand(1..9)
     @question = create(:question, user: @user1, title: "i cannot hit my #{@number} iron", body: "im slicing the ball #{@number} yards")
-    @answer = create(:answer, user: @user2, question_id: @question.id, body: "try changing your face angle by #{@number} degrees")
-    @comment = create(:comment, commentable_id: @question.id, user_id: @user1.id)
-    @activity = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "Answer")
-    @vote = create(:vote, user: @user1, votable_id: @answer.id)
-    @point = create(:point, pointable_id: @vote.id, user_id: @user2.id)
+    @answer = create(:answer, user: @user2, question: @question, body: "try changing your face angle by #{@number} degrees")
+    @comment = create(:comment, commentable: @question, user: @user1)
+    @activity = create(:activity, trackable: @answer, recipient: @user1, owner: @user2)
   end
-
-  subject { @activity }
+  
+  describe 'generate_html_activity' do
+    context 'with valid activity and instance' do
+      it 'returns html string for answer' do
+        html = helper.generate_activity_html(@activity, @answer)
+        html.should include 'gravatar'
+        html.should include 'answered'
+        html.should include @question.title
+      end
+      
+      it 'returns html string for comment' do
+        html = helper.generate_activity_html(@activity, @comment)
+        html.should include 'gravatar'
+        html.should include 'commented on'
+        html.should include @question.title
+      end
+      
+      it 'returns html string for user' do
+        html = helper.generate_activity_html(@activity, @user1)
+        html.should include 'gravatar'
+        html.should include 'Need a refresher'
+      end
+      
+      it 'returns explanation string when activity has no trackable object' do
+        activity = create(:activity, trackable: nil)
+        html = helper.generate_activity_html(activity, @user1)
+        html.should include 'Notification has been removed'
+      end
+    end
+    
+    context 'with invalid instance type' do
+      it 'raises ArgumentError' do
+        expect {
+          helper.generate_activity_html(@activity, nil)
+        }.to raise_error(ArgumentError)
+      end
+    end
+  end  
   
   describe "build_activity_path" do
     it "redirects to activity url for answer" do
-      helper.build_activity_path(@activity).should eq(@answer) ##answer_#{@answer.id}"
+      helper.build_activity_path(@activity).should eq(@answer)
     end
-    
-    it "comment on question redirects to question" do
-      @comment = create(:comment, user: @user2, commentable_id: @question.id, content: "buy a new set of irons")
-      @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "Comment")
-      helper.build_activity_path(@activity2).should eq(@comment) ##comment_#{@comment.id}
-    end
-    
-    it "comment on answer redirects to answer" do
-      @comment = create(:comment, user: @user2, commentable_id: @answer.id, commentable_type: "Answer", content: "buy a new set of irons")
-      @activity2 = create(:activity, trackable_id: @comment.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "Comment")
-      helper.build_activity_path(@activity2).should eq(@comment) ##comment_#{@comment.id}
-    end
-    
-    it "redirects to info_url" do
-       @activity2 = create(:activity, trackable_id: @answer.id, recipient_id: @user1.id, recipient_type: "User", trackable_type: "User")
-      helper.build_activity_path(@activity2).should eq info_path
-    end
-  end
   
-  describe "build_point_path" do
-    it "returns path to question from answer" do
-      helper.build_point_path(@point).should eq "<a href=\"/answers/#{@answer.id}-#{@answer.question.title.parameterize}\">try changing your face angle by #{@number} degrees</a>"
+    it "comment on question redirects to question" do
+      @comment = create(:comment, user: @user2, commentable: @question, content: "buy a new set of irons")
+      @activity2 = create(:activity, trackable: @comment, recipient: @user1)
+      helper.build_activity_path(@activity2).should eq(@comment)
     end
-    
-    it "returns question path" do
-      @vote1 = create(:vote, user: @user2, votable_id: @question.id, votable_type: "Question")
-      @point2 = create(:point, pointable_id: @vote1.id, user_id: @user2.id)
-      helper.build_point_path(@point2).should eq "<a href=\"/questions/#{@question.id}-#{@question.title.parameterize}\">#{@question.title}</a>"
+  
+    it "comment on answer redirects to answer" do
+      @comment = create(:comment, user: @user2, commentable: @answer, content: "buy a new set of irons")
+      @activity2 = create(:activity, trackable: @comment, recipient: @user1)
+      helper.build_activity_path(@activity2).should eq(@comment)
     end
-    
-    it "returns question path from comment" do
-      @vote2 = create(:vote, user: @user2, votable_id: @comment.id, votable_type: "Comment")
-      @point3 = create(:point, pointable_id: @vote2.id, user_id: @user2.id)
-      helper.build_point_path(@point3).should eq "<a href=\"/comments/#{@comment.id}\">#{@comment.content}</a>"
+  
+    it "redirects to info_url" do
+      @activity2 = create(:activity, trackable: @user1, recipient: @user1)
+      helper.build_activity_path(@activity2).should eq info_path
     end
   end
 end

@@ -24,7 +24,7 @@ class Answer < ActiveRecord::Base
   
   before_destroy :check_correct
   
-  default_scope include: :question
+  #default_scope include: :question
   scope :by_votes, order: "votes_count DESC"
   
   def to_param
@@ -38,5 +38,12 @@ class Answer < ActiveRecord::Base
   def check_correct
     errors.add(:base, "You can't delete a correct answer") if self.correct == true
     errors.blank?
+  end
+  
+  def notification_message_format
+    { 
+      link: self.question.try(:title), 
+      text: 'answered' 
+    }
   end
 end

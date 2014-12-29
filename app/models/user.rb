@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
   end
   
   def create_welcome_notification
-    self.create_activity :create, recipient: self
+    repo = ActivityRepository.new(self)
+    repo.generate(:create, recipient: self)
   end
   
   def send_on_create_confirmation_instructions
@@ -46,5 +47,12 @@ class User < ActiveRecord::Base
     self.rank_by_reputation.each_with_index do |users, rank|
       self.where(id: users[1]).update_all(rank: rank + 1)
     end
+  end
+  
+  def notification_message_format
+    { 
+      link: 'here', 
+      text: 'Need a refresher on how it works? Click' 
+    }
   end
 end
