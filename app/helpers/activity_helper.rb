@@ -7,7 +7,7 @@ module ActivityHelper
     if activity.trackable
       link, text = activity_text(instance).values_at(:link, :text)
       user = activity.owner || activity.recipient
-      attrs = { user: user, link: link, text: text }
+      attrs = { user: user, link: strip_links_and_trim(link, 80), text: text }
     
       capture do 
         concat activity_header(user)

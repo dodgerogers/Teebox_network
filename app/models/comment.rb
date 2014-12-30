@@ -51,7 +51,7 @@ class Comment < ActiveRecord::Base
   
   def notification_message_format
     { 
-      link: self.commentable.try(:title) || Application.helpers.strip_links_and_trim(self.commentable.try(:body), 80), 
+      link: (self.commentable.respond_to?(:title) ? self.commentable.try(:title) : self.commentable.try(:body)), 
       text: 'commented on' 
     }
   end

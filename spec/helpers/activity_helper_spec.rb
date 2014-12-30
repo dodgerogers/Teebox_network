@@ -32,6 +32,18 @@ describe ActivityHelper do
         html.should include @question.title
       end
       
+      it 'returns html string for comment on answer' do
+        question = create(:question, user: @user1)
+        answer = create(:answer, user: @user2, question: question, body: 'I think you should...')
+        comment = create(:comment, commentable_id: answer.id, commentable_type: 'Answer', user: @user1)
+        activity = create(:activity, trackable: comment, recipient: @user1, owner: @user2)
+        
+        html = helper.generate_activity_html(activity, comment)
+        html.should include 'gravatar'
+        html.should include 'commented on'
+        html.should include 'I think you should...'
+      end
+      
       it 'returns html string for user' do
         html = helper.generate_activity_html(@activity, @user1)
         html.should include 'gravatar'
