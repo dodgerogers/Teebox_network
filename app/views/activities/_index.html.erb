@@ -3,7 +3,7 @@
 	<% activities.each do |activity| %>
 		<% cache ["user_#{current_user.id}", activity] do %>
 		 	<tr class="<%= activity.read == false ? 'unread' : '' %>">
-				<%= render_activity activity %>
+				<%= render activity %>
 			</tr>
 		<% end %>
 	<% end %>

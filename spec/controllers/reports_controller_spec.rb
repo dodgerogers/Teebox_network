@@ -29,7 +29,7 @@ describe ReportsController do
   end
   
   describe "POST create" do
-    describe "with valid params" do
+    context "with valid params" do
       it "creates a new report" do
         expect {
           post :create
@@ -45,6 +45,22 @@ describe ReportsController do
       it "redirects to the report index" do
         post :create
         response.should redirect_to reports_path
+      end
+      
+      context 'with record with duplicate values' do
+        before(:each) do
+          Report.destroy_all
+          ReportRepository.stub(:generate).and_return(false)
+        end
+        
+        it 'does not create record' do
+          expect { post :create }.to_not change(Report, :count).by(1)
+        end
+        
+        it 'redirects to index' do
+          post :create
+          response.should redirect_to reports_path
+        end
       end
     end
     

@@ -15,6 +15,9 @@ TeeboxNetwork::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = false # displays our error pages in development
   config.action_controller.perform_caching = false
+  
+  # controller settings
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
   # Mailer settings default to mailcatcher
   config.action_mailer.raise_delivery_errors = false

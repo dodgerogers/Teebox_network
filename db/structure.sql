@@ -44,7 +44,8 @@ CREATE TABLE activities (
     recipient_type character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    read boolean DEFAULT false
+    read boolean DEFAULT false,
+    html text
 );
 
 
@@ -551,7 +552,10 @@ CREATE TABLE videos (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     job_id character varying(255),
-    status character varying(255)
+    status character varying(255),
+    title character varying(255),
+    duration character varying(255),
+    location character varying(255)
 );
 
 
@@ -1158,3 +1162,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140327145821');
 INSERT INTO schema_migrations (version) VALUES ('20140423165345');
 
 INSERT INTO schema_migrations (version) VALUES ('20140521200343');
+
+INSERT INTO schema_migrations (version) VALUES ('20141019144454');
+
+INSERT INTO schema_migrations (version) VALUES ('20141228171757');

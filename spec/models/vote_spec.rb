@@ -5,8 +5,8 @@ describe Vote do
     @user2 = create(:user)
     @user = create(:user)
     @question = create(:question, user: @user2)
-    @answer = create(:answer, user: @user, question_id: @question.id)
-    @vote = create(:vote, user: @user2, votable_id: @answer.id)
+    @answer = create(:answer, user: @user, question: @question)
+    @vote = create(:vote, user: @user2, votable: @answer)
   end
   
   subject { @vote }
@@ -55,5 +55,10 @@ describe Vote do
     it "adds points for points" do
       @vote.sum_points("points").should eq 5
     end
+  end
+  
+  describe 'ensure_not_author' do
+    before { @vote.votable = create(:answer, user: @user2, question: create(:question)) }
+    it { should_not be_valid }
   end
 end

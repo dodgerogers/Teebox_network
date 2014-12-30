@@ -20,6 +20,8 @@ TeeboxNetwork::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Controller settings
+  Rails.application.routes.default_url_options[:host] = 'teeboxnetwork.com'
 
   # Mailer settings
   config.action_mailer.default_url_options = {:host => 'teeboxnetwork.com'}

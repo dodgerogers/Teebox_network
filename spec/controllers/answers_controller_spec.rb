@@ -54,6 +54,19 @@ describe AnswersController do
         assigns(:answer).should be_a(Answer)
         assigns(:answer).should be_persisted
       end
+      
+      it "calls point and notification creation methods when differing answer and question users" do
+        @question = create(:question, user: @user2)
+        
+        Teebox::Pointable.should_receive(:create).and_return(create(:point))
+        Activity.destroy_all
+        ActivityRepository.any_instance.should_receive(:generate).and_return(create(:activity))
+        
+        post :create, answer: attributes_for(:answer, question_id: @question.id)
+        
+        Point.all.size.should eq 1
+        Activity.all.size.should eq 1
+      end
     end
 
     describe "with invalid params" do

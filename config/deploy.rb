@@ -67,3 +67,11 @@ namespace :deploy do
   end
   before "deploy", "deploy:check_revision"
 end
+
+namespace :rake do  
+  desc "Run a task on a remote server."  
+  # run like: cap staging rake:invoke task=rake_task
+  task :invoke do  
+    run("cd #{deploy_to}/current; RAILS_ENV=#{rails_env} rake #{ENV['task']}")  
+  end  
+end
