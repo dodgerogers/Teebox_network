@@ -63,7 +63,7 @@ h3 {
 	font-size: 22px;
 	line-height: 26px;
 	color: $red;
-	font-weight: normal;
+	font-weight: bold;
 }
 h4 {
 	margin: 0px;
@@ -433,26 +433,26 @@ body .sublimevideo-zi .sublimevideo-uj {
 	@include box-sizing;
 }
 #correct-answer {
-	color: white !important;
-	font-weight: bolder;
-	display: inline-block;
-	padding: 9px 14px 6px;
-	background: $green-sea;
-	font-weight: 300;
-	margin: 4px 5px 0 0;
-	font-size: 22px;
-	font-family: $bebas;
+	//	background: white !important;
+	//	font-weight: bolder;
+	//	display: inline-block;
+	//	padding: 9px 14px 6px;
+	color: $green-sea;
+	//font-weight: 300;
+	//	margin: 4px 5px 0 0;
+	//	font-size: 22px;
+	//	font-family: $bebas;
 }
 #no-correct-answer {
-	color: white !important;
-	font-weight: bolder;
-	display: inline-block;
-	padding: 9px 14px 6px;
-	background: $red;
-	font-weight: 300;
-	margin: 4px 5px 0 0;
-	font-size: 22px;
-	font-family: $bebas;
+	//	color: white !important;
+	//	font-weight: bolder;
+	//	display: inline-block;
+	//	padding: 9px 14px 6px;
+	color: $red;
+	//font-weight: 300;
+	//	margin: 4px 5px 0 0;
+	//	font-size: 22px;
+	//	font-family: $bebas;
 }
 #no-points {
 	display: inline-block;
@@ -650,6 +650,38 @@ body #header-search {
 
 /*-------------------- questions & videos user profile info ----------*/
 
+// Questions index table
+table.questions-index {
+	ul.meta_info {
+		position:relative;
+		margin: auto -8px 0px;
+		background: #fcfcfc;
+		border-bottom:0px;
+		&:last-child {
+			border-bottom-right-radius: 4px;
+		}
+	}
+	td {
+		padding-bottom: 0px;
+		&.votes-count {
+			@extend .stat-count;
+		}
+		&.answers-count {
+			@extend .stat-count;
+			border-left:none;
+		}	
+	}
+}
+.stat-count {
+	background: #fff!important;
+	color: $light-gundam;
+	font-family: $bebas;
+	font-size:30px;
+	text-align: center;
+	i {
+		font-size: 12px;
+	}
+}
 .content-box {
 	position: relative;
 	padding:20px;
@@ -819,14 +851,121 @@ ul.meta_info {
 	}
 }
 
+// Articles //
+article.index-article {
+	position:relative;
+	margin-bottom:10px;
+	height:220px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	img {
+		position:relative;
+		width:100%;
+		height:auto;
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+	.index-article-title {
+		position: absolute;
+		bottom: 10px;
+		padding: 10px;
+		color: #fff;
+		background: $universe;
+		a {
+			color: $ice;
+			&:hover {
+				color: $teal;
+			}
+		}
+		b {
+			font-size: 18px;
+		}
+	}
+}
+.article .show-article-title {
+	position:relative;
+	padding: 10px;
+	margin-bottom:-5px;
+	color: #fff;
+	background: $universe;
+	b {
+		font-size: 18px;
+	}
+}
+table.dashboard-articles {
+	img {
+		max-width:100px;
+		height:auto;
+	}
+	th.article-table-header {
+		//background: $dark-ice;
+		color: $universe;
+	}
+}
+
+.article-status-bar {
+	@extend .toggle-comments;
+	background: $dark-ice;
+}
+#article_images {
+	.selected-article-icon {
+		position: absolute;
+		display: block;
+		color: $green;
+		bottom: 7%;
+		right: 7%;
+		font-size: 20px;
+	}
+	.selectable_image {
+		position: relative;
+		margin: 5px;
+		cursor: pointer;
+		width: 45%;
+		display:inline-block;
+		img {
+			@include box-sizing;
+			opacity: 0.5;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+		img.selected-img {
+			opacity: 1.0;
+		}
+	}
+}
+#article_preview_modal.modal {
+	top: 5%;
+}
 /*-------------------- buttons ----------------*/
+
+.mini-button {
+	padding: 2px 5px;
+	background: $midnight;
+	border-radius: 4px;
+	&:hover {
+		background: $universe;
+	}
+}
+.full-width-btn {
+	width:100%;;
+}
+a.mini-button {
+	color: #fff!important;
+	&:hover {
+		color: $dark-ice!important;
+	}
+}
 
 .default {
 	color: #fff;
 	background: #888;
 	@include box-sizing;
 	padding: 5px 10px!important;
-	@include border-radius;
+	@include border-radius(4px);
 	border:none;
 	display:inline-block;
 	text-shadow:none;
@@ -842,7 +981,7 @@ ul.meta_info {
 	background: #888;
 	@include box-sizing;
 	padding: 10px 10px!important;
-	@include border-radius;
+	@include border-radius(4px);
 	border:none;
 	display:inline-block;
 	text-shadow:none;
@@ -853,7 +992,7 @@ ul.meta_info {
 	}
 }
 #welcome-button {
-	width:100%;
+	@extend .full-width-btn;
 }
 .success {
 	background: $turquoise;

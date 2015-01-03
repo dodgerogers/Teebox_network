@@ -38,9 +38,9 @@ describe UsersController do
       response.should render_template :questions
     end
     
-    it "renders comments template" do
-      get :comments, id: @user.id
-      response.should render_template :comments
+    it "renders articles template" do
+      get :articles, id: @user.id
+      response.should render_template :articles
     end
   end
   

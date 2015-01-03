@@ -18,21 +18,21 @@ describe ActivityHelper do
   
   describe 'generate_html_activity' do
     context 'with valid activity and instance' do
-      it 'returns html string for answer' do
+      it 'returns html for answer' do
         html = helper.generate_activity_html(@activity, @answer)
         html.should include 'gravatar'
         html.should include 'answered'
         html.should include @question.title
       end
       
-      it 'returns html string for comment' do
+      it 'returns html for comment' do
         html = helper.generate_activity_html(@activity, @comment)
         html.should include 'gravatar'
         html.should include 'commented on'
         html.should include @question.title
       end
       
-      it 'returns html string for comment on answer' do
+      it 'returns html for comment on answer' do
         question = create(:question, user: @user1)
         answer = create(:answer, user: @user2, question: question, body: 'I think you should...')
         comment = create(:comment, commentable_id: answer.id, commentable_type: 'Answer', user: @user1)
@@ -44,10 +44,28 @@ describe ActivityHelper do
         html.should include 'I think you should...'
       end
       
-      it 'returns html string for user' do
+      it 'returns html for user' do
         html = helper.generate_activity_html(@activity, @user1)
         html.should include 'gravatar'
         html.should include 'Need a refresher'
+      end
+      
+      it 'returns html for article' do
+        article = create(:article, user: @user1, state: Article::PUBLISHED)
+        html = helper.generate_activity_html(@activity, article)
+        html.should include 'gravatar'
+        html.should include Article::PUBLISHED
+      end
+      
+      it 'returns html for comment on article' do
+        article = create(:article, user: @user2, title: 'I think you should...')
+        comment = create(:comment, commentable_id: article.id, commentable_type: 'Article', user: @user1)
+        activity = create(:activity, trackable: comment, recipient: @user2, owner: @user1)
+        
+        html = helper.generate_activity_html(activity, comment)
+        html.should include 'gravatar'
+        html.should include 'commented on'
+        html.should include 'I think you should...'
       end
       
       it 'returns explanation string when activity has no trackable object' do

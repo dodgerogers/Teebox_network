@@ -10,6 +10,15 @@ FactoryGirl.define do
     u.notifications "1"
   end
   
+  factory :article do
+    title 'How to reduce sidespin'
+    body 'Nulla ac fringilla lectus. Sed quis dictum urna. Duis pretium metus felis, id gravida tortor faucibus eget. Quisque varius pulvinar leo'
+    cover_image 'an_image.jpg'
+    user
+    state 'draft'
+    published_at nil
+  end
+  
   factory :question do 
     title "slicing the ball"
     body "i cut across the ball"

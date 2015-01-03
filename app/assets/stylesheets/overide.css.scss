@@ -3,7 +3,7 @@
 // Buttons //
 
 form .btn {
-	@include border-radius(0px!important);
+	//@include border-radius(0px!important);
 	color: #fff!important;
 	text-shadow: 0px 0px 0px #fff!important;
 	background: #888;
@@ -233,7 +233,7 @@ input[type="search"], input[type="tel"], input[type="color"],
 .uneditable-input {
 	height: 30px;
 	@include box-sizing;
-	@include border-radius;
+	//@include border-radius;
 }
 input[type="password"], input[type="email"] {
 	margin-bottom: 0px;
@@ -243,19 +243,20 @@ input[type="password"], input[type="email"] {
 }
 
 textarea, iframe.wysihtml5-sandbox {
-	@include border-radius;
+	//@include border-radius;
 	width:100%!important;
-	max-height:250px;
+	max-height:350px;
 	@include box-sizing;
 	font-family: $lucida;
+	//word-wrap: break-word!important;
 }
 iframe.wysihtml5-sandbox {
-	max-height:200px;
+	max-height:500px;
 }
 .form-area {
 	padding: 10px;
 	margin-top: 10px;
-	@include border-radius(5px);
+	@include border-radius(4px);
 	margin-bottom: 1px;
 	background: #fff;
 	border-top: 1px solid #fff;
@@ -384,6 +385,12 @@ table.teebox-table {
     border: 0;
 }
 
+table.article {
+	td, tr, th {
+		text-align:left;
+	}
+}
+
 .table th, .table td {
 	text-align:center;
 	vertical-align: middle;
@@ -419,7 +426,7 @@ table.teebox-table {
 #error_explanation {
 	background: $red;
 	padding: 15px 30px;
-	@include border-radius(3px);
+	@include border-radius(4px);
 	margin-bottom: 20px;	
 	h2 {
 		margin:0px;

@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   include PublicActivity::Common
   
+  ADMIN = 'admin'
+  TESTER = 'tester'
+  STANDARD = 'standard'
+  
+  ROLES = [ADMIN, TESTER, STANDARD]
+  
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -11,6 +17,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true, length: { maximum: 30 }
 
   has_many :questions, dependent: :destroy
+  has_many :articles, dependent: :destroy
   has_many :videos, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :answers, dependent: :destroy
@@ -20,10 +27,12 @@ class User < ActiveRecord::Base
 
   after_create :create_welcome_notification
   
-  ROLES = %w[admin tester standard]
-  
   def to_param
     "#{id} - #{username}".parameterize
+  end
+  
+  def admin?
+    self.role == ADMIN
   end
   
   def create_welcome_notification

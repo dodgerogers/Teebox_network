@@ -21,15 +21,15 @@ module MetaHelper
     video = (videos.any? ? display_screenshot(videos[0], :xl) : asset_path("video_screen_xl.png"))
   end
   
-  def social_meta_info(question)
-    images ||= meta_image(question.videos)
+  def social_meta_info(record)
+    images ||= meta_image(record.videos)
     content_tag(:meta, nil, name: "twitter:card", content: "summary") +
     content_tag(:meta, nil, name: "twitter:site", content: "@teebox_network") +
     content_tag(:meta, nil, name: "twitter:creator", content: "@teebox_network") +
     content_tag(:meta, nil, name: "twitter:url", content: request.original_url) +
     content_tag(:meta, nil, name: "twitter:domain", content: request.original_url.split("/")[0..2].join("/")) +
-    content_tag(:meta, nil, name: "twitter:title", content: "#{truncate(question.title, length: 70)}") +
-    content_tag(:meta, nil, name: "twitter:description", content: "#{truncate(question.body, length: 200)}") +
+    content_tag(:meta, nil, name: "twitter:title", content: "#{truncate(record.title, length: 70)}") +
+    content_tag(:meta, nil, name: "twitter:description", content: "#{truncate(record.body, length: 200)}") +
     content_tag(:meta, nil, name: "twitter:image", content: "#{images}") +
     content_tag(:meta, nil, property: "og:image", content: "#{images}")
   end

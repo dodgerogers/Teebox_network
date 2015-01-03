@@ -1,0 +1,13 @@
+<% meta_title('Latest Articles') %>
+<% meta_keywords('Golf Articles, Teebox articles') %>
+
+<%= application_banner do %>
+	<h1 class="video-upload">
+		<i class="icon-file-text-alt"></i> Articles
+	</h1>
+	<%= link_to raw("<i class='icon-plus-sign'></i> Create an article"), new_article_path, class: "default submit" if can? :new, Article %>
+<% end %>
+
+<section class="row" id="articles-index">
+	<%= render @articles %>
+</section>

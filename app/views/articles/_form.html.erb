@@ -1,0 +1,51 @@
+<div class="row">
+	<%= form_for(@article) do |f| %>
+		<div class="span8">
+			<% if @article.errors.any? %>
+				<div id="error_explanation">
+		  			<h2><%= pluralize(@article.errors.count, "error") %> prohibited this post from being saved:</h2>
+		  			<ul>
+			  			<% @article.errors.full_messages.each do |msg| %>
+			    			<li><%= msg %></li>
+			  			<% end %>
+			  		</ul>
+				</div>
+			<% end %>
+
+			<%= f.hidden_field :cover_image %>
+
+			<div>
+				<%= f.label :title, raw("<i class='icon-font'></i> Title") %>
+				<%= f.text_field :title %>
+			</div><br>
+
+			<div>
+				<%= f.label :body, raw("<i class='icon-align-justify'></i> Body") %>
+				<%= f.text_area :body, class: "wysihtml5" %>
+				<script type="text/javascript">
+					$('.wysihtml5').wysihtml5({
+						html: true,
+						video: true
+					});
+				</script>	
+			</div>
+		</div>
+		<aside class="span4">
+			<%= render partial: 'shared/article_image_select' %><hr>
+			
+			<% if @article.valid? %>
+				<%= article_status_bar(@article) %>
+				<p><%= valid_transition_links(@article, css: 'default') %></p>
+			<% end %>	
+			
+			<p>
+				<%= link_to 'Preview Article', '#', id: 'article_preview', class: 'default submit' %>
+				<%= link_to 'View Article', @article, class: 'default asphalt' if @article.valid? %>
+			</p><hr>
+			
+			<p><%= f.submit 'Save Article', class: 'default success' %></p>
+		</aside>
+	<% end %>
+</div>
+
+<%= render partial: 'shared/modals/article_preview_modal' %>

@@ -68,9 +68,10 @@
 				<p><%= social_links(request.original_url) %></p>
 			</div>
 		
-			<p><%= link_to "Ask a question", new_question_path, class: "default success" %></p>
-		</div>	
-	</aside>
+			<p><b><%= link_to "Ask a question", new_question_path, class: "default-xl center full-width-btn success" %></b></p>
+		</div>
+		<%= render @articles %>
+	</aside>	
 </div>
 
 <%= content_for :footer do %>

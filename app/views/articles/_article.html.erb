@@ -1,0 +1,7 @@
+<article class="index-article" style="<%= article_cover_image(article.cover_image) %>">
+	<div class="index-article-title">
+		<b><%= link_to article.title.capitalize, article %></b>
+		<small> - <%= article.published_at.strftime('%b %d, %Y') %></small>
+	</div>
+</article>
+

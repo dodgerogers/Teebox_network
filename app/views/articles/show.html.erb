@@ -1,0 +1,38 @@
+<% meta_title(@article.title) %>
+<% meta_description(@article.title) %>
+
+<div class="row">
+	<div class="span8">
+		<div class="content-box" id="article" data-id="<%= @article.id %>">
+			<div class="article">
+				<div class="show-article-title">
+					<b><%= @article.title.capitalize %></b><br>
+				</div>
+				<%= meta_info(@article) do %>
+					<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_article_path(@article), 
+						title: "Edit" if can? :update, @article %>
+					<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @article, 
+						method: :delete, confirm: "Are you sure? You will lose any points associated with this article", 
+						title: "Delete" if can? :destroy, @article %>
+				<% end %>
+				<%= article_status_bar(@article) if can? :update, @article %>
+				<div class="article-content">
+					<p><%= (@article.body).html_safe %></p>
+				</div>
+			</div>	
+			
+			<section class="comments-area">	
+				<%= display_comments(@article) %>
+				<%= link_to "Add comment", "#", class: "comment-button" %>
+				<%= render partial: "comments/form", locals: { commentable: @article } %>
+			</section>
+		</div>
+	</div>
+	
+	<aside>
+		<div class="span4">
+			<%= render partial: "shared/promotion" %>
+			<%= render @latest %>	
+		</div>	
+	</aside>
+</div>
