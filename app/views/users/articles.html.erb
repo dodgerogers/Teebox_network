@@ -1,0 +1,8 @@
+<% meta_title("#{@user.username} Articles") %>
+
+<%= raw "<p>No Articles found</p>" unless @articles.any? %>
+
+<%= render partial: 'articles/articles', locals: { articles: @articles, state: "#{@user.username.pluralize.capitalize} Articles" } %>
+	
+<%= will_paginate @articles %>
+<%= link_to "Back to #{@user.username.titleize}", user_path(@user) %>

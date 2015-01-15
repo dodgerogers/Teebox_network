@@ -1,10 +1,18 @@
 @import "variables";
 
 @media (min-width: 1200px) {
+	#article_preview_modal.modal {
+		width: 70%;
+		left: 35%;
+	}
 }
 @media (min-width: 980px) and (max-width: 1199px) {
 	.navbar .container {
 		max-width: 940px;
+	}
+	#article_preview_modal.modal {
+		width: 70%;
+		left: 35%;
 	}
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -151,6 +159,9 @@
 		@include border-radius;
 		margin: 5px 0px 1px;
 		box-shadow: none;
+		&:active {
+			background: $blackhole;
+		}
 	}
 	.navbar .brand {
 		padding: 7px 20px 10px 5px;

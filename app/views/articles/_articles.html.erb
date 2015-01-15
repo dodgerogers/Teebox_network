@@ -1,0 +1,19 @@
+<table class="table table-bordered dashboard-articles">
+	<thead>
+		<th colspan=100% class="article-table-header"><%= state %>: <%= articles.size %></th>
+	</thead>
+	<tbody>		
+	<% articles.each do |article| %>
+		<tr style="display:block;">
+			<td style="<%= article_cover_image(article.cover_image) %> min-width:100px; max-width: 130px;"></td>	
+			<td id="article_<%= article.id %>" class="content-box-margin" style="text-align:left;width:100%;">
+				<%= link_to article.title, article %><br>
+				<small><%= article.state.capitalize %> - <%= article.updated_at.strftime('%d/%m/%Y') %></small>
+				<small><%= valid_transition_links(article, css: 'mini-button') %></small>
+			</td>	
+		<tr>	
+	<% end %>
+	</tbody>
+</table>	
+
+<%= will_paginate articles %>

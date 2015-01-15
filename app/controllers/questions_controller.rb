@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered, :related]
   before_filter :set_question, only: [:show, :related]
+  before_filter :set_articles, only: [:show, :index]
   load_and_authorize_resource except: [:index, :show, :related]
   layout "fullwidth", only: [:index, :popular, :unanswered, :show, :new] 
   
@@ -82,5 +83,9 @@ class QuestionsController < ApplicationController
   def set_question
     question = Question.find(params[:id])
     @decorator ||= Questions::ShowDecorator.new(question)
+  end
+  
+  def set_articles
+    @articles = Article.where(state: Article::PUBLISHED).order('published_at DESC').sample(2)
   end
 end

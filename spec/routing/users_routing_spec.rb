@@ -15,8 +15,8 @@ describe UsersController do
       get("/users/1/answers").should route_to("users#answers", :id => "1")
     end
       
-    it "routes to #comments" do
-      get("/users/1/comments").should route_to("users#comments", :id => "1")
+    it "routes to #articles" do
+      get("/users/1/articles").should route_to("users#articles", :id => "1")
     end
     
     it "routes to users#welcome" do

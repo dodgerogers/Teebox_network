@@ -17,6 +17,7 @@ describe User do
    it { should respond_to(:rank)}
    it { should respond_to(:notifications)}
    it { should have_many(:questions)}
+   it { should have_many(:articles)}
    it { should have_many(:videos)}
    it { should have_many(:comments)}
    it { should have_many(:answers)}
@@ -47,6 +48,17 @@ describe User do
   describe "to_param" do
     it "returns id and username string" do
       subject.to_param.should eq "#{@user.id}-#{@user.username}"
+    end
+  end
+  
+  describe "admin?" do
+    it "returns true for admin user" do
+      subject.admin?.should be true
+    end
+    
+    it "returns true for admin user" do
+      user = create(:user, role: User::STANDARD)
+      user.admin?.should be false
     end
   end
   
