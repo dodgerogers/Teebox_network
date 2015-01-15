@@ -3,19 +3,23 @@
 <html class="mobile-scroll">
 	<body class="whistler-xl mobile-scroll">
 		<div class="row">
-			<div class="span8 well semi-transparent">
-				<h2 class="large">Picture this</h2>
-				<%= render partial: "pages/about_copy" %>										
-			</div>
-			<div class="span4 well semi-transparent">
-		        <h2 class="large">Meet the team</h2>
+			<div class="col-md-8">
+				<div class="well semi-transparent">
+					<h2 class="large">Picture this</h2>
+					<%= render partial: "pages/about_copy" %>										
+				</div>
+			</div>	
+			<div class="col-md-4">
+				<div class="well semi-transparent">
+		        	<h2 class="large">Meet the team</h2>
 		
-				<%= link_to image_tag("profile-pic.jpg"), user_path(@user), class: "gravatar" %>
-				<p><span class='lead'><%= link_to "Andy Rogers", user_path(@user) %></span><br>
-				<small><i class='icon-teebox'></i> Founder</small></p>
+					<%= link_to image_tag("profile-pic.jpg"), user_path(@user), class: "gravatar" %>
+					<p><span class='lead'><%= link_to "Andy Rogers", user_path(@user) %></span><br>
+					<small><i class='icon-teebox'></i> Founder</small></p>
 				
-				<p>As a Web developer and professional golfer I get my kicks from developing applications, solving problems and helping people with their golf game. So it's not really a surprise we ended up here. And yes, this is an astronaut costume.</p>
-				<p><small>Connect </small><%= personal_links %></p>
+					<p>As a Web developer and professional golfer I get my kicks from developing applications, solving problems and helping people with their golf game. So it's not really a surprise we ended up here.</p>
+					<p><small>Connect </small><%= personal_links %></p>
+				</div>	
 			</div>
 		</div>
 	</body>

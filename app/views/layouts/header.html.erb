@@ -1,20 +1,26 @@
-<header class="navbar">
-  <div class="navbar-inner">
-	<div class="container">
-		<%= link_to root_path, class: "brand" do %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+	<div class="navbar-header">
+		<button type="button" class="btn btn-navbar navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        	<span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	
+		<%= link_to root_path, class: "navbar-brand" do %>
 			<i class='icon-teebox logo'></i>
-			<span id="brand">Teebox</a>
+			<span>Teebox</a>
 		<% end %>
-		<a class="btn btn-navbar" id="collapse-dropdown" data-toggle="collapse" data-target=".nav-collapse">
-		   <span class="icon-bar"></span>
-		   <span class="icon-bar"></span>
-		   <span class="icon-bar"></span>
-		 </a>
-		<div class="nav-collapse collapse">
-    		<ul class="nav pull-right">
-			  <li><%= form_tag questions_path, method: "get", class: "form-control navbar-form pull-left" do %>
-					<%= text_field_tag :search, params[:search], placeholder: "Search" %>
-			  <% end %></li>
+	</div>
+		
+		<div class="collapse navbar-collapse">
+    		<ul class="nav navbar-nav navbar-right">
+			  <%= form_tag questions_path, method: "get", class: "navbar-form navbar-left" do %>
+					<div class="form-group">
+						<%= text_field_tag :search, params[:search], placeholder: "Search", class: 'form-control' %>
+					</div>
+			  <% end %>
 			
 			<% if user_signed_in? %>
 				<li class="dropdown">
@@ -23,8 +29,7 @@
 							<%= Activity.unread_notifications(current_user) %>
 						</div>
 					</a>
-					<ul class="dropdown-menu span6" id="notifications-area">
-						<!-- notifications loaded here by notifications.js -->
+					<ul class="dropdown-menu" id="notifications-area">
 						<%= render partial: "shared/loading", locals: { message: "notifications" } %>
 					</ul>
 				</li>
@@ -41,11 +46,12 @@
 						<i class="icon-cog cog"></i>
 					</a>
 					<ul class="dropdown-menu" id="cog-dropdown">
-						<li class="nav-header">My Account</li>
+						<li class="dropdown-header">My Account</li>
 						<li class="divider"></li>
 						<li><%= link_to raw("<i class='icon-cog'></i> Edit Profile"), edit_user_registration_path %></li>
 						<li><%= link_to raw("<i class='icon-off'></i> Logout"), destroy_user_session_path, method: :delete %></li>
 						<li><%= link_to raw("<i class='icon-signal'></i> Reports"), reports_path if can? :read, Report %></li>
+						<li><%= link_to raw("<i class='icon-file-text-alt'></i> Articles"), admin_articles_path if can? :publish, Article %></li>
 					</ul>
 				</li>
 			<% else %>
@@ -54,6 +60,6 @@
 			<% end %>
 		</div>
        </ul>
-	</div>
+	
   </div>
-</header>
+</nav>

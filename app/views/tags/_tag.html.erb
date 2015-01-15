@@ -1,9 +1,17 @@
-<article class='tag-container span4'>
-	<h6><%= link_to tag.name, tagged_path(tag.name) %></h6>
-		<p><%= tag.explanation %><br>
+<div class="tag-box col-md-4 col-sm-4">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">
+	    	<%= link_to tag.name, tagged_path(tag.name) %>
+	    </h3>
+	  </div>
+	  <div class="panel-body">
+	   	<p><%= tag.explanation %><br>
 		<small>
 			updated <%= time_ago_in_words(tag.updated_at) %> ago
 			<%= link_to "Delete", tag, method: :delete if can? :destroy, tag %>
 			<%= link_to "Edit", edit_tag_path(tag) if can? :edit, tag %>
 		</small></p>
-</article>	
+	  </div>
+	</div>
+</div>	

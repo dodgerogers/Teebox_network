@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource except: [:index, :show]
   before_filter :set_user, except: :index
-  layout "fullwidth", only: :index
+  layout "fullwidth", only: [:index, :show]
   
   def show
     @decorator = UserDecorator.new(@user)
@@ -21,8 +22,8 @@ class UsersController < ApplicationController
     @questions = @user.questions.order("created_at desc").paginate(page: params[:page], per_page: 10)
   end
   
-  def comments
-    @comments = @user.comments.paginate(page: params[:page], per_page: 10).includes(:commentable)
+  def articles
+    @articles = @user.articles.paginate(page: params[:page], per_page: 10)
   end
   
   def welcome

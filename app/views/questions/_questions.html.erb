@@ -1,29 +1,26 @@
-<% questions.each do |question| %>
+<table class="table table-bordered questions-index">
+	<tbody>			
+	<% questions.each do |question| %>
+		<tr>
+			<td class='votes-count'>		
+				<%= question.votes_count %> <i class="icon-plus"></i>
+			</td>
+			<td id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>" class='answers-count'>	
+    			<%= question.answers_count %> <i class="icon-ok"></i>
+			</td>
+			<td id="question_<%= question.id %>" class="content-td" style="text-align:left;width:100%;">
+				<p><b><%= link_to question.title, question %></b></p>
+				<%= meta_info(question, voting: false) do %>
+					<%= has_videos?(question) %>
+				<% end %>		
+			</td>
+		</tr>
+		<tr class="spacer"></td>
+	<% end %>
+	</tbody>
+</table>
 
-	<article class="span12">
-		<div class="question-image">
-			<%= link_to image_tag(display_screenshot(question.videos[0], :mini)), question %>
-		</div>
-		<div class="question-info">
-			<div class="title-holder">
-				<div class="index-title">
-					<%= link_to question.title.capitalize, question %>
-				</div>
-			</div>
-			<div class="profile-info-index">
-				<div id="tour-vote" class="index-vote pull-left">
-					<%= question.votes_count  %>
-				</div>	
-				<div class='pull-left' id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>">
-					<%= question.answers_count %>
-				</div>
-				<%= profile_link_helper(question) %>
-			</div>
-		</div>
-	</article>
-<% end %>
-
-<%= will_paginate questions %>	
-
-<%= render partial: "shared/loading", locals: { message: "questions" } %>
-
+<div class="text-center" id='pagination'>
+	<%= will_paginate questions %>	
+	<%= render partial: "shared/loading", locals: { message: "questions" } %>
+</div>	

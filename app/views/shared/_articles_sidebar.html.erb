@@ -1,0 +1,10 @@
+<% if articles.any? %>
+	<div id='articles-sidebar' class="panel panel-default">
+	  <div class="panel-heading">
+		<div class="panel-title text-center">
+	    	<b><%= link_to 'Latest stories', articles_path, class: 'white' %></b>
+		</div>	
+	  </div>
+	</div>
+	<%= render articles, css: nil %>
+<% end %>	

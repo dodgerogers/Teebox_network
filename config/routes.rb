@@ -12,13 +12,16 @@ TeeboxNetwork::Application.routes.draw do
   get "question_tags", to: "tags#question_tags", as: :question_tags #tokenInput json tags
   get "questions/unanswered", to: "questions#unanswered", as: :unanswered
   get "questions/popular", to: "questions#popular", as: :popular
+  
+  # Articles
+  get 'admin/articles', to: 'articles#admin', as: :admin_articles
 
   # Users
   get "users/:id/welcome", to: "users#welcome", as: :welcome
   get "users/:id/points", to: "points#index", as: :points
   get "users/:id/questions", to: "users#questions", as: :user_questions
   get "users/:id/answers", to: "users#answers", as: :user_answers
-  get "users/:id/comments", to: "users#comments", as: :user_comments
+  get "users/:id/articles", to: "users#articles", as: :user_articles
   get "/users/:id/breakdown", to: 'points#breakdown', as: :breakdown
 
   # Static
@@ -36,11 +39,21 @@ TeeboxNetwork::Application.routes.draw do
   
   # Points
   resources :points, only: :index
+  
+  # Questions
   resources :questions do
     resources :comments, except: [:edit, :update]
     member do
       get "related"
     end
+  end
+  
+  # Articles
+  resources :articles do
+    member do
+       put *[:draft, :submit, :approve, :publish, :discard]
+    end
+    resources :comments, except: [:edit, :update]
   end
   
   # Comments

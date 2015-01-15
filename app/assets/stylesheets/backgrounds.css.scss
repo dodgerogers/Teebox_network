@@ -100,6 +100,11 @@ body .transparent {
 	@extend .forest-banner;
 	background: url(footer.png);
 }
+.yas-links-banner {
+	@extend .forest-banner;
+	background: $sky url(backgrounds/Yas-links.jpg);
+	background-position: 0% 90%;
+}
 // end
 
 // Regular standard width hero-unit banner

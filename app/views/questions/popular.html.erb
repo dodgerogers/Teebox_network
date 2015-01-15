@@ -7,5 +7,7 @@
 <%= render partial: "shared/nav_links" %>
 
 <section class="row" id="questions-index">
-	<%= render partial: "questions/questions", locals: { questions: @popular } %>
+	<div class="col-md-12 col-sm-12">
+		<%= render partial: "questions/questions", locals: { questions: @popular } %>
+	<div class="col-md-12 col-sm-12">
 </section>

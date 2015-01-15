@@ -5,6 +5,6 @@
 	</span>
 </div>
 <div id="arrows">
-	<%= link_to raw("<i class='icon-plus-sign-alt green sm'></i>"), { controller: "votes", action: "create", vote: { value: 1, votable_id: object.try(:id), votable_type: demodularize(object) } }, remote: true, id: "upvote", title: "Upvote", method: :post %>
-	<%= link_to raw("<i class='icon-minus-sign-alt red sm'></i>"), { controller: "votes", action: "create",vote: { value: -1, votable_id: object.try(:id), votable_type: demodularize(object) } }, remote: true, id: "downvote", title: "Downvote", method: :post %>
+	<%= link_to raw("<i class='icon-plus-sign-alt green sm'></i>"), { controller: "/votes", action: "create", vote: { value: 1, votable_id: object.try(:id), votable_type: demodularize(object) } }, remote: true, id: "upvote", title: "Upvote", method: :post %>
+	<%= link_to raw("<i class='icon-minus-sign-alt red sm'></i>"), { controller: "/votes", action: "create",vote: { value: -1, votable_id: object.try(:id), votable_type: demodularize(object) } }, remote: true, id: "downvote", title: "Downvote", method: :post %>
 </div>

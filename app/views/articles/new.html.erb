@@ -1,0 +1,11 @@
+<% meta_title("Create an article")%>
+
+<%= application_banner do %>
+	<h1 class="video-upload">
+		<i class="icon-file-text-alt"></i> Get published
+	</h1>
+	<%= link_to raw("<i class='icon-circle-arrow-left'></i> View all Articles"), articles_path, class: "default submit" %>
+<% end %>
+	
+
+<%= render partial: "articles/form" %>

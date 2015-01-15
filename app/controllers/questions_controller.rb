@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered, :related]
   before_filter :set_question, only: [:show, :related]
+  before_filter :set_articles, only: [:show, :index]
   load_and_authorize_resource except: [:index, :show, :related]
   layout "fullwidth", only: [:index, :popular, :unanswered, :show, :new] 
   
@@ -20,7 +21,6 @@ class QuestionsController < ApplicationController
   end
   
   def show
-    # Use decorator from set_question
     @answer = Answer.new
     @answers = @decorator.answers.includes(:user, :question).by_votes
     Teebox::Impression.create(@decorator, request)
@@ -62,15 +62,14 @@ class QuestionsController < ApplicationController
   end
   
   def unanswered
-    @unanswered = Question.unanswered.includes(:user, :videos).paginate(page: params[:page], per_page: 20)
+    @unanswered = Question.unanswered.includes(:user).paginate(page: params[:page], per_page: 20)
   end
 
   def popular
-    @popular = Question.popular.includes(:user, :videos).paginate(page: params[:page], per_page: 20)
+    @popular = Question.popular.includes(:user).paginate(page: params[:page], per_page: 20)
   end
   
   def related
-    # Use decorator from set_question, and related_questions from index decorator
     @related = @decorator.related_questions 
     respond_to do |format|
       format.html { render layout: false }
@@ -82,5 +81,9 @@ class QuestionsController < ApplicationController
   def set_question
     question = Question.find(params[:id])
     @decorator ||= Questions::ShowDecorator.new(question)
+  end
+  
+  def set_articles
+    @articles = Article.where(state: Article::PUBLISHED).order('published_at DESC').sample(2)
   end
 end

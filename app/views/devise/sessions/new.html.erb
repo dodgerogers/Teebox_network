@@ -3,8 +3,8 @@
 <html class="mobile-scroll">
 	<body class="sandy-hills-xl mobile-scroll">
 		<div class="row">
-			<div class="span2"></div>
-				<div class="span8">
+			<div class="col-md-2"></div>
+				<div class="col-md-8">
 					<div class="hero-unit blue-transparent">
 					<h1>Login</h1>
 
@@ -12,12 +12,12 @@
 
 				  	<div class="registration">
 						<%= f.label :username, raw("<i class='icon-user'></i> Username") %>
-						<%= f.text_field :username, autocomplete: "on" %>
+						<%= f.text_field :username, autocomplete: "on", class: 'form-control'  %>
 					</div>
 
 					<div class="registration">
 						<%= f.label :password, raw("<i class='icon-lock'></i> Password") %>
-						<%= f.password_field :password, autocomplete: "on" %>
+						<%= f.password_field :password, autocomplete: "on", class: 'form-control'  %>
 					</div>
 
 				  	<% if devise_mapping.rememberable? %>

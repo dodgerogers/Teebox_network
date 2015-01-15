@@ -2,12 +2,12 @@
 
 @media (min-width: 1200px) {
 }
-@media (min-width: 980px) and (max-width: 1199px) {
+@media (min-width: 990px) and (max-width: 1199px) {
 	.navbar .container {
 		max-width: 940px;
 	}
 }
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 768px) and (max-width: 989px) {
 	// fonts 
 	h3 {
 		font-size: 20px;
@@ -25,16 +25,16 @@
 	}
 	#notifications {
 		@include border-radius;
-		margin: 5px 0px 1px;
+		//margin: 5px 0px 1px;
 		box-shadow: none;
 	}
 	.navbar .brand {
 		padding: 7px 20px 10px 5px;
 	}
-	#notifications-area {
-		width:100%;
-		margin: 0 0 1px;
-	}
+//	ul#notifications-area {
+//		width:100%;
+//		border: none;
+//	}
 	.nav-collapse .nav > li {
 		background: $ocean;
 		color: #fff;
@@ -63,22 +63,22 @@
 	.navbar table.teebox-table {
 		margin-bottom:0px;
 		tr:last-of-type {
-			border-bottom: 1px solid $ocean;
+			//border-bottom: 1px solid $ocean;
 		}
 		td {
-			margin: 0px;
-			border-top: 1px solid $ocean;
-			background: $universe;
+			//margin: 0px;
+			//border-top: 1px solid $ocean;
+			//background: $universe;
 		}
 		a {
-			color: $green;
-			background: none;
-			padding: 0px;
-			font-weight: 500;
+			//color: $green;
+			//background: none;
+			//padding: 0px;
+			//font-weight: 500;
 		}
 		tr.unread {
 			td {
-				background: $blackhole;
+				//background: $blackhole;
 			}
 		}
 	}
@@ -149,8 +149,11 @@
 	}
 	#notifications {
 		@include border-radius;
-		margin: 5px 0px 1px;
+		//margin: 5px 0px 1px;
 		box-shadow: none;
+		&:active {
+			background: $blackhole;
+		}
 	}
 	.navbar .brand {
 		padding: 7px 20px 10px 5px;
@@ -158,9 +161,10 @@
 	.navbar .unread {
 		background: $blackhole!important;
 	}
-	#notifications-area {
+	ul#notifications-area {
 		width:100%;
-		margin: 0 0 1px;
+		border:none;
+		//margin: 0 0 1px;
 	}
 	.padded {
 		padding: 10px 20px 0;
@@ -179,9 +183,28 @@
 		height:auto;
 		line-height:1.5;
 	}
+	// NAVBAR
+	.navbar-default {
+		.navbar-header {
+			border-bottom: 1px solid $blackhole;
+		}
+		.navbar-collapse, .navbar-form {
+			border: none;
+			box-shadow: none;
+			overflow: visible;
+		}
+		.navbar-form {
+			margin: 0px;
+			border-bottom: 1px solid $blackhole;
+		}
+	}
 	.nav-collapse .nav > li {
 		background: $ocean;
 		color: #fff;
+	}
+	.nav > li {
+		text-align: center;
+		border-bottom: 1px solid $blackhole;
 	}
 	.nav-collapse .nav > li a {
 		color: #fff;
@@ -189,17 +212,21 @@
 		text-align: center;
 		padding: 5px 15px;
 		margin-bottom: 1px;
+		&:hover {
+			background: $universe;
+		}
 	}
-	.nav-collapse .nav > li a:hover {
-		background: $universe;
-	
-	}
-	.nav-collapse .navbar-form {
-		padding: 0px;
-		border: none;
-	}
-	.nav-collapse .dropdown-menu {
+	.nav ul.dropdown-menu {
+		background: $blackhole;
+		.divider {
+			background-color: $blackhole;
+		}
+		text-align:center!important;
 		margin: 0;
+		li a, li.dropdown-header {
+			text-align:center!important;
+			color: $ice!important;
+		}
 	}
 	li .nav-header, .dropdown .dropdown-menu .nav-header {
 		color: $red;
@@ -211,6 +238,7 @@
 			border-bottom: 1px solid $ocean;
 		}
 		td {
+			color: $ice;
 			margin: 0px;
 			border-top: 1px solid $ocean;
 			background: $universe;
@@ -230,6 +258,7 @@
 	#search {
 		margin-top: 0px;
 	}
+	// NAVBAR END
 	.show {
 		display:none;
 	}
@@ -245,14 +274,8 @@
 	#footer {
 		height:auto;
 	}
-	#featurette {
+	#featurettes {
 		text-align:center;
-		padding:0px;
-		[class^="icon-"], #featurette[class*=" icon-"] {
-			display:block;
-			float:none;
-			margin-right:auto;
-		}
 	}
 	.default-xl {
 		width:100%;
@@ -281,7 +304,7 @@
 	}
 	#nav_links {
 		background: $gundam;
-		margin:-20px -20px 20px;
+		margin:-20px -35px 20px;
 		text-align:center;
 		padding: 0px;
 		.default {
@@ -298,10 +321,8 @@
 		margin: -30px -20px 30px -20px;
 		@include border-radius;
 	}
-	.span2.inline-span {
-		display:inline-block;
-		width:115px;
-		.ch-grid li {
+	.ch-grid {
+		li {
 			height:83px;
 			width:83px;
 		}
@@ -376,7 +397,7 @@
 		line-height: 22px;
 	}
 	#margin-bottom {
-		margin: 0 20px 20px;
+		margin: 0 10px 20px;
 	}
 	#mini-push {
 		height:0px;
@@ -387,7 +408,7 @@
 	}
 	#notifications {
 		@include border-radius;
-		margin: 5px 0px 1px;
+		//margin: 5px 0px 1px;
 		box-shadow: none;
 	}
 	.navbar .unread {
@@ -396,9 +417,9 @@
 	.navbar .brand {
 		padding: 7px 20px 10px 5px;
 	}
-	#notifications-area {
+	ul#notifications-area {
 		width:100%;
-		margin: 0 0 1px;
+		border: none;
 	}
 	.padded {
 		padding: 10px 20px 0;
@@ -420,9 +441,27 @@
 	#index {
 		width:100%;
 	}
+	.navbar-default {
+		.navbar-header {
+			border-bottom: 1px solid $blackhole;
+		}
+		.navbar-collapse, .navbar-form {
+			border: none;
+			box-shadow: none;
+			overflow: visible;
+		}
+		.navbar-form {
+			margin: 0px;
+			border-bottom: 1px solid $blackhole;
+		}
+	}
 	.nav-collapse .nav > li {
 		background: $ocean;
 		color: #fff;
+	}
+	.nav > li {
+		text-align: center;
+		border-bottom: 1px solid $blackhole;
 	}
 	.nav-collapse .nav > li a {
 		color: #fff;
@@ -430,20 +469,21 @@
 		text-align: center;
 		padding: 5px 15px;
 		margin-bottom: 1px;
+		&:hover {
+			background: $universe;
+		}
 	}
-	.nav-collapse .nav > li a:hover {
-		background: $universe;
-	}
-	.nav-collapse .navbar-form {
-		padding: 0px;
-		border: none;
-	}
-	.nav-collapse .dropdown-menu {
+	.nav ul.dropdown-menu {
+		background: $blackhole;
+		.divider {
+			background-color: $blackhole;
+		}
+		text-align:center!important;
 		margin: 0;
-	}
-	li .nav-header, .dropdown .dropdown-menu .nav-header {
-		color: $red;
-		text-align: center;
+		li a, li.dropdown-header {
+			text-align:center!important;
+			color: $ice!important;
+		}
 	}
 	.navbar table.teebox-table {
 		margin-bottom:0px;
@@ -451,6 +491,7 @@
 			border-bottom: 1px solid $ocean;
 		}
 		td {
+			color: $ice;
 			margin: 0px;
 			border-top: 1px solid $ocean;
 			background: $universe;
@@ -524,22 +565,8 @@
 	#footer {
 		height:auto;
 	}	
-	#featurette {
-		padding: 0px;
+	#featurettes {
 		text-align:center;
-		h2 {
-			font-size:20px;
-			margin-bottom:0px;
-		}
-		.lead {
-			font-size:14px;
-		}
-		[class^="icon-"], #featurette[class*=" icon-"] {
-			display:block;
-			float:none;
-			margin-right:auto;
-			font-size:60px!important;
-		}
 	}
 	h1.xl {
 		font-size: 40px!important;
@@ -563,7 +590,7 @@
 	}
 	#nav_links {
 		background: $gundam;
-		margin:-20px -20px 20px;
+		margin:-20px -35px 20px;
 		text-align:center;
 		padding: 0px;
 		.default {
@@ -580,10 +607,8 @@
 		margin: -30px -20px 30px -20px;
 		@include border-radius;
 	}
-	.span2.inline-span {
-		display:inline-block;
-		width:30%;
-		.ch-grid li {
+	.ch-grid {
+		 li {
 			height:60px;
 			width:60px;
 		}
@@ -699,14 +724,5 @@
 }
 // Deals with awkward left align on video library page. Diff 484px
 @media (min-width: 270px) and (max-width: 484px) {
-	h4.video-library {
-		text-align:center;
-	}
-	section#videos {
-		text-align:center;
-		.videos {
-			margin: 0px 10px 15px;
-			text-align:left;
-		}
-	}
+	
 }

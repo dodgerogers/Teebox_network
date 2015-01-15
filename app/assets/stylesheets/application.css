@@ -10,6 +10,9 @@
  *
  *= require_self
  *= require font-awesome
- *= require bootstrap-wysihtml5
+ *= require bootstrap
+ *= require bootstrap-tour
+ *= require wysihtml5
+ *= require wysihtml5-editor
  *= require_tree .
 */

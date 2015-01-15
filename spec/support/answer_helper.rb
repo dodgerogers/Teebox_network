@@ -7,8 +7,8 @@ module AnswerHelper
     page.should have_content "Step 1: Upload Videos"
     click_link "Step 2"
     page.should have_content "Step 2: Ask your question"
-    fill_in "Title", with: "Ball starting too far left"
-    fill_in "Body", with: "my clubface is closed..."
+    fill_in "question[title]", with: "Ball starting too far left"
+    fill_in "question[body]", with: "my clubface is closed..."
     expect {
       click_button "Save"
     }.to change(Question, :count).by(1) 
@@ -19,7 +19,7 @@ module AnswerHelper
   def create_answer
     click_link "Answer question"
     page.should have_selector("div", id: "new_answer")
-    fill_in "answer_body", with: "You need to shift your weight better"
+    fill_in "answer[body]", with: "You need to shift your weight better"
     expect {
       click_button "Save Answer"
     }.to change(Answer, :count).by(1) 

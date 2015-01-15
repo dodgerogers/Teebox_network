@@ -3,7 +3,7 @@
 <body class="teebox-xl">
 	<div class="hero-unit blue-transparent">
 		<center>
-			<h1>Report - <%= time_tag Time.now.to_date %></h1>
+			<h1><%= time_tag Time.now.to_date %></h1>
 			<%= render partial: "reports/form" %>
 			<%= content_tag :div, nil, id: "area", data: { totals: @all_reports } %>
 			<%= display_percentage_stats(@all_reports) %>

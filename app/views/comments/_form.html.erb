@@ -14,17 +14,11 @@
 
 	<div class="field">
 	<!-- fetch the object id of the parent object so it's 100% unique -->
-	<%= f.text_area :content, id: "comment-textarea", class: "comment-form_#{commentable.object_id}", placeholder: "To reply to someone add @ in front of their username" %>
+	<%= f.text_area :content, class: "comment-textarea", id: "comment_#{commentable.object_id}", placeholder: "To reply to someone add @ in front of their username" %>
 	<script type="text/javascript">
-	  $('.comment-form_<%= commentable.object_id %>').wysihtml5({
-		"font-styles": false,
-		"emphasis" : true,
-		"lists" : false,
-		"html" : false,
-		"link" :true,
-		"image" : false,
-		"color" :false
-	});
+	  $('#comment_<%= commentable.object_id %>').wysihtml5(
+		WysihtmlEditorOptions.comment
+	  );
 	</script>
 	</div>
 	

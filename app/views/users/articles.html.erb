@@ -1,0 +1,6 @@
+<% meta_title("#{@user.username} Articles") %>
+
+<%= render partial: 'articles/articles', locals: { articles: @articles, state: "#{@user.username.pluralize.capitalize} Articles" } %>
+	
+<%= will_paginate @articles %>
+<%= link_to "Back to #{@user.username.titleize}", user_path(@user) %>

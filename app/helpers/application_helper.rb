@@ -70,14 +70,14 @@ module ApplicationHelper
     return "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"
   end
   
-  def meta_info(object, &block)  
+  def meta_info(object, opts={voting: true}, &block)  
     capture do
       content_tag(:ul, class: "meta_info") do
         content_tag(:small) do
           concat user_metadata(object)
           concat created_at_metadata(object)
           concat question_metadata(object)
-          concat render_votes_form(object)
+          concat render_votes_form(object) unless !opts[:voting]
           concat answer_metadata(object)
           
           if block_given?
@@ -106,7 +106,7 @@ module ApplicationHelper
   end
   
   def question_metadata(object)
-    if object.is_a?(Question)
+    if object.respond_to?(:impressions_count)
       content_tag(:li) do
          meta_impressions(object)
        end
@@ -124,7 +124,7 @@ module ApplicationHelper
       content_tag(:li, class: correct_answer?(object)) do
          content_tag(:div, id: "correct_answer_#{object.id}") do
 				  if object.question.user == current_user
-					  link_to content_tag(:i, nil, class: "icon-ok-sign sm"), correct_answer_path(object), class: "correct_#{object.id} sm", remote: true, method: :put, title: "Most helpful? Mark it as correct"
+					  link_to content_tag(:i, nil, class: "icon-ok sm"), correct_answer_path(object), class: "correct_#{object.id} sm", remote: true, method: :put, title: "Most helpful? Mark it as correct"
 				  else
 					  content_tag(:div, class: "correct_answer_#{object.id}") { content_tag(:i, nil, class: "icon-ok-sign sm") }
 				  end

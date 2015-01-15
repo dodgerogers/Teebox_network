@@ -3,8 +3,8 @@
 <html class="mobile-scroll">
 	<body class="sebonak-xl mobile-scroll">
 		<div class="row">
-			<div class="span2"></div>
-				<div class="span8"> 
+			<div class="col-md-2"></div>
+				<div class="col-md-8"> 
 					<div class="hero-unit blue-transparent">
 					<h1>Create an Account</h1>
 
@@ -13,22 +13,22 @@
 
 						  	<div class="registration">
 								<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
-							  	<%= f.email_field :email, placeholder: "Email" %>
+							  	<%= f.email_field :email, placeholder: "Email", class: 'form-control'  %>
 							</div>
 
 						  	<div class="registration">
 								<%= f.label :username, raw("<i class='icon-user'></i> Username") %>
-							  	<%= f.text_field :username, placeholder: "Username" %>
+							  	<%= f.text_field :username, placeholder: "Username", class: 'form-control'  %>
 							</div>
 
 						  	<div class="registration">
 								<%= f.label :password, raw("<i class='icon-lock'></i> Password") %>
-							  	<%= f.password_field :password, placeholder: "Password" %>
+							  	<%= f.password_field :password, placeholder: "Password", class: 'form-control'  %>
 							</div>
 
 						  	<div class="registration">
 								<%= f.label :password_confirmation, raw("<i class='icon-lock'></i> Password Confirmation") %>
-							  	<%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+							  	<%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: 'form-control'  %>
 							</div>
 
 						  <div class="registration">
@@ -39,7 +39,7 @@
 						<%= render "devise/shared/links" %>
 				</div>
 				</div>
-			<div class="span2"></div>
+			<div class="col-md-2"></div>
 		</div>
 	</body>
 </html>

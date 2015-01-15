@@ -4,11 +4,11 @@ module PointHelper
     obj = point.pointable
     case obj.votable_type
     when "Answer"
-      text = obj.votable.body
-    when "Question"
-      text = obj.votable.title 
+      text = obj.votable.try(:body)
     when "Comment"
-      text = obj.votable.content
+      text = obj.votable.try(:content)
+    else
+      text = obj.votable.try(:title)
   	end
   	link_to strip_links_and_trim(text, 60), obj.votable 
   end

@@ -1,11 +1,12 @@
 <body class="teebox-xl">
 	<div class="center-block">
-		<div class="span8 clearfix">
-			
-				<%= render @comment %>
-			
-			<i class="icon-hand-left white"></i>
-			<%= link_to "View #{@comment.commentable.class}", @comment.commentable, class: "white" %>
+		<div class="col-md-8 col-md-offset-2 clearfix">
+			<%= render @comment %>
+			<%= link_to @comment.commentable, class: "default submit" do %>
+				<i class="icon-hand-left white"></i>
+				View 
+				<%= @comment.commentable.class %>
+			<% end %>
 		</div>
 	</div>		
 </body>	

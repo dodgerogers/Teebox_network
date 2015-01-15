@@ -1,0 +1,42 @@
+<% meta_title(@article.title) %>
+<% meta_description(@article.title) %>
+
+<div class="row">
+	<div class="col-md-8">
+		<div class="content-box" id="article" data-id="<%= @article.id %>">
+			<div class="article">
+				<div class="show-article-title">
+					<b><%= @article.title.capitalize %></b><br>
+					<small>Published <%= (@article.published_at || @article.updated_at).strftime('%b %d, %Y') %>
+						by <%= @article.user.username.capitalize %></small>
+				</div>
+				
+				<%= article_status_bar(@article) if can? :update, @article %>
+				<div class="article-content">
+					<p><%= (@article.body).html_safe %></p>
+				</div>
+				
+				<%= meta_info(@article) do %>
+					<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_article_path(@article), 
+						title: "Edit" if can? :update, @article %>
+					<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @article, 
+						method: :delete, confirm: "Are you sure? You will lose any points associated with this article", 
+						title: "Delete" if can? :destroy, @article %>
+				<% end %>
+			</div>	
+			
+			<section class="comments-area">	
+				<%= display_comments(@article) %>
+				<%= link_to "Add comment", "#", class: "comment-button" %>
+				<%= render partial: "comments/form", locals: { commentable: @article } %>
+			</section>
+		</div>
+	</div>
+	
+	<aside>
+		<div class="col-md-4">
+			<%= render partial: "shared/promotion" %>
+			<%= render partial: 'shared/articles_sidebar', locals: { articles: @latest } %>
+		</div>	
+	</aside>
+</div>

@@ -1,25 +1,31 @@
 <% meta_title(@decorator.username.titleize) %>
 
-<%= render partial: "users/stats", locals: { decorator: @decorator } %>
+<%= application_banner('video-banner yas-links-banner') do %>
+	<%= render partial: "users/stats", locals: { decorator: @decorator } %>
+<% end %>	
 
 <section class="row">
-	<div class="span6">
-		<h2>Points Breakdown</h2>
+	<div class="col-md-6 col-sm-6">
+		<h2><%= link_to 'Points Breakdown', points_path(@decorator) %></h2>
 		<div id="points-breakdown" data-user-id="<%= @decorator.id %>">
-			<!-- Points loaded via Ajax -->
 			<%= render partial: "shared/loading", locals: { message: "points" } %>
 		</div>
-		<%= link_to "View all", points_path(@decorator) if @points.any? %>
 	</div>
-	
-	<div class="span6">
-		<h2>Activity</h2>
+	<div class="col-md-6 col-sm-6">
+		<h2>Activity Summary</h2>
 		<center>
 			<%= link_to "Questions", user_questions_path(@decorator), class: "default-xl next fullwidth" %>
 			<%= link_to "Answers", user_answers_path(@decorator), class:  "default-xl success fullwidth" %>
-			<%= link_to "Comments", user_comments_path(@decorator), class: "default-xl asphalt fullwidth" %>
+			<%= link_to "Articles", user_articles_path(@decorator), class: "default-xl asphalt fullwidth" %>
 		</center>
 	</div>
+</section>	
+<hr>
+<section class="row">
+	<div class="col-md-12 col-sm-12">
+		<h2><%= link_to 'Swing Videos', videos_path %></h2>
+		<%= render @user.videos %>
+	</div>	
 </section>	
 	
 <!-- Loads points via ajax -->	

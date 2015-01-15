@@ -105,6 +105,46 @@ ALTER SEQUENCE answers_id_seq OWNED BY answers.id;
 
 
 --
+-- Name: articles; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE articles (
+    id integer NOT NULL,
+    title character varying(255),
+    body text,
+    tags character varying(255),
+    user_id integer,
+    cover_image character varying(255),
+    state character varying(255) DEFAULT 'draft'::character varying,
+    published_at date,
+    impressions_count integer DEFAULT 0,
+    votes_count integer DEFAULT 0,
+    comments_count integer DEFAULT 0,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: articles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE articles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: articles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE articles_id_seq OWNED BY articles.id;
+
+
+--
 -- Name: carrierwave_videos; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -325,7 +365,8 @@ CREATE TABLE questions (
     correct boolean DEFAULT false,
     tags character varying(255),
     impressions_count integer DEFAULT 0,
-    comments_count integer DEFAULT 0
+    comments_count integer DEFAULT 0,
+    videos_count integer DEFAULT 0
 );
 
 
@@ -631,6 +672,13 @@ ALTER TABLE ONLY answers ALTER COLUMN id SET DEFAULT nextval('answers_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY articles ALTER COLUMN id SET DEFAULT nextval('articles_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY carrierwave_videos ALTER COLUMN id SET DEFAULT nextval('carrierwave_videos_id_seq'::regclass);
 
 
@@ -739,6 +787,14 @@ ALTER TABLE ONLY activities
 
 ALTER TABLE ONLY answers
     ADD CONSTRAINT answers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: articles_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY articles
+    ADD CONSTRAINT articles_pkey PRIMARY KEY (id);
 
 
 --
@@ -893,6 +949,34 @@ CREATE INDEX index_answers_on_question_id ON answers USING btree (question_id);
 --
 
 CREATE INDEX index_answers_on_user_id ON answers USING btree (user_id);
+
+
+--
+-- Name: index_articles_on_state; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_articles_on_state ON articles USING btree (state);
+
+
+--
+-- Name: index_articles_on_tags; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_articles_on_tags ON articles USING btree (tags);
+
+
+--
+-- Name: index_articles_on_title; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_articles_on_title ON articles USING btree (title);
+
+
+--
+-- Name: index_articles_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_articles_on_user_id ON articles USING btree (user_id);
 
 
 --
@@ -1166,3 +1250,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140521200343');
 INSERT INTO schema_migrations (version) VALUES ('20141019144454');
 
 INSERT INTO schema_migrations (version) VALUES ('20141228171757');
+
+INSERT INTO schema_migrations (version) VALUES ('20141231150004');
+
+INSERT INTO schema_migrations (version) VALUES ('20150118212010');

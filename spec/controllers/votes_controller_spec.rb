@@ -17,14 +17,14 @@ describe VotesController do
   end
   
   describe "POST vote" do
-    it "creates vote with valid params" do
+    it "creates vote with valid params for answer" do
       controller.stub(:current_user).and_return(@user2)
       expect {
         post :create, vote: { votable_id: @answer.id, votable_type: @answer.class, value: 1 }
       }.to change(Vote, :count).by(1)
     end
     
-    it "fails with invalid params" do
+    it "fails with invalid params for answer" do
       controller.stub(:current_user).and_return(@user2)
       expect {
         post :create, vote: { votable_id: @answer.id, votable_type: @answer.class, value: nil }
