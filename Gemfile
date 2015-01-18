@@ -27,7 +27,6 @@ group :test do
 end
 
 group :assets do
-  gem "twitter-bootstrap-rails"
   gem "less-rails"
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -48,9 +47,9 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem "whenever", :require => false
 gem 'execjs'
+#gem 'bootstrap-wysihtml5-rails'
 gem 'will_paginate', '3.0.3'
 gem 'aws-sdk' #a ws-sdk-1.37.0 previous version
-gem 'bootstrap-wysihtml5-rails'
 gem 'draper', :git => "git://github.com/drapergem/draper.git"
 gem "delayed_job_active_record"
 gem "cancan"

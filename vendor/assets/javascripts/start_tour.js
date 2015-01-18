@@ -35,18 +35,16 @@ tour.addSteps([
 	placement: "top"
 },
 {
-	element: "#tour-vote",
+	element: "td.votes-count:first",
 	title: "Votes",
 	content: "This box shows the number of votes for this question...",
 	placement: "top",
-	backdrop: true
 },
 {
-	element: "#no-correct-answer",
+	element: "td.answers-count:first",
 	title: "Answers",
 	content: "..and this shows the number of answers submitted. It turns green when an answer has been accepted.",
 	placement: "top",
-	backdrop: true,
 	onNext: function(tour) {
 		triggerNavCollapse();
 	 }

@@ -15,17 +15,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require twitter/bootstrap/bootstrap-transition
-//= require twitter/bootstrap/bootstrap-alert
-//= require twitter/bootstrap/bootstrap-modal
-//= require twitter/bootstrap/bootstrap-dropdown
-//= require twitter/bootstrap/bootstrap-tooltip
-//= require twitter/bootstrap/bootstrap-collapse
-//= require twitter/bootstrap/bootstrap-popover
-//= require twitter/bootstrap/bootstrap-carousel
 //= require jquery-fileupload/basic
 //= require jquery.tokeninput
-//= require bootstrap-wysihtml5
+//= require bootstrap
+//= require bootstrap-tour
+//= require wysihtml5-toolbar
+//= require wysihtml5
 //= require_tree .
 
 

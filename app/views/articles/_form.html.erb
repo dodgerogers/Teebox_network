@@ -1,6 +1,6 @@
 <div class="row">
 	<%= form_for(@article) do |f| %>
-		<div class="span8">
+		<div class="col-md-8 col-sm-12">
 			<% if @article.errors.any? %>
 				<div id="error_explanation">
 		  			<h2><%= pluralize(@article.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -16,21 +16,21 @@
 
 			<div>
 				<%= f.label :title, raw("<i class='icon-font'></i> Title") %>
-				<%= f.text_field :title %>
+				<%= f.text_field :title, class: 'form-control' %>
 			</div><br>
 
 			<div>
 				<%= f.label :body, raw("<i class='icon-align-justify'></i> Body") %>
-				<%= f.text_area :body, class: "wysihtml5" %>
+				<%= f.text_area :body, id: "article_#{@article.object_id}" %>
 				<script type="text/javascript">
-					$('.wysihtml5').wysihtml5({
-						html: true,
-						video: true
-					});
+					$('#article_<%= @article.object_id %>').wysihtml5(
+						WysihtmlEditorOptions.article
+					);
 				</script>	
 			</div>
+			<hr>
 		</div>
-		<aside class="span4">
+		<aside class="col-md-4 col-sm-12 col-xs-12">
 			<%= render partial: 'shared/article_image_select' %><hr>
 			
 			<% if @article.valid? %>

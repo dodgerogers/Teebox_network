@@ -46,6 +46,16 @@ class Ability
         video.try(:user) == user
       end
       
+      # Points
+      can [:breakdown], Point do |point|
+        point.try(:user) == user
+      end
+      
+      # Users
+      can [:articles, :questions, :answers], User do |user|
+        user == user
+      end
+      
       # Tags
       can [:read, :question_tags], Tag    
     else
@@ -53,6 +63,7 @@ class Ability
       can [:index, :show], Article
       can [:index], Comment
       can [:show], Answer
+      can [:index], User
     end
   end
 end

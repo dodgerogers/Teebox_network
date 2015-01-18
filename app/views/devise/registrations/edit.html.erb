@@ -3,8 +3,8 @@
 <html class="mobile-scroll">
 	<body class="sandy-hills-xl mobile-scroll">
 		<div class="row">
-			<div class="span2"></div>
-			<div class="span8">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
 				<div class="hero-unit blue-transparent">
 				<h1>Update Your Profile <i class="icon-cog"></i></h1>
 
@@ -19,27 +19,27 @@
 
 					<div class="registration">
 					<%= f.label :email, raw("<i class='icon-envelope'></i> Email") %>
-					<%= f.email_field :email %>
+					<%= f.email_field :email, class: 'form-control'  %>
 					</div>
 
 					<div class="registration">
 					<%= f.label :username, raw("<i class='icon-user'></i> Username")  %>
-					<%= f.text_field :username %>
+					<%= f.text_field :username, class: 'form-control'  %>
 					</div>
 
 					<div class="registration">
 					<%= f.label :password, raw("<i class='icon-lock'></i> Password") %> <small>(leave blank if you don't want to change it)</small>
-					<%= f.password_field :password %>
+					<%= f.password_field :password, class: 'form-control'  %>
 					</div>
 
 					<div class="registration">
 					<%= f.label :password_confirmation, raw("<i class='icon-lock'></i> Password Confirmation") %>
-					<%= f.password_field :password_confirmation %>
+					<%= f.password_field :password_confirmation, class: 'form-control'  %>
 					</div>
 
 					<div class="registration">
 					<%= f.label :current_password %> <small>(we need your current password to confirm your changes)</small>
-					<%= f.password_field :current_password %>
+					<%= f.password_field :current_password, class: 'form-control'  %>
 					</div>
 					
 					<div class="registration">
@@ -62,7 +62,7 @@
 				<%= link_to "Back", :back %>
 			</div>
 			</div>
-			<div class="span2"></div>
+			<div class="col-md-2"></div>
 		</div>
 	</body>
 </html>

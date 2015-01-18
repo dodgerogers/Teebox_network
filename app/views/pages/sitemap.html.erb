@@ -1,14 +1,12 @@
 <% meta_title("Sitemap") %>
 
-<div class="hero-unit rotator mobile">
-	<center>
-		<h1 class="welcome-banner">In case you get lost...</h1>
-	</center>
-</div>
+<%= application_banner("video-banner rotator") do %>
+	<h1 class="welcome-banner xl">In case you get lost...</h1>
+<% end %>
 
 <div class="row">
-	<div class="span6">
-		<b>Pages</b>
+	<div class="col-md-6">
+		<p><b>Pages</b></p>
 		<ul class="sitemap">
 			<li><%= link_to "Home", root_path %></li>
 			<li><%= link_to "About us", about_path %></li>
@@ -26,7 +24,7 @@
 			<% end %>
 		</ul>
 		
-		<b>Questions</b>
+		<p><b>Questions</b></p>
 		<ul class="sitemap">	
 			<% @questions.each do |q| %>		
 				<li><%= link_to q.title.titleize, q %></li>
@@ -34,12 +32,14 @@
 		</ul>
 	</div>
 
-	<div class="span6">			
-		<b>Tags</b>
+	<div class="col-md-6">			
+		<p><b>Tags</b></p>
 		<ul class="sitemap">
-			<li><%= link_to "Tag Vault", tags_path %></li>
+			<p><%= link_to "Tag Vault", tags_path %></p>
 			<% @tags.each do |t| %>
-				<li><%= link_to t.name, tagged_path(t.name) %></li>
+				<div class="tag_cloud_tag">
+					<%= link_to t.name, tagged_path(t.name), class:  tag_class(t) %>
+				</div>
 			<% end %>
 		</ul>
 	</div>

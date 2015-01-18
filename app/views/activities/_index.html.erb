@@ -1,4 +1,4 @@
-<li class="nav-header" id="activities">Notifications</li>
+<li class="dropdown-header" id="activities">Notifications</li>
 <table class="table teebox-table">
 	<% activities.each do |activity| %>
 		<% cache ["user_#{current_user.id}", activity] do %>

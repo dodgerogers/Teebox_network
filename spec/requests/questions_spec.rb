@@ -19,8 +19,8 @@ describe "Questions" do
     visit root_path
     sign_in_user
     click_on_question
-    fill_in "Title", with: ""
-    fill_in "Body", with: "my clubface is closed"
+    fill_in "question[title]", with: ""
+    fill_in "question[body]", with: "my clubface is closed"
     expect {
       click_button "Save"
     }.to_not change(Question, :count).by(1)
@@ -36,8 +36,8 @@ describe "Questions" do
       click_link "Edit"
     end
     page.should have_content "Edit your question"
-    fill_in "question_title", with: "this is a new title"
-    fill_in "question_tag_tokens", with: "spine angle"
+    fill_in "question[title]", with: "this is a new title"
+    fill_in "question[tag_tokens]", with: "spine angle"
     click_button "Save"
     expect {
       question.title.should eq "this is a new title"

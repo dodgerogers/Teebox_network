@@ -1,19 +1,25 @@
-<div class="modal hide fade in" id="failed">
-  <div class="modal-header">
-    <!--<a class="close" data-dismiss="modal"><i class="icon-remove-sign"></i></a>-->
-    <h3 class="video-upload">Uploading <i class="icon-cloud-upload pull-right upload-icon"></i></h3>
-  </div>
-  <div class="modal-body">
-    	<div id="dropzone">
-			<div id="upload">
-				<p class='video-upload-info'></p>
-			</div>
-			<div class="progress" id="progress">
-	  			<div class="bar bar-success" style="width:0%;"></div>
-			</div>
+<div class="modal fade" id="failed">
+	<div class="modal-dialog">
+  		<div class="modal-content">
+			<div class="modal-header">
+	    		<h3 class="video-upload">Uploading <i class="icon-cloud-upload pull-right upload-icon"></i></h3>
+		  	</div>
+		  	<div class="modal-body">
+				<div id="dropzone">
+					<div id="upload">
+						<p class='video-upload-info'></p>
+					</div>
+					
+					<div class="progress">
+					  <div class="progress-bar bar-success" id="progress" role="progressbar" style="width: 60%;">
+					    <span class="sr-only">60% Complete</span>
+					  </div>
+					</div>
+				</div>
+		  	</div>
+		  	<div class="modal-footer">
+		    	<a href="#" class="default" data-dismiss="modal">OK</a>
+		  	</div>
 		</div>
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="default" data-dismiss="modal">OK</a>
-  </div>
+	</div>
 </div>

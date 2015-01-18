@@ -1,7 +1,9 @@
 var videos = $("<%= j render(@videos) %>").hide();
-var videosDiv = $("#videos .videos");
-$("#videos .videos").fadeOut(250, function(){
-	$("#videos .videos").remove();
-	$("#videos").prepend(videos);
-	$("#videos .videos").fadeIn(250);
+var videoDiv = $("#videos")
+var sectionVideos = $("#videos article[id^=video]");
+
+sectionVideos.fadeOut(250, function(){
+	sectionVideos.remove();
+	videoDiv.prepend(videos);
+	$("#videos article[id^=video]").fadeIn(250);
 });

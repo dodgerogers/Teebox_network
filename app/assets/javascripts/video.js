@@ -67,7 +67,7 @@ $(function() {
         var percent;
         percent = void 0;
         percent = Math.round((e.loaded / e.total) * 100);
-        return $(".bar").css("width", percent + "%");
+        return $(".progress-bar").css("width", percent + "%");
       },
       fail: function(e, data) {
         console.log("Uploading failed");

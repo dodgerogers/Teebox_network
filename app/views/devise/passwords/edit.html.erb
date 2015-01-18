@@ -3,8 +3,8 @@
 <html class="mobile-scroll">
 	<body class="teebox-xl mobile-scroll">
 		<div class="row">
-			<div class="span2"></div>
-			<div class="span8">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
 				<div class=" hero-unit blue-transparent">
 				<h1>Change your password</h1>
 
@@ -14,12 +14,12 @@
 
 				<div class="registration">
 					<%= f.label :password, "New password" %>
-				  	<%= f.password_field :password %>
+				  	<%= f.password_field :password, class: 'form-control'  %>
 				</div>
 
 				<div class="registration">
 					<%= f.label :password_confirmation, "Confirm new password" %>
-				  	<%= f.password_field :password_confirmation %>
+				  	<%= f.password_field :password_confirmation, class: 'form-control'  %>
 				</div>
 
 				<div class="registration">

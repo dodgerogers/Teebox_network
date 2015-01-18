@@ -365,7 +365,8 @@ CREATE TABLE questions (
     correct boolean DEFAULT false,
     tags character varying(255),
     impressions_count integer DEFAULT 0,
-    comments_count integer DEFAULT 0
+    comments_count integer DEFAULT 0,
+    videos_count integer DEFAULT 0
 );
 
 
@@ -1251,3 +1252,5 @@ INSERT INTO schema_migrations (version) VALUES ('20141019144454');
 INSERT INTO schema_migrations (version) VALUES ('20141228171757');
 
 INSERT INTO schema_migrations (version) VALUES ('20141231150004');
+
+INSERT INTO schema_migrations (version) VALUES ('20150118212010');

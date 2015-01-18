@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	if ($('form #article_cover_image').length) {
-		var iframeBody = $('.wysihtml5-sandbox').contents().find('body');
+		var iframeBody = $('iframe.wysihtml5-sandbox').contents().find('body');
+		var cover_image_input = $('form #article_cover_image');
 		
 		$('#article_preview').on('click', function(event) {
 			event.preventDefault();
@@ -10,7 +11,7 @@ $(document).ready(function(){
 			
 			//articlepreviewModal.find('.modal-body .title').html(articleTitle);
 			articlepreviewModal.find('.modal-body .body').html(articleHtml);
-			articlepreviewModal.find('.modal-header h3').html(articleTitle);
+			articlepreviewModal.find('.modal-header h3').html('Previewing: ' + articleTitle);
 			articlepreviewModal.modal('show');
 		});
 		
@@ -29,14 +30,13 @@ $(document).ready(function(){
 		
 		var updateSelectedAndInput = function(images) {
 			if (images.length == 0) {
-				cover_image_input.val('')
-				displaySelectedText('Nothing')	
+				cover_image_input.val('');
+				displaySelectedText('Nothing');	
 			}
 		}
 		
 		var findImages = function(){
 			var images = iframeBody.find('img');
-			var cover_image_input = $('form #article_cover_image');
 			
 			images.css('max-width', '100%');
 			updateSelectedAndInput(images);
@@ -46,7 +46,7 @@ $(document).ready(function(){
 			images.each(function() {
 				var selectableImg = $(this).clone();
 				var parentDiv = $('div#article_images');
-				var div = $("<div class='selectable_image'></div>");
+				var div = $("<div class='selectable_image col-md-6 col-sm-6 col-xs-6'></div>");
 				
 				div.append(selectableImg);
 				parentDiv.append(div);
@@ -56,6 +56,10 @@ $(document).ready(function(){
 					displaySelectedText(this.src.split('/').pop());
 					addCheckedIcon(div);
 				}
+				
+				$(this).on('click', function(event){
+					event.preventDefault();
+				});
 
 				selectableImg.on('click', function(){
 					cover_image_input.val(this.src);

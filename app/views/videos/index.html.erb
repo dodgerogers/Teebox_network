@@ -2,12 +2,16 @@
 
 <%= render template: "videos/new" %>
 
-<p><h4 class="video-library">Video Library</h4></p>
-	<button class="default asphalt" onclick="VideoUpdate.request();">Refresh Videos</button>
-<hr>
+<div class="row">
+	<div class="col-md-12">
+		<p><h4 class="video-library">Video Library</h4></p>
+		<button class="default asphalt" onclick="VideoUpdate.request();">Refresh Videos</button>
+		<hr>
+	</div>
 
-<%= content_tag(:section, id: "videos", data: { url: videos_path }) do %>
-	<%= render @videos %>
-<% end %>
+	<%= content_tag(:section, id: "videos", data: { url: videos_path }) do %>
+		<%= render @videos %>
+	<% end %>
+</div>
 
 <%= render partial: "shared/modals/video_upload" %>

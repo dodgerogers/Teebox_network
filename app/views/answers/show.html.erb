@@ -4,10 +4,12 @@
 
 <body class="teebox-xl">
 	<div class="center-block">
-		<div class="span8 clearfix">
+		<div class="col-md-8 col-md-offset-2 clearfix">
 			<%= render @answer %>
-			<i class="icon-hand-left white"></i>
-			<%= link_to "View question: #{@answer.question.title}", @answer.question, class: "white" %>
+			<%= link_to @answer.question, class: "default submit" do %>
+				<i class="icon-hand-left white"></i>
+				<%= @answer.question.title %>
+			<% end %>	
 		</div>
 	</div>
 </body>	

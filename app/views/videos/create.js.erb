@@ -10,8 +10,8 @@
 		$("#failed").modal('hide');
 	}, 1500);
 	
-	$("#progress").hide(function() {
-	  $("#progress .bar").css("width", "0%");
+	$(".progress").fadeOut(function() {
+	  $(".progress-bar").css("width", "0%");
 	});
 <% end %>
 

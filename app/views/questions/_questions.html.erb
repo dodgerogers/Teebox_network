@@ -8,14 +8,19 @@
 			<td id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>" class='answers-count'>	
     			<%= question.answers_count %> <i class="icon-ok"></i>
 			</td>
-			<td id="question_<%= question.id %>" class="content-box-margin" style="text-align:left;width:100%;">
+			<td id="question_<%= question.id %>" class="content-td" style="text-align:left;width:100%;">
 				<p><b><%= link_to question.title, question %></b></p>
-				<%= meta_info(question, voting: false) %>
+				<%= meta_info(question, voting: false) do %>
+					<%= has_videos?(question) %>
+				<% end %>		
 			</td>
-		</tr>	
+		</tr>
+		<tr class="spacer"></td>
 	<% end %>
 	</tbody>
 </table>
 
-<%= will_paginate questions %>	
-<%= render partial: "shared/loading", locals: { message: "questions" } %>
+<div class="text-center" id='pagination'>
+	<%= will_paginate questions %>	
+	<%= render partial: "shared/loading", locals: { message: "questions" } %>
+</div>	

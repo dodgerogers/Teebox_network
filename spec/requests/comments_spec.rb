@@ -18,7 +18,7 @@ describe "Commments" do
     create_answer
     page.should have_selector("div", id: "question-answers")
     within('#question-answers') do
-        fill_in "comment-textarea", with: "try a grip change"
+        fill_in "comment[content]", with: "try a grip change"
     end
     within("#question-answers") do
       expect {
@@ -32,21 +32,22 @@ describe "Commments" do
     visit root_path
     sign_in_user
     create_and_find_question
-    page.should have_selector("div", id: "comment-textarea")
-    fill_in "comment-textarea", with: ""
+    page.should have_selector("div", class: "comment-textarea")
+    fill_in "comment[content]", with: ""
     expect {
       click_button "Create comment"
     }.to_not change(Comment, :count).by(1) 
   end
   
-  # it "deletes a comment" do
+  # it "deletes a comment", js: true do
   #     visit root_path
-  #      sign_in_user
-  #       create_and_find_question
-  #       create_comment
-  #       click_link "View 1 comment"
-  #       page.should have_selector("div", id: "delete-comment")
-  #       click_link "delete-comment"
-  #       page.should_not have_selector("div", class: "comment")
+  #     sign_in_user
+  #     create_and_find_question
+  #     create_comment
+  #     click_link "View 1 comment"
+  #     save_and_open_page
+  #     page.should have_selector("div", id: "delete-comment")
+  #     click_link "delete-comment"
+  #     page.should_not have_selector("div", class: "comment")
   #   end
 end

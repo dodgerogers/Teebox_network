@@ -12,7 +12,7 @@
 <% end %>
 
 <div class="row">
-	<div class="span8">
+	<div class="col-md-8 col-sm-8">
 		<div class="content-box" id="question" data-id="<%= @decorator.id %>">
 			<div class="question">
 				<h3><%= @decorator.title.capitalize %></h3>
@@ -23,7 +23,7 @@
 				</p>
 				
 				<div class="question-content">
-					<%= simple_format(@decorator.body) %>
+					<%= (@decorator.body).html_safe %>
 				</div>
 				
 				<%= meta_info(@decorator) do %>
@@ -55,7 +55,7 @@
 		
 	</div>
 	
-	<aside class="span4">
+	<aside class="col-md-4 col-sm-4">
 		<%= render partial: "shared/promotion" %>
 		
 		<div class="sidebar">
@@ -70,7 +70,7 @@
 		
 			<p><b><%= link_to "Ask a question", new_question_path, class: "default-xl center full-width-btn success" %></b></p>
 		</div>
-		<%= render @articles %>
+		<%= render partial: 'shared/articles_sidebar', locals: { articles: @articles } %>
 	</aside>	
 </div>
 

@@ -2,7 +2,8 @@ class Question < ActiveRecord::Base
   include Teebox::Toggle
   require 'obscenity/active_model'
   
-  attr_accessible :title, :body, :youtube_url, :votes_count, :answers_count, :comments_count, :points, :correct, :tag_tokens, :video_list
+  attr_accessible :title, :body, :youtube_url, :votes_count, :answers_count, :comments_count, :points, 
+                  :correct, :tag_tokens, :video_list, :videos_count
   attr_reader :tag_tokens
   
   belongs_to :user

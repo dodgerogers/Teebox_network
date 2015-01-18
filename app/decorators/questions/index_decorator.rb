@@ -12,15 +12,15 @@ class Questions::IndexDecorator < ApplicationDecorator
   end
 
   def search
-    @search ||= Question.text_search(params[:search]).includes(:user, :videos).paginate(page: params[:page], per_page: 20)
+    @search ||= Question.text_search(params[:search]).includes(:user).paginate(page: params[:page], per_page: 20)
   end
 
   # Essentially a wrapper adding pagination for the tagged_with method tested in question_spec.rb
   def tagged_questions
-    @tagged ||= Question.tagged_with(params[:tag]).includes(:user, :videos).paginate(page: params[:page], per_page: 20)
+    @tagged ||= Question.tagged_with(params[:tag]).includes(:user).paginate(page: params[:page], per_page: 20)
   end
 
   def newest_questions
-    @newest ||= Question.newest.includes(:user, :videos).paginate(page: params[:page], per_page: 20)
+    @newest ||= Question.newest.includes(:user).paginate(page: params[:page], per_page: 20)
   end
 end

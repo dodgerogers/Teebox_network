@@ -12,28 +12,29 @@
 
 	<div>
   		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video <small> - Select up to 3</small>") %>
-		<!-- @question for persisting selected videos in edit -->
   		<%= render partial: "videos/video_select", locals: { question: @question } %> 
 		<%= f.hidden_field :video_list %>
 	</div>
 
 	<div>
 		<%= f.label :title, raw("<i class='icon-font'></i> Title") %>
-		<%= f.text_field :title, placeholder: "Try and make your title as concise and explanatory as possible..." %>
+		<%= f.text_field :title, placeholder: "Try and make your title as concise and explanatory as possible...", class: 'form-control' %>
 	</div><br>
 
 	<div>
 	  <%= f.label :tag_tokens, raw("<i class='icon-tags'></i> Tags - <small>Tags help categorize your question. Maximum of 5</small>") %>
-	  <%= f.text_field :tag_tokens, data: { preload: @question.tags } %>
+	  <%= f.text_field :tag_tokens, data: { preload: @question.tags }, class: 'form-control' %>
 	</div><br>
 
 	<div>
 		<%= f.label :body, raw("<i class='icon-align-justify'></i> Body") %>
-		<%= f.text_area :body, placeholder: "Be sure to include as much info as you can, what club you are using, the shape of the ball flight, contact quality...", class: "wysihtml5" %>
+		<%= f.text_area :body, placeholder: "Be sure to include as much info as you can.", id: "question_#{@question.object_id}", class: "form-control question-textarea" %>
 		<script type="text/javascript">
-		  $('.wysihtml5').wysihtml5();
-		</script>	
-	</div>
+		  $('#question_<%= @question.object_id %>').wysihtml5(
+			WysihtmlEditorOptions.question
+		  );
+		</script>
+	</div><hr>
 
 	<%= f.submit "Save", class: "default success" %>
 	<%= link_to "Cancel", root_path , class: "default" %>

@@ -15,10 +15,11 @@
 	<%= f.hidden_field :question_id, value: question_id %>
 
 	<div class="field">
-		<% id = rand(1..2000) %>
-		<%= f.text_area :body, class: "wysihtml5 answer-form-#{id}", placeholder: "try to be as objective as possible"  %>
+		<%= f.text_area :body, id: "answer-form-#{@answer.object_id}", placeholder: "try to be as objective as possible"  %>
 		<script type="text/javascript">
-		  $('.answer-form-<%= id %>').wysihtml5();
+		  $('#answer-form-<%= @answer.object_id %>').wysihtml5(
+			WysihtmlEditorOptions.answer
+		  );
 		</script>
 	</div>
 	

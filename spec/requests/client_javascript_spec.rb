@@ -23,7 +23,7 @@ describe "javascript testing", js: true do
       visit root_path
       sign_in_user
       find('#user-profile-tour').click_link("200")
-      within(".span6") do
+      within(".col-md-6") do
         page.should have_content "Points Breakdown"
       end
       within("#points-breakdown") do

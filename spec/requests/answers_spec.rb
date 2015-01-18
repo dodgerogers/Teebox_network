@@ -27,7 +27,7 @@ describe "Answers" do
     create_and_find_question
     click_link "Answer question"
     page.should have_selector("div", id: "new_answer")
-    fill_in "answer_body", with: ""
+    fill_in "answer[body]", with: ""
     
     expect {
       click_button "Save Answer"

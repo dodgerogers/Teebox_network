@@ -12,9 +12,21 @@ describe QuestionHelper do
   describe "display_results" do
     it "returns 1 tagged question found" do
       helper.stub!(:params).and_return(true)
-      helper.stub!(:total_entires).and_return(:size)
-      #paginate questions for total_entries method
-      helper.display_results([@question].paginate, "tag").should eq "<div id=\"params\"><h2 class=\"zero-margin\">tag</h2><div>1 Question found</div></div>"
+      helper.stub!(:total_entries).and_return(:size)
+      helper.display_results([@question].paginate, "tag").should include('1 Question found')
+    end
+  end
+  
+  describe 'has_videos?(question)' do
+    it 'returns green icon when question has videos' do
+      video = create(:video, user: @user1)
+      @question.videos << video
+      helper.has_videos?(@question).should include('green')
+    end
+    
+    it 'returns standard icon when question has videos' do
+      @question.videos = []
+      helper.has_videos?(@question).should include('0')
     end
   end
 end

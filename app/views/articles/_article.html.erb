@@ -1,7 +1,8 @@
-<article class="index-article" style="<%= article_cover_image(article.cover_image) %>">
-	<div class="index-article-title">
-		<b><%= link_to article.title.capitalize, article %></b>
-		<small> - <%= article.published_at.strftime('%b %d, %Y') %></small>
-	</div>
-</article>
-
+<div class="<%= css.respond_to?(:call) ? css.call(article_counter) : css %>">
+	<article class="index-article" style="<%= article_cover_image(article.cover_image) %>">
+		<div class="index-article-title">
+			<b><%= link_to article.title.capitalize, article %></b>
+			<small> - <%= article.published_at.strftime('%b %d, %Y') %> <i class='icon-eye-open'></i> <%= article.impressions_count %> 		<i class='icon-plus'></i> <%= article.votes_count %></small>
+		</div>
+	</article>
+</div>

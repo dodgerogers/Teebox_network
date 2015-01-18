@@ -1,6 +1,7 @@
 // Have to remove .loading so we don't get multiples, plus the partial below contains another .loading div
 $("#questions-index").find(".loading").remove();
-$('.pagination').replaceWith('<%= j render partial: "questions/questions", locals: {questions: @decorator.newest_questions} %>');
+$('#pagination').replaceWith('<%= j render partial: "questions/questions", locals: {questions: @decorator.newest_questions} %>');
+$('.load-questions a').blur();
 
 <% unless @decorator.newest_questions.next_page %>
   	$('.load-questions').remove();

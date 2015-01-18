@@ -41,32 +41,23 @@ form .btn {
 //-------- navbar --------//
 
 .navbar .container {
-	//margin-top: 2px;
-	//margin-bottom: 6px;
 	max-width:1170px;
 }
-.navbar-inner {
-	@include border-radius;
-}
-.navbar-inner {
-	border:none;
+.navbar {
+	border:none!important;
 	background: $universe;
+	@include border-radius(0px!important);
+	
 }
 .navbar {
 	margin-bottom: 30px;
 }
-.navbar .brand {
+.navbar .navbar-brand {
 	font-family: 'BebasNeueRegular';
-	font-size: 24px;
-	//color: #0a323a;
+	font-size: 26px;
 	color: $light-gundam;
 	letter-spacing: 1px;
-	text-shadow: 0 0 0 #000;
-	padding: 8px 20px 9px;
-	margin-top: 0px;
-}
-.navbar #brand {
-	//text-shadow: 0px 1px 1px #297D8B;
+	padding: 11px;
 }
 .navbar .brand:hover,.navbar .nav > li > a:hover {
 	color: #fff!important;
@@ -74,11 +65,14 @@ form .btn {
 }
 .navbar .nav > li > a {
 	font-weight:bold;
-	//color: #0A323A;
 	color: $light-gundam;
+	background: $universe;
+	&:hover {
+		background: $blackhole;
+	}
 	//text-shadow: 0px 1px 1px #297D8B;
-	text-shadow: 0px 0px 0px #297D8B;
-	padding: 10px 15px 10px;
+	//text-shadow: 0px 0px 0px #297D8B;
+	//padding: 10px 15px 10px;
 }
 .navbar .nav li.dropdown.open > .dropdown-toggle, 
 .navbar .nav li.dropdown.active > .dropdown-toggle, 
@@ -99,31 +93,41 @@ form .btn {
 .dropdown-backdrop {
     position: static;
 }
-.navbar .btn-navbar {
+.navbar .navbar-toggle {
 	background:$ocean;
 	margin-top:6px;
+	color: #fff;
+	border: 1px solid $universe;
+	.icon-bar {
+		background: #fff;
+	}
 	&:hover {
 		background: $universe!important;
 	}
+	&:focus {
+		background: $blackhole;
+	}
 }
+
 .dropdown-menu li > a {
 	color:$teal;
 	&:hover {
 		background:$ocean;
+		color: #fff;
 	}
 }
 .dropdown-menu {
 	@include border-radius;
 }
-.dropdown-menu {
-	//padding: 0px;//
+ul #notifications-area {
+	width:500px;
 }
 .navbar .nav-info a {
 	display:inline-block;
 	vertical-align:middle;
 }
 .cog {
-	font-size: 20px;
+	font-size: 18px;
 	vertical-align: middle!important;
 }
 
@@ -157,15 +161,15 @@ form .btn {
 // Notifications count in header --//
 
 #notifications {
-	//font-family: $bebas;
-	background: $ocean;
-	padding: 5px 12px 5px;
-	margin: 6px 5px 2px;
-	color: #fff;
+	font-family: $bebas;
+	//background: $ocean;
+	//padding: 5px 12px 5px;
+	//margin: 9px 0px 2px;
+	//color: #fff;
 	//@include box-shadow(0px,1px,1px,$teal);
-	&:hover {
-		background: $universe;
-	}
+	//&:hover {
+	//		background: $universe;
+	//	}
 }
 .new-notifications {
 	background: $red!important;
@@ -193,7 +197,7 @@ form .btn {
 	}
 }
 .unread {
-	background: #f0f0f0;
+	background: $ice;
 }
 
 //-- current user elements --//
@@ -231,7 +235,6 @@ input[type="month"], input[type="time"], input[type="week"],
 input[type="number"], input[type="email"], input[type="url"], 
 input[type="search"], input[type="tel"], input[type="color"], 
 .uneditable-input {
-	height: 30px;
 	@include box-sizing;
 	//@include border-radius;
 }
@@ -243,11 +246,18 @@ input[type="password"], input[type="email"] {
 }
 
 textarea, iframe.wysihtml5-sandbox {
-	//@include border-radius;
+	@include border-radius(4px);
 	width:100%!important;
 	max-height:350px;
 	@include box-sizing;
 	font-family: $lucida;
+	border: 1px solid #ccc;
+	body {
+		img {
+			width:100%!important;
+		}
+		width:100%!important;
+	}
 	//word-wrap: break-word!important;
 }
 iframe.wysihtml5-sandbox {
@@ -309,9 +319,9 @@ label.notify {
 	opacity: 0;
 	filter: alpha(opacity=0);
 }
-input, textarea {
-	width:100%;	
-}
+//input, textarea {
+//	width:100%;	
+//}
 .input-xlarge {
 margin: 0px 0px 10px;
 }
@@ -327,7 +337,7 @@ form#new_video {
 	border:none;
 	//@include box-shadow(0px,1px,1px,#297D8B);
 	color: #fff;
-	margin-top: 6px;
+	//margin-top: 6px;
 	&:focus {
 		background: $light-gundam;
 		-webkit-box-shadow: 0 0 1px #fff;
@@ -337,6 +347,7 @@ form#new_video {
 }
 #search-tags {
 	width: 60%;
+	margin: auto auto 10px;
 	@extend #search;
 }
 //---------------- hero unit + wells----------------------//
@@ -345,6 +356,7 @@ form#new_video {
 	padding: 30px 60px;
 	font-size:14px;
 	@include box-sizing;
+	@include border-radius(4px);
 	h1 {
 	    font-size: 36px;
 		color: $red;
@@ -360,6 +372,9 @@ form#new_video {
 
 table.teebox-table {
 	margin-bottom: 5px;
+	tr:hover {
+		background: $ice;
+	}
 	td {
 		text-align:left;
 		&.vote-container {
@@ -479,9 +494,6 @@ body .banner-alert {
 }
 
 // Modal //
-.modal.fade.in {
-	top:25%;
-}
 .modal-header {
 	background: $universe;
 }
@@ -489,12 +501,12 @@ body .banner-alert {
 	color: #fff!important;
 	text-shadow: 0px 2px 0px $asphalt;
 	letter-spacing: 0px!important;
-	//font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;//
 	font-weight:300!important;
 }
 
 // Popover //
 .popover {
+	padding:0px;
 	h3.popover-title {
 		font-family: $lucida;
 		color: $red;

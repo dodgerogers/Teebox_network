@@ -6,16 +6,16 @@
 <% end %>	
 
 <%= render partial: "shared/nav_links" %>
-	
-<% if params[:search] %>
-	<%= display_results(@decorator.search, params[:search]) %>
-<% elsif params[:tag] %>
-	<%= render partial: "tags/tag_cloud", locals: { questions: Tag.cloud } %>
-	<%= display_results(@decorator.tagged_questions, params[:tag]) %>
-<% end %>
 
 <section class="row" id="questions-index">
-	<div class="span8">
+	<div class="col-md-8 col-sm-12">
+		<% if params[:search] %>
+			<%= display_results(@decorator.search, params[:search]) %>
+		<% elsif params[:tag] %>
+			<%= render partial: "tags/tag_cloud", locals: { questions: Tag.cloud } %>
+			<%= display_results(@decorator.tagged_questions, params[:tag]) %>
+		<% end %>
+		
 		<% if params[:search] %> 
 			<%= render partial: "questions/questions", locals: { questions: @decorator.search, title: 'Search Results' } %>
 		<% elsif params[:tag] %>
@@ -23,13 +23,13 @@
 		<% else  %>
 			<%= render partial: "questions/questions", locals: { questions: @decorator.newest_questions, title: 'Latest Questions' } %>
 		<% end %>
+		
+		<div class="load-questions">
+			<%= link_to "Load more questions", '#', class: "default next" if current_page?(root_path) %>
+		</div>
 	</div>
-	<aside class='span4'>
+	<aside class='col-md-4 col-sm-12'>
 		<%= render partial: "shared/promotion" %>
-		<%= render @articles %>
-	</aside>	
+		<%= render partial: 'shared/articles_sidebar', locals: { articles: @articles } %>
+	</aside>
 </section>	
-
-<div class="load-questions">
-	<%= link_to "Load more questions", '#', class: "default next" if current_page?(root_path) %>
-</div>

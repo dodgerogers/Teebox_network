@@ -4,7 +4,7 @@
 	<h1 class="ranking">Tag Vault&nbsp; <i class="icon-tags"></i></h1>	
 	<p>A tag is a word or phrase that categorizes your question with other, similar questions, making it easier for others to find and answer your question.</p>
 	<%= form_tag tags_path, id: "tag-search", method: "get" do %>
-	<%= text_field_tag :search, params[:search], id: "search-tags", placeholder: "Search for tags" %>
+		<%= text_field_tag :search, params[:search], class: 'form-control', id: "search-tags", placeholder: "Search for tags" %>
 	<% end %>
 	<%= link_to "Create a new Tag", new_tag_path, class: "default submit" if can? :create, Tag %>
 <% end %>
@@ -15,6 +15,8 @@
 	<%= render @tags %>
 </section>
 	
-<%= will_paginate @tags %>
+<div class="text-center">
+	<%= will_paginate @tags %>
+</div>
 
 <p><small>Credit to the PGA of America. <%= link_to "Source", "http://www.pga.com/golf-instruction/instruction-feature/fundamentals/golf-glossary", target: "_blank" %></small></p>
