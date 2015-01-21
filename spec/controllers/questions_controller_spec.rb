@@ -52,11 +52,6 @@ describe QuestionsController do
       response.should be_success
       response.content_type.should eq Mime::JS
     end
-    
-    it "renders the fullwidth layout" do
-      get :index
-      response.should render_template("layouts/fullwidth")
-    end
   end
   
   describe "GET popular" do
@@ -64,22 +59,12 @@ describe QuestionsController do
       get :popular
       response.should render_template :popular
     end
-    
-    it "renders the fullwidth layout" do
-      get :popular
-      response.should render_template("layouts/fullwidth")
-    end
   end
   
   describe "GET unanswered" do
     it "renders unanswered template" do
       get :unanswered
       response.should render_template :unanswered
-    end
-    
-    it "renders the fullwidth layout" do
-      get :unanswered
-      response.should render_template("layouts/fullwidth")
     end
   end
   

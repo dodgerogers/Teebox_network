@@ -2,7 +2,6 @@ class TagsController < ApplicationController
   
   before_filter :authenticate_user!, except: :index
   load_and_authorize_resource
-  layout "fullwidth", only: :index
   
   def new
     @tag = Tag.new

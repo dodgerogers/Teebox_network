@@ -26,6 +26,12 @@ describe Video do
     before { subject.user_id = nil }
     it { should_not be_valid }
   end
+  
+  describe 'formatted_filename' do
+    it 'should return filename append with timestamp' do
+      subject.formatted_filename.should include(File.basename(@video.file, '.*'))
+    end
+  end
     
   describe "get_key" do
     it "extracts the aws key" do

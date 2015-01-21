@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :set_article, except: [:new, :index, :create, :admin]
   load_and_authorize_resource except: [:index, :show]
-  layout "fullwidth", only: [:index, :show, :new, :edit, :admin] 
   
   def new
     @article = Article.new

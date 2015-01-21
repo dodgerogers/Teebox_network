@@ -52,6 +52,9 @@ form .btn {
 .navbar {
 	margin-bottom: 30px;
 }
+.navbar-collapse.collapse.in {
+	overflow: visible;
+}
 .navbar .navbar-brand {
 	font-family: 'BebasNeueRegular';
 	font-size: 26px;
@@ -70,16 +73,12 @@ form .btn {
 	&:hover {
 		background: $blackhole;
 	}
-	//text-shadow: 0px 1px 1px #297D8B;
-	//text-shadow: 0px 0px 0px #297D8B;
-	//padding: 10px 15px 10px;
 }
 .navbar .nav li.dropdown.open > .dropdown-toggle, 
 .navbar .nav li.dropdown.active > .dropdown-toggle, 
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
 	color: #fff;
 	background: $ocean;
-	//padding-bottom: 7px;
 }
 .navbar .pull-right > li > .dropdown-menu, .navbar .nav > li > .dropdown-menu.pull-right {
 	top: 40px;

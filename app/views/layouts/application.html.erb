@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <HTML lang="en">
 	<head>
-		<%= render template: "layouts/head" %>
+		<title><%= meta_title %></title>
+		<%= content_tag(:meta, nil, name: "description", content: meta_description) %>
+		<%= content_tag(:meta, nil, name: "keywords", content: meta_keywords) %>
+		<%= favicon_link_tag "/favicon.ico" %>
+		<%= favicon_link_tag 'teebox-app-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+		<%= stylesheet_link_tag    "application", media: "all" %>
+		<%= javascript_include_tag "application", media: 'all' %>
+		<%= csrf_meta_tags %>
+		<%= yield :head %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="google-site-verification" content="F719ieOFnrp1nE4XCEUHbeQqkjvCycddAUC-5z4Dkgo" />
+		<meta property="og:image" content='<%= "#{request.protocol}#{request.host_with_port}#{asset_path('teebox-app-icon.png')}" %>' />
+		<!--[if lt IE 9]>
+		<div class="alert alert-error" id="enable-javascript">
+			Teebox Network is not fully compatible with your version of Internet Explorer. Please upgrade to 9 or above.
+		</div>
+		<![endif]-->
 	</head>
 	<body>
 		<div id="wrap">
-			<%= render template: "layouts/header" %>			
+			<%= render template: "layouts/header" %>
+			<%= render partial: "layouts/enable_javascript", locals: { banner: "banner-alert" } %>
+			
+			<% flash.each do |name, msg| %>
+			 	<div class="alert banner-alert alert-<%= name == :notice ? "success" : "error" %> fade in">
+				 	<a class="close" data-dismiss="alert">&#215;</a>
+				   	<%= content_tag :div, msg, :id => "flash" if msg.is_a?(String) %>
+				</div>
+			<% end %>
+			
+			<%= yield :banner %>
+			
 			<div class="container" id="margin-bottom">
-				<%= render partial: "layouts/enable_javascript" %>
-				<% flash.each do |name, msg| %>
-				 	<div class="alert alert-<%= name == :notice ? "success" : "error" %> fade in">
-					 	<a class="close" data-dismiss="alert">&#215;</a>
-					   	<%= content_tag :div, msg, :id => "flash" if msg.is_a?(String) %>
-					</div>
-				<% end %>
 				<%= yield  %>
 			</div>
 			<div id="push"></div>

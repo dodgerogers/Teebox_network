@@ -14,9 +14,22 @@
 	<div class="col-md-6 col-sm-6">
 		<h2>Activity Summary</h2>
 		<center>
-			<%= link_to "Questions", user_questions_path(@decorator), class: "default-xl next fullwidth" %>
-			<%= link_to "Answers", user_answers_path(@decorator), class:  "default-xl success fullwidth" %>
-			<%= link_to "Articles", user_articles_path(@decorator), class: "default-xl asphalt fullwidth" %>
+			<%= link_to user_questions_path(@decorator), class: "default-xl next fullwidth" do %>
+				<i class="icon-question"></i> Questions
+			<% end %>
+			
+			<%= link_to user_answers_path(@decorator), class:  "default-xl success fullwidth" do %>
+				<i class="icon-check"></i> Answers
+			<% end %>
+			
+			<%= link_to user_articles_path(@decorator), class: "default-xl asphalt fullwidth" do %>
+				<i class="icon-file-text-alt"></i> Articles
+			<% end %>
+			
+			<hr>
+			<%= link_to new_question_path(), class: "default-xl submit fullwidth" do %>
+				<i class="icon-plus"></i> Ask a question
+			<% end %>	
 		</center>
 	</div>
 </section>	
@@ -27,7 +40,6 @@
 		<%= render @user.videos %>
 	</div>	
 </section>	
-	
-<!-- Loads points via ajax -->	
+
 <%= javascript_include_tag "points.js", defer: "defer" %>	
 
