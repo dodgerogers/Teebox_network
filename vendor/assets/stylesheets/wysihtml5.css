@@ -6,7 +6,7 @@ ul.wysihtml5-toolbar {
     padding: 0;
     display: block;
 }
-ul.wysihtml5-toolbar: :after {
+ul.wysihtml5-toolbar:after {
     clear: both;
     display: table;
     content: "";
