@@ -14,6 +14,12 @@ class Video < ActiveRecord::Base
     "#{id} - #{File.basename(self.file)}".parameterize
   end
   
+  def formatted_filename
+    filename = File.basename(self.file, '.*')[0..26].downcase
+    timestamp = self.created_at.strftime('%b-%d-%Y')
+    "#{filename}-#{timestamp}"
+  end
+  
   def aws_file_key(attribute=:file)
     self.send(attribute).gsub("http://#{CONFIG[:s3_bucket]}.s3.amazonaws.com/", '') if self.send(attribute)
   end

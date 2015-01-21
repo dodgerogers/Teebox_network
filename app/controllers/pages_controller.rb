@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   caches_page :info, :about, :terms
-  layout "fullwidth", only: [:info, :sitemap]
   
   def info
   end

@@ -1,4 +1,4 @@
-<% meta_title(File.basename(@video.file).titleize) %>
+<% meta_title(@video.formatted_filename.titleize) %>
 
 <%= content_for :head do %>
 	<%= javascript_include_tag "sublime.js", defer: "defer" %>
@@ -9,14 +9,14 @@
 		<%= raw sublime_video(@video) %><br>		
 	</div>
 	<div class="col-md-5 col-sm-5">
-		<h5><%= File.basename(@video.file).titleize  %></h5>
+		<h5><%= @video.formatted_filename.titleize  %></h5>
 		<div class="profile-info">
 			<%= link_to image_tag(avatar_url(@video.user)), @video.user %>
 			<small><%= link_to @video.user.username.titleize, user_path(@video.user) %><br>
 			<i class="icon-calendar"></i>&nbsp;<%= time_ago_in_words(@video.created_at) %> ago</small>
 		</div>
 		<br><br>
-		<%= link_to "Video library", videos_path, class: "default submit" %>
+		<%= link_to "Swing Videos", videos_path, class: "default submit" %>
 		<%= link_to "Delete", video_path(@video), class: "default next", method: :delete %>
 	</div>	
 </div>

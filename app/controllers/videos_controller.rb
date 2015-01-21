@@ -2,7 +2,6 @@ class VideosController < ApplicationController
   
   before_filter :authenticate_user!
   load_and_authorize_resource
-  layout "fullwidth", only: [:new, :index] 
   
   def show
   end
@@ -21,11 +20,9 @@ class VideosController < ApplicationController
   
   def create
     @video = current_user.videos.build(params[:video])
-    Rails.logger.info("*~*~*~*~* Creating video...")
     respond_to do |format|
       if @video.save
         TranscoderRepository.generate(@video)
-        Rails.logger.info("*~*~*~*~* Created Transcoder Job, new video attrs - #{@video.attributes.slice("file", "screenshot")}...")
         format.html { redirect_to videos_path, notice: 'Video was successfully uploaded.' }
         format.json { render json: @video, status: :created, location: @video }
         format.js 

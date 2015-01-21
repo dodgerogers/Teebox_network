@@ -1,8 +1,11 @@
 module ArticleHelper  
   PAIR_ARTICLE_SEQUENCE = Proc.new {|n| (-3 - (-1)**n + 4 * n) / 2 }
-  COL_SEVEN_WIDTH = 'col-md-7 col-sm-7'
-  COL_FIVE_WIDTH = 'col-md-5 col-sm-5'
   NBSP = '&nbsp;'
+   
+  COL_TWELVE_WIDTH = 'col-md-12 col-sm-12'
+  COL_EIGHT_WIDTH = 'col-md-8 col-sm-8'
+  COL_FOUR_WIDTH = 'col-md-4 col-sm-4'
+  COLUMN_WIDTHS = { 12 => COL_TWELVE_WIDTH, 8 => COL_EIGHT_WIDTH, 4 => COL_FOUR_WIDTH }
   
   def valid_transition_links(article, opts={})
     separator = opts[:separator] || NBSP
@@ -13,7 +16,7 @@ module ArticleHelper
   
   def article_sequence_formatter(count, size)
     sequence = (0..size).map {|n| PAIR_ARTICLE_SEQUENCE.call(n) }
-    sequence.include?(count) ? COL_SEVEN_WIDTH : COL_FIVE_WIDTH
+    sequence.include?(count) ? COL_EIGHT_WIDTH : COL_FOUR_WIDTH
   end
   
   def article_status_bar(article)

@@ -6,7 +6,6 @@ class QuestionsController < ApplicationController
   before_filter :set_question, only: [:show, :related]
   before_filter :set_articles, only: [:show, :index]
   load_and_authorize_resource except: [:index, :show, :related]
-  layout "fullwidth", only: [:index, :popular, :unanswered, :show, :new] 
   
   def new
     @question = Question.new

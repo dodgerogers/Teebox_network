@@ -56,10 +56,6 @@ $(document).ready(function(){
 					displaySelectedText(this.src.split('/').pop());
 					addCheckedIcon(div);
 				}
-				
-				$(this).on('click', function(event){
-					event.preventDefault();
-				});
 
 				selectableImg.on('click', function(){
 					cover_image_input.val(this.src);

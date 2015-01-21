@@ -324,6 +324,14 @@ body .sublimevideo-zi .sublimevideo-uj {
 		right:7px;
 		opacity: 1.0;
 	}
+	i.video-destroy-icon {
+		display:none;
+		position: absolute;
+		top: 32%;
+		left: 42%;
+		font-size: 40px;
+		color: #ccc;
+	}
 }
 
 @-webkit-keyframes pulsate {

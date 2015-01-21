@@ -1,14 +1,14 @@
 <%= content_tag(:article, id: "video_#{video.id}", class: "col-md-3 col-sm-4 col-xs-6", data: { id: video.id }) do %>
 	<%= content_tag(:div, class: "video-screenshot") do %>
-		<%= image_tag("spinner.gif", class: "loading loading_#{video.id}") %>
+		<i class='icon-cog video-destroy-icon icon-spin'></i>
 		<%= video_processed?(video) %>	
 		<%= link_to image_tag(display_screenshot(video, :xl)), video %>
 	<% end %>
 	
-	<h5><%= link_to truncate(File.basename(video.file), length: 32), video %></h5>
+	<h5><%= link_to video.formatted_filename, video %></h5>
 	
 	<%= content_tag(:p) do %>
-		<small><%= video.created_at.strftime("%d/%m/%y")  %></small>
-		<%= link_to raw("<i class='icon-remove-sign red'></i>"), video_path(video), method: :delete, remote: true, id: "delete-video_#{video.id}", onclick: "$('.loading_#{video.id}').show();" %>
+		<small><%= video.created_at.strftime("%d %b %Y")  %></small>
+		<%= link_to raw("<i class='icon-remove-sign red'></i>"), video_path(video), method: :delete, remote: true, id: "delete-video_#{video.id}", onclick: "$('#video_#{video.id} i.video-destroy-icon').show();" %>
 	<% end %>
 <% end %>

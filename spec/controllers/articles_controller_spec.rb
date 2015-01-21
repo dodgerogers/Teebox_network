@@ -35,11 +35,6 @@ describe ArticlesController do
       get :index
       response.should render_template :index
     end
-    
-    it "renders the fullwidth layout" do
-      get :index
-      response.should render_template("layouts/fullwidth")
-    end
   end
   
   describe "GET admin_articles" do
