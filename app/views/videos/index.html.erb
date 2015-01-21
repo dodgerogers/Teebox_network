@@ -8,7 +8,8 @@
 		<button class="default asphalt" onclick="VideoUpdate.request();">Refresh Videos</button>
 		<hr>
 	</div>
-
+</div>
+<div class="row">	
 	<%= content_tag(:section, id: "videos", data: { url: videos_path }) do %>
 		<%= render @videos %>
 	<% end %>

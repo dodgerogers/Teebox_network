@@ -15,7 +15,7 @@ class Video < ActiveRecord::Base
   end
   
   def formatted_filename
-    filename = File.basename(self.file, '.*')[0..26].downcase
+    filename = File.basename(self.file, '.*')[0..20].downcase
     timestamp = self.created_at.strftime('%b-%d-%Y')
     "#{filename}-#{timestamp}"
   end
