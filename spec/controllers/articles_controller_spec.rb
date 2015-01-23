@@ -261,6 +261,16 @@ describe ArticlesController do
           response.should redirect_to admin_articles_path
         end
         
+        it "calls point and notification creation methods when differing answer and question users" do
+          Article.any_instance.stub(:publish).and_return(true, 'Successful')
+          Activity.destroy_all
+          ActivityRepository.any_instance.should_receive(:generate).and_return(create(:activity))
+
+          put :publish, id: @article
+
+          Activity.all.size.should eq 1
+        end
+        
         it 'redirects to unauthorized for standard user' do
           standard_user = create(:user, role: User::STANDARD)
           standard_user.confirm!

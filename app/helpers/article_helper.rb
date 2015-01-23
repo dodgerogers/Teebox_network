@@ -58,7 +58,7 @@ module ArticleHelper
   
   def transition_link_formatter(article, transitions, opts={})
     transitions.map do |state|
-      if can? state, article
+      if can? state.to_sym, article
         link_to state, method("#{state}_article_path").call(article), 
           method: :put, class: "#{opts[:css] || nil} has-tooltip", data: { toggle: "tooltip" }, 
           title: Article.state_explanation[state], rel: 'tooltip'
