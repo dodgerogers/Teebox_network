@@ -1,11 +1,7 @@
 module ArticleHelper  
-  PAIR_ARTICLE_SEQUENCE = Proc.new {|n| (-3 - (-1)**n + 4 * n) / 2 }
+  COLUMN_WIDTHS = [8, 4]
+  MAX = 12
   NBSP = '&nbsp;'
-   
-  COL_TWELVE_WIDTH = 'col-md-12 col-sm-12'
-  COL_EIGHT_WIDTH = 'col-md-8 col-sm-8'
-  COL_FOUR_WIDTH = 'col-md-4 col-sm-4'
-  COLUMN_WIDTHS = { 12 => COL_TWELVE_WIDTH, 8 => COL_EIGHT_WIDTH, 4 => COL_FOUR_WIDTH }
   
   def valid_transition_links(article, opts={})
     separator = opts[:separator] || NBSP
@@ -14,10 +10,31 @@ module ArticleHelper
     end
   end
   
-  def article_sequence_formatter(count, size)
-    sequence = (0..size).map {|n| PAIR_ARTICLE_SEQUENCE.call(n) }
-    sequence.include?(count) ? COL_EIGHT_WIDTH : COL_FOUR_WIDTH
+  def column_sequencer(size)
+    result = {}
+    count = 0
+    
+    (0..size-1).map.each do |int|
+      current_width = COLUMN_WIDTHS.sample
+      if (int == size-1)
+        result[int] = (count == MAX || count == 0) ? MAX : (MAX - count)
+      elsif (current_width + count) < MAX
+        result[int] = current_width
+        count += current_width
+      elsif (current_width + count) == MAX
+        result[int] = current_width
+        count = 0  
+      elsif (current_width + count > MAX) || (current_width == MAX)
+        result[int] = (MAX - count)
+        count = 0
+      end
+    end
+    return result
   end
+  
+  def sequencer_class(count)
+    return "col-md-#{count} col-sm-#{count}"
+  end   
   
   def article_status_bar(article)
     capture do
