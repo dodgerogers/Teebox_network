@@ -1,5 +1,5 @@
-<% meta_title('Latest Articles') %>
-<% meta_keywords('Golf Articles, Teebox articles') %>
+<% meta_title('The Clubhouse') %>
+<% meta_keywords('Golf Articles, Teebox golf articles') %>
 
 <%= application_banner('video-banner yas-links-banner') do %>
 	<h1 class="video-upload">
@@ -11,8 +11,7 @@
 <%= render partial: "shared/nav_links" %>
 
 <section class="row" id="articles-index">
-	<% sequence = column_sequencer(@articles.length) %>
-	<%= render @articles, css: Proc.new {|count| sequencer_class(sequence[count]) } %>
+	<%= render_with_sequence(@articles) %>
 </section>
 
 <div class="row">

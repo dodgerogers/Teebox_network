@@ -683,6 +683,7 @@ table.questions-index {
 	padding:20px;
 	background: #fff;
 	@include box-sizing;
+	@include word-wrap;
 }
 .profile-info, .profile-info-index {
 	display:inline-block;
@@ -892,6 +893,9 @@ table.dashboard-articles {
 	img {
 		max-width:100px;
 		height:auto;
+	}
+	tr > td {
+		border-bottom:none;
 	}
 	th.article-table-header {
 		//background: $dark-ice;
