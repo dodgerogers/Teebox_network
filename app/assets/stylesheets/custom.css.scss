@@ -631,7 +631,6 @@ body #header-search {
 table.questions-index {
 	margin-top: -20px;
 	&:first-of-type {
-		// SHOULD PROBABLY REFACTOR THIS
 	    margin-top:0px;
 	}
 	border:none;
@@ -644,12 +643,12 @@ table.questions-index {
 	}
 	ul.meta_info {
 		bottom:0px;
-		margin: auto 0px 0px;
+		margin: auto -8px 0px;
 		background: #fff;
 		border-bottom:0px;
 	}
 	td {
-		padding-bottom: 0px;
+		padding-bottom: 0!important;
 		&.content-td {
 			background:#fff;
 		}
@@ -658,7 +657,7 @@ table.questions-index {
 		}
 		&.votes-count {
 			@extend .stat-count;
-			&:first-child {
+			&:nth-of-type(2) {
 				border-right:0px;
 			}
 		}
@@ -884,16 +883,10 @@ article.index-article {
 		}
 	}
 }
-.article .show-article-title {
+.article b.article-title {
 	position:relative;
-	padding: 10px;
-	margin-bottom:5px;
-	color: #fff;
-	background: $universe;
-	b {
-		font-size: 18px;
-		font-weight:bold;
-	}
+	color: $universe;
+	font-size: 22px;
 }
 table.dashboard-articles {
 	img {

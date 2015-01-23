@@ -337,8 +337,13 @@
 	.hero-unit .user-page {
 		margin-top: 0px;
 	}
-	#questions-index .span12 {
-		border-bottom: 1px solid #eee;
+	#questions-index {
+		.question-swing-img {
+			display:none;
+		}
+		.span12 {
+			border-bottom: 1px solid #eee;
+		}
 	}
 	p.banner {
 		font-size: 14px;
@@ -635,8 +640,13 @@
 	.mobile-scroll {
 		overflow: scroll;
 	}
-	#questions-index .span12 {
-		border-bottom: 1px solid #eee;
+	#questions-index {
+		.question-swing-img {
+			display:none;
+		}
+		.span12 {
+			border-bottom: 1px solid #eee;
+		}
 	}
 	p.banner {
 		font-size: 14px;

@@ -55,7 +55,7 @@ describe MetaHelper do
   
   describe "social_meta_info" do
     it "displays meta content tags" do
-      helper.social_meta_info(@question).should eq "<meta content=\"summary\" name=\"twitter:card\"></meta><meta content=\"@teebox_network\" name=\"twitter:site\"></meta><meta content=\"@teebox_network\" name=\"twitter:creator\"></meta><meta content=\"http://test.host\" name=\"twitter:url\"></meta><meta content=\"http://test.host\" name=\"twitter:domain\"></meta><meta content=\"#{@question.title}\" name=\"twitter:title\"></meta><meta content=\"#{@question.body}\" name=\"twitter:description\"></meta><meta content=\"#{@video.screenshot}\" name=\"twitter:image\"></meta><meta content=\"#{@video.screenshot}\" property=\"og:image\"></meta>"
+      helper.social_meta_info(@question, helper.meta_image(@question.videos)).should include(@question.title, @question.body, @question.videos[0].screenshot)
     end
   end
   

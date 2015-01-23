@@ -105,6 +105,11 @@ body .transparent {
 	background: $sky url(backgrounds/Yas-links.jpg);
 	background-position: 0% 90%;
 }
+.whistler-banner {
+	@extend .forest-banner;
+	background: $sky url(backgrounds/forest-banner.jpg);
+	background-position: 0% 90%;
+}
 // end
 
 // Regular standard width hero-unit banner

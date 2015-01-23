@@ -1,17 +1,23 @@
 <% meta_title(@article.title) %>
 <% meta_description(@article.title) %>
 
+<%= content_for :head do %>
+	<%= social_meta_info(@article, @article.cover_image) %>
+<% end %>
+
 <div class="row">
 	<div class="col-md-8">
 		<div class="content-box" id="article" data-id="<%= @article.id %>">
 			<div class="article">
-				<div class="show-article-title">
-					<b><%= @article.title.capitalize %></b><br>
+				<b class='article-title'><%= @article.title.titleize %></b>
+				<p>
 					<small>Published <%= (@article.published_at || @article.updated_at).strftime('%b %d, %Y') %>
-						by <%= @article.user.username.capitalize %></small>
-				</div>
-				
+					by <%= link_to @article.user.username.capitalize, @article.user %></small>
+					<%= social_links(request.original_url) %>
+				</p>
 				<%= article_status_bar(@article) if can? :update, @article %>
+				<hr>
+			
 				<div class="article-content">
 					<p><%= (@article.body).html_safe %></p>
 				</div>

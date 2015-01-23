@@ -3,7 +3,7 @@
 <% meta_description(@decorator.title) %>
 
 <%= content_for :head do %>
-	<%= social_meta_info(@decorator) %>
+	<%= social_meta_info(@decorator, meta_image(@decorator.videos)) %>
 	<%= javascript_include_tag "sublime.js", "playlist.js" %>
 <% end %>
 

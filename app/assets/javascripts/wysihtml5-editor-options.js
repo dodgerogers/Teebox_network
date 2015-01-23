@@ -35,7 +35,7 @@ this.WysihtmlEditorOptions = {
 	    "link":         true,
 	    "table":        false, 
 	    "image":        true,
-	    "video":        false,
+	    "video":        true,
 	    "html":         false
 	},
 	comment: {
