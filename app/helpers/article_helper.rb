@@ -10,6 +10,25 @@ module ArticleHelper
     end
   end
   
+  def render_with_sequence(articles)
+    sequence = column_sequencer(articles.length)
+  	render articles, css: Proc.new {|count| sequencer_class(sequence[count]) }
+	end
+  
+  def article_status_bar(article)
+    capture do
+      content_tag(:div, class: "article-status-bar") do
+        content_tag(:b) do
+          concat content_tag(:i, nil, class: 'icon-file-text')
+          concat (NBSP + 'Status' + NBSP).html_safe
+          concat article.state.capitalize
+          concat (NBSP + '-' + NBSP).html_safe
+			    concat (article.published_at || article.updated_at).strftime('%b %d, %Y')
+		    end
+	    end
+    end
+  end
+  
   def column_sequencer(size)
     result = {}
     count = 0
@@ -33,22 +52,8 @@ module ArticleHelper
   end
   
   def sequencer_class(count)
-    return "col-md-#{count} col-sm-#{count}"
+    "col-md-#{count} col-sm-#{count}"
   end   
-  
-  def article_status_bar(article)
-    capture do
-      content_tag(:div, class: "article-status-bar") do
-        content_tag(:b) do
-          concat content_tag(:i, nil, class: 'icon-file-text')
-          concat (NBSP + 'Status' + NBSP).html_safe
-          concat article.state.capitalize
-          concat (NBSP + '-' + NBSP).html_safe
-			    concat (article.published_at || article.updated_at).strftime('%b %d, %Y')
-		    end
-	    end
-    end
-  end
   
   def article_cover_image(image)
    "background: url('#{image}') center center no-repeat;background-size:cover;"

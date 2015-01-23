@@ -27,6 +27,12 @@ $bebas: 'BebasNeueRegular'!important;
 	-o-background-size: $size!important;
 	background-size: $size!important;
 }
+@mixin word-wrap {
+  word-break:     break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens:    auto;
+  hyphens:         auto;
+}
 
 // Colors //
 $ice: #f6f7f8;
