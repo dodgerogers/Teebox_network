@@ -68,7 +68,10 @@ class ArticlesController < ApplicationController
   end
   
   def publish
-    transition(@article, :publish, admin_articles_path)
+    transition(@article, :publish, admin_articles_path) do
+      repo = ActivityRepository.new(@article)
+      repo.generate(:create, owner: current_user, recipient: @article.user)
+    end
   end
   
   def discard
