@@ -21,7 +21,7 @@ class Question < ActiveRecord::Base
   validates_presence_of :title, :body, :user_id
   validates_length_of :title, minimum: 10, maximum: 85
   validates_length_of :body, minimum: 10, maximum: 5000
-  validate :tag_limit, :video_limit
+  validate :tag_limit, :video_limit, :ensure_own_videos
   
   validates :body, obscenity: true
   validates :title, obscenity: true
@@ -46,6 +46,15 @@ class Question < ActiveRecord::Base
     errors.add(:video_list, "Maximum of 3 videos") if self.videos.size > 3 if self.videos
   end
   
+  def ensure_own_videos
+    if self.videos.any?
+      video_ids = self.videos.map(&:user_id)
+      unless video_ids.count(self.user_id) == video_ids.size
+        errors.add(:video_id, "You can only use your own videos")
+      end
+    end
+  end
+     
   include PgSearch
   pg_search_scope :search, against: [:title], using: { tsearch: { prefix: true, dictionary: "english", any_word: true } }
   

@@ -10,11 +10,13 @@
 		</div>
 	<% end %>
 
-	<div>
-  		<%= f.label :video_id, raw("<i class='icon-camera'></i> Video <small> - Select up to 3</small>") %>
-  		<%= render partial: "videos/video_select", locals: { question: @question } %> 
-		<%= f.hidden_field :video_list %>
-	</div>
+	<% if @question.try(:user) == current_user || @question.new_record? %>
+		<div>
+  			<%= f.label :video_id, raw("<i class='icon-camera'></i> Video <small> - Select up to 3</small>") %>
+  			<%= render partial: "videos/video_select", locals: { question: @question } %> 
+			<%= f.hidden_field :video_list %>
+		</div>
+	<% end %>	
 
 	<div>
 		<%= f.label :title, raw("<i class='icon-font'></i> Title") %>

@@ -2,6 +2,7 @@
 	<tbody>			
 	<% questions.each do |question| %>
 		<tr>
+			<td class='question-swing-img' style="<%= article_cover_image(asset_path(display_screenshot(question.videos[0], :mini))) %> min-width:100px; max-width: 110px;"></td>
 			<td class='votes-count'>		
 				<%= question.votes_count %> <i class="icon-plus"></i>
 			</td>
@@ -15,7 +16,7 @@
 				<% end %>		
 			</td>
 		</tr>
-		<tr class="spacer"></td>
+		<tr class="spacer"></tr>
 	<% end %>
 	</tbody>
 </table>

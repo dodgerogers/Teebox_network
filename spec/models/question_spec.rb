@@ -5,12 +5,11 @@ include QuestionHelper
 
 describe Question do
   before(:each) do
-    @question = create(:question)
-    @video = create(:video)
-    @question.videos << @video
+    @user = create(:user)
+    @question = create(:question, user: @user)
   end
   
-  subject {@question}
+  subject { @question }
   
   it { should respond_to(:title) }
   it { should respond_to(:body) }
@@ -44,15 +43,27 @@ describe Question do
     it { should_not be_valid }
   end
   
-  describe "video_list" do
-    it "video_list setter" do
-      subject.video_list.should eq "#{@video.id}"
+  describe 'self.videos' do
+    before(:each) do
+      @video = create(:video, user: @user)
+      subject.videos << @video
     end
     
-    it "video_list getter" do
-      subject.videos.should eq [@video]
+    describe "video_list" do
+      it "video_list setter" do
+        subject.video_list.should include @video.id.to_s
+      end
+    
+      it "video_list getter" do
+        subject.videos.should include(@video)
+      end
     end
-  end
+  
+    describe 'ensure_own_videos adds errors' do
+      before { subject.videos << create(:video, user: create(:user)) }
+      it { should_not be_valid }
+    end
+  end    
   
    describe "long title" do
      before { subject.title = ("a" * 91) }
@@ -83,7 +94,7 @@ describe Question do
       it "finds a tag by name" do
         @tag = create(:tag, name: "shank")
         subject.tags << @tag
-        Question.tagged_with(@tag.name).should eq [subject]
+        Question.tagged_with(@tag.name).should include subject
       end
     end
     
