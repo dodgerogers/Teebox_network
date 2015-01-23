@@ -7,6 +7,19 @@ describe ArticleHelper do
     helper.stub(:can?).and_return(true)
   end
   
+  describe 'column_sequencer' do
+    it 'values should always be divisible by 12 when more than 3 elements' do
+      sequence = helper.column_sequencer(10)
+      (sequence.values.reduce(:+) % 12).should eq 0
+    end
+  end
+  
+  describe 'sequencer_class' do
+    it 'inserts count into column class' do
+      sequence = helper.sequencer_class(4).should include('col-md-4', 'col-sm-4')
+    end
+  end
+  
   describe 'valid_transition_links' do
     context 'with permission' do
       it 'renders submit and discard buttons' do
@@ -15,22 +28,6 @@ describe ArticleHelper do
       
       it 'renders submit and discard with custom separator' do
         helper.valid_transition_links(@article, separator: 'custom_separator').should include('submit', 'discard', 'custom_separator')
-      end
-    end
-  end
-  
-  describe 'article_sequence_formatter' do
-    it 'returns col-md-7 when count is included in sequence' do
-      valid_sequence = [1,2,5,6,9,10]
-      valid_sequence.each do |count|
-        helper.article_sequence_formatter(count, 10).should eq 'col-md-8 col-sm-8'
-      end
-    end
-    
-    it 'returns col-md-5 when count is not included in sequence' do
-      invalid_sequence = [0,3,4,7,8,11,12]
-      invalid_sequence.each do |count|
-        helper.article_sequence_formatter(count, 12).should eq 'col-md-4 col-sm-4'
       end
     end
   end

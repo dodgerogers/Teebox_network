@@ -11,5 +11,12 @@
 <%= render partial: "shared/nav_links" %>
 
 <section class="row" id="articles-index">
-	<%= render @articles, css: Proc.new {|count| article_sequence_formatter(count, @articles.size) } %>
+	<% sequence = column_sequencer(@articles.length) %>
+	<%= render @articles, css: Proc.new {|count| sequencer_class(sequence[count]) } %>
 </section>
+
+<div class="row">
+	<div class="col-md-12 text-center">
+		<%= will_paginate @articles %>
+	</div>
+</div>		
