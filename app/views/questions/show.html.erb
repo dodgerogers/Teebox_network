@@ -7,7 +7,7 @@
 	<%= javascript_include_tag "sublime.js", "playlist.js" %>
 <% end %>
 
-<%= content_for :banner do %>
+<%= application_banner('rotator-banner') do %>
 	<%= render partial: "videos/playlist", locals: { videos: @decorator.videos } %>
 <% end %>
 

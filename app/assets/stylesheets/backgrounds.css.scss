@@ -105,10 +105,11 @@ body .transparent {
 	background: $sky url(backgrounds/Yas-links.jpg);
 	background-position: 0% 90%;
 }
-.whistler-banner {
+.rotator-banner {
 	@extend .forest-banner;
-	background: $sky url(backgrounds/whistler.jpg);
-	background-position: 0% 90%;
+	@include background-size;
+	background: $sky url(backgrounds/rotator-cutout-1.jpg);
+	background-position: 0% 100%;
 }
 // end
 

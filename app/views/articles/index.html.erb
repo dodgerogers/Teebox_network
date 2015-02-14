@@ -1,11 +1,11 @@
-<% meta_title('The Clubhouse') %>
-<% meta_keywords('Golf Articles, Teebox golf articles') %>
+<% meta_title('Clubhouse') %>
+<% meta_keywords('golf articles, golf news, golf instruction') %>
 
-<%= application_banner('video-banner yas-links-banner') do %>
-	<h1 class="video-upload">
-		<i class="icon-flag-alt"></i> The Clubhouse
-	</h1>
-	<%= link_to raw("<i class='icon-plus-sign'></i> Create an article"), new_article_path, class: "default submit" if can? :new, Article %>
+<%= application_banner('rotator-banner') do %>
+	<h1 class="video-upload xl">Clubhouse</h1>
+	<p><b>Golfing news, instruction and fun stuff</b></p>
+	<%= link_to raw("<i class='icon-plus-sign'></i> Submit an article"), new_article_path, 
+		class: "default submit" if can?(:new, Article) && current_user %>		
 <% end %>
 
 <%= render partial: "shared/nav_links" %>
