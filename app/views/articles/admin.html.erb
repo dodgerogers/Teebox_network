@@ -11,11 +11,11 @@
 		<%= render partial: 'articles', locals: { articles: @published, state: 'Published' } %>
 	</div>
 	
-	<div class="col-md-6 col-sm-6">
+	<div class="col-md-12">
 		<%= render partial: 'articles', locals: { articles: @approved, state: 'Approved' } %>
 	</div>
 		
-	<div class="col-md-6 col-sm-6">
+	<div class="col-md-12">
 		<%= render partial: 'articles', locals: { articles: @submitted, state: 'Awaiting Approval' } %>
 	</div>
 </div>

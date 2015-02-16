@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include PublicActivity::Common
+  include Teebox::Searchable
   
   ADMIN = 'admin'
   TESTER = 'tester'
@@ -26,6 +27,8 @@ class User < ActiveRecord::Base
   has_many :points, dependent: :destroy
 
   after_create :create_welcome_notification
+  
+  searchable :username
   
   def to_param
     "#{id} - #{username}".parameterize

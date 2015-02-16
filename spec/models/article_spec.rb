@@ -34,6 +34,30 @@ describe Article do
     end
   end
   
+  describe "Article.search" do
+    before(:each) do
+       @article = create(:article, title: 'Need help with your driver?')
+       @article_2 = create(:article, title: "What to do when it all goes wrong with the driver")
+       @article_3 = create(:article, title: 'Life of Tiger Woods')
+     end
+     
+    it "returns [] when search nil" do
+      result = Article.search("")
+      result.should_not include(@article, @article_2, @article_3, subject)
+      result.should eq []
+    end
+    
+    it 'should return similar questions' do
+      Article.search("driver").should include(@article, @article_2)
+    end
+     
+    it 'should not return similar questions' do
+      result = Article.search("chipping")
+      result.should_not include(@article, @article_2, @article_3, subject)
+      result.should eq []
+    end
+  end
+  
   describe 'state machine' do
     before(:each) do 
       @article = create(:article)

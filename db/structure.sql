@@ -910,6 +910,13 @@ ALTER TABLE ONLY votes
 
 
 --
+-- Name: articles_title; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX articles_title ON articles USING gin (to_tsvector('english'::regconfig, (title)::text));
+
+
+--
 -- Name: delayed_jobs_priority; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1148,6 +1155,13 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
+-- Name: users_username; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX users_username ON users USING gin (to_tsvector('english'::regconfig, (username)::text));
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -1254,3 +1268,5 @@ INSERT INTO schema_migrations (version) VALUES ('20141228171757');
 INSERT INTO schema_migrations (version) VALUES ('20141231150004');
 
 INSERT INTO schema_migrations (version) VALUES ('20150118212010');
+
+INSERT INTO schema_migrations (version) VALUES ('20150215180126');

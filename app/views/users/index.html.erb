@@ -1,25 +1,16 @@
 <% meta_title("Leaderboard") %>
 
 <%= application_banner("blue-fuzz-banner") do %>
-	<h1 class="ranking">Scoreboard  <i class="icon-trophy"></i></h1>
+	<h1 class="ranking">Scoreboard&nbsp;<i class="icon-trophy"></i></h1>
 	<p>The Scoreboard is a friendly and relaxed way of tracking your points within the Teebox community. Don't see your name? Rankings are calculated every night, so check back in the morning.</p>
 <% end %>
 
-
-
-<table class="table table-condensed table-striped table-bordered">	
+<table class="table table-bordered">	
 	<tr class="grey">
-		<td>#</td>
+		<td>Rank</td>
 		<td>Score</td>
 		<td>Username</td>
 		<td>Member for</td>
 	</tr>		
-	<% @users.each do |user| %>
-		<tr class="<%= current_user == user ? 'green-bg' : '' %>">
-			<td><a name='<%= "user_#{user.id}" %>'></a><%= user.rank.try(:ordinalize) %></td>
-			<td><%= link_to user.reputation, user, id: "profile-reputation" %></td>
-			<td><%= link_to user.username, user %></td>
-			<td><%= time_ago_in_words(user.created_at)%></td>
-		</tr>	
-	<% end %>
+	<%= render @users %>
 </table>

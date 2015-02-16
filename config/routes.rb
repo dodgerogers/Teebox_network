@@ -34,6 +34,9 @@ TeeboxNetwork::Application.routes.draw do
   resources :users, only: [:show, :index]
   resources :signed_urls, only: :index
   
+  # Search
+  get "search", to: 'search#index', as: :search
+  
   # AWS End point for SNS
   post "/aws/end_point", to: 'aws_notifications#end_point', as: :end_point
   

@@ -1,11 +1,11 @@
 module QuestionHelper
   NBSP = '&nbsp;'
   
-  def display_results(questions, options={})
+  def display_results(records, options={})
     capture do
       content_tag(:div, id: "params") do
     	  concat content_tag(:h2, '"' + options + '"', class: "zero-margin")
-    	  concat content_tag(:p, "#{pluralize(questions.total_entries, "Question")} found")
+    	  concat content_tag(:p, "#{pluralize(records.total_entries, records.first.class.to_s)} found")
   	  end
 	  end
   end

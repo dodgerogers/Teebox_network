@@ -98,23 +98,25 @@ describe Question do
       end
     end
     
-    describe "text_search" do
+    describe "Question.search" do
       before(:each) do
          @question = create(:question, title: 'I need help with my driver')
          @question_2 = create(:question, title: "I'm not hitting my driver well")
          @question_3 = create(:question, title: 'My short game needs some help')
        end
        
-      it "returns all when search nil" do
-        Question.text_search("").should include(@question, @question_2, @question_3, subject)
+      it "returns [] when search nil" do
+        result = Question.search("")
+        result.should_not include(@question, @question_2, @question_3, subject)
+        result.should eq []
       end
       
       it 'should return similar questions' do
-        Question.text_search("driver").should include(@question, @question_2)
+        Question.search("driver").should include(@question, @question_2)
       end
        
       it 'should not return similar questions' do
-        Question.text_search("putting").should_not include(@question, @question_2, @question_3, subject)
+        Question.search("putting").should_not include(@question, @question_2, @question_3, subject)
       end
     end
 

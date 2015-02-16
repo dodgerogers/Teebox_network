@@ -23,11 +23,11 @@
 				</div>
 				
 				<%= meta_info(@article) do %>
-					<%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_article_path(@article), 
+					<li><%= link_to raw("<i class='icon-edit-sign sm'></i>"), edit_article_path(@article), 
 						title: "Edit" if can? :update, @article %>
 					<%= link_to raw("<i class='icon-remove-sign sm'></i>"), @article, 
 						method: :delete, confirm: "Are you sure? You will lose any points associated with this article", 
-						title: "Delete" if can? :destroy, @article %>
+						title: "Delete" if can? :destroy, @article %></li>
 				<% end %>
 			</div>	
 			
