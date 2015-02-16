@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   include Teebox::Toggle
+  include Teebox::Searchable
   require 'obscenity/active_model'
   
   attr_accessible :title, :body, :youtube_url, :votes_count, :answers_count, :comments_count, :points, 
@@ -7,9 +8,9 @@ class Question < ActiveRecord::Base
   attr_reader :tag_tokens
   
   belongs_to :user
+  
   has_many :videos, through: :playlists
   has_many :playlists, dependent: :destroy
-  
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy
@@ -22,13 +23,15 @@ class Question < ActiveRecord::Base
   validates_length_of :title, minimum: 10, maximum: 85
   validates_length_of :body, minimum: 10, maximum: 5000
   validate :tag_limit, :video_limit, :ensure_own_videos
-  
   validates :body, obscenity: true
   validates :title, obscenity: true
   
   scope :unanswered, conditions: { correct: false }
   scope :popular, order: "votes_count DESC"
   scope :newest, order: "created_at DESC"
+  scope :load_relations, includes(:user, :videos)
+  
+  searchable :title
   
   def to_param
     "#{id} - #{title}".parameterize
@@ -52,17 +55,6 @@ class Question < ActiveRecord::Base
       unless video_ids.count(self.user_id) == video_ids.size
         errors.add(:video_id, "You can only use your own videos")
       end
-    end
-  end
-     
-  include PgSearch
-  pg_search_scope :search, against: [:title], using: { tsearch: { prefix: true, dictionary: "english", any_word: true } }
-  
-  def self.text_search(query)
-    if query.present?
-      search(sanitize(query))
-    else
-      scoped
     end
   end
   

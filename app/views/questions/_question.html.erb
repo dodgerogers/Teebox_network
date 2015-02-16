@@ -1,0 +1,18 @@
+<!-- TODO: Should be refactored to not need table elements, remove this and replace with divs -->
+<tr>
+	<td class='question-swing-img' style="<%= article_cover_image(asset_path(display_screenshot(question.videos[0], :mini))) %> min-width:100px; max-width: 110px;"></td>
+	<td id="question_<%= question.id %>" class="content-td" style="text-align:left;width:100%;">
+		<p><b><%= link_to question.title, question %></b></p>
+		
+		<%= meta_info(question, voting: false, views: false) do %>
+			<li><%= has_videos?(question) %></li>
+			<li><span class='votes-count'>		
+				<i class="icon-plus"></i> <%= question.votes_count %>
+			</span></li>
+			<li><span id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>" class='answers-count'>	
+				<i class="icon-ok"></i> <%= question.answers_count %>
+			</span></li>
+		<% end %>		
+	</td>
+</tr>
+<tr class="spacer"></tr>

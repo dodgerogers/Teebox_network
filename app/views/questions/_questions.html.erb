@@ -1,23 +1,6 @@
 <table class="table table-bordered questions-index">
 	<tbody>			
-	<% questions.each do |question| %>
-		<tr>
-			<td class='question-swing-img' style="<%= article_cover_image(asset_path(display_screenshot(question.videos[0], :mini))) %> min-width:100px; max-width: 110px;"></td>
-			<td class='votes-count'>		
-				<%= question.votes_count %> <i class="icon-plus"></i>
-			</td>
-			<td id="<%= question.correct == true ? 'correct-answer' : 'no-correct-answer' %>" class='answers-count'>	
-    			<%= question.answers_count %> <i class="icon-ok"></i>
-			</td>
-			<td id="question_<%= question.id %>" class="content-td" style="text-align:left;width:100%;">
-				<p><b><%= link_to question.title, question %></b></p>
-				<%= meta_info(question, voting: false) do %>
-					<%= has_videos?(question) %>
-				<% end %>		
-			</td>
-		</tr>
-		<tr class="spacer"></tr>
-	<% end %>
+	 <%= render questions %>
 	</tbody>
 </table>
 

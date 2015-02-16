@@ -24,6 +24,7 @@ group :test do
   gem "launchy"
   gem "simplecov","0.7.1", :require => false
   gem 'shoulda-matchers', :require => false
+  gem 'mocha'
 end
 
 group :assets do
@@ -64,7 +65,7 @@ gem "unicorn"
 gem "twitter"
 gem 'jbuilder'
 gem 'mail_view'
-gem "interactor"
+gem "interactor", "~> 3.0"
 gem 'state_machine'
 
 # To use ActiveModel has_secure_password

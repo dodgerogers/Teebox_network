@@ -70,14 +70,17 @@ module ApplicationHelper
     return "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"
   end
   
-  def meta_info(object, opts={voting: true}, &block)  
+  def meta_info(object, opts={}, &block)  
+    default_opts = { voting: true, views: true }
+    opts = default_opts.merge!(opts)
+    
     capture do
       content_tag(:ul, class: "meta_info") do
         content_tag(:small) do
           concat user_metadata(object)
           concat created_at_metadata(object)
-          concat question_metadata(object)
-          concat render_votes_form(object) unless !opts[:voting]
+          concat impressions_metadata(object) if opts[:views]
+          concat render_votes_form(object) if opts[:voting]
           concat answer_metadata(object)
           
           if block_given?
@@ -105,7 +108,7 @@ module ApplicationHelper
     end
   end
   
-  def question_metadata(object)
+  def impressions_metadata(object)
     if object.respond_to?(:impressions_count)
       content_tag(:li) do
          meta_impressions(object)
@@ -140,10 +143,6 @@ module ApplicationHelper
 	end
 	
 	def custom_metadata(content)
-    if content.present?
-      content_tag(:span) do
-        content_tag(:li) { content.html_safe }
-      end
-    end
+    content.html_safe if content.present?
   end
 end

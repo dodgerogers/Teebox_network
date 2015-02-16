@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   include PublicActivity::Common
+  include Teebox::Searchable
   
   DRAFT = 'draft'
   SUBMITTED = 'submitted'
@@ -27,6 +28,7 @@ class Article < ActiveRecord::Base
                   :comments_count, :impressions_count, :user_id, :cover_image, :published_at
   
   belongs_to :user
+  
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy
   has_one :point, as: :pointable, dependent: :destroy
@@ -34,6 +36,10 @@ class Article < ActiveRecord::Base
   
   validates_presence_of :title, :body, :user_id, :cover_image, :state
   validates_inclusion_of :state, in: VALID_STATES
+  
+  scope :load_relations, includes(:user)
+  
+  searchable :title
   
   state_machine :state, initial: DRAFT do
     before_transition APPROVED => PUBLISHED do |article|
