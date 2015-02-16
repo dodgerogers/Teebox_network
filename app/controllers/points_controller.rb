@@ -8,7 +8,7 @@ class PointsController < ApplicationController
   end
   
   def breakdown
-    @points = @load_points.limit(4)
+    @points = @load_points.limit(5)
     render partial: "points/get_points", locals: { points: @points }
   end
   

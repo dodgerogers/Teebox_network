@@ -1,4 +1,4 @@
-<% css = "col-md-4" unless local_assigns.has_key?(:css) %>
+<% css = "col-md-6" unless local_assigns.has_key?(:css) %>
 <%= content_tag(:div, class: css.respond_to?(:call) ? css.call(article_counter) : css) do %>
 	<article class="index-article" style="<%= article_cover_image(article.cover_image) %>">
 		<div class="index-article-title">

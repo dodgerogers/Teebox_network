@@ -9,7 +9,7 @@
 	<%= link_to "Create a new Tag", new_tag_path, class: "default submit" if can? :create, Tag %>
 <% end %>
 
-<%= display_results(@tags, params[:search]) if params[:search] %>
+<%= display_results(@tags, text: params[:search]) if params[:search] %>
 
 <section id="tags" class="row">
 	<%= render @tags %>

@@ -46,6 +46,14 @@ describe GlobalSearch do
         result.success?.should be_false
         result.error.should include(GlobalSearch::SEARCH_PARAMS_ERROR)
       end
+      
+      it 'fails when model does respond to search method' do
+        Article.stub(:respond_to?).with(:search).and_return(false)
+        result = GlobalSearch.call(search: 'search term')
+        
+        result.success?.should be_false
+        result.error.should include(sprintf(GlobalSearch::NOT_IMPLEMENTED_ERR, 'Article'))
+      end
     end
   end
 end

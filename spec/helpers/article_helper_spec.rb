@@ -14,6 +14,16 @@ describe ArticleHelper do
     end
   end
   
+  describe 'render_with_sequence' do
+    it 'values should always be divisible by 12 when more than 3 elements' do
+      articles = [@article]
+      helper.should_receive(:column_sequencer).with(1).and_return({1 => 'col-md-12'})
+      helper.should_receive(:render).and_return('<div></div>')
+      
+      helper.render_with_sequence(articles)
+    end
+  end
+  
   describe 'sequencer_class' do
     it 'inserts count into column class' do
       sequence = helper.sequencer_class(4).should include('col-md-4', 'col-sm-4')

@@ -980,16 +980,9 @@ a.mini-button {
 	}
 }
 .default-xl {
-	color: #fff;
-	background: #888;
-	@include box-sizing;
+	@extend .default;
 	padding: 10px 10px!important;
 	@include border-radius(4px);
-	border:none;
-	display:inline-block;
-	text-shadow:none;
-	line-height:20px!important;
-	margin: 3px 3px 0 0;
 	&:hover {
 		color: #fff;
 	}
@@ -1033,7 +1026,7 @@ a.mini-button {
 		background: $dark-red;
 	}
 }
-.universe {
+.universe-btn {
 	background: $universe;
 	&:hover {
 		background: $blackhole;
@@ -1174,6 +1167,17 @@ table .default-tick, .default-tick a, table .green-tick, table .grren-tick a {
 
 //-------------------- tags + reports ----------------//
 
+section#tags {
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+	-moz-column-count: 3; /* Firefox */
+	column-count: 3;
+}
+.tag-box {
+	display:inline-block;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+}
 .tag-container {
 	color: #777;
 	&:hover {

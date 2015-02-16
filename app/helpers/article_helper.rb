@@ -11,7 +11,7 @@ module ArticleHelper
   end
   
   def render_with_sequence(articles)
-    sequence = column_sequencer(articles.length)
+    sequence = column_sequencer(articles.size)
   	render articles, css: Proc.new {|count| sequencer_class(sequence[count]) }
 	end
   

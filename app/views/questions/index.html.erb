@@ -11,7 +11,7 @@
 	<div class="col-md-8 col-sm-12">
 		<% if params[:tag] %>
 			<%= render partial: "tags/tag_cloud", locals: { questions: Tag.cloud } %>
-			<%= display_results(@decorator.tagged_questions, params[:tag]) %>
+			<%= display_results(@decorator.tagged_questions, text: params[:tag]) %>
 		<% end %>
 		
 		<% if params[:tag] %>

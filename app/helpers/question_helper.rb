@@ -4,8 +4,11 @@ module QuestionHelper
   def display_results(records, options={})
     capture do
       content_tag(:div, id: "params") do
-    	  concat content_tag(:h2, '"' + options + '"', class: "zero-margin")
-    	  concat content_tag(:p, "#{pluralize(records.total_entries, records.first.class.to_s)} found")
+        unless options[:hide_options] 
+    	    concat content_tag(:h2, '"' + options[:text] + '"', class: "zero-margin") if options[:text].present?
+  	    end
+    	  message = records.any? ? "#{pluralize(records.total_entries, records.first.class.to_s)}" : 'Nothing'
+  	    concat content_tag(:p, "#{message} found")
   	  end
 	  end
   end
