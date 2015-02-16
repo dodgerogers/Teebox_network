@@ -13,7 +13,17 @@ describe QuestionHelper do
     it "returns 1 tagged question found" do
       helper.stub!(:params).and_return(true)
       helper.stub!(:total_entries).and_return(:size)
-      helper.display_results([@question].paginate, "tag").should include('1 Question found')
+      
+      helper.display_results([@question].paginate, text: "tag").should include('1 Question found', 'tag')
+    end
+    
+    it "returns 1 tagged question found and no search params" do
+      helper.stub!(:params).and_return(true)
+      helper.stub!(:total_entries).and_return(:size)
+      
+      result = helper.display_results([@question].paginate, text: "tag", hide_options: true)
+      result.should include('1 Question found')
+      result.should_not include('tag')
     end
   end
   

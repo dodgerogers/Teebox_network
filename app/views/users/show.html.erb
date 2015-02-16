@@ -22,23 +22,20 @@
 				<i class="icon-check"></i> Answers
 			<% end %>
 			
-			<%= link_to user_articles_path(@decorator), class: "default-xl asphalt fullwidth" do %>
+			<%= link_to user_articles_path(@decorator), class: "default-xl submit fullwidth" do %>
 				<i class="icon-file-text-alt"></i> Articles
 			<% end %>
 			
+			<%= link_to videos_path(@decorator), class: "default-xl asphalt fullwidth" do %>
+				<i class="icon-facetime-video"></i> Swing Videos
+			<% end %>
+			
 			<hr>
-			<%= link_to new_question_path(), class: "default-xl submit fullwidth" do %>
+			<%= link_to new_question_path(), class: "default-xl universe-btn fullwidth" do %>
 				<i class="icon-plus"></i> Ask a question
 			<% end %>	
 		</center>
 	</div>
-</section>	
-<hr>
-<section class="row">
-	<div class="col-md-12 col-sm-12">
-		<h2><%= link_to 'Swing Videos', videos_path %></h2>
-		<%= render @user.videos %>
-	</div>	
 </section>	
 
 <%= javascript_include_tag "points.js", defer: "defer" %>	

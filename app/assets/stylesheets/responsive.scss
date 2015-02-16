@@ -386,6 +386,11 @@
 			}
 		}
 	}
+	section#tags {
+		-webkit-column-count: 2; /* Chrome, Safari, Opera */
+		-moz-column-count: 2; /* Firefox */
+		column-count: 2;
+	}
 }
 @media (min-width: 270px) and (max-width: 480px) {
 	body {
@@ -730,6 +735,14 @@
 		}
 		li:not(:last-child) {
 			border:none;
+		}
+	}
+	section#tags {
+		-webkit-column-count: 1; /* Chrome, Safari, Opera */
+		-moz-column-count: 1; /* Firefox */
+		column-count: 1;
+		.tag-box {
+			width: 100%;
 		}
 	}
 }
