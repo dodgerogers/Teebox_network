@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
   include Teebox::Commentable
-  include Teebox::Impression
   
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :set_article, except: [:new, :index, :create, :admin]
@@ -11,8 +10,8 @@ class ArticlesController < ApplicationController
   end
   
   def show
-    Teebox::Impression.create(@article, request)
     @latest = Article.where(state: Article::PUBLISHED).where('id not in (?)', @article.id).order('updated_at DESC').sample(3)
+    ImpressionRepository.create(@article, request)
   end
   
   def index

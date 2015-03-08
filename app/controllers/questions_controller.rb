@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   include Teebox::Commentable
-  include Teebox::Impression
   
   before_filter :authenticate_user!, except: [:index, :show, :popular, :unanswered, :related]
   before_filter :set_question, only: [:show, :related]
@@ -22,7 +21,7 @@ class QuestionsController < ApplicationController
   def show
     @answer = Answer.new
     @answers = @decorator.answers.includes(:user, :question).by_votes
-    Teebox::Impression.create(@decorator, request)
+    ImpressionRepository.create(@decorator, request)
   end
   
   def create
