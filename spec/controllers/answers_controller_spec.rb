@@ -58,7 +58,7 @@ describe AnswersController do
       it "calls point and notification creation methods when differing answer and question users" do
         @question = create(:question, user: @user2)
         
-        Teebox::Pointable.should_receive(:create).and_return(create(:point))
+        PointRepository.should_receive(:create).and_return(create(:point))
         Activity.destroy_all
         ActivityRepository.any_instance.should_receive(:generate).and_return(create(:activity))
         

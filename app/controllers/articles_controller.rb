@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(params[:article].except!(:state))
     if @article.save
-      Teebox::Pointable.create(@article.user, @article)
+      PointRepository.create(@article.user, @article)
       redirect_to @article, notice: 'Article Sucessfully created'
     else
       render :new, notice: 'Please try again'

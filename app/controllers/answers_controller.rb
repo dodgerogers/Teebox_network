@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.build(params[:answer])
     respond_to do |format|
       if @answer.save
-        Teebox::Pointable.create(@answer.user, @answer)
+        PointRepository.create(@answer.user, @answer)
         repo = ActivityRepository.new(@answer)
         repo.generate(:create, owner: current_user, recipient: @answer.question.user)
         format.html { redirect_to @answer.question, notice: 'Answer created'}
