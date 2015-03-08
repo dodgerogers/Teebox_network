@@ -6,7 +6,7 @@ class VotesController < ApplicationController
     @vote = current_user.votes.build(params[:vote])
     respond_to do |format|
       if @vote.save
-        Teebox::Pointable.create(@vote.votable.user, @vote, @vote.points)
+        PointRepository.create(@vote.votable.user, @vote, @vote.points)
         format.html { redirect_to :back, notice: "Vote submitted" }
         format.js
       else

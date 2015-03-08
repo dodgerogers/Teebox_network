@@ -8,18 +8,37 @@ describe PointRepository do
     @answer = create(:answer, question_id: @question.id, user: @user2, correct: false)
   end
   
-  describe "#generate" do
+  describe '#create' do
+    context 'success' do
+      it 'saves point to db' do
+        expect {
+          PointRepository.create(@user2, @answer)
+        }.to change(Point, :count).by(1)
+      end
+    end
+    
+    context 'failure' do
+      it 'does not save point' do
+        Point.any_instance.should_receive(:save).and_return(false)
+        expect {
+          PointRepository.create(@user2, @answer)
+        }.to_not change(Point, :count).by(1)
+      end
+    end
+  end
+  
+  describe "#mass_update" do
     it "calls #find_and_update for the number of args provided" do
       PointRepository.should_receive(:find_and_update).twice
-      
-      PointRepository.generate({entry: @answer, value: 12}, {entry: @question, value: 5})
+      PointRepository.mass_update({entry: @answer, value: 12}, {entry: @question, value: 5})
     end
   end
   
   describe "#find_and_update" do
-    it "assigns points for given objects" do
+    it "updates points for given objects" do
       PointRepository.find_and_update({entry: @answer, value: 12})
       PointRepository.find_and_update({entry: @question, value: 5})
+      
       @answer.reload
       @question.reload
       @answer.point.value.should eq 12
@@ -29,13 +48,13 @@ describe PointRepository do
     it "raises Argument Error when not supplied a hash" do
       expect { 
         PointRepository.find_and_update("string argument") 
-      }.to raise_error(ArgumentError, "GeneratePointsRepo error: args must be a Hash")
+      }.to raise_error(ArgumentError)
     end
     
     it "raises Argument Error when value is not an integer" do
       expect { 
         PointRepository.find_and_update({entry: @answer, value: "string"}) 
-      }.to raise_error(ArgumentError, "GeneratePointsRepo error: value must be an integer")
+      }.to raise_error(ArgumentError)
     end
   end
 end

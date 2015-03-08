@@ -1,22 +1,30 @@
 class PointRepository < BaseRepository
-  ERROR_MSG_GENERIC = "GeneratePointsRepo error: %s"
+  ERROR_MSG_GENERIC = "PointRepository error: %s"
+  HASH_ARG_ERROR = "Args must be a Hash"
+  VALUE_INT_ERROR = "Value must be an integer"
   
-  def self.generate(*arguments)
-    arguments.each do |arg|
-      self.find_and_update(arg)
-    end
+  def self.create(user, entry, points=0)
+    user.points.build(value: points, pointable_id: entry.id, pointable_type: entry.class.name.capitalize).save
+  end
+  
+  def self.mass_update(*arguments)
+    arguments.each {|attributes| self.find_and_update(attributes) }
   end
   
   def self.find_and_update(attributes)
-    raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "args must be a Hash") unless attributes.is_a?(Hash)
-    raise ArgumentError, sprintf(ERROR_MSG_GENERIC, "value must be an integer") unless attributes[:value].is_a?(Integer)
+    raise ArgumentError, sprintf(ERROR_MSG_GENERIC, HASH_ARG_ERROR) unless attributes.is_a?(Hash)
+    raise ArgumentError, sprintf(ERROR_MSG_GENERIC, VALUE_INT_ERROR) unless attributes[:value].is_a?(Integer)
+    entry, value = attributes.values_at(:entry, :value)
     
-    entry = attributes[:entry]
-    value = attributes[:value]
+    self.create(entry.user, entry) unless entry.point
     
-    Teebox::Pointable.create(entry.user, entry) unless entry.point
-    
-    point = Point.where(pointable_id: entry.id, pointable_type: entry.class.to_s).first 
+    point = self.klass.where(pointable_id: entry.id, pointable_type: entry.class.to_s).first 
     point.update_attributes(value: value) if point
+  end
+  
+  private
+  
+  def self.klass
+    Point
   end
 end

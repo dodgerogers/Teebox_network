@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build(params[:question])
     if @question.save
-      Teebox::Pointable.create(@question.user, @question)
+      PointRepository.create(@question.user, @question)
       NotificationMailer.delay.new_question_email(@question)
       redirect_to @question, notice: "Question Created"
     else
