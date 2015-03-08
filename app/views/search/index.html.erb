@@ -9,10 +9,33 @@
 
 <div class="row">
 	<div class="col-md-8">
-		<%= render_search_results(@results, total: @total, text: params[:search]) %>
+		<% if @result.total == 0 %>
+			<p>Nothing found for <b>"<%= params[:search] %>"</b></p>
+		<% else %>
+			<% @result.collection.each do |collection, records| %>
+				<% if records.any? %>
+					<%= content_tag(:section, id: "#{collection}-index", data: { key: collection }) do %>
+						<div class="col-md-12">
+							<%= display_results(records, text: collection, hide_options: true)  %>
+
+							<table class="table table-bordered <%= collection %>-index">
+								<%= render records %>
+							</table>	
+						</div>
+
+						<div class="col-md-12">
+							<div class="text-center" id='pagination'>
+								<%= will_paginate records, param_name: "#{collection}_page" %>	
+								<%= render partial: "shared/loading", locals: { message: "#{collection}" } %>
+							</div>
+						</div>
+					<% end %><hr>
+				<% end %>	
+			<% end %>
+		<% end %>
 	</div>	
 	
 	<aside class="col-md-4">
 		<%= render partial: 'shared/articles_sidebar', locals: { articles: @articles } %>
 	</aside>
-</div>		
+</div>	

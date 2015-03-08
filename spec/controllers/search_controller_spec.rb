@@ -33,8 +33,6 @@ describe SearchController do
         
         result = mock()
         GlobalSearch.should_receive(:call).with(@params).and_return(result)
-        result.should_receive(:collection).and_return(collection)
-        result.should_receive(:total).and_return(2)
         result.should_receive(:success?).and_return(true)
       
         get :index, @params

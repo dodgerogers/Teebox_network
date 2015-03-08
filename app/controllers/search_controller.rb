@@ -4,8 +4,7 @@ class SearchController < ApplicationController
   def index
     result = GlobalSearch.call(search_params)
     if result.success?
-      @results = result.collection
-      @total = result.total
+      @result = result
     else
       redirect_to root_path, notice: result.message
     end
