@@ -7,8 +7,10 @@
 	<%= javascript_include_tag "sublime.js", "playlist.js" %>
 <% end %>
 
-<%= application_banner('rotator-banner') do %>
-	<%= render partial: "videos/playlist", locals: { videos: @decorator.videos } %>
+<% if @decorator.videos.any? %>
+	<%= application_banner('rotator-banner') do %>
+		<%= render partial: "videos/playlist", locals: { videos: @decorator.videos } %>
+	<% end %>
 <% end %>
 
 <div class="row">
