@@ -49,10 +49,15 @@ class AnswersController < ApplicationController
   end
   
   def correct 
-    @answer = AnswerRepository.toggle(params) 
-    if @answer
-      respond_to do |format|
-        format.html { redirect_to @answer.question, notice: "Successful" }
+    @result = ToggleAnswerCorrect.call(params) 
+    
+    respond_to do |format|
+      if @result.success?
+        @answer = @result.answer
+        format.html { redirect_to @answer.question, notice: "Success!" }
+        format.js
+      else
+        format.html { redirect_to @answer.question, notice: @result.error }
         format.js
       end
     end

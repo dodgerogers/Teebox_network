@@ -1,5 +1,5 @@
-<% if @answer.errors.any? %>
-  	alert("<%= j @answer.errors.full_messages.join(', ').html_safe %>");
+<% if @answer.errors.any? || @result.error %>
+	alert("<%= j @result.error.html_safe %>");
 <% else %>
 	var answer = $('.correct_<%= @answer.id %>').closest("li");
 	<% if @answer.correct == true %>

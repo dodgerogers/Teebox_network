@@ -28,9 +28,18 @@ describe PointRepository do
   end
   
   describe "#mass_update" do
-    it "calls #find_and_update for the number of args provided" do
+    it "success #find_and_update for the number of args provided and return true" do
       PointRepository.should_receive(:find_and_update).twice
-      PointRepository.mass_update({entry: @answer, value: 12}, {entry: @question, value: 5})
+      
+      result = PointRepository.mass_update({entry: @answer, value: 12}, {entry: @question, value: 5})
+      result.should eq true
+    end
+    
+    it "failure #find_and_update returns false" do
+      PointRepository.should_receive(:find_and_update).twice.and_return(false)
+      
+      result = PointRepository.mass_update({entry: @answer, value: 12}, {entry: @question, value: 5})
+      result.should eq false
     end
   end
   
