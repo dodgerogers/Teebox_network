@@ -111,12 +111,31 @@ describe AnswersController do
       end
     end
     
-    describe "correct" do
-      it "successfully updates answer and question reputation" do
-        PointRepository.stub(:generate).and_return(true)
-        put :correct, id: @answer, answer: @answer, format: "js"
+    describe "#correct" do
+      it "success redirects to question" do
+        interactor = mock()
+        interactor.should_receive(:success?).and_return(true)
+        interactor.should_receive(:answer).and_return(@answer)
+        
+        ToggleAnswerCorrect.should_receive(:call).and_return(interactor)
+        put :correct, id: @answer, answer: @answer
+        
         @answer.reload
-        response.status.should eq 200
+        response.should redirect_to @answer.question
+        flash[:notice].should include('Success')
+      end
+      
+      it "failure redirects to question with error" do
+        interactor = mock()
+        interactor.should_receive(:success?).and_return(false)
+        interactor.should_receive(:error).and_return('Error')
+        
+        ToggleAnswerCorrect.should_receive(:call).and_return(interactor)
+        put :correct, id: @answer, answer: @answer
+        
+        @answer.reload
+        response.should redirect_to @answer.question
+        flash[:notice].should include('Error')
       end
     end
   end

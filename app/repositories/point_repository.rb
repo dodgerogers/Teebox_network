@@ -8,7 +8,8 @@ class PointRepository < BaseRepository
   end
   
   def self.mass_update(*arguments)
-    arguments.each {|attributes| self.find_and_update(attributes) }
+    updated = arguments.each.map {|attrs| self.find_and_update(attrs) }
+    return updated.include?(false) ? false : true
   end
   
   def self.find_and_update(attributes)
@@ -19,7 +20,7 @@ class PointRepository < BaseRepository
     self.create(entry.user, entry) unless entry.point
     
     point = self.klass.where(pointable_id: entry.id, pointable_type: entry.class.to_s).first 
-    point.update_attributes(value: value) if point
+    point.update_attributes(value: value)
   end
   
   private
