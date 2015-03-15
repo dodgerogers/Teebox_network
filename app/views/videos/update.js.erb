@@ -1,0 +1,5 @@
+var videoForm = $("#video-<%= @video.id %>.row");
+var video = $.parseHTML('<%= escape_javascript(render template: "videos/show") %>');
+var videoSidebar = $(video).find('#video-meta-info').hide();
+
+videoForm.find('#video-meta-info').replaceWith(videoSidebar.fadeIn());

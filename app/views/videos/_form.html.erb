@@ -25,4 +25,6 @@
 	<%= f.hidden_field :file %><br>
 <% end %>
 
-<%= link_to raw('Step 2 &nbsp;<i class="icon-circle-arrow-right"></i>'), new_question_path, class: "default next" %><br>
+<% link_to_referral(params, 'Step 2 &nbsp;<i class="icon-circle-arrow-right"></i>', new_question_path) do |text, link| %>
+	<%= link_to text, link, class: "default next" %><br>
+<% end %>

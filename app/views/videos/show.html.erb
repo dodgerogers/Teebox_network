@@ -4,20 +4,19 @@
 	<%= javascript_include_tag "sublime.js", defer: "defer" %>
 <% end %>
 
-<div class='row'>
+<div class='row' id="video-<%= @video.id %>">
 	<div class='col-md-7 col-sm-7'>
 		<%= raw sublime_video(@video) %><br>		
 	</div>
-	<div class="col-md-5 col-sm-5">
-		<h5><%= @video.formatted_filename.titleize  %></h5>
-		<div class="profile-info">
-			<%= link_to image_tag(avatar_url(@video.user)), @video.user %>
-			<small><%= link_to @video.user.username.titleize, user_path(@video.user) %><br>
-			<i class="icon-calendar"></i>&nbsp;<%= time_ago_in_words(@video.created_at) %> ago</small>
+	<div class="col-md-5 col-sm-5" id="video-meta-info">
+		<div class="video-meta-<%= @video.id %>">
+			<h5><%= format_name(@video) %></h5>
+			<p><%= display_video_meta_info(@video) %></p>
+		
+			<%= link_to "Swing Videos", videos_path, class: "default submit" %>
+			<%= link_to "Edit", edit_video_path(@video), remote: :true, class: "default" %>
+			<%= link_to "Delete", video_path(@video), class: "default next", method: :delete %>
 		</div>
-		<br><br>
-		<%= link_to "Swing Videos", videos_path, class: "default submit" %>
-		<%= link_to "Delete", video_path(@video), class: "default next", method: :delete %>
 	</div>	
 </div>
 

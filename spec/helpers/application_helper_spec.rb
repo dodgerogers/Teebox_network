@@ -110,6 +110,38 @@ describe ApplicationHelper do
       html.should have_selector('div#arrows')
     end
   end
+  
+  describe 'format_seconds' do
+    it 'converts integer to HH:MM' do
+      helper.format_seconds(2).should eq '00:02'
+    end
+    
+    it 'converts large integer to HH:MM' do
+      helper.format_seconds(2000).should eq '33:20'
+    end
+    
+    it 'returns nil if given empty string' do
+      helper.format_seconds(' ').should eq nil
+    end
+  end
+  
+  describe "link_to_referral" do
+    it 'returns values from params as link and text values' do
+      params = { referrer: '/questions', referral_text: 'back to question' }
+      link_to_referral(params, 'original text', '/original_path') do |text, link|
+        link.should eq params[:referrer]
+        text.should eq params[:referral_text]
+      end
+    end
+    
+    it 'returns original values' do
+      params = {}
+      link_to_referral(params, 'original text', '/original_path') do |text, link|
+        text.should eq 'original text'
+        link.should eq '/original_path'
+      end
+    end
+  end
 end
 
 

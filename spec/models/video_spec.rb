@@ -13,6 +13,9 @@ describe Video do
   it { should respond_to(:screenshot) }
   it { should respond_to(:job_id) }
   it { should respond_to(:status) }
+  it { should respond_to(:duration) }
+  it { should respond_to(:location) }
+  it { should respond_to(:name) }
   it { should have_many(:questions).through(:playlists) }
   it { should have_many(:playlists)}
   it { should belong_to(:user) }

@@ -1,0 +1,13 @@
+var video = $(".video-meta-<%= @video.id %>");
+var editFormPartial = '<%= escape_javascript(render(partial: "videos/inline_form", locals: {video: @video})) %>';
+
+video.html(editFormPartial);
+
+var showView = $.parseHTML('<%= escape_javascript(render template: "videos/show") %>');
+var videoSidebar = $(showView).find('.video-meta-<%= @video.id %>').hide();
+
+video.on('click', '#cancel-video-edit', function(event){
+	event.preventDefault();
+	video.replaceWith(videoSidebar.fadeIn());
+});	
+

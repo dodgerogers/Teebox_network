@@ -1,6 +1,6 @@
 class Video < ActiveRecord::Base
   
-  attr_accessible :file, :screenshot, :job_id, :status
+  attr_accessible :file, :screenshot, :job_id, :status, :name, :duration, :location
   
   has_many :questions, through: :playlists
   has_many :playlists
@@ -20,6 +20,7 @@ class Video < ActiveRecord::Base
     "#{filename}-#{timestamp}"
   end
   
+  # ========= Should be in the AWS Repo ============== 
   def aws_file_key(attribute=:file)
     self.send(attribute).gsub("http://#{CONFIG[:s3_bucket]}.s3.amazonaws.com/", '') if self.send(attribute)
   end
