@@ -1,0 +1,33 @@
+<p><h5>Edit your video</h5></p>
+<%= form_for video, remote: :true do |f| %>
+	<% if video.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(video.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+			<ul>
+				<% video.errors.full_messages.each do |msg| %>
+  					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	<div class="form-group">
+    	<label class="sr-only" for="name">Add a description</label>
+    	<div class="input-group">
+      		<div class="input-group-addon"><i class='icon-font'></i></div>
+      		<%= f.text_field :name, placeholder: 'Add a description', class: 'form-control' %>
+    	</div>
+  	</div>
+
+	<div class="form-group">
+    	<label class="sr-only" for="location">Where was this taken?</label>
+    	<div class="input-group">
+      		<div class="input-group-addon"><i class='icon-globe'></i></div>
+      		<%= f.text_field :location, placeholder: 'Where was this taken?', class: 'form-control' %>
+    	</div>
+  	</div>
+
+	<%= f.submit 'Save', class: 'default success' %>
+	<%= link_to 'Cancel', @video, class: 'default', id: 'cancel-video-edit' %>
+<% end %>

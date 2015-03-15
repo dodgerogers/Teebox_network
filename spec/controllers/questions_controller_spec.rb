@@ -133,7 +133,9 @@ describe QuestionsController do
     end
     
     after(:each) do
+      NotificationMailer.any_instance.stub(:new_question_email)
       ActionMailer::Base.deliveries.clear
+      ActionMailer::Base.perform_deliveries = false
     end
     
     it "successfully sends after create" do

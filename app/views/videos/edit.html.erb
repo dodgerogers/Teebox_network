@@ -1,0 +1,12 @@
+<%= content_for :head do %>
+	<%= javascript_include_tag "sublime.js", defer: "defer" %>
+<% end %>
+
+<div class="row" id="video-<%= @video.id %>">
+	<div class='col-md-7 col-sm-7'>
+		<%= raw sublime_video(@video) %><br>		
+	</div>
+	<div class="col-md-5 col-sm-5" id="video-meta-info">
+		<%= render partial: 'inline_form', locals: { video: @video } %>
+	</div>	
+</div>	

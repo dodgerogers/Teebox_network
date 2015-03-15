@@ -69,7 +69,7 @@ TeeboxNetwork::Application.routes.draw do
   end
   
   # Videos
-  resources :videos, except: [:edit, :update]
+  resources :videos
   
   # Tags
   resources :tags

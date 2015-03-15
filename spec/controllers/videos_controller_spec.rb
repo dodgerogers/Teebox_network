@@ -32,9 +32,21 @@ describe VideosController do
   end
 
   describe "GET new" do
-    it "assigns a new question as @question" do
+    it "assigns a new video as @video" do
       get :new
       assigns(:video).should be_a_new(Video)
+    end
+  end
+  
+  describe "GET edit" do
+    it 'assigns video as @video' do
+      get :edit, id: @video.id
+      assigns(:video).should eq @video
+    end
+    
+    it 'renders edit template' do
+      get :edit, id: @video.id
+      response.should render_template :edit
     end
   end
 
@@ -82,6 +94,44 @@ describe VideosController do
       end
     end
   end
+  
+  describe "PUT update" do
+     it "assigns the requested video as @video" do
+       put :update, id: @video, video: attributes_for(:video)
+       assigns(:video).should eq(@video)
+     end
+
+     describe "with valid params" do
+       it "updates the requested video" do
+         put :update, id: @video, video: attributes_for(:video, name: "Shanking now, great!"), user: @user1
+         @video.reload
+         @video.name.should eq("Shanking now, great!")
+       end
+
+       it "redirects to the video" do
+         put :update, id: @video, video: attributes_for(:video, name: "Shanking now, great!"), user: @user1
+         @video.reload
+         response.should redirect_to @video
+       end
+     end
+
+     describe "failure" do
+       before(:each) do
+         Video.any_instance.stub(:update_attributes).and_return(false)
+       end
+       
+       it "does not change video attributes" do
+        put :update, id: @video, video: attributes_for(:video, name: 'New name which will not save'), user: @user1
+        @video.reload
+        @video.name.should_not eq("")
+       end
+       
+       it "renders the edit page" do
+        put :update, id: @video, video: attributes_for(:video, name: 'New name which will not save'), user: @user1
+        response.should render_template :edit
+       end
+     end
+   end
 
   describe "DELETE destroy" do
     before(:each) do

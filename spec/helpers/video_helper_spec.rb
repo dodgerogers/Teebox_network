@@ -8,21 +8,59 @@ describe VideoHelper do
     @question.videos << @video
   end
   
+  describe 'format_name' do
+    it 'returns name when present' do
+      helper.format_name(@video).should eq @video.name
+    end
+    
+    it 'returns truncated name when option specified' do
+      helper.format_name(@video, truncate: true).should include @video.name
+    end
+    
+    it 'returns formatted filename when name is nil' do
+      video_without_name = create :video, name: nil
+      helper.format_name(video_without_name).should eq video_without_name.formatted_filename
+    end
+  end
+  
+  describe "display_video_meta_info" do
+    it 'includes location and name' do
+      html = helper.display_video_meta_info(@video)
+      
+      html.should include @video.location
+      html.should include '00:10'
+    end
+    
+    it 'does not include name or location when nil' do
+      location = @video.location
+      @video.should_receive(:location).and_return(nil)
+      @video.should_receive(:duration).and_return(nil)
+      html = helper.display_video_meta_info(@video)
+      
+      html.should_not include location
+      html.should_not include "00:10"
+    end
+  end
+  
   describe "strip_url" do
-    it "retrives the key" do
+    it "retrives the key from youtube video" do
       helper.strip_url("http://www.youtube.com/watch?v=c59tCXiRwBk").should eq "c59tCXiRwBk" 
     end
   end
   
   describe "youtube_url_html5" do
     it "renders video player iframe" do
-      helper.youtube_url_html5("http://www.youtube.com/watch?v=c59tCXiRwBk").should eq "<video class=\"sublime\" data-autoresize=\"fit\" data-name=\"c59tCXiRwBk\" data-uid=\"c59tCXiRwBk\" data-youtube-id=\"c59tCXiRwBk\" height=\"374\" preload=\"none\" width=\"748\"><source src=\"c59tCXiRwBk\" /></video>"
+      html = helper.youtube_url_html5("http://www.youtube.com/watch?v=c59tCXiRwBk")
+      html.should include "c59tCXiRwBk"
+      html.should include "sublime"
     end
   end
   
   describe "sublime_video" do
     it "renders sublime video element" do
-      helper.sublime_video(@video).should eq "<video class=\"sublime\" data-autoresize=\"fit\" data-name=\"#{@video.file}\" data-uid=\"#{@video.id}\" height=\"374\" id=\"video_#{@video.id}\" preload=\"none\" width=\"748\"><source src=\"#{@video.file}\" /></video>"
+      html = helper.sublime_video(@video)
+      html.should include @video.file
+      html.should include 'sublime'
     end
   end
   
@@ -67,13 +105,13 @@ describe VideoHelper do
   end
   
   describe "video_processed?" do
-    it "shows processed icon when complete" do
-      helper.video_processed?(@video).should eq "<a href=\"#\" class=\"processing\" rel=\"tooltip\" title=\"Processing, refresh to update\"><i class=\"icon-gear green icon-spin\"></i></a>"
+    it "shows processed message when complete" do
+      helper.video_processed?(@video).should include "Processing, refresh to update"
     end
     
-    it "shows failed icon when ERROR" do
+    it "shows failed message when error" do
       @video2 = create(:video, status: "ERROR")
-      helper.video_processed?(@video2).should eq "<a href=\"#\" class=\"processing\" rel=\"tooltip\" title=\"Converting Failed\"><i class=\"icon-exclamation-sign red\"></i></a>"
+      helper.video_processed?(@video2).should include "Converting Failed"
     end
   end
 end

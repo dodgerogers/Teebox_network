@@ -11,7 +11,10 @@ describe NotificationMailer do
   end
   
   after(:each) do
-    ActionMailer::Base.deliveries.clear
+    ActionMailer::Base.configure do |config|
+      config.deliveries.clear
+      config.perform_deliveries = false
+    end
   end
   
   describe "activity_email" do

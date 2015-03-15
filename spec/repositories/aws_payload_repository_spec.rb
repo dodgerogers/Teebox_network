@@ -11,10 +11,11 @@ describe AwsVideoPayloadRepository do
         attributes_hash = AwsVideoPayloadRepository.retrieve_payload(JSON.parse(success_json_response, symbolize_names: true))
         
         attributes_hash.should be_a(Hash)
-        attributes_hash.length.should eq 4
+        attributes_hash.length.should eq 5
         
         attributes_hash[:job_id].should eq "1395783182474-246e34"
         attributes_hash[:status].should eq "COMPLETED"
+        attributes_hash[:duration].should eq 10
         attributes_hash[:file].should eq "http://teebox-network-dev.s3.amazonaws.com/uploads/video/ca14ba7a-c442-4f9f-a75a-c45cfedb8947/IMG_0587.mp4"
         attributes_hash[:screenshot].should eq "http://teebox-network-dev.s3.amazonaws.com/uploads/video/ca14ba7a-c442-4f9f-a75a-c45cfedb8947/IMG_0587-00001.jpg"
       end
@@ -23,10 +24,11 @@ describe AwsVideoPayloadRepository do
         attributes_hash = AwsVideoPayloadRepository.retrieve_payload(json_response_with_string_message)
         
         attributes_hash.should be_a(Hash)
-        attributes_hash.length.should eq 4
+        attributes_hash.length.should eq 5
         
         attributes_hash[:job_id].should eq "1410722934359-0z1qw1"
         attributes_hash[:status].should eq "COMPLETED"
+        attributes_hash[:duration].should eq 10
         attributes_hash[:file].should eq "http://teebox-network-dev.s3.amazonaws.com/uploads/video/b59657e5-eb4a-4304-a0b1-bb6169a55f59/Good_7iron-1.mp4"
         attributes_hash[:screenshot].should eq "http://teebox-network-dev.s3.amazonaws.com/uploads/video/b59657e5-eb4a-4304-a0b1-bb6169a55f59/Good_7iron-00001.jpg"
        end 
@@ -89,7 +91,7 @@ describe AwsVideoPayloadRepository do
       :MessageId=>"7ba13301-3720-5a40-979e-7f8ed9e1818c", 
       :TopicArn=>"arn:aws:sns:us-east-1:377092858912:Teebox_video_processing_PRODUCTION", 
       :Subject=>"Amazon Elastic Transcoder has finished transcoding job 1410722934359-0z1qw1.", 
-      :Message=>"{\n  \"state\" : \"COMPLETED\",\n  \"version\" : \"2012-09-25\",\n  \"jobId\" : \"1410722934359-0z1qw1\",\n  \"pipelineId\" : \"1395625126367-oqk7mn\",\n  \"input\" : {\n    \"key\" : \"uploads/video/b59657e5-eb4a-4304-a0b1-bb6169a55f59/Good_7iron.m4v\",\n    \"frameRate\" : \"auto\",\n    \"resolution\" : \"auto\",\n    \"aspectRatio\" : \"auto\",\n    \"interlaced\" : \"auto\",\n    \"container\" : \"auto\"\n  },\n  \"outputKeyPrefix\" : \"uploads/video/b59657e5-eb4a-4304-a0b1-bb6169a55f59/\",\n  \"outputs\" : [ {\n    \"id\" : \"1\",\n    \"presetId\" : \"1395783135978-fq7lgp\",\n    \"key\" : \"Good_7iron-1.mp4\",\n    \"thumbnailPattern\" : \"Good_7iron-{count}\",\n    \"rotate\" : \"auto\",\n    \"status\" : \"Complete\",\n    \"duration\" : 3,\n    \"width\" : 640,\n    \"height\" : 360\n  } ]\n}", 
+      :Message=>"{\n  \"state\" : \"COMPLETED\",\n  \"version\" : \"2012-09-25\",\n  \"jobId\" : \"1410722934359-0z1qw1\",\n  \"pipelineId\" : \"1395625126367-oqk7mn\",\n  \"input\" : {\n    \"key\" : \"uploads/video/b59657e5-eb4a-4304-a0b1-bb6169a55f59/Good_7iron.m4v\",\n    \"frameRate\" : \"auto\",\n    \"resolution\" : \"auto\",\n    \"aspectRatio\" : \"auto\",\n    \"interlaced\" : \"auto\",\n    \"container\" : \"auto\"\n  },\n  \"outputKeyPrefix\" : \"uploads/video/b59657e5-eb4a-4304-a0b1-bb6169a55f59/\",\n  \"outputs\" : [ {\n    \"id\" : \"1\",\n    \"presetId\" : \"1395783135978-fq7lgp\",\n    \"key\" : \"Good_7iron-1.mp4\",\n    \"thumbnailPattern\" : \"Good_7iron-{count}\",\n    \"rotate\" : \"auto\",\n    \"status\" : \"Complete\",\n    \"duration\" : 10,\n    \"width\" : 640,\n    \"height\" : 360\n  } ]\n}", 
       :Timestamp=>"2014-09-14T19:29:05.383Z", 
       :SignatureVersion=>"1", 
       :Signature=>"uZwwlOATFGA81/VxMLLPtcnBHlEKcwJXpFsMPmj2Hp2SDIMigvhAS5Sk2zjnBYKuRjUQbsBxNm3lgP+7bWUEjEjtvHe+5QAMXF8qT3sH5FNSleTQYOVXlP455xFtbCoUgaXwoHWucQQq5aAsVvfW2Tet6u7d/LzT6NXoela7HeFpHB6otiIKVq9oAlc/3KRYeseWpMGdr7MzCTTwo8BmQgQgafBxdBN9Iv8U7KbZ3z344Cr1uXeGXk+9eNBRtLr8hRXjGq/MEF7D7s6owrQEk9MbX1WkkuhAuJpAYYNy94NcHM6TiYFr9Zu7BUMAWzGOdoLOYyH/jALQV/1z4Dnwqg==", 

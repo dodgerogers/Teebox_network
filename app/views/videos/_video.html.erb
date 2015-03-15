@@ -5,10 +5,13 @@
 		<%= link_to image_tag(display_screenshot(video, :xl)), video %>
 	<% end %>
 	
-	<h5><%= link_to video.formatted_filename, video %></h5>
+	<h5><%= link_to format_name(video), video %></h5>
 	
 	<%= content_tag(:p) do %>
-		<small><%= video.created_at.strftime("%d %b %Y")  %></small>
-		<%= link_to raw("<i class='icon-remove-sign red'></i>"), video_path(video), method: :delete, remote: true, id: "delete-video_#{video.id}", onclick: "$('#video_#{video.id} i.video-destroy-icon').show();" %>
+		<%= display_video_meta_info(video) %>
+		<p>
+			<small><%= link_to "Delete", video_path(video), method: :delete, remote: true, id: "delete-video_#{video.id}", onclick: "$('#video_#{video.id} i.video-destroy-icon').show();", class: 'default next' %>
+			<%= link_to "Edit", edit_video_path(video), class: 'default' %></small>
+		</p>
 	<% end %>
 <% end %>

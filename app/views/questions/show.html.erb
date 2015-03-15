@@ -17,7 +17,7 @@
 	<div class="col-md-8 col-sm-8">
 		<div class="content-box" id="question" data-id="<%= @decorator.id %>">
 			<div class="question">
-				<h3><%= @decorator.title.capitalize %></h3>
+				<p><b class="question-title"><%= @decorator.title.capitalize %></b></p>
 
 				<p class="question-tags">
 					<%= content_tag(:i, nil, class: "icon-tags") if @decorator.tags.any?  %>

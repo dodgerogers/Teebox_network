@@ -10,6 +10,13 @@ module ApplicationHelper
   OWNER_LINKEDIN_PAGE = "http://www.linkedin.com/profile/view?id=52220364&trk=nav_responsive_tab_profile"
   OWNER_GIST_PAGE = "https://gist.github.com/dodgerogers"
   
+  def link_to_referral(params={}, original_text, original_path)
+    referral_link, referral_text = params.values_at(:referrer, :referral_text)
+    if block_given?
+      yield raw(referral_text || original_text), (referral_link || original_path)
+    end
+  end
+  
   def application_banner(background_image='forest-banner')
     content_for :banner do
       content_tag(:div, class: background_image) do

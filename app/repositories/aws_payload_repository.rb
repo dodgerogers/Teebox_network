@@ -21,8 +21,9 @@ class AwsVideoPayloadRepository < BaseRepository
     if message[:state] == COMPLETED_STATUS
       file = (bucket + message[:outputs][0][:key])
       screenshot = (bucket + message[:outputs][0][:thumbnailPattern]).gsub!('-{count}', JPEG_PREFIX)
+      duration = message[:outputs][0][:duration]
       
-      attributes.merge!(file: file, screenshot: screenshot)
+      attributes.merge!(file: file, screenshot: screenshot, duration: duration)
     end
     return attributes
   end

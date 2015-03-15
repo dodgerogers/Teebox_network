@@ -8,8 +8,8 @@
 						<i class="icon-ok-sign"></i>
 					</div>
 				</div>
-					<h5><%= truncate(File.basename(video.file).titleize, length: 22) %></h5>
-					<small><%= video.created_at.strftime("%d/%m/%y") %></small>																
+					<h5><%= format_name(video, truncate: true)  %></h5>
+					<p><%= display_video_meta_info(video) %></p>															
    			</article>
     	<% end %>
 	</div>

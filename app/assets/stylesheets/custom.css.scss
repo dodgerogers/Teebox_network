@@ -826,6 +826,10 @@ ul.meta_info {
 	.question-tags {
 		font-weight: bold;
 	}
+	b.question-title {
+		font-size: 22px;
+		color: $universe;
+	}
 }
 #new_comment {
 	margin: 12px 0 0;

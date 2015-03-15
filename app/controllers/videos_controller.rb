@@ -6,8 +6,11 @@ class VideosController < ApplicationController
   def show
   end
   
+  def edit
+  end
+  
   def index
-    @videos = current_user.videos.where("id > ?", params[:after].to_i)
+    @videos = current_user.videos
     @video = Video.new
     respond_to do |format|
       format.html
@@ -19,6 +22,7 @@ class VideosController < ApplicationController
   end
   
   def create
+    # ====== Should be in interactor ======
     @video = current_user.videos.build(params[:video])
     respond_to do |format|
       if @video.save
@@ -33,7 +37,20 @@ class VideosController < ApplicationController
     end
   end
   
+  def update
+    respond_to do |format|
+      if @video.update_attributes(video_params)
+        format.html { redirect_to @video, notice: "Video updated successfully" }
+        format.js
+      else
+        format.html { render :edit; flash[:error] = "Something went wrong. Plese try again." }
+        format.js
+      end
+    end
+  end
+  
   def destroy
+    # ======= Should be in an interactor ====== #
     @video = Video.destroy(params[:id])
     if @video.destroy
       @video.delete_aws_key
@@ -42,5 +59,11 @@ class VideosController < ApplicationController
         format.js
       end
     end
+  end
+  
+  private 
+  
+  def video_params
+    params[:video].slice(:name, :location)
   end
 end
