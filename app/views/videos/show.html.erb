@@ -1,4 +1,4 @@
-<% meta_title(@video.formatted_filename.titleize) %>
+<% meta_title(format_name @video) %>
 
 <%= content_for :head do %>
 	<%= javascript_include_tag "sublime.js", defer: "defer" %>

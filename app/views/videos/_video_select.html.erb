@@ -1,7 +1,7 @@
 <% if current_user.videos.any? %>
 	<div id="token">
     	<% current_user.videos.each do |video| %>
-	  		<article class="videos form " data-id="<%= video.id %>">
+	  		<article class="videos form" data-id="<%= video.id %>">
 				<div id='<%= "#{video.id}_token" %>' class="selected-img">
 					<%= image_tag(display_screenshot(video, :xl)) %>
 					<div class="selected <%= persist_selected(question, video) %>">

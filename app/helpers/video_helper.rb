@@ -1,11 +1,8 @@
 module VideoHelper
   
   def format_name(video, opts={})
-    if video.name.present?
-      opts[:truncate] ? truncate(video.name, length: 22) : video.name
-    else
-      video.formatted_filename
-    end
+    display_name = video.name.present? ? video.name : File.basename(video.file, '.*')
+    opts[:truncate] ? truncate(display_name, length: (opts[:length] || 20)) : display_name
   end
   
   def display_video_meta_info(video)

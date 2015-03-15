@@ -17,9 +17,14 @@ describe VideoHelper do
       helper.format_name(@video, truncate: true).should include @video.name
     end
     
+    it 'returns truncated name to custom length when option specified' do
+      long_name = create(:video, name: ('a' * 50))
+      helper.format_name(long_name, truncate: true, length: 40).length.should eq 40
+    end
+    
     it 'returns formatted filename when name is nil' do
       video_without_name = create :video, name: nil
-      helper.format_name(video_without_name).should eq video_without_name.formatted_filename
+      helper.format_name(video_without_name).should eq '3-wood-creamed'
     end
   end
   
