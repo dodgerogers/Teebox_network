@@ -26,8 +26,7 @@
 										<small class="white"><%= format_name(video) %></small>
 									</a>
 									<small class="white">
-										<span class="hidden-xs"><i class="icon-globe"></i> <%= video.location %><br></span>
-										<span class="hidden-xs"><i class="icon-time"></i> <%= format_seconds(video.duration) %></span>
+										<span class="hidden-xs"><%= display_video_meta_info(video, hide_date: true) %></span>
 									</small>
 								</div>	
 							</li>
@@ -36,7 +35,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<%= link_to raw('<i class="icon-plus-sign"></i> Add more videos'), edit_question_path(params[:id]), class: 'default-xl center full-width-btn dark-trans', data: { toggle: "tooltip" }, 
-				          title: 'Add more video angles for better answers.', rel: 'tooltip'%>
+				          title: 'Add more video angles for better answers.', rel: 'tooltip' if can? :edit, videos.last %>
 								</div>
 							</div>
 						<% end %>

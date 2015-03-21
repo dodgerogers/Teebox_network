@@ -333,6 +333,11 @@ body .sublimevideo-zi .sublimevideo-uj {
 		color: #ccc;
 	}
 }
+.video-name {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}	
 
 @-webkit-keyframes pulsate {
     0% { opacity: 0.5; }

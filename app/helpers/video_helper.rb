@@ -5,17 +5,19 @@ module VideoHelper
     opts[:truncate] ? truncate(display_name, length: (opts[:length] || 20)) : display_name
   end
   
-  def display_video_meta_info(video)
+  def display_video_meta_info(video, opts={})
     nbsp = '&nbsp;'.html_safe 
     capture do
       concat content_tag(:i, nbsp, class: 'icon-globe')
-      concat (video.location || '--')
-      concat nbsp
+      concat (video.location.present? ? video.location : '--')
+      concat "<br>".html_safe
       concat content_tag(:i, nbsp, class: 'icon-time')
       concat (format_seconds(video.duration) || '--')
-      concat "<br>".html_safe
-      concat content_tag(:i, nbsp, class: 'icon-calendar')
-      concat video.created_at.strftime("%d %b %Y")
+      unless opts[:hide_date]
+        concat "<br>".html_safe
+        concat content_tag(:i, nbsp, class: 'icon-calendar')
+        concat video.created_at.strftime("%d %b %Y")
+      end
     end
   end
   
