@@ -12,10 +12,10 @@ form .btn {
 	background-color: $gundam!important;
 	border-color: $gundam!important;
 	@include box-shadow(0px,0px,0px,#fff);
-}
-.btn:hover {
-	background: #444;
-	background-color: #999!important;
+	&:hover {
+		background: #444;
+		background-color: #999;
+	}
 }
 
 //---- containers -------//

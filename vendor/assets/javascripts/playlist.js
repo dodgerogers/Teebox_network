@@ -1,13 +1,96 @@
+// =============== Custom Events =============== //
+
+var teeboxPlaylist = getNamespace('Teebox.playList');
+
+teeboxPlaylist.videoWrapper = function(){
+	return '.sv_playlist';
+}
+teeboxPlaylist.playButton = function(){
+	return $(teeboxPlaylist.videoWrapper() + ' button#play');	
+}
+teeboxPlaylist.setPlayerControlState = function(state) {
+	var validStates = ['play', 'pause'];
+	if(validStates.indexOf(state) > -1 ) {
+		teeboxPlaylist.playButton().attr('data-state', state);
+		if(state == 'play') {
+			teeboxPlaylist.playButton().removeClass('active');
+		} else {
+			teeboxPlaylist.playButton().addClass('active');
+		}
+	} else {
+		throw 'teeboxPlaylistError: Note a valid playlist state: ' + state;
+	}
+}
+teeboxPlaylist.playPauseVideoHandler = function(playlistWrapperId){
+	teeboxPlaylist.playButton().on('click', function(event){
+		event.preventDefault();
+		var activeVideo = $("#" + playlistWrapperId + " .video_wrap.active video")[0];
+		
+		var button = $(this);
+		var state = button.attr('data-state');
+		
+		sublime.prepare(activeVideo, function(player){
+			player[state]();
+		});
+		
+		var newState = teeboxPlaylist.getPlayermMethodAndState(state);
+		teeboxPlaylist.setPlayerControlState(newState);
+	});
+}
+teeboxPlaylist.setPlayerSpeed = function(playlistWrapperId) {
+	$('button.slow-mo').on('click', function(){
+		var activeVideo = $("#" + playlistWrapperId + " .video_wrap.active video")[0];
+		var speed = $(this).data('speed');
+	
+		$('button.slow-mo').removeClass('active');
+		$(this).addClass('active');
+		$(this).blur();
+		
+		activeVideo.playbackRate = speed || 1;
+	});
+}
+teeboxPlaylist.getPlayermMethodAndState = function(state){
+	var method;
+	
+	if(state === 'pause') {
+		method = 'play';
+	} else if(state === 'play') {
+		method = 'pause';
+	} else {
+		throw 'teeboxPlaylist: Invalid state: ' + state; 
+	}
+	return method;
+}
+
+function getNamespace(namespace) {
+    if (namespace.match(/[^a-zA-Z0-9_\.]/)) {
+        throw new Error('Failed to define namespace. Namespace is invalid.');
+    }
+    var components = namespace.split('.');
+    var namespace = window;
+    for (var n = 0, nn = components.length; n < nn; n++) {
+        var component = components[n];
+        namespace = namespace[component] = namespace[component] || {};
+    }
+    return namespace;
+}
+
+// ======= End of custom events ===== //
+
 var SublimeVideoPlaylist = function(playlistWrapperId, options){
-  if (!$("#" + playlistWrapperId)) return;
+	if (!$("#" + playlistWrapperId)) return;
 
-  this.options = options;
-  this.playlistWrapperId = playlistWrapperId;
-  this.firstVideoId = $("#" + this.playlistWrapperId + " video").attr("id");
+	this.options = options;
+	this.playlistWrapperId = playlistWrapperId;
+	this.firstVideoId = $("#" + this.playlistWrapperId + " video").attr("id");
 
-  this.setupObservers();
-  this.updateActiveVideo(this.firstVideoId);
-  this.clickOnThumbnail(this.activeVideoId, this.options["autoplayOnPageLoad"]);
+	this.setupObservers();
+	this.updateActiveVideo(this.firstVideoId);
+	this.clickOnThumbnail(this.activeVideoId, this.options["autoplayOnPageLoad"]);
+
+	// Custom events
+	teeboxPlaylist.playPauseVideoHandler(playlistWrapperId);
+	teeboxPlaylist.setPlayerSpeed(playlistWrapperId);
 };
 
 $.extend(SublimeVideoPlaylist.prototype, {
@@ -61,7 +144,7 @@ $.extend(SublimeVideoPlaylist.prototype, {
 
     // Set the new active video
     this.activeVideoId = videoId;
-
+	
     // And show the video
     this.showActiveVideo();
   },
@@ -73,16 +156,17 @@ $.extend(SublimeVideoPlaylist.prototype, {
     $("#" + this.activeVideoId).parent().addClass("active");
   },
   handleAutoNext: function(newVideoId) {
+	$('button.slow-mo').removeClass('active');
     this.clickOnThumbnail(newVideoId, this.options["autoplayNext"]);
   },
   onVideoStart: function(player) {
-    // console.log("Stop event!")
+	teeboxPlaylist.setPlayerControlState('pause');
   },
   onVideoPlay: function(player) {
-    // console.log("Play event!")
+	teeboxPlaylist.setPlayerControlState('pause');
   },
   onVideoPause: function(player) {
-    // console.log("Pause event!")
+	teeboxPlaylist.setPlayerControlState('play');
   },
   onVideoEnd: function(player) {
     // console.log("End event!")
@@ -100,13 +184,18 @@ $.extend(SublimeVideoPlaylist.prototype, {
         SublimeVideo.playlists[playlistId].updateActiveVideo(SublimeVideo.playlists[playlistId].firstVideoId);
         SublimeVideo.playlists[playlistId].handleAutoNext(SublimeVideo.playlists[playlistId].activeVideoId);
       }
-      else { player.stop(); }
+      else { 
+		player.stop(); 
+	  }
     }
+	$('button.slow-mo').removeClass('active');
+	teeboxPlaylist.setPlayerControlState('play');
   },
   onVideoStop: function(player) {
-    // console.log("Stop event!")
+	teeboxPlaylist.setPlayerControlState('play');
   }
 });
+
 
 var SublimeVideo = SublimeVideo || {};
 SublimeVideo.playlists = {};
@@ -118,10 +207,10 @@ sublime.ready(function() {
   //  - loadNext: whether or not to load the next item in the playlist once a video playback ends
   //  - autoplayNext: whether or not to autoplay the next item in the playlist once a video playback ends
   //  - loop: whether or not to loop the entire playlist once the last video playback ends
-  var playlistOptions = { autoplayOnPageLoad: false, loadNext: true, autoplayNext: true, loop: false };
+  var playlistOptions = { autoplayOnPageLoad: false, loadNext: true, autoplayNext: false, loop: false };
 
   // Automatically instantiate all the playlists in the page
-  $(".sv_playlist").each(function(i, el) {
+  $(teeboxPlaylist.videoWrapper()).each(function(i, el) {
     SublimeVideo.playlists[el.id] = new SublimeVideoPlaylist(el.id, playlistOptions);
   });
 });

@@ -1,28 +1,65 @@
 <% if videos.any? %>
-	<div class="row">
-		<div id="playlist1" class="sv_playlist">
-			<div class="col-md-8 col-sm-8 col-xs-12">
-				<% videos.each do |video| %>
-					<div class="video_wrap">
-						<%= video_tag([video.file], id: "video#{video.id}", 
-													size: "748x374", 
-													preload: "none", 
-													data: {autoresize: "fit"}) %>		
-					</div>
-				<% end %>
-			</div>
-			<div class="col-md-4 col-sm-4 col-xs-12">	
-				<ul class="thumbs">	
+	<div class="sv_playlist_table">
+		<div class='sv_playlist_row sv_playlist' id="playlist1">
+			<div class="sv_playlist_cell">
+				<div class="col-md-8 col-sm-8 sv_column">
 					<% videos.each do |video| %>
-						<li id="thumbnail_video<%= video.id %>">
-							<a href="#">
-								<%= image_tag(display_screenshot(video, :mini)) %>
-								<span class="play" />
-							</a>
-						</li>
-					<% end %>	
-				</ul>
-			</div>	
-		</div>
-	</div>		
-<% end %>	
+						<div class="video_wrap">
+							<%= video_tag([video.file], id: "video#{video.id}", size: "748x374", 
+														preload: "none", data: {autoresize: "fit"}) %>		
+						</div>
+					<% end %>
+				</div>
+				<div class="col-md-4 col-sm-4">
+					<ul class="thumbnails">	
+						<% videos.each do |video| %>
+							<li class="row" id="thumbnail_video<%= video.id %>">
+								<div class="meta-section col-md-6 col-sm-6">
+									<a href="#">
+										<%= image_tag(display_screenshot(video, :mini)) %>
+										<span class="play" />
+									</a>
+								</div>
+								<div class="meta-section col-md-6 col-sm-6">	
+									<a class="video-thumbail-meta hidden-xs" rel="tooltip" 
+										data-toggle="tooltip" title="<%= format_name(video) %>">
+										<small class="white"><%= format_name(video) %></small>
+									</a>
+									<small class="white">
+										<span class="hidden-xs"><i class="icon-globe"></i> <%= video.location %><br></span>
+										<span class="hidden-xs"><i class="icon-time"></i> <%= format_seconds(video.duration) %></span>
+									</small>
+								</div>	
+							</li>
+						<% end %>
+						<% if videos.size < 3 %>
+							<div class="row">
+								<div class="col-md-12">
+									<%= link_to raw('<i class="icon-plus-sign"></i> Add more videos'), edit_question_path(params[:id]), class: 'default-xl center full-width-btn dark-trans', data: { toggle: "tooltip" }, 
+				          title: 'Add more video angles for better answers.', rel: 'tooltip'%>
+								</div>
+							</div>
+						<% end %>
+						<hr style="border-top:1px solid rgba(0, 0, 0, 0.3)" class="hidden-xs">
+						<div class="row">
+							<div class="col-md-12 center">
+								<button class="btn btn-default dark-trans" id="play" data-toggle="tooltip" 
+									data-state="play" title="Play/Pause">
+										<i class="icon-play"></i> <i class="icon-pause"></i>
+								</button>
+								<div class="btn-group" role="group" aria-label="...">	
+									<button class="btn btn-default dark-trans slow-mo" data-toggle="tooltip" data-speed="1"
+										title="Full speed">100%</button>
+									<button class="btn btn-default dark-trans slow-mo" data-toggle="tooltip" data-speed="0.5"
+										title="Half speed">50%</button>
+									<button class="btn btn-default dark-trans slow-mo" data-toggle="tooltip" data-speed="0.25"
+										title="Quarter speed">25%</button>		
+								</div>
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>		
+	</div>
+<% end %>		

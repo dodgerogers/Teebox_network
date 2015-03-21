@@ -1,92 +1,212 @@
 @import "variables";
-/* Thumbnails below the video */
 
-img {border:none;}
-
-.spacer {clear:both}
-
-.sv_playlist .video_wrap {
-  	width:100%;
-  	display:none;
-  	padding:0px;
-  	@include box-sizing;
-	border: 1px solid #222;
+img {
+	border:none;
 }
 
-.sv_playlist .video_wrap.active {
-  	display:block;
+.spacer {
+	clear:both
 }
 
-.sv_playlist .thumbnail_select {
-	border-radius: 4px;
-	box-shadow: 0px 2px 0pc $dark-red;
-	margin:8px!important;
-	font-size:12px;
-	text-align:center;
-}
-
-.sv_playlist ul.thumbs {
-	text-align:left;
-  	list-style-type:none;
-  	width:100%;
-	margin: 0 auto;
-	padding: 0px;
-	@include box-sizing;
-}
-
-.sv_playlist li {
-	line-height:0;
-  	width:100%;
-	max-width:170px;
-  	margin: 0px 0px 10px;
-	border: 1px solid #222;
-  	display: block;
-  	@include box-sizing;
-}
-.sv_playlist li.active {
-	border: 1px solid $gundam;
-}
-.sv_playlist li.active a {
-	span.play:before {
-		content: "";
-	}
-}
-.sv_playlist li a {
-  	display:block;
-  	position:relative;
-}
-.sv_playlist li a img {
-  	width:100%;
-}
-.sv_playlist li a span.play {
-  	display:block;
+.sv_playlist_table {
+	padding-left:0px;
+	padding-right:0px;
+	overflow: auto;
 	width:100%;
-  	height:100%;;
-  	background-color:rgba(0,0,0,0.4);
-  	position:absolute;
-  	top:0;
-  	left:0;
-  	bottom:0;
-	&:before {
-		content: "\f04b";
-		font-family: FontAwesome;
-	    font-style: normal;
-	    font-weight: normal;
-	    text-decoration: inherit;
-		color: #fff;
-		position: absolute;
-		top:49%;
-		left:46%;
-		font-size: 17px;
-		text-shadow: 0px 1px 0px #444;
+	background: rgba(0, 0, 0, 0.6);
+	display:table;
+	table-layout:fixed;
+	.btn-default {
+		border-color: rgba(0, 0, 0, 0.65);
+		border:none;
+		&:hover {
+			border:none;
+			background: rgba(0, 0, 0, 1);
+			color: #fff;
+			border-color: rgba(0, 0, 0, 0.65);
+		}
+		&.active {
+			border:none;
+			color: #fff!important;
+		}
+		&:focus {
+			border:none;
+			outline-color: transparent;
+			outline:none;
+			color: #fff!important;
+			background-color: rgba(0, 0, 0, 0.65);
+		}
+	}
+	.sv_playlist_row {
+		display:table-row;
+		width:100%;
+	}
+	.sv_playlist_cell {
+		display:table-cell;
+	}
+	.sv_column {
+		padding-left:0px;
+		padding-right:0px;
+	}
+	.video_wrap {
+  		width:100%;
+	  	display:none;
+	  	padding:0px;
+	  	@include box-sizing;
+		border: 1px solid #222; 
+		&.active {
+			display:block;	
+		}
+	}
+	ul.thumbnails {
+		text-align: left;
+	  	list-style-type: none;
+	  	width: 100%;
+		margin: 15px auto 0px;
+		padding: 0px;
+		@include box-sizing;
+		li {
+			line-height: 0;
+		  	//width: 100%;
+		  	margin: 5px 0px 10px;
+			//padding-bottom: 5px;
+		  	//display: block;
+			//cursor: pointer;
+		  	@include box-sizing;
+			.row {
+				margin-right: 0px;
+				margin-left: 0px;
+			}
+			.meta-section {
+				//position:relative;
+				padding-left: 5px;
+				padding-right: 5px;
+				line-height: normal;
+				cursor:default;
+			}
+			.video-thumbail-meta {
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap
+			}
+			a {
+				color: $dark-ice;
+			  	display: block;
+			  	position: relative;
+				img {
+					border: 1px solid #222;
+				  	width: 100%;
+				}
+				&:hover span.play {
+				  	background-color: rgba(0,0,0,0);
+				}
+				span.play {
+				  	display: block;
+					width: 100%;
+				  	height: 100%;;
+				  	background-color: rgba(0,0,0,0.4);
+				  	position: absolute;
+				  	top: 0;
+				  	left: 0;
+				  	bottom: 0;
+					&:before {
+						content: "\f04b";
+						font-family: FontAwesome;
+					    font-style: normal;
+					    font-weight: normal;
+					    text-decoration: inherit;
+						color: #fff;
+						position: absolute;
+						top: 35%;
+						left: 46%;
+						font-size: 17px;
+						text-shadow: 0px 1px 0px #444;
+					}
+				}
+			}
+			&.active {
+				img {
+					border: 1px solid $gundam;
+					&:hover {
+						border: 1px solid $universe;
+					}
+				}
+				a {
+					span.play {
+					  	background: none;
+					}
+					span.play:before {
+						content: "";
+					}
+				}
+			}
+		}
 	}
 }
-.sv_playlist li a:hover span.play {
-  	background-color:rgba(0,0,0,0);
+
+// Responsive 
+@media (min-width: 768px) and (max-width: 991px) {
+	.sv_playlist_table {
+		font-size:10px!important;
+		.btn {
+			font-size: 10px;
+		}
+		hr {
+			border-top: 1px solid transparent!important;
+			margin:5px auto;
+		}
+		ul.thumbnails {
+			margin-bottom:15px;
+			li {
+				.meta-section.text {
+					margin-top:5px;
+					margin-bottom:5px;
+				}
+			}
+		}
+	}
 }
-.sv_playlist li:hover {
-	border: 1px solid $universe;
+@media (min-width: 480px) and (max-width: 767px) {
+	.sv_playlist_table {
+		background: transparent;
+		ul.thumbnails {
+			margin-bottom:15px;
+			li {
+				width:32%;
+				display:inline-block;
+				.meta-section.text {
+					margin-top:5px;
+					margin-bottom:5px;
+				}
+			}
+		}
+	}
 }
-.sv_playlist li.active a span.play {
-  	background:none;
+@media (min-width: 270px) and (max-width: 480px) {
+	.sv_playlist_table {
+		background: transparent;
+		.col-md-4 {
+			padding-left:0px;
+			padding-right:0px;
+		}
+		ul.thumbnails {
+			margin-bottom:15px;
+			li {
+				width:32%;
+				display:inline-block;
+				.meta-section.text {
+					margin-top:5px;
+					margin-bottom:5px;
+				}
+				.thumbnail_select {
+					margin:4px!important;
+					font-size:9px;
+				}
+				span.play:before {
+					top: 30%!important;
+					left: 42%!important;
+				}
+			}
+		}
+	}
 }
