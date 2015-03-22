@@ -120,6 +120,7 @@ $.extend(SublimeVideoPlaylist.prototype, {
   clickOnThumbnail: function(thumbnailId, autoplay) {
     var that = this;
     this.updateActiveVideo(thumbnailId.replace(/^thumbnail_/, ""));
+	$('button.slow-mo').removeClass('active');
 
     sublime.prepare($("#" + this.activeVideoId)[0], function(player){
       if (autoplay) player.play(); // Play it if autoplay is true
@@ -156,7 +157,6 @@ $.extend(SublimeVideoPlaylist.prototype, {
     $("#" + this.activeVideoId).parent().addClass("active");
   },
   handleAutoNext: function(newVideoId) {
-	$('button.slow-mo').removeClass('active');
     this.clickOnThumbnail(newVideoId, this.options["autoplayNext"]);
   },
   onVideoStart: function(player) {
