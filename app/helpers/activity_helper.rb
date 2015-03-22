@@ -18,9 +18,17 @@ module ActivityHelper
     end
   end
   
-  def build_activity_path(activity)
-    activity.trackable_type == 'User' ? info_path : activity.trackable
+  def display_activity_counter(user)
+    capture do
+      link_to '#', id: 'notifications' do
+        concat content_tag(:div, class: 'notifications-count large') { activity_counter(user) }
+      end
+    end
   end
+  
+  def build_activity_path(activity)
+     activity.trackable_type == 'User' ? info_path : activity.trackable
+   end
   
   private
   
@@ -56,5 +64,13 @@ module ActivityHelper
   
   def activity_text(instance)
     instance.try(:notification_message_format) || (raise ArgumentError, sprintf(NOT_IMPLEMENTED_MSG, instance.class))
+  end
+  
+  def activity_counter(user)
+	  capture do
+	    concat content_tag(:i, nil, class: 'glyphicon glyphicon-comment')
+      concat content_tag(:span, Activity.unread_notifications(user), 
+        class: Activity.unread_notifications(user) > 0 ? 'new-notifications' : 'no-notifications')
+    end
   end
 end

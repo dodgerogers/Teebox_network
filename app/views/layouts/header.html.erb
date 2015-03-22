@@ -24,11 +24,7 @@
 			
 			<% if user_signed_in? %>
 				<li class="dropdown">
-					<a id="notifications" href="#" class="<%= Activity.unread_notifications(current_user) > 0 ? 'new-notifications' : '' %>" title="Notifications">
-						<div class="notifications-count large" id="">
-							<%= Activity.unread_notifications(current_user) %>
-						</div>
-					</a>
+					<%= display_activity_counter(current_user) %>
 					<ul class="dropdown-menu" id="notifications-area">
 						<%= render partial: "shared/loading", locals: { message: "notifications" } %>
 					</ul>
@@ -51,9 +47,9 @@
 						<li><%= link_to raw("<i class='icon-user'></i> My Profile"), user_path(current_user) %></li>
 						<li><%= link_to raw("<i class='icon-cog'></i> Edit Profile"), edit_user_registration_path %></li>
 						<li><%= link_to raw("<i class='icon-facetime-video'></i> Swing videos"), videos_path %></li>
-						<li><%= link_to raw("<i class='icon-off'></i> Logout"), destroy_user_session_path, method: :delete %></li>
 						<li><%= link_to raw("<i class='icon-signal'></i> Reports"), reports_path if can? :read, Report %></li>
 						<li><%= link_to raw("<i class='icon-file-text-alt'></i> Articles"), admin_articles_path if can? :publish, Article %></li>
+						<li><%= link_to raw("<i class='icon-off'></i> Logout"), destroy_user_session_path, method: :delete %></li>
 					</ul>
 				</li>
 			<% else %>
@@ -62,6 +58,5 @@
 			<% end %>
 		</div>
        </ul>
-	
   </div>
 </nav>

@@ -109,7 +109,7 @@ module ApplicationHelper
   end
   
   def created_at_metadata(object)
-    content_tag(:li) do
+    content_tag(:li, class: 'hidden-xs') do
       concat content_tag(:i, nil, class: "icon-calendar")
       concat (" #{time_ago_in_words(object.created_at)} ago")
     end

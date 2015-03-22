@@ -106,4 +106,18 @@ describe ActivityHelper do
       helper.build_activity_path(@activity2).should eq info_path
     end
   end
+  
+  describe 'display_activity_counter' do
+    it 'should display counter div when activities present' do
+      user = create(:user)
+      activity = create(:activity, trackable: @answer, recipient: user, owner: @user2)
+      helper.display_activity_counter(user).should include 'new-notifications'
+    end
+    
+    it 'should not display counter when no activities present' do
+      user = create(:user)
+      user.activities.destroy_all
+      helper.display_activity_counter(user).should_not include 'new-notifications'
+    end
+  end
 end

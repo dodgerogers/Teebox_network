@@ -151,6 +151,10 @@
 		&:active {
 			background: $blackhole;
 		}
+		.new-notifications {
+			top:4px;
+			right:47.5%;
+		}
 	}
 	.navbar .brand {
 		padding: 7px 20px 10px 5px;
@@ -405,6 +409,10 @@
 		@include border-radius;
 		//margin: 5px 0px 1px;
 		box-shadow: none;
+		.new-notifications {
+			top:4px;
+			right:46.5%;
+		}
 	}
 	.navbar .unread {
 		background: $blackhole!important;
@@ -587,7 +595,7 @@
 	}
 	#nav_links {
 		background: $gundam;
-		margin:-20px -35px 20px;
+		margin:-20px -25px 20px;
 		text-align:center;
 		padding: 0px;
 		.default {
@@ -697,7 +705,7 @@
 	}
 	ul.meta_info {
 		li {
-			padding: 4px 0px 4px 8px;
+			padding: 4px;
 			&.green-tick {
 				background: none;
 				color: $green;
@@ -705,7 +713,7 @@
 			}
 		}
 		li:not(:last-child) {
-			border:none;
+			//border:none;
 		}
 	}
 	section#tags {
