@@ -82,6 +82,6 @@ class QuestionsController < ApplicationController
   end
   
   def set_articles
-    @articles = Article.where(state: Article::PUBLISHED).order('published_at DESC').sample(2)
+    @articles = Article.state(Article::PUBLISHED).order('published_at DESC').sample(2)
   end
 end

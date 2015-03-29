@@ -10,12 +10,12 @@ class ArticlesController < ApplicationController
   end
   
   def show
-    @latest = Article.where(state: Article::PUBLISHED).where('id not in (?)', @article.id).order('updated_at DESC').sample(3)
+    @latest = Article.state(Article::PUBLISHED).where('id not in (?)', @article.id).order('updated_at DESC').sample(3)
     ImpressionRepository.create(@article, request)
   end
   
   def index
-    @articles = Article.where(state: Article::PUBLISHED).order('published_at DESC').paginate(page: params[:page], per_page: 20)
+    @articles = Article.state(Article::PUBLISHED).order('published_at DESC').paginate(page: params[:page], per_page: 20)
   end
   
   def edit
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
   end
   
   def admin
-    articles = Proc.new { |state, order| Article.where(state: state).order("#{order} DESC").paginate(page: params[:page], per_page: 20) }
+    articles = Proc.new { |state, order| Article.state(state).order("#{order} DESC").paginate(page: params[:page], per_page: 20) }
     @published = articles.call(Article::PUBLISHED, 'published_at')
     @approved = articles.call(Article::APPROVED, 'created_at')
     @submitted = articles.call(Article::SUBMITTED, 'created_at')

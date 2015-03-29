@@ -24,7 +24,7 @@ class GlobalSearch
       
       if klass_const.respond_to?(:search)
         query = klass_const.search(context[:search])
-        query = query.load_relations if klass_const.respond_to?(:load_relations)
+        query = query.search_conditions if klass_const.respond_to?(:search_conditions)
         
         context.collection[model] = query.paginate(page: context[page_param], per_page: PER_PAGE) 
       else

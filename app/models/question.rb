@@ -29,7 +29,7 @@ class Question < ActiveRecord::Base
   scope :unanswered, conditions: { correct: false }
   scope :popular, order: "votes_count DESC"
   scope :newest, order: "created_at DESC"
-  scope :load_relations, includes(:user, :videos)
+  scope :search_conditions, includes(:user, :videos)
   
   searchable :title
   

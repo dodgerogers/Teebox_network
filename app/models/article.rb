@@ -24,8 +24,7 @@ class Article < ActiveRecord::Base
   PUBLISHED_MESSAGE = 'Publish to display on the homepage'
   DISCARDED_MESSAGE = 'Discard article'
   
-  attr_accessible :title, :body, :state, :points, :votes_count, 
-                  :comments_count, :impressions_count, :user_id, :cover_image, :published_at
+  attr_accessible :title, :body, :state, :points, :votes_count, :comments_count, :impressions_count, :user_id, :cover_image, :published_at
   
   belongs_to :user
   
@@ -37,7 +36,8 @@ class Article < ActiveRecord::Base
   validates_presence_of :title, :body, :user_id, :cover_image, :state
   validates_inclusion_of :state, in: VALID_STATES
   
-  scope :load_relations, includes(:user)
+  scope :state, lambda {|state| where(state: state) }
+  scope :search_conditions, state(PUBLISHED).includes(:user)
   
   searchable :title
   

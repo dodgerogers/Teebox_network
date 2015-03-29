@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
     self.role == ADMIN
   end
   
+  # ==== Should override these 2 methods devise controller and call super then perform this. ==== #
   def create_welcome_notification
     repo = ActivityRepository.new(self)
     repo.generate(:create, recipient: self)
@@ -46,6 +47,7 @@ class User < ActiveRecord::Base
   def send_on_create_confirmation_instructions
     Devise::Mailer.delay.confirmation_instructions(self)
   end
+  # ==== end ==== #
   
   def self.rank_by_reputation
     results = {}
