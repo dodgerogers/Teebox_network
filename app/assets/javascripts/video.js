@@ -1,8 +1,8 @@
 $(function() {
   $(".direct-upload").each(function(data) {
 	
-	var maxFileSize = 12582912;
-    var form = $(this);
+	var maxFileSize = 20000000;
+  	var form = $(this);
 	var errors = [];
 	var new_video_form = $("#new_video");
 	var aws_policy_url = "/signed_urls";
@@ -40,7 +40,7 @@ $(function() {
 	
 			// Handle the error messages
 			if (file.size > maxFileSize) {
-				errors.push("File exceeds the 12MB size limit");
+				errors.push("File exceeds the 20MB size limit");
 			}
 			if ( types.test(file.name) == false ) {
 				errors.push("File is not a valid video format" + "<br>" + valid_file_types);
